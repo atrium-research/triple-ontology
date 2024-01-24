@@ -6,15 +6,14 @@
 CQ_5.1
 
 ### Question
-Return all keywords of the `document_1`.
+Return the documents inside `cluster_45`.
 
 ### Expected Outcome
-A list of keywords.
+A list of documents.
 
 ### Result
-* `keyword_45`
-* `keyword_89`
-* `keyword_67`
+* `document_89`
+* `document_7`
 
 ### Based on
 Example 1
@@ -26,15 +25,33 @@ Example 1
 CQ_5.2
 
 ### Question
-Return the original and translated title of `document_1`.
+Return all authors from `document_56` and if they are discarded or not.
 
 ### Expected Outcome
-Two strings.
+a list of authors and the boolean if they were discarded or not.
 
 ### Result
-* `original_title_1`
-* `translated_title_1`
+* `author_5`, `False`
+* `author_567`, `True`
 
 ### Based on
-Example 1
+Example 2
 
+
+## Question 3
+
+### Identifier
+CQ_5.3
+
+### Question
+Return all keywords from `document_67` and if they are discarded or not.
+
+### Expected Outcome
+a list of keywords and the boolean if they were discarded or not.
+
+### Result
+* `keyword_90`, `True`
+* `keyword_67`, `True`
+
+### Based on
+Example 3
