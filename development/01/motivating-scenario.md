@@ -2,12 +2,11 @@
 
 ## Name
 GoTriple Document
+                               
 ## Description
 
-### General description
-
-[add abstract and title]
-
+### General description                  
+                          
 GoTriple is an advanced multilingual discovery platform specifically tailored for the social sciences and humanities (SSH) sector. It is designed to aggregate, process, and semantically enrich a vast array of SSH resources. These resources include scholarly publications, research datasets, detailed project descriptions, and extensive profiles of researchers, sourced from a wide range of origins. GoTriple’s primary objective is to facilitate the discovery and subsequent reuse of SSH resources, which are often dispersed across various European language repositories. The platform enables users to forge connections across different research disciplines and linguistic boundaries. It is equipped with sophisticated tools and features for research support, including data visualization, web annotation, personalized recommendation systems, social networking capabilities, and innovative approaches to research funding, such as crowdfunding.
 
 In the GoTriple environment, the term "document" refers to a broad spectrum of records obtained from data providers. These records encompass a wide variety of scholarly and research-oriented materials. Each document within GoTriple is characterized by several distinct features:
