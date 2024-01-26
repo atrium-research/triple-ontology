@@ -12,7 +12,7 @@ GoTriple is an advanced multilingual discovery platform specifically tailored fo
 
 In the GoTriple environment, the term "document" refers to a broad spectrum of records obtained from data providers. These records encompass a wide variety of scholarly and research-oriented materials. Each document within GoTriple is characterized by several distinct features:
 
-1. **Content Variety**: Documents in GoTriple cover an extensive range of formats, including academic papers, datasets, project reports, and more, catering to the diverse needs of the SSH community.
+1. **Typology Variety**: Documents in GoTriple cover an extensive range of types, including academic papers, datasets, project reports, and more, catering to the diverse needs of the SSH community.
 
 2. **Multilingual Support**: GoTriple places significant emphasis on the linguistic aspect of documents. It accurately identifies and represents the language of a publication and its textual components, such as titles, abstracts, and keywords. The platform employs a controlled vocabulary that includes TRIPLE’s primary languages and other common languages, enhanced with special labels like "other" and "undefined" for cases that fall outside standard categorizations.
 
@@ -21,6 +21,10 @@ In the GoTriple environment, the term "document" refers to a broad spectrum of r
 4. **ISO-639-1 Standardization**: Each language element in GoTriple adheres to the ISO-639-1 notation, a two-character code format. This standardization facilitates language recognition and aligns with the platform’s automatic translation services.
 
 5. **Multiple Identifiers**: Every document in GoTriple is associated with multiple identifiers, enhancing the platform's ability to accurately reference, locate, and cite documents. This multi-identifier system is crucial in differentiating documents within GoTriple’s diverse collection, ensuring a robust and efficient document management and retrieval system.
+
+6. **Content Specification**: For each document in GoTriple a title and abstract is specified. Given the multilingual nature of the platform, both entities are available in the original language and in English.
+
+7. **Temporal Collocation**: Each document in GoTriple is linked to a publication date.
 
 ### Technical specification
 
@@ -38,6 +42,9 @@ The technical description of a document within GoTriple encompasses several key 
    - **Source URL**: This URL points to the original source of the document, offering a link to where the document was initially published or hosted.
    - **Landing Page URL**: The URL of the landing page that provides descriptive information about the document, often including metadata, abstracts, and links to the full document or related resources.
 
+4. **Title and Abstract**: Each document in GoTriple is associated with a title and an abstract. These are textual entities with which both an original language and the English language are associated.
+
+5. **Date published**: The publication date indicates the date on which the document was published.
 
 ## Example 1
 
