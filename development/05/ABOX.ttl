@@ -32,6 +32,11 @@ pro:isDocumentContextFor rdf:type owl:ObjectProperty ;
                          rdfs:label "is document context for" .
 
 
+###  http://purl.org/spar/pro/isHeldBy
+pro:isHeldBy rdf:type owl:ObjectProperty ;
+             rdfs:label "is held by" .
+
+
 ###  http://purl.org/spar/pro/withRole
 pro:withRole rdf:type owl:ObjectProperty ;
              rdfs:domain pro:RoleInTime ;
@@ -49,11 +54,6 @@ triple:inCluster rdf:type owl:ObjectProperty ;
                  rdfs:domain <http://xmlns.com/foaf/0.1/Document> ;
                  rdfs:range triple:Cluster ;
                  rdfs:label "in cluster" .
-
-
-###  https://gotriple.eu/ontology/triple#isHeldBy
-triple:isHeldBy rdf:type owl:ObjectProperty ;
-                rdfs:label "is held by" .
 
 
 #################################################################
@@ -109,7 +109,7 @@ pro:RoleInTime rdf:type owl:Class ;
                                  owl:someValuesFrom pro:Role
                                ] ,
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty triple:isHeldBy ;
+                                 owl:onProperty pro:isHeldBy ;
                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onClass <http://xmlns.com/foaf/0.1/Agent>
                                ] ;
@@ -184,15 +184,15 @@ pro:author rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple#author_5
 triple:author_5 rdf:type owl:NamedIndividual ,
                          pro:RoleInTime ;
-                pro:withRole pro:author ;
-                triple:isHeldBy triple:person_456 .
+                pro:isHeldBy triple:person_456 ;
+                pro:withRole pro:author .
 
 
 ###  https://gotriple.eu/ontology/triple#author_567
 triple:author_567 rdf:type owl:NamedIndividual ,
                            pro:RoleInTime ;
-                  pro:withRole pro:author ;
-                  triple:isHeldBy triple:person_78 .
+                  pro:isHeldBy triple:person_78 ;
+                  pro:withRole pro:author .
 
 
 ###  https://gotriple.eu/ontology/triple#cluster_45
