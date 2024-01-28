@@ -25,11 +25,11 @@ If the account is associated with any publication and author,
 the profile corresponding to that author is considered claimed; otherwise, it will default to remaining unclaimed.
 
 ## Example 1
-`document_1` has as the author of the publication. This author is represented by the `profile_78`, 
+`document_1` has as the author of the publication. This author is represented by the `profile_1`, 
 which has `author_fullname_6` as fullname and corresponds 
 to another author that the system recognised as the original,
-associated with `profile_85`. The profile created for the author of this document is claimed by a user 
-who has created a user account on the platform: `account_78`.
+associated with `profile_2`. The profile created for the author of this document is claimed by a user 
+who has created a user account on the platform: `account_1`.
 
 ## Example 2
 `document_56` has 3 author associated respectively with three profiles: `profile_56`, `profile_09`, `profile_123`.
