@@ -14,7 +14,7 @@
 | `Funder`                | Funders are individuals or organizations.                                                                                                                |
 | `Role in time`          | The proxy that allow to connect a role to a temporal entity.                                                                                             |
 | `has role in documents` | This property link a document to a role through a proxy, which is the time when that kind of role was held by the agent.                                 |
-| `Held by`               | This property link a Role to an Agent (Person or Organization)                                                                                           |
+| `is held by`            | This property link a Role to an Agent (Person or Organization)                                                                                           |
 | `Agent`                 | A person or Organization that held a role.                                                                                                               |
 | `Organization`          | A type of Agent.                                                                                                                                         |
 | `Person`                | A type of Agent.                                                                                                                                         |

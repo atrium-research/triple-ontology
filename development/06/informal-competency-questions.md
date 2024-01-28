@@ -1,4 +1,4 @@
-## Informal Competency Questions (Iteration 3)
+## Informal Competency Questions (Iteration 6)
 
 ## Question 1
 
