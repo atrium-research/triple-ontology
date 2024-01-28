@@ -6,7 +6,7 @@
 CQ_7.1
 
 ### Question
-Return all triples that have as subject the `project_67`.
+Return all triples that have as subject the `project_1`.
 
 ### Expected Outcome
 A project with all associated properties and values.
