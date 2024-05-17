@@ -63,19 +63,6 @@ SELECT ?languages WHERE {
 ```
 
 ## CQ_1.6
-Return all `types` of documents.
-
-```
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-
-SELECT ?languages WHERE {
- ?languages rdf:type skos:Concept .
-}
-```
-
-## CQ_1.7
 Return all documents, given the `type_5` and the language `language_10`.
 
 ```
