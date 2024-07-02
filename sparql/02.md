@@ -1,0 +1,16 @@
+## Formal Competency Questions (Iteration 1)
+
+## CQ_2.1
+
+Return all close external terms associated with terms connected to `triple:document_1` and belonging to the `triple:schema_45`.
+
+```
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?terms WHERE {
+ triple:document_1 dc:subject ?terms .
+ ?terms skos:inScheme triple:schema_45 .
+}
+```
