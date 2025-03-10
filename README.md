@@ -8,6 +8,7 @@ comprehensive ontology designed to formalise the TRIPLE data model using semanti
 technologies. The ontology addressed the challenge of managing heterogeneous data aggregated by
 the Core Pipeline, which integrated research artefacts from diverse external sources with varying
 structures and formats.
+
 This newly developed ontology ensured a robust semantic representation of research artefacts,
 surpassing the limitations of initial alignments with Schema.org and SIOC standards. It was aligned
 with the main data aggregators, ensuring adherence to state-of-the-art practices in the field.
@@ -15,6 +16,7 @@ Developed in collaboration with domain experts, the ontology was crafted to achi
 objectives: formalising the data model with semantic standards, defining controlled vocabularies,
 establishing connections with external entities, ensuring resource reusability, and maintaining
 detailed documentation for transparency and extensibility.
+
 The ontology development followed a structured methodology, beginning with a preliminary
 analysis and employing the Simplified Agile Methodology for Ontology Development (SAMOD).
 This approach ensured a flexible, iterative development process with comprehensive testing and
