@@ -32,3 +32,5 @@ This repository contains the full documentation produced during the development 
 
 * the `sparql` directory contains a set of refactored Formal Competency Questions.
 
+The final ontology is available at [https://www.gotriple.eu/ontology/triple](https://www.gotriple.eu/ontology/triple).
+
