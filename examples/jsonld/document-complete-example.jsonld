@@ -1,0 +1,267 @@
+{
+  "@context": {
+    "@vocab": "https://gotriple.eu/ontology/triple#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "schema": "http://schema.org/",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "datacite": "http://purl.org/spar/datacite/",
+    "litre": "http://purl.org/spar/literal/",
+    "pro": "http://purl.org/spar/pro/",
+    "tvc": "http://www.essepuntato.it/2012/04/tvc/",
+    "ti": "http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#"
+  },
+  "@graph": [
+    {
+      "@id": "https://gotriple.eu/document/12345",
+      "@type": "foaf:Document",
+      "dcterms:title": [
+        {
+          "@language": "en",
+          "@value": "Digital Humanities in the Age of AI: Challenges and Opportunities"
+        },
+        {
+          "@language": "fr",
+          "@value": "Les Humanités Numériques à l'Ère de l'IA : Défis et Opportunités"
+        }
+      ],
+      "dcterms:abstract": [
+        {
+          "@language": "en",
+          "@value": "This article explores the intersection of digital humanities and artificial intelligence, examining how AI technologies are transforming research methodologies in the humanities and social sciences."
+        },
+        {
+          "@language": "fr",
+          "@value": "Cet article explore l'intersection des humanités numériques et de l'intelligence artificielle, examinant comment les technologies IA transforment les méthodologies de recherche en sciences humaines et sociales."
+        }
+      ],
+      "dc:type": {
+        "@id": "https://gotriple.eu/ontology/triple#typ_article",
+        "@type": "skos:Concept",
+        "skos:exactMatch": {
+          "@id": "https://vocabularies.coar-repositories.org/resource_types/c_6501/"
+        },
+        "skos:inScheme": {
+          "@id": "https://gotriple.eu/ontology/triple#document_types"
+        }
+      },
+      "schema:inLanguage": {
+        "@id": "https://gotriple.eu/ontology/triple#lang_en",
+        "@type": "schema:Language",
+        "rdfs:label": "English"
+      },
+      "schema:conditionsOfAccess": {
+        "@id": "https://gotriple.eu/ontology/triple#acc_open-access",
+        "@type": "skos:Concept",
+        "skos:exactMatch": {
+          "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
+        },
+        "skos:inScheme": {
+          "@id": "https://gotriple.eu/ontology/triple#conditions_of_access"
+        }
+      },
+      "schema:license": {
+        "@id": "https://gotriple.eu/ontology/triple#lic_cc-by-4.0",
+        "@type": "skos:Concept",
+        "skos:inScheme": {
+          "@id": "https://gotriple.eu/ontology/triple#licenses"
+        }
+      },
+      "datacite:hasIdentifier": [
+        {
+          "@id": "https://gotriple.eu/ontology/triple#identifier_12345_doi",
+          "@type": "datacite:Identifier",
+          "datacite:usesIdentifierScheme": {
+            "@id": "https://gotriple.eu/ontology/triple#doi",
+            "@type": "datacite:IdentifierScheme",
+            "rdfs:label": {
+              "@language": "en",
+              "@value": "DOI"
+            }
+          },
+          "litre:hasLiteralValue": "10.1234/example.dh.2024.001"
+        },
+        {
+          "@id": "https://gotriple.eu/ontology/triple#identifier_12345_handle",
+          "@type": "datacite:Identifier",
+          "datacite:usesIdentifierScheme": {
+            "@id": "https://gotriple.eu/ontology/triple#handle",
+            "@type": "datacite:IdentifierScheme",
+            "rdfs:label": {
+              "@language": "en",
+              "@value": "Handle"
+            }
+          },
+          "litre:hasLiteralValue": "hdl:1234.5/6789"
+        }
+      ],
+      "schema:keywords": [
+        {
+          "@id": "https://gotriple.eu/ontology/triple#keyword_digital-humanities",
+          "@type": "schema:definedTerm",
+          "schema:name": {
+            "@language": "en",
+            "@value": "Digital Humanities"
+          }
+        },
+        {
+          "@id": "https://gotriple.eu/ontology/triple#keyword_artificial-intelligence",
+          "@type": "schema:definedTerm",
+          "schema:name": {
+            "@language": "en",
+            "@value": "Artificial Intelligence"
+          }
+        },
+        {
+          "@id": "https://gotriple.eu/ontology/triple#keyword_methodology",
+          "@type": "schema:definedTerm",
+          "schema:name": {
+            "@language": "en",
+            "@value": "Research Methodology"
+          }
+        }
+      ],
+      "schema:spatialCoverage": {
+        "@id": "https://gotriple.eu/ontology/triple#place_europe",
+        "@type": "schema:Place",
+        "schema:name": {
+          "@language": "en",
+          "@value": "Europe"
+        }
+      },
+      "schema:temporalCoverage": {
+        "@type": "schema:DateTime",
+        "@value": "2020/2024"
+      },
+      "dc:subject": [
+        {
+          "@id": "https://gotriple.eu/ontology/triple#discipline_humanities",
+          "@type": "skos:Concept",
+          "skos:inScheme": {
+            "@id": "https://gotriple.eu/ontology/triple#disciplines"
+          }
+        },
+        {
+          "@id": "https://gotriple.eu/ontology/triple#discipline_information-science",
+          "@type": "skos:Concept",
+          "skos:inScheme": {
+            "@id": "https://gotriple.eu/ontology/triple#disciplines"
+          }
+        }
+      ],
+      "pro:isDocumentContextFor": [
+        {
+          "@id": "https://gotriple.eu/ontology/triple#role_12345_author_1",
+          "@type": "pro:RoleInTime",
+          "pro:withRole": {
+            "@id": "http://purl.org/spar/pro/author"
+          },
+          "pro:isHeldBy": {
+            "@id": "https://gotriple.eu/person/marie-dupont",
+            "@type": "foaf:Person",
+            "foaf:name": "Marie Dupont"
+          },
+          "tvc:atTime": {
+            "@type": "ti:TimeInterval",
+            "ti:hasIntervalStartDate": {
+              "@type": "xsd:date",
+              "@value": "2024-01-15"
+            },
+            "ti:hasIntervalEndDate": {
+              "@type": "xsd:date",
+              "@value": "2024-06-30"
+            }
+          }
+        },
+        {
+          "@id": "https://gotriple.eu/ontology/triple#role_12345_author_2",
+          "@type": "pro:RoleInTime",
+          "pro:withRole": {
+            "@id": "http://purl.org/spar/pro/author"
+          },
+          "pro:isHeldBy": {
+            "@id": "https://gotriple.eu/person/john-smith",
+            "@type": "foaf:Person",
+            "foaf:name": "John Smith"
+          },
+          "tvc:atTime": {
+            "@type": "ti:TimeInterval",
+            "ti:hasIntervalStartDate": {
+              "@type": "xsd:date",
+              "@value": "2024-01-15"
+            },
+            "ti:hasIntervalEndDate": {
+              "@type": "xsd:date",
+              "@value": "2024-06-30"
+            }
+          }
+        },
+        {
+          "@id": "https://gotriple.eu/ontology/triple#role_12345_publisher",
+          "@type": "pro:RoleInTime",
+          "pro:withRole": {
+            "@id": "http://purl.org/spar/pro/publisher"
+          },
+          "pro:isHeldBy": {
+            "@id": "https://gotriple.eu/organization/digital-humanities-press",
+            "@type": "foaf:Organization",
+            "foaf:name": "Digital Humanities Press"
+          },
+          "tvc:atTime": {
+            "@type": "ti:TimeInterval",
+            "ti:hasIntervalStartDate": {
+              "@type": "xsd:date",
+              "@value": "2024-07-01"
+            }
+          }
+        }
+      ],
+      "schema:mentions": [
+        {
+          "@id": "https://gotriple.eu/document/67890",
+          "@type": "foaf:Document",
+          "dcterms:title": {
+            "@language": "en",
+            "@value": "Machine Learning for Text Analysis in Historical Research"
+          }
+        },
+        {
+          "@id": "https://gotriple.eu/person/alan-turing",
+          "@type": "foaf:Person",
+          "foaf:name": "Alan Turing"
+        },
+        {
+          "@id": "https://gotriple.eu/project/horizon-dh-ai",
+          "@type": "schema:Project",
+          "schema:name": "Horizon DH-AI: Digital Humanities and Artificial Intelligence"
+        }
+      ],
+      "inCluster": {
+        "@id": "https://gotriple.eu/ontology/triple#cluster_12345",
+        "@type": "Cluster",
+        "datacite:hasIdentifier": {
+          "@id": "https://gotriple.eu/ontology/triple#cluster_identifier_12345",
+          "@type": "datacite:Identifier",
+          "litre:hasLiteralValue": "cluster-dh-ai-2024-001"
+        }
+      },
+      "isDiscarded": {
+        "@type": "xsd:boolean",
+        "@value": "false"
+      },
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "2024-07-01"
+      },
+      "dcterms:modified": {
+        "@type": "xsd:date",
+        "@value": "2024-07-15"
+      }
+    }
+  ]
+}
