@@ -24,13 +24,50 @@ documentation, guaranteeing the ontology's accuracy and adaptability. Consequent
 enhanced the semantic representation of research artefacts, promoted interoperability, and facilitated
 collaboration and knowledge reuse across the SSH domain.
 
-This repository contains the full documentation produced during the development of TRIPLE ontology. In particular:
+This repository contains the full documentation produced during the development of TRIPLE ontology.
 
-* the `development` directory contains a folder for each iteration, thus constituting a full test case with a Motivating Scenario, a list of Informal Competency Questions, a Glossary of Terms, a Graffoo diagram of the model in .png format (along with its .graphml file), a list of Formal Competency Questions, a TBox and a ABox (both written in the Turtle RDF serialization);
+## Repository Structure
 
-* the `diagrams` directory contains a set of Graffoo diagrams representing the refactored model of each iteration;
+### Core Directories
 
-* the `sparql` directory contains a set of refactored Formal Competency Questions.
+* **`development/`** - Contains 11 SAMOD iterations (01-11), each representing a complete development cycle with:
+  * `motivating-scenario.md` - Use case description and examples
+  * `informal-competency-questions.md` - Natural language requirements
+  * `glossary-of-terms.md` - Domain terminology definitions
+  * `formal-competency-questions.md` - SPARQL test queries
+  * `TBOX.ttl` - Terminological Box (ontology structure: classes, properties, restrictions)
+  * `ABOX.ttl` - Assertional Box (test instance data)
+  * `modelet.graphml` - Graffoo diagram source file (yEd format)
+  * `modelet.png` - Visual diagram export
+
+* **`ontology/`** - Consolidated final ontology
+  * `triple-ontology.ttl` - Merged TBOX from all iterations (structure only, no instances)
+
+* **`diagrams/`** - Refactored Graffoo diagrams (01.png - 07.png) showing the consolidated model after each of the first 7 iterations
+
+* **`sparql/`** - Refactored formal competency questions (01.md - 07.md) with SPARQL queries for testing the final ontology
+
+* **`examples/`** - Practical data examples
+  * `jsonld/` - Real-world JSON-LD serialization examples from GoTriple platform
+
+* **`scripts/`** - Utility tools
+  * `merge_iterations.py` - Merges all TBOX files into the consolidated ontology
+  * `requirements.txt` - Python dependencies
+  * See `scripts/README.md` for usage details
+
+## Getting Started
 
 The final ontology is available at [https://www.gotriple.eu/ontology/triple](https://www.gotriple.eu/ontology/triple).
+
+To work with the ontology locally:
+
+```bash
+# View the consolidated ontology
+cat ontology/triple-ontology.ttl
+
+# Regenerate the consolidated ontology from iterations
+cd scripts
+pip install -r requirements.txt
+python merge_iterations.py
+```
 
