@@ -2,14 +2,15 @@
 
 The TRIPLE project, launched in October 2019 and coordinated by the French National Center for
 Scientific Research (CNRS), involved 22 partners from 15 European countries. Its primary aim was
-to develop the GoTriple discovery platform, a multilingual access point for discovering and reusing
-research artefacts in the social sciences and humanities (SSH). This thesis presented a
-comprehensive ontology designed to formalise the TRIPLE data model using semantic
+to develop the [GoTriple.eu](https://GoTriple.eu) discovery platform, a multilingual access point for discovering and reusing
+research artefacts in the social sciences and humanities (SSH).
+
+The TRIPLE Ontology has been designed to formalise the GoTriple data model using semantic
 technologies. The ontology addressed the challenge of managing heterogeneous data aggregated by
-the Core Pipeline, which integrated research artefacts from diverse external sources with varying
+GoTriple's data processing pipeline (named SCRE), which integrates research artefacts from diverse external sources with varying
 structures and formats.
 
-This newly developed ontology ensured a robust semantic representation of research artefacts,
+The ontology ensures a robust semantic representation of research artefacts,
 surpassing the limitations of initial alignments with Schema.org and SIOC standards. It was aligned
 with the main data aggregators, ensuring adherence to state-of-the-art practices in the field.
 Developed in collaboration with domain experts, the ontology was crafted to achieve several key
