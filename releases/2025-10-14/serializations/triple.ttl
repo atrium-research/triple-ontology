@@ -287,26 +287,11 @@ foaf:Document a owl:Class ;
             owl:onProperty dc:type ;
             owl:someValuesFrom skos:Concept ],
         [ a owl:Restriction ;
-            owl:onProperty datacite:hasIdentifer ;
-            owl:someValuesFrom datacite:Identifier ],
-        [ a owl:Restriction ;
-            owl:onProperty dc:type ;
-            owl:someValuesFrom skos:Concept ],
-        [ a owl:Restriction ;
-            owl:onProperty datacite:hasIdentifer ;
+            owl:onProperty datacite:hasIdentifier ;
             owl:someValuesFrom datacite:Identifier ],
         [ a owl:Restriction ;
             owl:onProperty schema1:inLanguage ;
             owl:someValuesFrom schema1:Language ],
-        [ a owl:Restriction ;
-            owl:onProperty datacite:hasIdentifier ;
-            owl:someValuesFrom datacite:Identifier ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://purl.org/spar/pro/isDocumentContextFor> ;
-            owl:someValuesFrom <http://purl.org/spar/pro/RoleInTime> ],
-        [ a owl:Restriction ;
-            owl:onProperty <http://purl.org/spar/pro/isDocumentContextFor> ;
-            owl:someValuesFrom <http://purl.org/spar/pro/RoleInTime> ],
         [ a owl:Restriction ;
             owl:onClass datacite:Identifier ;
             owl:onProperty datacite:hasIdentifier ;
@@ -316,10 +301,13 @@ foaf:Document a owl:Class ;
             owl:onProperty triple:inCluster ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onProperty dc:type ;
+            owl:onProperty schema1:conditionsOfAccess ;
             owl:someValuesFrom skos:Concept ],
         [ a owl:Restriction ;
-            owl:onProperty schema1:conditionsOfAccess ;
+            owl:onProperty schema1:license ;
+            owl:someValuesFrom skos:Concept ],
+        [ a owl:Restriction ;
+            owl:onProperty dc:subject ;
             owl:someValuesFrom skos:Concept ],
         [ a owl:Restriction ;
             owl:onProperty schema1:keywords ;
