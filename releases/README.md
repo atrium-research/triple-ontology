@@ -4,7 +4,7 @@ Official releases of the TRIPLE ontology for the GoTriple discovery platform.
 
 ## Latest Version
 
-- **2025-01-15** (v1.0.0) - Initial public release
+- **2025-10-22** (v1.0.0) - Initial public release
 
 ## Release Structure
 

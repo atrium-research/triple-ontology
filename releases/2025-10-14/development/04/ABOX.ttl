@@ -1,0 +1,144 @@
+@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix litre: <http://purl.org/spar/literal/> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@base <https://gotriple.eu/ontology/triple> .
+
+<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
+                                       owl:versionIRI <https://gotriple.eu/ontology/triple/1.0.0> .
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://schema.org/DateTime
+<http://schema.org/DateTime> rdf:type rdfs:Datatype .
+
+
+###  http://schema.org/Text
+<http://schema.org/Text> rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://schema.org/keywords
+<http://schema.org/keywords> rdf:type owl:ObjectProperty ;
+                             rdfs:label "keywords" .
+
+
+###  http://schema.org/spatialCoverage
+<http://schema.org/spatialCoverage> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain <http://xmlns.com/foaf/0.1/Document> ;
+                                    rdfs:range <http://schema.org/Place> ;
+                                    rdfs:label "spatial coverage" .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain <http://schema.org/Place> ,
+                                     <http://schema.org/definedTerm> ;
+                         rdfs:label "name" .
+
+
+###  http://schema.org/temporalCoverage
+<http://schema.org/temporalCoverage> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain <http://xmlns.com/foaf/0.1/Document> ;
+                                     rdfs:range <http://schema.org/DateTime> ;
+                                     rdfs:label "temporal coverage" .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/Place
+<http://schema.org/Place> rdf:type owl:Class ;
+                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://schema.org/name> ;
+                                            owl:someValuesFrom <http://schema.org/Text>
+                                          ] ;
+                          rdfs:label "place" .
+
+
+###  http://schema.org/definedTerm
+<http://schema.org/definedTerm> rdf:type owl:Class ;
+                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <http://schema.org/name> ;
+                                                  owl:someValuesFrom <http://schema.org/Text>
+                                                ] ;
+                                rdfs:label "defined term" .
+
+
+###  http://xmlns.com/foaf/0.1/Document
+<http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
+                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://schema.org/keywords> ;
+                                                       owl:someValuesFrom <http://schema.org/definedTerm>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://schema.org/spatialCoverage> ;
+                                                       owl:someValuesFrom <http://schema.org/Place>
+                                                     ] ,
+                                                     [ rdf:type owl:Restriction ;
+                                                       owl:onProperty <http://schema.org/temporalCoverage> ;
+                                                       owl:someValuesFrom <http://schema.org/DateTime>
+                                                     ] ;
+                                     rdfs:label "document" .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://gotriple.eu/ontology/triple#document_1
+triple:document_1 rdf:type owl:NamedIndividual ,
+                           <http://xmlns.com/foaf/0.1/Document> ;
+                  <http://schema.org/keywords> triple:keyword_3 ,
+                                               triple:keyword_56 ,
+                                               triple:keyword_6 .
+
+
+###  https://gotriple.eu/ontology/triple#document_2
+triple:document_2 rdf:type owl:NamedIndividual ,
+                           <http://xmlns.com/foaf/0.1/Document> ;
+                  <http://schema.org/keywords> triple:keyword_3 ;
+                  <http://schema.org/spatialCoverage> triple:place_67 ;
+                  <http://schema.org/temporalCoverage> "1942"^^<http://schema.org/DateTime> .
+
+
+###  https://gotriple.eu/ontology/triple#keyword_3
+triple:keyword_3 rdf:type owl:NamedIndividual ,
+                          <http://schema.org/definedTerm> ;
+                 <http://schema.org/name> "keyword_3"^^<http://schema.org/Text> .
+
+
+###  https://gotriple.eu/ontology/triple#keyword_56
+triple:keyword_56 rdf:type owl:NamedIndividual ,
+                           <http://schema.org/definedTerm> ;
+                  <http://schema.org/name> "keyword_56"^^<http://schema.org/Text> .
+
+
+###  https://gotriple.eu/ontology/triple#keyword_6
+triple:keyword_6 rdf:type owl:NamedIndividual ,
+                          <http://schema.org/definedTerm> ;
+                 <http://schema.org/name> "keyword_6"^^<http://schema.org/Text> .
+
+
+###  https://gotriple.eu/ontology/triple#place_67
+triple:place_67 rdf:type owl:NamedIndividual ,
+                         <http://schema.org/Place> ;
+                <http://schema.org/name> "place_67"^^<http://schema.org/Text> .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

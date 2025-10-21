@@ -1,6 +1,6 @@
 # TRIPLE Ontology v1.0.0
 
-**Release Date**: 2025-01-15
+**Release Date**: 2025-10-22
 
 ## Overview
 
@@ -57,6 +57,9 @@ Initial public release of the TRIPLE ontology developed through 7 SAMOD iteratio
 - `serializations/` - Ontology in multiple formats (.ttl, .rdf, .owl, .jsonld, .nt)
 - `vocabularies/` - Controlled vocabulary modules
 - `documentation/` - HTML docs and diagrams
+- `development/` - Complete SAMOD iteration history (01-07)
+- `diagrams/` - Refactored Graffoo diagrams for each iteration
+- `sparql/` - Refactored formal competency questions with SPARQL queries
 
 ## Notes
 
