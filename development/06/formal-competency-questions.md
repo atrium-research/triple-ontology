@@ -1,73 +1,164 @@
-## Formal Competency Questions (Iteration 5)
+## Formal Competency Questions (Iteration 6)
 
 ## CQ_6.1
 
-Return all triples that have as subject the `profile_78`.
+Return all information about `profile_1`.
 
-```
+```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?predicate ?object WHERE {
-	triple:profile_1 ?predicate ?object .
+  triple:profile_1 ?predicate ?object .
 }
 ```
+
+**Expected Result:**
+- All triples with profile_1 as subject (type, identifier, account, name, alsoKnownAs)
 
 ## CQ_6.2
 
-Return all author claimed by an account of the `document_56`.
+Return all authors of `document_56` that are claimed by an account.
 
-```
+```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX pro: <http://purl.org/spar/pro/>
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?agent ?account WHERE {
-	triple:document_56 pro:isDocumentContextFor ?role_in_time .
-  	?role_in_time pro:isHeldBy ?agent .
-  	?agent foaf:account ?account .
+SELECT ?author ?account WHERE {
+  triple:document_56 schema:author ?author .
+  ?author foaf:account ?account .
 }
 ```
+
+**Expected Result:**
+- author: profile_56, account: account_109
+- author: profile_09, account: account_109
+- author: profile_123, account: account_109
+
+**Note:** profile_23 is an author of document_56 but is not returned because it's unclaimed (has no account).
 
 ## CQ_6.3
 
-Return all profiles associated with `account_45`.
+Return all unclaimed authors of `document_56`.
 
-```
+```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?profile WHERE {
-	?profile foaf:account triple:account_109 .
+SELECT ?author ?name WHERE {
+  triple:document_56 schema:author ?author .
+  ?author schema:name ?name .
+  FILTER NOT EXISTS { ?author foaf:account ?account }
 }
 ```
 
+**Expected Result:**
+- author: profile_23, name: "author_fullname_9"
 
 ## CQ_6.4
 
-Return for `profile_34` the original profile.
+Return all profiles claimed by `account_109`.
 
-```
-PREFIX tr: <http://www.thomsonreuters.com/>
+```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?profile WHERE {
-	triple:profile_123 triple:alsoKnowAs ?profile .
+SELECT ?profile ?name WHERE {
+  ?profile foaf:account triple:account_109 ;
+           schema:name ?name .
 }
 ```
+
+**Expected Result:**
+- profile: profile_56, name: "author_fullname_6"
+- profile: profile_09, name: "author_fullname_7"
+- profile: profile_123, name: "author_fullname_8"
 
 ## CQ_6.5
 
-Return all the fullname defined for the profile claimed by `account_109`.
+Return the original profile for `profile_123`.
 
-```
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?profile ?fullname WHERE {
-	?profile foaf:account triple:account_109 .
-  	?profile foaf:name ?fullname .
+SELECT ?originalProfile WHERE {
+  triple:profile_123 triple:alsoKnownAs ?originalProfile .
 }
 ```
 
+**Expected Result:**
+- originalProfile: profile_56
 
+## CQ_6.6
+
+Return all documents authored by profiles claimed by `account_109`.
+
+```sparql
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT DISTINCT ?document ?authorProfile WHERE {
+  ?authorProfile foaf:account triple:account_109 .
+  ?document schema:author ?authorProfile .
+}
+```
+
+**Expected Result:**
+- document: document_56, authorProfile: profile_56
+- document: document_56, authorProfile: profile_09
+- document: document_56, authorProfile: profile_123
+- document: document_67, authorProfile: profile_56
+- document: document_98, authorProfile: profile_09
+- document: document_42, authorProfile: profile_123
+
+## CQ_6.7
+
+Return all profiles that link to `profile_56` as their original (disambiguated) profile.
+
+```sparql
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?profile WHERE {
+  ?profile triple:alsoKnownAs triple:profile_56 .
+}
+```
+
+**Expected Result:**
+- profile: profile_09
+- profile: profile_123
+
+## CQ_6.8
+
+Return all fullnames for profiles claimed by `account_109`.
+
+```sparql
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?profile ?fullname WHERE {
+  ?profile foaf:account triple:account_109 ;
+           schema:name ?fullname .
+}
+```
+
+**Expected Result:**
+- profile: profile_56, fullname: "author_fullname_6"
+- profile: profile_09, fullname: "author_fullname_7"
+- profile: profile_123, fullname: "author_fullname_8"
+
+## Notes
+
+The refactored queries benefit from the direct Schema.org authorship pattern:
+- **Simpler queries** with direct `schema:author` relationships
+- **No intermediate RoleInTime** objects to navigate
+- **Better performance** with fewer joins
+- **Standard vocabulary** using `schema:name` instead of `foaf:name`
+
+The profile and disambiguation system remains unchanged, providing:
+- **Claimed vs unclaimed** profiles (presence/absence of `foaf:account`)
+- **Author disambiguation** via `triple:alsoKnownAs` linking to original profiles
+- **User account management** with `foaf:OnlineAccount` and identifiers
