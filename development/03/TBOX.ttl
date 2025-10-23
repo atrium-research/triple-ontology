@@ -104,16 +104,6 @@ schema:datePublished rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://xmlns.com/foaf/0.1/Agent
-foaf:Agent rdf:type owl:Class ;
-           rdfs:label "agent"@en ;
-           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                             owl:onProperty schema:name ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:string
-                           ] .
-
-
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class .
 
@@ -178,25 +168,27 @@ foaf:Document rdf:type owl:Class .
 ###  http://xmlns.com/foaf/0.1/Organization
 foaf:Organization rdf:type owl:Class ;
                   rdfs:label "organization"@en ;
-                  rdfs:subClassOf foaf:Agent ,
-                                  schema:Organization .
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty schema:name ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] .
 
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class ;
             rdfs:label "person"@en ;
-            rdfs:subClassOf foaf:Agent ,
-                            schema:Person .
+            rdfs:subClassOf schema:Person ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty schema:name ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] .
 
 
 ###  http://schema.org/CreativeWork
 schema:CreativeWork rdf:type owl:Class ;
                     rdfs:label "creative work"@en .
-
-
-###  http://schema.org/Organization
-schema:Organization rdf:type owl:Class ;
-                    rdfs:label "organization"@en .
 
 
 ###  http://schema.org/Person
