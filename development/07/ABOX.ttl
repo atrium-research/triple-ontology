@@ -1,0 +1,259 @@
+@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://purl.org/spar/literal/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://gotriple.eu/ontology/triple> .
+
+<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
+                                       owl:versionInfo "1.0.0" .
+
+#################################################################
+#    Individuals
+#################################################################
+
+### Example 1: TRIPLE-SSH Project funded by Horizon 2020
+
+###  Project
+triple:project_1 rdf:type schema:Project ;
+                 datacite:hasIdentifier triple:identifier_1 ;
+                 schema:startDate "2019-01-01"^^xsd:date ;
+                 schema:endDate "2022-12-31"^^xsd:date ;
+                 schema:name "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration"@en ;
+                 schema:alternateName "TRIPLE"@en ;
+                 schema:description "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe."@en ;
+                 schema:about triple:topic_1 ;
+                 schema:keywords triple:keyword_1 , triple:keyword_2 , triple:keyword_3 ;
+                 schema:funding triple:grant_1 .
+
+###  Identifiers
+triple:identifier_1 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:h2020_scheme ;
+                    litre:hasLiteralValue "H2020-863420" .
+
+triple:h2020_scheme rdf:type datacite:IdentifierScheme ;
+                    rdfs:label "Horizon 2020 Grant Agreement Number"@en .
+
+###  Organizations
+triple:organization_1 rdf:type foaf:Organization ;
+                      schema:name "Austrian Centre for Digital Humanities and Cultural Heritage"@en ;
+                      rdfs:label "ACDH-CH"@en .
+
+triple:organization_2 rdf:type foaf:Organization ;
+                      schema:name "European Commission"@en .
+
+triple:organization_3 rdf:type foaf:Organization ;
+                      schema:name "European Research Executive Agency"@en ;
+                      rdfs:label "REA"@en .
+
+###  Grant
+triple:grant_1 rdf:type schema:Grant ;
+               schema:funder triple:organization_2 ;
+               schema:sponsor triple:organization_3 .
+
+###  Topics and Keywords
+triple:topic_1 rdf:type skos:Concept ;
+               rdfs:label "Digital Humanities"@en .
+
+triple:keyword_1 rdf:type schema:DefinedTerm ;
+                 schema:name "discovery platform"@en .
+
+triple:keyword_2 rdf:type schema:DefinedTerm ;
+                 schema:name "semantic web"@en .
+
+triple:keyword_3 rdf:type schema:DefinedTerm ;
+                 schema:name "SSH research"@en .
+
+
+### Example 2: National Research Project on Migration Studies
+
+###  Project
+triple:project_2 rdf:type schema:Project ;
+                 datacite:hasIdentifier triple:identifier_2 ;
+                 schema:startDate "2020-03-01"^^xsd:date ;
+                 schema:endDate "2022-02-28"^^xsd:date ;
+                 schema:name "Socio-Economic Integration of Migrants in Italian Urban Contexts"@en ;
+                 schema:alternateName "MIGURIS"@en ;
+                 schema:description "This research project investigates the mechanisms of socio-economic integration of migrant populations in three Italian metropolitan areas."@en ;
+                 schema:about triple:topic_2 , triple:topic_3 ;
+                 schema:keywords triple:keyword_4 , triple:keyword_5 , triple:keyword_6 , triple:keyword_7 ;
+                 schema:funding triple:grant_2 .
+
+###  Identifiers
+triple:identifier_2 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:prin_scheme ;
+                    litre:hasLiteralValue "PRIN-2018ABCD123" .
+
+triple:prin_scheme rdf:type datacite:IdentifierScheme ;
+                   rdfs:label "PRIN Project Code"@en ;
+                   rdfs:comment "Projects of Relevant National Interest scheme identifier"@en .
+
+###  Organizations
+triple:organization_4 rdf:type foaf:Organization ;
+                      schema:name "University of Bologna - Department of Sociology and Business Law"@en .
+
+triple:organization_5 rdf:type foaf:Organization ;
+                      schema:name "Italian Ministry of University and Research"@en ;
+                      rdfs:label "MUR"@en .
+
+###  Grant
+triple:grant_2 rdf:type schema:Grant ;
+               schema:funder triple:organization_5 ;
+               schema:sponsor triple:organization_5 .
+
+###  Topics and Keywords
+triple:topic_2 rdf:type skos:Concept ;
+               rdfs:label "Sociology"@en .
+
+triple:topic_3 rdf:type skos:Concept ;
+               rdfs:label "Migration Studies"@en .
+
+triple:keyword_4 rdf:type schema:DefinedTerm ;
+                 schema:name "migration"@en .
+
+triple:keyword_5 rdf:type schema:DefinedTerm ;
+                 schema:name "integration"@en .
+
+triple:keyword_6 rdf:type schema:DefinedTerm ;
+                 schema:name "urban studies"@en .
+
+triple:keyword_7 rdf:type schema:DefinedTerm ;
+                 schema:name "Southern Europe"@en .
+
+
+### Example 3: Collaborative Heritage Documentation Project
+
+###  Project
+triple:project_3 rdf:type schema:Project ;
+                 datacite:hasIdentifier triple:identifier_3 , triple:identifier_4 ;
+                 schema:startDate "2021-06-01"^^xsd:date ;
+                 schema:endDate "2024-05-31"^^xsd:date ;
+                 schema:name "Digital Documentation of Endangered Cultural Heritage in the Balkans"@en ;
+                 schema:alternateName "BALKAN-HERITAGE"@en ;
+                 schema:description "This collaborative project employs advanced digital technologies to document and preserve endangered cultural heritage sites across the Balkan region."@en ;
+                 schema:about triple:topic_4 , triple:topic_5 , triple:topic_6 ;
+                 schema:keywords triple:keyword_8 , triple:keyword_9 , triple:keyword_10 , triple:keyword_11 ;
+                 schema:funding triple:grant_3 , triple:grant_4 .
+
+###  Identifiers
+triple:identifier_3 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:fwf_scheme ;
+                    litre:hasLiteralValue "FWF-P-34567" .
+
+triple:identifier_4 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:getty_scheme ;
+                    litre:hasLiteralValue "GETTY-KIM-2021-15" .
+
+triple:fwf_scheme rdf:type datacite:IdentifierScheme ;
+                  rdfs:label "FWF Project Number"@en ;
+                  rdfs:comment "Austrian Science Fund project identifier"@en .
+
+triple:getty_scheme rdf:type datacite:IdentifierScheme ;
+                    rdfs:label "Getty Foundation Grant Number"@en .
+
+###  Organizations
+triple:organization_6 rdf:type foaf:Organization ;
+                      schema:name "University of Vienna - Institute for Cultural Heritage"@en .
+
+triple:organization_7 rdf:type foaf:Organization ;
+                      schema:name "Austrian Science Fund"@en ;
+                      rdfs:label "FWF"@en .
+
+triple:organization_8 rdf:type foaf:Organization ;
+                      schema:name "The Getty Foundation"@en .
+
+###  Grants
+triple:grant_3 rdf:type schema:Grant ;
+               schema:funder triple:organization_7 ;
+               schema:sponsor triple:organization_7 .
+
+triple:grant_4 rdf:type schema:Grant ;
+               schema:funder triple:organization_8 ;
+               schema:sponsor triple:organization_8 .
+
+###  Topics and Keywords
+triple:topic_4 rdf:type skos:Concept ;
+               rdfs:label "Cultural Heritage"@en .
+
+triple:topic_5 rdf:type skos:Concept ;
+               rdfs:label "Digital Humanities"@en .
+
+triple:topic_6 rdf:type skos:Concept ;
+               rdfs:label "History"@en .
+
+triple:keyword_8 rdf:type schema:DefinedTerm ;
+                 schema:name "heritage documentation"@en .
+
+triple:keyword_9 rdf:type schema:DefinedTerm ;
+                 schema:name "Balkans"@en .
+
+triple:keyword_10 rdf:type schema:DefinedTerm ;
+                  schema:name "digital preservation"@en .
+
+triple:keyword_11 rdf:type schema:DefinedTerm ;
+                  schema:name "cultural memory"@en .
+
+
+### Example 4: ERC Advanced Grant on Ancient Philosophy
+
+###  Project
+triple:project_4 rdf:type schema:Project ;
+                 datacite:hasIdentifier triple:identifier_5 ;
+                 schema:startDate "2022-09-01"^^xsd:date ;
+                 schema:endDate "2027-08-31"^^xsd:date ;
+                 schema:name "Conceptions of Justice in Hellenistic Philosophy"@en ;
+                 schema:alternateName "HELLENISTIC-JUSTICE"@en ;
+                 schema:description "This project provides a comprehensive analysis of how Hellenistic philosophical schools conceptualized justice and its role in ethical and political thought."@en ;
+                 schema:about triple:topic_7 , triple:topic_8 ;
+                 schema:keywords triple:keyword_12 , triple:keyword_13 , triple:keyword_14 , triple:keyword_15 ;
+                 schema:funding triple:grant_5 .
+
+###  Identifiers
+triple:identifier_5 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:erc_scheme ;
+                    litre:hasLiteralValue "ERC-ADG-101052789" .
+
+triple:erc_scheme rdf:type datacite:IdentifierScheme ;
+                  rdfs:label "ERC Grant Number"@en ;
+                  rdfs:comment "European Research Council grant identifier"@en .
+
+###  Organizations
+triple:organization_9 rdf:type foaf:Organization ;
+                      schema:name "Humboldt University Berlin - Faculty of Philosophy"@en .
+
+triple:organization_10 rdf:type foaf:Organization ;
+                       schema:name "European Research Council"@en ;
+                       rdfs:label "ERC"@en .
+
+###  Grant
+triple:grant_5 rdf:type schema:Grant ;
+               schema:funder triple:organization_10 ;
+               schema:sponsor triple:organization_10 .
+
+###  Topics and Keywords
+triple:topic_7 rdf:type skos:Concept ;
+               rdfs:label "Philosophy"@en .
+
+triple:topic_8 rdf:type skos:Concept ;
+               rdfs:label "Ancient History"@en .
+
+triple:keyword_12 rdf:type schema:DefinedTerm ;
+                  schema:name "Hellenistic philosophy"@en .
+
+triple:keyword_13 rdf:type schema:DefinedTerm ;
+                  schema:name "justice"@en .
+
+triple:keyword_14 rdf:type schema:DefinedTerm ;
+                  schema:name "ancient ethics"@en .
+
+triple:keyword_15 rdf:type schema:DefinedTerm ;
+                  schema:name "Stoicism"@en .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
