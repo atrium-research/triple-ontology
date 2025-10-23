@@ -95,7 +95,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
-  ?document a foaf:Document ;
+  ?document a triple:Document ;
             schema:author triple:author_34 .
 }
 ```

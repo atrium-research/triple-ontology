@@ -46,6 +46,14 @@ foaf:Agent rdf:type owl:Class .
 foaf:Document rdf:type owl:Class .
 
 
+###  https://gotriple.eu/ontology/triple#Document
+:Document rdf:type owl:Class ;
+          rdfs:label "TRIPLE Document"@en ;
+          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+          rdfs:subClassOf schema:CreativeWork ,
+                          foaf:Document .
+
+
 ###  http://xmlns.com/foaf/0.1/Organization
 foaf:Organization rdf:type owl:Class ;
                   rdfs:subClassOf foaf:Agent .
@@ -73,7 +81,7 @@ schema:CreativeWork rdf:type owl:Class .
 
 ###  https://gotriple.eu/ontology/triple#document_1
 :document_1 rdf:type owl:NamedIndividual ,
-                     foaf:Document ;
+                     :Document ;
             schema:author :author_34 ;
             schema:provider :provider_9 ,
                            :provider_45 ;

@@ -7,6 +7,8 @@
 @prefix litre: <http://purl.org/spar/literal/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
 @base <https://gotriple.eu/ontology/triple> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -35,7 +37,7 @@
 
 ###  http://schema.org/spatialCoverage
 <http://schema.org/spatialCoverage> rdf:type owl:ObjectProperty ;
-                                    rdfs:domain <http://xmlns.com/foaf/0.1/Document> ;
+                                    rdfs:domain :Document ;
                                     rdfs:range <http://schema.org/Place> ;
                                     rdfs:label "spatial coverage" .
 
@@ -53,7 +55,7 @@
 
 ###  http://schema.org/temporalCoverage
 <http://schema.org/temporalCoverage> rdf:type owl:DatatypeProperty ;
-                                     rdfs:domain <http://xmlns.com/foaf/0.1/Document> ;
+                                     rdfs:domain :Document ;
                                      rdfs:range <http://schema.org/DateTime> ;
                                      rdfs:label "temporal coverage" .
 
@@ -80,21 +82,32 @@
                                 rdfs:label "defined term" .
 
 
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class .
+
+
 ###  http://xmlns.com/foaf/0.1/Document
-<http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
-                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://schema.org/keywords> ;
-                                                       owl:someValuesFrom <http://schema.org/definedTerm>
-                                                     ] ,
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://schema.org/spatialCoverage> ;
-                                                       owl:someValuesFrom <http://schema.org/Place>
-                                                     ] ,
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://schema.org/temporalCoverage> ;
-                                                       owl:someValuesFrom <http://schema.org/DateTime>
-                                                     ] ;
-                                     rdfs:label "document" .
+foaf:Document rdf:type owl:Class .
+
+
+###  https://gotriple.eu/ontology/triple#Document
+:Document rdf:type owl:Class ;
+          rdfs:label "TRIPLE Document"@en ;
+          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+          rdfs:subClassOf schema:CreativeWork ,
+                          foaf:Document ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/keywords> ;
+                            owl:someValuesFrom <http://schema.org/definedTerm>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/spatialCoverage> ;
+                            owl:someValuesFrom <http://schema.org/Place>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/temporalCoverage> ;
+                            owl:someValuesFrom <http://schema.org/DateTime>
+                          ] .
 
 
 #################################################################
@@ -103,7 +116,7 @@
 
 ###  https://gotriple.eu/ontology/triple#document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
-                           <http://xmlns.com/foaf/0.1/Document> .
+                           :Document .
 
 
 ###  https://gotriple.eu/ontology/triple#document_2

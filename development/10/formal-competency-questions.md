@@ -42,11 +42,10 @@ Return all documents that have a DOI identifier.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
-  ?document a foaf:Document ;
+  ?document a triple:Document ;
             datacite:hasIdentifier ?identifier .
   ?identifier datacite:usesIdentifierScheme triple:doi .
 }
@@ -121,11 +120,10 @@ Return all documents that have an ISBN identifier.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
-  ?document a foaf:Document ;
+  ?document a triple:Document ;
             datacite:hasIdentifier ?identifier .
   ?identifier datacite:usesIdentifierScheme triple:isbn .
 }

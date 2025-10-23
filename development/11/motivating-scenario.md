@@ -32,23 +32,24 @@ The mentions functionality will be implemented using the `schema:mentions` prope
 **Property specification:**
 
 - **Property**: `schema:mentions`
-- **Domain**: `schema:CreativeWork` (compatible with `foaf:Document`)
+- **Domain**: `schema:CreativeWork` (compatible with `triple:Document`)
 - **Range**: `schema:Thing` (allows mentioning any type of entity)
 - **Usage**: Connects documents to mentioned entities of various types
 
-**Compatibility declaration:**
+**Compatibility with TRIPLE Document Model:**
 
-To ensure semantic consistency, we explicitly declare that `foaf:Document` is a subclass of `schema:CreativeWork`:
+The TRIPLE ontology defines `triple:Document` as a subclass of both `schema:CreativeWork` and `foaf:Document`:
 
 ```turtle
-foaf:Document rdfs:subClassOf schema:CreativeWork .
+triple:Document rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
 ```
 
-This ensures that all documents in GoTriple are recognized as creative works, making the use of `schema:mentions` semantically valid.
+This dual inheritance ensures that all TRIPLE documents are recognized as creative works, making the use of `schema:mentions` semantically valid and aligned with Schema.org best practices.
 
 **Entities that can be mentioned:**
 
-1. **Documents** (`foaf:Document`): Other publications in the GoTriple platform or external resources
+1. **Documents** (`triple:Document`): Other publications in the GoTriple platform or external resources
 2. **People** (`foaf:Person`): Researchers, scholars, authors mentioned in the text
 3. **Projects** (`schema:Project`): Research projects discussed or referenced
 4. **Organizations** (`foaf:Organization`): Institutions, research centers, funding bodies
@@ -63,7 +64,7 @@ To query specific types of mentions, SPARQL queries can filter by the type of th
 # Find all documents mentioned by document_1
 SELECT ?mentioned WHERE {
   triple:document_1 schema:mentions ?mentioned .
-  ?mentioned a foaf:Document .
+  ?mentioned a triple:Document .
 }
 ```
 

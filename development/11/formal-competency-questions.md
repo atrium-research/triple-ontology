@@ -29,7 +29,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
   triple:document_89 schema:mentions ?document .
-  ?document a foaf:Document .
+  ?document a triple:Document .
 }
 ```
 
@@ -49,7 +49,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
-  ?document a foaf:Document ;
+  ?document a triple:Document ;
             schema:mentions triple:person_78 .
 }
 ```
@@ -67,7 +67,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT DISTINCT ?project WHERE {
-  ?document a foaf:Document ;
+  ?document a triple:Document ;
             schema:mentions ?project .
   ?project a schema:Project .
 }
@@ -124,9 +124,9 @@ PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT DISTINCT ?document WHERE {
-  ?document a foaf:Document ;
+  ?document a triple:Document ;
             schema:mentions ?mentioned .
-  ?mentioned a foaf:Document .
+  ?mentioned a triple:Document .
 }
 ```
 
@@ -163,7 +163,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT ?document (COUNT(?entity) AS ?mentionCount) WHERE {
-  ?document a foaf:Document ;
+  ?document a triple:Document ;
             schema:mentions ?entity .
 }
 GROUP BY ?document

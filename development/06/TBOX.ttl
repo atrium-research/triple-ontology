@@ -101,14 +101,21 @@ foaf:Agent rdf:type owl:Class ;
 
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class ;
-              rdfs:label "document"@en ;
-              rdfs:subClassOf schema:CreativeWork ;
+              rdfs:label "document"@en .
 
-              # Optional author (0 or more) - can be Profile instances
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty schema:author ;
-                                owl:allValuesFrom triple:Profile
-                              ] .
+
+###  https://gotriple.eu/ontology/triple#Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "TRIPLE Document"@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document ;
+
+                # Optional author (0 or more) - can be Profile instances
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:author ;
+                                  owl:allValuesFrom triple:Profile
+                                ] .
 
 
 ###  http://xmlns.com/foaf/0.1/OnlineAccount

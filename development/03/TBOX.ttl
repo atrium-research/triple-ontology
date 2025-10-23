@@ -18,7 +18,7 @@
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "author"@en ;
               rdfs:comment "The author of this content"@en ;
-              rdfs:domain foaf:Document ;
+              rdfs:domain :Document ;
               rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
               rdfs:subPropertyOf schema:creator .
 
@@ -27,7 +27,7 @@ schema:author rdf:type owl:ObjectProperty ;
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "contributor"@en ;
                    rdfs:comment "A secondary contributor to the CreativeWork"@en ;
-                   rdfs:domain foaf:Document ;
+                   rdfs:domain :Document ;
                    rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -35,7 +35,7 @@ schema:contributor rdf:type owl:ObjectProperty ;
 schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:label "publisher"@en ;
                  rdfs:comment "The publisher of the creative work"@en ;
-                 rdfs:domain foaf:Document ;
+                 rdfs:domain :Document ;
                  rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -43,7 +43,7 @@ schema:publisher rdf:type owl:ObjectProperty ;
 schema:producer rdf:type owl:ObjectProperty ;
                 rdfs:label "producer"@en ;
                 rdfs:comment "The person or organization who produced the work"@en ;
-                rdfs:domain foaf:Document ;
+                rdfs:domain :Document ;
                 rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -51,7 +51,7 @@ schema:producer rdf:type owl:ObjectProperty ;
 schema:funder rdf:type owl:ObjectProperty ;
               rdfs:label "funder"@en ;
               rdfs:comment "A person or organization that supports through funding"@en ;
-              rdfs:domain foaf:Document ;
+              rdfs:domain :Document ;
               rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -59,7 +59,7 @@ schema:funder rdf:type owl:ObjectProperty ;
 schema:provider rdf:type owl:ObjectProperty ;
                 rdfs:label "provider"@en ;
                 rdfs:comment "The service provider, organization, or individual that provides the data"@en ;
-                rdfs:domain foaf:Document ;
+                rdfs:domain :Document ;
                 rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -67,7 +67,7 @@ schema:provider rdf:type owl:ObjectProperty ;
 :aggregator rdf:type owl:ObjectProperty ;
             rdfs:label "aggregator"@en ;
             rdfs:comment "An aggregator that collates documents from different sources"@en ;
-            rdfs:domain foaf:Document ;
+            rdfs:domain :Document ;
             rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
             rdfs:subPropertyOf schema:contributor .
 
@@ -76,7 +76,7 @@ schema:provider rdf:type owl:ObjectProperty ;
 :primaryProducer rdf:type owl:ObjectProperty ;
                  rdfs:label "primary producer"@en ;
                  rdfs:comment "The original source or creator of the document"@en ;
-                 rdfs:domain foaf:Document ;
+                 rdfs:domain :Document ;
                  rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
                  rdfs:subPropertyOf schema:producer .
 
@@ -96,7 +96,7 @@ schema:name rdf:type owl:DatatypeProperty ;
 schema:datePublished rdf:type owl:DatatypeProperty ;
                      rdfs:label "date published"@en ;
                      rdfs:comment "Date of first publication or broadcast"@en ;
-                     rdfs:domain foaf:Document ;
+                     rdfs:domain :Document ;
                      rdfs:range xsd:date .
 
 
@@ -115,58 +115,64 @@ foaf:Agent rdf:type owl:Class ;
 
 
 ###  http://xmlns.com/foaf/0.1/Document
-foaf:Document rdf:type owl:Class ;
-              rdfs:label "document"@en ;
-              rdfs:subClassOf schema:CreativeWork ;
+foaf:Document rdf:type owl:Class .
 
-              # Optional author (0 or more)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty schema:author ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] ;
 
-              # Optional contributor (0 or more)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty schema:contributor ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] ;
+###  https://gotriple.eu/ontology/triple#Document
+:Document rdf:type owl:Class ;
+          rdfs:label "TRIPLE Document"@en ;
+          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+          rdfs:subClassOf schema:CreativeWork ,
+                          foaf:Document ;
 
-              # Optional publisher (0 or 1)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty schema:publisher ;
-                                owl:maxCardinality 1 ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] ;
+          # Optional author (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty schema:author ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] ;
 
-              # Optional producer (0 or more)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty schema:producer ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] ;
+          # Optional contributor (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty schema:contributor ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] ;
 
-              # Optional funder (0 or more)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty schema:funder ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] ;
+          # Optional publisher (0 or 1)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty schema:publisher ;
+                            owl:maxCardinality 1 ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] ;
 
-              # Optional provider (0 or more)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty schema:provider ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] ;
+          # Optional producer (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty schema:producer ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] ;
 
-              # Optional aggregator (0 or more)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty :aggregator ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] ;
+          # Optional funder (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty schema:funder ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] ;
 
-              # Optional primaryProducer (0 or more)
-              rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty :primaryProducer ;
-                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                              ] .
+          # Optional provider (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty schema:provider ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] ;
+
+          # Optional aggregator (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :aggregator ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] ;
+
+          # Optional primaryProducer (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty :primaryProducer ;
+                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                          ] .
 
 
 ###  http://xmlns.com/foaf/0.1/Organization
