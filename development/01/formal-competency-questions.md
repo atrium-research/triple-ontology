@@ -77,3 +77,106 @@ SELECT ?documents WHERE {
  ?documents dc:type triple:type_5 .
 }
 ```
+
+## CQ_1.8
+
+Return the title (headline) of `triple:document_1` in English.
+
+```
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?headline WHERE {
+  triple:document_1 schema:headline ?headline .
+  FILTER (lang(?headline) = "en")
+}
+```
+
+## CQ_1.9
+
+Return all titles (headlines) associated with `triple:document_1`.
+
+```
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?headline WHERE {
+  triple:document_1 schema:headline ?headline .
+}
+```
+
+## CQ_1.10
+
+Return the abstract of `triple:document_31`.
+
+```
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?abstract WHERE {
+  triple:document_31 schema:abstract ?abstract .
+}
+```
+
+## CQ_1.11
+
+Return the encoding format of all documents.
+
+```
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?document ?format WHERE {
+  ?document rdf:type triple:Document .
+  ?document schema:encodingFormat ?format .
+}
+```
+
+## CQ_1.12
+
+Return all documents in PDF format.
+
+```
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+
+SELECT ?document WHERE {
+  ?document rdf:type triple:Document .
+  ?document schema:encodingFormat "application/pdf" .
+}
+```
+
+## CQ_1.13
+
+Return the landing page URL of `triple:document_1`.
+
+```
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?url WHERE {
+  triple:document_1 datacite:hasIdentifer ?identifier .
+  ?identifier datacite:usesIdentiferScheme triple:landing_page_url ;
+              litre:hasLiteralValue ?url .
+}
+```
+
+## CQ_1.14
+
+Return all URL-based identifiers (landing page, full text, source) for `triple:document_1`.
+
+```
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?identifier ?scheme ?url WHERE {
+  triple:document_1 datacite:hasIdentifer ?identifier .
+  ?identifier datacite:usesIdentiferScheme ?scheme ;
+              litre:hasLiteralValue ?url .
+  FILTER (?scheme IN (triple:landing_page_url, triple:full_text_url, triple:source_url))
+}
+```

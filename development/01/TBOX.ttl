@@ -41,6 +41,18 @@ datacite:usesIdentiferScheme rdf:type owl:ObjectProperty .
 litre:hasLiteralValue rdf:type owl:DatatypeProperty .
 
 
+###  http://schema.org/abstract
+<http://schema.org/abstract> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/encodingFormat
+<http://schema.org/encodingFormat> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/headline
+<http://schema.org/headline> rdf:type owl:DatatypeProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -89,6 +101,18 @@ triple:Document rdf:type owl:Class ;
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty <http://schema.org/inLanguage> ;
                                   owl:someValuesFrom <http://schema.org/Language>
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://schema.org/headline> ;
+                                  owl:someValuesFrom rdf:langString
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://schema.org/abstract> ;
+                                  owl:someValuesFrom rdf:langString
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty <http://schema.org/encodingFormat> ;
+                                  owl:someValuesFrom xsd:string
                                 ] ;
                 rdfs:label "TRIPLE Document"@en ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en .

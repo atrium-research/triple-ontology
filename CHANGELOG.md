@@ -15,6 +15,55 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-10-23 - Iteration 01: Addition of Core Descriptive Metadata and URL Identifiers
+
+**Type**: Addition
+
+**Description**:
+Enhanced Iteration 01 with essential descriptive metadata properties (title, abstract, format) and comprehensive URL identifier support using DataCite pattern for consistency.
+
+**Details**:
+
+**Part 1 - Core Descriptive Metadata**:
+- **New properties added**:
+  - `schema:headline` - Document title (multilingual, rdf:langString)
+  - `schema:abstract` - Document abstract/summary (multilingual, rdf:langString)
+  - `schema:encodingFormat` - File format as MIME type (xsd:string)
+- **TBOX updates**: Added three new data properties with cardinality restrictions on `triple:Document`
+- **ABOX examples**:
+  - `document_1` with bilingual title/abstract (English & French) + PDF format
+  - `document_31` with English title/abstract + HTML format
+- **Competency questions**: Added 5 new questions (CQ_1.8 to CQ_1.12) with corresponding SPARQL queries
+- **Coverage impact**: 70.8% (17/24) → 83.3% (20/24)
+
+**Part 2 - URL Identifier Support**:
+- **New IdentifierSchemes**:
+  - `triple:landing_page_url` - Landing page with metadata and descriptive information
+  - `triple:full_text_url` - Direct access to full document content
+  - `triple:source_url` - Original publication location or source repository
+- **Design decision**: Used DataCite Identifier pattern instead of Schema.org direct properties (`schema:url`, `schema:mainEntityOfPage`, `schema:isBasedOnURL`) to maintain consistency with DOI, ISBN, ISSN, Handle identifiers
+- **ABOX examples**: Added 3 URL identifiers to `document_1`:
+  - Landing page: https://hal.archives-ouvertes.fr/hal-12345
+  - Full text: https://hal.archives-ouvertes.fr/hal-12345/document
+  - Source: https://journals.openedition.org/dh/12345
+- **Competency questions**: Added 2 new questions (CQ_1.13, CQ_1.14) with SPARQL queries for URL retrieval
+- **Coverage impact**: 83.3% (20/24) → **95.8% (23/24)**
+
+**Files Modified**:
+- `development/01/TBOX.ttl` - Added 3 data properties with restrictions
+- `development/01/ABOX.ttl` - Added 3 IdentifierSchemes + 3 URL identifiers + metadata examples
+- `development/01/motivating-scenario.md` - Updated technical specification and Example 1
+- `development/01/informal-competency-questions.md` - Added 7 new questions (CQ_1.8 to CQ_1.14)
+- `development/01/formal-competency-questions.md` - Added 7 SPARQL queries
+- `development/01/glossary-of-terms.md` - Added 6 new terms
+
+**Rationale**:
+The DataCite approach for URLs ensures architectural consistency, strong typing, and alignment with scholarly publishing standards used by major SSH repositories (HAL, Zenodo, OpenAIRE). This pattern allows distinguishing between different URL types while maintaining the same structure as academic identifiers.
+
+**Author**: Development team
+
+---
+
 ### 2025-10-23 - Iteration 06: Refactoring to Remove PRO Ontology References
 
 **Type**: Refactoring
@@ -53,7 +102,7 @@ Simplified author attribution by using direct `schema:author` links instead of c
 
 **Competency Questions**: 9 total (was 8, added 1 for name decomposition)
 
-**Author**: Alessandro Bertozzi
+**Author**: Development team
 
 ---
 
@@ -508,19 +557,10 @@ Added "Book part" document type to the Document Types controlled vocabulary.
 **Type**: Documentation
 
 **Description**:
-Enhanced project documentation with comprehensive SAMOD methodology guide and improved CLAUDE.md instructions.
+Enhanced project documentation with SAMOD methodology guide.
 
 **Details**:
 - Created `SAMOD-METHODOLOGY.md` with detailed explanation of the three-phase SAMOD cycle
-- Updated `CLAUDE.md` with:
-  - Expanded project overview including GoTriple platform description
-  - Detailed core design decisions for all 7 original iterations
-  - Enhanced iteration coverage descriptions
-  - Added SAMOD methodology reference section
-  - Documented all document types and project metadata patterns
-
-**Files Modified**:
-- `CLAUDE.md`
 
 **Files Created**:
 - `SAMOD-METHODOLOGY.md`

@@ -103,8 +103,16 @@ triple:Document rdf:type owl:Class ;
                      triple:Document ;
             <http://purl.org/dc/elements/1.1/type> :type_5 ;
             datacite:hasIdentifer :identifier_2 ,
-                                  :identifier_4 ;
-            <http://schema.org/inLanguage> :language_10 .
+                                  :identifier_4 ,
+                                  :identifier_landing_1 ,
+                                  :identifier_fulltext_1 ,
+                                  :identifier_source_1 ;
+            <http://schema.org/inLanguage> :language_10 ;
+            <http://schema.org/headline> "The Impact of Digital Humanities on SSH Research"@en ;
+            <http://schema.org/headline> "L'impact des humanités numériques sur la recherche SHS"@fr ;
+            <http://schema.org/abstract> "This paper examines the transformative role of digital humanities in Social Sciences and Humanities research."@en ;
+            <http://schema.org/abstract> "Cet article examine le rôle transformateur des humanités numériques dans la recherche en sciences humaines et sociales."@fr ;
+            <http://schema.org/encodingFormat> "application/pdf" .
 
 
 ###  triple:document_31
@@ -113,7 +121,10 @@ triple:Document rdf:type owl:Class ;
              <http://purl.org/dc/elements/1.1/type> :type_5 ;
              datacite:hasIdentifer :identifier_645 ,
                                    :identifier_78 ;
-             <http://schema.org/inLanguage> :language_10 .
+             <http://schema.org/inLanguage> :language_10 ;
+             <http://schema.org/headline> "Migration Patterns in 20th Century Europe"@en ;
+             <http://schema.org/abstract> "An analysis of migration flows across European countries during the twentieth century."@en ;
+             <http://schema.org/encodingFormat> "text/html" .
 
 
 ###  triple:document_45
@@ -169,6 +180,48 @@ triple:Document rdf:type owl:Class ;
 ###  triple:identifier_schema_2
 :identifier_schema_2 rdf:type owl:NamedIndividual ,
                               datacite:IdentifierScheme .
+
+
+###  triple:landing_page_url
+:landing_page_url rdf:type owl:NamedIndividual ,
+                           datacite:IdentifierScheme ;
+                  rdfs:label "Landing Page URL"@en ;
+                  rdfs:comment "URL of the landing page containing metadata and descriptive information about the document."@en .
+
+
+###  triple:full_text_url
+:full_text_url rdf:type owl:NamedIndividual ,
+                        datacite:IdentifierScheme ;
+               rdfs:label "Full Text URL"@en ;
+               rdfs:comment "URL providing direct access to the full content of the document."@en .
+
+
+###  triple:source_url
+:source_url rdf:type owl:NamedIndividual ,
+                     datacite:IdentifierScheme ;
+            rdfs:label "Source URL"@en ;
+            rdfs:comment "URL of the original publication location or source repository."@en .
+
+
+###  triple:identifier_landing_1
+:identifier_landing_1 rdf:type owl:NamedIndividual ,
+                               datacite:Identifier ;
+                      datacite:usesIdentiferScheme :landing_page_url ;
+                      litre:hasLiteralValue "https://hal.archives-ouvertes.fr/hal-12345" .
+
+
+###  triple:identifier_fulltext_1
+:identifier_fulltext_1 rdf:type owl:NamedIndividual ,
+                                datacite:Identifier ;
+                       datacite:usesIdentiferScheme :full_text_url ;
+                       litre:hasLiteralValue "https://hal.archives-ouvertes.fr/hal-12345/document" .
+
+
+###  triple:identifier_source_1
+:identifier_source_1 rdf:type owl:NamedIndividual ,
+                              datacite:Identifier ;
+                     datacite:usesIdentiferScheme :source_url ;
+                     litre:hasLiteralValue "https://journals.openedition.org/dh/12345" .
 
 
 ###  triple:language_10
