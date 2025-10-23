@@ -70,7 +70,7 @@
                                             owl:onProperty <http://schema.org/name> ;
                                             owl:someValuesFrom <http://schema.org/Text>
                                           ] ;
-                          rdfs:label "place" .
+                          rdfs:label "Place (Schema.org)"@en .
 
 
 ###  http://schema.org/definedTerm
@@ -79,20 +79,22 @@
                                                   owl:onProperty <http://schema.org/name> ;
                                                   owl:someValuesFrom <http://schema.org/Text>
                                                 ] ;
-                                rdfs:label "defined term" .
+                                rdfs:label "Defined Term (Schema.org)"@en .
 
 
 ###  http://schema.org/CreativeWork
-schema:CreativeWork rdf:type owl:Class .
+schema:CreativeWork rdf:type owl:Class ;
+                    rdfs:label "Creative Work (Schema.org)"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
-foaf:Document rdf:type owl:Class .
+foaf:Document rdf:type owl:Class ;
+              rdfs:label "Document (FOAF)"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Document
 :Document rdf:type owl:Class ;
-          rdfs:label "TRIPLE Document"@en ;
+          rdfs:label "Document (Triple)"@en ;
           rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
           rdfs:subClassOf schema:CreativeWork ,
                           foaf:Document ,

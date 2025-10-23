@@ -58,11 +58,13 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty .
 #################################################################
 
 ###  http://purl.org/spar/datacite/Identifier
-datacite:Identifier rdf:type owl:Class .
+datacite:Identifier rdf:type owl:Class ;
+                    rdfs:label "Identifier (DataCite)"@en .
 
 
 ###  http://purl.org/spar/datacite/IdentifierScheme
 datacite:IdentifierScheme rdf:type owl:Class ;
+                          rdfs:label "Identifier Scheme (DataCite)"@en ;
                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                             owl:onProperty datacite:usesIdentifierScheme ;
                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -71,19 +73,23 @@ datacite:IdentifierScheme rdf:type owl:Class ;
 
 
 ###  http://schema.org/Language
-<http://schema.org/Language> rdf:type owl:Class .
+<http://schema.org/Language> rdf:type owl:Class ;
+                             rdfs:label "Language (Schema.org)"@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
-<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class ;
+                                               rdfs:label "Concept (SKOS)"@en .
 
 
 ###  http://schema.org/CreativeWork
-schema:CreativeWork rdf:type owl:Class .
+schema:CreativeWork rdf:type owl:Class ;
+                    rdfs:label "Creative Work (Schema.org)"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
-foaf:Document rdf:type owl:Class .
+foaf:Document rdf:type owl:Class ;
+              rdfs:label "Document (FOAF)"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Document
@@ -114,7 +120,7 @@ triple:Document rdf:type owl:Class ;
                                   owl:onProperty <http://schema.org/encodingFormat> ;
                                   owl:someValuesFrom xsd:string
                                 ] ;
-                rdfs:label "TRIPLE Document"@en ;
+                rdfs:label "Document (Triple)"@en ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en .
 
 

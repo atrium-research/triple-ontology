@@ -76,7 +76,7 @@ schema:familyName rdf:type owl:DatatypeProperty ;
 
 ###  http://purl.org/spar/datacite/Identifier
 datacite:Identifier rdf:type owl:Class ;
-                    rdfs:label "identifier"@en ;
+                    rdfs:label "Identifier (DataCite)"@en ;
                     rdfs:subClassOf [ rdf:type owl:Restriction ;
                                       owl:onProperty datacite:usesIdentifierScheme ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -86,17 +86,17 @@ datacite:Identifier rdf:type owl:Class ;
 
 ###  http://purl.org/spar/datacite/IdentifierScheme
 datacite:IdentifierScheme rdf:type owl:Class ;
-                          rdfs:label "identifier scheme"@en .
+                          rdfs:label "Identifier Scheme (DataCite)"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class ;
-              rdfs:label "document"@en .
+              rdfs:label "Document (FOAF)"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Document
 triple:Document rdf:type owl:Class ;
-                rdfs:label "TRIPLE Document"@en ;
+                rdfs:label "Document (Triple)"@en ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
                 rdfs:subClassOf schema:CreativeWork ,
                                 foaf:Document ;
@@ -110,7 +110,7 @@ triple:Document rdf:type owl:Class ;
 
 ###  http://xmlns.com/foaf/0.1/OnlineAccount
 foaf:OnlineAccount rdf:type owl:Class ;
-                   rdfs:label "online account"@en ;
+                   rdfs:label "Online Account (FOAF)"@en ;
                    rdfs:subClassOf [ rdf:type owl:Restriction ;
                                      owl:onProperty datacite:hasIdentifier ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -120,7 +120,7 @@ foaf:OnlineAccount rdf:type owl:Class ;
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class ;
-            rdfs:label "person"@en ;
+            rdfs:label "Person (FOAF)"@en ;
             owl:equivalentClass schema:Person ;
             rdfs:subClassOf [ rdf:type owl:Restriction ;
                               owl:onProperty schema:name ;
@@ -131,7 +131,7 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://schema.org/CreativeWork
 schema:CreativeWork rdf:type owl:Class ;
-                    rdfs:label "creative work"@en .
+                    rdfs:label "Creative Work (Schema.org)"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Profile
