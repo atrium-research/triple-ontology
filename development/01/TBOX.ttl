@@ -21,12 +21,12 @@
 <http://purl.org/dc/elements/1.1/type> rdf:type owl:ObjectProperty .
 
 
-###  http://purl.org/spar/datacite/hasIdentifer
-datacite:hasIdentifer rdf:type owl:ObjectProperty .
+###  http://purl.org/spar/datacite/hasIdentifier
+datacite:hasIdentifier rdf:type owl:ObjectProperty .
 
 
-###  http://purl.org/spar/datacite/usesIdentiferScheme
-datacite:usesIdentiferScheme rdf:type owl:ObjectProperty .
+###  http://purl.org/spar/datacite/usesIdentifierScheme
+datacite:usesIdentifierScheme rdf:type owl:ObjectProperty .
 
 
 ###  http://schema.org/inLanguage
@@ -64,7 +64,7 @@ datacite:Identifier rdf:type owl:Class .
 ###  http://purl.org/spar/datacite/IdentifierScheme
 datacite:IdentifierScheme rdf:type owl:Class ;
                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                            owl:onProperty datacite:usesIdentiferScheme ;
+                                            owl:onProperty datacite:usesIdentifierScheme ;
                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                             owl:onClass datacite:IdentifierScheme
                                           ] .
@@ -95,7 +95,7 @@ triple:Document rdf:type owl:Class ;
                                   owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty datacite:hasIdentifer ;
+                                  owl:onProperty datacite:hasIdentifier ;
                                   owl:someValuesFrom datacite:Identifier
                                 ] ,
                                 [ rdf:type owl:Restriction ;

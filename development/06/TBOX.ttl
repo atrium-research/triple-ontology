@@ -118,21 +118,11 @@ foaf:OnlineAccount rdf:type owl:Class ;
                                    ] .
 
 
-###  http://xmlns.com/foaf/0.1/Organization
-foaf:Organization rdf:type owl:Class ;
-                  rdfs:label "organization"@en ;
-                  rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                    owl:onProperty schema:name ;
-                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                    owl:onDataRange xsd:string
-                                  ] .
-
-
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class ;
             rdfs:label "person"@en ;
-            rdfs:subClassOf schema:Person ,
-                            [ rdf:type owl:Restriction ;
+            owl:equivalentClass schema:Person ;
+            rdfs:subClassOf [ rdf:type owl:Restriction ;
                               owl:onProperty schema:name ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onDataRange xsd:string
@@ -142,11 +132,6 @@ foaf:Person rdf:type owl:Class ;
 ###  http://schema.org/CreativeWork
 schema:CreativeWork rdf:type owl:Class ;
                     rdfs:label "creative work"@en .
-
-
-###  http://schema.org/Person
-schema:Person rdf:type owl:Class ;
-              rdfs:label "person"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Profile
