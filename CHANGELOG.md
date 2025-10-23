@@ -15,6 +15,84 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-10-23 - Iteration 07: Projects (Research Projects in SSH Domain) - Completion
+
+**Type**: Addition
+
+**Description**:
+Completed Iteration 07 by extending and formalizing competency questions for SSH research projects, expanding TBOX/ABOX with comprehensive examples and full SPARQL test coverage.
+
+**Details**:
+- Extended motivating scenarios from basic project description to **4 comprehensive examples**:
+  - TRIPLE-SSH project funded by Horizon 2020 (EU Commission)
+  - National research project on migration studies (PRIN-funded)
+  - Collaborative heritage documentation project (multi-funder: FWF + Getty Foundation)
+  - ERC Advanced Grant on ancient philosophy
+- Expanded informal competency questions from **3 to 10 questions** covering:
+  - Project metadata retrieval (identifiers, dates, names, descriptions)
+  - Multi-funder/sponsor analysis
+  - Discipline/topic filtering and search
+  - Duration calculations and temporal queries
+  - Identifier scheme usage patterns
+  - Organization funding analysis
+  - Keyword frequency analysis
+  - Full-text search across project fields
+- Expanded formal competency questions from **3 basic to 10 comprehensive SPARQL queries**
+  - Enhanced CQ_7.1: Complete metadata properties query with optional fields
+  - Enhanced CQ_7.2: Funding grants with funder and sponsor details
+  - New CQ_7.3: Multi-funder project identification
+  - New CQ_7.4: Discipline-based project filtering (e.g., Digital Humanities)
+  - New CQ_7.5: Project duration calculations
+  - New CQ_7.6: Temporal filtering (projects active in specific period)
+  - New CQ_7.7: Identifier scheme enumeration
+  - New CQ_7.8: Organization funding patterns (multi-project funders)
+  - New CQ_7.9: Keyword frequency analysis
+  - New CQ_7.10: Full-text search in project metadata
+- Completed TBOX.ttl with **170 lines** defining:
+  - `schema:Project` class with comprehensive restrictions
+  - Properties: `schema:about`, `schema:funder`, `schema:funding`, `schema:keywords`, `schema:sponsor`
+  - Data properties: `schema:alternateName`, `schema:description`, `schema:startDate`, `schema:endDate`
+  - Support classes: `schema:Grant`, `schema:DefinedTerm`
+  - Cardinality constraints and value type restrictions
+- Completed ABOX.ttl with **259 lines** containing:
+  - 4 complete project instances with realistic metadata
+  - 5 identifier schemes (H2020, PRIN, FWF, Getty, ERC)
+  - 10 organizations (funders, sponsors, coordinating entities)
+  - 5 grants with funder/sponsor relationships
+  - 8 topics/disciplines (SKOS concepts)
+  - 15 keywords (defined terms)
+- Updated glossary with **26 terms** defining all classes and properties
+
+**Design Patterns**:
+- Used `schema:Grant` with `schema:funder` and `schema:sponsor` for funding relationships
+- Projects can have multiple grants (multi-funder support)
+- Temporal information via `xsd:date` typed literals
+- Multilingual support for names, acronyms, descriptions (`rdf:langString`)
+- Subject indexing via SKOS concepts and Schema.org DefinedTerms
+- Reused DataCite identifier pattern from Iteration 01
+
+**Files Modified**:
+- `development/07/motivating-scenario.md` - Extended from 1 to 4 examples (+106 lines)
+- `development/07/informal-competency-questions.md` - Expanded from 3 to 10 questions (+193 lines)
+- `development/07/glossary-of-terms.md` - Refined and completed 26 term definitions (+51 lines change)
+- `development/07/TBOX.ttl` - Created complete terminological box (+170 lines)
+- `development/07/ABOX.ttl` - Created complete assertional box (+259 lines)
+- `development/07/formal-competency-questions.md` - Expanded from 3 to 10 SPARQL queries (+298 lines)
+
+**Artifacts Pending**:
+- `development/07/modelet.graphml` (Graffoo diagram source)
+- `development/07/modelet.png` (Visual diagram)
+
+**Statistics**:
+- Total changes: +1077 insertions, -70 deletions
+- 6 files modified
+- 10 competency questions with full SPARQL coverage
+- 4 realistic project examples with complete metadata
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-10-23 - Refactoring: Introduction of triple:Document
 
 **Type**: Refactoring
