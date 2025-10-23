@@ -16,14 +16,12 @@ SELECT ?documents WHERE {
 
 Return all authors from `document_56` and if they are discarded or not.
 
-```
-PREFIX pro: <http://purl.org/spar/pro/>
+```sparql
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?agent ?discarded WHERE {
-	triple:document_56 pro:isDocumentContextFor ?roleintime .
-  	?roleintime pro:withRole pro:author .
-  	?roleintime pro:isHeldBy ?agent .
+	triple:document_56 schema:author ?agent .
   	?agent triple:isDiscarded ?discarded .
 }
 ```

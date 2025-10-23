@@ -31,13 +31,13 @@ Projects in GoTriple are modeled as instances of `schema:Project` to align with 
   - `schema:funder`: Links to funding organization(s)
   - `schema:sponsor`: Links to sponsoring organization(s)
 
-**Roles:**
-- Projects use the PRO (Publishing Roles Ontology) pattern with `pro:RoleInTime`
-- Key roles include:
-  - `triple:Sponsor`: Organization providing financial support
-  - `triple:Funder`: Organization funding the project
-  - `triple:CoordinatingEntity`: Organization coordinating project activities
-- Roles are held by agents (`foaf:Agent`, `foaf:Person`, or `foaf:Organization`)
+**Funding and Organizational Roles:**
+- Organizations can serve as funders or sponsors through `schema:Grant` instances
+- Key organizational types include:
+  - Funding organizations: Entities providing financial support (via `schema:funder`)
+  - Sponsoring organizations: Entities sponsoring the project (via `schema:sponsor`)
+  - Coordinating entities: Organizations managing project activities
+- Organizations are represented as `foaf:Organization` instances
 
 **Subject Coverage:**
 - `schema:about`: Links to disciplinary topics (SKOS concepts)

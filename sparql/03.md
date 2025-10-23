@@ -102,13 +102,3 @@ SELECT ?document WHERE {
 
 **Expected Result:**
 - document: document_1
-
-## Notes
-
-The refactored queries use the direct Schema.org pattern, resulting in:
-- **50-75% reduction in triple patterns** compared to the PRO RoleInTime pattern
-- **Simpler queries** that are easier to understand and maintain
-- **Better performance** on large datasets
-- **Standard Schema.org vocabulary** for improved interoperability
-
-Temporal information about when roles were active is documented in comments but not queried explicitly. For use cases requiring precise temporal role tracking, the reification pattern can be used as described in the REFACTORING-PLAN.md.

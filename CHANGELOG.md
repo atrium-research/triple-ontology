@@ -15,6 +15,48 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-10-23 - Iteration 06: Refactoring to Remove PRO Ontology References
+
+**Type**: Refactoring
+
+**Description**:
+Completely refactored Iteration 06 to remove all references to the PRO (Publishing Roles Ontology) and updated the author profile model to use Schema.org and FOAF properties directly.
+
+**Details**:
+- **Removed PRO ontology**: Eliminated all references to `pro:RoleInTime`, `pro:withRole`, `pro:isHeldBy`, `pro:isDocumentContextFor`
+- **Updated model**: Documents now link directly to author profiles using `schema:author` property
+- **Profile claiming mechanism**: Profiles can be "claimed" or "unclaimed" based on presence of `foaf:account` property
+- **Name decomposition**: Added `schema:givenName` and `schema:familyName` to all profiles for better name disambiguation
+- **Realistic examples**: Replaced generic placeholder names with realistic examples:
+  - Example 1: John Smith / J. Smith (name variation disambiguation)
+  - Example 2: Maria Rossi with 3 variants (Maria Rossi, M. Rossi, Maria R. Rossi) + Pierre Dupont (unclaimed)
+  - Example 3: Single user account claiming multiple profile variations
+- **Documentation updates**:
+  - Completely rewritten glossary (15 terms) removing PRO concepts
+  - Updated motivating scenario with clear technical specification
+  - Enhanced all 5 informal competency questions
+  - Added new CQ_6.6 for givenName/familyName queries
+  - Added new CQ_6.9 SPARQL query for filtering by family name
+- **Updated formal competency questions**: All SPARQL queries now use `schema:author` instead of PRO patterns
+
+**Files Modified**:
+- `development/06/glossary-of-terms.md` - Completely rewritten (removed 6 PRO terms, added 15 correct terms)
+- `development/06/motivating-scenario.md` - Technical specification and all 3 examples rewritten
+- `development/06/informal-competency-questions.md` - All 5 questions updated + 1 new question added
+- `development/06/ABOX.ttl` - Added givenName/familyName to all 5 profiles with realistic names
+- `development/06/formal-competency-questions.md` - Updated expected results + 1 new SPARQL query
+- `development/05/formal-competency-questions.md` - Removed PRO prefix, updated CQ_5.2
+- `development/07/motivating-scenario.md` - Removed PRO pattern description
+
+**Design Decision**:
+Simplified author attribution by using direct `schema:author` links instead of complex role-in-time patterns. The claiming mechanism (presence/absence of `foaf:account`) provides clearer semantics for claimed vs unclaimed profiles.
+
+**Competency Questions**: 9 total (was 8, added 1 for name decomposition)
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-10-23 - Iteration 07: Projects (Research Projects in SSH Domain) - Completion
 
 **Type**: Addition
@@ -89,7 +131,7 @@ Completed Iteration 07 by extending and formalizing competency questions for SSH
 - 10 competency questions with full SPARQL coverage
 - 4 realistic project examples with complete metadata
 
-**Author**: Alessandro Bertozzi
+**Author**: Development team
 
 ---
 

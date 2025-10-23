@@ -6,17 +6,19 @@
 CQ_6.1
 
 ### Question
-Return all triples that have as subject the `profile_78`.
+Return all information about `profile_1`.
 
 ### Expected Outcome
 A profile with all associated properties and values.
 
 ### Result
-* fullname: `person_fullname_6`
-* also known as: `profile_85`
-* id: `profile_id_67`
-* is claimed: True
-* account: `account_78`
+* type: `triple:Profile`
+* identifier: `agent_identifier_2345678998765`
+* account: `account_1`
+* name: "John Smith"
+* given name: "John"
+* family name: "Smith"
+* also known as: `profile_2`
 
 ### Based on
 Example 1
@@ -28,15 +30,15 @@ Example 1
 CQ_6.2
 
 ### Question
-Return all claimed author of the `document_56`.
+Return all claimed authors of `document_56`.
 
 ### Expected Outcome
-a list of authors.
+A list of author profiles that have been claimed by a user account.
 
 ### Result
-* `profile_56`
-* `profile_09`
-* `profile_123`
+* `profile_56` (claimed by account_109)
+* `profile_09` (claimed by account_109)
+* `profile_123` (claimed by account_109)
 
 ### Based on
 Example 2
@@ -48,15 +50,15 @@ Example 2
 CQ_6.3
 
 ### Question
-Return all profiles associated with `account_45`.
+Return all profiles claimed by `account_109`.
 
 ### Expected Outcome
-a list of agents.
+A list of profiles claimed by the user account.
 
 ### Result
-* `profile_34`
-* `profile_43`
-* `profile_243`
+* `profile_56`
+* `profile_09`
+* `profile_123`
 
 ### Based on
 Example 3
@@ -68,13 +70,13 @@ Example 3
 CQ_6.4
 
 ### Question
-Return for `profile_34` the original profile.
+Return the original profile for `profile_123`.
 
 ### Expected Outcome
-an Agent.
+The canonical profile identified by the disambiguation system.
 
 ### Result
-* `profile_243`
+* `profile_56`
 
 ### Based on
 Example 3
@@ -86,14 +88,35 @@ Example 3
 CQ_6.5
 
 ### Question
-Return all the fullname defined for the account `account_45`.
+Return all names (fullnames) associated with profiles claimed by `account_109`.
 
 ### Expected Outcome
-a list of string.
+A list of names from all profiles claimed by the account.
 
 ### Result
-* `person_fullname_6`
-* `person_fullname_87`
+* "Maria Rossi"
+* "M. Rossi"
+* "Maria R. Rossi"
 
 ### Based on
-Example 1
+Example 3
+
+
+## Question 6
+
+### Identifier
+CQ_6.6
+
+### Question
+Return all profiles with family name "Rossi" and their given names.
+
+### Expected Outcome
+A list of profiles sharing the same family name with their given name variations.
+
+### Result
+* `profile_56` - given name: "Maria", family name: "Rossi"
+* `profile_09` - given name: "M.", family name: "Rossi"
+* `profile_123` - given name: "Maria R.", family name: "Rossi"
+
+### Based on
+Example 2 and Example 3

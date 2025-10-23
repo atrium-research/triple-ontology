@@ -146,19 +146,31 @@ SELECT ?profile ?fullname WHERE {
 ```
 
 **Expected Result:**
-- profile: profile_56, fullname: "author_fullname_6"
-- profile: profile_09, fullname: "author_fullname_7"
-- profile: profile_123, fullname: "author_fullname_8"
+- profile: profile_56, fullname: "Maria Rossi"
+- profile: profile_09, fullname: "M. Rossi"
+- profile: profile_123, fullname: "Maria R. Rossi"
 
-## Notes
+## CQ_6.9
 
-The refactored queries benefit from the direct Schema.org authorship pattern:
-- **Simpler queries** with direct `schema:author` relationships
-- **No intermediate RoleInTime** objects to navigate
-- **Better performance** with fewer joins
-- **Standard vocabulary** using `schema:name` instead of `foaf:name`
+Return all profiles with family name "Rossi" and their given names.
 
-The profile and disambiguation system remains unchanged, providing:
-- **Claimed vs unclaimed** profiles (presence/absence of `foaf:account`)
-- **Author disambiguation** via `triple:alsoKnownAs` linking to original profiles
-- **User account management** with `foaf:OnlineAccount` and identifiers
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?profile ?givenName ?familyName ?fullName WHERE {
+  ?profile a triple:Profile ;
+           schema:familyName ?familyName ;
+           schema:givenName ?givenName ;
+           schema:name ?fullName .
+
+  FILTER(?familyName = "Rossi")
+}
+ORDER BY ?givenName
+```
+
+**Expected Result:**
+- profile: profile_09, givenName: "M.", familyName: "Rossi", fullName: "M. Rossi"
+- profile: profile_56, givenName: "Maria", familyName: "Rossi", fullName: "Maria Rossi"
+- profile: profile_123, givenName: "Maria R.", familyName: "Rossi", fullName: "Maria R. Rossi"
+
