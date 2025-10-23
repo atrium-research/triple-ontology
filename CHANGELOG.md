@@ -15,6 +15,96 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-10-23 - Refactoring: Introduction of triple:Document
+
+**Type**: Refactoring
+
+**Description**:
+Major refactoring to introduce `triple:Document` class in the TRIPLE namespace with dual inheritance pattern, replacing incorrect usage of `foaf:Document` throughout all iterations.
+
+**Details**:
+- **Main Change**: Defined `triple:Document` as subclass of both `schema:CreativeWork` and `foaf:Document`
+  - Establishes dual inheritance pattern for semantic interoperability
+  - Resolves namespace ownership issues (TRIPLE ontology now owns its Document class)
+  - Maintains compatibility with both Schema.org and FOAF vocabularies
+- **Iteration 01**: Foundational `triple:Document` definition with labels, comments, and restrictions for document types, identifiers, and languages
+- **Iteration 02**: Expanded controlled vocabularies with 4 complete examples (License, Access Conditions, Document Type, Discipline) including real external matches to COAR, Creative Commons, and Library of Congress; added 10 informal and 12 formal competency questions; corrected `skos:definition` from `owl:DatatypeProperty` to `owl:AnnotationProperty` (SKOS compliance)
+- **Iteration 03**: Updated property domains and 2 document instances
+- **Iteration 04**: Updated property domains and class definitions
+- **Iteration 05**: Simplified to focus only on Cluster and isDiscarded functionality (removed redundant definitions from previous iterations following SAMOD best practices)
+- **Iteration 06**: Added `triple:Document` with author profile restrictions, updated 5 document instances
+- **Iteration 08**: Added `triple:Document` with `dc:type` restrictions, updated 2 document instances
+- **Iteration 09**: Added `triple:Document` with `schema:conditionsOfAccess` restrictions, updated 3 document instances
+- **Iteration 10**: Added `triple:Document` with `datacite:hasIdentifier` restrictions, updated 4 document instances, fixed 2 SPARQL queries
+- **Iteration 11**: Resolved `schema:CreativeWork` conflict, updated 8 document instances, fixed 5 SPARQL queries
+
+**Design Decision**:
+Chose dual inheritance (`schema:CreativeWork` + `foaf:Document`) to maximize interoperability with both Schema.org (widely used for web semantics) and FOAF (standard for social networks and scholarly communications).
+
+**Files Modified**: 31 files across 10 iterations
+- TBOX files: 10 (iterations 01-06, 08-11)
+- ABOX files: 10 (iterations 01-06, 08-11)
+- Documentation files: 11 (motivating scenarios, glossaries, competency questions)
+
+**Statistics**:
+- Document instances updated: 22
+- SPARQL queries corrected: 7
+- Net changes: +1118 insertions, -664 deletions (+454 lines)
+
+**Author**: Development team
+
+---
+
+## [1.0.0] - 2025-10-22
+
+### Release v1.0.0 - First Stable Release of TRIPLE Ontology
+
+**Type**: Release
+
+**Description**:
+First stable release of the TRIPLE ontology, representing the complete ontology with all 7 original SAMOD iterations plus 4 extension iterations (08-11).
+
+**Details**:
+- Complete ontology package with development artifacts for 11 iterations
+- Refactored diagrams (Graffoo notation) for all iterations
+- Refactored SPARQL competency questions organized by iteration
+- HTML documentation and controlled vocabularies
+- Release includes:
+  - `development/` directory with all 11 iterations (motivating scenarios, glossaries, TBOX/ABOX, competency questions, diagrams)
+  - `diagrams/` directory with visual representations (01.png - 07.png)
+  - `sparql/` directory with refactored competency questions (01.md - 07.md)
+  - `serializations/` directory with consolidated ontology in Turtle format
+
+**Technical Changes**:
+- Updated release date to 2025-10-22
+- Changed `owl:versionIRI` to `owl:versionInfo` for stable URI management
+- Complete package structure for reproducibility and documentation
+
+**Ontology Coverage**:
+- **Core Features** (Iterations 01-07):
+  1. Document basics (types, languages, identifiers, metadata)
+  2. Controlled vocabularies (license, access conditions, document types, disciplines)
+  3. Document roles (author, contributor, publisher, provider, funder)
+  4. Subject coverage (temporal, spatial, keywords)
+  5. Duplicate handling and discarded entities
+  6. Author profiles and user accounts
+  7. Projects (SSH research projects)
+
+- **Extensions** (Iterations 08-11):
+  8. Book part document type with COAR alignment
+  9. Access conditions vocabulary with COAR alignment
+  10. Document identifier types (DOI, ISSN, ISBN, Handle)
+  11. Document mentions and references
+
+**Release Artifacts**:
+- `releases/2025-10-14/` directory with complete package
+- `releases/2025-10-14/RELEASE-NOTES.md` with detailed release information
+- 95 files packaged (TBOX, ABOX, diagrams, SPARQL queries, documentation)
+
+**Author**: Development team
+
+---
+
 ### 2025-10-06 - Documentation: JSON-LD Examples
 
 **Type**: Documentation
