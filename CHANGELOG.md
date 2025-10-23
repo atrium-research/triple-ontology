@@ -15,6 +15,66 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-10-23 - Refactoring: Minor TBOX Cleaning
+
+**Type**: Refactoring
+
+**Description**:
+Minor cleanup of TBOX files across multiple iterations to remove redundant class definitions and improve ontology structure consistency.
+
+**Details**:
+- **Iteration 01**: Simplified property definitions and removed redundant comments
+- **Iteration 03**: Removed duplicate class definitions that were inherited from external vocabularies
+- **Iteration 04**: Removed 40 lines of redundant class and property definitions already defined in previous iterations
+- **Iteration 06**: Simplified class definitions by removing redundant property restrictions
+
+**Design Decision**:
+Following SAMOD best practices, each iteration should focus only on its specific modelet without re-declaring classes and properties already established in previous iterations. This reduces duplication and improves maintainability.
+
+**Files Modified**:
+- `development/01/TBOX.ttl` - 12 lines modified (formatting improvements)
+- `development/03/TBOX.ttl` - 9 lines removed (redundant definitions)
+- `development/04/TBOX.ttl` - 40 lines removed (redundant definitions)
+- `development/06/TBOX.ttl` - 19 lines removed (redundant restrictions)
+
+**Net Changes**: -70 deletions, +10 insertions
+
+**Author**: Development team
+
+---
+
+### 2025-10-23 - Refactoring: Remove foaf:Agent Class
+
+**Type**: Refactoring
+
+**Description**:
+Removed the unused `foaf:Agent` intermediate class, directly using `foaf:Person` and `foaf:Organization` instead to simplify the class hierarchy.
+
+**Details**:
+- **Removed class**: `foaf:Agent` was serving as an unnecessary intermediate class
+- **Updated class hierarchy**:
+  - `foaf:Person` now directly subclasses `schema:Person` with `schema:name` restriction
+  - `foaf:Organization` now directly subclasses with `schema:name` restriction
+  - Both classes maintain the same cardinality constraint: exactly 1 `schema:name` (xsd:string)
+- **ABOX updates**: Simplified instance declarations in iterations 03 and 06
+- **Documentation updates**: Updated glossary files to reflect the simplified class structure
+- **Rationale**: FOAF already provides `foaf:Person` and `foaf:Organization` which are standard and well-adopted. The intermediate `foaf:Agent` class added complexity without semantic benefit.
+
+**Files Modified**:
+- `.gitignore` - Added Python cache exclusions
+- `development/03/TBOX.ttl` - Removed `foaf:Agent` class, moved restrictions to `foaf:Person` and `foaf:Organization`
+- `development/03/ABOX.ttl` - Simplified agent instances
+- `development/06/TBOX.ttl` - Removed `foaf:Agent` class, moved restrictions to `foaf:Person` and `foaf:Organization`
+- `development/06/ABOX.ttl` - Simplified agent instances
+- `development/06/glossary-of-terms.md` - Removed `foaf:Agent` term definition
+- `development/07/glossary-of-terms.md` - Updated class hierarchy documentation
+
+**Net Changes**: +32 insertions, -60 deletions
+
+**Author**: Development team
+
+---
+
 ### 2025-10-23 - Iteration 01: Addition of Core Descriptive Metadata and URL Identifiers
 
 **Type**: Addition
