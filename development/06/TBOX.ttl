@@ -18,23 +18,23 @@
 
 ###  http://purl.org/spar/datacite/hasIdentifier
 datacite:hasIdentifier rdf:type owl:ObjectProperty ;
-                       rdfs:label "has identifier"@en .
+                       rdfs:label "datacite:hasIdentifier"@en .
 
 
 ###  http://purl.org/spar/datacite/usesIdentifierScheme
 datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
-                              rdfs:label "uses identifier scheme"@en .
+                              rdfs:label "datacite:usesIdentifierScheme"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/account
 foaf:account rdf:type owl:ObjectProperty ;
-             rdfs:label "account"@en ;
+             rdfs:label "foaf:account"@en ;
              rdfs:comment "Indicates an account held by this agent"@en .
 
 
 ###  http://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
-              rdfs:label "author"@en ;
+              rdfs:label "schema:author"@en ;
               rdfs:comment "The author of this content"@en .
 
 
@@ -52,20 +52,20 @@ triple:alsoKnownAs rdf:type owl:ObjectProperty ;
 
 ###  http://schema.org/name
 schema:name rdf:type owl:DatatypeProperty ;
-            rdfs:label "name"@en ;
+            rdfs:label "schema:name"@en ;
             rdfs:range xsd:string .
 
 
 ###  http://schema.org/givenName
 schema:givenName rdf:type owl:DatatypeProperty ;
-                 rdfs:label "given name"@en ;
+                 rdfs:label "schema:givenName"@en ;
                  rdfs:comment "Given name. In the U.S., the first name of a Person"@en ;
                  rdfs:range xsd:string .
 
 
 ###  http://schema.org/familyName
 schema:familyName rdf:type owl:DatatypeProperty ;
-                  rdfs:label "family name"@en ;
+                  rdfs:label "schema:familyName"@en ;
                   rdfs:comment "Family name. In the U.S., the last name of a Person"@en ;
                   rdfs:range xsd:string .
 
@@ -76,7 +76,7 @@ schema:familyName rdf:type owl:DatatypeProperty ;
 
 ###  http://purl.org/spar/datacite/Identifier
 datacite:Identifier rdf:type owl:Class ;
-                    rdfs:label "Identifier (DataCite)"@en ;
+                    rdfs:label "datacite:Identifier"@en ;
                     rdfs:subClassOf [ rdf:type owl:Restriction ;
                                       owl:onProperty datacite:usesIdentifierScheme ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -86,12 +86,12 @@ datacite:Identifier rdf:type owl:Class ;
 
 ###  http://purl.org/spar/datacite/IdentifierScheme
 datacite:IdentifierScheme rdf:type owl:Class ;
-                          rdfs:label "Identifier Scheme (DataCite)"@en .
+                          rdfs:label "datacite:IdentifierScheme"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class ;
-              rdfs:label "Document (FOAF)"@en .
+              rdfs:label "foaf:Document"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Document
@@ -110,7 +110,7 @@ triple:Document rdf:type owl:Class ;
 
 ###  http://xmlns.com/foaf/0.1/OnlineAccount
 foaf:OnlineAccount rdf:type owl:Class ;
-                   rdfs:label "Online Account (FOAF)"@en ;
+                   rdfs:label "foaf:OnlineAccount"@en ;
                    rdfs:subClassOf [ rdf:type owl:Restriction ;
                                      owl:onProperty datacite:hasIdentifier ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -120,7 +120,7 @@ foaf:OnlineAccount rdf:type owl:Class ;
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class ;
-            rdfs:label "Person (FOAF)"@en ;
+            rdfs:label "foaf:Person"@en ;
             owl:equivalentClass schema:Person ;
             rdfs:subClassOf [ rdf:type owl:Restriction ;
                               owl:onProperty schema:name ;
@@ -131,7 +131,7 @@ foaf:Person rdf:type owl:Class ;
 
 ###  http://schema.org/CreativeWork
 schema:CreativeWork rdf:type owl:Class ;
-                    rdfs:label "Creative Work (Schema.org)"@en .
+                    rdfs:label "schema:CreativeWork"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Profile

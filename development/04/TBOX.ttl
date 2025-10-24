@@ -32,14 +32,14 @@
 
 ###  http://schema.org/keywords
 <http://schema.org/keywords> rdf:type owl:ObjectProperty ;
-                             rdfs:label "keywords" .
+                             rdfs:label "schema:keywords" .
 
 
 ###  http://schema.org/spatialCoverage
 <http://schema.org/spatialCoverage> rdf:type owl:ObjectProperty ;
                                     rdfs:domain :Document ;
                                     rdfs:range <http://schema.org/Place> ;
-                                    rdfs:label "spatial coverage" .
+                                    rdfs:label "schema:spatialCoverage" .
 
 
 #################################################################
@@ -50,14 +50,14 @@
 <http://schema.org/name> rdf:type owl:DatatypeProperty ;
                          rdfs:domain <http://schema.org/Place> ,
                                      <http://schema.org/definedTerm> ;
-                         rdfs:label "name" .
+                         rdfs:label "schema:name" .
 
 
 ###  http://schema.org/temporalCoverage
 <http://schema.org/temporalCoverage> rdf:type owl:DatatypeProperty ;
                                      rdfs:domain :Document ;
                                      rdfs:range <http://schema.org/DateTime> ;
-                                     rdfs:label "temporal coverage" .
+                                     rdfs:label "schema:temporalCoverage" .
 
 
 #################################################################
@@ -70,7 +70,7 @@
                                             owl:onProperty <http://schema.org/name> ;
                                             owl:someValuesFrom <http://schema.org/Text>
                                           ] ;
-                          rdfs:label "Place (Schema.org)"@en .
+                          rdfs:label "schema:Place"@en .
 
 
 ###  http://schema.org/definedTerm
@@ -79,17 +79,17 @@
                                                   owl:onProperty <http://schema.org/name> ;
                                                   owl:someValuesFrom <http://schema.org/Text>
                                                 ] ;
-                                rdfs:label "Defined Term (Schema.org)"@en .
+                                rdfs:label "schema:DefinedTerm"@en .
 
 
 ###  http://schema.org/CreativeWork
 schema:CreativeWork rdf:type owl:Class ;
-                    rdfs:label "Creative Work (Schema.org)"@en .
+                    rdfs:label "schema:CreativeWork"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class ;
-              rdfs:label "Document (FOAF)"@en .
+              rdfs:label "foaf:Document"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#Document
