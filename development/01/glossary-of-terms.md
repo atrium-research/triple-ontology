@@ -1,8 +1,16 @@
 # Glossary of Terms (Iteration 1)
 
-| Term         | Definition                                                                                                                                              |
-|--------------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Document`   | Document represents any type of resource available on the GoTriple platform, including articles, conference papers, research data, project descriptions |
-| `Identifier` | The identifier associated with the document.                                                                                                            |
-| `Language`   | the language with was produced the document.                                                                                                            |
-| `Type`       | The type of the document.                                                                                                                               |
+| Term                    | Definition                                                                                                                                                                                                        |
+|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `triple:Document`       | A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. Subclass of `schema:CreativeWork` and `foaf:Document`.                           |
+| `schema:CreativeWork`   | A creative work from Schema.org vocabulary, representing the most generic kind of creative work, including books, movies, photographs, software programs, etc.                                                  |
+| `foaf:Document`         | A document from FOAF (Friend of a Friend) vocabulary, representing a document or resource.                                                                                                                       |
+| `datacite:Identifier`   | An identifier associated with the document following DataCite specification.                                                                                                                                     |
+| `schema:Language`       | The language in which the document was produced, using Schema.org vocabulary.                                                                                                                                     |
+| `skos:Concept`          | A concept from SKOS vocabulary representing the type of the document.                                                                                                                                             |
+| `schema:headline`       | Data property representing the title of the document, available in multiple languages as `rdf:langString`.                                                                                                        |
+| `schema:abstract`       | Data property representing the abstract or summary of the document, available in multiple languages as `rdf:langString`.                                                                                          |
+| `schema:encodingFormat` | Data property representing the file format (MIME type) of the document, such as "application/pdf" or "text/html".                                                                                                 |
+| `triple:landing_page_url` | IdentifierScheme for landing page URLs containing metadata and descriptive information about the document.                                                                                                      |
+| `triple:full_text_url`    | IdentifierScheme for URLs providing direct access to the full content of the document.                                                                                                                          |
+| `triple:source_url`       | IdentifierScheme for URLs of the original publication location or source repository.                                                                                                                            |

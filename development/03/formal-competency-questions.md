@@ -1,61 +1,104 @@
-## Formal Competency Questions (Iteration 1)
+## Formal Competency Questions (Iteration 3)
 
-## CQ_2.1
+## CQ_3.1
 
-Return all roles connected to `document_1`.
+Return all roles (authors, contributors, publishers, providers, etc.) connected to `document_1`.
 
-```
-SELECT DISTINCT ?roles ?startDate ?endDate WHERE {
- triple:document_1 pro:isDocumentContextFor ?roles_in_time .
- ?roles_in_time pro:withRole ?roles .
-}
-```
-
-## CQ_2.1
-
-Return all roles connected to `document_1` and with the respective year.
-
-```
-PREFIX pro: <http://purl.org/spar/pro/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
+```sparql
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?roles ?startDate ?endDate WHERE {
- triple:document_1 pro:isDocumentContextFor ?roles_in_time .
- ?roles_in_time pro:withRole ?roles .
- OPTIONAL {
-   ?roles_in_time tvc:atTime ?timeInterval .
-   OPTIONAL { ?timeInterval ti:hasIntervalStartDate ?startDate . }
-   OPTIONAL { ?timeInterval ti:hasIntervalEndDate ?endDate . }
- }
+SELECT DISTINCT ?roleType ?agent WHERE {
+  triple:document_1 ?roleType ?agent .
+  FILTER(?roleType IN (
+    schema:author,
+    schema:contributor,
+    schema:publisher,
+    schema:producer,
+    schema:funder,
+    schema:provider,
+    triple:aggregator,
+    triple:primaryProducer
+  ))
 }
 ```
 
-## CQ_2.1
+**Expected Result:**
+- roleType: schema:author, agent: author_34
+- roleType: schema:provider, agent: provider_9
+- roleType: schema:provider, agent: provider_45
 
-Return all roles connected to `document_1` with the respective years and all agent associated with.
+## CQ_3.2
 
+Return all authors of `document_1` with their names.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?author ?name WHERE {
+  triple:document_1 schema:author ?author .
+  ?author schema:name ?name .
+}
 ```
-PREFIX pr: <http://purl.org/ontology/prv/core#>
+
+**Expected Result:**
+- author: author_34, name: "name_45"
+
+## CQ_3.3
+
+Return all providers of `document_1` with their names.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?provider ?name WHERE {
+  triple:document_1 schema:provider ?provider .
+  ?provider schema:name ?name .
+}
+```
+
+**Expected Result:**
+- provider: provider_9, name: "name_3"
+- provider: provider_45, name: "name_1"
+
+## CQ_3.4
+
+Return all agents (persons and organizations) associated with `document_1` in any role.
+
+```sparql
+PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX ti: <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#>
-PREFIX tr: <http://www.thomsonreuters.com/>
-PREFIX tvc: <http://www.essepuntato.it/2012/04/tvc/>
-PREFIX pro: <http://purl.org/spar/pro/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?roles ?name ?startDate ?endDate WHERE {
- triple:document_1 pro:isDocumentContextFor ?roles_in_time .
- ?roles_in_time pro:withRole ?roles .
- ?roles_in_time pro:isHeldBy ?agent.
-  ?agent foaf:name ?name .
- OPTIONAL {
-   ?roles_in_time tvc:atTime ?timeInterval .
-   OPTIONAL { ?timeInterval ti:hasIntervalStartDate ?startDate . }
-   OPTIONAL { ?timeInterval ti:hasIntervalEndDate ?endDate . }
- }
+SELECT DISTINCT ?agent ?name ?agentType WHERE {
+  triple:document_1 ?roleType ?agent .
+  ?agent a ?agentType .
+  ?agent schema:name ?name .
+  FILTER(?agentType IN (foaf:Person, foaf:Organization))
 }
 ```
+
+**Expected Result:**
+- agent: author_34, name: "name_45", agentType: foaf:Person
+- agent: provider_9, name: "name_3", agentType: foaf:Organization
+- agent: provider_45, name: "name_1", agentType: foaf:Organization
+
+## CQ_3.5
+
+Return all documents authored by a specific person (author_34).
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            schema:author triple:author_34 .
+}
+```
+
+**Expected Result:**
+- document: document_1

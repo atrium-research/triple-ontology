@@ -40,6 +40,14 @@ schema:Thing rdf:type owl:Class .
 foaf:Document rdf:type owl:Class .
 
 
+###  https://gotriple.eu/ontology/triple#Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "TRIPLE Document"@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
+
+
 ###  http://xmlns.com/foaf/0.1/Organization
 foaf:Organization rdf:type owl:Class .
 
@@ -54,33 +62,33 @@ foaf:Person rdf:type owl:Class .
 
 ###  https://gotriple.eu/ontology/triple#document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
-                           foaf:Document ;
+                           triple:Document ;
                   schema:mentions triple:document_45 ,
                                   triple:person_23 .
 
 
 ###  https://gotriple.eu/ontology/triple#document_34
 triple:document_34 rdf:type owl:NamedIndividual ,
-                            foaf:Document ;
+                            triple:Document ;
                    schema:mentions triple:organization_23 ,
                                    triple:person_78 .
 
 
 ###  https://gotriple.eu/ontology/triple#document_45
 triple:document_45 rdf:type owl:NamedIndividual ,
-                            foaf:Document .
+                            triple:Document .
 
 
 ###  https://gotriple.eu/ontology/triple#document_67
 triple:document_67 rdf:type owl:NamedIndividual ,
-                            foaf:Document ;
+                            triple:Document ;
                    schema:mentions triple:organization_5 ,
                                    triple:project_12 .
 
 
 ###  https://gotriple.eu/ontology/triple#document_89
 triple:document_89 rdf:type owl:NamedIndividual ,
-                            foaf:Document ;
+                            triple:Document ;
                    schema:mentions triple:document_100 ,
                                    triple:document_101 ,
                                    triple:document_102 .
@@ -88,17 +96,17 @@ triple:document_89 rdf:type owl:NamedIndividual ,
 
 ###  https://gotriple.eu/ontology/triple#document_100
 triple:document_100 rdf:type owl:NamedIndividual ,
-                             foaf:Document .
+                             triple:Document .
 
 
 ###  https://gotriple.eu/ontology/triple#document_101
 triple:document_101 rdf:type owl:NamedIndividual ,
-                             foaf:Document .
+                             triple:Document .
 
 
 ###  https://gotriple.eu/ontology/triple#document_102
 triple:document_102 rdf:type owl:NamedIndividual ,
-                             foaf:Document .
+                             triple:Document .
 
 
 ###  https://gotriple.eu/ontology/triple#organization_5

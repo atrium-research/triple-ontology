@@ -1,11 +1,10 @@
 @prefix : <https://gotriple.eu/ontology/triple#> .
-@prefix ti: <http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix pro: <http://purl.org/spar/pro/> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @base <https://gotriple.eu/ontology/triple> .
@@ -17,65 +16,22 @@
 #    Object Properties
 #################################################################
 
-###  http://purl.org/spar/datacite/hasIdentifier
-datacite:hasIdentifier rdf:type owl:ObjectProperty ;
-                       rdfs:label "has identifier" .
-
-
-###  http://purl.org/spar/datacite/usesIdentifierScheme
-datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
-                              rdfs:label "uses identifier scheme" .
-
-
-###  http://purl.org/spar/pro/isDocumentContextFor
-pro:isDocumentContextFor rdf:type owl:ObjectProperty ;
-                         rdfs:label "is document context for" .
-
-
-###  http://purl.org/spar/pro/isHeldBy
-pro:isHeldBy rdf:type owl:ObjectProperty ;
-             rdfs:label "is held by" .
-
-
-###  http://purl.org/spar/pro/withRole
-pro:withRole rdf:type owl:ObjectProperty ;
-             rdfs:domain pro:RoleInTime ;
-             rdfs:range pro:Role ;
-             rdfs:label "with role" .
-
-
-###  http://schema.org/keywords
-<http://schema.org/keywords> rdf:type owl:ObjectProperty ;
-                             rdfs:label "keywords" .
-
-
 ###  https://gotriple.eu/ontology/triple#inCluster
 triple:inCluster rdf:type owl:ObjectProperty ;
-                 rdfs:domain <http://xmlns.com/foaf/0.1/Document> ;
-                 rdfs:range triple:Cluster ;
-                 rdfs:label "in cluster" .
+                 rdfs:label "in cluster"@en ;
+                 rdfs:comment "Associates a document with its cluster (for deduplication purposes)."@en ;
+                 rdfs:domain :Document ;
+                 rdfs:range triple:Cluster .
 
 
 #################################################################
 #    Data properties
 #################################################################
 
-###  http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalEndDate
-ti:hasIntervalEndDate rdf:type owl:DatatypeProperty ;
-                      rdfs:label "interval has start date" .
-
-
-###  http://www.ontologydesignpatterns.org/cp/owl/timeinterval.owl#hasIntervalStartDate
-ti:hasIntervalStartDate rdf:type owl:DatatypeProperty ;
-                        rdfs:label "interval has end date" .
-
-
-###  http://xmlns.com/foaf/0.1/name
-<http://xmlns.com/foaf/0.1/name> rdf:type owl:DatatypeProperty .
-
-
 ###  https://gotriple.eu/ontology/triple#isDiscarded
 triple:isDiscarded rdf:type owl:DatatypeProperty ;
+                   rdfs:label "is discarded"@en ;
+                   rdfs:comment "A boolean flag indicating whether an entity (author or keyword) has been marked as discarded and should not be used for search/filtering."@en ;
                    rdfs:range xsd:boolean .
 
 
@@ -85,79 +41,53 @@ triple:isDiscarded rdf:type owl:DatatypeProperty ;
 
 ###  http://purl.org/spar/datacite/Identifier
 datacite:Identifier rdf:type owl:Class ;
-                    rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                      owl:onProperty datacite:usesIdentifierScheme ;
-                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                      owl:onClass datacite:IdentifierSchema
-                                    ] .
+                    rdfs:label "datacite:Identifier"@en .
 
 
-###  http://purl.org/spar/datacite/IdentifierSchema
-datacite:IdentifierSchema rdf:type owl:Class ;
-                          rdfs:label "identifier schema" .
-
-
-###  http://purl.org/spar/pro/Role
-pro:Role rdf:type owl:Class ;
-         rdfs:label "role" .
-
-
-###  http://purl.org/spar/pro/RoleInTime
-pro:RoleInTime rdf:type owl:Class ;
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty pro:withRole ;
-                                 owl:someValuesFrom pro:Role
-                               ] ,
-                               [ rdf:type owl:Restriction ;
-                                 owl:onProperty pro:isHeldBy ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass <http://xmlns.com/foaf/0.1/Agent>
-                               ] ;
-               rdfs:label "role in time" .
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class ;
+                    rdfs:label "schema:CreativeWork"@en .
 
 
 ###  http://schema.org/definedTerm
-<http://schema.org/definedTerm> rdf:type owl:Class ;
-                                rdfs:label "defined term" .
-
-
-###  http://xmlns.com/foaf/0.1/Agent
-<http://xmlns.com/foaf/0.1/Agent> rdf:type owl:Class ;
-                                  rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                    owl:onProperty <http://xmlns.com/foaf/0.1/name> ;
-                                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                    owl:onDataRange xsd:string
-                                                  ] ;
-                                  rdfs:label "agent" .
+schema:DefinedTerm rdf:type owl:Class ;
+                   rdfs:label "schema:DefinedTerm"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
-<http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
-                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                       owl:onProperty pro:isDocumentContextFor ;
-                                                       owl:someValuesFrom pro:RoleInTime
-                                                     ] ,
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty datacite:hasIdentifier ;
-                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                       owl:onClass datacite:Identifier
-                                                     ] ,
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty triple:inCluster ;
-                                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                                       owl:onClass triple:Cluster
-                                                     ] ;
-                                     rdfs:label "documents" .
+foaf:Document rdf:type owl:Class ;
+              rdfs:label "foaf:Document"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:label "foaf:Person"@en .
+
+
+###  https://gotriple.eu/ontology/triple#Document
+:Document rdf:type owl:Class ;
+          rdfs:label "Document (Triple)"@en ;
+          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+          rdfs:subClassOf schema:CreativeWork ,
+                          foaf:Document ;
+
+          # Document belongs to exactly one cluster
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:inCluster ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass triple:Cluster
+                          ] .
 
 
 ###  https://gotriple.eu/ontology/triple#Cluster
 triple:Cluster rdf:type owl:Class ;
+               rdfs:label "Cluster"@en ;
+               rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty datacite:hasIdentifier ;
                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onClass datacite:Identifier
-                               ] ;
-               rdfs:label "cluster" .
+                               ] .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

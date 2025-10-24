@@ -25,29 +25,42 @@ schema:mentions rdf:type owl:ObjectProperty .
 #################################################################
 
 ###  http://schema.org/CreativeWork
-schema:CreativeWork rdf:type owl:Class .
+schema:CreativeWork rdf:type owl:Class ;
+                    rdfs:label "schema:CreativeWork"@en .
 
 
 ###  http://schema.org/Project
-schema:Project rdf:type owl:Class .
+schema:Project rdf:type owl:Class ;
+               rdfs:label "schema:Project"@en .
 
 
 ###  http://schema.org/Thing
-schema:Thing rdf:type owl:Class .
+schema:Thing rdf:type owl:Class ;
+             rdfs:label "schema:Thing"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class ;
-              rdfs:subClassOf schema:CreativeWork .
+              rdfs:label "foaf:Document"@en .
+
+
+###  https://gotriple.eu/ontology/triple#Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "Document (Triple)"@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
 
 
 ###  http://xmlns.com/foaf/0.1/Organization
 foaf:Organization rdf:type owl:Class ;
+                  rdfs:label "foaf:Organization"@en ;
                   rdfs:subClassOf schema:Thing .
 
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class ;
+            rdfs:label "foaf:Person"@en ;
             rdfs:subClassOf schema:Thing .
 
 

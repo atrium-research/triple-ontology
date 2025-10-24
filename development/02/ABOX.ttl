@@ -1,12 +1,13 @@
 @prefix : <https://gotriple.eu/ontology/triple#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix litre: <http://purl.org/spar/literal/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @base <https://gotriple.eu/ontology/triple#> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -17,122 +18,193 @@
 #################################################################
 
 ###  http://purl.org/dc/elements/1.1/subject
-<http://purl.org/dc/elements/1.1/subject> rdf:type owl:ObjectProperty .
-
+dc:subject rdf:type owl:ObjectProperty .
 
 ###  http://purl.org/dc/elements/1.1/type
-<http://purl.org/dc/elements/1.1/type> rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/spar/datacite/hasIdentifer
-datacite:hasIdentifer rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/spar/datacite/usesIdentiferScheme
-datacite:usesIdentiferScheme rdf:type owl:ObjectProperty .
-
+dc:type rdf:type owl:ObjectProperty .
 
 ###  http://schema.org/conditionsOfAccess
-<http://schema.org/conditionsOfAccess> rdf:type owl:ObjectProperty .
-
+schema:conditionsOfAccess rdf:type owl:ObjectProperty .
 
 ###  http://schema.org/license
-<http://schema.org/license> rdf:type owl:ObjectProperty .
-
+schema:license rdf:type owl:ObjectProperty .
 
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
-<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:ObjectProperty .
-
+skos:closeMatch rdf:type owl:ObjectProperty .
 
 ###  http://www.w3.org/2004/02/skos/core#exactMatch
-<http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:ObjectProperty .
-
+skos:exactMatch rdf:type owl:ObjectProperty .
 
 ###  http://www.w3.org/2004/02/skos/core#inScheme
-<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:ObjectProperty .
+skos:inScheme rdf:type owl:ObjectProperty .
 
 
 #################################################################
-#    Data properties
+#    Annotation Properties
 #################################################################
 
-###  http://purl.org/spar/literal/hasLiteralValue
-litre:hasLiteralValue rdf:type owl:DatatypeProperty .
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://purl.org/spar/datacite/Identifier
-datacite:Identifier rdf:type owl:Class .
-
-
-###  http://purl.org/spar/datacite/IdentifierScheme
-datacite:IdentifierScheme rdf:type owl:Class ;
-                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                            owl:onProperty datacite:usesIdentiferScheme ;
-                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                            owl:onClass datacite:IdentifierScheme
-                                          ] .
-
-
-###  http://www.w3.org/2004/02/skos/core#Concept
-<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
-
-
-###  http://www.w3.org/2004/02/skos/core#ConceptScheme
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdf:type owl:Class .
-
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class .
 
 ###  http://xmlns.com/foaf/0.1/Document
-<http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
-                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://purl.org/dc/elements/1.1/type> ;
-                                                       owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
-                                                     ] ,
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty datacite:hasIdentifer ;
-                                                       owl:someValuesFrom datacite:Identifier
-                                                     ] .
+foaf:Document rdf:type owl:Class .
+
+###  https://gotriple.eu/ontology/triple#Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "TRIPLE Document"@en ;
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class .
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#close_external_term_4
-triple:close_external_term_4 rdf:type owl:NamedIndividual ,
-                                      <http://www.w3.org/2004/02/skos/core#Concept> .
+###  ===========================================================
+###  Example 1: Document with License (CC-BY-4.0)
+###  ===========================================================
 
+###  https://gotriple.eu/ontology/triple#license_vocabulary
+triple:license_vocabulary rdf:type owl:NamedIndividual ,
+                                   skos:ConceptScheme ;
+                          rdfs:label "License Vocabulary"@en ;
+                          rdfs:comment "Controlled vocabulary of licenses used in GoTriple"@en .
 
-###  https://gotriple.eu/ontology/triple#close_external_term_6
-triple:close_external_term_6 rdf:type owl:NamedIndividual ,
-                                      <http://www.w3.org/2004/02/skos/core#Concept> .
-
+###  https://gotriple.eu/ontology/triple#cc_by_4_0
+triple:cc_by_4_0 rdf:type owl:NamedIndividual ,
+                          skos:Concept ;
+                 skos:inScheme triple:license_vocabulary ;
+                 skos:exactMatch <https://creativecommons.org/licenses/by/4.0/> ;
+                 rdfs:label "CC-BY-4.0"@en ;
+                 skos:definition "Creative Commons Attribution 4.0 International License"@en .
 
 ###  https://gotriple.eu/ontology/triple#document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
-                           <http://xmlns.com/foaf/0.1/Document> ;
-                  <http://purl.org/dc/elements/1.1/subject> triple:term_45 .
+                           triple:Document ;
+                  schema:license triple:cc_by_4_0 ;
+                  rdfs:label "Example Document with CC-BY-4.0 License"@en ;
+                  rdfs:comment "An open access article published under Creative Commons Attribution 4.0"@en .
 
 
-###  https://gotriple.eu/ontology/triple#schema_2
-triple:schema_2 rdf:type owl:NamedIndividual ,
-                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+###  ===========================================================
+###  Example 2: Document with Access Conditions (Open Access)
+###  ===========================================================
+
+###  https://gotriple.eu/ontology/triple#access_conditions_vocabulary
+triple:access_conditions_vocabulary rdf:type owl:NamedIndividual ,
+                                             skos:ConceptScheme ;
+                                    rdfs:label "Access Conditions Vocabulary"@en ;
+                                    rdfs:comment "Controlled vocabulary of access conditions used in GoTriple"@en .
+
+###  https://gotriple.eu/ontology/triple#open_access
+triple:open_access rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:inScheme triple:access_conditions_vocabulary ;
+                   skos:closeMatch <http://purl.org/coar/access_right/c_abf2> ;
+                   rdfs:label "Open Access"@en ;
+                   skos:definition "The document is freely available to anyone without restrictions"@en .
+
+###  External COAR concept (for demonstration of closeMatch)
+<http://purl.org/coar/access_right/c_abf2> rdf:type owl:NamedIndividual ,
+                                                     skos:Concept ;
+                                           rdfs:label "coar:open-access"@en .
+
+###  https://gotriple.eu/ontology/triple#document_2
+triple:document_2 rdf:type owl:NamedIndividual ,
+                           triple:Document ;
+                  schema:conditionsOfAccess triple:open_access ;
+                  rdfs:label "Example Document with Open Access"@en ;
+                  rdfs:comment "A research paper that is freely available to anyone"@en .
 
 
-###  https://gotriple.eu/ontology/triple#schema_45
-triple:schema_45 rdf:type owl:NamedIndividual ,
-                          <http://www.w3.org/2004/02/skos/core#ConceptScheme> .
+###  ===========================================================
+###  Example 3: Document with Type (Article)
+###  ===========================================================
+
+###  https://gotriple.eu/ontology/triple#document_type_vocabulary
+triple:document_type_vocabulary rdf:type owl:NamedIndividual ,
+                                         skos:ConceptScheme ;
+                                rdfs:label "Document Type Vocabulary"@en ;
+                                rdfs:comment "Controlled vocabulary of document types used in GoTriple"@en .
+
+###  https://gotriple.eu/ontology/triple#article
+triple:article rdf:type owl:NamedIndividual ,
+                        skos:Concept ;
+               skos:inScheme triple:document_type_vocabulary ;
+               skos:exactMatch <http://purl.org/coar/resource_type/c_6501> ;
+               rdfs:label "Article"@en ;
+               skos:definition "A scholarly article published in a journal or similar publication"@en .
+
+###  External COAR concept (for demonstration of exactMatch)
+<http://purl.org/coar/resource_type/c_6501> rdf:type owl:NamedIndividual ,
+                                                      skos:Concept ;
+                                            rdfs:label "coar:article"@en .
+
+###  https://gotriple.eu/ontology/triple#document_3
+triple:document_3 rdf:type owl:NamedIndividual ,
+                           triple:Document ;
+                  dc:type triple:article ;
+                  rdfs:label "Example Scholarly Article"@en ;
+                  rdfs:comment "A scholarly article demonstrating document type classification"@en .
 
 
-###  https://gotriple.eu/ontology/triple#term_45
-triple:term_45 rdf:type owl:NamedIndividual ,
-                        <http://www.w3.org/2004/02/skos/core#Concept> ;
-               <http://www.w3.org/2004/02/skos/core#closeMatch> triple:close_external_term_4 ,
-                                                                triple:close_external_term_6 ;
-               <http://www.w3.org/2004/02/skos/core#inScheme> triple:term_45 .
+###  ===========================================================
+###  Example 4: Document with Multiple Disciplines
+###  ===========================================================
+
+###  https://gotriple.eu/ontology/triple#discipline_vocabulary
+triple:discipline_vocabulary rdf:type owl:NamedIndividual ,
+                                      skos:ConceptScheme ;
+                             rdfs:label "Discipline Vocabulary"@en ;
+                             rdfs:comment "Controlled vocabulary of academic disciplines used in GoTriple"@en .
+
+###  https://gotriple.eu/ontology/triple#digital_humanities
+triple:digital_humanities rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          skos:inScheme triple:discipline_vocabulary ;
+                          skos:closeMatch <http://id.loc.gov/authorities/subjects/sh2008102419> ;
+                          rdfs:label "Digital Humanities"@en ;
+                          skos:definition "The interdisciplinary field combining computing and humanities disciplines"@en .
+
+###  External Library of Congress concept (for demonstration)
+<http://id.loc.gov/authorities/subjects/sh2008102419> rdf:type owl:NamedIndividual ,
+                                                                skos:Concept ;
+                                                      rdfs:label "lcsh:digital-humanities"@en .
+
+###  https://gotriple.eu/ontology/triple#linguistics
+triple:linguistics rdf:type owl:NamedIndividual ,
+                            skos:Concept ;
+                   skos:inScheme triple:discipline_vocabulary ;
+                   skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85077222> ;
+                   rdfs:label "Linguistics"@en ;
+                   skos:definition "The scientific study of language and its structure"@en .
+
+###  External Library of Congress concept (for demonstration)
+<http://id.loc.gov/authorities/subjects/sh85077222> rdf:type owl:NamedIndividual ,
+                                                              skos:Concept ;
+                                                    rdfs:label "lcsh:linguistics"@en .
+
+###  https://gotriple.eu/ontology/triple#document_4
+triple:document_4 rdf:type owl:NamedIndividual ,
+                           triple:Document ;
+                  dc:subject triple:digital_humanities ,
+                             triple:linguistics ;
+                  rdfs:label "Example Interdisciplinary Study"@en ;
+                  rdfs:comment "An interdisciplinary study covering both Digital Humanities and Linguistics"@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

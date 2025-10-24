@@ -13,7 +13,384 @@ Each entry follows this structure:
 
 ---
 
+## [2.0.0] - 2025-10-24
+
+### 2025-10-24 - Version 2.0.0 Release: Complete Ontology Serialization and Enhanced Metadata
+
+**Type**: Major Release
+
+**Description**:
+Major release introducing complete ontology serialization (version 2.0.0) with comprehensive metadata, proper authorship attribution, and enhanced documentation following semantic web best practices.
+
+**Key Changes**:
+
+1. **Complete Ontology Serialization**:
+   - Created final merged ontology from 11 SAMOD iterations (development/01 through development/11)
+   - Generated multiple serialization formats: TTL, OWL/XML, JSON-LD, N-Triples
+   - Added comprehensive HTML documentation with interactive features
+
+2. **Enhanced Metadata**:
+   - Added proper authorship: Alessandro Bertozzi (creator), Luca De Santis & Silvio Peroni (contributors)
+   - Included comprehensive Dublin Core metadata (title, description, license, rights, subjects, etc.)
+   - Added VANN vocabulary annotations (preferred namespace prefix and URI)
+   - Included DCAT keywords for better discoverability
+   - Added bibliographic citations in both Dublin Core and Schema.org formats
+
+3. **Version Management**:
+   - Updated to version 2.0.0 across all metadata fields
+   - Added `owl:priorVersion` reference to version 1.0.0
+   - Consistent version numbering in `owl:versionInfo`, `owl:versionIRI`, and `schema:version`
+
+4. **External Ontology Label Standardization**:
+   - Implemented consistent `prefix:LocalName` format for all external ontology references
+   - Updated CLAUDE.md with comprehensive guidelines for ontology metadata and serialization
+   - Documented naming conventions for future development
+
+5. **Technical Improvements**:
+   - All annotation properties properly declared
+   - Complete prefix declarations including vann: and dcat: vocabularies
+   - Enhanced ontology structure with proper OWL2 compliance
+
+**Files Added**:
+- `ontology/2025-10-24/serializations/triple.ttl` (834 lines)
+- `ontology/2025-10-24/serializations/triple.owl` (1360 lines)
+- `ontology/2025-10-24/serializations/triple.jsonld` (1614 lines)
+- `ontology/2025-10-24/serializations/triple.nt` (838 lines)
+- `ontology/2025-10-24/html/index-en.html` (1384 lines)
+- Complete HTML documentation with resources (CSS, JS, icons)
+
+**Files Modified**:
+- `CLAUDE.md` - Updated with comprehensive ontology metadata guidelines
+- Removed legacy `ontology/triple-ontology.ttl` (639 lines)
+
+**Net Changes**: +7150 insertions, -639 deletions
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: 3ce0f35 - "add new complete serialization and documentation"
+
+---
+
 ## [Unreleased]
+
+### 2025-10-23 - Refactoring: Minor TBOX Cleaning
+
+**Type**: Refactoring
+
+**Description**:
+Minor cleanup of TBOX files across multiple iterations to remove redundant class definitions and improve ontology structure consistency.
+
+**Details**:
+- **Iteration 01**: Simplified property definitions and removed redundant comments
+- **Iteration 03**: Removed duplicate class definitions that were inherited from external vocabularies
+- **Iteration 04**: Removed 40 lines of redundant class and property definitions already defined in previous iterations
+- **Iteration 06**: Simplified class definitions by removing redundant property restrictions
+
+**Design Decision**:
+Following SAMOD best practices, each iteration should focus only on its specific modelet without re-declaring classes and properties already established in previous iterations. This reduces duplication and improves maintainability.
+
+**Files Modified**:
+- `development/01/TBOX.ttl` - 12 lines modified (formatting improvements)
+- `development/03/TBOX.ttl` - 9 lines removed (redundant definitions)
+- `development/04/TBOX.ttl` - 40 lines removed (redundant definitions)
+- `development/06/TBOX.ttl` - 19 lines removed (redundant restrictions)
+
+**Net Changes**: -70 deletions, +10 insertions
+
+**Author**: Development team
+
+---
+
+### 2025-10-23 - Refactoring: Remove foaf:Agent Class
+
+**Type**: Refactoring
+
+**Description**:
+Removed the unused `foaf:Agent` intermediate class, directly using `foaf:Person` and `foaf:Organization` instead to simplify the class hierarchy.
+
+**Details**:
+- **Removed class**: `foaf:Agent` was serving as an unnecessary intermediate class
+- **Updated class hierarchy**:
+  - `foaf:Person` now directly subclasses `schema:Person` with `schema:name` restriction
+  - `foaf:Organization` now directly subclasses with `schema:name` restriction
+  - Both classes maintain the same cardinality constraint: exactly 1 `schema:name` (xsd:string)
+- **ABOX updates**: Simplified instance declarations in iterations 03 and 06
+- **Documentation updates**: Updated glossary files to reflect the simplified class structure
+- **Rationale**: FOAF already provides `foaf:Person` and `foaf:Organization` which are standard and well-adopted. The intermediate `foaf:Agent` class added complexity without semantic benefit.
+
+**Files Modified**:
+- `.gitignore` - Added Python cache exclusions
+- `development/03/TBOX.ttl` - Removed `foaf:Agent` class, moved restrictions to `foaf:Person` and `foaf:Organization`
+- `development/03/ABOX.ttl` - Simplified agent instances
+- `development/06/TBOX.ttl` - Removed `foaf:Agent` class, moved restrictions to `foaf:Person` and `foaf:Organization`
+- `development/06/ABOX.ttl` - Simplified agent instances
+- `development/06/glossary-of-terms.md` - Removed `foaf:Agent` term definition
+- `development/07/glossary-of-terms.md` - Updated class hierarchy documentation
+
+**Net Changes**: +32 insertions, -60 deletions
+
+**Author**: Development team
+
+---
+
+### 2025-10-23 - Iteration 01: Addition of Core Descriptive Metadata and URL Identifiers
+
+**Type**: Addition
+
+**Description**:
+Enhanced Iteration 01 with essential descriptive metadata properties (title, abstract, format) and comprehensive URL identifier support using DataCite pattern for consistency.
+
+**Details**:
+
+**Part 1 - Core Descriptive Metadata**:
+- **New properties added**:
+  - `schema:headline` - Document title (multilingual, rdf:langString)
+  - `schema:abstract` - Document abstract/summary (multilingual, rdf:langString)
+  - `schema:encodingFormat` - File format as MIME type (xsd:string)
+- **TBOX updates**: Added three new data properties with cardinality restrictions on `triple:Document`
+- **ABOX examples**:
+  - `document_1` with bilingual title/abstract (English & French) + PDF format
+  - `document_31` with English title/abstract + HTML format
+- **Competency questions**: Added 5 new questions (CQ_1.8 to CQ_1.12) with corresponding SPARQL queries
+- **Coverage impact**: 70.8% (17/24) → 83.3% (20/24)
+
+**Part 2 - URL Identifier Support**:
+- **New IdentifierSchemes**:
+  - `triple:landing_page_url` - Landing page with metadata and descriptive information
+  - `triple:full_text_url` - Direct access to full document content
+  - `triple:source_url` - Original publication location or source repository
+- **Design decision**: Used DataCite Identifier pattern instead of Schema.org direct properties (`schema:url`, `schema:mainEntityOfPage`, `schema:isBasedOnURL`) to maintain consistency with DOI, ISBN, ISSN, Handle identifiers
+- **ABOX examples**: Added 3 URL identifiers to `document_1`:
+  - Landing page: https://hal.archives-ouvertes.fr/hal-12345
+  - Full text: https://hal.archives-ouvertes.fr/hal-12345/document
+  - Source: https://journals.openedition.org/dh/12345
+- **Competency questions**: Added 2 new questions (CQ_1.13, CQ_1.14) with SPARQL queries for URL retrieval
+- **Coverage impact**: 83.3% (20/24) → **95.8% (23/24)**
+
+**Files Modified**:
+- `development/01/TBOX.ttl` - Added 3 data properties with restrictions
+- `development/01/ABOX.ttl` - Added 3 IdentifierSchemes + 3 URL identifiers + metadata examples
+- `development/01/motivating-scenario.md` - Updated technical specification and Example 1
+- `development/01/informal-competency-questions.md` - Added 7 new questions (CQ_1.8 to CQ_1.14)
+- `development/01/formal-competency-questions.md` - Added 7 SPARQL queries
+- `development/01/glossary-of-terms.md` - Added 6 new terms
+
+**Rationale**:
+The DataCite approach for URLs ensures architectural consistency, strong typing, and alignment with scholarly publishing standards used by major SSH repositories (HAL, Zenodo, OpenAIRE). This pattern allows distinguishing between different URL types while maintaining the same structure as academic identifiers.
+
+**Author**: Development team
+
+---
+
+### 2025-10-23 - Iteration 06: Refactoring to Remove PRO Ontology References
+
+**Type**: Refactoring
+
+**Description**:
+Completely refactored Iteration 06 to remove all references to the PRO (Publishing Roles Ontology) and updated the author profile model to use Schema.org and FOAF properties directly.
+
+**Details**:
+- **Removed PRO ontology**: Eliminated all references to `pro:RoleInTime`, `pro:withRole`, `pro:isHeldBy`, `pro:isDocumentContextFor`
+- **Updated model**: Documents now link directly to author profiles using `schema:author` property
+- **Profile claiming mechanism**: Profiles can be "claimed" or "unclaimed" based on presence of `foaf:account` property
+- **Name decomposition**: Added `schema:givenName` and `schema:familyName` to all profiles for better name disambiguation
+- **Realistic examples**: Replaced generic placeholder names with realistic examples:
+  - Example 1: John Smith / J. Smith (name variation disambiguation)
+  - Example 2: Maria Rossi with 3 variants (Maria Rossi, M. Rossi, Maria R. Rossi) + Pierre Dupont (unclaimed)
+  - Example 3: Single user account claiming multiple profile variations
+- **Documentation updates**:
+  - Completely rewritten glossary (15 terms) removing PRO concepts
+  - Updated motivating scenario with clear technical specification
+  - Enhanced all 5 informal competency questions
+  - Added new CQ_6.6 for givenName/familyName queries
+  - Added new CQ_6.9 SPARQL query for filtering by family name
+- **Updated formal competency questions**: All SPARQL queries now use `schema:author` instead of PRO patterns
+
+**Files Modified**:
+- `development/06/glossary-of-terms.md` - Completely rewritten (removed 6 PRO terms, added 15 correct terms)
+- `development/06/motivating-scenario.md` - Technical specification and all 3 examples rewritten
+- `development/06/informal-competency-questions.md` - All 5 questions updated + 1 new question added
+- `development/06/ABOX.ttl` - Added givenName/familyName to all 5 profiles with realistic names
+- `development/06/formal-competency-questions.md` - Updated expected results + 1 new SPARQL query
+- `development/05/formal-competency-questions.md` - Removed PRO prefix, updated CQ_5.2
+- `development/07/motivating-scenario.md` - Removed PRO pattern description
+
+**Design Decision**:
+Simplified author attribution by using direct `schema:author` links instead of complex role-in-time patterns. The claiming mechanism (presence/absence of `foaf:account`) provides clearer semantics for claimed vs unclaimed profiles.
+
+**Competency Questions**: 9 total (was 8, added 1 for name decomposition)
+
+**Author**: Development team
+
+---
+
+### 2025-10-23 - Iteration 07: Projects (Research Projects in SSH Domain) - Completion
+
+**Type**: Addition
+
+**Description**:
+Completed Iteration 07 by extending and formalizing competency questions for SSH research projects, expanding TBOX/ABOX with comprehensive examples and full SPARQL test coverage.
+
+**Details**:
+- Extended motivating scenarios from basic project description to **4 comprehensive examples**:
+  - TRIPLE-SSH project funded by Horizon 2020 (EU Commission)
+  - National research project on migration studies (PRIN-funded)
+  - Collaborative heritage documentation project (multi-funder: FWF + Getty Foundation)
+  - ERC Advanced Grant on ancient philosophy
+- Expanded informal competency questions from **3 to 10 questions** covering:
+  - Project metadata retrieval (identifiers, dates, names, descriptions)
+  - Multi-funder/sponsor analysis
+  - Discipline/topic filtering and search
+  - Duration calculations and temporal queries
+  - Identifier scheme usage patterns
+  - Organization funding analysis
+  - Keyword frequency analysis
+  - Full-text search across project fields
+- Expanded formal competency questions from **3 basic to 10 comprehensive SPARQL queries**
+  - Enhanced CQ_7.1: Complete metadata properties query with optional fields
+  - Enhanced CQ_7.2: Funding grants with funder and sponsor details
+  - New CQ_7.3: Multi-funder project identification
+  - New CQ_7.4: Discipline-based project filtering (e.g., Digital Humanities)
+  - New CQ_7.5: Project duration calculations
+  - New CQ_7.6: Temporal filtering (projects active in specific period)
+  - New CQ_7.7: Identifier scheme enumeration
+  - New CQ_7.8: Organization funding patterns (multi-project funders)
+  - New CQ_7.9: Keyword frequency analysis
+  - New CQ_7.10: Full-text search in project metadata
+- Completed TBOX.ttl with **170 lines** defining:
+  - `schema:Project` class with comprehensive restrictions
+  - Properties: `schema:about`, `schema:funder`, `schema:funding`, `schema:keywords`, `schema:sponsor`
+  - Data properties: `schema:alternateName`, `schema:description`, `schema:startDate`, `schema:endDate`
+  - Support classes: `schema:Grant`, `schema:DefinedTerm`
+  - Cardinality constraints and value type restrictions
+- Completed ABOX.ttl with **259 lines** containing:
+  - 4 complete project instances with realistic metadata
+  - 5 identifier schemes (H2020, PRIN, FWF, Getty, ERC)
+  - 10 organizations (funders, sponsors, coordinating entities)
+  - 5 grants with funder/sponsor relationships
+  - 8 topics/disciplines (SKOS concepts)
+  - 15 keywords (defined terms)
+- Updated glossary with **26 terms** defining all classes and properties
+
+**Design Patterns**:
+- Used `schema:Grant` with `schema:funder` and `schema:sponsor` for funding relationships
+- Projects can have multiple grants (multi-funder support)
+- Temporal information via `xsd:date` typed literals
+- Multilingual support for names, acronyms, descriptions (`rdf:langString`)
+- Subject indexing via SKOS concepts and Schema.org DefinedTerms
+- Reused DataCite identifier pattern from Iteration 01
+
+**Files Modified**:
+- `development/07/motivating-scenario.md` - Extended from 1 to 4 examples (+106 lines)
+- `development/07/informal-competency-questions.md` - Expanded from 3 to 10 questions (+193 lines)
+- `development/07/glossary-of-terms.md` - Refined and completed 26 term definitions (+51 lines change)
+- `development/07/TBOX.ttl` - Created complete terminological box (+170 lines)
+- `development/07/ABOX.ttl` - Created complete assertional box (+259 lines)
+- `development/07/formal-competency-questions.md` - Expanded from 3 to 10 SPARQL queries (+298 lines)
+
+**Artifacts Pending**:
+- `development/07/modelet.graphml` (Graffoo diagram source)
+- `development/07/modelet.png` (Visual diagram)
+
+**Statistics**:
+- Total changes: +1077 insertions, -70 deletions
+- 6 files modified
+- 10 competency questions with full SPARQL coverage
+- 4 realistic project examples with complete metadata
+
+**Author**: Development team
+
+---
+
+### 2025-10-23 - Refactoring: Introduction of triple:Document
+
+**Type**: Refactoring
+
+**Description**:
+Major refactoring to introduce `triple:Document` class in the TRIPLE namespace with dual inheritance pattern, replacing incorrect usage of `foaf:Document` throughout all iterations.
+
+**Details**:
+- **Main Change**: Defined `triple:Document` as subclass of both `schema:CreativeWork` and `foaf:Document`
+  - Establishes dual inheritance pattern for semantic interoperability
+  - Resolves namespace ownership issues (TRIPLE ontology now owns its Document class)
+  - Maintains compatibility with both Schema.org and FOAF vocabularies
+- **Iteration 01**: Foundational `triple:Document` definition with labels, comments, and restrictions for document types, identifiers, and languages
+- **Iteration 02**: Expanded controlled vocabularies with 4 complete examples (License, Access Conditions, Document Type, Discipline) including real external matches to COAR, Creative Commons, and Library of Congress; added 10 informal and 12 formal competency questions; corrected `skos:definition` from `owl:DatatypeProperty` to `owl:AnnotationProperty` (SKOS compliance)
+- **Iteration 03**: Updated property domains and 2 document instances
+- **Iteration 04**: Updated property domains and class definitions
+- **Iteration 05**: Simplified to focus only on Cluster and isDiscarded functionality (removed redundant definitions from previous iterations following SAMOD best practices)
+- **Iteration 06**: Added `triple:Document` with author profile restrictions, updated 5 document instances
+- **Iteration 08**: Added `triple:Document` with `dc:type` restrictions, updated 2 document instances
+- **Iteration 09**: Added `triple:Document` with `schema:conditionsOfAccess` restrictions, updated 3 document instances
+- **Iteration 10**: Added `triple:Document` with `datacite:hasIdentifier` restrictions, updated 4 document instances, fixed 2 SPARQL queries
+- **Iteration 11**: Resolved `schema:CreativeWork` conflict, updated 8 document instances, fixed 5 SPARQL queries
+
+**Design Decision**:
+Chose dual inheritance (`schema:CreativeWork` + `foaf:Document`) to maximize interoperability with both Schema.org (widely used for web semantics) and FOAF (standard for social networks and scholarly communications).
+
+**Files Modified**: 31 files across 10 iterations
+- TBOX files: 10 (iterations 01-06, 08-11)
+- ABOX files: 10 (iterations 01-06, 08-11)
+- Documentation files: 11 (motivating scenarios, glossaries, competency questions)
+
+**Statistics**:
+- Document instances updated: 22
+- SPARQL queries corrected: 7
+- Net changes: +1118 insertions, -664 deletions (+454 lines)
+
+**Author**: Development team
+
+---
+
+## [1.0.0] - 2025-10-22
+
+### Release v1.0.0 - First Stable Release of TRIPLE Ontology
+
+**Type**: Release
+
+**Description**:
+First stable release of the TRIPLE ontology, representing the complete ontology with all 7 original SAMOD iterations plus 4 extension iterations (08-11).
+
+**Details**:
+- Complete ontology package with development artifacts for 11 iterations
+- Refactored diagrams (Graffoo notation) for all iterations
+- Refactored SPARQL competency questions organized by iteration
+- HTML documentation and controlled vocabularies
+- Release includes:
+  - `development/` directory with all 11 iterations (motivating scenarios, glossaries, TBOX/ABOX, competency questions, diagrams)
+  - `diagrams/` directory with visual representations (01.png - 07.png)
+  - `sparql/` directory with refactored competency questions (01.md - 07.md)
+  - `serializations/` directory with consolidated ontology in Turtle format
+
+**Technical Changes**:
+- Updated release date to 2025-10-22
+- Changed `owl:versionIRI` to `owl:versionInfo` for stable URI management
+- Complete package structure for reproducibility and documentation
+
+**Ontology Coverage**:
+- **Core Features** (Iterations 01-07):
+  1. Document basics (types, languages, identifiers, metadata)
+  2. Controlled vocabularies (license, access conditions, document types, disciplines)
+  3. Document roles (author, contributor, publisher, provider, funder)
+  4. Subject coverage (temporal, spatial, keywords)
+  5. Duplicate handling and discarded entities
+  6. Author profiles and user accounts
+  7. Projects (SSH research projects)
+
+- **Extensions** (Iterations 08-11):
+  8. Book part document type with COAR alignment
+  9. Access conditions vocabulary with COAR alignment
+  10. Document identifier types (DOI, ISSN, ISBN, Handle)
+  11. Document mentions and references
+
+**Release Artifacts**:
+- `releases/2025-10-14/` directory with complete package
+- `releases/2025-10-14/RELEASE-NOTES.md` with detailed release information
+- 95 files packaged (TBOX, ABOX, diagrams, SPARQL queries, documentation)
+
+**Author**: Development team
+
+---
 
 ### 2025-10-06 - Documentation: JSON-LD Examples
 
@@ -298,19 +675,10 @@ Added "Book part" document type to the Document Types controlled vocabulary.
 **Type**: Documentation
 
 **Description**:
-Enhanced project documentation with comprehensive SAMOD methodology guide and improved CLAUDE.md instructions.
+Enhanced project documentation with SAMOD methodology guide.
 
 **Details**:
 - Created `SAMOD-METHODOLOGY.md` with detailed explanation of the three-phase SAMOD cycle
-- Updated `CLAUDE.md` with:
-  - Expanded project overview including GoTriple platform description
-  - Detailed core design decisions for all 7 original iterations
-  - Enhanced iteration coverage descriptions
-  - Added SAMOD methodology reference section
-  - Documented all document types and project metadata patterns
-
-**Files Modified**:
-- `CLAUDE.md`
 
 **Files Created**:
 - `SAMOD-METHODOLOGY.md`

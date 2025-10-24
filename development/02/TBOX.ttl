@@ -1,12 +1,13 @@
 @prefix : <https://gotriple.eu/ontology/triple#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix litre: <http://purl.org/spar/literal/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @base <https://gotriple.eu/ontology/triple#> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -17,84 +18,89 @@
 #################################################################
 
 ###  http://purl.org/dc/elements/1.1/subject
-<http://purl.org/dc/elements/1.1/subject> rdf:type owl:ObjectProperty .
+dc:subject rdf:type owl:ObjectProperty ;
+           rdfs:label "dc:subject"@en ;
+           rdfs:comment "The subject or topic of the document, using a term from a controlled vocabulary."@en .
 
 
 ###  http://purl.org/dc/elements/1.1/type
-<http://purl.org/dc/elements/1.1/type> rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/spar/datacite/hasIdentifer
-datacite:hasIdentifer rdf:type owl:ObjectProperty .
-
-
-###  http://purl.org/spar/datacite/usesIdentiferScheme
-datacite:usesIdentiferScheme rdf:type owl:ObjectProperty .
+dc:type rdf:type owl:ObjectProperty ;
+        rdfs:label "dc:type"@en ;
+        rdfs:comment "The type of the document (e.g., Article, Dataset, Book)."@en .
 
 
 ###  http://schema.org/conditionsOfAccess
-<http://schema.org/conditionsOfAccess> rdf:type owl:ObjectProperty .
+schema:conditionsOfAccess rdf:type owl:ObjectProperty ;
+                          rdfs:label "schema:conditionsOfAccess"@en ;
+                          rdfs:comment "The conditions under which the document can be accessed (e.g., Open Access, Restricted)."@en .
 
 
 ###  http://schema.org/license
-<http://schema.org/license> rdf:type owl:ObjectProperty .
+schema:license rdf:type owl:ObjectProperty ;
+               rdfs:label "schema:license"@en ;
+               rdfs:comment "The license under which the document is published (e.g., CC-BY, CC0)."@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
-<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:ObjectProperty .
+skos:closeMatch rdf:type owl:ObjectProperty ;
+                rdfs:label "skos:closeMatch"@en ;
+                rdfs:comment "A SKOS property indicating that two concepts are sufficiently similar to be used interchangeably in some contexts."@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#exactMatch
-<http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:ObjectProperty .
+skos:exactMatch rdf:type owl:ObjectProperty ;
+                rdfs:label "skos:exactMatch"@en ;
+                rdfs:comment "A SKOS property indicating that two concepts can be used interchangeably across all contexts."@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#inScheme
-<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:ObjectProperty .
+skos:inScheme rdf:type owl:ObjectProperty ;
+              rdfs:label "skos:inScheme"@en ;
+              rdfs:comment "A SKOS property linking a concept to the concept scheme it belongs to."@en .
 
 
 #################################################################
-#    Data properties
+#    Annotation Properties
 #################################################################
 
-###  http://purl.org/spar/literal/hasLiteralValue
-litre:hasLiteralValue rdf:type owl:DatatypeProperty .
+###  http://www.w3.org/2004/02/skos/core#definition
+skos:definition rdf:type owl:AnnotationProperty ;
+                rdfs:label "skos:definition"@en ;
+                rdfs:comment "A SKOS annotation property providing a complete explanation of the intended meaning of a concept."@en .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://purl.org/spar/datacite/Identifier
-datacite:Identifier rdf:type owl:Class .
-
-
-###  http://purl.org/spar/datacite/IdentifierScheme
-datacite:IdentifierScheme rdf:type owl:Class ;
-                          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                            owl:onProperty datacite:usesIdentiferScheme ;
-                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                            owl:onClass datacite:IdentifierScheme
-                                          ] .
-
-
-###  http://www.w3.org/2004/02/skos/core#Concept
-<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class .
-
-
-###  http://www.w3.org/2004/02/skos/core#ConceptScheme
-<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdf:type owl:Class .
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class ;
+                    rdfs:label "schema:CreativeWork"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
-<http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
-                                     rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://purl.org/dc/elements/1.1/type> ;
-                                                       owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
-                                                     ] ,
-                                                     [ rdf:type owl:Restriction ;
-                                                       owl:onProperty datacite:hasIdentifer ;
-                                                       owl:someValuesFrom datacite:Identifier
-                                                     ] .
+foaf:Document rdf:type owl:Class ;
+              rdfs:label "foaf:Document"@en .
+
+
+###  https://gotriple.eu/ontology/triple#Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "Document (Triple)"@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:label "skos:Concept"@en ;
+             rdfs:comment "A SKOS concept representing a term in a controlled vocabulary."@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+skos:ConceptScheme rdf:type owl:Class ;
+                   rdfs:label "skos:ConceptScheme"@en ;
+                   rdfs:comment "A SKOS concept scheme representing a controlled vocabulary (e.g., licenses, document types, disciplines)."@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

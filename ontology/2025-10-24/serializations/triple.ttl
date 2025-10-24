@@ -1,0 +1,834 @@
+@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://gotriple.eu/ontology/triple#> .
+
+<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
+                                       owl:versionIRI <https://gotriple.eu/ontology/triple/2.0.0> ;
+                                       <http://purl.org/dc/terms/bibliographicCitation> "Bertozzi, A., De Santis, L., & Peroni, S. (2025). TRIPLE Ontology - GoTriple Platform Data Model (Version 2.0.0). GoTriple. https://gotriple.eu/ontology/triple" ;
+                                       <http://purl.org/dc/terms/contributor> "Luca De Santis" ,
+                                                                              "Silvio Peroni" ;
+                                       <http://purl.org/dc/terms/created> "2025-10-06" ;
+                                       <http://purl.org/dc/terms/creator> "Alessandro Bertozzi" ;
+                                       <http://purl.org/dc/terms/description> "This ontology provides a formal model for representing scholarly resources in the Social Sciences and Humanities domain within the GoTriple discovery platform. It includes classes and properties for documents, authors, projects, identifiers, and their relationships."@en ;
+                                       <http://purl.org/dc/terms/format> "application/rdf+xml" ,
+                                                                         "text/turtle" ;
+                                       <http://purl.org/dc/terms/language> "en" ;
+                                       <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                                       <http://purl.org/dc/terms/modified> "2025-10-24" ;
+                                       <http://purl.org/dc/terms/publisher> "GoTriple" ;
+                                       <http://purl.org/dc/terms/rights> "This work is licensed under Creative Commons Attribution 4.0 International License" ;
+                                       <http://purl.org/dc/terms/source> <https://github.com/GoTriple/triple-ontology> ;
+                                       <http://purl.org/dc/terms/subject> "Research Data" ,
+                                                                          "Scholarly Communication" ,
+                                                                          "Semantic Web" ,
+                                                                          "Social Sciences and Humanities" ;
+                                       <http://purl.org/dc/terms/title> "TRIPLE Ontology - GoTriple Platform Data Model"@en ;
+                                       <http://purl.org/vocab/vann/preferredNamespacePrefix> "triple" ;
+                                       <http://purl.org/vocab/vann/preferredNamespaceUri> "https://gotriple.eu/ontology/triple#" ;
+                                       <http://schema.org/citation> "Bertozzi, A., De Santis, L., & Peroni, S. (2025). TRIPLE Ontology - GoTriple Platform Data Model (Version 2.0.0). GoTriple. https://gotriple.eu/ontology/triple" ;
+                                       <http://schema.org/url> <https://gotriple.eu/ontology/triple> ;
+                                       <http://schema.org/version> "2.0.0" ;
+                                       rdfs:comment "Comprehensive semantic representation of the GoTriple discovery platform's data model for Social Sciences and Humanities (SSH) research artifacts."@en ;
+                                       rdfs:label "TRIPLE Ontology"@en ;
+                                       rdfs:seeAlso <https://gotriple.eu/> ,
+                                                    <https://www.samod.org/> ;
+                                       owl:priorVersion <https://gotriple.eu/ontology/triple/1.0.0> ;
+                                       owl:versionInfo "2.0.0" ;
+                                       <http://www.w3.org/ns/dcat#keyword> "humanities" ,
+                                                                           "ontology" ,
+                                                                           "research data" ,
+                                                                           "semantic web" ,
+                                                                           "social sciences" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/terms/bibliographicCitation
+<http://purl.org/dc/terms/bibliographicCitation> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/contributor
+<http://purl.org/dc/terms/contributor> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/created
+<http://purl.org/dc/terms/created> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/creator
+<http://purl.org/dc/terms/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/format
+<http://purl.org/dc/terms/format> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/language
+<http://purl.org/dc/terms/language> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/modified
+<http://purl.org/dc/terms/modified> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/publisher
+<http://purl.org/dc/terms/publisher> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/rights
+<http://purl.org/dc/terms/rights> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/source
+<http://purl.org/dc/terms/source> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/subject
+<http://purl.org/dc/terms/subject> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/citation
+<http://schema.org/citation> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/url
+<http://schema.org/url> rdf:type owl:AnnotationProperty .
+
+
+###  http://schema.org/version
+<http://schema.org/version> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2002/07/owl#maxCardinality
+owl:maxCardinality rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty ;
+                                                 rdfs:comment "A SKOS annotation property providing a complete explanation of the intended meaning of a concept."@en ;
+                                                 rdfs:label "skos:definition"@en .
+
+
+###  http://www.w3.org/ns/dcat#keyword
+<http://www.w3.org/ns/dcat#keyword> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://schema.org/DateTime
+<http://schema.org/DateTime> rdf:type rdfs:Datatype .
+
+
+###  http://schema.org/Text
+<http://schema.org/Text> rdf:type rdfs:Datatype .
+
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/subject
+<http://purl.org/dc/elements/1.1/subject> rdf:type owl:ObjectProperty ;
+                                          rdfs:comment "The subject or topic of the document, using a term from a controlled vocabulary."@en ;
+                                          rdfs:label "dc:subject"@en .
+
+
+###  http://purl.org/dc/elements/1.1/type
+<http://purl.org/dc/elements/1.1/type> rdf:type owl:ObjectProperty ;
+                                       rdfs:comment "The type of the document (e.g., Article, Dataset, Book)."@en ;
+                                       rdfs:label "dc:type"@en .
+
+
+###  http://purl.org/spar/datacite/hasIdentifier
+<http://purl.org/spar/datacite/hasIdentifier> rdf:type owl:ObjectProperty ;
+                                              rdfs:label "datacite:hasIdentifier"@en .
+
+
+###  http://purl.org/spar/datacite/usesIdentifierScheme
+<http://purl.org/spar/datacite/usesIdentifierScheme> rdf:type owl:ObjectProperty ;
+                                                     rdfs:label "datacite:usesIdentifierScheme"@en .
+
+
+###  http://schema.org/about
+<http://schema.org/about> rdf:type owl:ObjectProperty ;
+                          rdfs:comment "The subject matter of the content"@en ;
+                          rdfs:label "schema:about"@en .
+
+
+###  http://schema.org/author
+<http://schema.org/author> rdf:type owl:ObjectProperty ;
+                           rdfs:subPropertyOf <http://schema.org/creator> ;
+                           rdfs:domain :Document ;
+                           rdfs:range [ rdf:type owl:Class ;
+                                        owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                      <http://xmlns.com/foaf/0.1/Person>
+                                                    )
+                                      ] ;
+                           rdfs:comment "The author of this content"@en ;
+                           rdfs:label "schema:author"@en .
+
+
+###  http://schema.org/conditionsOfAccess
+<http://schema.org/conditionsOfAccess> rdf:type owl:ObjectProperty ;
+                                       rdfs:comment "The conditions under which the document can be accessed (e.g., Open Access, Restricted)."@en ;
+                                       rdfs:label "schema:conditionsOfAccess"@en .
+
+
+###  http://schema.org/contributor
+<http://schema.org/contributor> rdf:type owl:ObjectProperty ;
+                                rdfs:domain :Document ;
+                                rdfs:range [ rdf:type owl:Class ;
+                                             owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                           <http://xmlns.com/foaf/0.1/Person>
+                                                         )
+                                           ] ;
+                                rdfs:comment "A secondary contributor to the CreativeWork"@en ;
+                                rdfs:label "schema:contributor"@en .
+
+
+###  http://schema.org/creator
+<http://schema.org/creator> rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/funder
+<http://schema.org/funder> rdf:type owl:ObjectProperty ;
+                           rdfs:domain :Document ;
+                           rdfs:range [ rdf:type owl:Class ;
+                                        owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                      <http://xmlns.com/foaf/0.1/Person>
+                                                    )
+                                      ] ;
+                           rdfs:comment "A person or organization that supports something through some kind of financial contribution"@en ;
+                           rdfs:label "schema:funder"@en .
+
+
+###  http://schema.org/funding
+<http://schema.org/funding> rdf:type owl:ObjectProperty ;
+                            rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en ;
+                            rdfs:label "schema:funding"@en .
+
+
+###  http://schema.org/inLanguage
+<http://schema.org/inLanguage> rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/keywords
+<http://schema.org/keywords> rdf:type owl:ObjectProperty ;
+                             rdfs:comment "Keywords or tags used to describe this content"@en ;
+                             rdfs:label "schema:keywords"@en .
+
+
+###  http://schema.org/license
+<http://schema.org/license> rdf:type owl:ObjectProperty ;
+                            rdfs:comment "The license under which the document is published (e.g., CC-BY, CC0)."@en ;
+                            rdfs:label "schema:license"@en .
+
+
+###  http://schema.org/mentions
+<http://schema.org/mentions> rdf:type owl:ObjectProperty .
+
+
+###  http://schema.org/producer
+<http://schema.org/producer> rdf:type owl:ObjectProperty ;
+                             rdfs:domain :Document ;
+                             rdfs:range [ rdf:type owl:Class ;
+                                          owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                        <http://xmlns.com/foaf/0.1/Person>
+                                                      )
+                                        ] ;
+                             rdfs:comment "The person or organization who produced the work"@en ;
+                             rdfs:label "schema:producer"@en .
+
+
+###  http://schema.org/provider
+<http://schema.org/provider> rdf:type owl:ObjectProperty ;
+                             rdfs:domain :Document ;
+                             rdfs:range [ rdf:type owl:Class ;
+                                          owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                        <http://xmlns.com/foaf/0.1/Person>
+                                                      )
+                                        ] ;
+                             rdfs:comment "The service provider, organization, or individual that provides the data"@en ;
+                             rdfs:label "schema:provider"@en .
+
+
+###  http://schema.org/publisher
+<http://schema.org/publisher> rdf:type owl:ObjectProperty ;
+                              rdfs:domain :Document ;
+                              rdfs:range [ rdf:type owl:Class ;
+                                           owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                         <http://xmlns.com/foaf/0.1/Person>
+                                                       )
+                                         ] ;
+                              rdfs:comment "The publisher of the creative work"@en ;
+                              rdfs:label "schema:publisher"@en .
+
+
+###  http://schema.org/spatialCoverage
+<http://schema.org/spatialCoverage> rdf:type owl:ObjectProperty ;
+                                    rdfs:domain :Document ;
+                                    rdfs:range <http://schema.org/Place> ;
+                                    rdfs:label "schema:spatialCoverage" .
+
+
+###  http://schema.org/sponsor
+<http://schema.org/sponsor> rdf:type owl:ObjectProperty ;
+                            rdfs:comment "A person or organization that supports a thing through a pledge, promise, or financial contribution"@en ;
+                            rdfs:label "schema:sponsor"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+<http://www.w3.org/2004/02/skos/core#closeMatch> rdf:type owl:ObjectProperty ;
+                                                 rdfs:comment "A SKOS property indicating that two concepts are sufficiently similar to be used interchangeably in some contexts."@en ;
+                                                 rdfs:label "skos:closeMatch"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+<http://www.w3.org/2004/02/skos/core#exactMatch> rdf:type owl:ObjectProperty ;
+                                                 rdfs:comment "A SKOS property indicating that two concepts can be used interchangeably across all contexts."@en ;
+                                                 rdfs:label "skos:exactMatch"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#inScheme
+<http://www.w3.org/2004/02/skos/core#inScheme> rdf:type owl:ObjectProperty ;
+                                               rdfs:comment "A SKOS property linking a concept to the concept scheme it belongs to."@en ;
+                                               rdfs:label "skos:inScheme"@en .
+
+
+###  http://xmlns.com/foaf/0.1/account
+<http://xmlns.com/foaf/0.1/account> rdf:type owl:ObjectProperty ;
+                                    rdfs:comment "Indicates an account held by this agent"@en ;
+                                    rdfs:label "foaf:account"@en .
+
+
+###  https://gotriple.eu/ontology/triple#aggregator
+:aggregator rdf:type owl:ObjectProperty ;
+            rdfs:subPropertyOf <http://schema.org/contributor> ;
+            rdfs:domain :Document ;
+            rdfs:range [ rdf:type owl:Class ;
+                         owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                       <http://xmlns.com/foaf/0.1/Person>
+                                     )
+                       ] ;
+            rdfs:comment "An aggregator that collates documents from different sources"@en ;
+            rdfs:label "aggregator"@en .
+
+
+###  https://gotriple.eu/ontology/triple#alsoKnownAs
+:alsoKnownAs rdf:type owl:ObjectProperty ;
+             rdfs:domain :Profile ;
+             rdfs:range :Profile ;
+             rdfs:comment "Links an ambiguous profile to the original profile"@en ;
+             rdfs:label "also known as"@en .
+
+
+###  https://gotriple.eu/ontology/triple#inCluster
+:inCluster rdf:type owl:ObjectProperty ;
+           rdfs:domain :Document ;
+           rdfs:range :Cluster ;
+           rdfs:comment "Associates a document with its cluster (for deduplication purposes)."@en ;
+           rdfs:label "in cluster"@en .
+
+
+###  https://gotriple.eu/ontology/triple#primaryProducer
+:primaryProducer rdf:type owl:ObjectProperty ;
+                 rdfs:subPropertyOf <http://schema.org/producer> ;
+                 rdfs:domain :Document ;
+                 rdfs:range [ rdf:type owl:Class ;
+                              owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                            <http://xmlns.com/foaf/0.1/Person>
+                                          )
+                            ] ;
+                 rdfs:comment "The original source or creator of the document"@en ;
+                 rdfs:label "primary producer"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/spar/literal/hasLiteralValue
+<http://purl.org/spar/literal/hasLiteralValue> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/abstract
+<http://schema.org/abstract> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/alternateName
+<http://schema.org/alternateName> rdf:type owl:DatatypeProperty ;
+                                  rdfs:range rdf:langString ;
+                                  rdfs:comment "An alias for the item"@en ;
+                                  rdfs:label "schema:alternateName"@en .
+
+
+###  http://schema.org/datePublished
+<http://schema.org/datePublished> rdf:type owl:DatatypeProperty ;
+                                  rdfs:domain :Document ;
+                                  rdfs:range xsd:date ;
+                                  rdfs:comment "Date of first publication or broadcast"@en ;
+                                  rdfs:label "schema:datePublished"@en .
+
+
+###  http://schema.org/description
+<http://schema.org/description> rdf:type owl:DatatypeProperty ;
+                                rdfs:range rdf:langString ;
+                                rdfs:comment "A description of the item"@en ;
+                                rdfs:label "schema:description"@en .
+
+
+###  http://schema.org/encodingFormat
+<http://schema.org/encodingFormat> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/endDate
+<http://schema.org/endDate> rdf:type owl:DatatypeProperty ;
+                            rdfs:range xsd:date ;
+                            rdfs:comment "The end date and time of the item"@en ;
+                            rdfs:label "schema:endDate"@en .
+
+
+###  http://schema.org/familyName
+<http://schema.org/familyName> rdf:type owl:DatatypeProperty ;
+                               rdfs:range xsd:string ;
+                               rdfs:comment "Family name. In the U.S., the last name of a Person"@en ;
+                               rdfs:label "schema:familyName"@en .
+
+
+###  http://schema.org/givenName
+<http://schema.org/givenName> rdf:type owl:DatatypeProperty ;
+                              rdfs:range xsd:string ;
+                              rdfs:comment "Given name. In the U.S., the first name of a Person"@en ;
+                              rdfs:label "schema:givenName"@en .
+
+
+###  http://schema.org/headline
+<http://schema.org/headline> rdf:type owl:DatatypeProperty .
+
+
+###  http://schema.org/name
+<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+                         rdfs:domain [ rdf:type owl:Class ;
+                                       owl:unionOf ( <http://schema.org/DefinedTerm>
+                                                     <http://schema.org/Place>
+                                                     <http://xmlns.com/foaf/0.1/Organization>
+                                                     <http://xmlns.com/foaf/0.1/Person>
+                                                   )
+                                     ] ;
+                         rdfs:range xsd:string ;
+                         rdfs:label "schema:name"@en .
+
+
+###  http://schema.org/startDate
+<http://schema.org/startDate> rdf:type owl:DatatypeProperty ;
+                              rdfs:range xsd:date ;
+                              rdfs:comment "The start date and time of the item"@en ;
+                              rdfs:label "schema:startDate"@en .
+
+
+###  http://schema.org/temporalCoverage
+<http://schema.org/temporalCoverage> rdf:type owl:DatatypeProperty ;
+                                     rdfs:domain :Document ;
+                                     rdfs:range <http://schema.org/DateTime> ;
+                                     rdfs:label "schema:temporalCoverage" .
+
+
+###  https://gotriple.eu/ontology/triple#isDiscarded
+:isDiscarded rdf:type owl:DatatypeProperty ;
+             rdfs:range xsd:boolean ;
+             rdfs:comment "A boolean flag indicating whether an entity (author or keyword) has been marked as discarded and should not be used for search/filtering."@en ;
+             rdfs:label "is discarded"@en .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/spar/datacite/Identifier
+<http://purl.org/spar/datacite/Identifier> rdf:type owl:Class ;
+                                           rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://purl.org/spar/datacite/usesIdentifierScheme> ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onClass <http://purl.org/spar/datacite/IdentifierScheme>
+                                                           ] ,
+                                                           [ rdf:type owl:Restriction ;
+                                                             owl:onProperty <http://purl.org/spar/literal/hasLiteralValue> ;
+                                                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                             owl:onDataRange xsd:string
+                                                           ] ;
+                                           rdfs:label "datacite:Identifier"@en .
+
+
+###  http://purl.org/spar/datacite/IdentifierScheme
+<http://purl.org/spar/datacite/IdentifierScheme> rdf:type owl:Class ;
+                                                 rdfs:label "datacite:IdentifierScheme"@en .
+
+
+###  http://schema.org/CreativeWork
+<http://schema.org/CreativeWork> rdf:type owl:Class ;
+                                 rdfs:label "schema:CreativeWork"@en .
+
+
+###  http://schema.org/DefinedTerm
+<http://schema.org/DefinedTerm> rdf:type owl:Class ;
+                                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                  owl:onProperty <http://schema.org/name> ;
+                                                  owl:someValuesFrom <http://schema.org/Text>
+                                                ] ;
+                                rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition"@en ;
+                                rdfs:label "schema:DefinedTerm"@en .
+
+
+###  http://schema.org/Grant
+<http://schema.org/Grant> rdf:type owl:Class ;
+                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://schema.org/funder> ;
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                                            )
+                                                              ]
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://schema.org/sponsor> ;
+                                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                                            )
+                                                              ]
+                                          ] ;
+                          rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en ;
+                          rdfs:label "schema:Grant"@en .
+
+
+###  http://schema.org/Language
+<http://schema.org/Language> rdf:type owl:Class ;
+                             rdfs:label "schema:Language"@en .
+
+
+###  http://schema.org/Person
+<http://schema.org/Person> rdf:type owl:Class ;
+                           owl:equivalentClass <http://xmlns.com/foaf/0.1/Person> .
+
+
+###  http://schema.org/Place
+<http://schema.org/Place> rdf:type owl:Class ;
+                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                            owl:onProperty <http://schema.org/name> ;
+                                            owl:someValuesFrom <http://schema.org/Text>
+                                          ] ;
+                          rdfs:label "schema:Place"@en .
+
+
+###  http://schema.org/Project
+<http://schema.org/Project> rdf:type owl:Class ;
+                            rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://purl.org/spar/datacite/hasIdentifier> ;
+                                              owl:allValuesFrom <http://purl.org/spar/datacite/Identifier>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/about> ;
+                                              owl:allValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/funding> ;
+                                              owl:allValuesFrom <http://schema.org/Grant>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/keywords> ;
+                                              owl:allValuesFrom <http://schema.org/DefinedTerm>
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/alternateName> ;
+                                              owl:allValuesFrom rdf:langString
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/description> ;
+                                              owl:allValuesFrom rdf:langString
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/name> ;
+                                              owl:minCardinality "1"^^xsd:nonNegativeInteger
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/endDate> ;
+                                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                            ] ,
+                                            [ rdf:type owl:Restriction ;
+                                              owl:onProperty <http://schema.org/startDate> ;
+                                              owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                                            ] ;
+                            rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform"@en ;
+                            rdfs:label "schema:Project"@en .
+
+
+###  http://schema.org/Thing
+<http://schema.org/Thing> rdf:type owl:Class ;
+                          rdfs:label "schema:Thing"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+<http://www.w3.org/2004/02/skos/core#Concept> rdf:type owl:Class ;
+                                              rdfs:comment "A SKOS concept representing a term in a controlled vocabulary."@en ;
+                                              rdfs:label "skos:Concept"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#ConceptScheme
+<http://www.w3.org/2004/02/skos/core#ConceptScheme> rdf:type owl:Class ;
+                                                    rdfs:comment "A SKOS concept scheme representing a controlled vocabulary (e.g., licenses, document types, disciplines)."@en ;
+                                                    rdfs:label "skos:ConceptScheme"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Document
+<http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
+                                     rdfs:label "foaf:Document"@en .
+
+
+###  http://xmlns.com/foaf/0.1/OnlineAccount
+<http://xmlns.com/foaf/0.1/OnlineAccount> rdf:type owl:Class ;
+                                          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                                            owl:onProperty <http://purl.org/spar/datacite/hasIdentifier> ;
+                                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                            owl:onClass <http://purl.org/spar/datacite/Identifier>
+                                                          ] ;
+                                          rdfs:label "foaf:OnlineAccount"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+<http://xmlns.com/foaf/0.1/Organization> rdf:type owl:Class ;
+                                         rdfs:subClassOf <http://schema.org/Thing> ,
+                                                         [ rdf:type owl:Restriction ;
+                                                           owl:onProperty <http://schema.org/name> ;
+                                                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                           owl:onDataRange xsd:string
+                                                         ] ;
+                                         rdfs:label "foaf:Organization"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+<http://xmlns.com/foaf/0.1/Person> rdf:type owl:Class ;
+                                   rdfs:subClassOf <http://schema.org/Thing> ,
+                                                   [ rdf:type owl:Restriction ;
+                                                     owl:onProperty <http://schema.org/name> ;
+                                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                                     owl:onDataRange xsd:string
+                                                   ] ;
+                                   rdfs:label "foaf:Person"@en ,
+                                              "schema:Person"@en .
+
+
+###  https://gotriple.eu/ontology/triple#Cluster
+:Cluster rdf:type owl:Class ;
+         rdfs:subClassOf [ rdf:type owl:Restriction ;
+                           owl:onProperty <http://purl.org/spar/datacite/hasIdentifier> ;
+                           owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <http://purl.org/spar/datacite/Identifier>
+                         ] ;
+         rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en ;
+         rdfs:label "Cluster"@en .
+
+
+###  https://gotriple.eu/ontology/triple#Document
+:Document rdf:type owl:Class ;
+          rdfs:subClassOf <http://schema.org/CreativeWork> ,
+                          <http://xmlns.com/foaf/0.1/Document> ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://purl.org/dc/elements/1.1/type> ;
+                            owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://purl.org/spar/datacite/hasIdentifier> ;
+                            owl:someValuesFrom <http://purl.org/spar/datacite/Identifier>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/conditionsOfAccess> ;
+                            owl:someValuesFrom <http://www.w3.org/2004/02/skos/core#Concept>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/inLanguage> ;
+                            owl:someValuesFrom <http://schema.org/Language>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/keywords> ;
+                            owl:someValuesFrom <http://schema.org/DefinedTerm>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/spatialCoverage> ;
+                            owl:someValuesFrom <http://schema.org/Place>
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/author> ;
+                            owl:allValuesFrom :Profile
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/contributor> ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/funder> ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/producer> ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/provider> ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/publisher> ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :aggregator ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :primaryProducer ;
+                            owl:allValuesFrom [ rdf:type owl:Class ;
+                                                owl:unionOf ( <http://xmlns.com/foaf/0.1/Organization>
+                                                              <http://xmlns.com/foaf/0.1/Person>
+                                                            )
+                                              ]
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty :inCluster ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onClass :Cluster
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/abstract> ;
+                            owl:someValuesFrom rdf:langString
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/encodingFormat> ;
+                            owl:someValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/headline> ;
+                            owl:someValuesFrom rdf:langString
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty <http://schema.org/temporalCoverage> ;
+                            owl:someValuesFrom <http://schema.org/DateTime>
+                          ] ;
+          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+          rdfs:label "Document"@en .
+
+
+###  https://gotriple.eu/ontology/triple#Profile
+:Profile rdf:type owl:Class ;
+         rdfs:subClassOf <http://xmlns.com/foaf/0.1/Person> ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty <http://xmlns.com/foaf/0.1/account> ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass <http://xmlns.com/foaf/0.1/OnlineAccount>
+                         ] ,
+                         [ rdf:type owl:Restriction ;
+                           owl:onProperty :alsoKnownAs ;
+                           owl:maxQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                           owl:onClass :Profile
+                         ] ;
+         rdfs:comment "An author profile representing a person in the GoTriple system. Can be claimed or unclaimed."@en ;
+         rdfs:label "profile"@en .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://gotriple.eu/ontology/triple#document_types
+:document_types rdf:type owl:NamedIndividual ,
+                         <http://www.w3.org/2004/02/skos/core#ConceptScheme> ;
+                rdfs:comment "Controlled vocabulary of document types used in GoTriple"@en ;
+                rdfs:label "Document Types"@en .
+
+
+###  https://gotriple.eu/ontology/triple#doi
+:doi rdf:type owl:NamedIndividual ,
+              <http://purl.org/spar/datacite/IdentifierScheme> ;
+     rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en ;
+     rdfs:label "DOI"@en .
+
+
+###  https://gotriple.eu/ontology/triple#handle
+:handle rdf:type owl:NamedIndividual ,
+                 <http://purl.org/spar/datacite/IdentifierScheme> ;
+        rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en ;
+        rdfs:label "Handle"@en .
+
+
+###  https://gotriple.eu/ontology/triple#isbn
+:isbn rdf:type owl:NamedIndividual ,
+               <http://purl.org/spar/datacite/IdentifierScheme> ;
+      rdfs:comment "International Standard Book Number - a numeric identifier for books and book-like products."@en ;
+      rdfs:label "ISBN"@en .
+
+
+###  https://gotriple.eu/ontology/triple#issn
+:issn rdf:type owl:NamedIndividual ,
+               <http://purl.org/spar/datacite/IdentifierScheme> ;
+      rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en ;
+      rdfs:label "ISSN"@en .
+
+
+[ owl:maxCardinality 1
+] .
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/

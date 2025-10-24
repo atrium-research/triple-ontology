@@ -1,0 +1,170 @@
+@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@base <https://gotriple.eu/ontology/triple> .
+
+<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
+                                       owl:versionInfo "1.0.0" .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://schema.org/about
+schema:about rdf:type owl:ObjectProperty ;
+             rdfs:label "schema:about"@en ;
+             rdfs:comment "The subject matter of the content"@en .
+
+
+###  http://schema.org/funder
+schema:funder rdf:type owl:ObjectProperty ;
+              rdfs:label "schema:funder"@en ;
+              rdfs:comment "A person or organization that supports something through some kind of financial contribution"@en .
+
+
+###  http://schema.org/funding
+schema:funding rdf:type owl:ObjectProperty ;
+               rdfs:label "schema:funding"@en ;
+               rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en .
+
+
+###  http://schema.org/keywords
+schema:keywords rdf:type owl:ObjectProperty ;
+                rdfs:label "schema:keywords"@en ;
+                rdfs:comment "Keywords or tags used to describe this content"@en .
+
+
+###  http://schema.org/sponsor
+schema:sponsor rdf:type owl:ObjectProperty ;
+               rdfs:label "schema:sponsor"@en ;
+               rdfs:comment "A person or organization that supports a thing through a pledge, promise, or financial contribution"@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://schema.org/alternateName
+schema:alternateName rdf:type owl:DatatypeProperty ;
+                     rdfs:label "schema:alternateName"@en ;
+                     rdfs:comment "An alias for the item"@en ;
+                     rdfs:range rdf:langString .
+
+
+###  http://schema.org/description
+schema:description rdf:type owl:DatatypeProperty ;
+                   rdfs:label "schema:description"@en ;
+                   rdfs:comment "A description of the item"@en ;
+                   rdfs:range rdf:langString .
+
+
+###  http://schema.org/endDate
+schema:endDate rdf:type owl:DatatypeProperty ;
+               rdfs:label "schema:endDate"@en ;
+               rdfs:comment "The end date and time of the item"@en ;
+               rdfs:range xsd:date .
+
+
+###  http://schema.org/startDate
+schema:startDate rdf:type owl:DatatypeProperty ;
+                 rdfs:label "schema:startDate"@en ;
+                 rdfs:comment "The start date and time of the item"@en ;
+                 rdfs:range xsd:date .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://schema.org/DefinedTerm
+schema:DefinedTerm rdf:type owl:Class ;
+                   rdfs:label "schema:DefinedTerm"@en ;
+                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition"@en .
+
+
+###  http://schema.org/Grant
+schema:Grant rdf:type owl:Class ;
+             rdfs:label "schema:Grant"@en ;
+             rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en ;
+
+             # Optional funder (0 or more)
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:funder ;
+                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                             ] ;
+
+             # Optional sponsor (0 or more)
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:sponsor ;
+                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                             ] .
+
+
+###  http://schema.org/Project
+schema:Project rdf:type owl:Class ;
+               rdfs:label "schema:Project"@en ;
+               rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform"@en ;
+
+               # Required name (1 or more, multilingual)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:name ;
+                                 owl:minCardinality "1"^^xsd:nonNegativeInteger
+                               ] ;
+
+               # Optional identifier (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty datacite:hasIdentifier ;
+                                 owl:allValuesFrom datacite:Identifier
+                               ] ;
+
+               # Optional start date (0 or 1)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:startDate ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ;
+
+               # Optional end date (0 or 1)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:endDate ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ;
+
+               # Optional funding (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:funding ;
+                                 owl:allValuesFrom schema:Grant
+                               ] ;
+
+               # Optional topic/discipline (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:about ;
+                                 owl:allValuesFrom skos:Concept
+                               ] ;
+
+               # Optional keywords (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:keywords ;
+                                 owl:allValuesFrom schema:DefinedTerm
+                               ] ;
+
+               # Optional description (0 or more, multilingual)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:description ;
+                                 owl:allValuesFrom rdf:langString
+                               ] ;
+
+               # Optional alternate name/acronym (0 or more, multilingual)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:alternateName ;
+                                 owl:allValuesFrom rdf:langString
+                               ] .
+
+
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
