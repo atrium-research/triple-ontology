@@ -15,81 +15,31 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
-### 2025-10-24 - Iteration 13: CIDOC-CRM and SSHOCRo Alignment
+### 2025-11-07 - Restructuring: Iterations 12-16 Reorganization
 
-**Type**: Mapping
-
-**Description**:
-Added formal alignments between TRIPLE resource classes and CIDOC-CRM (ISO 21127) and SSHOCRo (Social Sciences and Humanities Open Cloud Reference Ontology) classes to enable interoperability with cultural heritage and SSH research infrastructures.
-
-**Details**:
-- **CIDOC-CRM alignments**:
-  - `triple:Document` → `cidoc:E31_Document` (identifiable immaterial items making propositions about reality)
-  - `triple:Multimedia` → `cidoc:E90_Symbolic_Object` (symbolic audiovisual content)
-  - `triple:Software` → `cidoc:E90_Symbolic_Object` (symbolic informational objects)
-  - `triple:SemanticArtefact` → `cidoc:E90_Symbolic_Object` (formal symbolic representations)
-  - `triple:Project` → `cidoc:E7_Activity` (intentional research activities)
-
-- **SSHOCRo alignments**:
-  - `triple:Document` → `sshocro:SHE8_Publication` (SSH scholarly publications)
-  - `triple:Project` → `sshocro:SHE3_SSH_Project` (SSH research projects)
-
-- **Namespace declarations**:
-  - CIDOC-CRM: `http://www.cidoc-crm.org/cidoc-crm/`
-  - SSHOCRo: `https://sshoc.eu/ontology/`
-
-**Design Decision**:
-Used `rdfs:subClassOf` to express alignments, indicating that TRIPLE classes are specializations of CIDOC-CRM/SSHOCRo classes. This enables semantic integration with European research infrastructures while maintaining TRIPLE-specific semantics.
-
-**Files Created**:
-- `development/13/motivating-scenario.md` - Alignment descriptions
-- `development/13/TBOX.ttl` - Class alignments and external class declarations
-- `development/13/informal-competency-questions.md` - Empty (pending)
-- `development/13/glossary-of-terms.md` - Empty (pending)
-- `development/13/formal-competency-questions.md` - Empty (pending)
-- `development/13/ABOX.ttl` - Empty (pending)
-
-**Artifacts Pending**:
-- Graffoo diagram
-- Competency questions
-- Glossary of terms
-- Test instances
-
-**Author**: Development team
-
----
-
-### 2025-10-24 - Iteration 12: Addition of New Resource Type Classes
-
-**Type**: Addition
+**Type**: Refactoring
 
 **Description**:
-Added three new resource type classes at the same hierarchical level as `triple:Document` to support semantic artefacts, software, and multimedia resources in the GoTriple platform.
+Restructured iterations 12-16 to separate each resource type into its own dedicated iteration following SAMOD methodology. The previous Iteration 12 (which contained all three new resource types together) has been split into four separate iterations (12-15), and the CIDOC-CRM alignment has been moved to Iteration 16.
 
-**Details**:
-- **New classes added**:
-  - `triple:SemanticArtefact` - Represents ontologies, vocabularies, taxonomies, thesauri, knowledge graphs, and other formal knowledge structures
-  - `triple:Software` - Represents research software applications, tools, code repositories, libraries, scripts, algorithms, and computational workflows
-  - `triple:Multimedia` - Represents audio-visual and interactive content (audio recordings, video recordings, interviews, documentaries, lectures)
-- **Class hierarchy**: All three classes are direct subclasses of `schema:CreativeWork` (same level as `triple:Document`)
-- **Design decision**: Positioned at the same level as Document rather than as subclasses because:
-  - Software and multimedia are not traditionally considered "documents"
-  - Semantic artefacts are formal structures rather than narrative content
-  - Maintains ontological clarity following domain conventions
+**New Structure**:
+- **Iteration 12**: Dataset - Research dataset as distinct resource type
+- **Iteration 13**: Multimedia - Audio-visual and interactive content
+- **Iteration 14**: Semantic Artefact - Ontologies, vocabularies, knowledge graphs
+- **Iteration 15**: Software - Research software, tools, code repositories
+- **Iteration 16**: CIDOC-CRM and SSHOCRo Alignment - External ontology mappings
+
+**Rationale**:
+Each resource type deserves its own complete SAMOD iteration with dedicated motivating scenarios, competency questions, and test instances. This structure provides better modularity, clearer documentation, and follows the one-concern-per-iteration principle.
 
 **Files Created**:
-- `development/12/motivating-scenario.md` - Use cases and technical specifications
-- `development/12/TBOX.ttl` - Class definitions
-- `development/12/informal-competency-questions.md` - Empty (pending)
-- `development/12/glossary-of-terms.md` - Empty (pending)
-- `development/12/formal-competency-questions.md` - Empty (pending)
-- `development/12/ABOX.ttl` - Empty (pending)
+- `development/12/` - Dataset iteration structure (empty templates)
+- `development/13/` - Multimedia iteration structure (empty templates)
+- `development/14/` - Semantic Artefact iteration structure (empty templates)
+- `development/15/` - Software iteration structure (empty templates)
+- `development/16/` - CIDOC-CRM/SSHOCRo alignment structure (empty templates)
 
-**Artifacts Pending**:
-- Graffoo diagram (modelet.graphml, modelet.png)
-- Competency questions and SPARQL queries
-- Glossary of terms
-- Test instances (ABOX)
+**Status**: All iterations have complete file structure with proper titles and sections. Content population pending.
 
 **Author**: Development team
 
