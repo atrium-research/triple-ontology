@@ -17,3 +17,98 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  Dataset Example 1: Geospatial Research Dataset
+triple:dataset-001 rdf:type schema:Dataset ;
+                   schema:identifier "10.1234/example.dataset.001" ;
+                   schema:headline "European Archaeological Sites Database"@en ;
+                   schema:abstract "A comprehensive dataset containing archaeological site information across Europe, including spatial coordinates, dating, and cultural attributions."@en ;
+                   schema:author "Jane Smith", "Mario Rossi" ;
+                   schema:contributor "Dr. Anna Fischer" ;
+                   schema:dateCreated "2023-01-15"^^xsd:date ;
+                   schema:datePublished "2023-03-01"^^xsd:date ;
+                   schema:dateModified "2023-05-20"^^xsd:date ;
+                   schema:publisher "European Heritage Institute" ;
+                   schema:provider "ISIDORE" ;
+                   schema:license "CC BY 4.0" ;
+                   schema:keywords "archaeology", "Europe", "heritage", "spatial data" ;
+                   schema:additionalType "Geospatial Dataset" ;
+                   schema:inLanguage "en" ;
+                   schema:spatialCoverage "Europe" ;
+                   schema:temporalCoverage "2000 BCE - 1500 CE" ;
+                   schema:encodingFormat "text/csv", "application/json" ;
+                   schema:size "15.2 MB" ;
+                   schema:url "https://data.heritage.eu/datasets/archaeological-sites" ;
+                   schema:mainEntityOfPage "https://heritage.eu/landing/archaeological-sites" ;
+                   schema:conditionsOfAccess "Open Access" ;
+                   schema:creativeWorkStatus "Published" ;
+                   schema:contactPoint triple:contact-heritage-institute ;
+                   schema:funding triple:project-heritage-mapping ;
+                   sioc:topic triple:topic-archaeology ;
+                   schema:comment "Dataset created through systematic archaeological surveys across 15 European countries with standardized recording protocols."@en .
+
+###  Dataset Example 2: Social Science Survey Data  
+triple:dataset-002 rdf:type schema:Dataset ;
+                   schema:identifier "hdl:1234.5/survey2023" ;
+                   schema:headline "European Social Attitudes Survey 2023"@en ;
+                   schema:abstract "Annual survey data on social attitudes, political opinions, and demographic information from EU member states."@en ;
+                   schema:author "Social Research Institute" ;
+                   schema:contributor "Prof. Elena Rodriguez", "Dr. Klaus Mueller" ;
+                   schema:dateCreated "2023-06-01"^^xsd:date ;
+                   schema:datePublished "2023-09-15"^^xsd:date ;
+                   schema:dateModified "2023-10-02"^^xsd:date ;
+                   schema:publisher "EU Social Observatory" ;
+                   schema:provider "OpenAIRE" ;
+                   schema:license "CC BY-NC 4.0" ;
+                   schema:keywords "social attitudes", "survey", "politics", "demographics" ;
+                   schema:additionalType "Survey Dataset" ;
+                   schema:knowsAbout "political science", "sociology", "public opinion" ;
+                   schema:inLanguage "en", "de", "fr", "it" ;
+                   schema:spatialCoverage "European Union" ;
+                   schema:temporalCoverage "2023" ;
+                   schema:encodingFormat "application/x-spss", "text/csv" ;
+                   schema:size "245 MB" ;
+                   schema:url "https://data.social-eu.org/datasets/attitudes-2023" ;
+                   schema:mainEntityOfPage "https://social-eu.org/landing/attitudes-survey" ;
+                   schema:conditionsOfAccess "Requires registration and approval" ;
+                   schema:creativeWorkStatus "Published" ;
+                   schema:contactPoint triple:contact-social-observatory ;
+                   schema:funding triple:project-social-cohesion ;
+                   sioc:topic triple:topic-social-science ;
+                   schema:mentions triple:dataset-001 ;
+                   schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
+                   dcterms:isReferencedBy triple:document-social-report-2023 .
+
+###  Supporting Individuals
+
+###  Contact Points
+triple:contact-heritage-institute rdf:type schema:ContactPoint ;
+                                  schema:name "European Heritage Institute Data Team" ;
+                                  schema:email "data@heritage.eu" .
+
+triple:contact-social-observatory rdf:type schema:ContactPoint ;
+                                  schema:name "EU Social Observatory Research Support" ;
+                                  schema:email "support@social-eu.org" .
+
+###  Projects  
+triple:project-heritage-mapping rdf:type schema:Project ;
+                                schema:name "European Heritage Digital Mapping Initiative" ;
+                                schema:identifier "EHDMI-2022-001" .
+
+triple:project-social-cohesion rdf:type schema:Project ;
+                               schema:name "Social Cohesion Research Program" ;
+                               schema:identifier "SCRP-2023-045" .
+
+###  Topics
+triple:topic-archaeology rdf:type skos:Concept ;
+                         skos:prefLabel "Archaeology"@en ;
+                         skos:definition "The study of human activity through the recovery and analysis of material culture."@en .
+
+triple:topic-social-science rdf:type skos:Concept ;
+                            skos:prefLabel "Social Science"@en ;
+                            skos:definition "Academic disciplines concerned with society and the relationships among individuals within a society."@en .
+
+###  Referenced Document
+triple:document-social-report-2023 rdf:type schema:CreativeWork ;
+                                   schema:headline "European Social Cohesion Report 2023"@en ;
+                                   schema:datePublished "2023-11-15"^^xsd:date .
