@@ -18,12 +18,9 @@ objectives: formalising the data model with semantic standards, defining control
 establishing connections with external entities, ensuring resource reusability, and maintaining
 detailed documentation for transparency and extensibility.
 
-The ontology development followed a structured methodology, beginning with a preliminary
-analysis and employing the Simplified Agile Methodology for Ontology Development (SAMOD).
+The ontology development followed the [SAMOD](https://essepuntato.it/samod/) (Simplified Agile Methodology for Ontology Development) methodology.
 This approach ensured a flexible, iterative development process with comprehensive testing and
-documentation, guaranteeing the ontology's accuracy and adaptability. Consequently, the ontology
-enhanced the semantic representation of research artefacts, promoted interoperability, and facilitated
-collaboration and knowledge reuse across the SSH domain.
+documentation, guaranteeing knowledge sharing and reuse across the SSH domain.
 
 This repository contains the full documentation produced during the development of TRIPLE ontology.
 
@@ -31,7 +28,7 @@ This repository contains the full documentation produced during the development 
 
 ### Core Directories
 
-* **`development/`** - Contains 11 SAMOD iterations (01-11), each representing a complete development cycle with:
+* **`development/`** - Contains 16 SAMOD iterations (01-16), each representing a complete development cycle with:
   * `motivating-scenario.md` - Use case description and examples
   * `informal-competency-questions.md` - Natural language requirements
   * `glossary-of-terms.md` - Domain terminology definitions
@@ -71,4 +68,3 @@ cd scripts
 pip install -r requirements.txt
 python merge_iterations.py
 ```
-
