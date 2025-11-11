@@ -13,6 +13,64 @@ Each entry follows this structure:
 
 ---
 
+## [2.0.0] - 2025-10-24
+
+### 2025-10-24 - Version 2.0.0 Release: Complete Ontology Serialization and Enhanced Metadata
+
+**Type**: Major Release
+
+**Description**:
+Major release introducing complete ontology serialization (version 2.0.0) with comprehensive metadata, proper authorship attribution, and enhanced documentation following semantic web best practices.
+
+**Key Changes**:
+
+1. **Complete Ontology Serialization**:
+   - Created final merged ontology from 11 SAMOD iterations (development/01 through development/11)
+   - Generated multiple serialization formats: TTL, OWL/XML, JSON-LD, N-Triples
+   - Added comprehensive HTML documentation with interactive features
+
+2. **Enhanced Metadata**:
+   - Added proper authorship: Alessandro Bertozzi (creator), Luca De Santis & Silvio Peroni (contributors)
+   - Included comprehensive Dublin Core metadata (title, description, license, rights, subjects, etc.)
+   - Added VANN vocabulary annotations (preferred namespace prefix and URI)
+   - Included DCAT keywords for better discoverability
+   - Added bibliographic citations in both Dublin Core and Schema.org formats
+
+3. **Version Management**:
+   - Updated to version 2.0.0 across all metadata fields
+   - Added `owl:priorVersion` reference to version 1.0.0
+   - Consistent version numbering in `owl:versionInfo`, `owl:versionIRI`, and `schema:version`
+
+4. **External Ontology Label Standardization**:
+   - Implemented consistent `prefix:LocalName` format for all external ontology references
+   - Updated CLAUDE.md with comprehensive guidelines for ontology metadata and serialization
+   - Documented naming conventions for future development
+
+5. **Technical Improvements**:
+   - All annotation properties properly declared
+   - Complete prefix declarations including vann: and dcat: vocabularies
+   - Enhanced ontology structure with proper OWL2 compliance
+
+**Files Added**:
+- `ontology/2025-10-24/serializations/triple.ttl` (834 lines)
+- `ontology/2025-10-24/serializations/triple.owl` (1360 lines)
+- `ontology/2025-10-24/serializations/triple.jsonld` (1614 lines)
+- `ontology/2025-10-24/serializations/triple.nt` (838 lines)
+- `ontology/2025-10-24/html/index-en.html` (1384 lines)
+- Complete HTML documentation with resources (CSS, JS, icons)
+
+**Files Modified**:
+- `CLAUDE.md` - Updated with comprehensive ontology metadata guidelines
+- Removed legacy `ontology/triple-ontology.ttl` (639 lines)
+
+**Net Changes**: +7150 insertions, -639 deletions
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: 3ce0f35 - "add new complete serialization and documentation"
+
+---
+
 ## [Unreleased]
 
 ### 2025-11-07 - Restructuring: Iterations 12-16 Reorganization
