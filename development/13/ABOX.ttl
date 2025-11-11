@@ -1,0 +1,148 @@
+@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@base <https://gotriple.eu/ontology/triple#> .
+
+<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
+                                       owl:versionIRI <https://gotriple.eu/ontology/triple/1.0.0> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  Multimedia Example 1: Canal-U Video Lecture
+triple:multimedia-001 rdf:type schema:VideoObject ;
+                      schema:identifier "canalu:video/12345" ;
+                      schema:headline "Introduction to Medieval History: The Carolingian Renaissance"@fr ;
+                      schema:abstract "Conférence magistrale sur la Renaissance carolingienne présentée dans le cadre du séminaire d'histoire médiévale de l'Université de Paris."@fr ;
+                      schema:author "Prof. Marie Dubois" ;
+                      schema:contributor "Dr. Jean Martin", "Université de Paris" ;
+                      schema:dateCreated "2023-10-15"^^xsd:date ;
+                      schema:datePublished "2023-11-01"^^xsd:date ;
+                      schema:dateModified "2023-11-02"^^xsd:date ;
+                      schema:publisher "Canal-U" ;
+                      schema:producer "CERIMES" ;
+                      schema:provider "Canal-U" ;
+                      schema:license "CC BY-NC-ND 4.0" ;
+                      schema:keywords "histoire médiévale", "renaissance carolingienne", "Charlemagne" ;
+                      schema:additionalType "video/mp4" ;
+                      schema:knowsAbout "medieval history", "Carolingian period" ;
+                      schema:inLanguage "fr" ;
+                      schema:spatialCoverage "Europe occidentale" ;
+                      schema:temporalCoverage "750-900 CE" ;
+                      schema:duration "PT1H25M30S" ;
+                      schema:encodingFormat "video/mp4" ;
+                      schema:size "1.2 GB" ;
+                      schema:url "https://canal-u.fr/video/12345" ;
+                      schema:mainEntityOfPage "https://canal-u.fr/chaines/histoire-medieval/carolingien-renaissance" ;
+                      schema:conditionsOfAccess "Open Access" ;
+                      schema:funding triple:project-medieval-studies ;
+                      sioc:topic triple:topic-medieval-history ;
+                      schema:mentions "Charlemagne", "Alcuin of York" ;
+                      dcterms:isReferencedBy triple:document-medieval-anthology-2023 .
+
+###  Multimedia Example 2: Audio Interview Archive
+triple:multimedia-002 rdf:type schema:AudioObject ;
+                      schema:identifier "oral-history:interview/789" ;
+                      schema:headline "Oral History: Resistance Movement in WWII Italy"@en ;
+                      schema:abstract "Audio recording of interview with Giovanni Rossi, former member of the Italian Resistance during World War II, conducted in 2023 as part of the European Memory Project."@en ;
+                      schema:author "Dr. Lisa Anderson", "European Memory Institute" ;
+                      schema:contributor "Prof. Marco Bianchi" ;
+                      schema:dateCreated "2023-05-20"^^xsd:date ;
+                      schema:datePublished "2023-08-10"^^xsd:date ;
+                      schema:publisher "European Memory Institute" ;
+                      schema:provider "ISIDORE" ;
+                      schema:license "CC BY-SA 4.0" ;
+                      schema:keywords "oral history", "World War II", "Italian Resistance", "memory studies" ;
+                      schema:additionalType "audio/mp3" ;
+                      schema:knowsAbout "European history", "resistance movements", "oral testimony" ;
+                      schema:inLanguage "it", "en" ;
+                      schema:spatialCoverage "Italy" ;
+                      schema:temporalCoverage "1943-1945" ;
+                      schema:duration "PT2H15M00S" ;
+                      schema:encodingFormat "audio/mp3" ;
+                      schema:size "198 MB" ;
+                      schema:url "https://memory-institute.eu/audio/789" ;
+                      schema:mainEntityOfPage "https://memory-institute.eu/collections/resistance-interviews" ;
+                      schema:conditionsOfAccess "Open Access with attribution" ;
+                      schema:funding triple:project-european-memory ;
+                      sioc:topic triple:topic-european-history ;
+                      schema:mentions triple:place-northern-italy .
+
+###  Multimedia Example 3: Digital Art History Image Collection
+triple:multimedia-003 rdf:type schema:ImageObject ;
+                      schema:identifier "art-digital:img/renaissance/456" ;
+                      schema:headline "High-Resolution Scan: Botticelli's Birth of Venus"@en ;
+                      schema:abstract "Ultra-high resolution digital scan of Sandro Botticelli's The Birth of Venus (c. 1484-1486) from the Uffizi Gallery collection, created for digital humanities research and education."@en ;
+                      schema:author "Uffizi Digital Archive Team" ;
+                      schema:contributor "Dr. Francesca Marini", "Digital Humanities Lab" ;
+                      schema:dateCreated "2023-07-12"^^xsd:date ;
+                      schema:datePublished "2023-09-05"^^xsd:date ;
+                      schema:publisher "Uffizi Gallery" ;
+                      schema:producer "Uffizi Digital Archive" ;
+                      schema:provider "Europeana" ;
+                      schema:license "CC BY-NC 4.0" ;
+                      schema:keywords "Renaissance art", "Botticelli", "digital humanities", "cultural heritage" ;
+                      schema:additionalType "image/tiff" ;
+                      schema:knowsAbout "Renaissance painting", "Italian art", "digital preservation" ;
+                      schema:inLanguage "en", "it" ;
+                      schema:spatialCoverage "Florence, Italy" ;
+                      schema:temporalCoverage "1480-1490" ;
+                      schema:encodingFormat "image/tiff", "image/jpeg" ;
+                      schema:size "850 MB" ;
+                      schema:url "https://uffizi-digital.it/artworks/birth-of-venus-hd" ;
+                      schema:mainEntityOfPage "https://uffizi.it/en/artworks/birth-of-venus" ;
+                      schema:conditionsOfAccess "Educational and Research Use" ;
+                      schema:funding triple:project-digital-uffizi ;
+                      sioc:topic triple:topic-art-history ;
+                      dcterms:isReferencedBy triple:document-botticelli-analysis-2023 .
+
+###  Supporting Individuals
+
+###  Projects
+triple:project-medieval-studies rdf:type schema:Project ;
+                                schema:name "Digital Medieval Studies Initiative" ;
+                                schema:identifier "DMSI-2023-001" .
+
+triple:project-european-memory rdf:type schema:Project ;
+                               schema:name "European Memory and Identity Project" ;
+                               schema:identifier "EMIP-2022-078" .
+
+triple:project-digital-uffizi rdf:type schema:Project ;
+                               schema:name "Uffizi Digital Heritage Archive" ;
+                               schema:identifier "UDHA-2023-012" .
+
+###  Topics
+triple:topic-medieval-history rdf:type skos:Concept ;
+                               skos:prefLabel "Medieval History"@en ;
+                               skos:definition "The study of European history from approximately 500 to 1500 CE."@en .
+
+triple:topic-european-history rdf:type skos:Concept ;
+                               skos:prefLabel "European History"@en ;
+                               skos:definition "Historical studies focusing on European civilizations and societies."@en .
+
+triple:topic-art-history rdf:type skos:Concept ;
+                         skos:prefLabel "Art History"@en ;
+                         skos:definition "The study of art objects in their historical development and stylistic contexts."@en .
+
+###  Places
+triple:place-northern-italy rdf:type schema:GeoShape ;
+                            schema:name "Northern Italy"@en ;
+                            schema:description "Geographic region covering the northern part of the Italian Peninsula."@en .
+
+###  Referenced Documents
+triple:document-medieval-anthology-2023 rdf:type schema:CreativeWork ;
+                                        schema:headline "Medieval Studies Anthology 2023"@en ;
+                                        schema:datePublished "2023-12-01"^^xsd:date .
+
+triple:document-botticelli-analysis-2023 rdf:type schema:CreativeWork ;
+                                          schema:headline "Digital Analysis of Botticelli's Techniques"@en ;
+                                          schema:datePublished "2023-10-15"^^xsd:date .

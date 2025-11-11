@@ -73,6 +73,36 @@ Major release introducing complete ontology serialization (version 2.0.0) with c
 
 ## [Unreleased]
 
+### 2025-11-07 - Restructuring: Iterations 12-16 Reorganization
+
+**Type**: Refactoring
+
+**Description**:
+Restructured iterations 12-16 to separate each resource type into its own dedicated iteration following SAMOD methodology. The previous Iteration 12 (which contained all three new resource types together) has been split into four separate iterations (12-15), and the CIDOC-CRM alignment has been moved to Iteration 16.
+
+**New Structure**:
+- **Iteration 12**: Dataset - Research dataset as distinct resource type
+- **Iteration 13**: Multimedia - Audio-visual and interactive content
+- **Iteration 14**: Semantic Artefact - Ontologies, vocabularies, knowledge graphs
+- **Iteration 15**: Software - Research software, tools, code repositories
+- **Iteration 16**: CIDOC-CRM and SSHOCRo Alignment - External ontology mappings
+
+**Rationale**:
+Each resource type deserves its own complete SAMOD iteration with dedicated motivating scenarios, competency questions, and test instances. This structure provides better modularity, clearer documentation, and follows the one-concern-per-iteration principle.
+
+**Files Created**:
+- `development/12/` - Dataset iteration structure (empty templates)
+- `development/13/` - Multimedia iteration structure (empty templates)
+- `development/14/` - Semantic Artefact iteration structure (empty templates)
+- `development/15/` - Software iteration structure (empty templates)
+- `development/16/` - CIDOC-CRM/SSHOCRo alignment structure (empty templates)
+
+**Status**: All iterations have complete file structure with proper titles and sections. Content population pending.
+
+**Author**: Development team
+
+---
+
 ### 2025-10-23 - Refactoring: Minor TBOX Cleaning
 
 **Type**: Refactoring
