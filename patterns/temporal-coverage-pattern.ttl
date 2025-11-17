@@ -1,0 +1,42 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+
+# Temporal Coverage Pattern
+# This pattern demonstrates how temporal coverage is handled in the TRIPLE ontology
+
+# Property Definition
+schema:temporalCoverage rdf:type owl:DatatypeProperty ;
+                        rdfs:label "schema:temporalCoverage"@en ;
+                        rdfs:comment "The temporalCoverage of a CreativeWork indicates the period that the content applies to."@en ;
+                        rdfs:range xsd:string .
+
+# Usage Pattern in Classes
+schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:temporalCoverage ;
+                               owl:allValuesFrom xsd:string ] .
+
+# Standard Requirements:
+# - schema:temporalCoverage is owl:DatatypeProperty
+# - Range is xsd:string (not xsd:date or schema:DateTime)
+# - Supports descriptive temporal periods, not just specific dates
+# - Values are human-readable temporal descriptions
+# - Use owl:allValuesFrom xsd:string in class restrictions
+
+# Example ABOX values (all valid):
+# - "2000 BCE - 1500 CE"         (historical period)
+# - "2023"                       (specific year)
+# - "750-900 CE"                 (century range)
+# - "1943-1945"                  (war period)
+# - "1480-1490"                  (decade)
+# - "Medieval Period"            (named period)
+# - "19th century"               (century)
+# - "Bronze Age"                 (archaeological period)
+
+# Pattern Notes:
+# - Temporal coverage represents CONTENT time period, not resource creation time
+# - Different from schema:dateCreated/datePublished which use xsd:date
+# - Flexible string format allows historical, archaeological, and cultural periods
+# - Consistent with Schema.org usage for describing content temporal scope

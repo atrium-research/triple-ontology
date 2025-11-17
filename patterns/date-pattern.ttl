@@ -1,0 +1,52 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+
+# Date Pattern
+# This pattern demonstrates how dates are handled in the TRIPLE ontology
+
+# Date Properties - All DatatypeProperty with xsd:date range
+
+###  schema:dateCreated
+schema:dateCreated rdf:type owl:DatatypeProperty ;
+                   rdfs:label "schema:dateCreated"@en ;
+                   rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
+                   rdfs:range xsd:date .
+
+###  schema:datePublished
+schema:datePublished rdf:type owl:DatatypeProperty ;
+                     rdfs:label "schema:datePublished"@en ;
+                     rdfs:comment "Date of first broadcast/publication."@en ;
+                     rdfs:range xsd:date .
+
+###  schema:dateModified
+schema:dateModified rdf:type owl:DatatypeProperty ;
+                    rdfs:label "schema:dateModified"@en ;
+                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en ;
+                    rdfs:range xsd:date .
+
+# Usage Pattern in Classes
+schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:dateCreated ;
+                               owl:allValuesFrom xsd:date ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:datePublished ;
+                               owl:allValuesFrom xsd:date ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:dateModified ;
+                               owl:allValuesFrom xsd:date ] .
+
+# Standard Requirements:
+# - All date properties are owl:DatatypeProperty
+# - All date properties have range xsd:date
+# - Values in ABOX: "2023-03-01"^^xsd:date format
+# - Use owl:allValuesFrom xsd:date in class restrictions
+# - Consistent across all SAMOD iterations and classes
+# - Common date properties: dateCreated, datePublished, dateModified
+
+# Example ABOX usage:
+# triple:dataset-example schema:dateCreated "2023-01-15"^^xsd:date ;
+#                       schema:datePublished "2023-03-01"^^xsd:date ;
+#                       schema:dateModified "2023-05-20"^^xsd:date .

@@ -1,0 +1,51 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+
+# Language Pattern
+# This pattern demonstrates how language is handled in the TRIPLE ontology
+
+# Property Definition
+schema:inLanguage rdf:type owl:ObjectProperty ;
+                  rdfs:label "schema:inLanguage"@en ;
+                  rdfs:comment "The language of the content or performance or used in an action."@en .
+
+# Target Class for Language Values
+schema:Language rdf:type owl:Class ;
+                rdfs:label "schema:Language"@en ;
+                rdfs:comment "Natural language such as Spanish, Tamil, or English."@en .
+
+# Usage Pattern in Classes
+
+# Example: Dataset class with language restriction  
+schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:inLanguage ;
+                               owl:someValuesFrom schema:Language ] .
+
+# TRIPLE Ontology Language Standard - ISO 639-1
+
+# Standard Language Individual Structure:
+schema:language-en rdf:type schema:Language ;
+                   rdfs:label "en"@en .
+
+schema:language-it rdf:type schema:Language ;
+                   rdfs:label "it"@en .
+
+schema:language-fr rdf:type schema:Language ;
+                   rdfs:label "fr"@en .
+
+schema:language-de rdf:type schema:Language ;
+                   rdfs:label "de"@en .
+
+schema:language-es rdf:type schema:Language ;
+                   rdfs:label "es"@en .
+
+# Standard Requirements:
+# - schema:inLanguage is an ObjectProperty (not DatatypeProperty)
+# - Range is schema:Language class (not xsd:string)
+# - Use owl:someValuesFrom for "at least one" constraint
+# - Language individuals MUST use ISO 639-1 two-letter codes as rdfs:label
+# - Naming convention: schema:language-[iso-code]
+# - NO full language names, only ISO 639-1 codes (en, it, fr, de, es, etc.)
+# - Consistent across all SAMOD iterations

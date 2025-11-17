@@ -1,0 +1,96 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+
+# Person/Organization Pattern
+# This pattern demonstrates how Person and Organization roles are handled in the TRIPLE ontology
+
+# Core Classes
+foaf:Person rdf:type owl:Class ;
+            rdfs:label "foaf:Person"@en ;
+            rdfs:comment "A person."@en .
+
+foaf:Organization rdf:type owl:Class ;
+                  rdfs:label "foaf:Organization"@en ;
+                  rdfs:comment "An organization."@en .
+
+# Role Properties with Person/Organization Range
+
+###  schema:author
+schema:author rdf:type owl:ObjectProperty ;
+              rdfs:label "schema:author"@en ;
+              rdfs:comment "The author of this content"@en ;
+              rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
+              rdfs:subPropertyOf schema:creator .
+
+###  schema:contributor
+schema:contributor rdf:type owl:ObjectProperty ;
+                   rdfs:label "schema:contributor"@en ;
+                   rdfs:comment "A secondary contributor to the CreativeWork"@en ;
+                   rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
+
+###  schema:publisher
+schema:publisher rdf:type owl:ObjectProperty ;
+                 rdfs:label "schema:publisher"@en ;
+                 rdfs:comment "The publisher of the creative work"@en ;
+                 rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
+
+###  schema:producer
+schema:producer rdf:type owl:ObjectProperty ;
+                rdfs:label "schema:producer"@en ;
+                rdfs:comment "The person or organization who produced the work"@en ;
+                rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
+
+###  schema:funder
+schema:funder rdf:type owl:ObjectProperty ;
+              rdfs:label "schema:funder"@en ;
+              rdfs:comment "A person or organization that supports through funding"@en ;
+              rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
+
+###  schema:provider
+schema:provider rdf:type owl:ObjectProperty ;
+                rdfs:label "schema:provider"@en ;
+                rdfs:comment "The service provider, organization, or individual that provides the data"@en ;
+                rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
+
+###  triple:aggregator
+triple:aggregator rdf:type owl:ObjectProperty ;
+                  rdfs:label "aggregator"@en ;
+                  rdfs:comment "An aggregator that collates documents from different sources"@en ;
+                  rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
+                  rdfs:subPropertyOf schema:contributor .
+
+###  triple:primaryProducer
+triple:primaryProducer rdf:type owl:ObjectProperty ;
+                       rdfs:label "primary producer"@en ;
+                       rdfs:comment "The original source or creator of the document"@en ;
+                       rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
+                       rdfs:subPropertyOf schema:producer .
+
+# Usage Pattern in Classes - Example with Dataset
+schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:author ;
+                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ] ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:contributor ;
+                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ] ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:publisher ;
+                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ] ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:provider ;
+                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ] ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:funding ;
+                               owl:allValuesFrom owl:Thing ] .
+
+# Pattern Notes:
+# - All role properties have range: [ owl:unionOf (foaf:Person foaf:Organization) ]
+# - Use owl:allValuesFrom with union type for class restrictions
+# - Properties like schema:funding link to grants/projects (owl:Thing), not directly to funders
+# - Some properties are subProperties: schema:author rdfs:subPropertyOf schema:creator
+# - TRIPLE-specific properties: triple:aggregator, triple:primaryProducer
+# - Consistent modeling across Document, Dataset, and other creative works

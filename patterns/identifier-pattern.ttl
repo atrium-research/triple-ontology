@@ -1,0 +1,68 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://purl.org/spar/literal/> .
+
+# Identifier Pattern
+# This pattern demonstrates how identifiers are handled in the TRIPLE ontology
+
+# DataCite Identifier Pattern (only approach used in TRIPLE ontology)
+
+# Main identifier property
+datacite:hasIdentifier rdf:type owl:ObjectProperty ;
+                       rdfs:label "datacite:hasIdentifier"@en ;
+                       rdfs:comment "Links entities to their identifiers"@en ;
+                       rdfs:range datacite:Identifier .
+
+# Identifier scheme property  
+datacite:hasIdentifierScheme rdf:type owl:ObjectProperty ;
+                             rdfs:label "datacite:hasIdentifierScheme"@en ;
+                             rdfs:comment "Links an identifier to its scheme"@en ;
+                             rdfs:domain datacite:Identifier .
+
+# Identifier class
+datacite:Identifier rdf:type owl:Class ;
+                   rdfs:label "datacite:Identifier"@en ;
+                   rdfs:comment "An identifier that uniquely identifies an entity according to some identification scheme."@en .
+
+# Usage Pattern in Classes
+schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty datacite:hasIdentifier ;
+                               owl:allValuesFrom datacite:Identifier ] .
+
+triple:MediaObject rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty datacite:hasIdentifier ;
+                                   owl:allValuesFrom datacite:Identifier ] .
+
+triple:SemanticArtefact rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty datacite:hasIdentifier ;
+                                        owl:allValuesFrom datacite:Identifier ] .
+
+# Example ABOX Structure:
+
+# Identifier schemes (named individuals)
+triple:internal_id rdf:type datacite:IdentifierScheme ;
+                   rdfs:label "TRIPLE Internal ID" .
+
+triple:doi rdf:type datacite:IdentifierScheme ;
+           rdfs:label "DOI" .
+
+# Identifier instances
+triple:identifier-example rdf:type datacite:Identifier ;
+                         datacite:hasIdentifierScheme triple:internal_id ;
+                         litre:hasLiteralValue "TRIPLE_DOC_001" .
+
+# Usage on entities
+triple:example datacite:hasIdentifier triple:identifier-example .
+
+# Pattern Notes:
+# - Only DataCite model used (no schema:identifier strings)
+# - Structured identifier management with schemes
+# - Uses datacite:hasIdentifierScheme to link identifier to scheme
+# - Uses litre:hasLiteralValue for the actual identifier string
+# - Supports multiple identifier types (DOI, internal, PID, etc.)
+# - Consistent across all main classes (Dataset, MediaObject, SemanticArtefact)
+# - Better semantic modeling than simple string identifiers
