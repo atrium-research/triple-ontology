@@ -18,7 +18,6 @@
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
               rdfs:comment "The author of this content"@en ;
-              rdfs:domain :Document ;
               rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
               rdfs:subPropertyOf schema:creator .
 
@@ -27,7 +26,6 @@ schema:author rdf:type owl:ObjectProperty ;
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contributor"@en ;
                    rdfs:comment "A secondary contributor to the CreativeWork"@en ;
-                   rdfs:domain :Document ;
                    rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -35,7 +33,6 @@ schema:contributor rdf:type owl:ObjectProperty ;
 schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:label "schema:publisher"@en ;
                  rdfs:comment "The publisher of the creative work"@en ;
-                 rdfs:domain :Document ;
                  rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -43,7 +40,6 @@ schema:publisher rdf:type owl:ObjectProperty ;
 schema:producer rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:producer"@en ;
                 rdfs:comment "The person or organization who produced the work"@en ;
-                rdfs:domain :Document ;
                 rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -51,7 +47,6 @@ schema:producer rdf:type owl:ObjectProperty ;
 schema:funder rdf:type owl:ObjectProperty ;
               rdfs:label "schema:funder"@en ;
               rdfs:comment "A person or organization that supports through funding"@en ;
-              rdfs:domain :Document ;
               rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -59,15 +54,13 @@ schema:funder rdf:type owl:ObjectProperty ;
 schema:provider rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:provider"@en ;
                 rdfs:comment "The service provider, organization, or individual that provides the data"@en ;
-                rdfs:domain :Document ;
                 rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
 ###  https://gotriple.eu/ontology/triple#aggregator
 :aggregator rdf:type owl:ObjectProperty ;
             rdfs:label "aggregator"@en ;
-            rdfs:comment "An aggregator that collates documents from different sources"@en ;
-            rdfs:domain :Document ;
+            rdfs:comment "An aggregator that collates resources from different sources"@en ;
             rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
             rdfs:subPropertyOf schema:contributor .
 
@@ -88,7 +81,6 @@ schema:provider rdf:type owl:ObjectProperty ;
 ###  http://schema.org/name
 schema:name rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:name"@en ;
-            rdfs:domain [ owl:unionOf (foaf:Person foaf:Organization) ] ;
             rdfs:range xsd:string .
 
 
@@ -96,7 +88,6 @@ schema:name rdf:type owl:DatatypeProperty ;
 schema:datePublished rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:datePublished"@en ;
                      rdfs:comment "Date of first publication or broadcast"@en ;
-                     rdfs:domain :Document ;
                      rdfs:range xsd:date .
 
 
