@@ -7,6 +7,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <http://schema.org/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://purl.org/spar/literal/> .
 @base <https://gotriple.eu/ontology/triple> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -71,6 +72,14 @@ schema:familyName rdf:type owl:DatatypeProperty ;
 
 
 #################################################################
+#    Data Properties
+#################################################################
+
+###  http://purl.org/spar/literal/hasLiteralValue
+litre:hasLiteralValue rdf:type owl:DatatypeProperty .
+
+
+#################################################################
 #    Classes
 #################################################################
 
@@ -81,6 +90,11 @@ datacite:Identifier rdf:type owl:Class ;
                                       owl:onProperty datacite:usesIdentifierScheme ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                       owl:onClass datacite:IdentifierScheme
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty litre:hasLiteralValue ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
                                     ] .
 
 
