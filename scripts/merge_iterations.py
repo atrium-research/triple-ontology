@@ -15,7 +15,7 @@ Arguments:
 import argparse
 import sys
 from pathlib import Path
-from rdflib import Graph, Namespace, RDF, RDFS, OWL, Literal
+from rdflib import Graph, Namespace, RDF, RDFS, OWL, Literal, URIRef
 from rdflib.namespace import SKOS, DCTERMS, FOAF
 import logging
 
@@ -68,16 +68,17 @@ def merge_graphs(ttl_files):
     DATACITE = Namespace("http://purl.org/spar/datacite/")
     LITRE = Namespace("http://purl.org/spar/literal/")
     DC = Namespace("http://purl.org/dc/elements/1.1/")
+    SIOC = Namespace("http://rdfs.org/sioc/ns#")
 
-    # Bind namespaces
+    # Bind essential namespaces (let files define their own schema: prefix)
     merged_graph.bind("triple", TRIPLE)
-    merged_graph.bind("schema", SCHEMA)
     merged_graph.bind("skos", SKOS)
     merged_graph.bind("foaf", FOAF)
     merged_graph.bind("dc", DC)
     merged_graph.bind("dcterms", DCTERMS)
     merged_graph.bind("datacite", DATACITE)
     merged_graph.bind("litre", LITRE)
+    merged_graph.bind("sioc", SIOC)
     merged_graph.bind("owl", OWL)
     merged_graph.bind("rdf", RDF)
     merged_graph.bind("rdfs", RDFS)
@@ -98,6 +99,9 @@ def merge_graphs(ttl_files):
         except Exception as e:
             logger.error(f"Error loading {file_path}: {e}")
 
+    # Add schema prefix after loading all files to avoid conflicts
+    merged_graph.bind("schema", SCHEMA)
+    
     logger.info(f"Total triples in merged graph: {len(merged_graph)}")
     return merged_graph
 
@@ -111,11 +115,13 @@ def add_metadata(graph):
     # Add ontology declaration
     graph.add((TRIPLE_ONT[""], RDF.type, OWL.Ontology))
     graph.add((TRIPLE_ONT[""], OWL.versionIRI,
-              Literal("https://gotriple.eu/ontology/triple/1.0.0")))
+              URIRef("https://gotriple.eu/ontology/triple/1.0.0")))
     graph.add((TRIPLE_ONT[""], RDFS.label,
               Literal("TRIPLE Ontology", lang="en")))
     graph.add((TRIPLE_ONT[""], RDFS.comment,
               Literal("Comprehensive semantic representation of the GoTriple discovery platform's data model for Social Sciences and Humanities (SSH) research artifacts.", lang="en")))
+    graph.add((TRIPLE_ONT[""], OWL.versionInfo,
+              Literal("1.0.0")))
     graph.add((TRIPLE_ONT[""], DCTERMS.created,
               Literal("2025-10-06")))
     graph.add((TRIPLE_ONT[""], DCTERMS.modified,
@@ -130,7 +136,18 @@ def save_ontology(graph, output_path):
 
     try:
         output_path.parent.mkdir(parents=True, exist_ok=True)
-        graph.serialize(destination=str(output_path), format='turtle')
+        
+        # Serialize to string first
+        turtle_content = graph.serialize(format='turtle')
+        
+        # Fix schema1: prefix to schema:
+        turtle_content = turtle_content.replace('@prefix schema1:', '@prefix schema:')
+        turtle_content = turtle_content.replace('schema1:', 'schema:')
+        
+        # Write to file
+        with open(output_path, 'w', encoding='utf-8') as f:
+            f.write(turtle_content)
+            
         logger.info(f"Successfully saved ontology with {len(graph)} triples")
         return True
 
