@@ -18,7 +18,6 @@
 | `schema:keywords` | Keywords or tags used to describe the semantic artifact content. |
 | `dcterms:isReferencedBy` | A related resource that references, cites, or otherwise points to the semantic artifact. |
 | `datacite:hasIdentifier` | Links the semantic artifact to its identifiers (DOI, Handle, etc.). |
-| `schema:identifier` | The identifier property represents any kind of identifier for the semantic artifact (local identifier, URI). |
 | `datacite:Identifier` | An identifier for a semantic artifact. |
 | `datacite:IdentifierScheme` | A scheme that defines the syntax and semantics of identifiers. |
 | `triple:doi` | Digital Object Identifier scheme for persistent identification of digital objects. |

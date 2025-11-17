@@ -20,7 +20,7 @@
 
 ###  Multimedia Example 1: Canal-U Video Lecture
 triple:multimedia-001 rdf:type triple:MediaObject ;
-                      schema:identifier "canalu:video/12345" ;
+                      datacite:hasIdentifier triple:identifier-multimedia-001 ;
                       schema:headline "Introduction to Medieval History: The Carolingian Renaissance"@fr ;
                       schema:abstract "Conférence magistrale sur la Renaissance carolingienne présentée dans le cadre du séminaire d'histoire médiévale de l'Université de Paris."@fr ;
                       schema:author "Prof. Marie Dubois" ;
@@ -35,8 +35,8 @@ triple:multimedia-001 rdf:type triple:MediaObject ;
                       schema:keywords triple:keyword-histoire-medievale, triple:keyword-renaissance-carolingienne, triple:keyword-charlemagne ;
                       schema:additionalType "video/mp4" ;
                       schema:knowsAbout "medieval history", "Carolingian period" ;
-                      schema:inLanguage "fr" ;
-                      schema:spatialCoverage "Europe occidentale" ;
+                      schema:inLanguage schema:language-fr ;
+                      schema:spatialCoverage triple:place-europe-occidentale ;
                       schema:temporalCoverage "750-900 CE" ;
                       schema:duration "PT1H25M30S" ;
                       schema:encodingFormat "video/mp4" ;
@@ -56,7 +56,7 @@ triple:multimedia-001 rdf:type triple:MediaObject ;
 
 ###  Multimedia Example 2: Audio Interview Archive
 triple:multimedia-002 rdf:type triple:MediaObject ;
-                      schema:identifier "oral-history:interview/789" ;
+                      datacite:hasIdentifier triple:identifier-multimedia-002 ;
                       schema:headline "Oral History: Resistance Movement in WWII Italy"@en ;
                       schema:abstract "Audio recording of interview with Giovanni Rossi, former member of the Italian Resistance during World War II, conducted in 2023 as part of the European Memory Project."@en ;
                       schema:author "Dr. Lisa Anderson", "European Memory Institute" ;
@@ -69,8 +69,8 @@ triple:multimedia-002 rdf:type triple:MediaObject ;
                       schema:keywords triple:keyword-oral-history, triple:keyword-world-war-ii, triple:keyword-italian-resistance, triple:keyword-memory-studies ;
                       schema:additionalType "audio/mp3" ;
                       schema:knowsAbout "European history", "resistance movements", "oral testimony" ;
-                      schema:inLanguage "it", "en" ;
-                      schema:spatialCoverage "Italy" ;
+                      schema:inLanguage schema:language-it, schema:language-en ;
+                      schema:spatialCoverage triple:place-italy ;
                       schema:temporalCoverage "1943-1945" ;
                       schema:duration "PT2H15M00S" ;
                       schema:encodingFormat "audio/mp3" ;
@@ -89,7 +89,7 @@ triple:multimedia-002 rdf:type triple:MediaObject ;
 
 ###  Multimedia Example 3: Digital Art History Image Collection
 triple:multimedia-003 rdf:type triple:MediaObject ;
-                      schema:identifier "art-digital:img/renaissance/456" ;
+                      datacite:hasIdentifier triple:identifier-multimedia-003 ;
                       schema:headline "High-Resolution Scan: Botticelli's Birth of Venus"@en ;
                       schema:abstract "Ultra-high resolution digital scan of Sandro Botticelli's The Birth of Venus (c. 1484-1486) from the Uffizi Gallery collection, created for digital humanities research and education."@en ;
                       schema:author "Uffizi Digital Archive Team" ;
@@ -103,8 +103,8 @@ triple:multimedia-003 rdf:type triple:MediaObject ;
                       schema:keywords triple:keyword-renaissance-art, triple:keyword-botticelli, triple:keyword-digital-humanities, triple:keyword-cultural-heritage ;
                       schema:additionalType "image/tiff" ;
                       schema:knowsAbout "Renaissance painting", "Italian art", "digital preservation" ;
-                      schema:inLanguage "en", "it" ;
-                      schema:spatialCoverage "Florence, Italy" ;
+                      schema:inLanguage schema:language-en, schema:language-it ;
+                      schema:spatialCoverage triple:place-florence-italy ;
                       schema:temporalCoverage "1480-1490" ;
                       schema:encodingFormat "image/tiff", "image/jpeg" ;
                       schema:size "850 MB" ;
@@ -125,15 +125,15 @@ triple:multimedia-003 rdf:type triple:MediaObject ;
 ###  Projects
 triple:project-medieval-studies rdf:type schema:Project ;
                                 schema:name "Digital Medieval Studies Initiative" ;
-                                schema:identifier "DMSI-2023-001" .
+                                datacite:hasIdentifier triple:identifier-project-001 .
 
 triple:project-european-memory rdf:type schema:Project ;
                                schema:name "European Memory and Identity Project" ;
-                               schema:identifier "EMIP-2022-078" .
+                               datacite:hasIdentifier triple:identifier-project-002 .
 
 triple:project-digital-uffizi rdf:type schema:Project ;
                                schema:name "Uffizi Digital Heritage Archive" ;
-                               schema:identifier "UDHA-2023-012" .
+                               datacite:hasIdentifier triple:identifier-project-003 .
 
 ###  Topics
 triple:topic-medieval-history rdf:type skos:Concept ;
@@ -322,3 +322,55 @@ triple:keyword-digital-humanities rdf:type schema:DefinedTerm ;
 triple:keyword-cultural-heritage rdf:type schema:DefinedTerm ;
                                  schema:name "cultural heritage"@en ;
                                  schema:description "Legacy of physical artifacts and cultural traditions inherited from past generations"@en .
+
+###  Places
+triple:place-europe-occidentale rdf:type schema:Place ;
+                                 schema:name "Europe occidentale" .
+
+triple:place-italy rdf:type schema:Place ;
+                   schema:name "Italy" .
+
+triple:place-florence-italy rdf:type schema:Place ;
+                             schema:name "Florence, Italy" .
+
+###  Languages
+schema:language-fr rdf:type schema:Language ;
+                   rdfs:label "fr"@en .
+
+schema:language-it rdf:type schema:Language ;
+                   rdfs:label "it"@en .
+
+schema:language-en rdf:type schema:Language ;
+                   rdfs:label "en"@en .
+
+###  Identifier Schemes
+triple:external_id rdf:type datacite:IdentifierScheme ;
+                   rdfs:label "External ID" .
+
+triple:internal_id rdf:type datacite:IdentifierScheme ;
+                   rdfs:label "Internal ID" .
+
+###  Identifiers
+triple:identifier-multimedia-001 rdf:type datacite:Identifier ;
+                                 datacite:hasIdentifierScheme triple:external_id ;
+                                 litre:hasLiteralValue "canalu:video/12345" .
+
+triple:identifier-multimedia-002 rdf:type datacite:Identifier ;
+                                 datacite:hasIdentifierScheme triple:external_id ;
+                                 litre:hasLiteralValue "oral-history:interview/789" .
+
+triple:identifier-multimedia-003 rdf:type datacite:Identifier ;
+                                 datacite:hasIdentifierScheme triple:external_id ;
+                                 litre:hasLiteralValue "art-digital:img/renaissance/456" .
+
+triple:identifier-project-001 rdf:type datacite:Identifier ;
+                              datacite:hasIdentifierScheme triple:internal_id ;
+                              litre:hasLiteralValue "DMSI-2023-001" .
+
+triple:identifier-project-002 rdf:type datacite:Identifier ;
+                              datacite:hasIdentifierScheme triple:internal_id ;
+                              litre:hasLiteralValue "EMIP-2022-078" .
+
+triple:identifier-project-003 rdf:type datacite:Identifier ;
+                              datacite:hasIdentifierScheme triple:internal_id ;
+                              litre:hasLiteralValue "UDHA-2023-012" .

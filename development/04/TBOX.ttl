@@ -18,10 +18,6 @@
 #    Datatypes
 #################################################################
 
-###  http://schema.org/DateTime
-<http://schema.org/DateTime> rdf:type rdfs:Datatype .
-
-
 ###  http://schema.org/Text
 <http://schema.org/Text> rdf:type rdfs:Datatype .
 
@@ -41,6 +37,12 @@
                                     rdfs:range <http://schema.org/Place> ;
                                     rdfs:label "schema:spatialCoverage" .
 
+###  http://schema.org/geo
+<http://schema.org/geo> rdf:type owl:ObjectProperty ;
+                        rdfs:domain <http://schema.org/Place> ;
+                        rdfs:range <http://schema.org/GeoShape> ;
+                        rdfs:label "schema:geo" .
+
 
 #################################################################
 #    Data properties
@@ -56,7 +58,7 @@
 ###  http://schema.org/temporalCoverage
 <http://schema.org/temporalCoverage> rdf:type owl:DatatypeProperty ;
                                      rdfs:domain :Document ;
-                                     rdfs:range <http://schema.org/DateTime> ;
+                                     rdfs:range xsd:string ;
                                      rdfs:label "schema:temporalCoverage" .
 
 
@@ -68,9 +70,13 @@
 <http://schema.org/Place> rdf:type owl:Class ;
                           rdfs:subClassOf [ rdf:type owl:Restriction ;
                                             owl:onProperty <http://schema.org/name> ;
-                                            owl:someValuesFrom <http://schema.org/Text>
+                                            owl:someValuesFrom xsd:string
                                           ] ;
                           rdfs:label "schema:Place"@en .
+
+###  http://schema.org/GeoShape
+<http://schema.org/GeoShape> rdf:type owl:Class ;
+                             rdfs:label "schema:GeoShape"@en .
 
 
 ###  http://schema.org/DefinedTerm
@@ -108,7 +114,7 @@ foaf:Document rdf:type owl:Class ;
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty <http://schema.org/temporalCoverage> ;
-                            owl:someValuesFrom <http://schema.org/DateTime>
+                            owl:someValuesFrom xsd:string
                           ] .
 
 

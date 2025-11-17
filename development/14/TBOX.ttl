@@ -21,6 +21,37 @@
 #    Object Properties
 #################################################################
 
+###  http://schema.org/spatialCoverage
+schema:spatialCoverage rdf:type owl:ObjectProperty ;
+                       rdfs:label "schema:spatialCoverage"@en ;
+                       rdfs:comment "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content."@en ;
+                       rdfs:range schema:Place .
+
+###  http://schema.org/geo
+schema:geo rdf:type owl:ObjectProperty ;
+           rdfs:label "schema:geo"@en ;
+           rdfs:comment "The geo coordinates of the place."@en ;
+           rdfs:domain schema:Place ;
+           rdfs:range schema:GeoShape .
+
+###  http://schema.org/author
+schema:author rdf:type owl:ObjectProperty ;
+              rdfs:label "schema:author"@en ;
+              rdfs:comment "The author of this content."@en ;
+              rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
+###  http://schema.org/contributor
+schema:contributor rdf:type owl:ObjectProperty ;
+                   rdfs:label "schema:contributor"@en ;
+                   rdfs:comment "A secondary contributor to the CreativeWork."@en ;
+                   rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
+###  http://schema.org/publisher
+schema:publisher rdf:type owl:ObjectProperty ;
+                 rdfs:label "schema:publisher"@en ;
+                 rdfs:comment "The publisher of the creative work."@en ;
+                 rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
 ###  http://schema.org/contactPoint
 schema:contactPoint rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contactPoint" ;
@@ -59,6 +90,12 @@ datacite:hasIdentifier rdf:type owl:ObjectProperty ;
 #################################################################
 #    Data Properties
 #################################################################
+
+###  http://schema.org/name
+schema:name rdf:type owl:DatatypeProperty ;
+            rdfs:label "schema:name"@en ;
+            rdfs:comment "The name of the item."@en ;
+            rdfs:range xsd:string .
 
 ###  http://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
@@ -109,12 +146,6 @@ schema:encodingFormat rdf:type owl:DatatypeProperty ;
                      rdfs:domain triple:SemanticArtefact ;
                      rdfs:range xsd:string .
 
-###  http://schema.org/identifier
-schema:identifier rdf:type owl:DatatypeProperty ;
-                 rdfs:label "schema:identifier" ;
-                 rdfs:comment "The identifier property represents any kind of identifier for the semantic artifact (local identifier, URI)"@en ;
-                 rdfs:domain triple:SemanticArtefact ;
-                 rdfs:range xsd:string .
 
 
 
@@ -122,10 +153,33 @@ schema:identifier rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
+###  http://schema.org/Place
+schema:Place rdf:type owl:Class ;
+             rdfs:label "schema:Place"@en ;
+             rdfs:comment "Entities that have a somewhat fixed, physical extension."@en ;
+             rdfs:subClassOf [ rdf:type owl:Restriction ;
+                              owl:onProperty schema:name ;
+                              owl:someValuesFrom xsd:string ] .
+
+###  http://schema.org/GeoShape
+schema:GeoShape rdf:type owl:Class ;
+                rdfs:label "schema:GeoShape"@en ;
+                rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs."@en .
+
 ###  http://schema.org/ContactPoint
 schema:ContactPoint rdf:type owl:Class ;
                    rdfs:label "schema:ContactPoint" ;
                    rdfs:comment "A contact point for a person or organization"@en .
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:label "foaf:Person"@en ;
+            rdfs:comment "A person."@en .
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class ;
+                  rdfs:label "foaf:Organization"@en ;
+                  rdfs:comment "An organization."@en .
 
 ###  http://purl.org/spar/datacite/Identifier
 datacite:Identifier rdf:type owl:Class ;
@@ -152,6 +206,10 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                       ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:contributor ;
+                                        owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ]
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:author ;
                                         owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ]
                                       ] ,
                                       [ rdf:type owl:Restriction ;
@@ -207,8 +265,8 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                         owl:allValuesFrom datacite:Identifier
                                       ] ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty schema:identifier ;
-                                        owl:allValuesFrom xsd:string
+                                        owl:onProperty schema:spatialCoverage ;
+                                        owl:allValuesFrom schema:Place
                                       ] .
 
 

@@ -67,12 +67,15 @@ Return all datasets that have DOI identifiers.
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
 
-SELECT ?dataset ?title ?identifier WHERE {
+SELECT ?dataset ?title ?identifierValue WHERE {
   ?dataset a schema:Dataset ;
            schema:headline ?title ;
-           schema:identifier ?identifier .
-  FILTER(CONTAINS(?identifier, "10."))
+           datacite:hasIdentifier ?identifier .
+  ?identifier datacite:hasIdentifierScheme triple:doi ;
+              litre:hasLiteralValue ?identifierValue .
 }
 ```
 
