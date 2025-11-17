@@ -22,3 +22,5 @@
 | `MIME Type`                    | Media type specification for multimedia files (e.g., video/mp4, audio/mp3, image/tiff) used in `schema:encodingFormat`.                           |
 | `ISO 8601 Duration`            | Standard format for expressing time durations (PT[hours]H[minutes]M[seconds]S).                                                                     |
 | `OAI-PMH`                      | Open Archives Initiative Protocol for Metadata Harvesting, used for extracting multimedia metadata from repositories.                              |
+| `schema:keywords`              | Schema.org object property linking multimedia content to defined terms that describe the content topics.                                            |
+| `schema:DefinedTerm`           | Schema.org class representing a word, name, acronym, phrase, etc. with a formal definition used to describe multimedia content.                     |

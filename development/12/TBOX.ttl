@@ -77,6 +77,12 @@ dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
                        rdfs:label "dcterms:isReferencedBy"@en ;
                        rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en .
 
+###  https://schema.org/keywords
+schema:keywords rdf:type owl:ObjectProperty ;
+                rdfs:label "schema:keywords"@en ;
+                rdfs:comment "Keywords or tags used to describe this content."@en ;
+                rdfs:range schema:DefinedTerm .
+
 #################################################################
 #    Data Properties
 #################################################################
@@ -96,10 +102,6 @@ schema:size rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:size"@en ;
             rdfs:comment "A standardized size of a product or creative work."@en .
 
-###  https://schema.org/conditionsOfAccess  
-schema:conditionsOfAccess rdf:type owl:DatatypeProperty ;
-                          rdfs:label "schema:conditionsOfAccess"@en ;
-                          rdfs:comment "Conditions that affect the availability of, or method(s) of access to, an item."@en .
 
 ###  https://schema.org/creativeWorkStatus
 schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
@@ -126,10 +128,6 @@ schema:additionalType rdf:type owl:DatatypeProperty ;
                       rdfs:label "schema:additionalType"@en ;
                       rdfs:comment "An additional type for the item, typically used for adding more specific types."@en .
 
-###  https://schema.org/keywords
-schema:keywords rdf:type owl:DatatypeProperty ;
-                rdfs:label "schema:keywords"@en ;
-                rdfs:comment "Keywords or tags used to describe this content."@en .
 
 ###  https://schema.org/knowsAbout
 schema:knowsAbout rdf:type owl:DatatypeProperty ;
@@ -156,10 +154,6 @@ schema:dateModified rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:dateModified"@en ;
                     rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en .
 
-###  https://schema.org/license
-schema:license rdf:type owl:DatatypeProperty ;
-               rdfs:label "schema:license"@en ;
-               rdfs:comment "A license document that applies to this content, typically indicated by URL."@en .
 
 
 
@@ -182,6 +176,11 @@ schema:Dataset rdf:type owl:Class ;
 schema:GeoShape rdf:type owl:Class ;
                 rdfs:label "schema:GeoShape"@en ;
                 rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs."@en .
+
+###  https://schema.org/DefinedTerm
+schema:DefinedTerm rdf:type owl:Class ;
+                   rdfs:label "schema:DefinedTerm"@en ;
+                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition"@en .
 
 
 #################################################################

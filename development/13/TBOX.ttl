@@ -49,6 +49,12 @@ schema:producer rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:producer"@en ;
                 rdfs:comment "The person or organization who produced the work (e.g. music album, movie, tv/radio series etc.)."@en .
 
+###  https://schema.org/keywords
+schema:keywords rdf:type owl:ObjectProperty ;
+                rdfs:label "schema:keywords"@en ;
+                rdfs:comment "Keywords or tags used to describe this content."@en ;
+                rdfs:range schema:DefinedTerm .
+
 #################################################################
 #    Data Properties
 #################################################################
@@ -107,6 +113,11 @@ triple:MediaObject rdf:type owl:Class ;
                    rdfs:label "Media Object (Triple)"@en ;
                    rdfs:comment "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en ;
                    rdfs:subClassOf schema:MediaObject .
+
+###  https://schema.org/DefinedTerm
+schema:DefinedTerm rdf:type owl:Class ;
+                   rdfs:label "schema:DefinedTerm"@en ;
+                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition"@en .
 
 
 

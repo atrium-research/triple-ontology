@@ -7,7 +7,6 @@
 | `schema:spatialCoverage`       | Schema.org property indicating the geographical area covered by the dataset.                                                                        |
 | `schema:temporalCoverage`      | Schema.org property indicating the temporal period that the dataset covers.                                                                         |
 | `schema:encodingFormat`        | Schema.org property specifying the file format of the dataset (e.g., text/csv, application/json, application/x-spss).                             |
-| `schema:conditionsOfAccess`    | Schema.org property describing the access conditions for the dataset (e.g., Open Access, Restricted Access).                                       |
 | `schema:size`                  | Schema.org property indicating the size of the dataset (e.g., file size in MB).                                                                    |
 | `schema:creativeWorkStatus`    | Schema.org property describing the status of the dataset in terms of its stage in a lifecycle.                                                     |
 | `schema:GeoShape`              | Schema.org class representing the geographic shape or bounding box of the dataset's spatial coverage.                                               |
@@ -29,3 +28,5 @@
 | `schema:comment`               | Schema.org property used for lineage information - free-text descriptions of the dataset's processing history.                                     |
 | `sioc:topic`                   | SIOC vocabulary property linking the dataset to topic concepts or themes.                                                                           |
 | `dcterms:isReferencedBy`       | Dublin Core Terms property indicating documents or publications that reference this dataset.                                                        |
+| `schema:keywords`              | Schema.org object property linking to defined terms that describe the dataset content.                                                              |
+| `schema:DefinedTerm`           | Schema.org class representing a word, name, acronym, phrase, etc. with a formal definition used to describe dataset topics.                        |

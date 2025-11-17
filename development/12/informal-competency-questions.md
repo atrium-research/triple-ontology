@@ -81,14 +81,14 @@ Example 1
 CQ_12.5
 
 ### Question
-Return all datasets with their access conditions.
+Return all datasets with their descriptive keywords.
 
 ### Expected Outcome
-A list of datasets with access restriction information.
+A list of datasets with their associated keyword terms.
 
 ### Result
-* `dataset_001` → Open Access
-* `dataset_002` → Requires registration and approval
+* `dataset_001` → archaeology, Europe, heritage, spatial data
+* `dataset_002` → social attitudes, survey, politics, demographics
 
 ### Based on
 Example 1 and Example 2

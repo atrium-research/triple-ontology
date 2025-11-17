@@ -82,22 +82,25 @@ SELECT ?dataset ?title ?identifier WHERE {
 
 ## CQ_12.5
 
-Return all datasets with their access conditions.
+Return all datasets with their keywords.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?dataset ?title ?access WHERE {
+SELECT ?dataset ?title ?keyword ?keywordName WHERE {
   ?dataset a schema:Dataset ;
            schema:headline ?title ;
-           schema:conditionsOfAccess ?access .
+           schema:keywords ?keyword .
+  ?keyword schema:name ?keywordName .
 }
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "Open Access"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "Requires registration and approval"
+- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:keyword-archaeology` → "archaeology"
+- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:keyword-heritage` → "heritage"
+- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:keyword-survey` → "survey"
+- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:keyword-politics` → "politics"
 
 
 ## CQ_12.6

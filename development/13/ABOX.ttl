@@ -32,7 +32,7 @@ triple:multimedia-001 rdf:type triple:MediaObject ;
                       schema:producer "CERIMES" ;
                       schema:provider "Canal-U" ;
                       schema:license "CC BY-NC-ND 4.0" ;
-                      schema:keywords "histoire médiévale", "renaissance carolingienne", "Charlemagne" ;
+                      schema:keywords triple:keyword-histoire-medievale, triple:keyword-renaissance-carolingienne, triple:keyword-charlemagne ;
                       schema:additionalType "video/mp4" ;
                       schema:knowsAbout "medieval history", "Carolingian period" ;
                       schema:inLanguage "fr" ;
@@ -66,7 +66,7 @@ triple:multimedia-002 rdf:type triple:MediaObject ;
                       schema:publisher "European Memory Institute" ;
                       schema:provider "ISIDORE" ;
                       schema:license "CC BY-SA 4.0" ;
-                      schema:keywords "oral history", "World War II", "Italian Resistance", "memory studies" ;
+                      schema:keywords triple:keyword-oral-history, triple:keyword-world-war-ii, triple:keyword-italian-resistance, triple:keyword-memory-studies ;
                       schema:additionalType "audio/mp3" ;
                       schema:knowsAbout "European history", "resistance movements", "oral testimony" ;
                       schema:inLanguage "it", "en" ;
@@ -100,7 +100,7 @@ triple:multimedia-003 rdf:type triple:MediaObject ;
                       schema:producer "Uffizi Digital Archive" ;
                       schema:provider "Europeana" ;
                       schema:license "CC BY-NC 4.0" ;
-                      schema:keywords "Renaissance art", "Botticelli", "digital humanities", "cultural heritage" ;
+                      schema:keywords triple:keyword-renaissance-art, triple:keyword-botticelli, triple:keyword-digital-humanities, triple:keyword-cultural-heritage ;
                       schema:additionalType "image/tiff" ;
                       schema:knowsAbout "Renaissance painting", "Italian art", "digital preservation" ;
                       schema:inLanguage "en", "it" ;
@@ -277,3 +277,48 @@ triple:identifier-image-handle rdf:type owl:NamedIndividual ,
                                         datacite:Identifier ;
                                datacite:usesIdentifierScheme triple:handle ;
                                litre:hasLiteralValue "21.11130/00-IMAGE-BIRTH-VENUS-HD" .
+
+###  Keywords (DefinedTerms)
+triple:keyword-histoire-medievale rdf:type schema:DefinedTerm ;
+                                  schema:name "histoire médiévale"@fr ;
+                                  schema:description "L'étude académique de la période médiévale européenne"@fr .
+
+triple:keyword-renaissance-carolingienne rdf:type schema:DefinedTerm ;
+                                         schema:name "renaissance carolingienne"@fr ;
+                                         schema:description "Période de renouveau culturel et intellectuel sous l'empire carolingien"@fr .
+
+triple:keyword-charlemagne rdf:type schema:DefinedTerm ;
+                           schema:name "Charlemagne"@fr ;
+                           schema:description "Empereur carolingien et figure centrale du renouveau culturel médiéval"@fr .
+
+triple:keyword-oral-history rdf:type schema:DefinedTerm ;
+                            schema:name "oral history"@en ;
+                            schema:description "Historical methodology using spoken testimonies and interviews"@en .
+
+triple:keyword-world-war-ii rdf:type schema:DefinedTerm ;
+                            schema:name "World War II"@en ;
+                            schema:description "Global conflict from 1939 to 1945"@en .
+
+triple:keyword-italian-resistance rdf:type schema:DefinedTerm ;
+                                  schema:name "Italian Resistance"@en ;
+                                  schema:description "Armed resistance movement against fascist occupation in Italy during WWII"@en .
+
+triple:keyword-memory-studies rdf:type schema:DefinedTerm ;
+                              schema:name "memory studies"@en ;
+                              schema:description "Interdisciplinary field studying collective and cultural memory"@en .
+
+triple:keyword-renaissance-art rdf:type schema:DefinedTerm ;
+                               schema:name "Renaissance art"@en ;
+                               schema:description "Artistic movement from 14th to 17th century Europe"@en .
+
+triple:keyword-botticelli rdf:type schema:DefinedTerm ;
+                          schema:name "Botticelli"@en ;
+                          schema:description "Sandro Botticelli, Italian Renaissance painter (1445-1510)"@en .
+
+triple:keyword-digital-humanities rdf:type schema:DefinedTerm ;
+                                  schema:name "digital humanities"@en ;
+                                  schema:description "Application of digital tools and methods to humanities research"@en .
+
+triple:keyword-cultural-heritage rdf:type schema:DefinedTerm ;
+                                 schema:name "cultural heritage"@en ;
+                                 schema:description "Legacy of physical artifacts and cultural traditions inherited from past generations"@en .

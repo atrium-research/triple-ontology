@@ -200,3 +200,26 @@ SELECT ?multimedia ?title ?referencedDoc ?docTitle WHERE {
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "triple:document-medieval-anthology-2023" → "Medieval Studies Anthology 2023"
 - `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "triple:document-botticelli-analysis-2023" → "Digital Analysis of Botticelli's Techniques"
 
+
+## CQ_13.10
+
+Return all multimedia content with their descriptive keywords.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?multimedia ?title ?keyword ?keywordName WHERE {
+  ?multimedia a triple:MediaObject ;
+              schema:headline ?title ;
+              schema:keywords ?keyword .
+  ?keyword schema:name ?keywordName .
+}
+```
+
+**Expected result:**
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:keyword-histoire-medievale` → "histoire médiévale"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:keyword-renaissance-carolingienne` → "renaissance carolingienne"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:keyword-oral-history` → "oral history"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:keyword-renaissance-art` → "Renaissance art"
+

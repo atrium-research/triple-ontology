@@ -171,3 +171,23 @@ A list of multimedia objects with bibliographic references.
 
 ### Based on
 Example 1 and Example 3
+
+
+## Question 10
+
+### Identifier
+CQ_13.10
+
+### Question
+Return all multimedia content with their descriptive keywords.
+
+### Expected Outcome
+A list of multimedia objects with their associated keyword terms.
+
+### Result
+* `multimedia-001` → histoire médiévale, renaissance carolingienne, Charlemagne
+* `multimedia-002` → oral history, World War II, Italian Resistance, memory studies
+* `multimedia-003` → Renaissance art, Botticelli, digital humanities, cultural heritage
+
+### Based on
+Example 1, Example 2, and Example 3

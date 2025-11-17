@@ -52,8 +52,7 @@ dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
 ###  http://purl.org/spar/datacite/hasIdentifier
 datacite:hasIdentifier rdf:type owl:ObjectProperty ;
                        rdfs:label "datacite:hasIdentifier" ;
-                       rdfs:comment "Links the semantic artifact to its identifiers"@en ;
-                       rdfs:domain triple:SemanticArtefact ;
+                       rdfs:comment "Links entities to their identifiers"@en ;
                        rdfs:range datacite:Identifier .
 
 
@@ -210,8 +209,7 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:identifier ;
                                         owl:allValuesFrom xsd:string
-                                      ] ,
-.
+                                      ] .
 
 
 #################################################################
