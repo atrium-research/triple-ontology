@@ -40,8 +40,8 @@ triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
                     schema:keywords triple:keyword-thesaurus, triple:keyword-ssh, triple:keyword-vocabulary ;
                     datacite:hasIdentifier triple:identifier-thesaurus-doi ;
                     schema:identifier "gotriple:thesaurus:ssh:v2.1" ;
-                    schema:url "https://thesaurus.gotriple.eu/download/rdf" ;
-                    schema:mainEntityOfPage triple:page-thesaurus-landing ;
+                    datacite:hasIdentifier triple:identifier-thesaurus-download ,
+                                           triple:identifier-thesaurus-landing ;
                     dcterms:isReferencedBy triple:document-dh-methodology .
 
 ###  Example 2: SKOS Art History Vocabulary
@@ -60,9 +60,9 @@ triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
                        schema:creativeWorkStatus triple:status-published ;
                        schema:keywords triple:keyword-arthistory, triple:keyword-vocabulary, triple:keyword-cultural-heritage ;
                        schema:identifier "dhi:vocab:arthistory:v1.3" ;
-                       schema:url "https://vocab.arthistory.eu/skos.ttl" ;
-                       schema:mainEntityOfPage triple:page-vocab-arthistory ;
-                       schema:isBasedOnUrl "https://getty.edu/research/tools/vocabularies/aat/" .
+                       datacite:hasIdentifier triple:identifier-vocab-download ,
+                                              triple:identifier-vocab-landing ,
+                                              triple:identifier-vocab-source .
 
 ###  Example 3: Medieval Studies Ontology
 triple:ontology-medieval rdf:type triple:SemanticArtefact ;
@@ -81,8 +81,8 @@ triple:ontology-medieval rdf:type triple:SemanticArtefact ;
                         schema:keywords triple:keyword-medieval, triple:keyword-ontology, triple:keyword-history ;
                         datacite:hasIdentifier triple:identifier-medieval-handle ;
                         schema:identifier "unibo:ontology:medieval:v0.9" ;
-                        schema:url "https://ontology.medieval.unibo.it/owl" ;
-                        schema:mainEntityOfPage triple:page-medieval-landing ;
+                        datacite:hasIdentifier triple:identifier-medieval-download ,
+                                               triple:identifier-medieval-landing ;
                         dcterms:isReferencedBy triple:document-carolingian .
 
 ###  Supporting Organizations
@@ -203,6 +203,46 @@ triple:page-vocab-arthistory rdf:type foaf:Document ;
 triple:page-medieval-landing rdf:type foaf:Document ;
                             schema:headline "Medieval Studies Ontology - Landing Page"@en ;
                             schema:url "https://ontology.medieval.unibo.it/landing" .
+
+###  Semantic Artifact Identifiers
+
+###  Thesaurus Identifiers
+triple:identifier-thesaurus-download rdf:type owl:NamedIndividual ,
+                                              datacite:Identifier ;
+                                     datacite:usesIdentifierScheme triple:full_text_url ;
+                                     litre:hasLiteralValue "https://thesaurus.gotriple.eu/download/rdf" .
+
+triple:identifier-thesaurus-landing rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:landing_page_url ;
+                                    litre:hasLiteralValue "https://thesaurus.gotriple.eu/landing" .
+
+###  Vocabulary Identifiers  
+triple:identifier-vocab-download rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:full_text_url ;
+                                 litre:hasLiteralValue "https://vocab.arthistory.eu/skos.ttl" .
+
+triple:identifier-vocab-landing rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:landing_page_url ;
+                                litre:hasLiteralValue "https://vocab.arthistory.eu/landing" .
+
+triple:identifier-vocab-source rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:source_url ;
+                               litre:hasLiteralValue "https://getty.edu/research/tools/vocabularies/aat/" .
+
+###  Medieval Ontology Identifiers
+triple:identifier-medieval-download rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:full_text_url ;
+                                    litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl" .
+
+triple:identifier-medieval-landing rdf:type owl:NamedIndividual ,
+                                            datacite:Identifier ;
+                                   datacite:usesIdentifierScheme triple:landing_page_url ;
+                                   litre:hasLiteralValue "https://ontology.medieval.unibo.it/landing" .
 
 ###  Referenced Documents (for competency questions)
 triple:document-dh-methodology rdf:type triple:Document ;

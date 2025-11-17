@@ -41,8 +41,8 @@ triple:multimedia-001 rdf:type schema:VideoObject ;
                       schema:duration "PT1H25M30S" ;
                       schema:encodingFormat "video/mp4" ;
                       schema:size "1.2 GB" ;
-                      schema:url "https://canal-u.fr/video/12345" ;
-                      schema:mainEntityOfPage "https://canal-u.fr/chaines/histoire-medieval/carolingien-renaissance" ;
+                      datacite:hasIdentifier triple:identifier-video-media ,
+                                             triple:identifier-video-landing ;
                       schema:conditionsOfAccess "Open Access" ;
                       schema:funding triple:project-medieval-studies ;
                       sioc:topic triple:topic-medieval-history ;
@@ -70,8 +70,8 @@ triple:multimedia-002 rdf:type schema:AudioObject ;
                       schema:duration "PT2H15M00S" ;
                       schema:encodingFormat "audio/mp3" ;
                       schema:size "198 MB" ;
-                      schema:url "https://memory-institute.eu/audio/789" ;
-                      schema:mainEntityOfPage "https://memory-institute.eu/collections/resistance-interviews" ;
+                      datacite:hasIdentifier triple:identifier-audio-media ,
+                                             triple:identifier-audio-landing ;
                       schema:conditionsOfAccess "Open Access with attribution" ;
                       schema:funding triple:project-european-memory ;
                       sioc:topic triple:topic-european-history ;
@@ -98,8 +98,8 @@ triple:multimedia-003 rdf:type schema:ImageObject ;
                       schema:temporalCoverage "1480-1490" ;
                       schema:encodingFormat "image/tiff", "image/jpeg" ;
                       schema:size "850 MB" ;
-                      schema:url "https://uffizi-digital.it/artworks/birth-of-venus-hd" ;
-                      schema:mainEntityOfPage "https://uffizi.it/en/artworks/birth-of-venus" ;
+                      datacite:hasIdentifier triple:identifier-image-media ,
+                                             triple:identifier-image-landing ;
                       schema:conditionsOfAccess "Educational and Research Use" ;
                       schema:funding triple:project-digital-uffizi ;
                       sioc:topic triple:topic-art-history ;
@@ -146,3 +146,38 @@ triple:document-medieval-anthology-2023 rdf:type schema:CreativeWork ;
 triple:document-botticelli-analysis-2023 rdf:type schema:CreativeWork ;
                                           schema:headline "Digital Analysis of Botticelli's Techniques"@en ;
                                           schema:datePublished "2023-10-15"^^xsd:date .
+
+###  Multimedia Identifiers
+
+###  Video Identifiers
+triple:identifier-video-media rdf:type owl:NamedIndividual ,
+                                       datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:full_text_url ;
+                              litre:hasLiteralValue "https://canal-u.fr/video/12345" .
+
+triple:identifier-video-landing rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:landing_page_url ;
+                                litre:hasLiteralValue "https://canal-u.fr/chaines/histoire-medieval/carolingien-renaissance" .
+
+###  Audio Identifiers  
+triple:identifier-audio-media rdf:type owl:NamedIndividual ,
+                                       datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:full_text_url ;
+                              litre:hasLiteralValue "https://memory-institute.eu/audio/789" .
+
+triple:identifier-audio-landing rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:landing_page_url ;
+                                litre:hasLiteralValue "https://memory-institute.eu/collections/resistance-interviews" .
+
+###  Image Identifiers
+triple:identifier-image-media rdf:type owl:NamedIndividual ,
+                                       datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:full_text_url ;
+                              litre:hasLiteralValue "https://uffizi-digital.it/artworks/birth-of-venus-hd" .
+
+triple:identifier-image-landing rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:landing_page_url ;
+                                litre:hasLiteralValue "https://uffizi.it/en/artworks/birth-of-venus" .

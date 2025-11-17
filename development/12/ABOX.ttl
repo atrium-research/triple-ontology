@@ -38,8 +38,8 @@ triple:dataset-001 rdf:type schema:Dataset ;
                    schema:temporalCoverage "2000 BCE - 1500 CE" ;
                    schema:encodingFormat "text/csv", "application/json" ;
                    schema:size "15.2 MB" ;
-                   schema:url "https://data.heritage.eu/datasets/archaeological-sites" ;
-                   schema:mainEntityOfPage "https://heritage.eu/landing/archaeological-sites" ;
+                   datacite:hasIdentifier triple:identifier-heritage-download ,
+                                          triple:identifier-heritage-landing ;
                    schema:conditionsOfAccess "Open Access" ;
                    schema:creativeWorkStatus "Published" ;
                    schema:contactPoint triple:contact-heritage-institute ;
@@ -68,8 +68,8 @@ triple:dataset-002 rdf:type schema:Dataset ;
                    schema:temporalCoverage "2023" ;
                    schema:encodingFormat "application/x-spss", "text/csv" ;
                    schema:size "245 MB" ;
-                   schema:url "https://data.social-eu.org/datasets/attitudes-2023" ;
-                   schema:mainEntityOfPage "https://social-eu.org/landing/attitudes-survey" ;
+                   datacite:hasIdentifier triple:identifier-social-download ,
+                                          triple:identifier-social-landing ;
                    schema:conditionsOfAccess "Requires registration and approval" ;
                    schema:creativeWorkStatus "Published" ;
                    schema:contactPoint triple:contact-social-observatory ;
@@ -78,6 +78,30 @@ triple:dataset-002 rdf:type schema:Dataset ;
                    schema:mentions triple:dataset-001 ;
                    schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
                    dcterms:isReferencedBy triple:document-social-report-2023 .
+
+###  Dataset Identifiers
+
+###  Heritage Dataset Identifiers
+triple:identifier-heritage-download rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:full_text_url ;
+                                    litre:hasLiteralValue "https://data.heritage.eu/datasets/archaeological-sites" .
+
+triple:identifier-heritage-landing rdf:type owl:NamedIndividual ,
+                                            datacite:Identifier ;
+                                   datacite:usesIdentifierScheme triple:landing_page_url ;
+                                   litre:hasLiteralValue "https://heritage.eu/landing/archaeological-sites" .
+
+###  Social Dataset Identifiers  
+triple:identifier-social-download rdf:type owl:NamedIndividual ,
+                                           datacite:Identifier ;
+                                  datacite:usesIdentifierScheme triple:download_url ;
+                                  litre:hasLiteralValue "https://data.social-eu.org/datasets/attitudes-2023" .
+
+triple:identifier-social-landing rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:landing_page_url ;
+                                 litre:hasLiteralValue "https://social-eu.org/landing/attitudes-survey" .
 
 ###  Supporting Individuals
 

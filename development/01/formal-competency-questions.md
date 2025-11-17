@@ -180,3 +180,52 @@ SELECT ?identifier ?scheme ?url WHERE {
   FILTER (?scheme IN (triple:landing_page_url, triple:full_text_url, triple:source_url))
 }
 ```
+
+## CQ_1.15
+
+Return the internal ID for `triple:document_1`.
+
+```
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?internal_id WHERE {
+  triple:document_1 datacite:hasIdentifer ?identifier .
+  ?identifier datacite:usesIdentiferScheme triple:internal_id ;
+              litre:hasLiteralValue ?internal_id .
+}
+```
+
+## CQ_1.16
+
+Return the PID (persistent identifier) for `triple:document_1`.
+
+```
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?pid WHERE {
+  triple:document_1 datacite:hasIdentifer ?identifier .
+  ?identifier datacite:usesIdentiferScheme triple:pid ;
+              litre:hasLiteralValue ?pid .
+}
+```
+
+## CQ_1.17
+
+Return all platform identifiers (internal, PID, original) for `triple:document_1`.
+
+```
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?identifier ?scheme ?value WHERE {
+  triple:document_1 datacite:hasIdentifer ?identifier .
+  ?identifier datacite:usesIdentiferScheme ?scheme ;
+              litre:hasLiteralValue ?value .
+  FILTER (?scheme IN (triple:internal_id, triple:pid, triple:original_id))
+}
+```

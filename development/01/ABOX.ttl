@@ -106,7 +106,10 @@ triple:Document rdf:type owl:Class ;
                                   :identifier_4 ,
                                   :identifier_landing_1 ,
                                   :identifier_fulltext_1 ,
-                                  :identifier_source_1 ;
+                                  :identifier_source_1 ,
+                                  :identifier_internal_1 ,
+                                  :identifier_pid_1 ,
+                                  :identifier_original_1 ;
             <http://schema.org/inLanguage> :language_10 ;
             <http://schema.org/headline> "The Impact of Digital Humanities on SSH Research"@en ;
             <http://schema.org/headline> "L'impact des humanités numériques sur la recherche SHS"@fr ;
@@ -182,25 +185,6 @@ triple:Document rdf:type owl:Class ;
                               datacite:IdentifierScheme .
 
 
-###  triple:landing_page_url
-:landing_page_url rdf:type owl:NamedIndividual ,
-                           datacite:IdentifierScheme ;
-                  rdfs:label "Landing Page URL"@en ;
-                  rdfs:comment "URL of the landing page containing metadata and descriptive information about the document."@en .
-
-
-###  triple:full_text_url
-:full_text_url rdf:type owl:NamedIndividual ,
-                        datacite:IdentifierScheme ;
-               rdfs:label "Full Text URL"@en ;
-               rdfs:comment "URL providing direct access to the full content of the document."@en .
-
-
-###  triple:source_url
-:source_url rdf:type owl:NamedIndividual ,
-                     datacite:IdentifierScheme ;
-            rdfs:label "Source URL"@en ;
-            rdfs:comment "URL of the original publication location or source repository."@en .
 
 
 ###  triple:identifier_landing_1
@@ -222,6 +206,27 @@ triple:Document rdf:type owl:Class ;
                               datacite:Identifier ;
                      datacite:usesIdentiferScheme :source_url ;
                      litre:hasLiteralValue "https://journals.openedition.org/dh/12345" .
+
+
+###  triple:identifier_internal_1
+:identifier_internal_1 rdf:type owl:NamedIndividual ,
+                                datacite:Identifier ;
+                       datacite:usesIdentiferScheme :internal_id ;
+                       litre:hasLiteralValue "TRIPLE_DOC_001" .
+
+
+###  triple:identifier_pid_1
+:identifier_pid_1 rdf:type owl:NamedIndividual ,
+                           datacite:Identifier ;
+                  datacite:usesIdentiferScheme :pid ;
+                  litre:hasLiteralValue "gotriple:doc:12345-abcd-6789" .
+
+
+###  triple:identifier_original_1
+:identifier_original_1 rdf:type owl:NamedIndividual ,
+                                datacite:Identifier ;
+                       datacite:usesIdentiferScheme :original_id ;
+                       litre:hasLiteralValue "hal-12345" .
 
 
 ###  triple:language_10
