@@ -41,7 +41,10 @@ triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
                     datacite:hasIdentifier triple:identifier-thesaurus-doi ;
                     schema:identifier "gotriple:thesaurus:ssh:v2.1" ;
                     datacite:hasIdentifier triple:identifier-thesaurus-download ,
-                                           triple:identifier-thesaurus-landing ;
+                                           triple:identifier-thesaurus-landing ,
+                                           triple:identifier-thesaurus-internal ,
+                                           triple:identifier-thesaurus-pid ,
+                                           triple:identifier-thesaurus-original ;
                     dcterms:isReferencedBy triple:document-dh-methodology .
 
 ###  Example 2: SKOS Art History Vocabulary
@@ -62,7 +65,10 @@ triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
                        schema:identifier "dhi:vocab:arthistory:v1.3" ;
                        datacite:hasIdentifier triple:identifier-vocab-download ,
                                               triple:identifier-vocab-landing ,
-                                              triple:identifier-vocab-source .
+                                              triple:identifier-vocab-source ,
+                                              triple:identifier-vocab-internal ,
+                                              triple:identifier-vocab-pid ,
+                                              triple:identifier-vocab-original .
 
 ###  Example 3: Medieval Studies Ontology
 triple:ontology-medieval rdf:type triple:SemanticArtefact ;
@@ -82,7 +88,10 @@ triple:ontology-medieval rdf:type triple:SemanticArtefact ;
                         datacite:hasIdentifier triple:identifier-medieval-handle ;
                         schema:identifier "unibo:ontology:medieval:v0.9" ;
                         datacite:hasIdentifier triple:identifier-medieval-download ,
-                                               triple:identifier-medieval-landing ;
+                                               triple:identifier-medieval-landing ,
+                                               triple:identifier-medieval-internal ,
+                                               triple:identifier-medieval-pid ,
+                                               triple:identifier-medieval-original ;
                         dcterms:isReferencedBy triple:document-carolingian .
 
 ###  Supporting Organizations
@@ -243,6 +252,54 @@ triple:identifier-medieval-landing rdf:type owl:NamedIndividual ,
                                             datacite:Identifier ;
                                    datacite:usesIdentifierScheme triple:landing_page_url ;
                                    litre:hasLiteralValue "https://ontology.medieval.unibo.it/landing" .
+
+###  Thesaurus Platform Identifiers
+triple:identifier-thesaurus-internal rdf:type owl:NamedIndividual ,
+                                              datacite:Identifier ;
+                                     datacite:usesIdentifierScheme triple:internal_id ;
+                                     litre:hasLiteralValue "TRIPLE_SEMANTIC_THESAURUS_001" .
+
+triple:identifier-thesaurus-pid rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:pid ;
+                                litre:hasLiteralValue "gotriple:semantic:thesaurus-ssh-v2" .
+
+triple:identifier-thesaurus-original rdf:type owl:NamedIndividual ,
+                                              datacite:Identifier ;
+                                     datacite:usesIdentifierScheme triple:original_id ;
+                                     litre:hasLiteralValue "gotriple_thesaurus_ssh_v21" .
+
+###  Vocabulary Platform Identifiers
+triple:identifier-vocab-internal rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:internal_id ;
+                                 litre:hasLiteralValue "TRIPLE_SEMANTIC_VOCAB_002" .
+
+triple:identifier-vocab-pid rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:pid ;
+                            litre:hasLiteralValue "gotriple:semantic:vocab-arthistory-v1" .
+
+triple:identifier-vocab-original rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:original_id ;
+                                 litre:hasLiteralValue "dhi_vocab_arthistory_v13" .
+
+###  Medieval Ontology Platform Identifiers
+triple:identifier-medieval-internal rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:internal_id ;
+                                    litre:hasLiteralValue "TRIPLE_SEMANTIC_ONTOLOGY_003" .
+
+triple:identifier-medieval-pid rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:pid ;
+                               litre:hasLiteralValue "gotriple:semantic:ontology-medieval-studies" .
+
+triple:identifier-medieval-original rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:original_id ;
+                                    litre:hasLiteralValue "unibo_ontology_medieval_v09" .
 
 ###  Referenced Documents (for competency questions)
 triple:document-dh-methodology rdf:type triple:Document ;

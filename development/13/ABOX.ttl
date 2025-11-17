@@ -42,7 +42,10 @@ triple:multimedia-001 rdf:type schema:VideoObject ;
                       schema:encodingFormat "video/mp4" ;
                       schema:size "1.2 GB" ;
                       datacite:hasIdentifier triple:identifier-video-media ,
-                                             triple:identifier-video-landing ;
+                                             triple:identifier-video-landing ,
+                                             triple:identifier-video-internal ,
+                                             triple:identifier-video-pid ,
+                                             triple:identifier-video-original ;
                       schema:conditionsOfAccess "Open Access" ;
                       schema:funding triple:project-medieval-studies ;
                       sioc:topic triple:topic-medieval-history ;
@@ -71,7 +74,10 @@ triple:multimedia-002 rdf:type schema:AudioObject ;
                       schema:encodingFormat "audio/mp3" ;
                       schema:size "198 MB" ;
                       datacite:hasIdentifier triple:identifier-audio-media ,
-                                             triple:identifier-audio-landing ;
+                                             triple:identifier-audio-landing ,
+                                             triple:identifier-audio-internal ,
+                                             triple:identifier-audio-pid ,
+                                             triple:identifier-audio-original ;
                       schema:conditionsOfAccess "Open Access with attribution" ;
                       schema:funding triple:project-european-memory ;
                       sioc:topic triple:topic-european-history ;
@@ -99,7 +105,10 @@ triple:multimedia-003 rdf:type schema:ImageObject ;
                       schema:encodingFormat "image/tiff", "image/jpeg" ;
                       schema:size "850 MB" ;
                       datacite:hasIdentifier triple:identifier-image-media ,
-                                             triple:identifier-image-landing ;
+                                             triple:identifier-image-landing ,
+                                             triple:identifier-image-internal ,
+                                             triple:identifier-image-pid ,
+                                             triple:identifier-image-original ;
                       schema:conditionsOfAccess "Educational and Research Use" ;
                       schema:funding triple:project-digital-uffizi ;
                       sioc:topic triple:topic-art-history ;
@@ -181,3 +190,51 @@ triple:identifier-image-landing rdf:type owl:NamedIndividual ,
                                          datacite:Identifier ;
                                 datacite:usesIdentifierScheme triple:landing_page_url ;
                                 litre:hasLiteralValue "https://uffizi.it/en/artworks/birth-of-venus" .
+
+###  Video Platform Identifiers
+triple:identifier-video-internal rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:internal_id ;
+                                 litre:hasLiteralValue "TRIPLE_MEDIA_VIDEO_001" .
+
+triple:identifier-video-pid rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:pid ;
+                            litre:hasLiteralValue "gotriple:media:video-medieval-carolingian" .
+
+triple:identifier-video-original rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:original_id ;
+                                 litre:hasLiteralValue "canal_u_video_12345" .
+
+###  Audio Platform Identifiers
+triple:identifier-audio-internal rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:internal_id ;
+                                 litre:hasLiteralValue "TRIPLE_MEDIA_AUDIO_002" .
+
+triple:identifier-audio-pid rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:pid ;
+                            litre:hasLiteralValue "gotriple:media:audio-resistance-interview" .
+
+triple:identifier-audio-original rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:original_id ;
+                                 litre:hasLiteralValue "memory_inst_audio_789" .
+
+###  Image Platform Identifiers
+triple:identifier-image-internal rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:internal_id ;
+                                 litre:hasLiteralValue "TRIPLE_MEDIA_IMAGE_003" .
+
+triple:identifier-image-pid rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:pid ;
+                            litre:hasLiteralValue "gotriple:media:image-birth-venus-hd" .
+
+triple:identifier-image-original rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:original_id ;
+                                 litre:hasLiteralValue "uffizi_digital_venus_hd" .

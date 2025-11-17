@@ -39,7 +39,10 @@ triple:dataset-001 rdf:type schema:Dataset ;
                    schema:encodingFormat "text/csv", "application/json" ;
                    schema:size "15.2 MB" ;
                    datacite:hasIdentifier triple:identifier-heritage-download ,
-                                          triple:identifier-heritage-landing ;
+                                          triple:identifier-heritage-landing ,
+                                          triple:identifier-heritage-internal ,
+                                          triple:identifier-heritage-pid ,
+                                          triple:identifier-heritage-original ;
                    schema:conditionsOfAccess "Open Access" ;
                    schema:creativeWorkStatus "Published" ;
                    schema:contactPoint triple:contact-heritage-institute ;
@@ -69,7 +72,10 @@ triple:dataset-002 rdf:type schema:Dataset ;
                    schema:encodingFormat "application/x-spss", "text/csv" ;
                    schema:size "245 MB" ;
                    datacite:hasIdentifier triple:identifier-social-download ,
-                                          triple:identifier-social-landing ;
+                                          triple:identifier-social-landing ,
+                                          triple:identifier-social-internal ,
+                                          triple:identifier-social-pid ,
+                                          triple:identifier-social-original ;
                    schema:conditionsOfAccess "Requires registration and approval" ;
                    schema:creativeWorkStatus "Published" ;
                    schema:contactPoint triple:contact-social-observatory ;
@@ -102,6 +108,38 @@ triple:identifier-social-landing rdf:type owl:NamedIndividual ,
                                           datacite:Identifier ;
                                  datacite:usesIdentifierScheme triple:landing_page_url ;
                                  litre:hasLiteralValue "https://social-eu.org/landing/attitudes-survey" .
+
+###  Heritage Dataset Platform Identifiers
+triple:identifier-heritage-internal rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:internal_id ;
+                                    litre:hasLiteralValue "TRIPLE_DATASET_HERITAGE_001" .
+
+triple:identifier-heritage-pid rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:pid ;
+                               litre:hasLiteralValue "gotriple:dataset:heritage-archaeological-sites" .
+
+triple:identifier-heritage-original rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:original_id ;
+                                    litre:hasLiteralValue "heritage_inst_arch_sites_2023" .
+
+###  Social Dataset Platform Identifiers
+triple:identifier-social-internal rdf:type owl:NamedIndividual ,
+                                           datacite:Identifier ;
+                                  datacite:usesIdentifierScheme triple:internal_id ;
+                                  litre:hasLiteralValue "TRIPLE_DATASET_SOCIAL_002" .
+
+triple:identifier-social-pid rdf:type owl:NamedIndividual ,
+                                      datacite:Identifier ;
+                             datacite:usesIdentifierScheme triple:pid ;
+                             litre:hasLiteralValue "gotriple:dataset:social-attitudes-survey-2023" .
+
+triple:identifier-social-original rdf:type owl:NamedIndividual ,
+                                           datacite:Identifier ;
+                                  datacite:usesIdentifierScheme triple:original_id ;
+                                  litre:hasLiteralValue "social_obs_attitudes_2023" .
 
 ###  Supporting Individuals
 
