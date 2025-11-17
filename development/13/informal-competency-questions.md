@@ -12,9 +12,9 @@ Return all multimedia content available in the platform.
 A list of all multimedia objects with their types and titles.
 
 ### Result
-* `multimedia-001` → VideoObject (Introduction to Medieval History: The Carolingian Renaissance)
-* `multimedia-002` → AudioObject (Oral History: Resistance Movement in WWII Italy)
-* `multimedia-003` → ImageObject (High-Resolution Scan: Botticelli's Birth of Venus)
+* `multimedia-001` → MediaObject (Introduction to Medieval History: The Carolingian Renaissance)
+* `multimedia-002` → MediaObject (Oral History: Resistance Movement in WWII Italy)
+* `multimedia-003` → MediaObject (High-Resolution Scan: Botticelli's Birth of Venus)
 
 ### Based on
 Example 1, Example 2, and Example 3

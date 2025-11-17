@@ -3,9 +3,7 @@
 | Term                           | Definition                                                                                                                                          |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
 | `schema:MediaObject`           | Schema.org class representing a media object such as an image, video, or audio object embedded in a web page or downloadable dataset.              |
-| `schema:VideoObject`           | Schema.org class representing a video file, a subclass of MediaObject for video content.                                                            |
-| `schema:AudioObject`           | Schema.org class representing an audio file, a subclass of MediaObject for audio content.                                                           |
-| `schema:ImageObject`           | Schema.org class representing an image file, a subclass of MediaObject for image content.                                                           |
+| `triple:MediaObject`           | GoTriple class representing multimedia objects in the platform, extending schema:MediaObject with platform-specific semantics for all media types. |
 | `schema:headline`              | Schema.org property specifying the headline or title of the creative work.                                                                          |
 | `schema:abstract`              | Schema.org property providing an abstract or short description that summarizes a CreativeWork.                                                      |
 | `schema:author`                | Schema.org property indicating the author of the content or creative work.                                                                          |

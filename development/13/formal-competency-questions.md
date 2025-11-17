@@ -8,17 +8,16 @@ Return all multimedia content available in the platform.
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?multimedia ?type ?title WHERE {
-  ?multimedia a ?type ;
+SELECT ?multimedia ?title WHERE {
+  ?multimedia a triple:MediaObject ;
               schema:headline ?title .
-  FILTER(?type IN (schema:VideoObject, schema:AudioObject, schema:ImageObject))
 }
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "VideoObject" → "Introduction to Medieval History: The Carolingian Renaissance"
-- `triple:multimedia-002` → "AudioObject" → "Oral History: Resistance Movement in WWII Italy"
-- `triple:multimedia-003` → "ImageObject" → "High-Resolution Scan: Botticelli's Birth of Venus"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus"
 
 
 ## CQ_13.2
@@ -30,10 +29,12 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?video ?title ?duration ?format WHERE {
-  ?video a schema:VideoObject ;
+  ?video a triple:MediaObject ;
          schema:headline ?title ;
          schema:duration ?duration ;
          schema:encodingFormat ?format .
+  # Filter for video content based on encoding format
+  FILTER(CONTAINS(?format, "video/"))
 }
 ```
 
@@ -50,11 +51,10 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?multimedia ?title ?size ?access WHERE {
-  ?multimedia a ?type ;
+  ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               schema:size ?size ;
               schema:conditionsOfAccess ?access .
-  FILTER(?type IN (schema:VideoObject, schema:AudioObject, schema:ImageObject))
 }
 ```
 
@@ -75,11 +75,10 @@ PREFIX sioc: <http://rdfs.org/sioc/ns#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT ?multimedia ?title ?topic WHERE {
-  ?multimedia a ?type ;
+  ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               sioc:topic ?topic_uri .
   ?topic_uri skos:prefLabel ?topic .
-  FILTER(?type IN (schema:VideoObject, schema:AudioObject, schema:ImageObject))
   FILTER(CONTAINS(LCASE(?topic), "medieval"))
 }
 ```
@@ -97,10 +96,13 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?audio ?title ?language ?temporal WHERE {
-  ?audio a schema:AudioObject ;
+  ?audio a triple:MediaObject ;
          schema:headline ?title ;
          schema:inLanguage ?language ;
-         schema:temporalCoverage ?temporal .
+         schema:temporalCoverage ?temporal ;
+         schema:encodingFormat ?format .
+  # Filter for audio content based on encoding format
+  FILTER(CONTAINS(?format, "audio/"))
 }
 ```
 
@@ -117,11 +119,10 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?multimedia ?title ?producer ?provider WHERE {
-  ?multimedia a ?type ;
+  ?multimedia a triple:MediaObject ;
               schema:headline ?title .
   OPTIONAL { ?multimedia schema:producer ?producer }
   OPTIONAL { ?multimedia schema:provider ?provider }
-  FILTER(?type IN (schema:VideoObject, schema:AudioObject, schema:ImageObject))
 }
 ```
 
@@ -140,10 +141,9 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?multimedia ?title ?license WHERE {
-  ?multimedia a ?type ;
+  ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               schema:license ?license .
-  FILTER(?type IN (schema:VideoObject, schema:AudioObject, schema:ImageObject))
   FILTER(CONTAINS(?license, "CC"))
 }
 ```
@@ -165,12 +165,11 @@ PREFIX sioc: <http://rdfs.org/sioc/ns#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 SELECT ?multimedia ?title ?spatial ?topic WHERE {
-  ?multimedia a ?type ;
+  ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               schema:spatialCoverage ?spatial ;
               sioc:topic ?topic_uri .
   ?topic_uri skos:prefLabel ?topic .
-  FILTER(?type IN (schema:VideoObject, schema:AudioObject, schema:ImageObject))
 }
 ```
 
@@ -190,11 +189,10 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT ?multimedia ?title ?referencedDoc ?docTitle WHERE {
-  ?multimedia a ?type ;
+  ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               dcterms:isReferencedBy ?referencedDoc .
   ?referencedDoc schema:headline ?docTitle .
-  FILTER(?type IN (schema:VideoObject, schema:AudioObject, schema:ImageObject))
 }
 ```
 
