@@ -1,0 +1,53 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <http://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+
+# Status Pattern
+# This pattern demonstrates how status properties are handled in the TRIPLE ontology
+
+# Status Properties - All DatatypeProperty with xsd:string range
+
+###  schema:creativeWorkStatus
+schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
+                          rdfs:label "schema:creativeWorkStatus"@en ;
+                          rdfs:comment "The status of a creative work in terms of its stage in a lifecycle."@en ;
+                          rdfs:range xsd:string .
+
+# Usage Pattern in Classes - BOTH type and cardinality restrictions
+schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:creativeWorkStatus ;
+                               owl:allValuesFrom xsd:string ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:creativeWorkStatus ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ] .
+
+triple:MediaObject rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty schema:creativeWorkStatus ;
+                                   owl:allValuesFrom xsd:string ] ;
+                   rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty schema:creativeWorkStatus ;
+                                   owl:maxCardinality "1"^^xsd:nonNegativeInteger ] .
+
+triple:SemanticArtefact rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:creativeWorkStatus ;
+                                        owl:allValuesFrom xsd:string ] ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:creativeWorkStatus ;
+                                        owl:maxCardinality "1"^^xsd:nonNegativeInteger ] .
+
+# Standard Requirements:
+# - Status properties are owl:DatatypeProperty
+# - Status properties have range xsd:string
+# - Values in ABOX: "Published", "Draft", "Deprecated", etc.
+# - MANDATORY: Use BOTH owl:allValuesFrom xsd:string AND owl:maxCardinality "1" in class restrictions
+# - Type restriction: ensures values are strings
+# - Cardinality restriction: ensures uniqueness (max 1 status per entity)
+# - Consistent across all SAMOD iterations and main classes
+# - Common status values: "Published", "Draft", "Under Review", "Deprecated"
+
+# Example ABOX usage:
+# triple:dataset-example schema:creativeWorkStatus "Published" .
+# triple:semantic-artifact-example schema:creativeWorkStatus "Draft" .

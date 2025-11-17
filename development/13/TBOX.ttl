@@ -144,11 +144,6 @@ schema:temporalCoverage rdf:type owl:DatatypeProperty ;
                         rdfs:comment "The temporalCoverage of a CreativeWork indicates the period that the content applies to."@en ;
                         rdfs:range xsd:string .
 
-###  https://schema.org/license
-schema:license rdf:type owl:DatatypeProperty ;
-               rdfs:label "schema:license"@en ;
-               rdfs:comment "A license document that applies to this content."@en ;
-               rdfs:range xsd:string .
 
 ###  https://schema.org/additionalType
 schema:additionalType rdf:type owl:DatatypeProperty ;
@@ -162,17 +157,12 @@ schema:knowsAbout rdf:type owl:DatatypeProperty ;
                   rdfs:comment "Of a Person, and less typically of an Organization, to indicate a topic that is known about."@en ;
                   rdfs:range xsd:string .
 
-###  https://schema.org/conditionsOfAccess
-schema:conditionsOfAccess rdf:type owl:DatatypeProperty ;
-                          rdfs:label "schema:conditionsOfAccess"@en ;
-                          rdfs:comment "Conditions that affect the availability of, or method(s) of access to, an item."@en ;
-                          rdfs:range xsd:string .
 
 ###  https://schema.org/mentions
-schema:mentions rdf:type owl:DatatypeProperty ;
+schema:mentions rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:mentions"@en ;
-                rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a concept."@en ;
-                rdfs:range xsd:string .
+                rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing."@en ;
+                rdfs:range owl:Thing .
 
 
 #################################################################

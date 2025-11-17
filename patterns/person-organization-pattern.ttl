@@ -87,10 +87,26 @@ schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:funding ;
                                owl:allValuesFrom owl:Thing ] .
 
+###  schema:mentions
+schema:mentions rdf:type owl:ObjectProperty ;
+                rdfs:label "schema:mentions"@en ;
+                rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing"@en ;
+                rdfs:range owl:Thing .
+
+# Usage Pattern in Classes - Example with Dataset
+schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:mentions ;
+                               owl:allValuesFrom owl:Thing ] .
+
+triple:MediaObject rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                   owl:onProperty schema:mentions ;
+                                   owl:allValuesFrom owl:Thing ] .
+
 # Pattern Notes:
 # - All role properties have range: [ owl:unionOf (foaf:Person foaf:Organization) ]
 # - Use owl:allValuesFrom with union type for class restrictions
 # - Properties like schema:funding link to grants/projects (owl:Thing), not directly to funders
 # - Some properties are subProperties: schema:author rdfs:subPropertyOf schema:creator
 # - TRIPLE-specific properties: triple:aggregator, triple:primaryProducer
+# - schema:mentions is ObjectProperty with range owl:Thing (can reference any entity)
 # - Consistent modeling across Document, Dataset, and other creative works
