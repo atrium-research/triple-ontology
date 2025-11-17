@@ -15,7 +15,7 @@ Arguments:
 import argparse
 import sys
 from pathlib import Path
-from rdflib import Graph, Namespace, RDF, RDFS, OWL, Literal, URIRef
+from rdflib import Graph, Namespace, RDF, RDFS, OWL, Literal, URIRef, BNode
 from rdflib.namespace import SKOS, DCTERMS, FOAF
 import logging
 
@@ -55,6 +55,108 @@ def find_ttl_files(dev_dir):
             logger.info(f"Found: {iteration_dir.name}/TBOX.ttl")
 
     return ttl_files
+
+
+def normalize_restriction(graph, restriction_node):
+    """
+    Create a normalized representation of an OWL restriction for deduplication.
+    Returns a tuple representing the restriction's structure.
+    """
+    restriction_type = None
+    property_uri = None
+    value_constraint = None
+    cardinality = None
+    cardinality_type = None
+    
+    # Get the restriction type and property
+    for p, o in graph.predicate_objects(restriction_node):
+        if p == OWL.onProperty:
+            property_uri = str(o)
+        elif p == OWL.allValuesFrom:
+            restriction_type = "allValuesFrom"
+            value_constraint = str(o)
+        elif p == OWL.someValuesFrom:
+            restriction_type = "someValuesFrom"
+            value_constraint = str(o)
+        elif p == OWL.hasValue:
+            restriction_type = "hasValue"
+            value_constraint = str(o)
+        elif p == OWL.minCardinality:
+            cardinality_type = "minCardinality"
+            cardinality = str(o)
+        elif p == OWL.maxCardinality:
+            cardinality_type = "maxCardinality"
+            cardinality = str(o)
+        elif p == OWL.cardinality:
+            cardinality_type = "cardinality"
+            cardinality = str(o)
+        elif p == OWL.qualifiedCardinality:
+            cardinality_type = "qualifiedCardinality"
+            cardinality = str(o)
+        elif p == OWL.onClass:
+            value_constraint = f"onClass:{str(o)}"
+        elif p == OWL.onDataRange:
+            value_constraint = f"onDataRange:{str(o)}"
+    
+    # Create a normalized tuple representation
+    return (property_uri, restriction_type, value_constraint, cardinality_type, cardinality)
+
+
+def deduplicate_restrictions(graph):
+    """
+    Remove duplicate restrictions from class definitions in the graph.
+    """
+    logger.info("Deduplicating identical restrictions...")
+    
+    # Find all classes that have rdfs:subClassOf relationships
+    classes_with_restrictions = set()
+    for s, p, o in graph.triples((None, RDFS.subClassOf, None)):
+        if isinstance(o, URIRef) or (hasattr(o, 'concrete') and not o.concrete):
+            # Skip non-restriction subclass relationships
+            continue
+        classes_with_restrictions.add(s)
+    
+    restrictions_removed = 0
+    
+    for class_uri in classes_with_restrictions:
+        # Get all restrictions for this class
+        restrictions = list(graph.objects(class_uri, RDFS.subClassOf))
+        restriction_nodes = [r for r in restrictions if not isinstance(r, URIRef)]
+        
+        if len(restriction_nodes) < 2:
+            continue  # No duplicates possible
+        
+        # Normalize restrictions and find duplicates
+        normalized_restrictions = {}
+        nodes_to_remove = []
+        
+        for restriction_node in restriction_nodes:
+            # Check if this is actually a restriction
+            if not (restriction_node, RDF.type, OWL.Restriction) in graph:
+                continue
+                
+            normalized = normalize_restriction(graph, restriction_node)
+            
+            if normalized in normalized_restrictions:
+                # This is a duplicate - mark the restriction node for removal
+                nodes_to_remove.append(restriction_node)
+                restrictions_removed += 1
+                logger.info(f"  Found duplicate restriction on {class_uri}: {normalized}")
+            else:
+                normalized_restrictions[normalized] = restriction_node
+        
+        # Remove duplicate restriction triples
+        for restriction_node in nodes_to_remove:
+            # Remove the subClassOf relationship to this duplicate restriction
+            graph.remove((class_uri, RDFS.subClassOf, restriction_node))
+            
+            # Remove all triples about this restriction node
+            triples_to_remove = list(graph.triples((restriction_node, None, None)))
+            for triple in triples_to_remove:
+                graph.remove(triple)
+    
+    logger.info(f"Removed {restrictions_removed} duplicate restrictions")
+    return graph
 
 
 def merge_graphs(ttl_files):
@@ -102,7 +204,12 @@ def merge_graphs(ttl_files):
     # Add schema prefix after loading all files to avoid conflicts
     merged_graph.bind("schema", SCHEMA)
     
-    logger.info(f"Total triples in merged graph: {len(merged_graph)}")
+    logger.info(f"Total triples in merged graph before deduplication: {len(merged_graph)}")
+    
+    # Deduplicate identical restrictions
+    merged_graph = deduplicate_restrictions(merged_graph)
+    
+    logger.info(f"Total triples in merged graph after deduplication: {len(merged_graph)}")
     return merged_graph
 
 
