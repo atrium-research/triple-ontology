@@ -42,7 +42,9 @@ triple:dataset-001 rdf:type schema:Dataset ;
                                           triple:identifier-heritage-landing ,
                                           triple:identifier-heritage-internal ,
                                           triple:identifier-heritage-pid ,
-                                          triple:identifier-heritage-original ;
+                                          triple:identifier-heritage-original ,
+                                          triple:identifier-heritage-doi ,
+                                          triple:identifier-heritage-handle ;
                    schema:conditionsOfAccess "Open Access" ;
                    schema:creativeWorkStatus "Published" ;
                    schema:contactPoint triple:contact-heritage-institute ;
@@ -75,7 +77,9 @@ triple:dataset-002 rdf:type schema:Dataset ;
                                           triple:identifier-social-landing ,
                                           triple:identifier-social-internal ,
                                           triple:identifier-social-pid ,
-                                          triple:identifier-social-original ;
+                                          triple:identifier-social-original ,
+                                          triple:identifier-social-doi ,
+                                          triple:identifier-social-handle ;
                    schema:conditionsOfAccess "Requires registration and approval" ;
                    schema:creativeWorkStatus "Published" ;
                    schema:contactPoint triple:contact-social-observatory ;
@@ -140,6 +144,28 @@ triple:identifier-social-original rdf:type owl:NamedIndividual ,
                                            datacite:Identifier ;
                                   datacite:usesIdentifierScheme triple:original_id ;
                                   litre:hasLiteralValue "social_obs_attitudes_2023" .
+
+###  Heritage Dataset Standard Identifiers
+triple:identifier-heritage-doi rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:doi ;
+                               litre:hasLiteralValue "10.5281/zenodo.heritage.arch.2023" .
+
+triple:identifier-heritage-handle rdf:type owl:NamedIndividual ,
+                                           datacite:Identifier ;
+                                  datacite:usesIdentifierScheme triple:handle ;
+                                  litre:hasLiteralValue "21.11130/00-HERITAGE-ARCH-2023" .
+
+###  Social Dataset Standard Identifiers
+triple:identifier-social-doi rdf:type owl:NamedIndividual ,
+                                      datacite:Identifier ;
+                             datacite:usesIdentifierScheme triple:doi ;
+                             litre:hasLiteralValue "10.5281/zenodo.social.attitudes.2023" .
+
+triple:identifier-social-handle rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:handle ;
+                                litre:hasLiteralValue "21.11130/00-SOCIAL-ATTITUDES-2023" .
 
 ###  Supporting Individuals
 

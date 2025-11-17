@@ -44,7 +44,10 @@ triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
                                            triple:identifier-thesaurus-landing ,
                                            triple:identifier-thesaurus-internal ,
                                            triple:identifier-thesaurus-pid ,
-                                           triple:identifier-thesaurus-original ;
+                                           triple:identifier-thesaurus-original ,
+                                           triple:identifier-thesaurus-doi ,
+                                           triple:identifier-thesaurus-handle ,
+                                           triple:identifier-thesaurus-uri ;
                     dcterms:isReferencedBy triple:document-dh-methodology .
 
 ###  Example 2: SKOS Art History Vocabulary
@@ -68,7 +71,10 @@ triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
                                               triple:identifier-vocab-source ,
                                               triple:identifier-vocab-internal ,
                                               triple:identifier-vocab-pid ,
-                                              triple:identifier-vocab-original .
+                                              triple:identifier-vocab-original ,
+                                              triple:identifier-vocab-doi ,
+                                              triple:identifier-vocab-handle ,
+                                              triple:identifier-vocab-uri .
 
 ###  Example 3: Medieval Studies Ontology
 triple:ontology-medieval rdf:type triple:SemanticArtefact ;
@@ -91,7 +97,10 @@ triple:ontology-medieval rdf:type triple:SemanticArtefact ;
                                                triple:identifier-medieval-landing ,
                                                triple:identifier-medieval-internal ,
                                                triple:identifier-medieval-pid ,
-                                               triple:identifier-medieval-original ;
+                                               triple:identifier-medieval-original ,
+                                               triple:identifier-medieval-doi ,
+                                               triple:identifier-medieval-handle ,
+                                               triple:identifier-medieval-uri ;
                         dcterms:isReferencedBy triple:document-carolingian .
 
 ###  Supporting Organizations
@@ -300,6 +309,54 @@ triple:identifier-medieval-original rdf:type owl:NamedIndividual ,
                                              datacite:Identifier ;
                                     datacite:usesIdentifierScheme triple:original_id ;
                                     litre:hasLiteralValue "unibo_ontology_medieval_v09" .
+
+###  Thesaurus Standard Identifiers
+triple:identifier-thesaurus-doi rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:doi ;
+                                litre:hasLiteralValue "10.5281/zenodo.thesaurus.ssh.v2" .
+
+triple:identifier-thesaurus-handle rdf:type owl:NamedIndividual ,
+                                            datacite:Identifier ;
+                                   datacite:usesIdentifierScheme triple:handle ;
+                                   litre:hasLiteralValue "21.11130/00-THESAURUS-SSH-V2" .
+
+triple:identifier-thesaurus-uri rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:uri ;
+                                litre:hasLiteralValue "https://gotriple.eu/thesaurus/ssh#" .
+
+###  Vocabulary Standard Identifiers
+triple:identifier-vocab-doi rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:doi ;
+                            litre:hasLiteralValue "10.5281/zenodo.vocab.arthistory.v1" .
+
+triple:identifier-vocab-handle rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:handle ;
+                               litre:hasLiteralValue "21.11130/00-VOCAB-ARTHISTORY-V1" .
+
+triple:identifier-vocab-uri rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:uri ;
+                            litre:hasLiteralValue "https://vocab.arthistory.eu/skos#" .
+
+###  Medieval Ontology Standard Identifiers
+triple:identifier-medieval-doi rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:doi ;
+                               litre:hasLiteralValue "10.5281/zenodo.ontology.medieval.v09" .
+
+triple:identifier-medieval-handle rdf:type owl:NamedIndividual ,
+                                           datacite:Identifier ;
+                                  datacite:usesIdentifierScheme triple:handle ;
+                                  litre:hasLiteralValue "21.11130/00-ONTOLOGY-MEDIEVAL-V09" .
+
+triple:identifier-medieval-uri rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:uri ;
+                               litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl#" .
 
 ###  Referenced Documents (for competency questions)
 triple:document-dh-methodology rdf:type triple:Document ;

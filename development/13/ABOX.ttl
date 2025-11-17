@@ -45,7 +45,9 @@ triple:multimedia-001 rdf:type schema:VideoObject ;
                                              triple:identifier-video-landing ,
                                              triple:identifier-video-internal ,
                                              triple:identifier-video-pid ,
-                                             triple:identifier-video-original ;
+                                             triple:identifier-video-original ,
+                                             triple:identifier-video-doi ,
+                                             triple:identifier-video-handle ;
                       schema:conditionsOfAccess "Open Access" ;
                       schema:funding triple:project-medieval-studies ;
                       sioc:topic triple:topic-medieval-history ;
@@ -77,7 +79,9 @@ triple:multimedia-002 rdf:type schema:AudioObject ;
                                              triple:identifier-audio-landing ,
                                              triple:identifier-audio-internal ,
                                              triple:identifier-audio-pid ,
-                                             triple:identifier-audio-original ;
+                                             triple:identifier-audio-original ,
+                                             triple:identifier-audio-doi ,
+                                             triple:identifier-audio-handle ;
                       schema:conditionsOfAccess "Open Access with attribution" ;
                       schema:funding triple:project-european-memory ;
                       sioc:topic triple:topic-european-history ;
@@ -108,7 +112,9 @@ triple:multimedia-003 rdf:type schema:ImageObject ;
                                              triple:identifier-image-landing ,
                                              triple:identifier-image-internal ,
                                              triple:identifier-image-pid ,
-                                             triple:identifier-image-original ;
+                                             triple:identifier-image-original ,
+                                             triple:identifier-image-doi ,
+                                             triple:identifier-image-handle ;
                       schema:conditionsOfAccess "Educational and Research Use" ;
                       schema:funding triple:project-digital-uffizi ;
                       sioc:topic triple:topic-art-history ;
@@ -238,3 +244,36 @@ triple:identifier-image-original rdf:type owl:NamedIndividual ,
                                           datacite:Identifier ;
                                  datacite:usesIdentifierScheme triple:original_id ;
                                  litre:hasLiteralValue "uffizi_digital_venus_hd" .
+
+###  Video Standard Identifiers
+triple:identifier-video-doi rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:doi ;
+                            litre:hasLiteralValue "10.5281/zenodo.video.medieval.carolingian" .
+
+triple:identifier-video-handle rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:handle ;
+                               litre:hasLiteralValue "21.11130/00-VIDEO-MEDIEVAL-CAROLINGIAN" .
+
+###  Audio Standard Identifiers
+triple:identifier-audio-doi rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:doi ;
+                            litre:hasLiteralValue "10.5281/zenodo.audio.resistance.interview" .
+
+triple:identifier-audio-handle rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:handle ;
+                               litre:hasLiteralValue "21.11130/00-AUDIO-RESISTANCE-INTERVIEW" .
+
+###  Image Standard Identifiers
+triple:identifier-image-doi rdf:type owl:NamedIndividual ,
+                                     datacite:Identifier ;
+                            datacite:usesIdentifierScheme triple:doi ;
+                            litre:hasLiteralValue "10.5281/zenodo.image.birth.venus.hd" .
+
+triple:identifier-image-handle rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:handle ;
+                               litre:hasLiteralValue "21.11130/00-IMAGE-BIRTH-VENUS-HD" .
