@@ -56,21 +56,18 @@ schema:publisher rdf:type owl:ObjectProperty ;
 schema:contactPoint rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contactPoint" ;
                    rdfs:comment "A contact point for a person or organization"@en ;
-                   rdfs:domain triple:SemanticArtefact ;
                    rdfs:range schema:ContactPoint .
 
 ###  http://schema.org/creativeWorkStatus
 schema:creativeWorkStatus rdf:type owl:ObjectProperty ;
                          rdfs:label "schema:creativeWorkStatus" ;
                          rdfs:comment "The status of a creative work in terms of its stage in a lifecycle"@en ;
-                         rdfs:domain triple:SemanticArtefact ;
                          rdfs:range skos:Concept .
 
 ###  http://schema.org/keywords
 schema:keywords rdf:type owl:ObjectProperty ;
                rdfs:label "schema:keywords" ;
-               rdfs:comment "Keywords or tags used to describe the semantic artifact content"@en ;
-               rdfs:domain triple:SemanticArtefact ;
+               rdfs:comment "Keywords or tags used to describe content"@en ;
                rdfs:range schema:DefinedTerm .
 
 ###  http://purl.org/dc/terms/isReferencedBy
@@ -100,50 +97,49 @@ schema:name rdf:type owl:DatatypeProperty ;
 ###  http://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:abstract" ;
-               rdfs:comment "An abstract of the semantic artefact"@en ;
-               rdfs:domain triple:SemanticArtefact ;
+               rdfs:comment "An abstract is a short description that summarizes a CreativeWork"@en ;
                rdfs:range rdf:langString .
 
 ###  http://schema.org/headline
 schema:headline rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:headline" ;
-               rdfs:comment "The title or headline of the semantic artefact"@en ;
-               rdfs:domain triple:SemanticArtefact ;
+               rdfs:comment "Headline of the article"@en ;
                rdfs:range rdf:langString .
 
 ###  http://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:datePublished" ;
-                    rdfs:comment "Date of first publication of the semantic artefact"@en ;
-                    rdfs:domain triple:SemanticArtefact ;
+                    rdfs:comment "Date of first publication"@en ;
                     rdfs:range xsd:date .
 
 ###  http://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateModified" ;
-                   rdfs:comment "The date on which the semantic artefact was most recently modified"@en ;
-                   rdfs:domain triple:SemanticArtefact ;
+                   rdfs:comment "The date on which the CreativeWork was most recently modified"@en ;
+                   rdfs:range xsd:date .
+
+###  http://schema.org/dateCreated
+schema:dateCreated rdf:type owl:DatatypeProperty ;
+                   rdfs:label "schema:dateCreated" ;
+                   rdfs:comment "The date on which the CreativeWork was created"@en ;
                    rdfs:range xsd:date .
 
 ###  http://schema.org/version
 schema:version rdf:type owl:DatatypeProperty ;
               rdfs:label "schema:version" ;
-              rdfs:comment "The version of the semantic artefact"@en ;
-              rdfs:domain triple:SemanticArtefact ;
+              rdfs:comment "The version of the CreativeWork"@en ;
               rdfs:range xsd:string .
 
 ###  http://schema.org/fileFormat
 schema:fileFormat rdf:type owl:DatatypeProperty ;
                  rdfs:label "schema:fileFormat" ;
-                 rdfs:comment "Media type, typically MIME format of the file (e.g., application/rdf+xml, text/turtle, application/zip)"@en ;
-                 rdfs:domain triple:SemanticArtefact ;
+                 rdfs:comment "Media type, typically MIME format"@en ;
                  rdfs:range xsd:string .
 
 ###  http://schema.org/encodingFormat
 schema:encodingFormat rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:encodingFormat" ;
-                     rdfs:comment "The representation technique or methodology used (e.g., OWL ontology, SKOS vocabulary, XML schema)"@en ;
-                     rdfs:domain triple:SemanticArtefact ;
+                     rdfs:comment "Media type typically expressed using a MIME format"@en ;
                      rdfs:range xsd:string .
 
 
@@ -215,6 +211,22 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:inLanguage ;
                                         owl:someValuesFrom schema:Language
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:dateCreated ;
+                                        owl:allValuesFrom xsd:date
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:datePublished ;
+                                        owl:allValuesFrom xsd:date
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:dateModified ;
+                                        owl:allValuesFrom xsd:date
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:dateCreated ;
+                                        owl:maxCardinality "1"^^xsd:nonNegativeInteger
                                       ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:datePublished ;

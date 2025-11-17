@@ -268,6 +268,15 @@ schema:Dataset rdf:type owl:Class ;
                                owl:onProperty schema:dateModified ;
                                owl:allValuesFrom xsd:date ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:dateCreated ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:datePublished ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:dateModified ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:comment ;
                                owl:allValuesFrom xsd:string ] .
 

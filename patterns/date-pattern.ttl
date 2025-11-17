@@ -27,7 +27,7 @@ schema:dateModified rdf:type owl:DatatypeProperty ;
                     rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en ;
                     rdfs:range xsd:date .
 
-# Usage Pattern in Classes
+# Usage Pattern in Classes - BOTH type and cardinality restrictions required
 schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:dateCreated ;
                                owl:allValuesFrom xsd:date ] ;
@@ -36,13 +36,24 @@ schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:allValuesFrom xsd:date ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:dateModified ;
-                               owl:allValuesFrom xsd:date ] .
+                               owl:allValuesFrom xsd:date ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:dateCreated ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:datePublished ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty schema:dateModified ;
+                               owl:maxCardinality "1"^^xsd:nonNegativeInteger ] .
 
 # Standard Requirements:
 # - All date properties are owl:DatatypeProperty
 # - All date properties have range xsd:date
 # - Values in ABOX: "2023-03-01"^^xsd:date format
-# - Use owl:allValuesFrom xsd:date in class restrictions
+# - MANDATORY: Use BOTH owl:allValuesFrom xsd:date AND owl:maxCardinality "1" in class restrictions
+# - Type restriction: ensures values are dates
+# - Cardinality restriction: ensures uniqueness (max 1 value per property)
 # - Consistent across all SAMOD iterations and classes
 # - Common date properties: dateCreated, datePublished, dateModified
 

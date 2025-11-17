@@ -130,6 +130,16 @@ schema:Project rdf:type owl:Class ;
                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger
                                ] ;
 
+               # Date type restrictions
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:startDate ;
+                                 owl:allValuesFrom xsd:date
+                               ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:endDate ;
+                                 owl:allValuesFrom xsd:date
+                               ] ;
+               
                # Optional end date (0 or 1)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:endDate ;

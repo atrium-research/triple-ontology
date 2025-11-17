@@ -239,6 +239,15 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:onProperty schema:dateModified ;
                                      owl:allValuesFrom xsd:date ] ,
                                    [ rdf:type owl:Restriction ;
+                                     owl:onProperty schema:dateCreated ;
+                                     owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty schema:datePublished ;
+                                     owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty schema:dateModified ;
+                                     owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ,
+                                   [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:encodingFormat ;
                                      owl:allValuesFrom xsd:string ] ,
                                    [ rdf:type owl:Restriction ;
