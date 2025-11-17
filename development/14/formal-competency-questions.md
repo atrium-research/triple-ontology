@@ -100,16 +100,15 @@ Retrieve semantic artifacts with their file formats and download URLs
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?artifact ?title ?fileFormat ?downloadUrl WHERE {
+SELECT ?artifact ?title ?fileFormat WHERE {
   ?artifact a triple:SemanticArtefact ;
            schema:headline ?title ;
-           schema:fileFormat ?fileFormat ;
-           schema:url ?downloadUrl .
+           schema:fileFormat ?fileFormat .
 }
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "application/rdf+xml", "https://thesaurus.gotriple.eu/download/rdf"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "text/turtle", "https://vocab.arthistory.eu/skos.ttl"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", "application/owl+xml", "https://ontology.medieval.unibo.it/owl"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "application/rdf+xml"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "text/turtle"
+- `triple:ontology-medieval` → "Medieval Studies Ontology", "application/owl+xml"
 

@@ -18,10 +18,7 @@
 | `schema:keywords` | Keywords or tags used to describe the semantic artifact content. |
 | `dcterms:isReferencedBy` | A related resource that references, cites, or otherwise points to the semantic artifact. |
 | `datacite:hasIdentifier` | Links the semantic artifact to its identifiers (DOI, Handle, etc.). |
-| `schema:mainEntityOfPage` | Indicates a page (or other CreativeWork) for which this semantic artifact is the main entity being described (landing page). |
 | `schema:identifier` | The identifier property represents any kind of identifier for the semantic artifact (local identifier, URI). |
-| `schema:url` | URL to access the semantic artifact. |
-| `schema:isBasedOnUrl` | A resource URL from which this semantic artifact is derived or from which it is a modification or adaptation. |
 | `datacite:Identifier` | An identifier for a semantic artifact. |
 | `datacite:IdentifierScheme` | A scheme that defines the syntax and semantics of identifiers. |
 | `triple:doi` | Digital Object Identifier scheme for persistent identification of digital objects. |

@@ -24,11 +24,8 @@
 | `schema:provider`              | Schema.org property indicating the aggregator or service provider of the dataset.                                                                   |
 | `schema:additionalType`        | Schema.org property specifying additional type information for the dataset (e.g., "Geospatial Dataset", "Survey Dataset").                       |
 | `schema:knowsAbout`            | Schema.org property indicating topics that the dataset is about, often automatically detected from controlled vocabularies.                        |
-| `schema:mainEntityOfPage`      | Schema.org property linking to the landing page or main webpage describing the dataset.                                                             |
 | `schema:funding`               | Schema.org property linking the dataset to research projects that funded its creation.                                                              |
 | `schema:mentions`              | Schema.org property indicating references or mentions of other datasets or entities within the dataset's metadata.                                 |
 | `schema:comment`               | Schema.org property used for lineage information - free-text descriptions of the dataset's processing history.                                     |
 | `sioc:topic`                   | SIOC vocabulary property linking the dataset to topic concepts or themes.                                                                           |
 | `dcterms:isReferencedBy`       | Dublin Core Terms property indicating documents or publications that reference this dataset.                                                        |
-| `skos:exactMatch`              | SKOS annotation property indicating that two concepts have the same meaning and can be used interchangeably.                                       |
-| `skos:closeMatch`              | SKOS annotation property indicating that two concepts are sufficiently similar for some information retrieval applications.                        |

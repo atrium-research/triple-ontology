@@ -21,15 +21,6 @@
 #    Annotation Properties
 #################################################################
 
-###  http://www.w3.org/2004/02/skos/core#exactMatch
-skos:exactMatch rdf:type owl:AnnotationProperty ;
-                rdfs:label "skos:exactMatch"@en ;
-                rdfs:comment "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications."@en .
-
-###  http://www.w3.org/2004/02/skos/core#closeMatch
-skos:closeMatch rdf:type owl:AnnotationProperty ;
-                rdfs:label "skos:closeMatch"@en ;
-                rdfs:comment "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications."@en .
 
 #################################################################
 #    Object Properties
@@ -38,54 +29,38 @@ skos:closeMatch rdf:type owl:AnnotationProperty ;
 ###  https://schema.org/spatialCoverage
 schema:spatialCoverage rdf:type owl:ObjectProperty ;
                        rdfs:label "schema:spatialCoverage"@en ;
-                       rdfs:comment "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content."@en ;
-                       skos:exactMatch <http://purl.org/dc/terms/spatial> .
+                       rdfs:comment "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content."@en .
 
 ###  https://schema.org/contactPoint
 schema:contactPoint rdf:type owl:ObjectProperty ;
                     rdfs:label "schema:contactPoint"@en ;
-                    rdfs:comment "A contact point for a person or organization."@en ;
-                    skos:exactMatch <http://www.w3.org/ns/dcat#contactPoint> .
+                    rdfs:comment "A contact point for a person or organization."@en .
 
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
-              rdfs:comment "The author of this content or rating."@en ;
-              skos:exactMatch <http://purl.org/dc/terms/creator> ;
-              skos:closeMatch <http://purl.org/dc/elements/1.1/creator> .
+              rdfs:comment "The author of this content or rating."@en .
 
 ###  https://schema.org/contributor
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contributor"@en ;
-                   rdfs:comment "A secondary contributor to the CreativeWork or Event."@en ;
-                   skos:exactMatch <http://purl.org/dc/terms/contributor> ;
-                   skos:closeMatch <http://purl.org/dc/elements/1.1/contributor> .
+                   rdfs:comment "A secondary contributor to the CreativeWork or Event."@en .
 
 ###  https://schema.org/publisher
 schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:label "schema:publisher"@en ;
-                 rdfs:comment "The publisher of the creative work."@en ;
-                 skos:exactMatch <http://www.w3.org/ns/dcat#publisher> ;
-                 skos:closeMatch <http://purl.org/dc/elements/1.1/publisher> .
+                 rdfs:comment "The publisher of the creative work."@en .
 
 ###  https://schema.org/funding
 schema:funding rdf:type owl:ObjectProperty ;
                rdfs:label "schema:funding"@en ;
-               rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en ;
-               skos:exactMatch <http://xmlns.com/foaf/0.1/fundedBy> .
+               rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en .
 
 ###  https://schema.org/provider
 schema:provider rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:provider"@en ;
                 rdfs:comment "The service provider, service operator, or service performer; the goods producer."@en .
 
-###  https://schema.org/mainEntityOfPage
-schema:mainEntityOfPage rdf:type owl:ObjectProperty ;
-                        rdfs:label "schema:mainEntityOfPage"@en ;
-                        rdfs:comment "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."@en ;
-                        skos:exactMatch <http://www.w3.org/ns/dcat#landingPage> ;
-                        skos:closeMatch <http://www.w3.org/ns/dcat#accessURL> ;
-                        skos:closeMatch <http://purl.org/dc/terms/relation> .
 
 ###  https://schema.org/mentions
 schema:mentions rdf:type owl:ObjectProperty ;
@@ -95,9 +70,7 @@ schema:mentions rdf:type owl:ObjectProperty ;
 ###  http://rdfs.org/sioc/ns#topic
 sioc:topic rdf:type owl:ObjectProperty ;
            rdfs:label "sioc:topic"@en ;
-           rdfs:comment "A topic of interest, linking to the concept URI."@en ;
-           skos:exactMatch <http://www.w3.org/ns/dcat#theme> ;
-           skos:closeMatch <http://www.w3.org/ns/dcat#keyword> .
+           rdfs:comment "A topic of interest, linking to the concept URI."@en .
 
 ###  http://purl.org/dc/terms/isReferencedBy
 dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
@@ -111,29 +84,22 @@ dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
 ###  https://schema.org/temporalCoverage
 schema:temporalCoverage rdf:type owl:DatatypeProperty ;
                         rdfs:label "schema:temporalCoverage"@en ;
-                        rdfs:comment "The temporalCoverage of a CreativeWork indicates the period that the content applies to."@en ;
-                        skos:exactMatch <http://purl.org/dc/terms/temporal> .
+                        rdfs:comment "The temporalCoverage of a CreativeWork indicates the period that the content applies to."@en .
 
 ###  https://schema.org/encodingFormat
 schema:encodingFormat rdf:type owl:DatatypeProperty ;
                       rdfs:label "schema:encodingFormat"@en ;
-                      rdfs:comment "Media type typically expressed using a MIME format."@en ;
-                      skos:exactMatch <http://www.w3.org/ns/dcat#format> ;
-                      skos:closeMatch <http://www.w3.org/ns/dcat#mediaType> ;
-                      skos:closeMatch <http://purl.org/dc/elements/1.1/format> .
+                      rdfs:comment "Media type typically expressed using a MIME format."@en .
 
 ###  https://schema.org/size
 schema:size rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:size"@en ;
-            rdfs:comment "A standardized size of a product or creative work."@en ;
-            skos:exactMatch <http://www.w3.org/ns/dcat#byteSize> .
+            rdfs:comment "A standardized size of a product or creative work."@en .
 
 ###  https://schema.org/conditionsOfAccess  
 schema:conditionsOfAccess rdf:type owl:DatatypeProperty ;
                           rdfs:label "schema:conditionsOfAccess"@en ;
-                          rdfs:comment "Conditions that affect the availability of, or method(s) of access to, an item."@en ;
-                          skos:exactMatch <http://purl.org/dc/terms/accessRights> ;
-                          skos:closeMatch <http://purl.org/dc/elements/1.1/rights> .
+                          rdfs:comment "Conditions that affect the availability of, or method(s) of access to, an item."@en .
 
 ###  https://schema.org/creativeWorkStatus
 schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
@@ -143,39 +109,27 @@ schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/identifier
 schema:identifier rdf:type owl:DatatypeProperty ;
                   rdfs:label "schema:identifier"@en ;
-                  rdfs:comment "The identifier property represents any kind of identifier for any kind of Thing."@en ;
-                  skos:exactMatch <http://purl.org/dc/terms/identifier> ;
-                  skos:closeMatch <http://purl.org/dc/elements/1.1/identifier> .
+                  rdfs:comment "The identifier property represents any kind of identifier for any kind of Thing."@en .
 
 ###  https://schema.org/headline
 schema:headline rdf:type owl:DatatypeProperty ;
                 rdfs:label "schema:headline"@en ;
-                rdfs:comment "Headline of the article."@en ;
-                skos:exactMatch <http://www.w3.org/ns/dcat#title> ;
-                skos:closeMatch <http://purl.org/dc/elements/1.1/title> ;
-                skos:closeMatch <http://purl.org/dc/terms/title> .
+                rdfs:comment "Headline of the article."@en .
 
 ###  https://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
                 rdfs:label "schema:abstract"@en ;
-                rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en ;
-                skos:exactMatch <http://www.w3.org/ns/dcat#description> ;
-                skos:closeMatch <http://purl.org/dc/terms/abstract> .
+                rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en .
 
 ###  https://schema.org/additionalType
 schema:additionalType rdf:type owl:DatatypeProperty ;
                       rdfs:label "schema:additionalType"@en ;
-                      rdfs:comment "An additional type for the item, typically used for adding more specific types."@en ;
-                      skos:exactMatch <http://www.w3.org/ns/dcat#mediaType> ;
-                      skos:closeMatch <http://purl.org/dc/terms/type> ;
-                      skos:closeMatch <http://purl.org/dc/elements/1.1/type> .
+                      rdfs:comment "An additional type for the item, typically used for adding more specific types."@en .
 
 ###  https://schema.org/keywords
 schema:keywords rdf:type owl:DatatypeProperty ;
                 rdfs:label "schema:keywords"@en ;
-                rdfs:comment "Keywords or tags used to describe this content."@en ;
-                skos:exactMatch <http://www.w3.org/ns/dcat#keyword> ;
-                skos:closeMatch <http://purl.org/dc/elements/1.1/subject> .
+                rdfs:comment "Keywords or tags used to describe this content."@en .
 
 ###  https://schema.org/knowsAbout
 schema:knowsAbout rdf:type owl:DatatypeProperty ;
@@ -185,48 +139,29 @@ schema:knowsAbout rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/inLanguage
 schema:inLanguage rdf:type owl:DatatypeProperty ;
                   rdfs:label "schema:inLanguage"@en ;
-                  rdfs:comment "The language of the content or performance or used in an action."@en ;
-                  skos:exactMatch <http://purl.org/dc/terms/language> ;
-                  skos:closeMatch <http://purl.org/dc/elements/1.1/language> .
+                  rdfs:comment "The language of the content or performance or used in an action."@en .
 
 ###  https://schema.org/dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateCreated"@en ;
-                   rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
-                   skos:exactMatch <http://purl.org/dc/terms/created> ;
-                   skos:closeMatch <http://purl.org/dc/elements/1.1/date> .
+                   rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en .
 
 ###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:datePublished"@en ;
-                     rdfs:comment "Date of first broadcast/publication."@en ;
-                     skos:exactMatch <http://purl.org/dc/terms/issued> .
+                     rdfs:comment "Date of first broadcast/publication."@en .
 
 ###  https://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:dateModified"@en ;
-                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en ;
-                    skos:exactMatch <http://purl.org/dc/terms/modified> .
+                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en .
 
 ###  https://schema.org/license
 schema:license rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:license"@en ;
-               rdfs:comment "A license document that applies to this content, typically indicated by URL."@en ;
-               skos:exactMatch <http://purl.org/dc/terms/license> ;
-               skos:closeMatch <http://purl.org/dc/elements/1.1/rights> .
+               rdfs:comment "A license document that applies to this content, typically indicated by URL."@en .
 
-###  https://schema.org/url
-schema:url rdf:type owl:DatatypeProperty ;
-           rdfs:label "schema:url"@en ;
-           rdfs:comment "URL of the item."@en ;
-           skos:exactMatch <http://www.w3.org/ns/dcat#downloadURL> ;
-           skos:closeMatch <http://purl.org/dc/elements/1.1/source> .
 
-###  https://schema.org/isBasedOnUrl
-schema:isBasedOnUrl rdf:type owl:DatatypeProperty ;
-                    rdfs:label "schema:isBasedOnUrl"@en ;
-                    rdfs:comment "A resource from which this work is derived or from which it is a modification or adaption."@en ;
-                    skos:exactMatch <http://www.w3.org/ns/dcat#accessURL> .
 
 ###  https://schema.org/comment
 schema:comment rdf:type owl:DatatypeProperty ;

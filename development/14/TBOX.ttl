@@ -56,12 +56,6 @@ datacite:hasIdentifier rdf:type owl:ObjectProperty ;
                        rdfs:domain triple:SemanticArtefact ;
                        rdfs:range datacite:Identifier .
 
-###  http://schema.org/mainEntityOfPage
-schema:mainEntityOfPage rdf:type owl:ObjectProperty ;
-                        rdfs:label "schema:mainEntityOfPage" ;
-                        rdfs:comment "Indicates a page (or other CreativeWork) for which this semantic artifact is the main entity being described (landing page)"@en ;
-                        rdfs:domain triple:SemanticArtefact ;
-                        rdfs:range foaf:Document .
 
 #################################################################
 #    Data Properties
@@ -123,19 +117,7 @@ schema:identifier rdf:type owl:DatatypeProperty ;
                  rdfs:domain triple:SemanticArtefact ;
                  rdfs:range xsd:string .
 
-###  http://schema.org/url
-schema:url rdf:type owl:DatatypeProperty ;
-          rdfs:label "schema:url" ;
-          rdfs:comment "URL to access the semantic artifact"@en ;
-          rdfs:domain triple:SemanticArtefact ;
-          rdfs:range xsd:anyURI .
 
-###  http://schema.org/isBasedOnUrl
-schema:isBasedOnUrl rdf:type owl:DatatypeProperty ;
-                   rdfs:label "schema:isBasedOnUrl" ;
-                   rdfs:comment "A resource URL from which this semantic artifact is derived or from which it is a modification or adaptation"@en ;
-                   rdfs:domain triple:SemanticArtefact ;
-                   rdfs:range xsd:anyURI .
 
 #################################################################
 #    Classes
@@ -226,21 +208,10 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                         owl:allValuesFrom datacite:Identifier
                                       ] ,
                                       [ rdf:type owl:Restriction ;
-                                        owl:onProperty schema:mainEntityOfPage ;
-                                        owl:allValuesFrom foaf:Document
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:identifier ;
                                         owl:allValuesFrom xsd:string
                                       ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty schema:url ;
-                                        owl:allValuesFrom xsd:anyURI
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty schema:isBasedOnUrl ;
-                                        owl:allValuesFrom xsd:anyURI
-                                      ] .
+.
 
 
 #################################################################
