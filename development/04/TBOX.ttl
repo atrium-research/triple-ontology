@@ -49,7 +49,7 @@
 ###  http://schema.org/name
 <http://schema.org/name> rdf:type owl:DatatypeProperty ;
                          rdfs:domain <http://schema.org/Place> ,
-                                     <http://schema.org/definedTerm> ;
+                                     <http://schema.org/DefinedTerm> ;
                          rdfs:label "schema:name" .
 
 
@@ -73,8 +73,8 @@
                           rdfs:label "schema:Place"@en .
 
 
-###  http://schema.org/definedTerm
-<http://schema.org/definedTerm> rdf:type owl:Class ;
+###  http://schema.org/DefinedTerm
+<http://schema.org/DefinedTerm> rdf:type owl:Class ;
                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                   owl:onProperty <http://schema.org/name> ;
                                                   owl:someValuesFrom <http://schema.org/Text>
@@ -100,7 +100,7 @@ foaf:Document rdf:type owl:Class ;
                           foaf:Document ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty <http://schema.org/keywords> ;
-                            owl:someValuesFrom <http://schema.org/definedTerm>
+                            owl:someValuesFrom <http://schema.org/DefinedTerm>
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty <http://schema.org/spatialCoverage> ;
