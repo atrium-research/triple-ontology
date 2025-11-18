@@ -219,3 +219,23 @@ SELECT ?license ?access ?type ?discipline WHERE {
 - `?access` = (none in current data)
 - `?type` = (none in current data)
 - `?discipline` = (none in current data)
+
+
+## CQ_2.9
+
+List all imported vocabulary modules in the ontology.
+
+```sparql
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?vocabularyModule WHERE {
+  <https://gotriple.eu/ontology/triple> owl:imports ?vocabularyModule .
+}
+```
+
+**Expected Result:**
+- `https://gotriple.eu/ontology/triple/content_types#`
+- `https://gotriple.eu/ontology/triple/conditions_of_access#` 
+- `https://gotriple.eu/ontology/triple/licenses#`
+- `https://gotriple.eu/ontology/triple/disciplines#`

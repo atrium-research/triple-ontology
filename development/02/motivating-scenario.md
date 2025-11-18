@@ -27,6 +27,17 @@ This controlled vocabulary serves as a standardized set of terms for each entity
 
 For defining the common base structure of each controlled vocabulary, the following structure has been adopted using **SKOS**:
 
+#### Vocabulary Module Organization
+
+Each controlled vocabulary is organized as a separate module that can be imported into the main ontology:
+
+- **Content Types**: `<https://gotriple.eu/ontology/triple/content_types#>`
+- **Conditions of Access**: `<https://gotriple.eu/ontology/triple/conditions_of_access#>`
+- **Licenses**: `<https://gotriple.eu/ontology/triple/licenses#>`
+- **Disciplines**: `<https://gotriple.eu/ontology/triple/disciplines#>`
+
+These modules are imported into the main ontology using `owl:imports` declarations, enabling modular vocabulary management and reuse across different iterations.
+
 #### SKOS Structure
 
 Every controlled vocabulary is modeled as a **`skos:ConceptScheme`**, and every term within that vocabulary is modeled as a **`skos:Concept`**.

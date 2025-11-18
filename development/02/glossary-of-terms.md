@@ -8,6 +8,7 @@
 | `skos:closeMatch`              | SKOS property indicating that two concepts are sufficiently similar to be used interchangeably in some contexts (e.g., TRIPLE term matched to COAR term).         |
 | `skos:exactMatch`              | SKOS property indicating that two concepts can be used interchangeably across all contexts (e.g., TRIPLE term exactly matching Creative Commons URI).              |
 | `skos:definition`              | SKOS property providing a human-readable definition or explanation of a concept.                                                                                     |
+| `owl:imports`                  | OWL property used to include external vocabulary modules into the main ontology, enabling modular vocabulary management.                                            |
 | **License Vocabulary**         | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for document licenses (e.g., CC-BY-4.0, CC0, All Rights Reserved).                    |
 | **Access Conditions Vocabulary** | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for access conditions (e.g., Open Access, Restricted Access, Embargoed).            |
 | **Content Type Vocabulary**   | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for content types (e.g., Article, Dataset, Book, Thesis, Conference Proceeding).    |
