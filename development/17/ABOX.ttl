@@ -1,0 +1,84 @@
+@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://purl.org/spar/literal/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix mod: <https://w3id.org/mod#> .
+@prefix frapo: <http://purl.org/cerif/frapo/> .
+@base <https://gotriple.eu/ontology/triple#> .
+
+<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
+                                       owl:versionIRI <https://gotriple.eu/ontology/triple/1.0.0> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+### Example 1: Document produced by research project
+
+###  Project
+triple:project-digital-humanities rdf:type triple:Project ;
+                                   schema:name "Digital Humanities Research Initiative" ;
+                                   schema:description "A multi-year project investigating digital methods in humanities research"@en .
+
+###  Document
+triple:document-dh-methods rdf:type triple:Document ;
+                           schema:name "Digital Methods in Historical Research"@en ;
+                           schema:abstract "This paper examines the application of digital tools and methodologies in historical research, providing a comprehensive overview of current practices."@en ;
+                           frapo:isOutputOf triple:project-digital-humanities .
+
+### Example 2: SemanticArtefact with citations
+
+###  Project
+triple:project-cultural-heritage rdf:type triple:Project ;
+                                  schema:name "European Cultural Heritage Ontology Project" ;
+                                  schema:description "Development of semantic frameworks for cultural heritage preservation"@en .
+
+###  SemanticArtefact
+triple:ontology-cultural-heritage rdf:type triple:SemanticArtefact ;
+                                  schema:name "Cultural Heritage Preservation Ontology"@en ;
+                                  schema:abstract "A formal ontology for describing cultural heritage artifacts and preservation processes"@en ;
+                                  frapo:isOutputOf triple:project-cultural-heritage ;
+                                  dcterms:isReferencedBy triple:paper-heritage-analysis .
+
+###  Citing Document
+triple:paper-heritage-analysis rdf:type triple:Document ;
+                               schema:name "Analysis of Digital Heritage Frameworks"@en ;
+                               schema:abstract "A comprehensive analysis of existing digital frameworks for heritage preservation"@en .
+
+### Example 3: Dataset and MediaObject from fieldwork project
+
+###  Project
+triple:project-migration-studies rdf:type triple:Project ;
+                                  schema:name "Migration Patterns in Southern Europe" ;
+                                  schema:description "Ethnographic study of contemporary migration in the Mediterranean region"@en .
+
+###  Dataset
+triple:dataset-migration-interviews rdf:type triple:Dataset ;
+                                    schema:name "Migration Interview Dataset"@en ;
+                                    schema:description "Structured data from interviews with migrants in Southern European cities"@en ;
+                                    frapo:isOutputOf triple:project-migration-studies ;
+                                    dcterms:isReferencedBy triple:analysis-urban-migration .
+
+###  MediaObject
+triple:audio-interview-001 rdf:type triple:MediaObject ;
+                           schema:name "Interview with Migrant Family - Naples"@en ;
+                           schema:description "Audio recording of ethnographic interview conducted in Naples, Italy"@en ;
+                           schema:encodingFormat "audio/mp3" ;
+                           frapo:isOutputOf triple:project-migration-studies ;
+                           dcterms:isReferencedBy triple:analysis-urban-migration .
+
+###  Referencing Document
+triple:analysis-urban-migration rdf:type triple:Document ;
+                                schema:name "Urban Migration Patterns: A Mediterranean Perspective"@en ;
+                                schema:abstract "Analysis of migration patterns based on ethnographic fieldwork in Southern European cities"@en .
