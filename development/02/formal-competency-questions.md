@@ -122,14 +122,14 @@ SELECT ?vocabulary WHERE {
 
 ## CQ_2.8
 
-Return all terms that belong to the `discipline_vocabulary`.
+Return all terms that belong to the `disciplines` vocabulary.
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?term WHERE {
-  ?term skos:inScheme triple:discipline_vocabulary .
+  ?term skos:inScheme triple:disciplines .
 }
 ```
 
@@ -191,10 +191,10 @@ SELECT ?vocabulary WHERE {
 ```
 
 **Expected Result:**
-- `triple:license_vocabulary`
-- `triple:access_conditions_vocabulary`
-- `triple:document_type_vocabulary`
-- `triple:discipline_vocabulary`
+- `triple:licenses`
+- `triple:conditions_of_access`
+- `triple:document_types`
+- `triple:disciplines`
 
 
 ## CQ_2.12

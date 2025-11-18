@@ -78,16 +78,16 @@ skos:ConceptScheme rdf:type owl:Class .
 ###  Example 1: Document with License (CC-BY-4.0)
 ###  ===========================================================
 
-###  https://gotriple.eu/ontology/triple#license_vocabulary
-triple:license_vocabulary rdf:type owl:NamedIndividual ,
-                                   skos:ConceptScheme ;
-                          rdfs:label "License Vocabulary"@en ;
-                          rdfs:comment "Controlled vocabulary of licenses used in GoTriple"@en .
+###  https://gotriple.eu/ontology/triple#licenses
+triple:licenses rdf:type owl:NamedIndividual ,
+                         skos:ConceptScheme ;
+                rdfs:label "Licenses"@en ;
+                rdfs:comment "Controlled vocabulary of licenses used in GoTriple"@en .
 
 ###  https://gotriple.eu/ontology/triple#cc_by_4_0
 triple:cc_by_4_0 rdf:type owl:NamedIndividual ,
                           skos:Concept ;
-                 skos:inScheme triple:license_vocabulary ;
+                 skos:inScheme triple:licenses ;
                  skos:exactMatch <https://creativecommons.org/licenses/by/4.0/> ;
                  rdfs:label "CC-BY-4.0"@en ;
                  skos:definition "Creative Commons Attribution 4.0 International License"@en .
@@ -104,16 +104,16 @@ triple:document_1 rdf:type owl:NamedIndividual ,
 ###  Example 2: Document with Access Conditions (Open Access)
 ###  ===========================================================
 
-###  https://gotriple.eu/ontology/triple#access_conditions_vocabulary
-triple:access_conditions_vocabulary rdf:type owl:NamedIndividual ,
-                                             skos:ConceptScheme ;
-                                    rdfs:label "Access Conditions Vocabulary"@en ;
-                                    rdfs:comment "Controlled vocabulary of access conditions used in GoTriple"@en .
+###  https://gotriple.eu/ontology/triple#conditions_of_access
+triple:conditions_of_access rdf:type owl:NamedIndividual ,
+                                     skos:ConceptScheme ;
+                            rdfs:label "Conditions of Access"@en ;
+                            rdfs:comment "Controlled vocabulary of access conditions used in GoTriple"@en .
 
 ###  https://gotriple.eu/ontology/triple#open_access
 triple:open_access rdf:type owl:NamedIndividual ,
                             skos:Concept ;
-                   skos:inScheme triple:access_conditions_vocabulary ;
+                   skos:inScheme triple:conditions_of_access ;
                    skos:closeMatch <http://purl.org/coar/access_right/c_abf2> ;
                    rdfs:label "Open Access"@en ;
                    skos:definition "The document is freely available to anyone without restrictions"@en .
@@ -135,16 +135,16 @@ triple:document_2 rdf:type owl:NamedIndividual ,
 ###  Example 3: Document with Type (Article)
 ###  ===========================================================
 
-###  https://gotriple.eu/ontology/triple#document_type_vocabulary
-triple:document_type_vocabulary rdf:type owl:NamedIndividual ,
-                                         skos:ConceptScheme ;
-                                rdfs:label "Document Type Vocabulary"@en ;
-                                rdfs:comment "Controlled vocabulary of document types used in GoTriple"@en .
+###  https://gotriple.eu/ontology/triple#document_types
+triple:document_types rdf:type owl:NamedIndividual ,
+                               skos:ConceptScheme ;
+                      rdfs:label "Document Types"@en ;
+                      rdfs:comment "Controlled vocabulary of document types used in GoTriple"@en .
 
 ###  https://gotriple.eu/ontology/triple#article
 triple:article rdf:type owl:NamedIndividual ,
                         skos:Concept ;
-               skos:inScheme triple:document_type_vocabulary ;
+               skos:inScheme triple:document_types ;
                skos:exactMatch <http://purl.org/coar/resource_type/c_6501> ;
                rdfs:label "Article"@en ;
                skos:definition "A scholarly article published in a journal or similar publication"@en .
@@ -166,16 +166,16 @@ triple:document_3 rdf:type owl:NamedIndividual ,
 ###  Example 4: Document with Multiple Disciplines
 ###  ===========================================================
 
-###  https://gotriple.eu/ontology/triple#discipline_vocabulary
-triple:discipline_vocabulary rdf:type owl:NamedIndividual ,
-                                      skos:ConceptScheme ;
-                             rdfs:label "Discipline Vocabulary"@en ;
-                             rdfs:comment "Controlled vocabulary of academic disciplines used in GoTriple"@en .
+###  https://gotriple.eu/ontology/triple#disciplines
+triple:disciplines rdf:type owl:NamedIndividual ,
+                            skos:ConceptScheme ;
+                   rdfs:label "Disciplines"@en ;
+                   rdfs:comment "Controlled vocabulary of academic disciplines used in GoTriple"@en .
 
 ###  https://gotriple.eu/ontology/triple#digital_humanities
 triple:digital_humanities rdf:type owl:NamedIndividual ,
                                    skos:Concept ;
-                          skos:inScheme triple:discipline_vocabulary ;
+                          skos:inScheme triple:disciplines ;
                           skos:closeMatch <http://id.loc.gov/authorities/subjects/sh2008102419> ;
                           rdfs:label "Digital Humanities"@en ;
                           skos:definition "The interdisciplinary field combining computing and humanities disciplines"@en .
@@ -188,7 +188,7 @@ triple:digital_humanities rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple#linguistics
 triple:linguistics rdf:type owl:NamedIndividual ,
                             skos:Concept ;
-                   skos:inScheme triple:discipline_vocabulary ;
+                   skos:inScheme triple:disciplines ;
                    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85077222> ;
                    rdfs:label "Linguistics"@en ;
                    skos:definition "The scientific study of language and its structure"@en .

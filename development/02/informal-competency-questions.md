@@ -133,7 +133,7 @@ Example 3
 CQ_2.8
 
 ### Question
-Return all terms that belong to the `discipline_vocabulary`.
+Return all terms that belong to the `disciplines` vocabulary.
 
 ### Expected Outcome
 A list of all concepts in the Discipline Vocabulary.

@@ -52,11 +52,11 @@ Every term in the vocabulary has the following capabilities:
 
 ## Example 1: Document with License
 
-`document_1` is an open access article published under a Creative Commons Attribution 4.0 license. The document is linked to the term `cc_by_4_0` from the `license_vocabulary`. This term has an exact match to the official Creative Commons URI.
+`document_1` is an open access article published under a Creative Commons Attribution 4.0 license. The document is linked to the term `cc_by_4_0` from the `licenses` vocabulary. This term has an exact match to the official Creative Commons URI.
 
 - Document: `document_1`
 - License term: `cc_by_4_0`
-- Belongs to: `license_vocabulary` (ConceptScheme)
+- Belongs to: `licenses` (ConceptScheme)
 - External match: Exact match to `https://creativecommons.org/licenses/by/4.0/`
 
 ## Example 2: Document with Access Conditions
@@ -79,9 +79,9 @@ Every term in the vocabulary has the following capabilities:
 
 ## Example 4: Document with Multiple Disciplines
 
-`document_4` is an interdisciplinary study covering both Digital Humanities and Linguistics. The document is linked to two terms from the `discipline_vocabulary`: `digital_humanities` and `linguistics`. Both terms have close matches to external classification systems.
+`document_4` is an interdisciplinary study covering both Digital Humanities and Linguistics. The document is linked to two terms from the `disciplines` vocabulary: `digital_humanities` and `linguistics`. Both terms have close matches to external classification systems.
 
 - Document: `document_4`
 - Discipline terms: `digital_humanities`, `linguistics`
-- Belong to: `discipline_vocabulary` (ConceptScheme)
+- Belong to: `disciplines` (ConceptScheme)
 - External matches: Close matches to UNESCO Thesaurus and Library of Congress Subject Headings
