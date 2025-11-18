@@ -30,11 +30,11 @@ SELECT ?ids WHERE {
 Return the types associated with `document_1`.
 
 ```
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 	
 SELECT ?type WHERE {
-  triple:document_1 dc:type ?type .
+  triple:document_1 schema:additionalType ?type .
 }
 ```
 
@@ -66,15 +66,13 @@ SELECT ?languages WHERE {
 Return all documents, given the `type_5` and the language `language_10`.
 
 ```
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX schema: <http://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?documents WHERE {
  ?documents schema:inLanguage triple:language_10 .
- ?documents dc:type triple:type_5 .
+ ?documents schema:additionalType triple:type_5 .
 }
 ```
 

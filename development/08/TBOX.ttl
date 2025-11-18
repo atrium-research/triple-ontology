@@ -7,6 +7,7 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <http://schema.org/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @base <https://gotriple.eu/ontology/triple#> .
@@ -18,8 +19,8 @@
 #    Object Properties
 #################################################################
 
-###  http://purl.org/dc/elements/1.1/type
-dc:type rdf:type owl:ObjectProperty .
+###  https://schema.org/additionalType
+schema:additionalType rdf:type owl:ObjectProperty .
 
 
 ###  http://www.w3.org/2004/02/skos/core#exactMatch
@@ -54,7 +55,7 @@ triple:Document rdf:type owl:Class ;
                 rdfs:label "Document (Triple)"@en ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                  owl:onProperty dc:type ;
+                                  owl:onProperty schema:additionalType ;
                                   owl:someValuesFrom skos:Concept
                                 ] .
 

@@ -56,11 +56,11 @@ triple:Document rdf:type owl:Class ;
 
 **Core Properties and Restrictions**:
 
-1. **Document Type** (`dc:type`):
-   - Domain: `triple:Document`
-   - Range: `skos:Concept` (from controlled vocabulary)
+1. **Document Type** (`schema:additionalType`):
+   - Domain: `triple:Document`  
+   - Range: `rdfs:Resource` (URI or text value)
    - Cardinality: At least one (`owl:someValuesFrom`)
-   - Represents the nature and format of the document
+   - Represents the nature and format of the document with enhanced vocabulary alignment
 
 2. **Identifiers** (`datacite:hasIdentifier`):
    - Domain: `triple:Document`
@@ -93,11 +93,9 @@ triple:Document rdf:type owl:Class ;
    - Indicates the file format (e.g., "application/pdf", "text/html")
 
 **External Vocabularies Used**:
-- **Dublin Core** (`dc:type`): Document type classification
-- **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): Identifier management
-- **Schema.org** (`schema:inLanguage`, `schema:Language`, `schema:CreativeWork`, `schema:headline`, `schema:abstract`, `schema:encodingFormat`): Language metadata, creative work modeling, and descriptive metadata
+- **Schema.org** (`schema:additionalType`, `schema:inLanguage`, `schema:Language`, `schema:CreativeWork`, `schema:headline`, `schema:abstract`, `schema:encodingFormat`): Document type classification, language metadata, creative work modeling, and descriptive metadata
+- **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): Identifier management  
 - **FOAF** (`foaf:Document`): Document representation
-- **SKOS** (`skos:Concept`): Controlled vocabulary terms
 
 ## Example 1
 

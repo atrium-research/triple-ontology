@@ -6,13 +6,13 @@ Return all documents with type "Book part".
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
   ?document a foaf:Document ;
-            dc:type triple:typ_book-part .
+            schema:additionalType triple:typ_book-part .
 }
 ```
 
@@ -60,11 +60,11 @@ SELECT ?externalTerm WHERE {
 Return the type of `document_1`.
 
 ```sparql
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?type WHERE {
-  triple:document_1 dc:type ?type .
+  triple:document_1 schema:additionalType ?type .
 }
 ```
 

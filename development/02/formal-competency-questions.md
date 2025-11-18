@@ -39,11 +39,11 @@ SELECT ?accessConditions WHERE {
 What type of document is `document_3`?
 
 ```sparql
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
+PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?type WHERE {
-  triple:document_3 dc:type ?type .
+  triple:document_3 schema:additionalType ?type .
 }
 ```
 
@@ -168,7 +168,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
-  ?document dc:type triple:article .
+  ?document schema:additionalType triple:article .
   ?document schema:conditionsOfAccess triple:open_access .
 }
 ```
@@ -209,7 +209,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 SELECT ?license ?access ?type ?discipline WHERE {
   OPTIONAL { triple:document_1 schema:license ?license . }
   OPTIONAL { triple:document_1 schema:conditionsOfAccess ?access . }
-  OPTIONAL { triple:document_1 dc:type ?type . }
+  OPTIONAL { triple:document_1 schema:additionalType ?type . }
   OPTIONAL { triple:document_1 dc:subject ?discipline . }
 }
 ```

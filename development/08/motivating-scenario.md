@@ -21,7 +21,7 @@ The Book part document type will be added to the existing Document Types control
 2. **Term Label**: "Book part"
 3. **Vocabulary Association**: Connected to the Document Types vocabulary (`skos:inScheme`)
 4. **External Alignment**: Exact match to COAR resource type for Book part: `https://vocabularies.coar-repositories.org/resource_types/c_3248/`
-5. **Usage**: Can be assigned to documents via the `dc:type` property (or equivalent property used in the ontology)
+5. **Usage**: Can be assigned to documents via the `schema:additionalType` property for enhanced vocabulary alignment and interoperability
 
 This addition aligns the GoTriple ontology with the COAR (Confederation of Open Access Repositories) controlled vocabulary, ensuring interoperability with other scholarly information systems.
 

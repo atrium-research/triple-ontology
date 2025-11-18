@@ -440,9 +440,9 @@ triple:uri a datacite:IdentifierScheme,
     rdfs:label "URI" ;
     rdfs:comment "Uniform Resource Identifier - a string of characters that unambiguously identifies a particular resource"@en .
 
-dc:type a owl:ObjectProperty ;
-    rdfs:label "dc:type"@en ;
-    rdfs:comment "The type of the document (e.g., Article, Dataset, Book)."@en .
+schema:additionalType a owl:ObjectProperty ;
+    rdfs:label "schema:additionalType"@en ;
+    rdfs:comment "An additional type for the item, typically used for adding more specific types from external vocabularies. Used for document type classification."@en .
 
 datacite:usesIdentifierScheme a owl:ObjectProperty ;
     rdfs:label "datacite:usesIdentifierScheme"@en .
@@ -690,7 +690,7 @@ triple:Document a owl:Class ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty triple:primaryProducer ],
         [ a owl:Restriction ;
-            owl:onProperty dc:type ;
+            owl:onProperty schema:additionalType ;
             owl:someValuesFrom skos:Concept ],
         [ a owl:Restriction ;
             owl:onProperty datacite:hasIdentifier ;

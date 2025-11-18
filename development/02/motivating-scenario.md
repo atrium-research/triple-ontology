@@ -47,7 +47,7 @@ Every term in the vocabulary has the following capabilities:
 
 - **`schema:license`**: Links a document to a license term from the License Vocabulary
 - **`schema:conditionsOfAccess`**: Links a document to an access condition term from the Access Conditions Vocabulary
-- **`dc:type`**: Links a document to a document type term from the Document Type Vocabulary
+- **`schema:additionalType`**: Links a document to a document type term from the Document Type Vocabulary, providing enhanced classification and external vocabulary alignment
 - **`dc:subject`**: Links a document to one or more discipline terms from the Discipline Vocabulary
 
 ## Example 1: Document with License

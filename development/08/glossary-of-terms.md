@@ -8,4 +8,4 @@
 | `COAR Resource Types`     | The Confederation of Open Access Repositories controlled vocabulary for resource types.                                         |
 | `Exact Match`             | A SKOS property indicating that two concepts have identical meaning and can be used interchangeably (`skos:exactMatch`).        |
 | `In Scheme`               | A SKOS property connecting a concept to its controlled vocabulary scheme (`skos:inScheme`).                                     |
-| `has type`                | The property that connects a document to its document type term (typically `dc:type` or similar).                               |
+| `has type`                | The property that connects a document to its document type term (using `schema:additionalType` for enhanced vocabulary alignment).                               |
