@@ -74,13 +74,64 @@ SELECT ?dataset ?title ?identifierValue WHERE {
   ?dataset a triple:Dataset ;
            schema:headline ?title ;
            datacite:hasIdentifier ?identifier .
-  ?identifier datacite:hasIdentifierScheme triple:doi ;
+  ?identifier a triple:DOI ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "10.1234/example.dataset.001"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "10.5281/zenodo.heritage.arch.2023"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "10.5281/zenodo.social.attitudes.2023"
+
+
+## CQ_12.10
+
+Return all datasets that have Handle identifiers using class-based approach.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?dataset ?title ?identifierValue WHERE {
+  ?dataset a triple:Dataset ;
+           schema:headline ?title ;
+           datacite:hasIdentifier ?identifier .
+  ?identifier a triple:Handle ;
+              litre:hasLiteralValue ?identifierValue .
+}
+```
+
+**Expected result:**
+- `triple:dataset-001` → "European Archaeological Sites Database" → "21.11130/00-HERITAGE-ARCH-2023"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "21.11130/00-SOCIAL-ATTITUDES-2023"
+
+
+## CQ_12.11
+
+Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?dataset ?title ?identifier ?identifierType ?value WHERE {
+  ?dataset a triple:Dataset ;
+           schema:headline ?title ;
+           datacite:hasIdentifier ?identifier .
+  ?identifier a ?identifierType ;
+              litre:hasLiteralValue ?value .
+  FILTER (?identifierType IN (triple:ID, triple:PID, triple:OriginalIdentifier))
+}
+```
+
+**Expected result:**
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-internal` → `triple:ID` → "TRIPLE_DATASET_HERITAGE_001"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `triple:PID` → "gotriple:dataset:heritage-archaeological-sites"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-internal` → `triple:ID` → "TRIPLE_DATASET_SOCIAL_002"
 
 
 ## CQ_12.5

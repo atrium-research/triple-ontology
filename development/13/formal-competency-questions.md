@@ -223,3 +223,79 @@ SELECT ?multimedia ?title ?keyword ?keywordName WHERE {
 - `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:keyword-oral-history` → "oral history"
 - `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:keyword-renaissance-art` → "Renaissance art"
 
+
+## CQ_13.11
+
+Return all multimedia content that have DOI identifiers using class-based approach.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?multimedia ?title ?identifierValue WHERE {
+  ?multimedia a triple:MediaObject ;
+              schema:headline ?title ;
+              datacite:hasIdentifier ?identifier .
+  ?identifier a triple:DOI ;
+              litre:hasLiteralValue ?identifierValue .
+}
+```
+
+**Expected result:**
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "10.5281/zenodo.video.medieval.carolingian"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "10.5281/zenodo.audio.resistance.interview"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "10.5281/zenodo.image.birth.venus.hd"
+
+
+## CQ_13.12
+
+Return all multimedia content that have Handle identifiers using class-based approach.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?multimedia ?title ?identifierValue WHERE {
+  ?multimedia a triple:MediaObject ;
+              schema:headline ?title ;
+              datacite:hasIdentifier ?identifier .
+  ?identifier a triple:Handle ;
+              litre:hasLiteralValue ?identifierValue .
+}
+```
+
+**Expected result:**
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "21.11130/00-VIDEO-MEDIEVAL-CAROLINGIAN"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "21.11130/00-AUDIO-RESISTANCE-INTERVIEW"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "21.11130/00-IMAGE-BIRTH-VENUS-HD"
+
+
+## CQ_13.13
+
+Return all multimedia content with platform identifiers by type.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?multimedia ?title ?identifierType ?value WHERE {
+  ?multimedia a triple:MediaObject ;
+              schema:headline ?title ;
+              datacite:hasIdentifier ?identifier .
+  ?identifier a ?identifierType ;
+              litre:hasLiteralValue ?value .
+  FILTER (?identifierType IN (triple:ID, triple:PID, triple:OriginalIdentifier))
+}
+```
+
+**Expected result:**
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:ID` → "TRIPLE_MEDIA_VIDEO_001"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:PID` → "gotriple:media:video-medieval-carolingian"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:ID` → "TRIPLE_MEDIA_AUDIO_002"
+

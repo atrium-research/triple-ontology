@@ -191,3 +191,63 @@ A list of multimedia objects with their associated keyword terms.
 
 ### Based on
 Example 1, Example 2, and Example 3
+
+
+## Question 11
+
+### Identifier
+CQ_13.11
+
+### Question
+Return all multimedia content that have DOI identifiers using class-based approach.
+
+### Expected Outcome
+A list of multimedia objects with valid DOI identifiers.
+
+### Result
+* `multimedia-001` → 10.5281/zenodo.video.medieval.carolingian
+* `multimedia-002` → 10.5281/zenodo.audio.resistance.interview
+* `multimedia-003` → 10.5281/zenodo.image.birth.venus.hd
+
+### Based on
+Example 1, Example 2, and Example 3
+
+
+## Question 12
+
+### Identifier
+CQ_13.12
+
+### Question
+Return all multimedia content that have Handle identifiers using class-based approach.
+
+### Expected Outcome
+A list of multimedia objects with valid Handle identifiers.
+
+### Result
+* `multimedia-001` → 21.11130/00-VIDEO-MEDIEVAL-CAROLINGIAN
+* `multimedia-002` → 21.11130/00-AUDIO-RESISTANCE-INTERVIEW
+* `multimedia-003` → 21.11130/00-IMAGE-BIRTH-VENUS-HD
+
+### Based on
+Example 1, Example 2, and Example 3
+
+
+## Question 13
+
+### Identifier
+CQ_13.13
+
+### Question
+Return all multimedia content with platform identifiers by type.
+
+### Expected Outcome
+A list of multimedia objects with their internal platform identifiers categorized by type.
+
+### Result
+* `multimedia-001` → Internal ID: TRIPLE_MEDIA_VIDEO_001, PID: gotriple:media:video-medieval-carolingian
+* `multimedia-002` → Internal ID: TRIPLE_MEDIA_AUDIO_002
+* `multimedia-003` → Internal ID: TRIPLE_MEDIA_IMAGE_003
+
+### Based on
+Example 1, Example 2, and Example 3

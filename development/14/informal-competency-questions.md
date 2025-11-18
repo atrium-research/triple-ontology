@@ -96,3 +96,63 @@ List of semantic artifacts with their file formats and access URLs
 ### Based on
 Example 1, Example 2, and Example 3
 
+
+## Question 6
+
+### Identifier
+CQ_14.6
+
+### Question
+Return all semantic artifacts that have DOI identifiers using class-based approach.
+
+### Expected Outcome
+A list of semantic artifacts with valid DOI identifiers.
+
+### Result
+* `thesaurus-ssh` → 10.5281/zenodo.thesaurus.ssh.v2
+* `vocab-arthistory` → 10.5281/zenodo.vocab.arthistory.v1  
+* `ontology-medieval` → 10.5281/zenodo.ontology.medieval.v09
+
+### Based on
+Example 1, Example 2, and Example 3
+
+
+## Question 7
+
+### Identifier
+CQ_14.7
+
+### Question
+Return all semantic artifacts that have URI identifiers using class-based approach.
+
+### Expected Outcome
+A list of semantic artifacts with their namespace URI identifiers.
+
+### Result
+* `thesaurus-ssh` → https://gotriple.eu/thesaurus/ssh#
+* `vocab-arthistory` → https://vocab.arthistory.eu/skos#
+* `ontology-medieval` → https://ontology.medieval.unibo.it/owl#
+
+### Based on
+Example 1, Example 2, and Example 3
+
+
+## Question 8
+
+### Identifier
+CQ_14.8
+
+### Question
+Return all semantic artifacts with their identifier types and values.
+
+### Expected Outcome
+A comprehensive list of semantic artifacts with all their identifier types (DOI, Handle, URI, platform identifiers).
+
+### Result
+* `thesaurus-ssh` → DOI: 10.5281/zenodo.thesaurus.ssh.v2, URI: https://gotriple.eu/thesaurus/ssh#
+* `vocab-arthistory` → DOI: 10.5281/zenodo.vocab.arthistory.v1, URI: https://vocab.arthistory.eu/skos#
+* `ontology-medieval` → URI: https://ontology.medieval.unibo.it/owl#
+
+### Based on
+Example 1, Example 2, and Example 3
+

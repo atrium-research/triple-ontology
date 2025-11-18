@@ -132,13 +132,11 @@ triple:person-pierre-martin rdf:type foaf:Person ;
                            schema:familyName "Martin" .
 
 ###  Identifiers
-triple:identifier-thesaurus-doi rdf:type datacite:Identifier ;
-                                litre:hasLiteralValue "10.5281/zenodo.1234567" ;
-                                datacite:usesIdentifierScheme triple:doi .
+triple:identifier-thesaurus-doi rdf:type triple:DOI ;
+                                litre:hasLiteralValue "10.5281/zenodo.1234567" .
 
-triple:identifier-medieval-handle rdf:type datacite:Identifier ;
-                                  litre:hasLiteralValue "hdl:1234.5/medieval-ontology" ;
-                                  datacite:usesIdentifierScheme triple:handle .
+triple:identifier-medieval-handle rdf:type triple:Handle ;
+                                  litre:hasLiteralValue "hdl:1234.5/medieval-ontology" .
 
 ###  Contact Points
 triple:contact-gotriple rdf:type schema:ContactPoint ;
@@ -217,135 +215,117 @@ triple:page-medieval-landing rdf:type foaf:Document ;
 ###  Thesaurus Identifiers
 triple:identifier-thesaurus-download rdf:type owl:NamedIndividual ,
                                               datacite:Identifier ;
-                                     datacite:usesIdentifierScheme triple:full_text_url ;
+                                     datacite:usesIdentifierScheme triple:full_text_url_schema ;
                                      litre:hasLiteralValue "https://thesaurus.gotriple.eu/download/rdf" .
 
 triple:identifier-thesaurus-landing rdf:type owl:NamedIndividual ,
                                              datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:landing_page_url ;
+                                    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
                                     litre:hasLiteralValue "https://thesaurus.gotriple.eu/landing" .
 
 ###  Vocabulary Identifiers  
 triple:identifier-vocab-download rdf:type owl:NamedIndividual ,
                                           datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:full_text_url ;
+                                 datacite:usesIdentifierScheme triple:full_text_url_schema ;
                                  litre:hasLiteralValue "https://vocab.arthistory.eu/skos.ttl" .
 
 triple:identifier-vocab-landing rdf:type owl:NamedIndividual ,
                                          datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:landing_page_url ;
+                                datacite:usesIdentifierScheme triple:landing_page_url_schema ;
                                 litre:hasLiteralValue "https://vocab.arthistory.eu/landing" .
 
 triple:identifier-vocab-source rdf:type owl:NamedIndividual ,
                                         datacite:Identifier ;
-                               datacite:usesIdentifierScheme triple:source_url ;
+                               datacite:usesIdentifierScheme triple:source_url_schema ;
                                litre:hasLiteralValue "https://getty.edu/research/tools/vocabularies/aat/" .
 
 ###  Medieval Ontology Identifiers
 triple:identifier-medieval-download rdf:type owl:NamedIndividual ,
                                              datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:full_text_url ;
+                                    datacite:usesIdentifierScheme triple:full_text_url_schema ;
                                     litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl" .
 
 triple:identifier-medieval-landing rdf:type owl:NamedIndividual ,
                                             datacite:Identifier ;
-                                   datacite:usesIdentifierScheme triple:landing_page_url ;
+                                   datacite:usesIdentifierScheme triple:landing_page_url_schema ;
                                    litre:hasLiteralValue "https://ontology.medieval.unibo.it/landing" .
 
 ###  Thesaurus Platform Identifiers
 triple:identifier-thesaurus-internal rdf:type owl:NamedIndividual ,
-                                              datacite:Identifier ;
-                                     datacite:usesIdentifierScheme triple:internal_id ;
+                                              triple:ID ;
                                      litre:hasLiteralValue "gotriple:thesaurus:ssh:v2.1" .
 
 triple:identifier-thesaurus-pid rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:pid ;
+                                         triple:PID ;
                                 litre:hasLiteralValue "gotriple:semantic:thesaurus-ssh-v2" .
 
 triple:identifier-thesaurus-original rdf:type owl:NamedIndividual ,
-                                              datacite:Identifier ;
-                                     datacite:usesIdentifierScheme triple:original_id ;
+                                              triple:OriginalIdentifier ;
                                      litre:hasLiteralValue "gotriple_thesaurus_ssh_v21" .
 
 ###  Vocabulary Platform Identifiers
 triple:identifier-vocab-internal rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:internal_id ;
+                                          triple:ID ;
                                  litre:hasLiteralValue "dhi:vocab:arthistory:v1.3" .
 
 triple:identifier-vocab-pid rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                            datacite:usesIdentifierScheme triple:pid ;
+                                     triple:PID ;
                             litre:hasLiteralValue "gotriple:semantic:vocab-arthistory-v1" .
 
 triple:identifier-vocab-original rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id ;
+                                          triple:OriginalIdentifier ;
                                  litre:hasLiteralValue "dhi_vocab_arthistory_v13" .
 
 ###  Medieval Ontology Platform Identifiers
 triple:identifier-medieval-internal rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:internal_id ;
+                                             triple:ID ;
                                     litre:hasLiteralValue "unibo:ontology:medieval:v0.9" .
 
 triple:identifier-medieval-pid rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                               datacite:usesIdentifierScheme triple:pid ;
+                                        triple:PID ;
                                litre:hasLiteralValue "gotriple:semantic:ontology-medieval-studies" .
 
 triple:identifier-medieval-original rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:original_id ;
+                                             triple:OriginalIdentifier ;
                                     litre:hasLiteralValue "unibo_ontology_medieval_v09" .
 
 ###  Thesaurus Standard Identifiers
 triple:identifier-thesaurus-doi rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:doi ;
+                                         triple:DOI ;
                                 litre:hasLiteralValue "10.5281/zenodo.thesaurus.ssh.v2" .
 
 triple:identifier-thesaurus-handle rdf:type owl:NamedIndividual ,
-                                            datacite:Identifier ;
-                                   datacite:usesIdentifierScheme triple:handle ;
+                                            triple:Handle ;
                                    litre:hasLiteralValue "21.11130/00-THESAURUS-SSH-V2" .
 
 triple:identifier-thesaurus-uri rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:uri ;
+                                         triple:URI ;
                                 litre:hasLiteralValue "https://gotriple.eu/thesaurus/ssh#" .
 
 ###  Vocabulary Standard Identifiers
 triple:identifier-vocab-doi rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                            datacite:usesIdentifierScheme triple:doi ;
+                                     triple:DOI ;
                             litre:hasLiteralValue "10.5281/zenodo.vocab.arthistory.v1" .
 
 triple:identifier-vocab-handle rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                               datacite:usesIdentifierScheme triple:handle ;
+                                        triple:Handle ;
                                litre:hasLiteralValue "21.11130/00-VOCAB-ARTHISTORY-V1" .
 
 triple:identifier-vocab-uri rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                            datacite:usesIdentifierScheme triple:uri ;
+                                     triple:URI ;
                             litre:hasLiteralValue "https://vocab.arthistory.eu/skos#" .
 
 ###  Medieval Ontology Standard Identifiers
 triple:identifier-medieval-doi rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                               datacite:usesIdentifierScheme triple:doi ;
+                                        triple:DOI ;
                                litre:hasLiteralValue "10.5281/zenodo.ontology.medieval.v09" .
 
 triple:identifier-medieval-handle rdf:type owl:NamedIndividual ,
-                                           datacite:Identifier ;
-                                  datacite:usesIdentifierScheme triple:handle ;
+                                           triple:Handle ;
                                   litre:hasLiteralValue "21.11130/00-ONTOLOGY-MEDIEVAL-V09" .
 
 triple:identifier-medieval-uri rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                               datacite:usesIdentifierScheme triple:uri ;
+                                        triple:URI ;
                                litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl#" .
 
 ###  Referenced Documents (for competency questions)

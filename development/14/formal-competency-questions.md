@@ -112,3 +112,80 @@ SELECT ?artifact ?title ?fileFormat WHERE {
 - `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "text/turtle"
 - `triple:ontology-medieval` → "Medieval Studies Ontology", "application/owl+xml"
 
+
+## CQ_14.6
+
+Return all semantic artifacts that have DOI identifiers using class-based approach.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?artifact ?title ?identifierValue WHERE {
+  ?artifact a triple:SemanticArtefact ;
+            schema:headline ?title ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a triple:DOI ;
+              litre:hasLiteralValue ?identifierValue .
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "10.5281/zenodo.thesaurus.ssh.v2"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "10.5281/zenodo.vocab.arthistory.v1"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "10.5281/zenodo.ontology.medieval.v09"
+
+
+## CQ_14.7
+
+Return all semantic artifacts that have URI identifiers using class-based approach.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?artifact ?title ?identifierValue WHERE {
+  ?artifact a triple:SemanticArtefact ;
+            schema:headline ?title ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a triple:URI ;
+              litre:hasLiteralValue ?identifierValue .
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "https://gotriple.eu/thesaurus/ssh#"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "https://vocab.arthistory.eu/skos#"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "https://ontology.medieval.unibo.it/owl#"
+
+
+## CQ_14.8
+
+Return all semantic artifacts with their identifier types and values.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?artifact ?title ?identifierType ?value WHERE {
+  ?artifact a triple:SemanticArtefact ;
+            schema:headline ?title ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a ?identifierType ;
+              litre:hasLiteralValue ?value .
+  FILTER (?identifierType IN (triple:DOI, triple:Handle, triple:URI, triple:ID, triple:PID))
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:DOI` → "10.5281/zenodo.thesaurus.ssh.v2"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:URI` → "https://gotriple.eu/thesaurus/ssh#"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → `triple:DOI` → "10.5281/zenodo.vocab.arthistory.v1"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → `triple:URI` → "https://ontology.medieval.unibo.it/owl#"
+

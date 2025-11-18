@@ -99,11 +99,11 @@ datacite:hasIdentifier rdf:type owl:ObjectProperty ;
                        rdfs:comment "Links entities to their identifiers"@en ;
                        rdfs:range datacite:Identifier .
 
-###  http://purl.org/spar/datacite/hasIdentifierScheme
-datacite:hasIdentifierScheme rdf:type owl:ObjectProperty ;
-                             rdfs:label "datacite:hasIdentifierScheme"@en ;
-                             rdfs:comment "Links an identifier to its scheme"@en ;
-                             rdfs:domain datacite:Identifier .
+###  http://purl.org/spar/datacite/usesIdentifierScheme
+datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
+                              rdfs:label "datacite:usesIdentifierScheme"@en ;
+                              rdfs:comment "Links an identifier to its scheme"@en ;
+                              rdfs:domain datacite:Identifier .
 
 #################################################################
 #    Data Properties
@@ -188,6 +188,13 @@ schema:comment rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:comment"@en ;
                rdfs:comment "Comments, typically from users."@en .
 
+###  http://purl.org/spar/literal/hasLiteralValue
+litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
+                      rdfs:label "litre:hasLiteralValue"@en ;
+                      rdfs:comment "Associates an entity with a literal value representing its textual content."@en ;
+                      rdfs:range xsd:string .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -244,7 +251,13 @@ triple:Dataset rdf:type owl:Class ;
                                owl:allValuesFrom xsd:string ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty datacite:hasIdentifier ;
-                               owl:allValuesFrom datacite:Identifier ] ;
+                               owl:allValuesFrom [ rdf:type owl:Class ;
+                                                  owl:unionOf ( datacite:Identifier
+                                                               triple:ID
+                                                               triple:PID
+                                                               triple:OriginalIdentifier
+                                                               triple:DOI
+                                                               triple:Handle ) ] ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:headline ;
                                owl:allValuesFrom rdf:langString ] ;
@@ -315,70 +328,199 @@ schema:Place rdf:type owl:Class ;
 
 ###  http://purl.org/spar/datacite/Identifier
 datacite:Identifier rdf:type owl:Class ;
-                   rdfs:label "datacite:Identifier"@en ;
-                   rdfs:comment "An identifier that uniquely identifies an entity according to some identification scheme."@en .
+                    rdfs:label "datacite:Identifier"@en ;
+                    rdfs:comment "An identifier that uniquely identifies an entity according to some identification scheme."@en ;
+                    rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                      owl:onProperty datacite:usesIdentifierScheme ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onClass datacite:IdentifierScheme
+                                    ] ,
+                                    [ rdf:type owl:Restriction ;
+                                      owl:onProperty litre:hasLiteralValue ;
+                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                      owl:onDataRange xsd:string
+                                    ] .
 
 ###  http://purl.org/spar/datacite/IdentifierScheme
 datacite:IdentifierScheme rdf:type owl:Class ;
-                         rdfs:label "datacite:IdentifierScheme"@en ;
-                         rdfs:comment "A scheme that uniquely identifies entities of a particular type."@en .
+                          rdfs:label "datacite:IdentifierScheme"@en ;
+                          rdfs:comment "A scheme that uniquely identifies entities of a particular type."@en .
+
+###  https://gotriple.eu/ontology/triple#ID
+triple:ID rdf:type owl:Class ;
+          rdfs:label "ID"@en ;
+          rdfs:comment "Internal identifier used within the GoTriple platform for resource management."@en ;
+          rdfs:subClassOf datacite:Identifier ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty litre:hasLiteralValue ;
+                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                            owl:onDataRange xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty datacite:usesIdentifierScheme ;
+                            owl:hasValue triple:internal_id_schema
+                          ] .
+
+###  https://gotriple.eu/ontology/triple#PID
+triple:PID rdf:type owl:Class ;
+           rdfs:label "PID"@en ;
+           rdfs:comment "Persistent identifier generated and exposed externally by the GoTriple platform."@en ;
+           rdfs:subClassOf datacite:Identifier ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty litre:hasLiteralValue ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty datacite:usesIdentifierScheme ;
+                             owl:hasValue triple:pid_schema
+                           ] .
+
+###  https://gotriple.eu/ontology/triple#OriginalIdentifier
+triple:OriginalIdentifier rdf:type owl:Class ;
+                          rdfs:label "OriginalIdentifier"@en ;
+                          rdfs:comment "Original identifier from the source system where the resource was harvested."@en ;
+                          rdfs:subClassOf datacite:Identifier ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty litre:hasLiteralValue ;
+                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                            owl:onDataRange xsd:string
+                                          ] ,
+                                          [ rdf:type owl:Restriction ;
+                                            owl:onProperty datacite:usesIdentifierScheme ;
+                                            owl:hasValue triple:original_id_schema
+                                          ] .
+
+###  https://gotriple.eu/ontology/triple#DOI
+triple:DOI rdf:type owl:Class ;
+           rdfs:label "DOI"@en ;
+           rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en ;
+           rdfs:subClassOf datacite:Identifier ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty litre:hasLiteralValue ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty datacite:usesIdentifierScheme ;
+                             owl:hasValue triple:doi_schema
+                           ] .
+
+###  https://gotriple.eu/ontology/triple#Handle
+triple:Handle rdf:type owl:Class ;
+              rdfs:label "Handle"@en ;
+              rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en ;
+              rdfs:subClassOf datacite:Identifier ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty litre:hasLiteralValue ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty datacite:usesIdentifierScheme ;
+                                owl:hasValue triple:handle_schema
+                              ] .
+
+###  https://gotriple.eu/ontology/triple#ISSN
+triple:ISSN rdf:type owl:Class ;
+            rdfs:label "ISSN"@en ;
+            rdfs:comment "International Standard Serial Number - an eight-digit identifier used to uniquely identify serial publications."@en ;
+            rdfs:subClassOf datacite:Identifier ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty litre:hasLiteralValue ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty datacite:usesIdentifierScheme ;
+                              owl:hasValue triple:issn_schema
+                            ] .
+
+###  https://gotriple.eu/ontology/triple#ISBN
+triple:ISBN rdf:type owl:Class ;
+            rdfs:label "ISBN"@en ;
+            rdfs:comment "International Standard Book Number - a numeric commercial book identifier assigned to books and book-like products."@en ;
+            rdfs:subClassOf datacite:Identifier ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty litre:hasLiteralValue ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty datacite:usesIdentifierScheme ;
+                              owl:hasValue triple:isbn_schema
+                            ] .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#landing_page_url
-triple:landing_page_url rdf:type owl:NamedIndividual ,
-                                 datacite:IdentifierScheme ;
-                        rdfs:label "Landing Page URL"@en ;
-                        rdfs:comment "URL of the landing page containing metadata and descriptive information about the document."@en .
+###  https://gotriple.eu/ontology/triple#landing_page_url_schema
+triple:landing_page_url_schema rdf:type owl:NamedIndividual ,
+                                        datacite:IdentifierScheme ;
+                               rdfs:label "Landing Page URL"@en ;
+                               rdfs:comment "URL of the landing page containing metadata and descriptive information about the document."@en .
 
 
-###  https://gotriple.eu/ontology/triple#full_text_url
-triple:full_text_url rdf:type owl:NamedIndividual ,
-                              datacite:IdentifierScheme ;
-                     rdfs:label "Full Text URL"@en ;
-                     rdfs:comment "URL providing direct access to the full content of the document."@en .
+###  https://gotriple.eu/ontology/triple#full_text_url_schema
+triple:full_text_url_schema rdf:type owl:NamedIndividual ,
+                                     datacite:IdentifierScheme ;
+                            rdfs:label "Full Text URL"@en ;
+                            rdfs:comment "URL providing direct access to the full content of the document."@en .
 
 
-###  https://gotriple.eu/ontology/triple#source_url
-triple:source_url rdf:type owl:NamedIndividual ,
+###  https://gotriple.eu/ontology/triple#source_url_schema
+triple:source_url_schema rdf:type owl:NamedIndividual ,
+                                  datacite:IdentifierScheme ;
+                         rdfs:label "Source URL"@en ;
+                         rdfs:comment "URL of the original publication location or source repository."@en .
+
+
+###  https://gotriple.eu/ontology/triple#internal_id_schema
+triple:internal_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "Internal ID"@en ;
+                          rdfs:comment "Internal identifier used within the GoTriple platform for resource management."@en .
+
+
+###  https://gotriple.eu/ontology/triple#pid_schema
+triple:pid_schema rdf:type owl:NamedIndividual ,
                            datacite:IdentifierScheme ;
-                  rdfs:label "Source URL"@en ;
-                  rdfs:comment "URL of the original publication location or source repository."@en .
+                  rdfs:label "PID"@en ;
+                  rdfs:comment "Persistent identifier generated and exposed externally by the GoTriple platform."@en .
 
 
-###  https://gotriple.eu/ontology/triple#internal_id
-triple:internal_id rdf:type owl:NamedIndividual ,
+###  https://gotriple.eu/ontology/triple#original_id_schema
+triple:original_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "Original ID"@en ;
+                          rdfs:comment "Original identifier from the source system where the resource was harvested."@en .
+
+
+###  https://gotriple.eu/ontology/triple#doi_schema
+triple:doi_schema rdf:type owl:NamedIndividual ,
+                           datacite:IdentifierScheme ;
+                  rdfs:label "DOI"@en ;
+                  rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+
+
+###  https://gotriple.eu/ontology/triple#handle_schema
+triple:handle_schema rdf:type owl:NamedIndividual ,
+                              datacite:IdentifierScheme ;
+                     rdfs:label "Handle"@en ;
+                     rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+
+
+###  https://gotriple.eu/ontology/triple#issn_schema
+triple:issn_schema rdf:type owl:NamedIndividual ,
                             datacite:IdentifierScheme ;
-                   rdfs:label "Internal ID"@en ;
-                   rdfs:comment "Internal identifier used within the GoTriple platform for document management."@en .
+                   rdfs:label "ISSN"@en ;
+                   rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en .
 
 
-###  https://gotriple.eu/ontology/triple#pid
-triple:pid rdf:type owl:NamedIndividual ,
-                    datacite:IdentifierScheme ;
-           rdfs:label "PID"@en ;
-           rdfs:comment "Persistent identifier generated and exposed externally by the GoTriple platform."@en .
-
-
-###  https://gotriple.eu/ontology/triple#original_id
-triple:original_id rdf:type owl:NamedIndividual ,
+###  https://gotriple.eu/ontology/triple#isbn_schema
+triple:isbn_schema rdf:type owl:NamedIndividual ,
                             datacite:IdentifierScheme ;
-                   rdfs:label "Original ID"@en ;
-                   rdfs:comment "Original identifier from the source system where the document was harvested."@en .
-
-
-###  https://gotriple.eu/ontology/triple#doi
-triple:doi rdf:type owl:NamedIndividual ,
-                    datacite:IdentifierScheme ;
-           rdfs:label "DOI"@en ;
-           rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
-
-
-###  https://gotriple.eu/ontology/triple#handle
-triple:handle rdf:type owl:NamedIndividual ,
-                       datacite:IdentifierScheme ;
-               rdfs:label "Handle"@en ;
-               rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+                   rdfs:label "ISBN"@en ;
+                   rdfs:comment "International Standard Book Number - a numeric identifier for books and book-like products."@en .

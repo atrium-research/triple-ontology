@@ -69,10 +69,11 @@ Return all datasets that have DOI identifiers.
 A list of datasets with valid DOI identifiers.
 
 ### Result
-* `dataset_001` → 10.1234/example.dataset.001
+* `dataset-001` → 10.5281/zenodo.heritage.arch.2023
+* `dataset-002` → 10.5281/zenodo.social.attitudes.2023
 
 ### Based on
-Example 1
+Example 1 and Example 2
 
 
 ## Question 5
@@ -165,6 +166,45 @@ A list of datasets with contact information for data access.
 ### Result
 * `dataset_001` → European Heritage Institute Data Team (data@heritage.eu)
 * `dataset_002` → EU Social Observatory Research Support (support@social-eu.org)
+
+### Based on
+Example 1 and Example 2
+
+
+## Question 10
+
+### Identifier
+CQ_12.10
+
+### Question
+Return all datasets that have Handle identifiers using class-based approach.
+
+### Expected Outcome
+A list of datasets with valid Handle identifiers.
+
+### Result
+* `dataset-001` → 21.11130/00-HERITAGE-ARCH-2023
+* `dataset-002` → 21.11130/00-SOCIAL-ATTITUDES-2023
+
+### Based on
+Example 1 and Example 2
+
+
+## Question 11
+
+### Identifier
+CQ_12.11
+
+### Question
+Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
+
+### Expected Outcome
+A list of datasets with their internal platform identifiers by type.
+
+### Result
+* `dataset-001` → Internal ID: TRIPLE_DATASET_HERITAGE_001
+* `dataset-001` → PID: gotriple:dataset:heritage-archaeological-sites
+* `dataset-002` → Internal ID: TRIPLE_DATASET_SOCIAL_002
 
 ### Based on
 Example 1 and Example 2
