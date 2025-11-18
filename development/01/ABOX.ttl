@@ -185,42 +185,39 @@ triple:Document rdf:type owl:Class ;
 ###  triple:identifier_landing_1
 :identifier_landing_1 rdf:type owl:NamedIndividual ,
                                datacite:Identifier ;
-                      datacite:usesIdentiferScheme :landing_page_url ;
+                      datacite:usesIdentiferScheme :landing_page_url_schema ;
                       litre:hasLiteralValue "https://hal.archives-ouvertes.fr/hal-12345" .
 
 
 ###  triple:identifier_fulltext_1
 :identifier_fulltext_1 rdf:type owl:NamedIndividual ,
                                 datacite:Identifier ;
-                       datacite:usesIdentiferScheme :full_text_url ;
+                       datacite:usesIdentiferScheme :full_text_url_schema ;
                        litre:hasLiteralValue "https://hal.archives-ouvertes.fr/hal-12345/document" .
 
 
 ###  triple:identifier_source_1
 :identifier_source_1 rdf:type owl:NamedIndividual ,
                               datacite:Identifier ;
-                     datacite:usesIdentiferScheme :source_url ;
+                     datacite:usesIdentiferScheme :source_url_schema ;
                      litre:hasLiteralValue "https://journals.openedition.org/dh/12345" .
 
 
 ###  triple:identifier_internal_1
 :identifier_internal_1 rdf:type owl:NamedIndividual ,
-                                datacite:Identifier ;
-                       datacite:usesIdentiferScheme :internal_id ;
+                                triple:ID ;
                        litre:hasLiteralValue "TRIPLE_DOC_001" .
 
 
 ###  triple:identifier_pid_1
 :identifier_pid_1 rdf:type owl:NamedIndividual ,
-                           datacite:Identifier ;
-                  datacite:usesIdentiferScheme :pid ;
+                           triple:PID ;
                   litre:hasLiteralValue "gotriple:doc:12345-abcd-6789" .
 
 
 ###  triple:identifier_original_1
 :identifier_original_1 rdf:type owl:NamedIndividual ,
-                                datacite:Identifier ;
-                       datacite:usesIdentiferScheme :original_id ;
+                                triple:OriginalIdentifier ;
                        litre:hasLiteralValue "hal-12345" .
 
 

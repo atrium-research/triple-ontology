@@ -37,14 +37,15 @@ In the TRIPLE ontology, a document (`triple:Document`) represents any scholarly 
 
 3. **Language Standardization**: Languages are represented using `schema:Language` following ISO-639-1 two-character codes (e.g., "en", "fr", "de"). The platform uses a controlled vocabulary including TRIPLE's primary languages (Croatian, English, French, German, Greek, Italian, Polish, Portuguese, Slovenian, Spanish, Ukrainian) and common additional languages (Arabic, Dutch, Swedish, etc.). Special labels "other" and "undefined" handle edge cases.
 
-4. **Multiple Identifiers**: Each document is associated with multiple identifiers following the DataCite specification (`datacite:Identifier`). These include:
-   - Local TRIPLE identifier (unique within the platform)
-   - DOI (Digital Object Identifier) for persistent web referencing
-   - **Full Text URL** (`triple:full_text_url`) - Direct access to document content
-   - **Source URL** (`triple:source_url`) - Original publication location or source repository
-   - **Landing Page URL** (`triple:landing_page_url`) - Page containing metadata and descriptive information
+4. **Multiple Identifiers**: Each document is associated with multiple identifiers following a class-based approach that extends the DataCite specification. The TRIPLE ontology implements three mandatory identifier types:
 
-Each identifier uses the `datacite:Identifier` class and specifies its scheme via `datacite:IdentifierScheme`. URL-based identifiers are handled with the same pattern as DOI, ISBN, ISSN, and Handle identifiers, ensuring consistency across all identifier types.
+   - **Internal ID** (`triple:ID`) - Unique identifier within the GoTriple platform for internal resource management
+   - **Persistent ID** (`triple:PID`) - External persistent identifier generated and exposed by the GoTriple platform  
+   - **Original Identifier** (`triple:OriginalIdentifier`) - Original identifier from the source system where the document was harvested
+
+Each identifier type is implemented as a specific class inheriting from `datacite:Identifier`, ensuring strong typing while maintaining DataCite compatibility. The class-based approach provides automatic schema inference through OWL restrictions, where each identifier class automatically uses its corresponding `datacite:IdentifierScheme` (e.g., `triple:ID` uses `triple:internal_id_schema`).
+
+Additional URL-based identifiers for navigation and access are supported through DataCite's schema-based pattern for backward compatibility.
 
 ### Technical Specification
 
@@ -58,15 +59,15 @@ triple:Document rdf:type owl:Class ;
 
 1. **Document Type** (`schema:additionalType`):
    - Domain: `triple:Document`  
-   - Range: `rdfs:Resource` (URI or text value)
+   - Range: `skos:Concept`
    - Cardinality: At least one (`owl:someValuesFrom`)
-   - Represents the nature and format of the document with enhanced vocabulary alignment
+   - Represents the nature and format of the document using controlled vocabulary
 
-2. **Identifiers** (`datacite:hasIdentifier`):
+2. **Class-based Identifiers** (`datacite:hasIdentifier`):
    - Domain: `triple:Document`
-   - Range: `datacite:Identifier`
-   - Cardinality: At least one (`owl:someValuesFrom`)
-   - Each identifier has an associated `datacite:IdentifierScheme`
+   - Range: `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` (mandatory)
+   - Cardinality: At least one of each type (`owl:someValuesFrom`)
+   - Strong typing ensures proper identifier categorization and automatic schema inference
 
 3. **Language** (`schema:inLanguage`):
    - Domain: `triple:Document`
@@ -94,8 +95,10 @@ triple:Document rdf:type owl:Class ;
 
 **External Vocabularies Used**:
 - **Schema.org** (`schema:additionalType`, `schema:inLanguage`, `schema:Language`, `schema:CreativeWork`, `schema:headline`, `schema:abstract`, `schema:encodingFormat`): Document type classification, language metadata, creative work modeling, and descriptive metadata
-- **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): Identifier management  
+- **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): Base classes and properties for identifier management with class-based extensions
 - **FOAF** (`foaf:Document`): Document representation
+- **SKOS** (`skos:Concept`): Controlled vocabulary concepts for document types
+- **SPAR Literal** (`litre:hasLiteralValue`): Literal value management for identifiers
 
 ## Example 1
 
@@ -104,9 +107,11 @@ A scholarly article in English and French with multiple identifiers including UR
 - **Instance**: `document_1`
 - **Type**: Instance of `triple:Document`
 - **Document Type**: `type_5` (a `skos:Concept` representing "Article")
-- **Identifiers**:
-  - `identifier_2` (DOI)
-  - `identifier_4` (Local ID)
+- **Platform Identifiers** (class-based):
+  - `identifier_internal_1` (`triple:ID`): "TRIPLE_DOC_001" - Internal platform identifier
+  - `identifier_pid_1` (`triple:PID`): "gotriple:doc:12345-abcd-6789" - External persistent identifier  
+  - `identifier_original_1` (`triple:OriginalIdentifier`): "hal-12345" - Source system identifier
+- **Additional Identifiers** (schema-based):
   - `identifier_landing_1` (Landing Page URL: "https://hal.archives-ouvertes.fr/hal-12345")
   - `identifier_fulltext_1` (Full Text URL: "https://hal.archives-ouvertes.fr/hal-12345/document")
   - `identifier_source_1` (Source URL: "https://journals.openedition.org/dh/12345")
@@ -115,7 +120,7 @@ A scholarly article in English and French with multiple identifiers including UR
 - **Abstract**: "This paper examines the transformative role of digital humanities in Social Sciences and Humanities research."@en, "Cet article examine le rôle transformateur des humanités numériques dans la recherche en sciences humaines et sociales."@fr
 - **Format**: "application/pdf"
 
-Each identifier is a `datacite:Identifier` with an associated `datacite:IdentifierScheme`, demonstrating the consistent pattern for both traditional identifiers (DOI) and URL-based identifiers (landing page, full text, source).
+The example demonstrates the dual approach: class-based identifiers for platform management with automatic schema inference, and traditional schema-based identifiers for URLs and external systems.
 
 ## Example 2
 

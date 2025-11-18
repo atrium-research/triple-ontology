@@ -113,6 +113,25 @@ SELECT ?value WHERE {
 **Expected result:**
 - "10.1234/example.2024.001"
 
+## CQ_10.13
+
+Return all documents that have a DOI identifier using class-based approach.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a triple:DOI .
+}
+```
+
+**Expected result:**
+- `triple:document_1`
+- `triple:document_45`
+
 
 ## CQ_10.7
 
@@ -131,6 +150,49 @@ SELECT ?document WHERE {
 
 **Expected result:**
 - `triple:document_99`
+
+## CQ_10.14
+
+Return all documents that have an ISSN identifier using class-based approach.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a triple:ISSN .
+}
+```
+
+**Expected result:**
+- `triple:document_45`
+
+## CQ_10.15
+
+Return all identifier values by type using class-based approach.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?type ?value WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a ?type ;
+              litre:hasLiteralValue ?value .
+  FILTER (?type IN (triple:DOI, triple:Handle, triple:ISSN, triple:ISBN))
+}
+```
+
+**Expected result:**
+- `triple:DOI` → "10.1234/example.2024.001"
+- `triple:DOI` → "10.5678/journal.2024.045"
+- `triple:ISSN` → "1234-5678"
+- `triple:Handle` → "11234/5678-abcd-efgh"
+- `triple:ISBN` → "978-3-16-148410-0"
 
 
 ## CQ_10.8

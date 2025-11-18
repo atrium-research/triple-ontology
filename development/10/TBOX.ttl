@@ -68,8 +68,78 @@ triple:Document rdf:type owl:Class ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
                 rdfs:subClassOf [ rdf:type owl:Restriction ;
                                   owl:onProperty datacite:hasIdentifier ;
-                                  owl:someValuesFrom datacite:Identifier
+                                  owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( datacite:Identifier
+                                                                  triple:DOI
+                                                                  triple:Handle
+                                                                  triple:ISSN
+                                                                  triple:ISBN )
+                                                   ]
                                 ] .
+
+
+###  https://gotriple.eu/ontology/triple#DOI
+triple:DOI rdf:type owl:Class ;
+           rdfs:label "DOI"@en ;
+           rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en ;
+           rdfs:subClassOf datacite:Identifier ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty litre:hasLiteralValue ;
+                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                             owl:onDataRange xsd:string
+                           ] ,
+                           [ rdf:type owl:Restriction ;
+                             owl:onProperty datacite:usesIdentifierScheme ;
+                             owl:hasValue triple:doi
+                           ] .
+
+
+###  https://gotriple.eu/ontology/triple#Handle
+triple:Handle rdf:type owl:Class ;
+              rdfs:label "Handle"@en ;
+              rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en ;
+              rdfs:subClassOf datacite:Identifier ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty litre:hasLiteralValue ;
+                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                owl:onDataRange xsd:string
+                              ] ,
+                              [ rdf:type owl:Restriction ;
+                                owl:onProperty datacite:usesIdentifierScheme ;
+                                owl:hasValue triple:handle
+                              ] .
+
+
+###  https://gotriple.eu/ontology/triple#ISSN
+triple:ISSN rdf:type owl:Class ;
+            rdfs:label "ISSN"@en ;
+            rdfs:comment "International Standard Serial Number - an eight-digit identifier used to uniquely identify serial publications."@en ;
+            rdfs:subClassOf datacite:Identifier ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty litre:hasLiteralValue ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty datacite:usesIdentifierScheme ;
+                              owl:hasValue triple:issn
+                            ] .
+
+
+###  https://gotriple.eu/ontology/triple#ISBN
+triple:ISBN rdf:type owl:Class ;
+            rdfs:label "ISBN"@en ;
+            rdfs:comment "International Standard Book Number - a numeric commercial book identifier assigned to books and book-like products."@en ;
+            rdfs:subClassOf datacite:Identifier ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty litre:hasLiteralValue ;
+                              owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                              owl:onDataRange xsd:string
+                            ] ,
+                            [ rdf:type owl:Restriction ;
+                              owl:onProperty datacite:usesIdentifierScheme ;
+                              owl:hasValue triple:isbn
+                            ] .
 
 
 #################################################################

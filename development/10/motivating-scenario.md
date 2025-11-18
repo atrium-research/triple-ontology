@@ -9,15 +9,15 @@ Document Identifier Types Extension
 
 Scholarly documents in the GoTriple platform are identified through various standardized identifier schemes, each serving specific purposes within the academic publishing ecosystem. While the ontology already supports the concept of document identifiers (established in Iteration 01), there is a need to explicitly specify and support the most common identifier types used in academic publishing.
 
-The four primary identifier schemes being formalized are:
+The four primary identifier types being implemented are:
 
-1. **DOI (Digital Object Identifier)**: A persistent identifier widely used for journal articles, conference papers, datasets, and other digital objects. DOIs provide a permanent link to the resource location and are maintained by the International DOI Foundation.
+1. **DOI (Digital Object Identifier)**: A persistent identifier widely used for journal articles, conference papers, datasets, and other digital objects. DOIs provide a permanent link to the resource location and are maintained by the International DOI Foundation. Implemented as `triple:DOI` class.
 
-2. **ISSN (International Standard Serial Number)**: An eight-digit identifier used to uniquely identify serial publications such as journals, magazines, and periodicals. ISSN helps distinguish between different serial publications and their various formats (print, electronic, etc.).
+2. **ISSN (International Standard Serial Number)**: An eight-digit identifier used to uniquely identify serial publications such as journals, magazines, and periodicals. ISSN helps distinguish between different serial publications and their various formats (print, electronic, etc.). Implemented as `triple:ISSN` class.
 
-3. **ISBN (International Standard Book Number)**: A numeric commercial book identifier assigned to books and book-like products. ISBNs are used by publishers, booksellers, libraries, and internet retailers for ordering and inventory management.
+3. **ISBN (International Standard Book Number)**: A numeric commercial book identifier assigned to books and book-like products. ISBNs are used by publishers, booksellers, libraries, and internet retailers for ordering and inventory management. Implemented as `triple:ISBN` class.
 
-4. **Handle**: A persistent identifier system that provides a comprehensive infrastructure for managing digital objects. Handles are often used in institutional repositories and can resolve to the current location of a resource.
+4. **Handle**: A persistent identifier system that provides a comprehensive infrastructure for managing digital objects. Handles are often used in institutional repositories and can resolve to the current location of a resource. Implemented as `triple:Handle` class.
 
 By explicitly modeling these identifier schemes in the ontology, GoTriple can:
 - Better categorize and validate document identifiers
@@ -27,35 +27,35 @@ By explicitly modeling these identifier schemes in the ontology, GoTriple can:
 
 ### Technical specification
 
-The identifier types will be modeled as instances of `datacite:IdentifierScheme`, following the DataCite ontology pattern established in earlier iterations. Each identifier scheme will be connected to document identifiers through the `datacite:usesIdentifierScheme` property.
+The identifier types are implemented through a class-based approach, extending the DataCite ontology pattern established in earlier iterations. Each identifier type is modeled as a distinct class that inherits from `datacite:Identifier`, with automatic schema association through OWL restrictions.
 
-The four identifier schemes being added:
+The four academic identifier classes being implemented:
 
-1. **DOI Scheme**
-   - **Identifier**: `triple:doi`
-   - **Type**: `datacite:IdentifierScheme`
-   - **Label**: "DOI"@en
-   - **Usage**: Connected to DOI identifiers via `datacite:usesIdentifierScheme`
+1. **DOI Class**
+   - **Class**: `triple:DOI`
+   - **Inherits from**: `datacite:Identifier`
+   - **Automatic Schema**: Uses `triple:doi` via `owl:hasValue` restriction
+   - **Usage**: Identifiers are directly instantiated as `triple:DOI` class members
 
-2. **ISSN Scheme**
-   - **Identifier**: `triple:issn`
-   - **Type**: `datacite:IdentifierScheme`
-   - **Label**: "ISSN"@en
-   - **Usage**: Connected to ISSN identifiers via `datacite:usesIdentifierScheme`
+2. **ISSN Class**
+   - **Class**: `triple:ISSN`
+   - **Inherits from**: `datacite:Identifier`
+   - **Automatic Schema**: Uses `triple:issn` via `owl:hasValue` restriction
+   - **Usage**: Identifiers are directly instantiated as `triple:ISSN` class members
 
-3. **ISBN Scheme**
-   - **Identifier**: `triple:isbn`
-   - **Type**: `datacite:IdentifierScheme`
-   - **Label**: "ISBN"@en
-   - **Usage**: Connected to ISBN identifiers via `datacite:usesIdentifierScheme`
+3. **ISBN Class**
+   - **Class**: `triple:ISBN`
+   - **Inherits from**: `datacite:Identifier`
+   - **Automatic Schema**: Uses `triple:isbn` via `owl:hasValue` restriction
+   - **Usage**: Identifiers are directly instantiated as `triple:ISBN` class members
 
-4. **Handle Scheme**
-   - **Identifier**: `triple:handle`
-   - **Type**: `datacite:IdentifierScheme`
-   - **Label**: "Handle"@en
-   - **Usage**: Connected to Handle identifiers via `datacite:usesIdentifierScheme`
+4. **Handle Class**
+   - **Class**: `triple:Handle`
+   - **Inherits from**: `datacite:Identifier`
+   - **Automatic Schema**: Uses `triple:handle` via `owl:hasValue` restriction
+   - **Usage**: Identifiers are directly instantiated as `triple:Handle` class members
 
-Each document can have multiple identifiers of different types, and each identifier is linked to its scheme through the `datacite:usesIdentifierScheme` property. Documents are connected to their identifiers using the `datacite:hasIdentifier` property (note: corrected spelling from earlier iterations' "hasIdentifer").
+This approach provides strong typing for academic identifiers while maintaining full compatibility with the DataCite ontology. The identifier scheme association is inferred automatically through OWL restrictions, eliminating the need for manual `datacite:usesIdentifierScheme` assertions. Documents are connected to their typed identifiers using the `datacite:hasIdentifier` property.
 
 ## Example 1
 
