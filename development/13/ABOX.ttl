@@ -336,23 +336,27 @@ schema:language-en rdf:type schema:Language ;
                    rdfs:label "en"@en .
 
 ###  Identifier Schemes
-triple:external_id_schema rdf:type datacite:IdentifierScheme ;
-                          rdfs:label "External ID" .
+triple:original_id_schema rdf:type datacite:IdentifierScheme ;
+                          rdfs:label "Original ID" .
 
+datacite:doi rdf:type datacite:IdentifierScheme ;
+             rdfs:label "datacite:doi" .
+datacite:handle rdf:type datacite:IdentifierScheme ;
+                rdfs:label "datacite:handle" .
 triple:internal_id_schema rdf:type datacite:IdentifierScheme ;
                           rdfs:label "Internal ID" .
 
 ###  Identifiers
 triple:identifier-multimedia-001 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:external_id_schema ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "canalu:video/12345" .
 
 triple:identifier-multimedia-002 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:external_id_schema ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "oral-history:interview/789" .
 
 triple:identifier-multimedia-003 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:external_id_schema ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "art-digital:img/renaissance/456" .
 
 triple:identifier-project-001 rdf:type triple:ID ;

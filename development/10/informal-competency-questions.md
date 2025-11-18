@@ -32,7 +32,7 @@ Return the identifier scheme used by `identifier_23`.
 An identifier scheme.
 
 ### Result
-* `triple:issn`
+* `datacite:issn`
 
 ### Based on
 Example 2
@@ -70,10 +70,10 @@ Return all identifier schemes defined in the ontology.
 A list of identifier schemes.
 
 ### Result
-* `triple:doi`
-* `triple:issn`
-* `triple:isbn`
-* `triple:handle`
+* `datacite:doi`
+* `datacite:issn`
+* `datacite:isbn`
+* `datacite:handle`
 
 ### Based on
 Example 1
@@ -94,8 +94,8 @@ Return all identifiers of `document_45` along with their schemes.
 A list of identifiers with their respective schemes.
 
 ### Result
-* `identifier_23` uses `triple:issn`
-* `identifier_24` uses `triple:doi`
+* `identifier_23` uses `datacite:issn`
+* `identifier_24` uses `datacite:doi`
 
 ### Based on
 Example 2
@@ -149,7 +149,7 @@ Return all identifiers and their schemes for `document_78`.
 An identifier with its scheme.
 
 ### Result
-* `identifier_90` uses `triple:handle`
+* `identifier_90` uses `datacite:handle`
 
 ### Based on
 Example 3

@@ -10,7 +10,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?identifier WHERE {
   ?identifier a datacite:Identifier ;
-              datacite:usesIdentifierScheme triple:doi .
+              datacite:usesIdentifierScheme datacite:doi .
 }
 ```
 
@@ -33,7 +33,7 @@ SELECT ?scheme WHERE {
 ```
 
 **Expected result:**
-- `triple:issn`
+- `datacite:issn`
 
 
 ## CQ_10.3
@@ -47,7 +47,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 SELECT ?document WHERE {
   ?document a triple:Document ;
             datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme triple:doi .
+  ?identifier datacite:usesIdentifierScheme datacite:doi .
 }
 ```
 
@@ -69,10 +69,10 @@ SELECT ?scheme WHERE {
 ```
 
 **Expected result:**
-- `triple:doi`
-- `triple:issn`
-- `triple:isbn`
-- `triple:handle`
+- `datacite:doi`
+- `datacite:issn`
+- `datacite:isbn`
+- `datacite:handle`
 
 
 ## CQ_10.5
@@ -90,8 +90,8 @@ SELECT ?identifier ?scheme WHERE {
 ```
 
 **Expected result:**
-- `triple:identifier_23` → `triple:issn`
-- `triple:identifier_24` → `triple:doi`
+- `triple:identifier_23` → `datacite:issn`
+- `triple:identifier_24` → `datacite:doi`
 
 
 ## CQ_10.6
@@ -105,7 +105,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?value WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme triple:doi ;
+  ?identifier datacite:usesIdentifierScheme datacite:doi ;
               litre:hasLiteralValue ?value .
 }
 ```
@@ -144,7 +144,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 SELECT ?document WHERE {
   ?document a triple:Document ;
             datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme triple:isbn .
+  ?identifier datacite:usesIdentifierScheme datacite:isbn .
 }
 ```
 
@@ -210,7 +210,7 @@ SELECT ?identifier ?scheme WHERE {
 ```
 
 **Expected result:**
-- `triple:identifier_90` → `triple:handle`
+- `triple:identifier_90` → `datacite:handle`
 
 
 ## CQ_10.9
@@ -229,8 +229,8 @@ SELECT ?identifier ?scheme ?value WHERE {
 ```
 
 **Expected result:**
-- `triple:identifier_1` → `triple:doi` → "10.1234/example.2024.001"
-- `triple:identifier_23` → `triple:issn` → "1234-5678"
-- `triple:identifier_24` → `triple:doi` → "10.5678/journal.2024.045"
-- `triple:identifier_90` → `triple:handle` → "11234/5678-abcd-efgh"
-- `triple:identifier_110` → `triple:isbn` → "978-3-16-148410-0"
+- `triple:identifier_1` → `datacite:doi` → "10.1234/example.2024.001"
+- `triple:identifier_23` → `datacite:issn` → "1234-5678"
+- `triple:identifier_24` → `datacite:doi` → "10.5678/journal.2024.045"
+- `triple:identifier_90` → `datacite:handle` → "11234/5678-abcd-efgh"
+- `triple:identifier_110` → `datacite:isbn` → "978-3-16-148410-0"

@@ -266,7 +266,7 @@ triple:DOI rdf:type owl:Class ;
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue triple:doi_schema
+                             owl:hasValue datacite:doi
                            ] .
 
 ###  https://gotriple.eu/ontology/triple#Handle
@@ -281,7 +281,7 @@ triple:Handle rdf:type owl:Class ;
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty datacite:usesIdentifierScheme ;
-                                owl:hasValue triple:handle_schema
+                                owl:hasValue datacite:handle
                               ] .
 
 ###  https://gotriple.eu/ontology/triple#URI
@@ -296,7 +296,7 @@ triple:URI rdf:type owl:Class ;
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue triple:uri_schema
+                             owl:hasValue datacite:uri
                            ] .
 
 ###  https://gotriple.eu/ontology/triple#SemanticArtefact
@@ -402,23 +402,23 @@ triple:SemanticArtefact rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#doi_schema
-triple:doi_schema rdf:type owl:NamedIndividual ,
-                           datacite:IdentifierScheme ;
-                  rdfs:label "DOI"@en ;
-                  rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+###  http://purl.org/spar/datacite/doi
+datacite:doi rdf:type owl:NamedIndividual ,
+                      datacite:IdentifierScheme ;
+             rdfs:label "datacite:doi"@en ;
+             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
 
-###  https://gotriple.eu/ontology/triple#handle_schema
-triple:handle_schema rdf:type owl:NamedIndividual ,
-                              datacite:IdentifierScheme ;
-                     rdfs:label "Handle"@en ;
-                     rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+###  http://purl.org/spar/datacite/handle
+datacite:handle rdf:type owl:NamedIndividual ,
+                         datacite:IdentifierScheme ;
+                rdfs:label "datacite:handle"@en ;
+                rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
 
-###  https://gotriple.eu/ontology/triple#uri_schema
-triple:uri_schema rdf:type owl:NamedIndividual ,
-                           datacite:IdentifierScheme ;
-                  rdfs:label "URI"@en ;
-                  rdfs:comment "Uniform Resource Identifier - a string of characters that unambiguously identifies a particular resource."@en .
+###  http://purl.org/spar/datacite/uri
+datacite:uri rdf:type owl:NamedIndividual ,
+                      datacite:IdentifierScheme ;
+             rdfs:label "datacite:uri"@en ;
+             rdfs:comment "Uniform Resource Identifier - a string of characters that unambiguously identifies a particular resource."@en .
 
 ###  https://gotriple.eu/ontology/triple#landing_page_url_schema
 triple:landing_page_url_schema rdf:type owl:NamedIndividual ,

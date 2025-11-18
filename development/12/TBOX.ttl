@@ -403,7 +403,7 @@ triple:DOI rdf:type owl:Class ;
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue triple:doi_schema
+                             owl:hasValue datacite:doi
                            ] .
 
 ###  https://gotriple.eu/ontology/triple#Handle
@@ -418,7 +418,7 @@ triple:Handle rdf:type owl:Class ;
                               ] ,
                               [ rdf:type owl:Restriction ;
                                 owl:onProperty datacite:usesIdentifierScheme ;
-                                owl:hasValue triple:handle_schema
+                                owl:hasValue datacite:handle
                               ] .
 
 ###  https://gotriple.eu/ontology/triple#ISSN
@@ -433,7 +433,7 @@ triple:ISSN rdf:type owl:Class ;
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty datacite:usesIdentifierScheme ;
-                              owl:hasValue triple:issn_schema
+                              owl:hasValue datacite:issn
                             ] .
 
 ###  https://gotriple.eu/ontology/triple#ISBN
@@ -448,7 +448,7 @@ triple:ISBN rdf:type owl:Class ;
                             ] ,
                             [ rdf:type owl:Restriction ;
                               owl:onProperty datacite:usesIdentifierScheme ;
-                              owl:hasValue triple:isbn_schema
+                              owl:hasValue datacite:isbn
                             ] .
 
 
@@ -498,29 +498,29 @@ triple:original_id_schema rdf:type owl:NamedIndividual ,
                           rdfs:comment "Original identifier from the source system where the resource was harvested."@en .
 
 
-###  https://gotriple.eu/ontology/triple#doi_schema
-triple:doi_schema rdf:type owl:NamedIndividual ,
-                           datacite:IdentifierScheme ;
-                  rdfs:label "DOI"@en ;
-                  rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+###  http://purl.org/spar/datacite/doi
+datacite:doi rdf:type owl:NamedIndividual ,
+                      datacite:IdentifierScheme ;
+             rdfs:label "datacite:doi"@en ;
+             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
 
 
-###  https://gotriple.eu/ontology/triple#handle_schema
-triple:handle_schema rdf:type owl:NamedIndividual ,
-                              datacite:IdentifierScheme ;
-                     rdfs:label "Handle"@en ;
-                     rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+###  http://purl.org/spar/datacite/handle
+datacite:handle rdf:type owl:NamedIndividual ,
+                         datacite:IdentifierScheme ;
+                rdfs:label "datacite:handle"@en ;
+                rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
 
 
 ###  https://gotriple.eu/ontology/triple#issn_schema
-triple:issn_schema rdf:type owl:NamedIndividual ,
-                            datacite:IdentifierScheme ;
-                   rdfs:label "ISSN"@en ;
-                   rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en .
+datacite:issn rdf:type owl:NamedIndividual ,
+                       datacite:IdentifierScheme ;
+              rdfs:label "datacite:issn"@en ;
+              rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en .
 
 
-###  https://gotriple.eu/ontology/triple#isbn_schema
-triple:isbn_schema rdf:type owl:NamedIndividual ,
-                            datacite:IdentifierScheme ;
-                   rdfs:label "ISBN"@en ;
-                   rdfs:comment "International Standard Book Number - a numeric identifier for books and book-like products."@en .
+###  http://purl.org/spar/datacite/isbn
+datacite:isbn rdf:type owl:NamedIndividual ,
+                       datacite:IdentifierScheme ;
+              rdfs:label "datacite:isbn"@en ;
+              rdfs:comment "International Standard Book Number - a numeric identifier for books and book-like products."@en .
