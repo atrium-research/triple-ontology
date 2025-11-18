@@ -9,7 +9,7 @@
 | `triple:Document`     | A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. Subclass of `schema:CreativeWork` and `foaf:Document`. |
 | `foaf:Document`       | FOAF vocabulary class for documents (parent class of `triple:Document`).                                                                           |
 | `Person`              | An individual person, such as a researcher or scholar (`foaf:Person`).                                                                              |
-| `Project`             | A research project or initiative (`schema:Project`).                                                                                                |
+| `Project`             | A research project or initiative (`triple:Project`, subclass of schema:Project).                                                                   |
 | `Organization`        | An institution, research center, university, or other organizational entity (`foaf:Organization`).                                                  |
 | `Citation`            | A mention of one document by another, typically in bibliographic references (modeled as `schema:mentions` between documents).                       |
 | `Reference`           | A general mention or reference to any entity within a document's content.                                                                           |

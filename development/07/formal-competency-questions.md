@@ -94,7 +94,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName (COUNT(DISTINCT ?grant) AS ?grantCount)
 WHERE {
-  ?project a schema:Project ;
+  ?project a triple:Project ;
            schema:name ?projectName ;
            schema:funding ?grant .
 }
@@ -119,7 +119,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?alternateName ?topicLabel
 WHERE {
-  ?project a schema:Project ;
+  ?project a triple:Project ;
            schema:name ?projectName ;
            schema:about ?topic .
 
@@ -148,7 +148,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 SELECT ?project ?projectName ?startDate ?endDate
        ((?endDate - ?startDate) AS ?durationDays)
 WHERE {
-  ?project a schema:Project ;
+  ?project a triple:Project ;
            schema:name ?projectName ;
            schema:startDate ?startDate ;
            schema:endDate ?endDate .
@@ -173,7 +173,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?alternateName ?startDate ?endDate
 WHERE {
-  ?project a schema:Project ;
+  ?project a triple:Project ;
            schema:name ?projectName ;
            schema:startDate ?startDate ;
            schema:endDate ?endDate .
@@ -204,7 +204,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?schemeLabel ?identifierValue
 WHERE {
-  ?project a schema:Project ;
+  ?project a triple:Project ;
            schema:name ?projectName ;
            datacite:hasIdentifier ?identifier .
 
@@ -237,14 +237,14 @@ SELECT ?organization ?orgName (COUNT(DISTINCT ?project) AS ?projectCount)
 WHERE {
   {
     # Organizations as funders
-    ?project a schema:Project ;
+    ?project a triple:Project ;
              schema:funding ?grant .
     ?grant schema:funder ?organization .
   }
   UNION
   {
     # Organizations as sponsors
-    ?project a schema:Project ;
+    ?project a triple:Project ;
              schema:funding ?grant .
     ?grant schema:sponsor ?organization .
   }
@@ -270,7 +270,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?keywordName (COUNT(?project) AS ?frequency)
 WHERE {
-  ?project a schema:Project ;
+  ?project a triple:Project ;
            schema:keywords ?keyword .
 
   ?keyword schema:name ?keywordName .
@@ -293,7 +293,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT DISTINCT ?project ?projectName ?alternateName ?description
 WHERE {
-  ?project a schema:Project ;
+  ?project a triple:Project ;
            schema:name ?projectName .
 
   OPTIONAL { ?project schema:alternateName ?alternateName . }

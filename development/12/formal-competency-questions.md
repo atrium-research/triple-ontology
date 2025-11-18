@@ -9,7 +9,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title .
 }
 ```
@@ -28,7 +28,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?spatial WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            schema:spatialCoverage ?spatial .
 }
@@ -48,7 +48,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?format ?size WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            schema:encodingFormat ?format ;
            schema:size ?size .
@@ -71,7 +71,7 @@ PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?dataset ?title ?identifierValue WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            datacite:hasIdentifier ?identifier .
   ?identifier datacite:hasIdentifierScheme triple:doi ;
@@ -92,7 +92,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?keyword ?keywordName WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            schema:keywords ?keyword .
   ?keyword schema:name ?keywordName .
@@ -115,7 +115,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?temporal WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            schema:temporalCoverage ?temporal .
 }
@@ -135,7 +135,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?contributor WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            schema:contributor ?contributor .
 }
@@ -155,7 +155,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?project WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            schema:funding ?project .
   ?project schema:name ?projectName .
@@ -176,7 +176,7 @@ PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?contact ?email WHERE {
-  ?dataset a schema:Dataset ;
+  ?dataset a triple:Dataset ;
            schema:headline ?title ;
            schema:contactPoint ?contact .
   ?contact schema:email ?email .

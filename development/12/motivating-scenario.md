@@ -7,7 +7,7 @@ Extension of Resource Types: Dataset
 The GoTriple platform needs to index and represent research datasets from various sources including institutional repositories, data catalogs, and geospatial data platforms. These datasets represent a distinct type of scholarly resource with specific metadata requirements including spatial coverage, temporal coverage, distribution information, and format specifications. The platform must accommodate datasets from different standards (DCAT, GeoDCAT, OGC CSW, ISO 19115) while providing a unified semantic representation.
 
 ## Technical Specification
-- Extend the ontology to support `schema:Dataset` as a primary resource type
+- Extend the ontology to support `triple:Dataset` as a primary resource type (subclass of schema:Dataset)
 - Map dataset-specific properties from multiple standards (DCAT, GeoDCAT, ISO 19115, OGC CSW)
 - Support both georeferenced and non-georeferenced datasets
 - Include comprehensive metadata for discovery, access, and reuse

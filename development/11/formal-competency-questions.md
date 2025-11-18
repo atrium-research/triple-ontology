@@ -69,7 +69,7 @@ PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 SELECT DISTINCT ?project WHERE {
   ?document a triple:Document ;
             schema:mentions ?project .
-  ?project a schema:Project .
+  ?project a triple:Project .
 }
 ```
 
@@ -150,7 +150,7 @@ SELECT ?entity ?type WHERE {
 ```
 
 **Expected result:**
-- `triple:project_12` → `schema:Project`
+- `triple:project_12` → `triple:Project`
 - `triple:organization_5` → `foaf:Organization`
 
 

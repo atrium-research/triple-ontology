@@ -2,7 +2,7 @@
 
 | Term                           | Definition                                                                                                                                          |
 |--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
-| `schema:Dataset`               | Schema.org class representing a body of structured information describing research topics with specific metadata requirements.                      |
+| `triple:Dataset`               | GoTriple ontology class representing a dataset, subclass of schema:Dataset, with specific metadata requirements for research data.                 |
 | `Dataset`                      | A research dataset indexed in the GoTriple platform, representing data from various sources including institutional repositories and data catalogs. |
 | `schema:spatialCoverage`       | Schema.org property indicating the geographical area covered by the dataset.                                                                        |
 | `schema:temporalCoverage`      | Schema.org property indicating the temporal period that the dataset covers.                                                                         |

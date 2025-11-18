@@ -15,7 +15,7 @@ In addition to documents, GoTriple facilitates the integration of projects withi
 
 ### Technical specification
 
-Projects in GoTriple are modeled as instances of `schema:Project` to align with Schema.org standards. Each project includes:
+Projects in GoTriple are modeled as instances of `triple:Project` (subclass of schema:Project) to align with Schema.org standards while providing GoTriple-specific semantics. Each project includes:
 
 **Identification:**
 - Projects have unique identifiers using the DataCite pattern (`datacite:Identifier` and `datacite:IdentifierScheme`)

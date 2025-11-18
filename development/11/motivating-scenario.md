@@ -51,7 +51,7 @@ This dual inheritance ensures that all TRIPLE documents are recognized as creati
 
 1. **Documents** (`triple:Document`): Other publications in the GoTriple platform or external resources
 2. **People** (`foaf:Person`): Researchers, scholars, authors mentioned in the text
-3. **Projects** (`schema:Project`): Research projects discussed or referenced
+3. **Projects** (`triple:Project`): Research projects discussed or referenced
 4. **Organizations** (`foaf:Organization`): Institutions, research centers, funding bodies
 
 The flexible range of `schema:mentions` allows for mentioning any type of entity, making the model extensible for future needs while maintaining simplicity.

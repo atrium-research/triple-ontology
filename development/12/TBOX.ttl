@@ -192,11 +192,11 @@ schema:comment rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  https://schema.org/Dataset
-schema:Dataset rdf:type owl:Class ;
-               rdfs:label "schema:Dataset"@en ;
-               rdfs:comment "A body of structured information describing some topic(s) of interest. Dataset represents research data with specific metadata including spatial coverage, temporal coverage, and distribution information."@en ;
-               rdfs:seeAlso <http://www.w3.org/ns/dcat#Dataset> ;
+###  https://gotriple.eu/ontology/triple#Dataset
+triple:Dataset rdf:type owl:Class ;
+               rdfs:label "Dataset (Triple)"@en ;
+               rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of schema:Dataset."@en ;
+               rdfs:subClassOf schema:Dataset ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:spatialCoverage ;
                                owl:allValuesFrom schema:Place ] ;

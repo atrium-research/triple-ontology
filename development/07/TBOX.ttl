@@ -108,9 +108,10 @@ schema:Grant rdf:type owl:Class ;
 
 
 ###  http://schema.org/Project
-schema:Project rdf:type owl:Class ;
-               rdfs:label "schema:Project"@en ;
-               rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform"@en ;
+triple:Project rdf:type owl:Class ;
+               rdfs:label "Project (Triple)"@en ;
+               rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
+               rdfs:subClassOf schema:Project ;
 
                # Required name (1 or more, multilingual)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
