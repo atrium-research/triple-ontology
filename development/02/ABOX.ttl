@@ -135,16 +135,16 @@ triple:document_2 rdf:type owl:NamedIndividual ,
 ###  Example 3: Document with Type (Article)
 ###  ===========================================================
 
-###  https://gotriple.eu/ontology/triple#document_types
-triple:document_types rdf:type owl:NamedIndividual ,
+###  https://gotriple.eu/ontology/triple#content_types
+triple:content_types rdf:type owl:NamedIndividual ,
                                skos:ConceptScheme ;
-                      rdfs:label "Document Types"@en ;
-                      rdfs:comment "Controlled vocabulary of document types used in GoTriple"@en .
+                      rdfs:label "Content Types"@en ;
+                      rdfs:comment "Controlled vocabulary of content types used in GoTriple"@en .
 
 ###  https://gotriple.eu/ontology/triple#article
 triple:article rdf:type owl:NamedIndividual ,
                         skos:Concept ;
-               skos:inScheme triple:document_types ;
+               skos:inScheme triple:content_types ;
                skos:exactMatch <http://purl.org/coar/resource_type/c_6501> ;
                rdfs:label "Article"@en ;
                skos:definition "A scholarly article published in a journal or similar publication"@en .

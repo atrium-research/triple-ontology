@@ -32,7 +32,7 @@ Return the vocabulary scheme to which `typ_book-part` belongs.
 A vocabulary scheme.
 
 ### Result
-* Document Types vocabulary
+* Content Types vocabulary
 
 ### Based on
 Example 3
@@ -66,7 +66,7 @@ CQ_8.4
 Return the type of `document_1`.
 
 ### Expected Outcome
-A document type term.
+A content type term.
 
 ### Result
 * `typ_book-part`
@@ -81,7 +81,7 @@ Example 1
 CQ_8.5
 
 ### Question
-Return all document types in the controlled vocabulary.
+Return all content types in the controlled vocabulary.
 
 ### Expected Outcome
 A list of terms including the newly added book part type.
@@ -90,7 +90,7 @@ A list of terms including the newly added book part type.
 * `typ_article`
 * `typ_book`
 * `typ_book-part`
-* (... other document types)
+* (... other content types)
 
 ### Based on
 Example 3

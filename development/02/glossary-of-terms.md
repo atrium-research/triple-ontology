@@ -2,7 +2,7 @@
 
 | Term                           | Definition                                                                                                                                                           |
 |--------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `skos:ConceptScheme`           | A SKOS class representing a controlled vocabulary or concept scheme (e.g., License Vocabulary, Document Type Vocabulary).                                          |
+| `skos:ConceptScheme`           | A SKOS class representing a controlled vocabulary or concept scheme (e.g., License Vocabulary, Content Type Vocabulary).                                          |
 | `skos:Concept`                 | A SKOS class representing a term within a controlled vocabulary.                                                                                                     |
 | `skos:inScheme`                | SKOS property linking a concept to the concept scheme (vocabulary) it belongs to.                                                                                   |
 | `skos:closeMatch`              | SKOS property indicating that two concepts are sufficiently similar to be used interchangeably in some contexts (e.g., TRIPLE term matched to COAR term).         |
@@ -10,11 +10,11 @@
 | `skos:definition`              | SKOS property providing a human-readable definition or explanation of a concept.                                                                                     |
 | **License Vocabulary**         | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for document licenses (e.g., CC-BY-4.0, CC0, All Rights Reserved).                    |
 | **Access Conditions Vocabulary** | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for access conditions (e.g., Open Access, Restricted Access, Embargoed).            |
-| **Document Type Vocabulary**   | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for document types (e.g., Article, Dataset, Book, Thesis, Conference Proceeding).    |
+| **Content Type Vocabulary**   | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for content types (e.g., Article, Dataset, Book, Thesis, Conference Proceeding).    |
 | **Discipline Vocabulary**      | A controlled vocabulary (`skos:ConceptScheme`) containing standardized terms for academic disciplines (e.g., Digital Humanities, Linguistics, History, Sociology). |
 | `schema:license`               | Schema.org property linking a document to its license term from the License Vocabulary.                                                                            |
 | `schema:conditionsOfAccess`    | Schema.org property linking a document to its access conditions term from the Access Conditions Vocabulary.                                                        |
-| `schema:additionalType`        | Schema.org property linking a document to its document type term from the Document Type Vocabulary, providing enhanced classification and external vocabulary alignment. |
+| `schema:additionalType`        | Schema.org property linking a document to its content type term from the Content Type Vocabulary, providing enhanced classification and external vocabulary alignment. |
 | `dc:subject`                   | Dublin Core property linking a document to one or more discipline terms from the Discipline Vocabulary.                                                            |
 | `triple:Document`              | A TRIPLE class representing documents in the GoTriple platform, subclass of `schema:CreativeWork` and `foaf:Document`.                                            |
 | **External Entity**            | A concept from an external vocabulary or classification system (e.g., COAR, Creative Commons, Library of Congress Subject Headings, UNESCO Thesaurus).            |

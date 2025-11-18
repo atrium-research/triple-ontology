@@ -45,7 +45,7 @@ CQ_2.3
 What type of document is `document_3`?
 
 ### Expected Outcome
-The document type term from the Document Type Vocabulary.
+The content type term from the Content Type Vocabulary.
 
 ### Result
 * `article`

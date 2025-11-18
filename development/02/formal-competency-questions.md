@@ -193,7 +193,7 @@ SELECT ?vocabulary WHERE {
 **Expected Result:**
 - `triple:licenses`
 - `triple:conditions_of_access`
-- `triple:document_types`
+- `triple:content_types`
 - `triple:disciplines`
 
 

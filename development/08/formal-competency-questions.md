@@ -35,7 +35,7 @@ SELECT ?scheme WHERE {
 ```
 
 **Expected result:**
-- `triple:document_types`
+- `triple:content_types`
 
 
 ## CQ_8.3
@@ -74,17 +74,17 @@ SELECT ?type WHERE {
 
 ## CQ_8.5
 
-Return all document types in the controlled vocabulary.
+Return all content types in the controlled vocabulary.
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?docType WHERE {
-  ?docType skos:inScheme triple:document_types .
+  ?docType skos:inScheme triple:content_types .
 }
 ```
 
 **Expected result:**
 - `triple:typ_book-part`
-- (... other document type terms from the vocabulary)
+- (... other content type terms from the vocabulary)

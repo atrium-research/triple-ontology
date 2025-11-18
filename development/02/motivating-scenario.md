@@ -19,7 +19,7 @@ This controlled vocabulary serves as a standardized set of terms for each entity
 
 2. **Access Conditions Vocabulary**: These are the terms that govern how and by whom a document can be accessed. Access conditions might include restrictions based on user credentials, subscription status, geographical location, or other criteria. For example, some documents might be "Open Access", while others could be "Restricted Access" available only to certain academic institutions or paid subscribers.
 
-3. **Document Type Vocabulary**: This refers to the category or format of the document. It includes distinctions such as Article, Dataset, Book, Conference Proceeding, Thesis, Report, etc. Each type of document has its own structure, purpose, and audience. For instance, a research article might present new findings in a specific field, whereas a dataset provides raw data for analysis.
+3. **Content Type Vocabulary**: This refers to the category or format of the document. It includes distinctions such as Article, Dataset, Book, Conference Proceeding, Thesis, Report, etc. Each type of content has its own structure, purpose, and audience. For instance, a research article might present new findings in a specific field, whereas a dataset provides raw data for analysis.
 
 4. **Discipline Vocabulary**: This entity relates to the academic or professional field to which a document belongs. It denotes the subject area or the specialized domain of knowledge covered by the document. Examples of disciplines include History, Sociology, Digital Humanities, Linguistics, Political Science, and many others. This categorization is crucial for researchers and professionals seeking information specific to their field of study or interest.
 
@@ -47,7 +47,7 @@ Every term in the vocabulary has the following capabilities:
 
 - **`schema:license`**: Links a document to a license term from the License Vocabulary
 - **`schema:conditionsOfAccess`**: Links a document to an access condition term from the Access Conditions Vocabulary
-- **`schema:additionalType`**: Links a document to a document type term from the Document Type Vocabulary, providing enhanced classification and external vocabulary alignment
+- **`schema:additionalType`**: Links a document to a content type term from the Content Type Vocabulary, providing enhanced classification and external vocabulary alignment
 - **`dc:subject`**: Links a document to one or more discipline terms from the Discipline Vocabulary
 
 ## Example 1: Document with License
