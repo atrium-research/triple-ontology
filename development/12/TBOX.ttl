@@ -280,7 +280,10 @@ triple:Dataset rdf:type owl:Class ;
                                owl:maxCardinality "1"^^xsd:nonNegativeInteger ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:comment ;
-                               owl:allValuesFrom xsd:string ] .
+                               owl:allValuesFrom xsd:string ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty sioc:topic ;
+                               owl:someValuesFrom skos:Concept ] .
 
 ###  https://schema.org/GeoShape  
 schema:GeoShape rdf:type owl:Class ;

@@ -60,7 +60,7 @@ PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?discipline WHERE {
-  triple:document_4 dc:subject ?discipline .
+  triple:document_4 sioc:topic ?discipline .
 }
 ```
 
@@ -210,7 +210,7 @@ SELECT ?license ?access ?type ?discipline WHERE {
   OPTIONAL { triple:document_1 schema:license ?license . }
   OPTIONAL { triple:document_1 schema:conditionsOfAccess ?access . }
   OPTIONAL { triple:document_1 schema:additionalType ?type . }
-  OPTIONAL { triple:document_1 dc:subject ?discipline . }
+  OPTIONAL { triple:document_1 sioc:topic ?discipline . }
 }
 ```
 

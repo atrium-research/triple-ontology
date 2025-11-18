@@ -5,6 +5,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
 
 # Controlled Vocabularies Pattern
 # This pattern demonstrates how controlled vocabularies are structured in the TRIPLE ontology using SKOS
@@ -97,7 +98,7 @@ triple:acc_restricted-access rdf:type owl:NamedIndividual ,
 :example_document rdf:type triple:Document ;
                   schema:additionalType triple:typ_journal-article ;
                   schema:conditionsOfAccess triple:acc_open-access ;
-                  dc:subject triple:dis_digital-humanities .
+                  sioc:topic triple:dis_digital-humanities .
 
 # Class restrictions using vocabulary concepts
 triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;

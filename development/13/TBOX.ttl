@@ -265,7 +265,10 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:allValuesFrom owl:Thing ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty datacite:hasIdentifier ;
-                                     owl:allValuesFrom datacite:Identifier ] .
+                                     owl:allValuesFrom datacite:Identifier ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty sioc:topic ;
+                                     owl:someValuesFrom skos:Concept ] .
 
 ###  https://schema.org/DefinedTerm
 schema:DefinedTerm rdf:type owl:Class ;

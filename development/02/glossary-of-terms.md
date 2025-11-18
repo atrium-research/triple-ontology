@@ -16,7 +16,7 @@
 | `schema:license`               | Schema.org property linking a document to its license term from the License Vocabulary.                                                                            |
 | `schema:conditionsOfAccess`    | Schema.org property linking a document to its access conditions term from the Access Conditions Vocabulary.                                                        |
 | `schema:additionalType`        | Schema.org property linking a document to its content type term from the Content Type Vocabulary, providing enhanced classification and external vocabulary alignment. |
-| `dc:subject`                   | Dublin Core property linking a document to one or more discipline terms from the Discipline Vocabulary.                                                            |
+| `sioc:topic`                   | SIOC property linking a document to one or more discipline terms from the Discipline Vocabulary.                                                                   |
 | `triple:Document`              | A TRIPLE class representing documents in the GoTriple platform, subclass of `schema:CreativeWork` and `foaf:Document`.                                            |
 | **External Entity**            | A concept from an external vocabulary or classification system (e.g., COAR, Creative Commons, Library of Congress Subject Headings, UNESCO Thesaurus).            |
 | **COAR**                       | Confederation of Open Access Repositories - provides standard vocabularies for resource types and access rights.                                                   |

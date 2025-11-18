@@ -8,6 +8,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
 @base <https://gotriple.eu/ontology/triple#> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -18,7 +19,7 @@
 #################################################################
 
 ###  http://purl.org/dc/elements/1.1/subject
-dc:subject rdf:type owl:ObjectProperty .
+sioc:topic rdf:type owl:ObjectProperty .
 
 ###  https://schema.org/additionalType
 schema:additionalType rdf:type owl:ObjectProperty .
@@ -201,7 +202,7 @@ triple:linguistics rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple#document_4
 triple:document_4 rdf:type owl:NamedIndividual ,
                            triple:Document ;
-                  dc:subject triple:digital_humanities ,
+                  sioc:topic triple:digital_humanities ,
                              triple:linguistics ;
                   rdfs:label "Example Interdisciplinary Study"@en ;
                   rdfs:comment "An interdisciplinary study covering both Digital Humanities and Linguistics"@en .
