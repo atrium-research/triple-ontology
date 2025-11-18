@@ -1,0 +1,121 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <http://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+# Controlled Vocabularies Pattern
+# This pattern demonstrates how controlled vocabularies are structured in the TRIPLE ontology using SKOS
+
+# SKOS Core Classes
+skos:ConceptScheme rdf:type owl:Class ;
+                   rdfs:label "skos:ConceptScheme"@en ;
+                   rdfs:comment "A SKOS concept scheme representing a controlled vocabulary."@en .
+
+skos:Concept rdf:type owl:Class ;
+             rdfs:label "skos:Concept"@en ;
+             rdfs:comment "A SKOS concept representing a term in a controlled vocabulary."@en .
+
+# SKOS Properties
+skos:inScheme rdf:type owl:ObjectProperty ;
+              rdfs:label "skos:inScheme"@en ;
+              rdfs:comment "A SKOS property linking a concept to the concept scheme it belongs to."@en .
+
+skos:exactMatch rdf:type owl:ObjectProperty ;
+                rdfs:label "skos:exactMatch"@en ;
+                rdfs:comment "A SKOS property indicating that two concepts can be used interchangeably across all contexts."@en .
+
+skos:closeMatch rdf:type owl:ObjectProperty ;
+                rdfs:label "skos:closeMatch"@en ;
+                rdfs:comment "A SKOS property indicating that two concepts are sufficiently similar to be used interchangeably in some contexts."@en .
+
+skos:definition rdf:type owl:AnnotationProperty ;
+                rdfs:label "skos:definition"@en ;
+                rdfs:comment "A SKOS annotation property providing a complete explanation of the intended meaning of a concept."@en .
+
+# ConceptScheme Pattern Template
+triple:vocabulary_name rdf:type owl:NamedIndividual ,
+                                skos:ConceptScheme ;
+                       rdfs:label "Vocabulary Name"@en ;
+                       rdfs:comment "Controlled vocabulary of [domain] used in GoTriple"@en .
+
+# Concept Pattern Template
+triple:prefix_concept-name rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          rdfs:label "Concept Label"@en ;
+                          skos:definition "Complete explanation of the concept meaning"@en ;
+                          skos:exactMatch <https://external-vocabulary.org/term> ;
+                          skos:inScheme triple:vocabulary_name .
+
+# Standard TRIPLE Vocabularies
+
+# Content Types Vocabulary
+triple:content_types rdf:type owl:NamedIndividual ,
+                              skos:ConceptScheme ;
+                     rdfs:label "Content Types"@en ;
+                     rdfs:comment "Controlled vocabulary of content types used in GoTriple"@en .
+
+triple:typ_journal-article rdf:type owl:NamedIndividual ,
+                                   skos:Concept ;
+                          rdfs:label "Journal Article"@en ;
+                          skos:definition "A scholarly article published in a journal or similar publication"@en ;
+                          skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6501/> ;
+                          skos:inScheme triple:content_types .
+
+triple:typ_book-part rdf:type owl:NamedIndividual ,
+                             skos:Concept ;
+                    rdfs:label "Book Part"@en ;
+                    skos:definition "A defined chapter or section of a book, usually with a separate title or number"@en ;
+                    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_3248/> ;
+                    skos:inScheme triple:content_types .
+
+# Conditions of Access Vocabulary
+triple:conditions_of_access rdf:type owl:NamedIndividual ,
+                                     skos:ConceptScheme ;
+                            rdfs:label "Conditions of Access"@en ;
+                            rdfs:comment "Controlled vocabulary of access conditions aligned with COAR Access Rights Vocabulary"@en .
+
+triple:acc_open-access rdf:type owl:NamedIndividual ,
+                               skos:Concept ;
+                      rdfs:label "Open Access"@en ;
+                      skos:definition "The resource is freely accessible to anyone without restrictions"@en ;
+                      skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
+                      skos:inScheme triple:conditions_of_access .
+
+triple:acc_restricted-access rdf:type owl:NamedIndividual ,
+                                     skos:Concept ;
+                            rdfs:label "Restricted Access"@en ;
+                            skos:definition "The resource is accessible only under certain conditions or to specific users"@en ;
+                            skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> ;
+                            skos:inScheme triple:conditions_of_access .
+
+# Usage Pattern Examples
+
+# Linking documents to vocabulary concepts
+:example_document rdf:type triple:Document ;
+                  schema:additionalType triple:typ_journal-article ;
+                  schema:conditionsOfAccess triple:acc_open-access ;
+                  dc:subject triple:dis_digital-humanities .
+
+# Class restrictions using vocabulary concepts
+triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:additionalType ;
+                                 owl:someValuesFrom skos:Concept ] ,
+                                [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:conditionsOfAccess ;
+                                 owl:someValuesFrom skos:Concept ] .
+
+# Standard Requirements:
+# - All vocabularies MUST be modeled as skos:ConceptScheme
+# - All terms MUST be modeled as skos:Concept
+# - Use skos:inScheme to link concepts to their vocabulary
+# - Use skos:exactMatch for identical external mappings
+# - Use skos:closeMatch for similar external mappings
+# - Always provide skos:definition for concept meaning
+# - Naming convention for schemes: triple:vocabulary_name
+# - Naming convention for concepts: triple:prefix_concept-name
+# - All external ontology labels use prefix:LocalName format
+# - Link entities to concepts using appropriate object properties
+# - Use owl:someValuesFrom for "at least one" constraint in class restrictions
