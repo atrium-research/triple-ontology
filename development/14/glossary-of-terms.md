@@ -5,7 +5,8 @@
 | Term | Definition |
 |------|------------|
 | `schema:ContactPoint` | A contact point for a person or organization providing information about the semantic artifact. |
-| `triple:SemanticArtefact` | A structured knowledge representation such as an ontology, vocabulary, taxonomy, or concept scheme used in SSH research. |
+| `mod:SemanticArtefact` | A semantic artifact from the MOD ontology representing formal knowledge representations. |
+| `triple:SemanticArtefact` | A structured knowledge representation such as an ontology, vocabulary, taxonomy, or concept scheme used in SSH research, extending mod:SemanticArtefact. |
 | `schema:contactPoint` | A relationship linking the semantic artifact to contact information for administrative purposes. |
 | `schema:creativeWorkStatus` | The lifecycle status of the semantic artifact (e.g., draft, published, deprecated). |
 | `schema:abstract` | An abstract or summary describing the semantic artifact's purpose and content. |
