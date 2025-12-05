@@ -1,0 +1,377 @@
+# TRIPLE Ontology - Content_Types Vocabulary
+# Converted from RDF/XML to Turtle format
+# Original file: content_types.rdf
+# License: CC BY 4.0
+# Website: https://gotriple.eu/ontology/triple
+
+@prefix : <https://gotriple.eu/ontology/triple/document_types#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann1: <https://vocab.org/vann/> .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+datacite:hasIdentifier a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has identifier"@en ;
+    rdfs:comment "An object property specifying a datacite:Identifier that provides a unique identifer for the entity (either a funder, a person or a resource)."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
+    rdfs:range datacite:Identifier .
+
+datacite:usesIdentifierScheme a owl:ObjectProperty ;
+    rdfs:label "uses identifier scheme"@en ;
+    rdfs:comment "An object property permitting specification of the identifier scheme used to provide the identifier for an entity – either a funder, a person or a resource – defined as an individual of the class datacite:IdentifierScheme."@en ;
+    rdfs:domain datacite:Identifier ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
+    rdfs:range datacite:IdentifierScheme .
+
+datacite:usesMetadataScheme a owl:ObjectProperty ;
+    rdfs:label "uses metadata scheme"@en ;
+    rdfs:comment "The link between a metadata document and the scheme followed for creating metadata."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
+
+skos:definition a owl:AnnotationProperty ;
+    rdfs:label "definition"@en ;
+    rdfs:comment "A statement or formal explanation of the meaning of a concept."@en ;
+    skos:definition <http://www.w3.org/2004/02/skos/core> .
+
+skos:exactMatch a owl:ObjectProperty ;
+    rdfs:label "has exact match"@en ;
+    rdfs:comment "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch."@en ;
+    rdfs:isDefinedBy skos: ;
+    rdfs:subPropertyOf skos:closeMatch .
+
+skos:hasTopConcept a owl:ObjectProperty ;
+    rdfs:label "has top concept"@en ;
+    rdfs:comment "Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies."@en ;
+    rdfs:isDefinedBy skos: .
+
+skos:inScheme a owl:ObjectProperty ;
+    rdfs:label "is in scheme"@en ;
+    rdfs:comment "Relates a resource (for example a concept) to a concept scheme in which it is included."@en ;
+    rdfs:isDefinedBy skos: .
+
+skos:note rdfs:isDefinedBy skos: .
+
+: a owl:Ontology ;
+    rdfs:label "document_types" ;
+    dcterms:contributor "Luca De Santis, Silvio Peroni" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:title "document_types" ;
+    schema:creativeWorkStatus "Document_types documentation" .
+
+:article a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Article"@en ;
+    datacite:hasIdentifier :typ_article ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6501> ;
+    skos:inScheme :documentType .
+
+:bibliography a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Bibliography"@en ;
+    datacite:hasIdentifier :typ_bibliography ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_86bc> ;
+    skos:inScheme :documentType .
+
+:blog_post a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Blog post"@en ;
+    datacite:hasIdentifier :typ_blog-post ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6947> ;
+    skos:inScheme :documentType .
+
+:book a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Book"@en ;
+    datacite:hasIdentifier :typ_book ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_2f33> ;
+    skos:inScheme :documentType .
+
+:conference a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Conference"@en ;
+    datacite:hasIdentifier :typ_conference ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_c94f> ;
+    skos:inScheme :documentType .
+
+:dataset a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Dataset"@en ;
+    datacite:hasIdentifier :typ_dataset ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_ddb1> ;
+    skos:inScheme :documentType .
+
+:image a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Image"@en ;
+    datacite:hasIdentifier :typ_image ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_c513> ;
+    skos:inScheme :documentType .
+
+:learning_object a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Learning object"@en ;
+    datacite:hasIdentifier :typ_learning-object ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_e059> ;
+    skos:inScheme :documentType .
+
+:manuscript a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Manuscript"@en ;
+    datacite:hasIdentifier :typ_manuscript ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_0040> ;
+    skos:inScheme :documentType .
+
+:map a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Map"@en ;
+    datacite:hasIdentifier :typ_map ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_12cd> ;
+    skos:inScheme :documentType .
+
+:periodical a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Periodical"@en ;
+    datacite:hasIdentifier :typ_periodical ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31> ;
+    skos:inScheme :documentType .
+
+:preprint a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Preprint"@en ;
+    datacite:hasIdentifier :typ_preprint ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_816b> ;
+    skos:inScheme :documentType .
+
+:report a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Report"@en ;
+    datacite:hasIdentifier :typ_report ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_93fc> ;
+    skos:inScheme :documentType .
+
+:review a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Review"@en ;
+    datacite:hasIdentifier :typ_review ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_efa0> ;
+    skos:inScheme :documentType .
+
+:software a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Software"@en ;
+    datacite:hasIdentifier :typ_software ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_5ce6> ;
+    skos:inScheme :documentType .
+
+:text a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Text"@en ;
+    datacite:hasIdentifier :typ_text ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_18cf> ;
+    skos:inScheme :documentType .
+
+:thesis a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Thesis"@en ;
+    datacite:hasIdentifier :typ_thesis ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_46ec> ;
+    skos:inScheme :documentType .
+
+schema:creativeWorkStatus a owl:AnnotationProperty .
+
+vann1:preferredNamespacePrefix a owl:AnnotationProperty .
+
+skos:ConceptScheme a owl:Class ;
+    rdfs:label "Concept Scheme"@en ;
+    rdfs:comment "A set of concepts, optionally including statements about semantic relationships between those concepts."@en ;
+    rdfs:isDefinedBy skos: .
+
+skos:closeMatch a owl:ObjectProperty ;
+    rdfs:label "has close match"@en ;
+    rdfs:comment "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."@en ;
+    rdfs:isDefinedBy skos: .
+
+:other a datacite:Identifier,
+        owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Other"@en ;
+    datacite:hasIdentifier :other ;
+    datacite:usesIdentifierScheme :documentType_identifier ;
+    skos:inScheme :documentType .
+
+:typ_article a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_bibliography a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_blog-post a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_book a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_conference a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_dataset a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_image a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_learning-object a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_manuscript a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_map a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_periodical a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_preprint a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_report a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_review a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_software a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_text a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:typ_thesis a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :documentType_identifier .
+
+:undefined a datacite:Identifier,
+        owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Undefined"@en ;
+    datacite:hasIdentifier :undefined ;
+    datacite:usesIdentifierScheme :documentType_identifier ;
+    skos:inScheme :documentType .
+
+<https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_0040> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_12cd> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_18cf> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_2f33> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_46ec> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_5ce6> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_6501> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_6947> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_816b> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_86bc> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_93fc> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_c513> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_c94f> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_ddb1> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_e059> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+<https://vocabularies.coar-repositories.org/resource_types/c_efa0> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
+
+datacite:IdentifierScheme a owl:Class ;
+    rdfs:label "identifier scheme"@en ;
+    rdfs:comment "The identifier scheme used to identify an entity such as a funding agency, a person or a resource. Individual schemes are defines as members of this class."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
+
+:documentType a owl:NamedIndividual,
+        skos:ConceptScheme ;
+    rdfs:label "document type"@en .
+
+:documentType_identifier a datacite:IdentifierScheme,
+        owl:NamedIndividual .
+
+datacite:Identifier a owl:Class ;
+    rdfs:label "identifier"@en ;
+    rdfs:comment "An identifier that uniquely identities an entity belonging to a particular scheme such as those specified by individuals of the class datacite:IdentifierScheme."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
+
+skos:Concept a owl:Class ;
+    rdfs:label "Concept"@en ;
+    rdfs:comment "An idea or notion; a unit of thought."@en ;
+    rdfs:isDefinedBy skos: .
+

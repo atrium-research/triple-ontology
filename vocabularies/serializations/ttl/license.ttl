@@ -1,0 +1,222 @@
+# TRIPLE Ontology - License Vocabulary
+# Converted from RDF/XML to Turtle format
+# Original file: license.rdf
+# License: CC BY 4.0
+# Website: https://gotriple.eu/ontology/triple
+
+@prefix : <https://gotriple.eu/ontology/triple/licenses#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vann1: <https://vocab.org/vann/> .
+
+dcterms:contributor a owl:AnnotationProperty .
+
+dcterms:creator a owl:AnnotationProperty .
+
+dcterms:title a owl:AnnotationProperty .
+
+datacite:hasIdentifier a owl:InverseFunctionalProperty,
+        owl:ObjectProperty ;
+    rdfs:label "has identifier"@en ;
+    rdfs:comment "An object property specifying a datacite:Identifier that provides a unique identifer for the entity (either a funder, a person or a resource)."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
+    rdfs:range datacite:Identifier .
+
+datacite:usesIdentifierScheme a owl:ObjectProperty ;
+    rdfs:label "uses identifier scheme"@en ;
+    rdfs:comment "An object property permitting specification of the identifier scheme used to provide the identifier for an entity – either a funder, a person or a resource – defined as an individual of the class datacite:IdentifierScheme."@en ;
+    rdfs:domain datacite:Identifier ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
+    rdfs:range datacite:IdentifierScheme .
+
+datacite:usesMetadataScheme a owl:ObjectProperty ;
+    rdfs:label "uses metadata scheme"@en ;
+    rdfs:comment "The link between a metadata document and the scheme followed for creating metadata."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
+
+skos:definition a owl:AnnotationProperty ;
+    rdfs:label "definition"@en ;
+    rdfs:comment "A statement or formal explanation of the meaning of a concept."@en ;
+    skos:definition <http://www.w3.org/2004/02/skos/core> .
+
+skos:exactMatch a owl:ObjectProperty ;
+    rdfs:label "has exact match"@en ;
+    rdfs:comment "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch."@en ;
+    rdfs:isDefinedBy skos: ;
+    rdfs:subPropertyOf skos:closeMatch .
+
+skos:hasTopConcept a owl:ObjectProperty ;
+    rdfs:label "has top concept"@en ;
+    rdfs:comment "Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies."@en ;
+    rdfs:isDefinedBy skos: .
+
+skos:inScheme a owl:ObjectProperty ;
+    rdfs:label "is in scheme"@en ;
+    rdfs:comment "Relates a resource (for example a concept) to a concept scheme in which it is included."@en ;
+    rdfs:isDefinedBy skos: .
+
+skos:note rdfs:isDefinedBy skos: .
+
+: a owl:Ontology ;
+    rdfs:label "licenses" ;
+    dcterms:contributor "Luca De Santis, Silvio Peroni" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:title "licenses" ;
+    schema:creativeWorkStatus "Licenses documentation" .
+
+:clarin-aca a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "CLARIN-ACA"@en ;
+    datacite:hasIdentifier :lic_clarin-aca ;
+    skos:inScheme :licenses .
+
+:clarin-res a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "CLARIN-RES"@en ;
+    datacite:hasIdentifier :lic_clarin-res ;
+    skos:inScheme :licenses .
+
+:clarin_pub a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Clarin Pub"@en ;
+    datacite:hasIdentifier :lic_clarin-pub ;
+    skos:inScheme :licenses .
+
+:creative_commons a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Creative Commons"@en ;
+    datacite:hasIdentifier :lic_creative-commons ;
+    skos:inScheme :licenses .
+
+:elra_licences a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "ELRA licences"@en ;
+    datacite:hasIdentifier :lic_elra ;
+    skos:inScheme :licenses .
+
+:meta-share a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Meta-Share"@en ;
+    datacite:hasIdentifier :lic_meta-share ;
+    skos:inScheme :licenses .
+
+:microsoft_public_licence a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Microsoft Public Licence"@en ;
+    datacite:hasIdentifier :lic_ms-pl ;
+    skos:inScheme :licenses .
+
+:microsoft_reciprocal_licence a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Microsoft Reciprocal Licence"@en ;
+    datacite:hasIdentifier :lic_ms-rl ;
+    skos:inScheme :licenses .
+
+:open_data a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Open Data"@en ;
+    datacite:hasIdentifier :lic_open-data ;
+    skos:inScheme :licenses .
+
+:open_source a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Open source"@en ;
+    datacite:hasIdentifier :lic_open-source ;
+    skos:inScheme :licenses .
+
+schema:creativeWorkStatus a owl:AnnotationProperty .
+
+vann1:preferredNamespacePrefix a owl:AnnotationProperty .
+
+skos:ConceptScheme a owl:Class ;
+    rdfs:label "Concept Scheme"@en ;
+    rdfs:comment "A set of concepts, optionally including statements about semantic relationships between those concepts."@en ;
+    rdfs:isDefinedBy skos: .
+
+skos:closeMatch a owl:ObjectProperty ;
+    rdfs:label "has close match"@en ;
+    rdfs:comment "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."@en ;
+    rdfs:isDefinedBy skos: .
+
+:lic_clarin-aca a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_clarin-pub a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_clarin-res a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_creative-commons a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_elra a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_meta-share a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_ms-pl a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_ms-rl a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_open-data a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:lic_open-source a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :licenses_identifier .
+
+:other a datacite:Identifier,
+        owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Other"@en ;
+    datacite:hasIdentifier :other ;
+    datacite:usesIdentifierScheme :licenses_identifier ;
+    skos:inScheme :licenses .
+
+:undefined a datacite:Identifier,
+        owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Undefined"@en ;
+    datacite:hasIdentifier :undefined ;
+    datacite:usesIdentifierScheme :licenses_identifier ;
+    skos:inScheme :licenses .
+
+datacite:IdentifierScheme a owl:Class ;
+    rdfs:label "identifier scheme"@en ;
+    rdfs:comment "The identifier scheme used to identify an entity such as a funding agency, a person or a resource. Individual schemes are defines as members of this class."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
+
+skos:Concept a owl:Class ;
+    rdfs:label "Concept"@en ;
+    rdfs:comment "An idea or notion; a unit of thought."@en ;
+    rdfs:isDefinedBy skos: .
+
+:licenses a owl:NamedIndividual,
+        skos:ConceptScheme ;
+    rdfs:label "licenses"@en .
+
+:licenses_identifier a datacite:IdentifierScheme,
+        owl:NamedIndividual .
+
+datacite:Identifier a owl:Class ;
+    rdfs:label "identifier"@en ;
+    rdfs:comment "An identifier that uniquely identities an entity belonging to a particular scheme such as those specified by individuals of the class datacite:IdentifierScheme."@en ;
+    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
+
