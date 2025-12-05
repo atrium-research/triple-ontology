@@ -1,0 +1,870 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="https://gotriple.eu/ontology/triple/document_types#"
+     xml:base="https://gotriple.eu/ontology/triple/document_types"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+     xmlns:vann="https://vocab.org/vann/"
+     xmlns:terms="http://purl.org/dc/terms/"
+     xmlns:schema="https://schema.org/"
+     xmlns:datacite="http://purl.org/spar/datacite/">
+    <owl:Ontology rdf:about="https://gotriple.eu/ontology/triple/document_types#">
+        <terms:contributor>Luca De Santis, Silvio Peroni</terms:contributor>
+        <terms:creator>Alessandro Bertozzi</terms:creator>
+        <terms:title>document_types</terms:title>
+        <rdfs:label>document_types</rdfs:label>
+        <schema:creativeWorkStatus>Document_types documentation</schema:creativeWorkStatus>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/dc/terms/contributor -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/contributor"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/creator -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/creator"/>
+    
+
+
+    <!-- http://purl.org/dc/terms/title -->
+
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/title"/>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#definition -->
+
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/2004/02/skos/core#definition">
+        <rdfs:comment xml:lang="en">A statement or formal explanation of the meaning of a concept.</rdfs:comment>
+        <rdfs:label xml:lang="en">definition</rdfs:label>
+        <skos:definition rdf:resource="http://www.w3.org/2004/02/skos/core"/>
+    </owl:AnnotationProperty>
+    
+
+
+    <!-- https://schema.org/creativeWorkStatus -->
+
+
+    <owl:AnnotationProperty rdf:about="https://schema.org/creativeWorkStatus"/>
+    
+
+
+    <!-- https://vocab.org/vann/preferredNamespacePrefix -->
+
+
+    <owl:AnnotationProperty rdf:about="https://vocab.org/vann/preferredNamespacePrefix"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/spar/datacite/hasIdentifier -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/datacite/hasIdentifier">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#InverseFunctionalProperty"/>
+        <rdfs:range rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <rdfs:comment xml:lang="en">An object property specifying a datacite:Identifier that provides a unique identifer for the entity (either a funder, a person or a resource).</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/datacite"/>
+        <rdfs:label xml:lang="en">has identifier</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/datacite/usesIdentifierScheme -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/datacite/usesIdentifierScheme">
+        <rdfs:domain rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <rdfs:range rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
+        <rdfs:comment xml:lang="en">An object property permitting specification of the identifier scheme used to provide the identifier for an entity – either a funder, a person or a resource – defined as an individual of the class datacite:IdentifierScheme.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/datacite"/>
+        <rdfs:label xml:lang="en">uses identifier scheme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/spar/datacite/usesMetadataScheme -->
+
+
+    <owl:ObjectProperty rdf:about="http://purl.org/spar/datacite/usesMetadataScheme">
+        <rdfs:comment xml:lang="en">The link between a metadata document and the scheme followed for creating metadata.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/datacite"/>
+        <rdfs:label xml:lang="en">uses metadata scheme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#closeMatch -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#closeMatch">
+        <rdfs:comment xml:lang="en">skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of &quot;compound errors&quot; when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">has close match</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#exactMatch -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#exactMatch">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2004/02/skos/core#closeMatch"/>
+        <rdfs:comment xml:lang="en">skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">has exact match</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#hasTopConcept -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#hasTopConcept">
+        <rdfs:comment xml:lang="en">Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">has top concept</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#inScheme -->
+
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/2004/02/skos/core#inScheme">
+        <rdfs:comment xml:lang="en">Relates a resource (for example a concept) to a concept scheme in which it is included.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">is in scheme</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- http://purl.org/spar/datacite/Identifier -->
+
+
+    <owl:Class rdf:about="http://purl.org/spar/datacite/Identifier">
+        <rdfs:comment xml:lang="en">An identifier that uniquely identities an entity belonging to a particular scheme such as those specified by individuals of the class datacite:IdentifierScheme.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/datacite"/>
+        <rdfs:label xml:lang="en">identifier</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://purl.org/spar/datacite/IdentifierScheme -->
+
+
+    <owl:Class rdf:about="http://purl.org/spar/datacite/IdentifierScheme">
+        <rdfs:comment xml:lang="en">The identifier scheme used to identify an entity such as a funding agency, a person or a resource. Individual schemes are defines as members of this class.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://purl.org/spar/datacite"/>
+        <rdfs:label xml:lang="en">identifier scheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#Concept -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+        <rdfs:comment xml:lang="en">An idea or notion; a unit of thought.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">Concept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2004/02/skos/core#ConceptScheme -->
+
+
+    <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#ConceptScheme">
+        <rdfs:comment xml:lang="en">A set of concepts, optionally including statements about semantic relationships between those concepts.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+        <rdfs:label xml:lang="en">Concept Scheme</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Individuals
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#article -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#article">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_article"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_6501"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Article</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#bibliography -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#bibliography">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_bibliography"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_86bc"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Bibliography</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#blog_post -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#blog_post">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_blog-post"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_6947"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Blog post</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#book -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#book">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_book"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_2f33"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Book</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#conference -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#conference">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_conference"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_c94f"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Conference</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#dataset -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#dataset">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_dataset"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_ddb1"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Dataset</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#documentType -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#documentType">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#ConceptScheme"/>
+        <rdfs:label xml:lang="en">document type</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#documentType_identifier -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#documentType_identifier">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#image -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#image">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_image"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_c513"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Image</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#learning_object -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#learning_object">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_learning-object"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_e059"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Learning object</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#manuscript -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#manuscript">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_manuscript"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_0040"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Manuscript</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#map -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#map">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_map"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_12cd"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Map</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#other -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#other">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#other"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Other</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#periodical -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#periodical">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_periodical"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Periodical</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#preprint -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#preprint">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_preprint"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_816b"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Preprint</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#report -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#report">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_report"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_93fc"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Report</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#review -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#review">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_review"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_efa0"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Review</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#software -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#software">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_software"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_5ce6"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Software</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#text -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#text">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_text"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_18cf"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Text</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#thesis -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#thesis">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#typ_thesis"/>
+        <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_46ec"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Thesis</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_article -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_article">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_bibliography -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_bibliography">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_blog-post -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_blog-post">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_book -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_book">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_conference -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_conference">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_dataset -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_dataset">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_image -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_image">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_learning-object -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_learning-object">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_manuscript -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_manuscript">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_map -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_map">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_periodical -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_periodical">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_preprint -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_preprint">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_report -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_report">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_review -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_review">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_software -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_software">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_text -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_text">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#typ_thesis -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#typ_thesis">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://gotriple.eu/ontology/triple/document_types#undefined -->
+
+
+    <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/document_types#undefined">
+        <rdf:type rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <datacite:hasIdentifier rdf:resource="https://gotriple.eu/ontology/triple/document_types#undefined"/>
+        <datacite:usesIdentifierScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType_identifier"/>
+        <skos:inScheme rdf:resource="https://gotriple.eu/ontology/triple/document_types#documentType"/>
+        <rdfs:label xml:lang="en">Undefined</rdfs:label>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_0040 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_0040">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_12cd -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_12cd">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_18cf -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_18cf">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_2f33 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_2f33">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_46ec -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_46ec">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_5ce6 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_5ce6">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_6501 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_6501">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_6947 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_6947">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_816b -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_816b">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_86bc -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_86bc">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_93fc -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_93fc">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_c513 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_c513">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_c94f -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_c94f">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_ddb1 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_ddb1">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_e059 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_e059">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- https://vocabularies.coar-repositories.org/resource_types/c_efa0 -->
+
+
+    <owl:NamedIndividual rdf:about="https://vocabularies.coar-repositories.org/resource_types/c_efa0">
+        <rdf:type rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+        <rdfs:isDefinedBy>https://vocabularies.coar-repositories.org</rdfs:isDefinedBy>
+    </owl:NamedIndividual>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotations
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+
+    <rdf:Description rdf:about="http://www.w3.org/2004/02/skos/core#note">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/2004/02/skos/core#"/>
+    </rdf:Description>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/ -->
+
+
