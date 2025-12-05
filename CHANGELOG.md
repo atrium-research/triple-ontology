@@ -73,6 +73,62 @@ Major release introducing complete ontology serialization (version 2.0.0) with c
 
 ## [Unreleased]
 
+### 2025-12-05 - Refactoring: Remove triple:alsoKnownAs Property
+
+**Type**: Refactoring
+
+**Description**:
+Removed the `triple:alsoKnownAs` property from the Profile model to simplify author profile management and disambiguation.
+
+**Details**:
+- **Iteration 06**: Removed `triple:alsoKnownAs` object property definition and restriction from Profile class
+- Updated Profile model to rely solely on `foaf:account` for profile claiming mechanism
+- Removed associated competency questions (CQ_6.5, CQ_6.7) and renumbered remaining questions
+- Updated ABOX examples to remove alsoKnownAs usage
+
+**Files Modified**:
+- `development/06/TBOX.ttl` - Removed triple:alsoKnownAs property definition and Profile restriction
+- `development/06/ABOX.ttl` - Removed triple:alsoKnownAs usage from profile examples
+- `development/06/glossary-of-terms.md` - Removed triple:alsoKnownAs term definition
+- `development/06/motivating-scenario.md` - Removed alsoKnownAs reference
+- `development/06/formal-competency-questions.md` - Removed CQ_6.5 and CQ_6.7, renumbered CQ_6.8→CQ_6.6, CQ_6.9→CQ_6.7
+
+**Rationale**:
+Simplified profile model by removing complex disambiguation relationships, relying on the simpler claiming mechanism via user accounts for profile management.
+
+**Author**: Alessandro Bertozzi
+
+---
+
+### 2025-12-05 - Enhancement: Standardize Identifier Schemes with DataCite
+
+**Type**: Enhancement
+
+**Description**:
+Consolidated all local identifier types (ID, PID, OriginalIdentifier) to use the standardized `datacite:local-resource-identifier-scheme` instead of individual schemes.
+
+**Details**:
+- **Iterations 01, 12, 13, 14**: Updated `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` classes to use `datacite:local-resource-identifier-scheme`
+- Removed individual schemes: `triple:internal_id_schema`, `triple:pid_schema`, `triple:original_id_schema`
+- Fixed typo: `usesIdentiferScheme` → `usesIdentifierScheme` in iteration 01 ABOX
+- Cleaned up TBOX and ABOX definitions across all affected iterations
+
+**Files Modified**:
+- `development/01/TBOX.ttl` - Updated classes and added datacite:local-resource-identifier-scheme
+- `development/01/ABOX.ttl` - Fixed typo and cleaned up schema references
+- `development/12/TBOX.ttl` - Updated classes and removed old schemas
+- `development/12/ABOX.ttl` - Removed old schema definitions
+- `development/13/TBOX.ttl` - Updated classes and removed old schemas
+- `development/13/ABOX.ttl` - Updated schema references
+- `development/14/TBOX.ttl` - Updated classes and removed old schemas
+
+**Rationale**:
+Aligns with DataCite standards for local resource identifiers, providing consistency and interoperability across the platform's identifier system.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-05 - Enhancement: Add dcterms:isReferencedBy to MediaObject and Dataset
 
 **Type**: Enhancement  

@@ -39,12 +39,6 @@ schema:author rdf:type owl:ObjectProperty ;
               rdfs:comment "The author of this content"@en .
 
 
-###  https://gotriple.eu/ontology/triple#alsoKnownAs
-triple:alsoKnownAs rdf:type owl:ObjectProperty ;
-                   rdfs:label "also known as"@en ;
-                   rdfs:comment "Links an ambiguous profile to the original profile"@en ;
-                   rdfs:domain triple:Profile ;
-                   rdfs:range triple:Profile .
 
 
 #################################################################
@@ -159,13 +153,6 @@ triple:Profile rdf:type owl:Class ;
                                  owl:onProperty foaf:account ;
                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onClass foaf:OnlineAccount
-                               ] ;
-
-               # Optional alsoKnownAs (0 or 1) - links to original profile in disambiguation
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty triple:alsoKnownAs ;
-                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass triple:Profile
                                ] .
 
 

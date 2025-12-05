@@ -13,7 +13,7 @@ SELECT ?predicate ?object WHERE {
 ```
 
 **Expected Result:**
-- All triples with profile_1 as subject (type, identifier, account, name, alsoKnownAs)
+- All triples with profile_1 as subject (type, identifier, account, name)
 
 ## CQ_6.2
 
@@ -76,20 +76,6 @@ SELECT ?profile ?name WHERE {
 - profile: profile_09, name: "author_fullname_7"
 - profile: profile_123, name: "author_fullname_8"
 
-## CQ_6.5
-
-Return the original profile for `profile_123`.
-
-```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?originalProfile WHERE {
-  triple:profile_123 triple:alsoKnownAs ?originalProfile .
-}
-```
-
-**Expected Result:**
-- originalProfile: profile_56
 
 ## CQ_6.6
 
@@ -114,23 +100,8 @@ SELECT DISTINCT ?document ?authorProfile WHERE {
 - document: document_98, authorProfile: profile_09
 - document: document_42, authorProfile: profile_123
 
-## CQ_6.7
 
-Return all profiles that link to `profile_56` as their original (disambiguated) profile.
-
-```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?profile WHERE {
-  ?profile triple:alsoKnownAs triple:profile_56 .
-}
-```
-
-**Expected Result:**
-- profile: profile_09
-- profile: profile_123
-
-## CQ_6.8
+## CQ_6.6
 
 Return all fullnames for profiles claimed by `account_109`.
 
@@ -150,7 +121,7 @@ SELECT ?profile ?fullname WHERE {
 - profile: profile_09, fullname: "M. Rossi"
 - profile: profile_123, fullname: "Maria R. Rossi"
 
-## CQ_6.9
+## CQ_6.7
 
 Return all profiles with family name "Rossi" and their given names.
 

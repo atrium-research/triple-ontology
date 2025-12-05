@@ -31,7 +31,6 @@ To facilitate the connection between authors and user accounts within GoTriple, 
 
 **Disambiguation:**
 - When the same author appears with different name variations, multiple profiles are created
-- The property `triple:alsoKnownAs` links an ambiguous profile to the original (canonical) profile
 - The disambiguation system identifies which profile is the "original" representation
 - All related profiles can be claimed by the same user account
 
