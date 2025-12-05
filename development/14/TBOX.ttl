@@ -304,7 +304,6 @@ triple:SemanticArtefact rdf:type owl:Class ;
                        rdfs:label "Semantic Artefact" ;
                        rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en ;
                        rdfs:subClassOf mod:SemanticArtefact ,
-                       rdfs:subClassOf
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:headline ;
                                         owl:someValuesFrom rdf:langString
@@ -387,7 +386,15 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                       ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty datacite:hasIdentifier ;
-                                        owl:allValuesFrom [ rdf:type owl:Class ;\n                                                           owl:unionOf ( datacite:Identifier\n                                                                        triple:ID\n                                                                        triple:PID\n                                                                        triple:OriginalIdentifier\n                                                                        triple:DOI\n                                                                        triple:Handle\n                                                                        triple:URI ) ]\n                                      ] ,
+                                        owl:allValuesFrom [ rdf:type owl:Class ;
+                                                           owl:unionOf ( datacite:Identifier
+                                                                        triple:ID
+                                                                        triple:PID
+                                                                        triple:OriginalIdentifier
+                                                                        triple:DOI
+                                                                        triple:Handle
+                                                                        triple:URI ) ]
+                                      ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:spatialCoverage ;
                                         owl:allValuesFrom schema:Place
