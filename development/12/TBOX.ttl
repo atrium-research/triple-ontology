@@ -202,8 +202,8 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
 ###  https://gotriple.eu/ontology/triple#Dataset
 triple:Dataset rdf:type owl:Class ;
                rdfs:label "Dataset (Triple)"@en ;
-               rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of schema:Dataset."@en ;
-               rdfs:subClassOf schema:Dataset ;
+               rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
+               rdfs:subClassOf dcat:Dataset ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:spatialCoverage ;
                                owl:allValuesFrom schema:Place ] ;
@@ -296,7 +296,10 @@ triple:Dataset rdf:type owl:Class ;
                                owl:allValuesFrom xsd:string ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty sioc:topic ;
-                               owl:someValuesFrom skos:Concept ] .
+                               owl:someValuesFrom skos:Concept ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty dcterms:isReferencedBy ;
+                               owl:allValuesFrom triple:Document ] .
 
 ###  https://schema.org/GeoShape  
 schema:GeoShape rdf:type owl:Class ;
@@ -358,7 +361,7 @@ triple:ID rdf:type owl:Class ;
                           ] ,
                           [ rdf:type owl:Restriction ;
                             owl:onProperty datacite:usesIdentifierScheme ;
-                            owl:hasValue triple:internal_id_schema
+                            owl:hasValue datacite:local-resource-identifier-scheme
                           ] .
 
 ###  https://gotriple.eu/ontology/triple#PID
@@ -373,7 +376,7 @@ triple:PID rdf:type owl:Class ;
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue triple:pid_schema
+                             owl:hasValue datacite:local-resource-identifier-scheme
                            ] .
 
 ###  https://gotriple.eu/ontology/triple#OriginalIdentifier
@@ -388,7 +391,7 @@ triple:OriginalIdentifier rdf:type owl:Class ;
                                           ] ,
                                           [ rdf:type owl:Restriction ;
                                             owl:onProperty datacite:usesIdentifierScheme ;
-                                            owl:hasValue triple:original_id_schema
+                                            owl:hasValue datacite:local-resource-identifier-scheme
                                           ] .
 
 ###  https://gotriple.eu/ontology/triple#DOI
@@ -477,28 +480,14 @@ triple:source_url_schema rdf:type owl:NamedIndividual ,
                          rdfs:comment "URL of the original publication location or source repository."@en .
 
 
-###  https://gotriple.eu/ontology/triple#internal_id_schema
-triple:internal_id_schema rdf:type owl:NamedIndividual ,
-                                   datacite:IdentifierScheme ;
-                          rdfs:label "Internal ID"@en ;
-                          rdfs:comment "Internal identifier used within the GoTriple platform for resource management."@en .
-
-
-###  https://gotriple.eu/ontology/triple#pid_schema
-triple:pid_schema rdf:type owl:NamedIndividual ,
-                           datacite:IdentifierScheme ;
-                  rdfs:label "PID"@en ;
-                  rdfs:comment "Persistent identifier generated and exposed externally by the GoTriple platform."@en .
-
-
-###  https://gotriple.eu/ontology/triple#original_id_schema
-triple:original_id_schema rdf:type owl:NamedIndividual ,
-                                   datacite:IdentifierScheme ;
-                          rdfs:label "Original ID"@en ;
-                          rdfs:comment "Original identifier from the source system where the resource was harvested."@en .
 
 
 ###  http://purl.org/spar/datacite/doi
+datacite:local-resource-identifier-scheme rdf:type owl:NamedIndividual ,
+                                                 datacite:IdentifierScheme ;
+                                        rdfs:label "datacite:local-resource-identifier-scheme"@en ;
+                                        rdfs:comment "Local resource identifier scheme for platform-specific identifiers as defined by DataCite."@en .
+
 datacite:doi rdf:type owl:NamedIndividual ,
                       datacite:IdentifierScheme ;
              rdfs:label "datacite:doi"@en ;

@@ -13,7 +13,6 @@
 | `schema:dateModified`          | Schema.org property specifying the date on which the creative work was most recently modified.                                                      |
 | `schema:publisher`             | Schema.org property indicating the publisher of the creative work.                                                                                  |
 | `schema:provider`              | Schema.org property indicating the service provider or aggregator of the content.                                                                   |
-| `schema:producer`              | Schema.org property indicating the person or organization who produced the multimedia work (e.g., film producer, audio producer).                   |
 | `schema:encodingFormat`        | Schema.org property specifying the media type using MIME format (e.g., video/mp4, audio/mp3).                                                       |
 | `schema:duration`              | Schema.org property specifying the duration of multimedia content in ISO 8601 format (e.g., PT1H25M30S for 1 hour, 25 minutes, 30 seconds).      |
 | `schema:size`                  | Schema.org property specifying the size of a digital product or creative work.                                                                      |

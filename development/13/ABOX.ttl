@@ -32,7 +32,6 @@ triple:multimedia-001 rdf:type triple:MediaObject ;
                       schema:datePublished "2023-11-01"^^xsd:date ;
                       schema:dateModified "2023-11-02"^^xsd:date ;
                       schema:publisher "Canal-U" ;
-                      schema:producer "CERIMES" ;
                       schema:provider "Canal-U" ;
                       schema:license "CC BY-NC-ND 4.0" ;
                       schema:keywords triple:keyword-histoire-medievale, triple:keyword-renaissance-carolingienne, triple:keyword-charlemagne ;
@@ -100,7 +99,6 @@ triple:multimedia-003 rdf:type triple:MediaObject ;
                       schema:dateCreated "2023-07-12"^^xsd:date ;
                       schema:datePublished "2023-09-05"^^xsd:date ;
                       schema:publisher "Uffizi Gallery" ;
-                      schema:producer "Uffizi Digital Archive" ;
                       schema:provider "Europeana" ;
                       schema:license "CC BY-NC 4.0" ;
                       schema:keywords triple:keyword-renaissance-art, triple:keyword-botticelli, triple:keyword-digital-humanities, triple:keyword-cultural-heritage ;
@@ -336,27 +334,22 @@ schema:language-en rdf:type schema:Language ;
                    rdfs:label "en"@en .
 
 ###  Identifier Schemes
-triple:original_id_schema rdf:type datacite:IdentifierScheme ;
-                          rdfs:label "Original ID" .
-
 datacite:doi rdf:type datacite:IdentifierScheme ;
              rdfs:label "datacite:doi" .
 datacite:handle rdf:type datacite:IdentifierScheme ;
                 rdfs:label "datacite:handle" .
-triple:internal_id_schema rdf:type datacite:IdentifierScheme ;
-                          rdfs:label "Internal ID" .
 
 ###  Identifiers
 triple:identifier-multimedia-001 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id_schema ;
+                                 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
                                  litre:hasLiteralValue "canalu:video/12345" .
 
 triple:identifier-multimedia-002 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id_schema ;
+                                 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
                                  litre:hasLiteralValue "oral-history:interview/789" .
 
 triple:identifier-multimedia-003 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id_schema ;
+                                 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
                                  litre:hasLiteralValue "art-digital:img/renaissance/456" .
 
 triple:identifier-project-001 rdf:type triple:ID ;

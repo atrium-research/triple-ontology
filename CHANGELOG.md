@@ -73,6 +73,54 @@ Major release introducing complete ontology serialization (version 2.0.0) with c
 
 ## [Unreleased]
 
+### 2025-12-05 - Enhancement: Add dcterms:isReferencedBy to MediaObject and Dataset
+
+**Type**: Enhancement  
+
+**Description**:
+Added `dcterms:isReferencedBy` property with restrictions to MediaObject and Dataset classes for consistency with SemanticArtefact.
+
+**Details**:
+- **Iteration 12 (Dataset)**: Added restriction `allValuesFrom triple:Document` for `dcterms:isReferencedBy` property
+- **Iteration 13 (MediaObject)**: Added `dcterms:isReferencedBy` property definition and restriction `allValuesFrom triple:Document`
+
+**Files Modified**:
+- `development/12/TBOX.ttl` - Added dcterms:isReferencedBy restriction to Dataset class
+- `development/13/TBOX.ttl` - Added dcterms:isReferencedBy property definition and restriction to MediaObject class
+
+**Rationale**:
+Ensures consistent citation modeling across all resource types (Document, SemanticArtefact, MediaObject, Dataset) allowing any resource to be referenced by scholarly documents.
+
+**Author**: Alessandro Bertozzi
+
+---
+
+### 2025-12-05 - Refactoring: Remove Producer Role
+
+**Type**: Refactoring
+
+**Description**:
+Removed the "producer" role from the ontology across all SAMOD iterations to simplify the role model.
+
+**Details**:
+- **Iteration 03**: Removed `schema:producer` object property and `triple:primaryProducer` property; removed associated restrictions on Document class
+- **Iteration 13**: Removed `schema:producer` property and restriction on MediaObject class; updated competency questions, glossary, and ABOX examples
+
+**Files Modified**:
+- `development/03/TBOX.ttl` - Removed producer property definitions and restrictions
+- `development/13/TBOX.ttl` - Removed schema:producer property and MediaObject restriction
+- `development/13/glossary-of-terms.md` - Removed schema:producer term definition
+- `development/13/informal-competency-questions.md` - Updated CQ_13.6 to remove producer references
+- `development/13/formal-competency-questions.md` - Updated CQ_13.6 SPARQL query to exclude producer
+- `development/13/ABOX.ttl` - Removed producer instances from multimedia examples
+
+**Rationale**:
+Simplified role model by removing the distinction between producer and other content creation roles, maintaining only essential roles like author, publisher, and provider.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-11-07 - Restructuring: Iterations 12-16 Reorganization
 
 **Type**: Refactoring

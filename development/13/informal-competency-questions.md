@@ -100,15 +100,15 @@ Example 2
 CQ_13.6
 
 ### Question
-Return all multimedia content with their producers and providers.
+Return all multimedia content with their providers.
 
 ### Expected Outcome
-A list of multimedia objects with production and distribution information.
+A list of multimedia objects with distribution information.
 
 ### Result
-* `multimedia-001` → Producer: CERIMES, Provider: Canal-U
+* `multimedia-001` → Provider: Canal-U
 * `multimedia-002` → Provider: ISIDORE
-* `multimedia-003` → Producer: Uffizi Digital Archive, Provider: Europeana
+* `multimedia-003` → Provider: Europeana
 
 ### Based on
 Example 1, Example 2, and Example 3

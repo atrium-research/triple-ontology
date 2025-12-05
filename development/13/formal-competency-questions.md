@@ -112,24 +112,23 @@ SELECT ?audio ?title ?language ?temporal WHERE {
 
 ## CQ_13.6
 
-Return all multimedia content with their producers and providers.
+Return all multimedia content with their providers.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?multimedia ?title ?producer ?provider WHERE {
+SELECT ?multimedia ?title ?provider WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title .
-  OPTIONAL { ?multimedia schema:producer ?producer }
   OPTIONAL { ?multimedia schema:provider ?provider }
 }
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "CERIMES" → "Canal-U"
-- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → null → "ISIDORE"
-- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "Uffizi Digital Archive" → "Europeana"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "Canal-U"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "ISIDORE"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "Europeana"
 
 
 ## CQ_13.7

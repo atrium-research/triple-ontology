@@ -36,12 +36,6 @@ schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
-###  http://schema.org/producer
-schema:producer rdf:type owl:ObjectProperty ;
-                rdfs:label "schema:producer"@en ;
-                rdfs:comment "The person or organization who produced the work"@en ;
-                rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
-
 
 ###  http://schema.org/funder
 schema:funder rdf:type owl:ObjectProperty ;
@@ -64,13 +58,6 @@ schema:provider rdf:type owl:ObjectProperty ;
             rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
             rdfs:subPropertyOf schema:contributor .
 
-
-###  https://gotriple.eu/ontology/triple#primaryProducer
-:primaryProducer rdf:type owl:ObjectProperty ;
-                 rdfs:label "primary producer"@en ;
-                 rdfs:comment "The original source or creator of the resource"@en ;
-                 rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
-                 rdfs:subPropertyOf schema:producer .
 
 
 #################################################################
@@ -125,12 +112,6 @@ foaf:Document rdf:type owl:Class ;
                             owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                           ] ;
 
-          # Optional producer (0 or more)
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty schema:producer ;
-                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                          ] ;
-
           # Optional funder (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty schema:funder ;
@@ -149,11 +130,7 @@ foaf:Document rdf:type owl:Class ;
                             owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                           ] ;
 
-          # Optional primaryProducer (0 or more)
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty :primaryProducer ;
-                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                          ] .
+          ] .
 
 
 ###  http://xmlns.com/foaf/0.1/Organization
