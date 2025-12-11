@@ -12,38 +12,6 @@
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix vann1: <https://vocab.org/vann/> .
-
-dcterms:abstract a owl:AnnotationProperty .
-
-dcterms:contributor a owl:AnnotationProperty .
-
-dcterms:creator a owl:AnnotationProperty .
-
-dcterms:title a owl:AnnotationProperty .
-
-datacite:hasIdentifier a owl:InverseFunctionalProperty,
-        owl:ObjectProperty ;
-    rdfs:label "has identifier"@en ;
-    rdfs:comment "An object property specifying a datacite:Identifier that provides a unique identifer for the entity (either a funder, a person or a resource)."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
-    rdfs:range datacite:Identifier .
-
-datacite:usesIdentifierScheme a owl:ObjectProperty ;
-    rdfs:label "uses identifier scheme"@en ;
-    rdfs:comment "An object property permitting specification of the identifier scheme used to provide the identifier for an entity – either a funder, a person or a resource – defined as an individual of the class datacite:IdentifierScheme."@en ;
-    rdfs:domain datacite:Identifier ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
-    rdfs:range datacite:IdentifierScheme .
-
-datacite:usesMetadataScheme a owl:ObjectProperty ;
-    rdfs:label "uses metadata scheme"@en ;
-    rdfs:comment "The link between a metadata document and the scheme followed for creating metadata."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
-
-vann:preferredNamespacePrefix a owl:AnnotationProperty .
-
-vann:preferredNamespaceUri a owl:AnnotationProperty .
 
 owl:archaeology_and_prehistory a owl:NamedIndividual,
         skos:Concept ;
@@ -452,29 +420,6 @@ owl:sociology a owl:NamedIndividual,
         <https://www.wikidata.org/entity/Q21201> ;
     skos:inScheme owl:disciplines .
 
-skos:definition a owl:AnnotationProperty ;
-    rdfs:label "definition"@en ;
-    rdfs:comment "A statement or formal explanation of the meaning of a concept."@en ;
-    skos:definition <http://www.w3.org/2004/02/skos/core> .
-
-skos:exactMatch a owl:ObjectProperty ;
-    rdfs:label "has exact match"@en ;
-    rdfs:comment "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch."@en ;
-    rdfs:isDefinedBy skos: ;
-    rdfs:subPropertyOf skos:closeMatch .
-
-skos:hasTopConcept a owl:ObjectProperty ;
-    rdfs:label "has top concept"@en ;
-    rdfs:comment "Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies."@en ;
-    rdfs:isDefinedBy skos: .
-
-skos:inScheme a owl:ObjectProperty ;
-    rdfs:label "is in scheme"@en ;
-    rdfs:comment "Relates a resource (for example a concept) to a concept scheme in which it is included."@en ;
-    rdfs:isDefinedBy skos: .
-
-skos:note rdfs:isDefinedBy skos: .
-
 : a owl:Ontology ;
     rdfs:label "GoTriple Disciplines Vocabulary"@en ;
     dcterms:abstract "This abstract introduces a W3C-compliant ontology developed for the GoTriple platform, aimed at enriching the social sciences and humanities research landscape. The ontology provides a structured taxonomy of disciplines, integrating them semantically with a wide array of external digital resources. It employs RDF and OWL standards for high interoperability, facilitating advanced search capabilities, personalized recommendations, and efficient resource navigation. This innovative framework not only enhances resource discovery within the GoTriple platform but also fosters interdisciplinary collaborations and intelligent data analysis in academic research." ;
@@ -499,10 +444,6 @@ skos:note rdfs:isDefinedBy skos: .
         <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocietyAndCulture> ;
     skos:exactMatch <https://www.wikidata.org/entity/Q201486> ;
     skos:inScheme owl:disciplines .
-
-schema:creativeWorkStatus a owl:AnnotationProperty .
-
-vann1:preferredNamespacePrefix a owl:AnnotationProperty .
 
 <http://id.loc.gov/authorities/subjects/sh85007461> a owl:NamedIndividual,
         skos:Concept ;
@@ -1452,11 +1393,6 @@ skos:closeMatch a owl:ObjectProperty ;
     rdfs:label "Library of Congress: Communication in the social sciences"@en ;
     rdfs:isDefinedBy "http://id.loc.gov/authorities/subjects" .
 
-datacite:IdentifierScheme a owl:Class ;
-    rdfs:label "identifier scheme"@en ;
-    rdfs:comment "The identifier scheme used to identify an entity such as a funding agency, a person or a resource. Individual schemes are defines as members of this class."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
-
 <http://semantics.gr/authorities/SSH-LCSH/sh85061212> a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "SSH-LCSH: History"@en ;
@@ -1467,11 +1403,6 @@ owl:ddc_37 a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "Dewey Decimal Classification: 37 (Education)"@en ;
     rdfs:isDefinedBy owl:dewey_decimal_system .
-
-skos:ConceptScheme a owl:Class ;
-    rdfs:label "Concept Scheme"@en ;
-    rdfs:comment "A set of concepts, optionally including statements about semantic relationships between those concepts."@en ;
-    rdfs:isDefinedBy skos: .
 
 <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#History> a owl:NamedIndividual,
         skos:Concept ;
@@ -1495,17 +1426,6 @@ owl:disciplines a owl:NamedIndividual,
 owl:disciplines_identifier a datacite:IdentifierScheme,
         owl:NamedIndividual .
 
-datacite:Identifier a owl:Class ;
-    rdfs:label "identifier"@en ;
-    rdfs:comment "An identifier that uniquely identities an entity belonging to a particular scheme such as those specified by individuals of the class datacite:IdentifierScheme."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
-
 owl:dewey_decimal_system a owl:NamedIndividual,
         skos:ConceptScheme ;
     rdfs:label "Dewey Decimal System"@en .
-
-skos:Concept a owl:Class ;
-    rdfs:label "Concept"@en ;
-    rdfs:comment "An idea or notion; a unit of thought."@en ;
-    rdfs:isDefinedBy skos: .
-

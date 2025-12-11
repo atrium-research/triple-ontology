@@ -11,55 +11,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vann1: <https://vocab.org/vann/> .
-
-dcterms:contributor a owl:AnnotationProperty .
-
-dcterms:creator a owl:AnnotationProperty .
-
-dcterms:title a owl:AnnotationProperty .
-
-datacite:hasIdentifier a owl:InverseFunctionalProperty,
-        owl:ObjectProperty ;
-    rdfs:label "has identifier"@en ;
-    rdfs:comment "An object property specifying a datacite:Identifier that provides a unique identifer for the entity (either a funder, a person or a resource)."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
-    rdfs:range datacite:Identifier .
-
-datacite:usesIdentifierScheme a owl:ObjectProperty ;
-    rdfs:label "uses identifier scheme"@en ;
-    rdfs:comment "An object property permitting specification of the identifier scheme used to provide the identifier for an entity – either a funder, a person or a resource – defined as an individual of the class datacite:IdentifierScheme."@en ;
-    rdfs:domain datacite:Identifier ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> ;
-    rdfs:range datacite:IdentifierScheme .
-
-datacite:usesMetadataScheme a owl:ObjectProperty ;
-    rdfs:label "uses metadata scheme"@en ;
-    rdfs:comment "The link between a metadata document and the scheme followed for creating metadata."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
-
-skos:definition a owl:AnnotationProperty ;
-    rdfs:label "definition"@en ;
-    rdfs:comment "A statement or formal explanation of the meaning of a concept."@en ;
-    skos:definition <http://www.w3.org/2004/02/skos/core> .
-
-skos:exactMatch a owl:ObjectProperty ;
-    rdfs:label "has exact match"@en ;
-    rdfs:comment "skos:exactMatch is used to link two concepts, indicating a high degree of confidence that the concepts can be used interchangeably across a wide range of information retrieval applications. skos:exactMatch is a transitive property, and is a sub-property of skos:closeMatch."@en ;
-    rdfs:isDefinedBy skos: ;
-    rdfs:subPropertyOf skos:closeMatch .
-
-skos:hasTopConcept a owl:ObjectProperty ;
-    rdfs:label "has top concept"@en ;
-    rdfs:comment "Relates, by convention, a concept scheme to a concept which is topmost in the broader/narrower concept hierarchies for that scheme, providing an entry point to these hierarchies."@en ;
-    rdfs:isDefinedBy skos: .
-
-skos:inScheme a owl:ObjectProperty ;
-    rdfs:label "is in scheme"@en ;
-    rdfs:comment "Relates a resource (for example a concept) to a concept scheme in which it is included."@en ;
-    rdfs:isDefinedBy skos: .
-
-skos:note rdfs:isDefinedBy skos: .
 
 : a owl:Ontology ;
     rdfs:label "conditions_of_access" ;
@@ -90,6 +41,7 @@ skos:note rdfs:isDefinedBy skos: .
         skos:Concept ;
     rdfs:label "Open Access"@en ;
     datacite:hasIdentifier :acr_open-access ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
     skos:inScheme :conditionsOfAccess .
 
 :public_domain a owl:NamedIndividual,
@@ -102,21 +54,22 @@ skos:note rdfs:isDefinedBy skos: .
         skos:Concept ;
     rdfs:label "Restricted access or use"@en ;
     datacite:hasIdentifier :acr_restricted-access-or-use ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> ;
     skos:inScheme :conditionsOfAccess .
 
-schema:creativeWorkStatus a owl:AnnotationProperty .
+:embargoed_access a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Embargoed Access"@en ;
+    datacite:hasIdentifier :acr_embargoed-access ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> ;
+    skos:inScheme :conditionsOfAccess .
 
-vann1:preferredNamespacePrefix a owl:AnnotationProperty .
-
-skos:ConceptScheme a owl:Class ;
-    rdfs:label "Concept Scheme"@en ;
-    rdfs:comment "A set of concepts, optionally including statements about semantic relationships between those concepts."@en ;
-    rdfs:isDefinedBy skos: .
-
-skos:closeMatch a owl:ObjectProperty ;
-    rdfs:label "has close match"@en ;
-    rdfs:comment "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."@en ;
-    rdfs:isDefinedBy skos: .
+:metadata_only_access a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Metadata Only Access"@en ;
+    datacite:hasIdentifier :acr_metadata-only-access ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> ;
+    skos:inScheme :conditionsOfAccess .
 
 :acr_all-rights-reserved a datacite:Identifier,
         owl:NamedIndividual ;
@@ -139,6 +92,14 @@ skos:closeMatch a owl:ObjectProperty ;
     datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
 
 :acr_restricted-access-or-use a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
+
+:acr_embargoed-access a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
+
+:acr_metadata-only-access a datacite:Identifier,
         owl:NamedIndividual ;
     datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
 
