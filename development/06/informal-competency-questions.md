@@ -16,9 +16,6 @@ A profile with all associated properties and values.
 * identifier: `agent_identifier_2345678998765`
 * account: `account_1`
 * name: "John Smith"
-* given name: "John"
-* family name: "Smith"
-* also known as: `profile_2`
 
 ### Based on
 Example 1
@@ -30,15 +27,15 @@ Example 1
 CQ_6.2
 
 ### Question
-Return all claimed authors of `document_56`.
+Return all authors of `document_56` that are associated with a user account.
 
 ### Expected Outcome
-A list of author profiles that have been claimed by a user account.
+A list of author profiles that are associated with a user account.
 
 ### Result
-* `profile_56` (claimed by account_109)
-* `profile_09` (claimed by account_109)
-* `profile_123` (claimed by account_109)
+* `profile_56` (associated with account_109)
+* `profile_09` (associated with account_109)
+* `profile_123` (associated with account_109)
 
 ### Based on
 Example 2
@@ -50,10 +47,10 @@ Example 2
 CQ_6.3
 
 ### Question
-Return all profiles claimed by `account_109`.
+Return all profiles associated with `account_109`.
 
 ### Expected Outcome
-A list of profiles claimed by the user account.
+A list of profiles associated with the user account.
 
 ### Result
 * `profile_56`
@@ -70,13 +67,15 @@ Example 3
 CQ_6.4
 
 ### Question
-Return the original profile for `profile_123`.
+Return all names (fullnames) of profiles associated with `account_109`.
 
 ### Expected Outcome
-The canonical profile identified by the disambiguation system.
+A list of names from all profiles associated with the account.
 
 ### Result
-* `profile_56`
+* "Maria Rossi"
+* "M. Rossi"
+* "Maria R. Rossi"
 
 ### Based on
 Example 3
@@ -88,35 +87,13 @@ Example 3
 CQ_6.5
 
 ### Question
-Return all names (fullnames) associated with profiles claimed by `account_109`.
+Return all unassociated profiles (profiles without an account).
 
 ### Expected Outcome
-A list of names from all profiles claimed by the account.
+A list of profiles that are not associated with any user account.
 
 ### Result
-* "Maria Rossi"
-* "M. Rossi"
-* "Maria R. Rossi"
+* `profile_23` - name: "Pierre Dupont"
 
 ### Based on
-Example 3
-
-
-## Question 6
-
-### Identifier
-CQ_6.6
-
-### Question
-Return all profiles with family name "Rossi" and their given names.
-
-### Expected Outcome
-A list of profiles sharing the same family name with their given name variations.
-
-### Result
-* `profile_56` - given name: "Maria", family name: "Rossi"
-* `profile_09` - given name: "M.", family name: "Rossi"
-* `profile_123` - given name: "Maria R.", family name: "Rossi"
-
-### Based on
-Example 2 and Example 3
+Example 2

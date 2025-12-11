@@ -50,21 +50,6 @@ schema:name rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:name"@en ;
             rdfs:range xsd:string .
 
-
-###  http://schema.org/givenName
-schema:givenName rdf:type owl:DatatypeProperty ;
-                 rdfs:label "schema:givenName"@en ;
-                 rdfs:comment "Given name. In the U.S., the first name of a Person"@en ;
-                 rdfs:range xsd:string .
-
-
-###  http://schema.org/familyName
-schema:familyName rdf:type owl:DatatypeProperty ;
-                  rdfs:label "schema:familyName"@en ;
-                  rdfs:comment "Family name. In the U.S., the last name of a Person"@en ;
-                  rdfs:range xsd:string .
-
-
 #################################################################
 #    Data Properties
 #################################################################
@@ -108,8 +93,6 @@ triple:Document rdf:type owl:Class ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
                 rdfs:subClassOf schema:CreativeWork ,
                                 foaf:Document ;
-
-                # Optional author (0 or more) - can be Profile instances
                 rdfs:subClassOf [ rdf:type owl:Restriction ;
                                   owl:onProperty schema:author ;
                                   owl:allValuesFrom triple:Profile
@@ -124,6 +107,16 @@ foaf:OnlineAccount rdf:type owl:Class ;
                                      owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                      owl:onClass datacite:Identifier
                                    ] .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class ;
+                  rdfs:label "foaf:Organization"@en ;
+                  rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                    owl:onProperty schema:name ;
+                                    owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                    owl:onDataRange xsd:string
+                                  ] .
 
 
 ###  http://xmlns.com/foaf/0.1/Person
@@ -142,14 +135,31 @@ schema:CreativeWork rdf:type owl:Class ;
                     rdfs:label "schema:CreativeWork"@en .
 
 
+###  http://schema.org/Organization
+schema:Organization rdf:type owl:Class ;
+                    rdfs:label "schema:Organization"@en .
+
+
+###  http://schema.org/Person
+schema:Person rdf:type owl:Class ;
+              rdfs:label "schema:Person"@en .
+
+
 ###  https://gotriple.eu/ontology/triple#Profile
 triple:Profile rdf:type owl:Class ;
                rdfs:label "profile"@en ;
-               rdfs:comment "An author profile representing a person in the GoTriple system. Can be claimed or unclaimed."@en ;
-               rdfs:subClassOf foaf:Person ;
-
-               # Optional account (0 or 1) - if present, profile is claimed
+               rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty datacite:hasIdentifier ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass datacite:Identifier
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:name ;
+                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onDataRange xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
                                  owl:onProperty foaf:account ;
                                  owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onClass foaf:OnlineAccount

@@ -17,7 +17,7 @@ SELECT ?predicate ?object WHERE {
 
 ## CQ_6.2
 
-Return all authors of `document_56` that are claimed by an account.
+Return all authors of `document_56` that are associated with a user account.
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -35,11 +35,11 @@ SELECT ?author ?account WHERE {
 - author: profile_09, account: account_109
 - author: profile_123, account: account_109
 
-**Note:** profile_23 is an author of document_56 but is not returned because it's unclaimed (has no account).
+**Note:** profile_23 is an author of document_56 but is not returned because it's not associated with any account.
 
 ## CQ_6.3
 
-Return all unclaimed authors of `document_56`.
+Return all unassociated authors of `document_56` (authors without an account).
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -54,11 +54,11 @@ SELECT ?author ?name WHERE {
 ```
 
 **Expected Result:**
-- author: profile_23, name: "author_fullname_9"
+- author: profile_23, name: "Pierre Dupont"
 
 ## CQ_6.4
 
-Return all profiles claimed by `account_109`.
+Return all profiles associated with `account_109`.
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -72,14 +72,14 @@ SELECT ?profile ?name WHERE {
 ```
 
 **Expected Result:**
-- profile: profile_56, name: "author_fullname_6"
-- profile: profile_09, name: "author_fullname_7"
-- profile: profile_123, name: "author_fullname_8"
+- profile: profile_56, name: "Maria Rossi"
+- profile: profile_09, name: "M. Rossi"
+- profile: profile_123, name: "Maria R. Rossi"
 
 
-## CQ_6.6
+## CQ_6.4
 
-Return all documents authored by profiles claimed by `account_109`.
+Return all documents authored by profiles associated with `account_109`.
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
@@ -101,47 +101,22 @@ SELECT DISTINCT ?document ?authorProfile WHERE {
 - document: document_42, authorProfile: profile_123
 
 
-## CQ_6.6
+## CQ_6.5
 
-Return all fullnames for profiles claimed by `account_109`.
+Return all unassociated profiles (profiles without an account).
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?profile ?fullname WHERE {
-  ?profile foaf:account triple:account_109 ;
-           schema:name ?fullname .
-}
-```
-
-**Expected Result:**
-- profile: profile_56, fullname: "Maria Rossi"
-- profile: profile_09, fullname: "M. Rossi"
-- profile: profile_123, fullname: "Maria R. Rossi"
-
-## CQ_6.7
-
-Return all profiles with family name "Rossi" and their given names.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?profile ?givenName ?familyName ?fullName WHERE {
+SELECT ?profile ?name WHERE {
   ?profile a triple:Profile ;
-           schema:familyName ?familyName ;
-           schema:givenName ?givenName ;
-           schema:name ?fullName .
-
-  FILTER(?familyName = "Rossi")
+           schema:name ?name .
+  FILTER NOT EXISTS { ?profile foaf:account ?account }
 }
-ORDER BY ?givenName
 ```
 
 **Expected Result:**
-- profile: profile_09, givenName: "M.", familyName: "Rossi", fullName: "M. Rossi"
-- profile: profile_56, givenName: "Maria", familyName: "Rossi", fullName: "Maria Rossi"
-- profile: profile_123, givenName: "Maria R.", familyName: "Rossi", fullName: "Maria R. Rossi"
+- profile: profile_23, name: "Pierre Dupont"
 

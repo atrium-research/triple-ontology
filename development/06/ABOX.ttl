@@ -85,14 +85,14 @@ triple:Profile rdf:type owl:Class ;
 #################################################################
 
 # ============================================
-# Example 1: document_1 with claimed profile
+# Example 1: document_1 with associated profile
 # ============================================
 
 ###  https://gotriple.eu/ontology/triple#document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
                            triple:Document ;
                   schema:author triple:profile_1 ;
-                  rdfs:comment "Document with author profile_1 (claimed by account_1, also known as profile_2)"@en .
+                  rdfs:comment "Document with author profile_1 (associated with account_1)"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#profile_1
@@ -101,9 +101,7 @@ triple:profile_1 rdf:type owl:NamedIndividual ,
                  datacite:hasIdentifier triple:agent_identifier_2345678998765 ;
                  foaf:account triple:account_1 ;
                  schema:name "John Smith" ;
-                 schema:givenName "John" ;
-                 schema:familyName "Smith" ;
-                 rdfs:comment "Claimed profile, linked to original profile_2"@en .
+                 rdfs:comment "Profile associated with account_1"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#profile_2
@@ -112,16 +110,14 @@ triple:profile_2 rdf:type owl:NamedIndividual ,
                  datacite:hasIdentifier triple:agent_identifier_23456789efefert5 ;
                  foaf:account triple:account_1 ;
                  schema:name "J. Smith" ;
-                 schema:givenName "J." ;
-                 schema:familyName "Smith" ;
-                 rdfs:comment "Original profile for author, claimed by account_1"@en .
+                 rdfs:comment "Profile associated with account_1"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#account_1
 triple:account_1 rdf:type owl:NamedIndividual ,
                           foaf:OnlineAccount ;
                  datacite:hasIdentifier triple:account_identifier_1223rfgwe ;
-                 rdfs:comment "User account that has claimed profile_1 and profile_2"@en .
+                 rdfs:comment "User account associated with profile_1 and profile_2"@en .
 
 
 # ============================================
@@ -135,7 +131,7 @@ triple:document_56 rdf:type owl:NamedIndividual ,
                                 triple:profile_09 ,
                                 triple:profile_123 ,
                                 triple:profile_23 ;
-                   rdfs:comment "Document with 4 authors: 3 claimed (profile_56, profile_09, profile_123), 1 unclaimed (profile_23)"@en .
+                   rdfs:comment "Document with 4 authors: 3 associated with accounts (profile_56, profile_09, profile_123), 1 unassociated (profile_23)"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#profile_56
@@ -144,9 +140,7 @@ triple:profile_56 rdf:type owl:NamedIndividual ,
                   datacite:hasIdentifier triple:agent_identifier_4563678 ;
                   foaf:account triple:account_109 ;
                   schema:name "Maria Rossi" ;
-                  schema:givenName "Maria" ;
-                  schema:familyName "Rossi" ;
-                  rdfs:comment "Claimed profile by account_109, original profile for others"@en .
+                  rdfs:comment "Profile associated with account_109"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#profile_09
@@ -155,9 +149,7 @@ triple:profile_09 rdf:type owl:NamedIndividual ,
                   datacite:hasIdentifier triple:agent_identifier_rfkgjnerfojgnel48567 ;
                   foaf:account triple:account_109 ;
                   schema:name "M. Rossi" ;
-                  schema:givenName "M." ;
-                  schema:familyName "Rossi" ;
-                  rdfs:comment "Claimed profile by account_109, linked to original profile_56"@en .
+                  rdfs:comment "Profile associated with account_109"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#profile_123
@@ -166,9 +158,7 @@ triple:profile_123 rdf:type owl:NamedIndividual ,
                    datacite:hasIdentifier triple:agent_identifier_peormcv ;
                    foaf:account triple:account_109 ;
                    schema:name "Maria R. Rossi" ;
-                   schema:givenName "Maria R." ;
-                   schema:familyName "Rossi" ;
-                   rdfs:comment "Claimed profile by account_109, linked to original profile_56"@en .
+                   rdfs:comment "Profile associated with account_109"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#profile_23
@@ -176,16 +166,14 @@ triple:profile_23 rdf:type owl:NamedIndividual ,
                            triple:Profile ;
                   datacite:hasIdentifier triple:agent_identifier_ethterhjry764576 ;
                   schema:name "Pierre Dupont" ;
-                  schema:givenName "Pierre" ;
-                  schema:familyName "Dupont" ;
-                  rdfs:comment "Unclaimed profile (no account)"@en .
+                  rdfs:comment "Unassociated profile (no account)"@en .
 
 
 ###  https://gotriple.eu/ontology/triple#account_109
 triple:account_109 rdf:type owl:NamedIndividual ,
                             foaf:OnlineAccount ;
                    datacite:hasIdentifier triple:account_identifier_124543twrfg34tfwredwe ;
-                   rdfs:comment "User account that has claimed profile_56, profile_09, and profile_123"@en .
+                   rdfs:comment "User account associated with profile_56, profile_09, and profile_123"@en .
 
 
 # ============================================
