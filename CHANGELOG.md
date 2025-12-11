@@ -15,6 +15,70 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-12 - Refactoring: Iteration 06 Profile Model Simplification
+
+**Type**: Refactoring
+
+**Description**:
+Major refactoring of Iteration 06 (Author Profile and User Account) to simplify the profile model by restructuring class hierarchy, removing name decomposition, eliminating "claim" terminology, and removing disambiguation references.
+
+**Details**:
+
+**Phase 1 - Class Hierarchy Restructuring**:
+- Changed `triple:Profile` from subclass of `foaf:Person` to superclass
+- Made `foaf:Person` and `foaf:Organization` subclasses of `triple:Profile`
+- Profiles can now represent either persons or organizations
+- Maintained `owl:equivalentClass` between `foaf:Person` and `schema:Person`
+- No equivalence between `foaf:Organization` and `schema:Organization` (not overlapping)
+
+**Phase 2 - Name Property Simplification**:
+- Removed `schema:givenName` and `schema:familyName` properties
+- Profiles now use only `schema:name` (full name string)
+- Added cardinality restriction: exactly 1 `schema:name` required per profile
+- Updated all ABOX examples to remove name decomposition
+- Removed CQ_6.6 (family name query) and renumbered remaining queries
+
+**Phase 3 - Terminology Normalization**:
+- Replaced "claim/claimed/unclaimed" terminology with "associate/associated/unassociated"
+- Updated all documentation, competency questions, and comments
+- More neutral terminology that describes relationship without ownership implications
+
+**Phase 4 - Identifier Requirement**:
+- Added cardinality restriction: exactly 1 `datacite:Identifier` required per profile
+- Ensures all profiles have unique identifiers
+
+**Phase 5 - Disambiguation Reference Removal**:
+- Removed all references to "also known as" relationships between profiles
+- Removed concept of "original profile" vs derived profiles
+- Simplified disambiguation section in motivating scenario
+- No formal property for linking profile variations (previously removed `triple:alsoKnownAs`)
+- Updated all examples to remove disambiguation references
+
+**Files Modified**:
+- `development/06/TBOX.ttl` - Restructured class hierarchy, added restrictions, removed properties
+- `development/06/ABOX.ttl` - Removed givenName/familyName, updated all comments
+- `development/06/motivating-scenario.md` - Simplified examples and technical specification
+- `development/06/glossary-of-terms.md` - Updated class definitions and property descriptions
+- `development/06/informal-competency-questions.md` - Removed CQ_6.4, updated all questions, renumbered
+- `development/06/formal-competency-questions.md` - Removed queries, updated descriptions, renumbered
+
+**Final Profile Model**:
+- `triple:Profile` (superclass) with restrictions:
+  - Exactly 1 `datacite:Identifier`
+  - Exactly 1 `schema:name` (xsd:string)
+  - Maximum 1 `foaf:account` (foaf:OnlineAccount)
+- `foaf:Person` (subclass of triple:Profile)
+- `foaf:Organization` (subclass of triple:Profile)
+
+**Competency Questions**: Reduced from 7 to 5 questions (removed CQ_6.4 "original profile" and CQ_6.6 "family name query")
+
+**Rationale**:
+Simplified the profile model to focus on core functionality: profiles (person or organization) can be associated with user accounts. Removed complex disambiguation modeling and name decomposition that added unnecessary complexity without formal semantic representation.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-12 - Documentation: Update README.md
 
 **Type**: Documentation
