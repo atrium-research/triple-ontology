@@ -13,65 +13,149 @@ Each entry follows this structure:
 
 ---
 
-## [2.0.0] - 2025-10-24
+## [Unreleased]
 
-### 2025-10-24 - Version 2.0.0 Release: Complete Ontology Serialization and Enhanced Metadata
+### 2025-12-12 - Documentation: Update README.md
 
-**Type**: Major Release
+**Type**: Documentation
 
 **Description**:
-Major release introducing complete ontology serialization (version 2.0.0) with comprehensive metadata, proper authorship attribution, and enhanced documentation following semantic web best practices.
-
-**Key Changes**:
-
-1. **Complete Ontology Serialization**:
-   - Created final merged ontology from 11 SAMOD iterations (development/01 through development/11)
-   - Generated multiple serialization formats: TTL, OWL/XML, JSON-LD, N-Triples
-   - Added comprehensive HTML documentation with interactive features
-
-2. **Enhanced Metadata**:
-   - Added proper authorship: Alessandro Bertozzi (creator), Luca De Santis & Silvio Peroni (contributors)
-   - Included comprehensive Dublin Core metadata (title, description, license, rights, subjects, etc.)
-   - Added VANN vocabulary annotations (preferred namespace prefix and URI)
-   - Included DCAT keywords for better discoverability
-   - Added bibliographic citations in both Dublin Core and Schema.org formats
-
-3. **Version Management**:
-   - Updated to version 2.0.0 across all metadata fields
-   - Added `owl:priorVersion` reference to version 1.0.0
-   - Consistent version numbering in `owl:versionInfo`, `owl:versionIRI`, and `schema:version`
-
-4. **External Ontology Label Standardization**:
-   - Implemented consistent `prefix:LocalName` format for all external ontology references
-   - Updated CLAUDE.md with comprehensive guidelines for ontology metadata and serialization
-   - Documented naming conventions for future development
-
-5. **Technical Improvements**:
-   - All annotation properties properly declared
-   - Complete prefix declarations including vann: and dcat: vocabularies
-   - Enhanced ontology structure with proper OWL2 compliance
-
-**Files Added**:
-- `ontology/2025-10-24/serializations/triple.ttl` (834 lines)
-- `ontology/2025-10-24/serializations/triple.owl` (1360 lines)
-- `ontology/2025-10-24/serializations/triple.jsonld` (1614 lines)
-- `ontology/2025-10-24/serializations/triple.nt` (838 lines)
-- `ontology/2025-10-24/html/index-en.html` (1384 lines)
-- Complete HTML documentation with resources (CSS, JS, icons)
-
-**Files Modified**:
-- `CLAUDE.md` - Updated with comprehensive ontology metadata guidelines
-- Removed legacy `ontology/triple-ontology.ttl` (639 lines)
-
-**Net Changes**: +7150 insertions, -639 deletions
+Updated main README.md to provide clearer project overview and structure.
 
 **Author**: Alessandro Bertozzi
 
-**Commit**: 3ce0f35 - "add new complete serialization and documentation"
+**Commit**: 8bba21d - "update README"
 
 ---
 
-## [Unreleased]
+### 2025-12-11 - Refactoring: Iterations Renumbering
+
+**Type**: Refactoring
+
+**Description**:
+Changed iteration numbering to establish consistent sequence for new resource type iterations.
+
+**Details**:
+- Renumbered iterations to maintain logical progression
+- Ensures proper iteration ordering in SAMOD development cycle
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: becc9b5 - "change iterations numeration"
+
+---
+
+### 2025-12-10 - Enhancement: Clean TBOX Definitions and Add Controlled Vocabularies
+
+**Type**: Enhancement
+
+**Description**:
+Removed redeclarations of imported external ontology classes and properties; added conditions of access and content types vocabularies directly to development iterations.
+
+**Details**:
+- Cleaned TBOX files across iterations by removing redundant declarations of Schema.org, FOAF, Dublin Core properties
+- Added complete controlled vocabulary definitions for:
+  - Conditions of Access (from iteration 09)
+  - Content Types (formerly Document Types, from iteration 02)
+- Improved ontology modularity and reduced duplication
+
+**Files Modified**:
+- Multiple TBOX files across development iterations
+- Controlled vocabulary definitions consolidated in iterations 02 and 09
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: c188ead - "remove redeclarations of imported class and properties; add conditions of access and content types"
+
+---
+
+### 2025-12-09 - Documentation: Add Ontology Visualization
+
+**Type**: Documentation
+
+**Description**:
+Added GraphML format ontology visualization for enhanced documentation and structural overview.
+
+**Details**:
+- Created ontology visualization in GraphML format (yEd compatible)
+- Provides visual representation of complete ontology structure
+- Enables graph-based analysis and documentation
+
+**Files Created**:
+- Ontology visualization in GraphML format
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: 7db2c25 - "add ontology visualization in graphml"
+
+---
+
+### 2025-12-08 - Tooling: Vocabulary Serialization Script
+
+**Type**: Tooling / Automation
+
+**Description**:
+Created script to convert vocabulary serializations from RDF/XML to Turtle format.
+
+**Details**:
+- New Python script for converting RDF format vocabularies
+- Supports automated conversion from RDF/XML to TTL
+- Enhanced vocabulary management tooling
+
+**Files Created**:
+- Vocabulary conversion script
+- New vocabulary serializations in TTL format
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: b0867ab - "add new vocab serializations and script for converting in ttl format from rdf"
+
+---
+
+### 2025-12-07 - Enhancement: Add Vocabularies to Repository
+
+**Type**: Addition
+
+**Description**:
+Added controlled vocabularies directly to repository for better accessibility and version control.
+
+**Details**:
+- Added complete controlled vocabulary files
+- Includes all SKOS ConceptSchemes used in the ontology
+- Improves vocabulary governance and traceability
+
+**Files Created**:
+- Vocabulary files added to repository structure
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: 00ddd51 - "added vocabularies to repo"
+
+---
+
+### 2025-12-06 - Refactoring: Reorganize Serialization Directory
+
+**Type**: Refactoring
+
+**Description**:
+Moved TRIPLE ontology serializations to current directory structure for better organization.
+
+**Details**:
+- Reorganized serialization files location
+- Moved from nested structure to current directory
+- Added MOD namespace binding in merge_graphs function
+
+**Files Modified**:
+- Serialization file locations updated
+- `scripts/merge_iterations.py` - Added MOD namespace binding
+
+**Author**: Alessandro Bertozzi
+
+**Commits**: 
+- db017f8 - "move triple serializations in current dir"
+- 6a6d535 - "Add MOD namespace binding in merge_graphs function"
+
+---
 
 ### 2025-12-05 - Refactoring: Remove triple:alsoKnownAs Property
 
@@ -100,12 +184,120 @@ Simplified profile model by removing complex disambiguation relationships, relyi
 
 ---
 
-### 2025-12-05 - Enhancement: Standardize Identifier Schemes with DataCite
+### 2025-11-30 - Refactoring: Major Ontology Architectural Changes
 
-**Type**: Enhancement
+**Type**: Refactoring
 
 **Description**:
-Consolidated all local identifier types (ID, PID, OriginalIdentifier) to use the standardized `datacite:local-resource-identifier-scheme` instead of individual schemes.
+Major refactoring introducing class-based identifier types, removing dc:type for content types, implementing controlled vocabularies pattern, and switching subject property from dc:subject to sioc:topic.
+
+**Details**:
+
+**Phase 1 - Identifier Architecture (Nov 25-28)**:
+- Implemented class-based identifier types instead of scheme-based pattern:
+  - Created `triple:DOI`, `triple:ISSN`, `triple:ISBN`, `triple:Handle`, `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` classes
+  - Each identifier class is subclass of `datacite:Identifier`
+  - Uses `datacite:usesIdentifierScheme` for scheme references
+  - Consolidated schemes to use `datacite:local-resource-identifier-scheme` for local identifiers
+  - Extended identifier support to all main entities (Document, Dataset, MediaObject, SemanticArtefact, Project)
+- Fixed typos: `usesIdentiferScheme` → `usesIdentifierScheme`
+- Added `litre:hasLiteralValue` property with cardinality restrictions
+- Distinguished between PID, ID, and OriginalIdentifier for documents
+
+**Phase 2 - Content Types Refactoring (Nov 20-22)**:
+- Renamed "Document Types" to "Content Types" across all iterations
+- Replaced `dc:type` with `schema:additionalType` for content type classification
+- Updated all TBOX, ABOX, glossaries, and competency questions
+- Ensured consistency across all 14 iterations
+
+**Phase 3 - Controlled Vocabularies Pattern (Nov 18-19)**:
+- Implemented SKOS-based controlled vocabularies pattern
+- Created modular vocabulary files with owl:imports declarations
+- Added comprehensive vocabulary documentation
+- Standardized ConceptScheme and Concept definitions
+
+**Phase 4 - Subject Property Migration (Nov 15-17)**:
+- Replaced `dc:subject` with `sioc:topic` across entire ontology
+- Updated all iterations, documentation, and SPARQL queries
+- Ensures consistency in subject/topic modeling
+
+**Phase 5 - Schema.org Property Restrictions (Nov 10-14)**:
+- Removed rdfs:domain restrictions from Schema.org properties
+- Fixed owl:allValuesFrom for schema:mentions property
+- Updated rdfs:range for schema:headline and schema:abstract to rdf:langString
+- Added cardinality restrictions to date patterns
+- Replaced schema:identifier with DataCite pattern across iterations 4, 12-14
+- Added constraints to MediaObject, SemanticArtefact, and Dataset
+
+**Phase 6 - Resource Type Classes (Nov 5-8)**:
+- Created triple:Project and triple:Dataset classes in TRIPLE namespace
+- Created triple:MediaObject class (removed schema-specific subclass)
+- Added mod:SemanticArtefact with proper prefix binding
+- Updated all class references and documentation
+
+**Phase 7 - Patterns and Status (Nov 1-4)**:
+- Created patterns directory for reusable ontology patterns
+- Added schema:mentions property pattern for CreativeWork references
+- Implemented schema:creativeWorkStatus pattern for Dataset, MediaObject, SemanticArtefact
+- Added date cardinality restrictions
+
+**Files Modified**: 100+ files across all iterations
+
+**Files Created**:
+- `patterns/` directory with reusable ontology patterns
+- Class definition files for new TRIPLE namespace classes
+- Updated vocabulary module files
+
+**Rationale**:
+These changes establish a more robust, consistent, and interoperable ontology architecture:
+- Class-based identifiers provide stronger typing and clearer semantics
+- Schema.org properties offer better web integration than Dublin Core
+- TRIPLE namespace classes ensure proper ontology ownership
+- Controlled vocabularies pattern enables better vocabulary governance
+- Removal of domain restrictions allows flexible property reuse
+
+**Author**: Alessandro Bertozzi
+
+**Commits**: 
+- 92a0049 - "Implement class-based identifier types"
+- 0792f9c - "Updated ABOX and TBOX ontologies to define new identifier classes"
+- 92d7ea3 - "Refactor identifier schemes to use datacite prefixes"
+- b525216 - "Extension to other doi entities"
+- b67ae57 - "extend support to pid, internal_id and original id to other entites"
+- 92988c9 - "align URL description pattern; add distinction between pid, id and original id"
+- 63c980f - "Update document type properties to use schema:additionalType"
+- 2a13e43 - "Rename Document Types to Content Types"
+- 0707a04 - "Add controlled vocabularies pattern"
+- abc9a76 - "Add owl:imports declarations"
+- 39a0697 - "Replace dc:subject with sioc:topic"
+- 5d56f08 - "Refactor project and dataset classes to use triple:Project and triple:Dataset"
+- 180010b - "add to multimedia triple:MediaObject"
+- 09d6a18 - "Add mod:SemanticArtefact prefix"
+- a393d8c - "Remove rdfs:domain restrictions for schema properties"
+- 5429ade - "fix owl:allValuesFrom for schema:mentions property"
+- 8b71040 - "Update rdfs:range for schema:headline and schema:abstract"
+- 0f04d30 - "Add litre:hasLiteralValue property"
+- eef6813 - "Add schema:mentions property and status pattern"
+- a393af0 - "add cardinality restriction to date patterns"
+- 4a83413 - "add patterns dir"
+- 7eb9db9 - "Replace schema:identifier with DataCite pattern"
+- 775bac1 - "Update iterations 12-13: add keywords support"
+- bac6917 - "Remove skos:exactMatch and skos:closeMatch annotation properties"
+- 28a3c47 - "Refactor vocabulary terms"
+- 53f9840 - "remove dc:type"
+- c43c2cd - "improve prefix management in merge script"
+- 9e60f00 - "Add deduplication of OWL restrictions in merge_iterations script"
+
+---
+
+### 2025-12-05 - Enhancement: Standardize Identifier Schemes with DataCite (SUPERSEDED)
+
+**Type**: Enhancement (SUPERSEDED BY NOV 30 REFACTORING)
+
+**Description**:
+~~Consolidated all local identifier types (ID, PID, OriginalIdentifier) to use the standardized `datacite:local-resource-identifier-scheme` instead of individual schemes.~~
+
+**Note**: This change was part of the larger identifier architecture refactoring completed on November 30, 2025 (see above).
 
 **Details**:
 - **Iterations 01, 12, 13, 14**: Updated `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` classes to use `datacite:local-resource-identifier-scheme`
@@ -177,33 +369,96 @@ Simplified role model by removing the distinction between producer and other con
 
 ---
 
-### 2025-11-07 - Restructuring: Iterations 12-16 Reorganization
+### 2025-11-10 - Extension: New Resource Type Iterations (12-14)
 
-**Type**: Refactoring
+**Type**: Addition
 
 **Description**:
-Restructured iterations 12-16 to separate each resource type into its own dedicated iteration following SAMOD methodology. The previous Iteration 12 (which contained all three new resource types together) has been split into four separate iterations (12-15), and the CIDOC-CRM alignment has been moved to Iteration 16.
+Added three new iterations to extend the ontology beyond documents to other SSH research resource types: Dataset, Multimedia, and Semantic Artefact.
 
-**New Structure**:
-- **Iteration 12**: Dataset - Research dataset as distinct resource type
-- **Iteration 13**: Multimedia - Audio-visual and interactive content
-- **Iteration 14**: Semantic Artefact - Ontologies, vocabularies, knowledge graphs
-- **Iteration 15**: Software - Research software, tools, code repositories
-- **Iteration 16**: CIDOC-CRM and SSHOCRo Alignment - External ontology mappings
+**New Iterations**:
+- **Iteration 12**: Dataset - Research datasets as distinct resource type with comprehensive metadata
+- **Iteration 13**: Multimedia - Audio-visual and interactive content (images, videos, audio)
+- **Iteration 14**: Semantic Artefact - Ontologies, vocabularies, knowledge graphs, and semantic resources
 
-**Rationale**:
-Each resource type deserves its own complete SAMOD iteration with dedicated motivating scenarios, competency questions, and test instances. This structure provides better modularity, clearer documentation, and follows the one-concern-per-iteration principle.
+**Details**:
+
+**Iteration 12 - Dataset**:
+- Created `triple:Dataset` class as subclass of schema:Dataset
+- Properties: title, abstract, version, encoding format, spatial/temporal coverage, keywords, subjects
+- Identifier support: DOI, Handle, ID, PID, OriginalIdentifier
+- URL support: landing page, download, source
+- Access conditions and license information
+- Publisher, provider, and funder relationships
+- Publication dates and language support
+- Added dcterms:isReferencedBy for citation relationships
+
+**Iteration 13 - Multimedia (MediaObject)**:
+- Created `triple:MediaObject` class for audio-visual content
+- Properties: title, abstract, encoding format, duration, content size
+- Media type classification: image, video, audio, interactive
+- Comprehensive identifier and URL support
+- Creator, publisher, provider roles
+- Subject coverage (keywords, topics, spatial, temporal)
+- Access conditions and licensing
+- Added dcterms:isReferencedBy for citations
+- Removed schema:producer role for simplification
+
+**Iteration 14 - Semantic Artefact**:
+- Created `triple:SemanticArtefact` class for ontologies and semantic resources
+- Properties: title, abstract, version, namespace URI, preferred prefix
+- Semantic resource types: ontology, vocabulary, taxonomy, knowledge graph
+- Identifier support following DataCite pattern
+- URL patterns for landing page, downloadable files, source repositories
+- Creator and publisher information
+- Subject classification and keywords
+- Temporal and spatial coverage
+- License and access conditions
+
+**Common Patterns Across Iterations**:
+- DataCite identifier pattern for DOI, Handle, ID, PID, OriginalIdentifier
+- URL as DataCite identifier (not schema:url)
+- Multilingual metadata support (rdf:langString)
+- Controlled vocabularies for types, access conditions, licenses, disciplines
+- Schema.org alignment for interoperability
+- Comprehensive competency questions with SPARQL tests
 
 **Files Created**:
-- `development/12/` - Dataset iteration structure (empty templates)
-- `development/13/` - Multimedia iteration structure (empty templates)
-- `development/14/` - Semantic Artefact iteration structure (empty templates)
-- `development/15/` - Software iteration structure (empty templates)
-- `development/16/` - CIDOC-CRM/SSHOCRo alignment structure (empty templates)
+- `development/12/` - Complete Dataset iteration (motivating scenario, CQs, TBOX, ABOX, glossary)
+- `development/13/` - Complete MediaObject iteration (motivating scenario, CQs, TBOX, ABOX, glossary)
+- `development/14/` - Complete SemanticArtefact iteration (motivating scenario, CQs, TBOX, ABOX, glossary)
 
-**Status**: All iterations have complete file structure with proper titles and sections. Content population pending.
+**Rationale**:
+GoTriple platform aggregates diverse SSH research outputs beyond traditional documents. These iterations provide formal models for datasets, multimedia resources, and semantic artifacts, enabling comprehensive discovery and interoperability.
 
-**Author**: Development team
+**Author**: Alessandro Bertozzi
+
+**Commits**:
+- ec5e2b0 - "add iteration 14: Semantic Artifacts"
+- aa46c64 - "add iterations 13"
+- 6ae4307 - "add iteration 12 for Dataset"
+- 82c68d3 - "add iterations draft for new class"
+- 11b1e57 - "Add new ontology iteration and update existing ontology definitions"
+
+---
+
+### 2025-11-07 - Restructuring: Iterations Planning and Organization
+
+**Type**: Planning
+
+**Description**:
+Initial planning and restructuring for iterations 12-16, creating templates and organizational structure for new resource types.
+
+**Details**:
+- Drafted iteration structures for Dataset, Multimedia, Semantic Artefact
+- Planned CIDOC-CRM alignment iteration
+- Removed release and refactoring plan documents (moved to .gitignore)
+
+**Author**: Alessandro Bertozzi
+
+**Commits**:
+- b61a757 - "delete release plan"
+- ea3722f - "remove refactoring plan and add to .gitignore"
 
 ---
 
@@ -231,7 +486,7 @@ Following SAMOD best practices, each iteration should focus only on its specific
 
 **Net Changes**: -70 deletions, +10 insertions
 
-**Author**: Development team
+**Author**: Alessandro Bertozzi
 
 ---
 
@@ -472,7 +727,65 @@ Chose dual inheritance (`schema:CreativeWork` + `foaf:Document`) to maximize int
 - SPARQL queries corrected: 7
 - Net changes: +1118 insertions, -664 deletions (+454 lines)
 
-**Author**: Development team
+**Author**: Alessandro Bertozzi
+
+---
+
+## [2.0.0] - 2025-10-24
+
+### 2025-10-24 - Version 2.0.0 Release: Complete Ontology Serialization and Enhanced Metadata
+
+**Type**: Major Release
+
+**Description**:
+Major release introducing complete ontology serialization (version 2.0.0) with comprehensive metadata, proper authorship attribution, and enhanced documentation following semantic web best practices.
+
+**Key Changes**:
+
+1. **Complete Ontology Serialization**:
+   - Created final merged ontology from 11 SAMOD iterations (development/01 through development/11)
+   - Generated multiple serialization formats: TTL, OWL/XML, JSON-LD, N-Triples
+   - Added comprehensive HTML documentation with interactive features
+
+2. **Enhanced Metadata**:
+   - Added proper authorship: Alessandro Bertozzi (creator), Luca De Santis & Silvio Peroni (contributors)
+   - Included comprehensive Dublin Core metadata (title, description, license, rights, subjects, etc.)
+   - Added VANN vocabulary annotations (preferred namespace prefix and URI)
+   - Included DCAT keywords for better discoverability
+   - Added bibliographic citations in both Dublin Core and Schema.org formats
+
+3. **Version Management**:
+   - Updated to version 2.0.0 across all metadata fields
+   - Added `owl:priorVersion` reference to version 1.0.0
+   - Consistent version numbering in `owl:versionInfo`, `owl:versionIRI`, and `schema:version`
+
+4. **External Ontology Label Standardization**:
+   - Implemented consistent `prefix:LocalName` format for all external ontology references
+   - Updated CLAUDE.md with comprehensive guidelines for ontology metadata and serialization
+   - Documented naming conventions for future development
+
+5. **Technical Improvements**:
+   - All annotation properties properly declared
+   - Complete prefix declarations including vann: and dcat: vocabularies
+   - Enhanced ontology structure with proper OWL2 compliance
+
+**Files Added**:
+- `ontology/2025-10-24/serializations/triple.ttl` (834 lines)
+- `ontology/2025-10-24/serializations/triple.owl` (1360 lines)
+- `ontology/2025-10-24/serializations/triple.jsonld` (1614 lines)
+- `ontology/2025-10-24/serializations/triple.nt` (838 lines)
+- `ontology/2025-10-24/html/index-en.html` (1384 lines)
+- Complete HTML documentation with resources (CSS, JS, icons)
+
+**Files Modified**:
+- `CLAUDE.md` - Updated with comprehensive ontology metadata guidelines
+- Removed legacy `ontology/triple-ontology.ttl` (639 lines)
+
+**Net Changes**: +7150 insertions, -639 deletions
+
+**Author**: Alessandro Bertozzi
+
+**Commit**: 3ce0f35 - "add new complete serialization and documentation"
 
 ---
 
