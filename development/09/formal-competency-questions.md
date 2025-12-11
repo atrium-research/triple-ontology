@@ -2,133 +2,176 @@
 
 ## CQ_9.1
 
-Return all documents with "Open access" conditions.
+Return all entities mentioned by `document_1`.
 
 ```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?entity WHERE {
+  triple:document_1 schema:mentions ?entity .
+}
+```
+
+**Expected result:**
+- `triple:document_45`
+- `triple:person_23`
+
+
+## CQ_9.2
+
+Return all documents mentioned by `document_89`.
+
+```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
-  ?document a foaf:Document ;
-            schema:conditionsOfAccess triple:acc_open-access .
+  triple:document_89 schema:mentions ?document .
+  ?document a triple:Document .
+}
+```
+
+**Expected result:**
+- `triple:document_100`
+- `triple:document_101`
+- `triple:document_102`
+
+
+## CQ_9.3
+
+Return all documents that mention `person_78`.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            schema:mentions triple:person_78 .
+}
+```
+
+**Expected result:**
+- `triple:document_34`
+
+
+## CQ_9.4
+
+Return all projects mentioned in any document.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?project WHERE {
+  ?document a triple:Document ;
+            schema:mentions ?project .
+  ?project a triple:Project .
+}
+```
+
+**Expected result:**
+- `triple:project_12`
+
+
+## CQ_9.5
+
+Return all organizations mentioned by `document_67`.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?organization WHERE {
+  triple:document_67 schema:mentions ?organization .
+  ?organization a foaf:Organization .
+}
+```
+
+**Expected result:**
+- `triple:organization_5`
+
+
+## CQ_9.6
+
+Return all people mentioned by `document_34`.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?person WHERE {
+  triple:document_34 schema:mentions ?person .
+  ?person a foaf:Person .
+}
+```
+
+**Expected result:**
+- `triple:person_78`
+
+
+## CQ_9.7
+
+Return all documents that mention at least one other document.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+
+SELECT DISTINCT ?document WHERE {
+  ?document a triple:Document ;
+            schema:mentions ?mentioned .
+  ?mentioned a triple:Document .
 }
 ```
 
 **Expected result:**
 - `triple:document_1`
+- `triple:document_89`
 
 
-## CQ_9.2
+## CQ_9.8
 
-Return the vocabulary scheme to which `acc_embargoed-access` belongs.
-
-```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?scheme WHERE {
-  triple:acc_embargoed-access skos:inScheme ?scheme .
-}
-```
-
-**Expected result:**
-- `triple:conditions_of_access`
-
-
-## CQ_9.3
-
-Return all external COAR terms that exactly match the access conditions in the GoTriple vocabulary.
-
-```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?accessTerm ?coarTerm WHERE {
-  ?accessTerm skos:inScheme triple:conditions_of_access ;
-              skos:exactMatch ?coarTerm .
-  FILTER(STRSTARTS(STR(?coarTerm), "https://vocabularies.coar-repositories.org/access_rights/"))
-}
-```
-
-**Expected result:**
-- `triple:acc_embargoed-access` → `https://vocabularies.coar-repositories.org/access_rights/c_f1cf/`
-- `triple:acc_metadata-only-access` → `https://vocabularies.coar-repositories.org/access_rights/c_14cb/`
-- `triple:acc_open-access` → `https://vocabularies.coar-repositories.org/access_rights/c_abf2/`
-- `triple:acc_restricted-access` → `https://vocabularies.coar-repositories.org/access_rights/c_16ec/`
-
-
-## CQ_9.4
-
-Return the access condition of `document_23`.
+Return all entities mentioned by `document_67` with their types.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?accessCondition WHERE {
-  triple:document_23 schema:conditionsOfAccess ?accessCondition .
+SELECT ?entity ?type WHERE {
+  triple:document_67 schema:mentions ?entity .
+  ?entity a ?type .
 }
 ```
 
 **Expected result:**
-- `triple:acc_embargoed-access`
+- `triple:project_12` → `triple:Project`
+- `triple:organization_5` → `foaf:Organization`
 
 
-## CQ_9.5
+## CQ_9.9
 
-Return all access condition terms in the controlled vocabulary.
-
-```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?accessTerm WHERE {
-  ?accessTerm skos:inScheme triple:conditions_of_access .
-}
-```
-
-**Expected result:**
-- `triple:acc_embargoed-access`
-- `triple:acc_metadata-only-access`
-- `triple:acc_open-access`
-- `triple:acc_restricted-access`
-- (... other access condition terms)
-
-
-## CQ_9.6
-
-Return all documents that have metadata-only access.
+Count how many entities each document mentions.
 
 ```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX schema: <http://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?document WHERE {
-  ?document a foaf:Document ;
-            schema:conditionsOfAccess triple:acc_metadata-only-access .
+SELECT ?document (COUNT(?entity) AS ?mentionCount) WHERE {
+  ?document a triple:Document ;
+            schema:mentions ?entity .
 }
+GROUP BY ?document
+ORDER BY DESC(?mentionCount)
 ```
 
 **Expected result:**
-- `triple:document_56`
-
-
-## CQ_9.7
-
-Return the COAR external term that exactly matches `acc_open-access`.
-
-```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?coarTerm WHERE {
-  triple:acc_open-access skos:exactMatch ?coarTerm .
-}
-```
-
-**Expected result:**
-- `https://vocabularies.coar-repositories.org/access_rights/c_abf2/`
+- `triple:document_89` → 3
+- `triple:document_1` → 2
+- `triple:document_34` → 2
+- `triple:document_67` → 2

@@ -1,191 +1,125 @@
 # Formal Competency Questions - Iteration 14
 
-## Semantic Artefact Resource Type
-
 ## CQ_14.1
 
-Retrieve all semantic artifacts with their basic metadata (title, abstract, publisher)
+Find the research projects that produced a specific document as an output.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX frapo: <http://purl.org/cerif/frapo/>
 
-SELECT ?artifact ?title ?abstract ?publisherName WHERE {
-  ?artifact a triple:SemanticArtefact ;
-           schema:headline ?title ;
-           schema:abstract ?abstract ;
-           schema:publisher ?publisher .
-  ?publisher schema:name ?publisherName .
+SELECT ?project ?projectName WHERE {
+  triple:document-dh-methods frapo:isOutputOf ?project .
+  ?project schema:name ?projectName .
 }
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "Controlled vocabulary for Social Sciences and Humanities research classification", "GoTriple Consortium"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "Comprehensive vocabulary for art historical concepts and terminology", "Digital Humanities Institute"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", "Formal ontology for medieval studies research domain", "University of Bologna"
+- `triple:project-digital-humanities` → "Digital Humanities Research Initiative"
 
 ## CQ_14.2
 
-Find semantic artifacts with DOI or Handle persistent identifiers
+Find all research outputs produced by a specific research project.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX frapo: <http://purl.org/cerif/frapo/>
 
-SELECT ?artifact ?title ?identifierValue ?schemeLabel WHERE {
-  ?artifact a triple:SemanticArtefact ;
-           schema:headline ?title ;
-           datacite:hasIdentifier ?identifier .
-  ?identifier litre:hasLiteralValue ?identifierValue ;
-             datacite:usesIdentifierScheme ?scheme .
-  ?scheme rdfs:label ?schemeLabel .
-  FILTER(?scheme = triple:doi || ?scheme = triple:handle)
+SELECT ?output ?outputName ?outputType WHERE {
+  ?output frapo:isOutputOf triple:project-migration-studies ;
+          schema:name ?outputName ;
+          rdf:type ?outputType .
+  FILTER(?outputType != owl:NamedIndividual)
 }
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "10.5281/zenodo.1234567", "DOI"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", "hdl:1234.5/medieval-ontology", "Handle"
+- `triple:dataset-migration-interviews` → "Migration Interview Dataset" → `triple:Dataset`
+- `triple:audio-interview-001` → "Interview with Migrant Family - Naples" → `triple:MediaObject`
 
 ## CQ_14.3
 
-List all representation techniques used by semantic artifacts
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT DISTINCT ?technique WHERE {
-  ?artifact a triple:SemanticArtefact ;
-           schema:encodingFormat ?technique .
-}
-```
-
-**Expected result:**
-- "SKOS vocabulary"
-- "OWL ontology"  
-- "XML schema"
-- "RDF Schema"
-
-## CQ_14.4
-
-Find semantic artifacts and the documents that reference them
+Find all documents that reference or cite a specific semantic artefact.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
-SELECT ?artifact ?artifactTitle ?document ?documentTitle WHERE {
-  ?artifact a triple:SemanticArtefact ;
-           schema:headline ?artifactTitle ;
-           dcterms:isReferencedBy ?document .
-  ?document a triple:Document ;
-           schema:headline ?documentTitle .
+SELECT ?citingDocument ?documentName WHERE {
+  triple:ontology-cultural-heritage dcterms:isReferencedBy ?citingDocument .
+  ?citingDocument schema:name ?documentName .
 }
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", `triple:document-dh-methodology` → "Digital Humanities Methodology Paper"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", `triple:document-carolingian` → "Carolingian Renaissance Research Article"
+- `triple:paper-heritage-analysis` → "Analysis of Digital Heritage Frameworks"
+
+## CQ_14.4
+
+For a given dataset, find both its originating project and any documents that reference it.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX frapo: <http://purl.org/cerif/frapo/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?project ?projectName ?citingDocument ?documentName WHERE {
+  triple:dataset-migration-interviews frapo:isOutputOf ?project ;
+                                      dcterms:isReferencedBy ?citingDocument .
+  ?project schema:name ?projectName .
+  ?citingDocument schema:name ?documentName .
+}
+```
+
+**Expected result:**
+- `triple:project-migration-studies` → "Migration Patterns in Southern Europe" → `triple:analysis-urban-migration` → "Urban Migration Patterns: A Mediterranean Perspective"
 
 ## CQ_14.5
 
-Retrieve semantic artifacts with their file formats and download URLs
+Find all research artifacts that use FRAPO properties to link to their originating projects.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX frapo: <http://purl.org/cerif/frapo/>
 
-SELECT ?artifact ?title ?fileFormat WHERE {
-  ?artifact a triple:SemanticArtefact ;
-           schema:headline ?title ;
-           schema:fileFormat ?fileFormat .
+SELECT ?artifact ?artifactName ?project ?projectName WHERE {
+  ?artifact frapo:isOutputOf ?project ;
+            schema:name ?artifactName .
+  ?project schema:name ?projectName .
 }
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "application/rdf+xml"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "text/turtle"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", "application/owl+xml"
-
+- `triple:document-dh-methods` → "Digital Methods in Historical Research" → `triple:project-digital-humanities` → "Digital Humanities Research Initiative"
+- `triple:ontology-cultural-heritage` → "Cultural Heritage Preservation Ontology" → `triple:project-cultural-heritage` → "European Cultural Heritage Ontology Project"
+- `triple:dataset-migration-interviews` → "Migration Interview Dataset" → `triple:project-migration-studies` → "Migration Patterns in Southern Europe"
+- `triple:audio-interview-001` → "Interview with Migrant Family - Naples" → `triple:project-migration-studies` → "Migration Patterns in Southern Europe"
 
 ## CQ_14.6
 
-Return all semantic artifacts that have DOI identifiers using class-based approach.
+Find all research artifacts (of any type) that were both produced by projects and are referenced by other works.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX frapo: <http://purl.org/cerif/frapo/>
+PREFIX dcterms: <http://purl.org/dc/terms/>
 
-SELECT ?artifact ?title ?identifierValue WHERE {
-  ?artifact a triple:SemanticArtefact ;
-            schema:headline ?title ;
-            datacite:hasIdentifier ?identifier .
-  ?identifier a triple:DOI ;
-              litre:hasLiteralValue ?identifierValue .
+SELECT ?artifact ?artifactName ?project ?projectName ?citingWork ?citingWorkName WHERE {
+  ?artifact frapo:isOutputOf ?project ;
+            dcterms:isReferencedBy ?citingWork ;
+            schema:name ?artifactName .
+  ?project schema:name ?projectName .
+  ?citingWork schema:name ?citingWorkName .
 }
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "10.5281/zenodo.thesaurus.ssh.v2"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "10.5281/zenodo.vocab.arthistory.v1"
-- `triple:ontology-medieval` → "Medieval Studies Ontology" → "10.5281/zenodo.ontology.medieval.v09"
-
-
-## CQ_14.7
-
-Return all semantic artifacts that have URI identifiers using class-based approach.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
-
-SELECT ?artifact ?title ?identifierValue WHERE {
-  ?artifact a triple:SemanticArtefact ;
-            schema:headline ?title ;
-            datacite:hasIdentifier ?identifier .
-  ?identifier a triple:URI ;
-              litre:hasLiteralValue ?identifierValue .
-}
-```
-
-**Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "https://gotriple.eu/thesaurus/ssh#"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "https://vocab.arthistory.eu/skos#"
-- `triple:ontology-medieval` → "Medieval Studies Ontology" → "https://ontology.medieval.unibo.it/owl#"
-
-
-## CQ_14.8
-
-Return all semantic artifacts with their identifier types and values.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
-
-SELECT ?artifact ?title ?identifierType ?value WHERE {
-  ?artifact a triple:SemanticArtefact ;
-            schema:headline ?title ;
-            datacite:hasIdentifier ?identifier .
-  ?identifier a ?identifierType ;
-              litre:hasLiteralValue ?value .
-  FILTER (?identifierType IN (triple:DOI, triple:Handle, triple:URI, triple:ID, triple:PID))
-}
-```
-
-**Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:DOI` → "10.5281/zenodo.thesaurus.ssh.v2"
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:URI` → "https://gotriple.eu/thesaurus/ssh#"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → `triple:DOI` → "10.5281/zenodo.vocab.arthistory.v1"
-- `triple:ontology-medieval` → "Medieval Studies Ontology" → `triple:URI` → "https://ontology.medieval.unibo.it/owl#"
-
+- `triple:ontology-cultural-heritage` → "Cultural Heritage Preservation Ontology" → `triple:project-cultural-heritage` → "European Cultural Heritage Ontology Project" → `triple:paper-heritage-analysis` → "Analysis of Digital Heritage Frameworks"
+- `triple:dataset-migration-interviews` → "Migration Interview Dataset" → `triple:project-migration-studies` → "Migration Patterns in Southern Europe" → `triple:analysis-urban-migration` → "Urban Migration Patterns: A Mediterranean Perspective"
+- `triple:audio-interview-001` → "Interview with Migrant Family - Naples" → `triple:project-migration-studies` → "Migration Patterns in Southern Europe" → `triple:analysis-urban-migration` → "Urban Migration Patterns: A Mediterranean Perspective"

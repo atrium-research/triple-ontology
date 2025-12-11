@@ -6,18 +6,17 @@
 CQ_10.1
 
 ### Question
-Return all identifiers that use the DOI scheme.
+Return all datasets available in the platform.
 
 ### Expected Outcome
-A list of identifiers.
+A list of all datasets with their titles.
 
 ### Result
-* `identifier_1`
-* `identifier_24`
+* `dataset_001` (European Archaeological Sites Database)
+* `dataset_002` (European Social Attitudes Survey 2023)
 
 ### Based on
-Example 1
-Example 2
+Example 1 and Example 2
 
 
 ## Question 2
@@ -26,16 +25,17 @@ Example 2
 CQ_10.2
 
 ### Question
-Return the identifier scheme used by `identifier_23`.
+Return all datasets with their spatial coverage.
 
 ### Expected Outcome
-An identifier scheme.
+A list of datasets with their geographical coverage information.
 
 ### Result
-* `datacite:issn`
+* `dataset_001` → Europe
+* `dataset_002` → European Union
 
 ### Based on
-Example 2
+Example 1 and Example 2
 
 
 ## Question 3
@@ -44,18 +44,17 @@ Example 2
 CQ_10.3
 
 ### Question
-Return all documents that have a DOI identifier.
+Return all datasets with their format and size information.
 
 ### Expected Outcome
-A list of documents.
+A list of datasets with encoding format and file size.
 
 ### Result
-* `document_1`
-* `document_45`
+* `dataset_001` → text/csv, 15.2 MB
+* `dataset_002` → application/x-spss, 245 MB
 
 ### Based on
-Example 1
-Example 2
+Example 1 and Example 2
 
 
 ## Question 4
@@ -64,22 +63,17 @@ Example 2
 CQ_10.4
 
 ### Question
-Return all identifier schemes defined in the ontology.
+Return all datasets that have DOI identifiers.
 
 ### Expected Outcome
-A list of identifier schemes.
+A list of datasets with valid DOI identifiers.
 
 ### Result
-* `datacite:doi`
-* `datacite:issn`
-* `datacite:isbn`
-* `datacite:handle`
+* `dataset-001` → 10.5281/zenodo.heritage.arch.2023
+* `dataset-002` → 10.5281/zenodo.social.attitudes.2023
 
 ### Based on
-Example 1
-Example 2
-Example 3
-Example 4
+Example 1 and Example 2
 
 
 ## Question 5
@@ -88,17 +82,17 @@ Example 4
 CQ_10.5
 
 ### Question
-Return all identifiers of `document_45` along with their schemes.
+Return all datasets with their descriptive keywords.
 
 ### Expected Outcome
-A list of identifiers with their respective schemes.
+A list of datasets with their associated keyword terms.
 
 ### Result
-* `identifier_23` uses `datacite:issn`
-* `identifier_24` uses `datacite:doi`
+* `dataset_001` → archaeology, Europe, heritage, spatial data
+* `dataset_002` → social attitudes, survey, politics, demographics
 
 ### Based on
-Example 2
+Example 1 and Example 2
 
 
 ## Question 6
@@ -107,16 +101,17 @@ Example 2
 CQ_10.6
 
 ### Question
-Return the literal value of the DOI identifier for `document_1`.
+Return all datasets with temporal coverage.
 
 ### Expected Outcome
-A string literal.
+A list of datasets with their temporal scope.
 
 ### Result
-* "10.1234/example.2024.001"
+* `dataset_001` → 2000 BCE - 1500 CE
+* `dataset_002` → 2023
 
 ### Based on
-Example 1
+Example 1 and Example 2
 
 
 ## Question 7
@@ -125,16 +120,17 @@ Example 1
 CQ_10.7
 
 ### Question
-Return all documents that have an ISBN identifier.
+Return all datasets with their contributors.
 
 ### Expected Outcome
-A list of documents.
+A list of datasets with their contributor information.
 
 ### Result
-* `document_99`
+* `dataset_001` → Dr. Anna Fischer
+* `dataset_002` → Prof. Elena Rodriguez, Dr. Klaus Mueller
 
 ### Based on
-Example 4
+Example 1 and Example 2
 
 
 ## Question 8
@@ -143,13 +139,72 @@ Example 4
 CQ_10.8
 
 ### Question
-Return all identifiers and their schemes for `document_78`.
+Return all datasets with their funding projects.
 
 ### Expected Outcome
-An identifier with its scheme.
+A list of datasets with their associated research projects.
 
 ### Result
-* `identifier_90` uses `datacite:handle`
+* `dataset_001` → European Heritage Digital Mapping Initiative
+* `dataset_002` → Social Cohesion Research Program
 
 ### Based on
-Example 3
+Example 1 and Example 2
+
+
+## Question 9
+
+### Identifier
+CQ_10.9
+
+### Question
+Return all datasets with their contact points.
+
+### Expected Outcome
+A list of datasets with contact information for data access.
+
+### Result
+* `dataset_001` → European Heritage Institute Data Team (data@heritage.eu)
+* `dataset_002` → EU Social Observatory Research Support (support@social-eu.org)
+
+### Based on
+Example 1 and Example 2
+
+
+## Question 10
+
+### Identifier
+CQ_10.10
+
+### Question
+Return all datasets that have Handle identifiers using class-based approach.
+
+### Expected Outcome
+A list of datasets with valid Handle identifiers.
+
+### Result
+* `dataset-001` → 21.11130/00-HERITAGE-ARCH-2023
+* `dataset-002` → 21.11130/00-SOCIAL-ATTITUDES-2023
+
+### Based on
+Example 1 and Example 2
+
+
+## Question 11
+
+### Identifier
+CQ_10.11
+
+### Question
+Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
+
+### Expected Outcome
+A list of datasets with their internal platform identifiers by type.
+
+### Result
+* `dataset-001` → Internal ID: TRIPLE_DATASET_HERITAGE_001
+* `dataset-001` → PID: gotriple:dataset:heritage-archaeological-sites
+* `dataset-002` → Internal ID: TRIPLE_DATASET_SOCIAL_002
+
+### Based on
+Example 1 and Example 2

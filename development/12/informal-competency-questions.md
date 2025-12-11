@@ -1,4 +1,6 @@
-## Informal Competency Questions (Iteration 12)
+# Informal Competency Questions - Iteration 12
+
+## Semantic Artefact Resource Type
 
 ## Question 1
 
@@ -6,18 +8,18 @@
 CQ_12.1
 
 ### Question
-Return all datasets available in the platform.
+What are all the semantic artifacts available in the GoTriple platform with their basic metadata (title, abstract, publisher)?
 
 ### Expected Outcome
-A list of all datasets with their titles.
+List of semantic artifacts with their titles, abstracts, and publisher information
 
 ### Result
-* `dataset_001` (European Archaeological Sites Database)
-* `dataset_002` (European Social Attitudes Survey 2023)
+* `TRIPLE SSH Thesaurus` → "Controlled vocabulary for Social Sciences and Humanities research classification", "GoTriple Consortium"
+* `SKOS Art History Vocabulary` → "Comprehensive vocabulary for art historical concepts and terminology", "Digital Humanities Institute"
+* `Medieval Studies Ontology` → "Formal ontology for medieval studies research domain", "University of Bologna"
 
 ### Based on
-Example 1 and Example 2
-
+Example 1, Example 2, and Example 3
 
 ## Question 2
 
@@ -25,18 +27,17 @@ Example 1 and Example 2
 CQ_12.2
 
 ### Question
-Return all datasets with their spatial coverage.
+Which semantic artifacts have DOI or Handle identifiers and what are their persistent identifiers?
 
 ### Expected Outcome
-A list of datasets with their geographical coverage information.
+List of semantic artifacts with their DOI or Handle persistent identifiers
 
 ### Result
-* `dataset_001` → Europe
-* `dataset_002` → European Union
+* `TRIPLE SSH Thesaurus` → "DOI: 10.5281/zenodo.1234567"
+* `Medieval Studies Ontology` → "Handle: hdl:1234.5/medieval-ontology"
 
 ### Based on
-Example 1 and Example 2
-
+Example 1 and Example 3
 
 ## Question 3
 
@@ -44,18 +45,19 @@ Example 1 and Example 2
 CQ_12.3
 
 ### Question
-Return all datasets with their format and size information.
+What are the different representation techniques used by semantic artifacts in the platform?
 
 ### Expected Outcome
-A list of datasets with encoding format and file size.
+List of representation techniques/methodologies used to structure semantic content
 
 ### Result
-* `dataset_001` → text/csv, 15.2 MB
-* `dataset_002` → application/x-spss, 245 MB
+* `SKOS vocabulary`
+* `OWL ontology`
+* `XML schema`
+* `RDF Schema`
 
 ### Based on
-Example 1 and Example 2
-
+Example 1, Example 2, and Example 3
 
 ## Question 4
 
@@ -63,18 +65,17 @@ Example 1 and Example 2
 CQ_12.4
 
 ### Question
-Return all datasets that have DOI identifiers.
+Which semantic artifacts are referenced by documents in the platform and what documents reference them?
 
 ### Expected Outcome
-A list of datasets with valid DOI identifiers.
+List of semantic artifacts and the documents that cite or reference them
 
 ### Result
-* `dataset-001` → 10.5281/zenodo.heritage.arch.2023
-* `dataset-002` → 10.5281/zenodo.social.attitudes.2023
+* `TRIPLE SSH Thesaurus` → "Digital Humanities Methodology Paper"
+* `Medieval Studies Ontology` → "Carolingian Renaissance Research Article"
 
 ### Based on
-Example 1 and Example 2
-
+Example 1 and Example 3
 
 ## Question 5
 
@@ -82,17 +83,18 @@ Example 1 and Example 2
 CQ_12.5
 
 ### Question
-Return all datasets with their descriptive keywords.
+What are the different file formats available for semantic artifacts and their download URLs?
 
 ### Expected Outcome
-A list of datasets with their associated keyword terms.
+List of semantic artifacts with their file formats and access URLs
 
 ### Result
-* `dataset_001` → archaeology, Europe, heritage, spatial data
-* `dataset_002` → social attitudes, survey, politics, demographics
+* `TRIPLE SSH Thesaurus` → "application/rdf+xml", "https://thesaurus.gotriple.eu/download/rdf"
+* `SKOS Art History Vocabulary` → "text/turtle", "https://vocab.arthistory.eu/skos.ttl"
+* `Medieval Studies Ontology` → "application/owl+xml", "https://ontology.medieval.unibo.it/owl"
 
 ### Based on
-Example 1 and Example 2
+Example 1, Example 2, and Example 3
 
 
 ## Question 6
@@ -101,17 +103,18 @@ Example 1 and Example 2
 CQ_12.6
 
 ### Question
-Return all datasets with temporal coverage.
+Return all semantic artifacts that have DOI identifiers using class-based approach.
 
 ### Expected Outcome
-A list of datasets with their temporal scope.
+A list of semantic artifacts with valid DOI identifiers.
 
 ### Result
-* `dataset_001` → 2000 BCE - 1500 CE
-* `dataset_002` → 2023
+* `thesaurus-ssh` → 10.5281/zenodo.thesaurus.ssh.v2
+* `vocab-arthistory` → 10.5281/zenodo.vocab.arthistory.v1  
+* `ontology-medieval` → 10.5281/zenodo.ontology.medieval.v09
 
 ### Based on
-Example 1 and Example 2
+Example 1, Example 2, and Example 3
 
 
 ## Question 7
@@ -120,17 +123,18 @@ Example 1 and Example 2
 CQ_12.7
 
 ### Question
-Return all datasets with their contributors.
+Return all semantic artifacts that have URI identifiers using class-based approach.
 
 ### Expected Outcome
-A list of datasets with their contributor information.
+A list of semantic artifacts with their namespace URI identifiers.
 
 ### Result
-* `dataset_001` → Dr. Anna Fischer
-* `dataset_002` → Prof. Elena Rodriguez, Dr. Klaus Mueller
+* `thesaurus-ssh` → https://gotriple.eu/thesaurus/ssh#
+* `vocab-arthistory` → https://vocab.arthistory.eu/skos#
+* `ontology-medieval` → https://ontology.medieval.unibo.it/owl#
 
 ### Based on
-Example 1 and Example 2
+Example 1, Example 2, and Example 3
 
 
 ## Question 8
@@ -139,72 +143,16 @@ Example 1 and Example 2
 CQ_12.8
 
 ### Question
-Return all datasets with their funding projects.
+Return all semantic artifacts with their identifier types and values.
 
 ### Expected Outcome
-A list of datasets with their associated research projects.
+A comprehensive list of semantic artifacts with all their identifier types (DOI, Handle, URI, platform identifiers).
 
 ### Result
-* `dataset_001` → European Heritage Digital Mapping Initiative
-* `dataset_002` → Social Cohesion Research Program
+* `thesaurus-ssh` → DOI: 10.5281/zenodo.thesaurus.ssh.v2, URI: https://gotriple.eu/thesaurus/ssh#
+* `vocab-arthistory` → DOI: 10.5281/zenodo.vocab.arthistory.v1, URI: https://vocab.arthistory.eu/skos#
+* `ontology-medieval` → URI: https://ontology.medieval.unibo.it/owl#
 
 ### Based on
-Example 1 and Example 2
+Example 1, Example 2, and Example 3
 
-
-## Question 9
-
-### Identifier
-CQ_12.9
-
-### Question
-Return all datasets with their contact points.
-
-### Expected Outcome
-A list of datasets with contact information for data access.
-
-### Result
-* `dataset_001` → European Heritage Institute Data Team (data@heritage.eu)
-* `dataset_002` → EU Social Observatory Research Support (support@social-eu.org)
-
-### Based on
-Example 1 and Example 2
-
-
-## Question 10
-
-### Identifier
-CQ_12.10
-
-### Question
-Return all datasets that have Handle identifiers using class-based approach.
-
-### Expected Outcome
-A list of datasets with valid Handle identifiers.
-
-### Result
-* `dataset-001` → 21.11130/00-HERITAGE-ARCH-2023
-* `dataset-002` → 21.11130/00-SOCIAL-ATTITUDES-2023
-
-### Based on
-Example 1 and Example 2
-
-
-## Question 11
-
-### Identifier
-CQ_12.11
-
-### Question
-Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
-
-### Expected Outcome
-A list of datasets with their internal platform identifiers by type.
-
-### Result
-* `dataset-001` → Internal ID: TRIPLE_DATASET_HERITAGE_001
-* `dataset-001` → PID: gotriple:dataset:heritage-archaeological-sites
-* `dataset-002` → Internal ID: TRIPLE_DATASET_SOCIAL_002
-
-### Based on
-Example 1 and Example 2

@@ -4,7 +4,6 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
@@ -17,72 +16,53 @@
 #    Object Properties
 #################################################################
 
-###  http://schema.org/conditionsOfAccess
-schema:conditionsOfAccess rdf:type owl:ObjectProperty ;
-                          rdfs:label "schema:conditionsOfAccess"@en ;
-                          rdfs:comment "Conditions that affect the availability of, or method(s) of access to, an item."@en ;
-                          rdfs:range skos:Concept .
+###  http://schema.org/mentions
+schema:mentions rdf:type owl:ObjectProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class ;
+                    rdfs:label "schema:CreativeWork"@en .
+
+
+###  http://schema.org/Project
+triple:Project rdf:type owl:Class ;
+               rdfs:label "Project (Triple)"@en ;
+               rdfs:subClassOf schema:Project .
+
+
+###  http://schema.org/Thing
+schema:Thing rdf:type owl:Class ;
+             rdfs:label "schema:Thing"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Document
+foaf:Document rdf:type owl:Class ;
+              rdfs:label "foaf:Document"@en .
+
 
 ###  https://gotriple.eu/ontology/triple#Document
 triple:Document rdf:type owl:Class ;
                 rdfs:label "Document (Triple)"@en ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
-                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                  owl:onProperty schema:conditionsOfAccess ;
-                                  owl:someValuesFrom skos:Concept
-                                ] .
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
 
 
-#################################################################
-#    Individuals
-#################################################################
-
-###  https://gotriple.eu/ontology/triple#conditions_of_access
-triple:conditions_of_access rdf:type owl:NamedIndividual ,
-                                     skos:ConceptScheme ;
-                            rdfs:label "Conditions of Access"@en ;
-                            rdfs:comment "Controlled vocabulary of access conditions aligned with COAR Access Rights Vocabulary"@en .
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class ;
+                  rdfs:label "foaf:Organization"@en ;
+                  rdfs:subClassOf schema:Thing .
 
 
-###  https://gotriple.eu/ontology/triple#acc_open-access
-triple:acc_open-access rdf:type owl:NamedIndividual ,
-                                skos:Concept ;
-                       skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
-                       skos:inScheme triple:conditions_of_access ;
-                       rdfs:label "Open Access"@en ;
-                       skos:definition "The resource is freely accessible to anyone without restrictions"@en .
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:label "foaf:Person"@en ;
+            rdfs:subClassOf schema:Thing .
 
 
-###  https://gotriple.eu/ontology/triple#acc_embargoed-access
-triple:acc_embargoed-access rdf:type owl:NamedIndividual ,
-                                     skos:Concept ;
-                            skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> ;
-                            skos:inScheme triple:conditions_of_access ;
-                            rdfs:label "Embargoed Access"@en ;
-                            skos:definition "The resource is under embargo and will become openly accessible after a specified date"@en .
-
-
-###  https://gotriple.eu/ontology/triple#acc_restricted-access
-triple:acc_restricted-access rdf:type owl:NamedIndividual ,
-                                      skos:Concept ;
-                             skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> ;
-                             skos:inScheme triple:conditions_of_access ;
-                             rdfs:label "Restricted Access"@en ;
-                             skos:definition "The resource is accessible only under certain conditions or to specific users"@en .
-
-
-###  https://gotriple.eu/ontology/triple#acc_metadata-only-access
-triple:acc_metadata-only-access rdf:type owl:NamedIndividual ,
-                                         skos:Concept ;
-                                skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> ;
-                                skos:inScheme triple:conditions_of_access ;
-                                rdfs:label "Metadata Only Access"@en ;
-                                skos:definition "Only metadata about the resource is accessible; the resource itself is not available"@en .
-
-
+###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

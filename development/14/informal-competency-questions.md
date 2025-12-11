@@ -1,25 +1,23 @@
 # Informal Competency Questions - Iteration 14
 
-## Semantic Artefact Resource Type
-
 ## Question 1
 
 ### Identifier
 CQ_14.1
 
 ### Question
-What are all the semantic artifacts available in the GoTriple platform with their basic metadata (title, abstract, publisher)?
+Which research projects produced a specific document, dataset, semantic artefact, or media object as an output?
 
 ### Expected Outcome
-List of semantic artifacts with their titles, abstracts, and publisher information
+List of research projects that generated the specified research artifact
 
 ### Result
-* `TRIPLE SSH Thesaurus` → "Controlled vocabulary for Social Sciences and Humanities research classification", "GoTriple Consortium"
-* `SKOS Art History Vocabulary` → "Comprehensive vocabulary for art historical concepts and terminology", "Digital Humanities Institute"
-* `Medieval Studies Ontology` → "Formal ontology for medieval studies research domain", "University of Bologna"
+* `triple:project-digital-humanities` → produced `triple:document-dh-methods`
+* `triple:project-cultural-heritage` → produced `triple:ontology-cultural-heritage`
+* `triple:project-migration-studies` → produced `triple:dataset-migration-interviews`, `triple:audio-interview-001`
 
 ### Based on
-Example 1, Example 2, and Example 3
+Examples 1, 2, and 3
 
 ## Question 2
 
@@ -27,17 +25,18 @@ Example 1, Example 2, and Example 3
 CQ_14.2
 
 ### Question
-Which semantic artifacts have DOI or Handle identifiers and what are their persistent identifiers?
+What research outputs (documents, datasets, semantic artefacts, media objects) were produced by a specific research project?
 
 ### Expected Outcome
-List of semantic artifacts with their DOI or Handle persistent identifiers
+List of research artifacts that were generated as outputs of the specified project
 
 ### Result
-* `TRIPLE SSH Thesaurus` → "DOI: 10.5281/zenodo.1234567"
-* `Medieval Studies Ontology` → "Handle: hdl:1234.5/medieval-ontology"
+* `triple:project-digital-humanities` → `triple:document-dh-methods`
+* `triple:project-cultural-heritage` → `triple:ontology-cultural-heritage`
+* `triple:project-migration-studies` → `triple:dataset-migration-interviews`, `triple:audio-interview-001`
 
 ### Based on
-Example 1 and Example 3
+Examples 1, 2, and 3
 
 ## Question 3
 
@@ -45,19 +44,18 @@ Example 1 and Example 3
 CQ_14.3
 
 ### Question
-What are the different representation techniques used by semantic artifacts in the platform?
+Which documents, papers, or other creative works reference or cite a specific semantic artefact, dataset, or media object?
 
 ### Expected Outcome
-List of representation techniques/methodologies used to structure semantic content
+List of citing resources that reference the specified research artifact
 
 ### Result
-* `SKOS vocabulary`
-* `OWL ontology`
-* `XML schema`
-* `RDF Schema`
+* `triple:ontology-cultural-heritage` → referenced by `triple:paper-heritage-analysis`
+* `triple:dataset-migration-interviews` → referenced by `triple:analysis-urban-migration`
+* `triple:audio-interview-001` → referenced by `triple:analysis-urban-migration`
 
 ### Based on
-Example 1, Example 2, and Example 3
+Examples 2 and 3
 
 ## Question 4
 
@@ -65,17 +63,18 @@ Example 1, Example 2, and Example 3
 CQ_14.4
 
 ### Question
-Which semantic artifacts are referenced by documents in the platform and what documents reference them?
+For a given semantic artefact, dataset, or media object, what are both its originating project and its citing documents?
 
 ### Expected Outcome
-List of semantic artifacts and the documents that cite or reference them
+Combined information showing the production context (project) and usage context (citations) of a research artifact
 
 ### Result
-* `TRIPLE SSH Thesaurus` → "Digital Humanities Methodology Paper"
-* `Medieval Studies Ontology` → "Carolingian Renaissance Research Article"
+* `triple:ontology-cultural-heritage` → produced by `triple:project-cultural-heritage`, referenced by `triple:paper-heritage-analysis`
+* `triple:dataset-migration-interviews` → produced by `triple:project-migration-studies`, referenced by `triple:analysis-urban-migration`
+* `triple:audio-interview-001` → produced by `triple:project-migration-studies`, referenced by `triple:analysis-urban-migration`
 
 ### Based on
-Example 1 and Example 3
+Examples 2 and 3
 
 ## Question 5
 
@@ -83,76 +82,16 @@ Example 1 and Example 3
 CQ_14.5
 
 ### Question
-What are the different file formats available for semantic artifacts and their download URLs?
+Which research artifacts use the FRAPO property (frapo:isOutputOf) for linking to their originating projects?
 
 ### Expected Outcome
-List of semantic artifacts with their file formats and access URLs
+List of research artifacts that use the standard FRAPO vocabulary for project relationships
 
 ### Result
-* `TRIPLE SSH Thesaurus` → "application/rdf+xml", "https://thesaurus.gotriple.eu/download/rdf"
-* `SKOS Art History Vocabulary` → "text/turtle", "https://vocab.arthistory.eu/skos.ttl"
-* `Medieval Studies Ontology` → "application/owl+xml", "https://ontology.medieval.unibo.it/owl"
+* `triple:document-dh-methods` → frapo:isOutputOf `triple:project-digital-humanities`
+* `triple:ontology-cultural-heritage` → frapo:isOutputOf `triple:project-cultural-heritage`
+* `triple:dataset-migration-interviews` → frapo:isOutputOf `triple:project-migration-studies`
+* `triple:audio-interview-001` → frapo:isOutputOf `triple:project-migration-studies`
 
 ### Based on
-Example 1, Example 2, and Example 3
-
-
-## Question 6
-
-### Identifier
-CQ_14.6
-
-### Question
-Return all semantic artifacts that have DOI identifiers using class-based approach.
-
-### Expected Outcome
-A list of semantic artifacts with valid DOI identifiers.
-
-### Result
-* `thesaurus-ssh` → 10.5281/zenodo.thesaurus.ssh.v2
-* `vocab-arthistory` → 10.5281/zenodo.vocab.arthistory.v1  
-* `ontology-medieval` → 10.5281/zenodo.ontology.medieval.v09
-
-### Based on
-Example 1, Example 2, and Example 3
-
-
-## Question 7
-
-### Identifier
-CQ_14.7
-
-### Question
-Return all semantic artifacts that have URI identifiers using class-based approach.
-
-### Expected Outcome
-A list of semantic artifacts with their namespace URI identifiers.
-
-### Result
-* `thesaurus-ssh` → https://gotriple.eu/thesaurus/ssh#
-* `vocab-arthistory` → https://vocab.arthistory.eu/skos#
-* `ontology-medieval` → https://ontology.medieval.unibo.it/owl#
-
-### Based on
-Example 1, Example 2, and Example 3
-
-
-## Question 8
-
-### Identifier
-CQ_14.8
-
-### Question
-Return all semantic artifacts with their identifier types and values.
-
-### Expected Outcome
-A comprehensive list of semantic artifacts with all their identifier types (DOI, Handle, URI, platform identifiers).
-
-### Result
-* `thesaurus-ssh` → DOI: 10.5281/zenodo.thesaurus.ssh.v2, URI: https://gotriple.eu/thesaurus/ssh#
-* `vocab-arthistory` → DOI: 10.5281/zenodo.vocab.arthistory.v1, URI: https://vocab.arthistory.eu/skos#
-* `ontology-medieval` → URI: https://ontology.medieval.unibo.it/owl#
-
-### Based on
-Example 1, Example 2, and Example 3
-
+Examples 1, 2, and 3

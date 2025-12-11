@@ -6,13 +6,14 @@
 CQ_9.1
 
 ### Question
-Return all documents with "Open access" conditions.
+Return all entities mentioned by `document_1`.
 
 ### Expected Outcome
-A list of documents.
+A list of entities (documents, persons, projects, organizations).
 
 ### Result
-* `document_1`
+* `document_45`
+* `person_23`
 
 ### Based on
 Example 1
@@ -24,16 +25,18 @@ Example 1
 CQ_9.2
 
 ### Question
-Return the vocabulary scheme to which `acc_embargoed-access` belongs.
+Return all documents mentioned by `document_89`.
 
 ### Expected Outcome
-A vocabulary scheme.
+A list of documents.
 
 ### Result
-* `conditions_of_access` vocabulary
+* `document_100`
+* `document_101`
+* `document_102`
 
 ### Based on
-Example 2
+Example 3
 
 
 ## Question 3
@@ -42,21 +45,15 @@ Example 2
 CQ_9.3
 
 ### Question
-Return all external COAR terms that exactly match the access conditions in the GoTriple vocabulary.
+Return all documents that mention `person_78`.
 
 ### Expected Outcome
-A list of external URIs.
+A list of documents.
 
 ### Result
-* `https://vocabularies.coar-repositories.org/access_rights/c_f1cf/` (Embargoed Access)
-* `https://vocabularies.coar-repositories.org/access_rights/c_14cb/` (Metadata Only Access)
-* `https://vocabularies.coar-repositories.org/access_rights/c_abf2/` (Open Access)
-* `https://vocabularies.coar-repositories.org/access_rights/c_16ec/` (Restricted Access)
+* `document_34`
 
 ### Based on
-Example 1
-Example 2
-Example 3
 Example 4
 
 
@@ -66,13 +63,13 @@ Example 4
 CQ_9.4
 
 ### Question
-Return the access condition of `document_23`.
+Return all projects mentioned in any document.
 
 ### Expected Outcome
-An access condition term.
+A list of projects.
 
 ### Result
-* `acc_embargoed-access`
+* `project_12`
 
 ### Based on
 Example 2
@@ -84,23 +81,16 @@ Example 2
 CQ_9.5
 
 ### Question
-Return all access condition terms in the controlled vocabulary.
+Return all organizations mentioned by `document_67`.
 
 ### Expected Outcome
-A list of terms including the newly added COAR-aligned terms.
+A list of organizations.
 
 ### Result
-* `acc_embargoed-access`
-* `acc_metadata-only-access`
-* `acc_open-access`
-* `acc_restricted-access`
-* (... other access condition terms)
+* `organization_5`
 
 ### Based on
-Example 1
 Example 2
-Example 3
-Example 4
 
 
 ## Question 6
@@ -109,16 +99,16 @@ Example 4
 CQ_9.6
 
 ### Question
-Return all documents that have metadata-only access.
+Return all people mentioned by `document_34`.
 
 ### Expected Outcome
-A list of documents.
+A list of persons.
 
 ### Result
-* `document_56`
+* `person_78`
 
 ### Based on
-Example 3
+Example 4
 
 
 ## Question 7
@@ -127,13 +117,34 @@ Example 3
 CQ_9.7
 
 ### Question
-Return the COAR external term that exactly matches `acc_open-access`.
+Return all documents that mention at least one other document.
 
 ### Expected Outcome
-An external URI.
+A list of documents that have citations/references.
 
 ### Result
-* `https://vocabularies.coar-repositories.org/access_rights/c_abf2/`
+* `document_1`
+* `document_89`
 
 ### Based on
 Example 1
+Example 3
+
+
+## Question 8
+
+### Identifier
+CQ_9.8
+
+### Question
+Return all entities mentioned by `document_67` with their types.
+
+### Expected Outcome
+A list of entities with their respective types.
+
+### Result
+* `project_12` (type: Project)
+* `organization_5` (type: Organization)
+
+### Based on
+Example 2

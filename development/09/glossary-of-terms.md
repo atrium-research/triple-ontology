@@ -1,19 +1,16 @@
 # Glossary of Terms (Iteration 9)
 
-| Term                          | Definition                                                                                                                                               |
-|-------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Access Conditions`           | The controlled vocabulary that contains all standardized terms defining the level of accessibility for documents in GoTriple.                            |
-| `conditions_of_access`        | The SKOS ConceptScheme representing the access conditions vocabulary in the TRIPLE ontology.                                                             |
-| `Embargoed Access`            | An access level indicating the resource is currently under embargo but will become openly accessible after a specified date.                             |
-| `acc_embargoed-access`        | The identifier for the Embargoed Access term in the access conditions vocabulary.                                                                        |
-| `Metadata Only Access`        | An access level where only metadata is publicly accessible, but the full content is not available.                                                       |
-| `acc_metadata-only-access`    | The identifier for the Metadata Only Access term in the access conditions vocabulary.                                                                    |
-| `Open Access`                 | An access level indicating the resource is freely accessible to anyone without restrictions.                                                             |
-| `acc_open-access`             | The identifier for the Open Access term in the access conditions vocabulary.                                                                             |
-| `Restricted Access`           | An access level where access is limited to specific users or groups (e.g., institutional members, subscribers).                                          |
-| `acc_restricted-access`       | The identifier for the Restricted Access term in the access conditions vocabulary.                                                                       |
-| `COAR Access Rights`          | The Confederation of Open Access Repositories controlled vocabulary for access rights to scholarly resources.                                            |
-| `Exact Match`                 | A SKOS property indicating that two concepts have identical meaning and can be used interchangeably (`skos:exactMatch`).                                 |
-| `In Scheme`                   | A SKOS property connecting a concept to its controlled vocabulary scheme (`skos:inScheme`).                                                              |
-| `conditionsOfAccess`          | The Schema.org property that connects a document to its access conditions term (`schema:conditionsOfAccess`).                                            |
-| `Document`                    | An entity representing any type of resource available on the GoTriple platform (articles, datasets, etc.).                                               |
+| Term                  | Definition                                                                                                                                          |
+|-----------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `mentions`            | A property indicating that a document contains a reference to or mentions another entity (`schema:mentions`).                                       |
+| `schema:mentions`     | Schema.org property connecting a CreativeWork to an entity it mentions or references.                                                               |
+| `schema:CreativeWork` | Schema.org class representing creative works such as documents, articles, books, etc.                                                               |
+| `schema:Thing`        | The most generic Schema.org class, representing anything that can be mentioned.                                                                     |
+| `triple:Document`     | A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. Subclass of `schema:CreativeWork` and `foaf:Document`. |
+| `foaf:Document`       | FOAF vocabulary class for documents (parent class of `triple:Document`).                                                                           |
+| `Person`              | An individual person, such as a researcher or scholar (`foaf:Person`).                                                                              |
+| `Project`             | A research project or initiative (`triple:Project`, subclass of schema:Project).                                                                   |
+| `Organization`        | An institution, research center, university, or other organizational entity (`foaf:Organization`).                                                  |
+| `Citation`            | A mention of one document by another, typically in bibliographic references (modeled as `schema:mentions` between documents).                       |
+| `Reference`           | A general mention or reference to any entity within a document's content.                                                                           |
+| `Mention network`     | The graph of relationships created by documents mentioning various entities, forming a network of scholarly connections.                            |

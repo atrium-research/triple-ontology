@@ -4,10 +4,8 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix litre: <http://purl.org/spar/literal/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix schema: <http://schema.org/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @base <https://gotriple.eu/ontology/triple#> .
@@ -19,28 +17,32 @@
 #    Object Properties
 #################################################################
 
-###  https://schema.org/additionalType
-schema:additionalType rdf:type owl:ObjectProperty .
+###  http://purl.org/spar/datacite/hasIdentifier
+datacite:hasIdentifier rdf:type owl:ObjectProperty .
 
 
-###  http://www.w3.org/2004/02/skos/core#exactMatch
-skos:exactMatch rdf:type owl:ObjectProperty .
+###  http://purl.org/spar/datacite/usesIdentifierScheme
+datacite:usesIdentifierScheme rdf:type owl:ObjectProperty .
 
 
-###  http://www.w3.org/2004/02/skos/core#inScheme
-skos:inScheme rdf:type owl:ObjectProperty .
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/spar/literal/hasLiteralValue
+litre:hasLiteralValue rdf:type owl:DatatypeProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.w3.org/2004/02/skos/core#Concept
-skos:Concept rdf:type owl:Class .
+###  http://purl.org/spar/datacite/Identifier
+datacite:Identifier rdf:type owl:Class .
 
 
-###  http://www.w3.org/2004/02/skos/core#ConceptScheme
-skos:ConceptScheme rdf:type owl:Class .
+###  http://purl.org/spar/datacite/IdentifierScheme
+datacite:IdentifierScheme rdf:type owl:Class .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
@@ -51,33 +53,87 @@ foaf:Document rdf:type owl:Class .
 #    Individuals
 #################################################################
 
+###  http://purl.org/spar/datacite/doi
+datacite:doi rdf:type owl:NamedIndividual ,
+                      datacite:IdentifierScheme ;
+             rdfs:label "datacite:doi"@en ;
+             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+
+
+###  http://purl.org/spar/datacite/issn
+datacite:issn rdf:type owl:NamedIndividual ,
+                       datacite:IdentifierScheme ;
+              rdfs:label "datacite:issn"@en ;
+              rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en .
+
+
+###  http://purl.org/spar/datacite/isbn
+datacite:isbn rdf:type owl:NamedIndividual ,
+                       datacite:IdentifierScheme ;
+              rdfs:label "datacite:isbn"@en ;
+              rdfs:comment "International Standard Book Number - a numeric identifier for books and book-like products."@en .
+
+
+###  http://purl.org/spar/datacite/handle
+datacite:handle rdf:type owl:NamedIndividual ,
+                         datacite:IdentifierScheme ;
+                rdfs:label "datacite:handle"@en ;
+                rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+
+
 ###  https://gotriple.eu/ontology/triple#document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
                            triple:Document ;
-                  schema:additionalType triple:typ_book-part .
+                  datacite:hasIdentifier triple:identifier_1 .
 
 
 ###  https://gotriple.eu/ontology/triple#document_45
 triple:document_45 rdf:type owl:NamedIndividual ,
                             triple:Document ;
-                   schema:additionalType triple:typ_book-part .
+                   datacite:hasIdentifier triple:identifier_23 ,
+                                          triple:identifier_24 .
 
 
-###  https://gotriple.eu/ontology/triple#content_types
-triple:content_types rdf:type owl:NamedIndividual ,
-                               skos:ConceptScheme .
+###  https://gotriple.eu/ontology/triple#document_78
+triple:document_78 rdf:type owl:NamedIndividual ,
+                            triple:Document ;
+                   datacite:hasIdentifier triple:identifier_90 .
 
 
-###  https://gotriple.eu/ontology/triple#typ_book-part
-triple:typ_book-part rdf:type owl:NamedIndividual ,
-                              skos:Concept ;
-                     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_3248/> ;
-                     skos:inScheme triple:content_types .
+###  https://gotriple.eu/ontology/triple#document_99
+triple:document_99 rdf:type owl:NamedIndividual ,
+                            triple:Document ;
+                   datacite:hasIdentifier triple:identifier_110 .
 
 
-###  https://vocabularies.coar-repositories.org/resource_types/c_3248/
-<https://vocabularies.coar-repositories.org/resource_types/c_3248/> rdf:type owl:NamedIndividual ,
-                                                                              skos:Concept .
+###  https://gotriple.eu/ontology/triple#identifier_1
+triple:identifier_1 rdf:type owl:NamedIndividual ,
+                             triple:DOI ;
+                    litre:hasLiteralValue "10.1234/example.2024.001" .
+
+
+###  https://gotriple.eu/ontology/triple#identifier_23
+triple:identifier_23 rdf:type owl:NamedIndividual ,
+                              triple:ISSN ;
+                     litre:hasLiteralValue "1234-5678" .
+
+
+###  https://gotriple.eu/ontology/triple#identifier_24
+triple:identifier_24 rdf:type owl:NamedIndividual ,
+                              triple:DOI ;
+                     litre:hasLiteralValue "10.5678/journal.2024.045" .
+
+
+###  https://gotriple.eu/ontology/triple#identifier_90
+triple:identifier_90 rdf:type owl:NamedIndividual ,
+                              triple:Handle ;
+                     litre:hasLiteralValue "11234/5678-abcd-efgh" .
+
+
+###  https://gotriple.eu/ontology/triple#identifier_110
+triple:identifier_110 rdf:type owl:NamedIndividual ,
+                               triple:ISBN ;
+                      litre:hasLiteralValue "978-3-16-148410-0" .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

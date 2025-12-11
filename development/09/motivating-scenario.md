@@ -1,70 +1,85 @@
 # Motivating Scenario (Iteration 9)
 
 ## Name
-Access Conditions Vocabulary Extension and COAR Alignment
+Document Mentions and References
 
 ## Description
 
 ### General description
 
-The GoTriple platform provides access to a diverse range of scholarly resources from multiple providers, each with different access policies and restrictions. To facilitate discovery and ensure users understand how they can access documents, GoTriple maintains a controlled vocabulary for access conditions.
+Scholarly documents in the Social Sciences and Humanities do not exist in isolation. They form complex networks of references, citations, and mentions that connect research artifacts, people, projects, and institutions. Understanding these connections is crucial for discovering related research, tracing the evolution of ideas, and identifying collaboration patterns.
 
-Access conditions define the level of accessibility for a document, ranging from fully open access to restricted or embargoed content. Aligning this vocabulary with internationally recognized standards ensures interoperability with other scholarly infrastructures and repositories.
+In the GoTriple platform, documents can mention various types of entities:
 
-The COAR (Confederation of Open Access Repositories) Access Rights vocabulary is a widely adopted standard that defines four primary access levels for scholarly resources. By mapping and extending the GoTriple `conditions_of_access` vocabulary to align with COAR, the platform enhances its compatibility with global repository networks and provides clearer access information to users.
+1. **Other Documents**: Citations and bibliographic references to other publications, datasets, or research outputs. These mentions create citation networks and help users discover related work.
 
-The four access levels being integrated are:
+2. **People**: Mentions of researchers, authors, or scholars discussed in the text but who are not necessarily authors or contributors to the document itself. For example, a paper about digital humanities might mention prominent figures in the field.
 
-1. **Embargoed Access**: The resource is currently under embargo but will become openly accessible after a specified date. During the embargo period, access is restricted.
+3. **Projects**: References to research projects, initiatives, or programs that are discussed, evaluated, or related to the document's content. This helps connect documents to the broader research ecosystem.
 
-2. **Metadata Only Access**: Only the metadata (title, authors, abstract, etc.) is publicly accessible, but the full content of the resource is not available through the repository.
+4. **Organizations**: Mentions of institutions, research centers, universities, or funding bodies that are relevant to the document's context but may not have a formal role (like publisher or funder).
 
-3. **Open Access**: The resource is freely accessible to anyone without restrictions. This is the most permissive access level.
-
-4. **Restricted Access**: Access to the resource is limited to specific users or groups, such as institutional members, subscribers, or authorized individuals.
+By capturing these mentions explicitly in the ontology, GoTriple enables:
+- **Discovery of related resources**: Users can navigate from one document to mentioned entities
+- **Network analysis**: Understanding citation patterns and research connections
+- **Context enrichment**: Providing richer context about a document's intellectual environment
+- **Cross-referencing**: Linking documents across different types of relationships
 
 ### Technical specification
 
-The access conditions vocabulary extension involves adding four new terms to the `triple:conditions_of_access` controlled vocabulary:
+The mentions functionality will be implemented using the `schema:mentions` property from Schema.org vocabulary. This property is designed to indicate that a CreativeWork (in our case, a Document) contains a reference to a subject.
 
-1. **Term**: `acc_embargoed-access`
-   - **Label**: "Embargoed access"
-   - **Vocabulary**: `triple:conditions_of_access` (skos:ConceptScheme)
-   - **External Alignment**: `skos:exactMatch` to `https://vocabularies.coar-repositories.org/access_rights/c_f1cf/` (COAR Embargoed Access)
-   - **Usage**: Assigned to documents via `schema:conditionsOfAccess` property
+**Property specification:**
 
-2. **Term**: `acc_metadata-only-access`
-   - **Label**: "Metadata only access"
-   - **Vocabulary**: `triple:conditions_of_access`
-   - **External Alignment**: `skos:exactMatch` to `https://vocabularies.coar-repositories.org/access_rights/c_14cb/` (COAR Metadata Only Access)
-   - **Usage**: Assigned to documents via `schema:conditionsOfAccess` property
+- **Property**: `schema:mentions`
+- **Domain**: `schema:CreativeWork` (compatible with `triple:Document`)
+- **Range**: `schema:Thing` (allows mentioning any type of entity)
+- **Usage**: Connects documents to mentioned entities of various types
 
-3. **Term**: `acc_open-access`
-   - **Label**: "Open access"
-   - **Vocabulary**: `triple:conditions_of_access`
-   - **External Alignment**: `skos:exactMatch` to `https://vocabularies.coar-repositories.org/access_rights/c_abf2/` (COAR Open Access)
-   - **Usage**: Assigned to documents via `schema:conditionsOfAccess` property
+**Compatibility with TRIPLE Document Model:**
 
-4. **Term**: `acc_restricted-access`
-   - **Label**: "Restricted access"
-   - **Vocabulary**: `triple:conditions_of_access`
-   - **External Alignment**: `skos:exactMatch` to `https://vocabularies.coar-repositories.org/access_rights/c_16ec/` (COAR Restricted Access)
-   - **Usage**: Assigned to documents via `schema:conditionsOfAccess` property
+The TRIPLE ontology defines `triple:Document` as a subclass of both `schema:CreativeWork` and `foaf:Document`:
 
-Each term is defined as a `skos:Concept` within the `triple:conditions_of_access` vocabulary (a `skos:ConceptScheme`), ensuring consistency with the controlled vocabulary pattern established in Iteration 02.
+```turtle
+triple:Document rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
+```
+
+This dual inheritance ensures that all TRIPLE documents are recognized as creative works, making the use of `schema:mentions` semantically valid and aligned with Schema.org best practices.
+
+**Entities that can be mentioned:**
+
+1. **Documents** (`triple:Document`): Other publications in the GoTriple platform or external resources
+2. **People** (`foaf:Person`): Researchers, scholars, authors mentioned in the text
+3. **Projects** (`triple:Project`): Research projects discussed or referenced
+4. **Organizations** (`foaf:Organization`): Institutions, research centers, funding bodies
+
+The flexible range of `schema:mentions` allows for mentioning any type of entity, making the model extensible for future needs while maintaining simplicity.
+
+**Querying mentions:**
+
+To query specific types of mentions, SPARQL queries can filter by the type of the mentioned entity:
+
+```sparql
+# Find all documents mentioned by document_1
+SELECT ?mentioned WHERE {
+  triple:document_1 schema:mentions ?mentioned .
+  ?mentioned a triple:Document .
+}
+```
 
 ## Example 1
 
-`document_1` has access condition `acc_open-access`. This term belongs to the `conditions_of_access` vocabulary and has an exact match to the COAR access rights term `https://vocabularies.coar-repositories.org/access_rights/c_abf2/`.
+`document_1` mentions `document_45` (a bibliographic reference to another paper in GoTriple). It also mentions `person_23` (a researcher discussed in the text).
 
 ## Example 2
 
-`document_23` has access condition `acc_embargoed-access`, indicating that the full content is currently under embargo but will become openly accessible after a specified date.
+`document_67` mentions `project_12` (a research project that the paper evaluates) and `organization_5` (a research institute mentioned in the methodology section).
 
 ## Example 3
 
-`document_56` has access condition `acc_metadata-only-access`. Users can view the document's metadata (title, authors, abstract) but cannot access the full text through GoTriple.
+`document_89` mentions three other documents: `document_100`, `document_101`, and `document_102` (forming a citation network).
 
 ## Example 4
 
-`acc_restricted-access` is a concept in the `conditions_of_access` vocabulary that is exactly matched to the COAR access rights term for restricted access: `https://vocabularies.coar-repositories.org/access_rights/c_16ec/`.
+`document_34` mentions `person_78` (a prominent scholar in the field whose work is discussed) and `organization_23` (a university that conducted related research).

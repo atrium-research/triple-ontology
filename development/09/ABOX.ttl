@@ -4,7 +4,6 @@
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
@@ -17,107 +16,122 @@
 #    Object Properties
 #################################################################
 
-###  http://schema.org/conditionsOfAccess
-schema:conditionsOfAccess rdf:type owl:ObjectProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#exactMatch
-skos:exactMatch rdf:type owl:ObjectProperty .
-
-
-###  http://www.w3.org/2004/02/skos/core#inScheme
-skos:inScheme rdf:type owl:ObjectProperty .
+###  http://schema.org/mentions
+schema:mentions rdf:type owl:ObjectProperty .
 
 
 #################################################################
 #    Classes
 #################################################################
 
-###  http://www.w3.org/2004/02/skos/core#Concept
-skos:Concept rdf:type owl:Class .
+###  http://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class .
 
 
-###  http://www.w3.org/2004/02/skos/core#ConceptScheme
-skos:ConceptScheme rdf:type owl:Class .
+###  http://schema.org/Project
+triple:Project rdf:type owl:Class .
+
+
+###  http://schema.org/Thing
+schema:Thing rdf:type owl:Class .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class .
 
 
+###  https://gotriple.eu/ontology/triple#Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "TRIPLE Document"@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class .
+
+
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#conditions_of_access
-triple:conditions_of_access rdf:type owl:NamedIndividual ,
-                                     skos:ConceptScheme .
-
-
 ###  https://gotriple.eu/ontology/triple#document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
                            triple:Document ;
-                  schema:conditionsOfAccess triple:acc_open-access .
+                  schema:mentions triple:document_45 ,
+                                  triple:person_23 .
 
 
-###  https://gotriple.eu/ontology/triple#document_23
-triple:document_23 rdf:type owl:NamedIndividual ,
+###  https://gotriple.eu/ontology/triple#document_34
+triple:document_34 rdf:type owl:NamedIndividual ,
                             triple:Document ;
-                   schema:conditionsOfAccess triple:acc_embargoed-access .
+                   schema:mentions triple:organization_23 ,
+                                   triple:person_78 .
 
 
-###  https://gotriple.eu/ontology/triple#document_56
-triple:document_56 rdf:type owl:NamedIndividual ,
+###  https://gotriple.eu/ontology/triple#document_45
+triple:document_45 rdf:type owl:NamedIndividual ,
+                            triple:Document .
+
+
+###  https://gotriple.eu/ontology/triple#document_67
+triple:document_67 rdf:type owl:NamedIndividual ,
                             triple:Document ;
-                   schema:conditionsOfAccess triple:acc_metadata-only-access .
+                   schema:mentions triple:organization_5 ,
+                                   triple:project_12 .
 
 
-###  https://gotriple.eu/ontology/triple#acc_embargoed-access
-triple:acc_embargoed-access rdf:type owl:NamedIndividual ,
-                                     skos:Concept ;
-                            skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> ;
-                            skos:inScheme triple:conditions_of_access .
+###  https://gotriple.eu/ontology/triple#document_89
+triple:document_89 rdf:type owl:NamedIndividual ,
+                            triple:Document ;
+                   schema:mentions triple:document_100 ,
+                                   triple:document_101 ,
+                                   triple:document_102 .
 
 
-###  https://gotriple.eu/ontology/triple#acc_metadata-only-access
-triple:acc_metadata-only-access rdf:type owl:NamedIndividual ,
-                                         skos:Concept ;
-                                skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> ;
-                                skos:inScheme triple:conditions_of_access .
+###  https://gotriple.eu/ontology/triple#document_100
+triple:document_100 rdf:type owl:NamedIndividual ,
+                             triple:Document .
 
 
-###  https://gotriple.eu/ontology/triple#acc_open-access
-triple:acc_open-access rdf:type owl:NamedIndividual ,
-                                skos:Concept ;
-                       skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
-                       skos:inScheme triple:conditions_of_access .
+###  https://gotriple.eu/ontology/triple#document_101
+triple:document_101 rdf:type owl:NamedIndividual ,
+                             triple:Document .
 
 
-###  https://gotriple.eu/ontology/triple#acc_restricted-access
-triple:acc_restricted-access rdf:type owl:NamedIndividual ,
-                                      skos:Concept ;
-                             skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> ;
-                             skos:inScheme triple:conditions_of_access .
+###  https://gotriple.eu/ontology/triple#document_102
+triple:document_102 rdf:type owl:NamedIndividual ,
+                             triple:Document .
 
 
-###  https://vocabularies.coar-repositories.org/access_rights/c_abf2/
-<https://vocabularies.coar-repositories.org/access_rights/c_abf2/> rdf:type owl:NamedIndividual ,
-                                                                             skos:Concept .
+###  https://gotriple.eu/ontology/triple#organization_5
+triple:organization_5 rdf:type owl:NamedIndividual ,
+                               foaf:Organization .
 
 
-###  https://vocabularies.coar-repositories.org/access_rights/c_f1cf/
-<https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> rdf:type owl:NamedIndividual ,
-                                                                             skos:Concept .
+###  https://gotriple.eu/ontology/triple#organization_23
+triple:organization_23 rdf:type owl:NamedIndividual ,
+                                foaf:Organization .
 
 
-###  https://vocabularies.coar-repositories.org/access_rights/c_14cb/
-<https://vocabularies.coar-repositories.org/access_rights/c_14cb/> rdf:type owl:NamedIndividual ,
-                                                                             skos:Concept .
+###  https://gotriple.eu/ontology/triple#person_23
+triple:person_23 rdf:type owl:NamedIndividual ,
+                          foaf:Person .
 
 
-###  https://vocabularies.coar-repositories.org/access_rights/c_16ec/
-<https://vocabularies.coar-repositories.org/access_rights/c_16ec/> rdf:type owl:NamedIndividual ,
-                                                                             skos:Concept .
+###  https://gotriple.eu/ontology/triple#person_78
+triple:person_78 rdf:type owl:NamedIndividual ,
+                          foaf:Person .
+
+
+###  https://gotriple.eu/ontology/triple#project_12
+triple:project_12 rdf:type owl:NamedIndividual ,
+                           triple:Project .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

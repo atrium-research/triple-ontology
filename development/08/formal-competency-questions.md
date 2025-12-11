@@ -2,17 +2,52 @@
 
 ## CQ_8.1
 
-Return all documents with type "Book part".
+Return all identifiers that use the DOI scheme.
 
 ```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX schema: <http://schema.org/>
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?identifier WHERE {
+  ?identifier a datacite:Identifier ;
+              datacite:usesIdentifierScheme datacite:doi .
+}
+```
+
+**Expected result:**
+- `triple:identifier_1`
+- `triple:identifier_24`
+
+
+## CQ_8.2
+
+Return the identifier scheme used by `identifier_23`.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?scheme WHERE {
+  triple:identifier_23 datacite:usesIdentifierScheme ?scheme .
+}
+```
+
+**Expected result:**
+- `datacite:issn`
+
+
+## CQ_8.3
+
+Return all documents that have a DOI identifier.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?document WHERE {
-  ?document a foaf:Document ;
-            schema:additionalType triple:typ_book-part .
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme datacite:doi .
 }
 ```
 
@@ -21,70 +56,181 @@ SELECT ?document WHERE {
 - `triple:document_45`
 
 
-## CQ_8.2
-
-Return the vocabulary scheme to which `typ_book-part` belongs.
-
-```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?scheme WHERE {
-  triple:typ_book-part skos:inScheme ?scheme .
-}
-```
-
-**Expected result:**
-- `triple:content_types`
-
-
-## CQ_8.3
-
-Return all external terms that exactly match `typ_book-part`.
-
-```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?externalTerm WHERE {
-  triple:typ_book-part skos:exactMatch ?externalTerm .
-}
-```
-
-**Expected result:**
-- `https://vocabularies.coar-repositories.org/resource_types/c_3248/`
-
-
 ## CQ_8.4
 
-Return the type of `document_1`.
+Return all identifier schemes defined in the ontology.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
 
-SELECT ?type WHERE {
-  triple:document_1 schema:additionalType ?type .
+SELECT ?scheme WHERE {
+  ?scheme a datacite:IdentifierScheme .
 }
 ```
 
 **Expected result:**
-- `triple:typ_book-part`
+- `datacite:doi`
+- `datacite:issn`
+- `datacite:isbn`
+- `datacite:handle`
 
 
 ## CQ_8.5
 
-Return all content types in the controlled vocabulary.
+Return all identifiers of `document_45` along with their schemes.
 
 ```sparql
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
-SELECT ?docType WHERE {
-  ?docType skos:inScheme triple:content_types .
+SELECT ?identifier ?scheme WHERE {
+  triple:document_45 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme ?scheme .
 }
 ```
 
 **Expected result:**
-- `triple:typ_book-part`
-- (... other content type terms from the vocabulary)
+- `triple:identifier_23` → `datacite:issn`
+- `triple:identifier_24` → `datacite:doi`
+
+
+## CQ_8.6
+
+Return the literal value of the DOI identifier for `document_1`.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?value WHERE {
+  triple:document_1 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme datacite:doi ;
+              litre:hasLiteralValue ?value .
+}
+```
+
+**Expected result:**
+- "10.1234/example.2024.001"
+
+## CQ_8.13
+
+Return all documents that have a DOI identifier using class-based approach.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a triple:DOI .
+}
+```
+
+**Expected result:**
+- `triple:document_1`
+- `triple:document_45`
+
+
+## CQ_8.7
+
+Return all documents that have an ISBN identifier.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme datacite:isbn .
+}
+```
+
+**Expected result:**
+- `triple:document_99`
+
+## CQ_8.14
+
+Return all documents that have an ISSN identifier using class-based approach.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a triple:ISSN .
+}
+```
+
+**Expected result:**
+- `triple:document_45`
+
+## CQ_8.15
+
+Return all identifier values by type using class-based approach.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?type ?value WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a ?type ;
+              litre:hasLiteralValue ?value .
+  FILTER (?type IN (triple:DOI, triple:Handle, triple:ISSN, triple:ISBN))
+}
+```
+
+**Expected result:**
+- `triple:DOI` → "10.1234/example.2024.001"
+- `triple:DOI` → "10.5678/journal.2024.045"
+- `triple:ISSN` → "1234-5678"
+- `triple:Handle` → "11234/5678-abcd-efgh"
+- `triple:ISBN` → "978-3-16-148410-0"
+
+
+## CQ_8.8
+
+Return all identifiers and their schemes for `document_78`.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?identifier ?scheme WHERE {
+  triple:document_78 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme ?scheme .
+}
+```
+
+**Expected result:**
+- `triple:identifier_90` → `datacite:handle`
+
+
+## CQ_8.9
+
+Return all identifiers with their schemes and literal values.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?identifier ?scheme ?value WHERE {
+  ?identifier a datacite:Identifier ;
+              datacite:usesIdentifierScheme ?scheme ;
+              litre:hasLiteralValue ?value .
+}
+```
+
+**Expected result:**
+- `triple:identifier_1` → `datacite:doi` → "10.1234/example.2024.001"
+- `triple:identifier_23` → `datacite:issn` → "1234-5678"
+- `triple:identifier_24` → `datacite:doi` → "10.5678/journal.2024.045"
+- `triple:identifier_90` → `datacite:handle` → "11234/5678-abcd-efgh"
+- `triple:identifier_110` → `datacite:isbn` → "978-3-16-148410-0"

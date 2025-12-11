@@ -7,11 +7,10 @@
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <http://schema.org/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix litre: <http://purl.org/spar/literal/> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://purl.org/spar/literal/> .
 @base <https://gotriple.eu/ontology/triple#> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -21,232 +20,319 @@
 #    Individuals
 #################################################################
 
-###  Dataset Example 1: Geospatial Research Dataset
-triple:dataset-001 rdf:type triple:Dataset ;
-                   datacite:hasIdentifier triple:identifier-dataset-001 ;
-                   schema:headline "European Archaeological Sites Database"@en ;
-                   schema:abstract "A comprehensive dataset containing archaeological site information across Europe, including spatial coordinates, dating, and cultural attributions."@en ;
-                   schema:author "Jane Smith", "Mario Rossi" ;
-                   schema:contributor "Dr. Anna Fischer" ;
-                   schema:dateCreated "2023-01-15"^^xsd:date ;
-                   schema:datePublished "2023-03-01"^^xsd:date ;
-                   schema:dateModified "2023-05-20"^^xsd:date ;
-                   schema:publisher "European Heritage Institute" ;
-                   schema:provider "ISIDORE" ;
-                   schema:keywords triple:keyword-archaeology, triple:keyword-europe, triple:keyword-heritage, triple:keyword-spatial-data ;
-                   schema:additionalType "Geospatial Dataset" ;
-                   schema:inLanguage "en" ;
-                   schema:spatialCoverage triple:place-europe ;
-                   schema:temporalCoverage "2000 BCE - 1500 CE" ;
-                   schema:encodingFormat "text/csv", "application/json" ;
-                   schema:size "15.2 MB" ;
-                   datacite:hasIdentifier triple:identifier-heritage-download ,
-                                          triple:identifier-heritage-landing ,
-                                          triple:identifier-heritage-internal ,
-                                          triple:identifier-heritage-pid ,
-                                          triple:identifier-heritage-original ,
-                                          triple:identifier-heritage-doi ,
-                                          triple:identifier-heritage-handle ;
-                   schema:creativeWorkStatus "Published" ;
-                   schema:contactPoint triple:contact-heritage-institute ;
-                   schema:funding triple:project-heritage-mapping ;
-                   sioc:topic triple:topic-archaeology ;
-                   schema:comment "Dataset created through systematic archaeological surveys across 15 European countries with standardized recording protocols."@en .
+###  Semantic Artifacts Examples
 
-###  Dataset Example 2: Social Science Survey Data  
-triple:dataset-002 rdf:type triple:Dataset ;
-                   datacite:hasIdentifier triple:identifier-dataset-002 ;
-                   schema:headline "European Social Attitudes Survey 2023"@en ;
-                   schema:abstract "Annual survey data on social attitudes, political opinions, and demographic information from EU member states."@en ;
-                   schema:author "Social Research Institute" ;
-                   schema:contributor "Prof. Elena Rodriguez", "Dr. Klaus Mueller" ;
-                   schema:dateCreated "2023-06-01"^^xsd:date ;
-                   schema:datePublished "2023-09-15"^^xsd:date ;
-                   schema:dateModified "2023-10-02"^^xsd:date ;
-                   schema:publisher "EU Social Observatory" ;
-                   schema:provider "OpenAIRE" ;
-                   schema:keywords triple:keyword-social-attitudes, triple:keyword-survey, triple:keyword-politics, triple:keyword-demographics ;
-                   schema:additionalType "Survey Dataset" ;
-                   schema:knowsAbout "political science", "sociology", "public opinion" ;
-                   schema:inLanguage "en", "de", "fr", "it" ;
-                   schema:spatialCoverage triple:place-european-union ;
-                   schema:temporalCoverage "2023" ;
-                   schema:encodingFormat "application/x-spss", "text/csv" ;
-                   schema:size "245 MB" ;
-                   datacite:hasIdentifier triple:identifier-social-download ,
-                                          triple:identifier-social-landing ,
-                                          triple:identifier-social-internal ,
-                                          triple:identifier-social-pid ,
-                                          triple:identifier-social-original ,
-                                          triple:identifier-social-doi ,
-                                          triple:identifier-social-handle ;
-                   schema:creativeWorkStatus "Published" ;
-                   schema:contactPoint triple:contact-social-observatory ;
-                   schema:funding triple:project-social-cohesion ;
-                   sioc:topic triple:topic-social-science ;
-                   schema:mentions triple:dataset-001 ;
-                   schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
-                   dcterms:isReferencedBy triple:document-social-report-2023 .
+###  Example 1: TRIPLE SSH Thesaurus
+triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
+                    schema:headline "TRIPLE SSH Thesaurus"@en ;
+                    schema:abstract "Controlled vocabulary for Social Sciences and Humanities research classification used in the GoTriple discovery platform. Provides standardized terminology for SSH domains."@en ;
+                    schema:contributor triple:organization-gotriple ;
+                    schema:inLanguage schema:language-en ;
+                    schema:datePublished "2023-03-15"^^xsd:date ;
+                    schema:dateModified "2023-10-20"^^xsd:date ;
+                    schema:version "2.1.0" ;
+                    schema:publisher triple:organization-gotriple ;
+                    triple:aggregator triple:organization-isidore ;
+                    schema:fileFormat "application/rdf+xml" ;
+                    schema:encodingFormat "SKOS vocabulary" ;
+                    schema:contactPoint triple:contact-gotriple ;
+                    schema:creativeWorkStatus triple:status-published ;
+                    schema:keywords triple:keyword-thesaurus, triple:keyword-ssh, triple:keyword-vocabulary ;
+                    datacite:hasIdentifier triple:identifier-thesaurus-download ,
+                                           triple:identifier-thesaurus-landing ,
+                                           triple:identifier-thesaurus-internal ,
+                                           triple:identifier-thesaurus-pid ,
+                                           triple:identifier-thesaurus-original ,
+                                           triple:identifier-thesaurus-doi ,
+                                           triple:identifier-thesaurus-handle ,
+                                           triple:identifier-thesaurus-uri ;
+                    dcterms:isReferencedBy triple:document-dh-methodology .
 
-###  Dataset Identifiers
+###  Example 2: SKOS Art History Vocabulary
+triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
+                       schema:headline "SKOS Art History Vocabulary"@en ;
+                       schema:abstract "Comprehensive vocabulary for art historical concepts and terminology. Covers periods, movements, techniques, and cultural contexts in art history research."@en ;
+                       schema:contributor triple:person-maria-rossi, triple:organization-dhi ;
+                       schema:inLanguage schema:language-en ;
+                       schema:datePublished "2023-05-10"^^xsd:date ;
+                       schema:dateModified "2023-09-12"^^xsd:date ;
+                       schema:version "1.3.2" ;
+                       schema:publisher triple:organization-dhi ;
+                       schema:fileFormat "text/turtle" ;
+                       schema:encodingFormat "SKOS vocabulary" ;
+                       schema:contactPoint triple:contact-dhi ;
+                       schema:creativeWorkStatus triple:status-published ;
+                       schema:keywords triple:keyword-arthistory, triple:keyword-vocabulary, triple:keyword-cultural-heritage ;
+                       datacite:hasIdentifier triple:identifier-vocab-download ,
+                                              triple:identifier-vocab-landing ,
+                                              triple:identifier-vocab-source ,
+                                              triple:identifier-vocab-internal ,
+                                              triple:identifier-vocab-pid ,
+                                              triple:identifier-vocab-original ,
+                                              triple:identifier-vocab-doi ,
+                                              triple:identifier-vocab-handle ,
+                                              triple:identifier-vocab-uri .
 
-###  Heritage Dataset Identifiers
-triple:identifier-heritage-download rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                                    litre:hasLiteralValue "https://data.heritage.eu/datasets/archaeological-sites" .
+###  Example 3: Medieval Studies Ontology
+triple:ontology-medieval rdf:type triple:SemanticArtefact ;
+                        schema:headline "Medieval Studies Ontology"@en ;
+                        schema:abstract "Formal ontology for medieval studies research domain. Provides semantic modeling of medieval historical periods, events, places, and scholarly concepts."@en ;
+                        schema:contributor triple:person-giovanni-bianchi, triple:person-pierre-martin ;
+                        schema:inLanguage schema:language-en, schema:language-it ;
+                        schema:datePublished "2023-01-20"^^xsd:date ;
+                        schema:dateModified "2023-08-05"^^xsd:date ;
+                        schema:version "0.9.1" ;
+                        schema:publisher triple:organization-unibo ;
+                        schema:fileFormat "application/owl+xml" ;
+                        schema:encodingFormat "OWL ontology" ;
+                        schema:contactPoint triple:contact-unibo-medieval ;
+                        schema:creativeWorkStatus triple:status-draft ;
+                        schema:keywords triple:keyword-medieval, triple:keyword-ontology, triple:keyword-history ;
+                        datacite:hasIdentifier triple:identifier-medieval-download ,
+                                               triple:identifier-medieval-landing ,
+                                               triple:identifier-medieval-internal ,
+                                               triple:identifier-medieval-pid ,
+                                               triple:identifier-medieval-original ,
+                                               triple:identifier-medieval-doi ,
+                                               triple:identifier-medieval-handle ,
+                                               triple:identifier-medieval-uri ;
+                        dcterms:isReferencedBy triple:document-carolingian .
 
-triple:identifier-heritage-landing rdf:type owl:NamedIndividual ,
-                                            datacite:Identifier ;
-                                   datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                   litre:hasLiteralValue "https://heritage.eu/landing/archaeological-sites" .
+###  Supporting Organizations
+triple:organization-gotriple rdf:type foaf:Organization ;
+                             schema:name "GoTriple Consortium" ;
+                             schema:description "European consortium for Social Sciences and Humanities research discovery"@en .
 
-###  Social Dataset Identifiers  
-triple:identifier-social-download rdf:type owl:NamedIndividual ,
-                                           datacite:Identifier ;
-                                  datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                                  litre:hasLiteralValue "https://data.social-eu.org/datasets/attitudes-2023" .
+triple:organization-dhi rdf:type foaf:Organization ;
+                       schema:name "Digital Humanities Institute" ;
+                       schema:description "Research institute specializing in digital methods for humanities"@en .
 
-triple:identifier-social-landing rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                 litre:hasLiteralValue "https://social-eu.org/landing/attitudes-survey" .
+triple:organization-unibo rdf:type foaf:Organization ;
+                         schema:name "University of Bologna" ;
+                         schema:description "Public research university in Bologna, Italy"@en .
 
-###  Heritage Dataset Platform Identifiers
-triple:identifier-heritage-internal rdf:type owl:NamedIndividual ,
-                                             triple:ID ;
-                                    litre:hasLiteralValue "TRIPLE_DATASET_HERITAGE_001" .
+triple:organization-isidore rdf:type foaf:Organization ;
+                           schema:name "Isidore" ;
+                           schema:description "Search engine for Social Sciences and Humanities"@en .
 
-triple:identifier-heritage-pid rdf:type owl:NamedIndividual ,
-                                        triple:PID ;
-                               litre:hasLiteralValue "gotriple:dataset:heritage-archaeological-sites" .
+###  Supporting Persons
+triple:person-maria-rossi rdf:type foaf:Person ;
+                         schema:name "Maria Rossi" ;
+                         schema:givenName "Maria" ;
+                         schema:familyName "Rossi" .
 
-triple:identifier-heritage-original rdf:type owl:NamedIndividual ,
-                                             triple:OriginalIdentifier ;
-                                    litre:hasLiteralValue "heritage_inst_arch_sites_2023" .
+triple:person-giovanni-bianchi rdf:type foaf:Person ;
+                              schema:name "Giovanni Bianchi" ;
+                              schema:givenName "Giovanni" ;
+                              schema:familyName "Bianchi" .
 
-###  Social Dataset Platform Identifiers
-triple:identifier-social-internal rdf:type owl:NamedIndividual ,
-                                           triple:ID ;
-                                  litre:hasLiteralValue "TRIPLE_DATASET_SOCIAL_002" .
-
-triple:identifier-social-pid rdf:type owl:NamedIndividual ,
-                                      triple:PID ;
-                             litre:hasLiteralValue "gotriple:dataset:social-attitudes-survey-2023" .
-
-triple:identifier-social-original rdf:type owl:NamedIndividual ,
-                                           triple:OriginalIdentifier ;
-                                  litre:hasLiteralValue "social_obs_attitudes_2023" .
-
-###  Heritage Dataset Standard Identifiers
-triple:identifier-heritage-doi rdf:type owl:NamedIndividual ,
-                                        triple:DOI ;
-                               litre:hasLiteralValue "10.5281/zenodo.heritage.arch.2023" .
-
-triple:identifier-heritage-handle rdf:type owl:NamedIndividual ,
-                                           triple:Handle ;
-                                  litre:hasLiteralValue "21.11130/00-HERITAGE-ARCH-2023" .
-
-###  Social Dataset Standard Identifiers
-triple:identifier-social-doi rdf:type owl:NamedIndividual ,
-                                      triple:DOI ;
-                             litre:hasLiteralValue "10.5281/zenodo.social.attitudes.2023" .
-
-triple:identifier-social-handle rdf:type owl:NamedIndividual ,
-                                         triple:Handle ;
-                                litre:hasLiteralValue "21.11130/00-SOCIAL-ATTITUDES-2023" .
-
-###  Supporting Individuals
-
-###  Contact Points
-triple:contact-heritage-institute rdf:type schema:ContactPoint ;
-                                  schema:name "European Heritage Institute Data Team" ;
-                                  schema:email "data@heritage.eu" .
-
-triple:contact-social-observatory rdf:type schema:ContactPoint ;
-                                  schema:name "EU Social Observatory Research Support" ;
-                                  schema:email "support@social-eu.org" .
-
-###  Projects  
-triple:project-heritage-mapping rdf:type schema:Project ;
-                                schema:name "European Heritage Digital Mapping Initiative" ;
-                                datacite:hasIdentifier triple:identifier-project-001 .
-
-triple:project-social-cohesion rdf:type schema:Project ;
-                               schema:name "Social Cohesion Research Program" ;
-                               datacite:hasIdentifier triple:identifier-project-002 .
-
-###  Topics
-triple:topic-archaeology rdf:type skos:Concept ;
-                         skos:prefLabel "Archaeology"@en ;
-                         skos:definition "The study of human activity through the recovery and analysis of material culture."@en .
-
-triple:topic-social-science rdf:type skos:Concept ;
-                            skos:prefLabel "Social Science"@en ;
-                            skos:definition "Academic disciplines concerned with society and the relationships among individuals within a society."@en .
-
-###  Keywords (DefinedTerms)
-triple:keyword-archaeology rdf:type schema:DefinedTerm ;
-                          schema:name "archaeology"@en ;
-                          schema:description "The study of human activity through material culture recovery and analysis"@en .
-
-triple:keyword-europe rdf:type schema:DefinedTerm ;
-                      schema:name "Europe"@en ;
-                      schema:description "The European continent and its geographical regions"@en .
-
-triple:keyword-heritage rdf:type schema:DefinedTerm ;
-                        schema:name "heritage"@en ;
-                        schema:description "Cultural and natural heritage of human societies"@en .
-
-triple:keyword-spatial-data rdf:type schema:DefinedTerm ;
-                            schema:name "spatial data"@en ;
-                            schema:description "Data with geographical coordinates and spatial relationships"@en .
-
-triple:keyword-social-attitudes rdf:type schema:DefinedTerm ;
-                                schema:name "social attitudes"@en ;
-                                schema:description "Individual and collective opinions on social issues"@en .
-
-triple:keyword-survey rdf:type schema:DefinedTerm ;
-                      schema:name "survey"@en ;
-                      schema:description "Research methodology using questionnaires to collect data"@en .
-
-triple:keyword-politics rdf:type schema:DefinedTerm ;
-                        schema:name "politics"@en ;
-                        schema:description "Activities related to governance and public affairs"@en .
-
-triple:keyword-demographics rdf:type schema:DefinedTerm ;
-                            schema:name "demographics"@en ;
-                            schema:description "Statistical characteristics of populations"@en .
-
-###  Places
-triple:place-europe rdf:type schema:Place ;
-                     schema:name "Europe" .
-
-triple:place-european-union rdf:type schema:Place ;
-                            schema:name "European Union" .
-
-###  Identifier Schemes
-datacite:doi rdf:type datacite:IdentifierScheme ;
-             rdfs:label "datacite:doi" .
-
-datacite:handle rdf:type datacite:IdentifierScheme ;
-                rdfs:label "datacite:handle" .
-
+triple:person-pierre-martin rdf:type foaf:Person ;
+                           schema:name "Pierre Martin" ;
+                           schema:givenName "Pierre" ;
+                           schema:familyName "Martin" .
 
 ###  Identifiers
-triple:identifier-dataset-001 rdf:type triple:DOI ;
-                              litre:hasLiteralValue "10.1234/example.dataset.001" .
+triple:identifier-thesaurus-doi rdf:type triple:DOI ;
+                                litre:hasLiteralValue "10.5281/zenodo.1234567" .
 
-triple:identifier-dataset-002 rdf:type triple:Handle ;
-                              litre:hasLiteralValue "hdl:1234.5/survey2023" .
+triple:identifier-medieval-handle rdf:type triple:Handle ;
+                                  litre:hasLiteralValue "hdl:1234.5/medieval-ontology" .
 
-triple:identifier-project-001 rdf:type triple:ID ;
-                              litre:hasLiteralValue "EHDMI-2022-001" .
+###  Contact Points
+triple:contact-gotriple rdf:type schema:ContactPoint ;
+                       schema:email "contact@gotriple.eu" ;
+                       schema:name "GoTriple Support Team" .
 
-triple:identifier-project-002 rdf:type triple:ID ;
-                              litre:hasLiteralValue "SCRP-2023-045" .
+triple:contact-dhi rdf:type schema:ContactPoint ;
+                  schema:email "vocab@arthistory.eu" ;
+                  schema:name "DHI Vocabulary Team" .
 
-###  Referenced Document
-triple:document-social-report-2023 rdf:type schema:CreativeWork ;
-                                   schema:headline "European Social Cohesion Report 2023"@en ;
-                                   schema:datePublished "2023-11-15"^^xsd:date .
+triple:contact-unibo-medieval rdf:type schema:ContactPoint ;
+                             schema:email "medieval@unibo.it" ;
+                             schema:name "Medieval Studies Research Group" .
+
+###  Status Values
+triple:status-published rdf:type skos:Concept ;
+                       skos:prefLabel "Published"@en ;
+                       skos:definition "The semantic artifact has been officially published and is available for use"@en .
+
+triple:status-draft rdf:type skos:Concept ;
+                   skos:prefLabel "Draft"@en ;
+                   skos:definition "The semantic artifact is in draft stage and under development"@en .
+
+###  Keywords
+triple:keyword-thesaurus rdf:type schema:DefinedTerm ;
+                        schema:name "thesaurus" ;
+                        schema:description "Controlled vocabulary with hierarchical relationships"@en .
+
+triple:keyword-ssh rdf:type schema:DefinedTerm ;
+                  schema:name "Social Sciences and Humanities" ;
+                  schema:description "Academic disciplines studying human society and culture"@en .
+
+triple:keyword-vocabulary rdf:type schema:DefinedTerm ;
+                         schema:name "vocabulary" ;
+                         schema:description "Set of terms used in a particular domain"@en .
+
+triple:keyword-arthistory rdf:type schema:DefinedTerm ;
+                         schema:name "art history" ;
+                         schema:description "Academic study of art objects in their historical context"@en .
+
+triple:keyword-cultural-heritage rdf:type schema:DefinedTerm ;
+                                schema:name "cultural heritage" ;
+                                schema:description "Legacy of physical artifacts and cultural traditions"@en .
+
+triple:keyword-medieval rdf:type schema:DefinedTerm ;
+                       schema:name "medieval studies" ;
+                       schema:description "Academic field studying the Middle Ages period"@en .
+
+triple:keyword-ontology rdf:type schema:DefinedTerm ;
+                       schema:name "ontology" ;
+                       schema:description "Formal specification of conceptualization in a domain"@en .
+
+triple:keyword-history rdf:type schema:DefinedTerm ;
+                      schema:name "history" ;
+                      schema:description "Study of past events and human activities"@en .
+
+###  Languages
+schema:language-en rdf:type schema:Language ;
+                  rdfs:label "en"@en .
+
+schema:language-it rdf:type schema:Language ;
+                  rdfs:label "it"@en .
+
+###  Landing Pages
+triple:page-thesaurus-landing rdf:type foaf:Document ;
+                             schema:headline "TRIPLE SSH Thesaurus - Landing Page"@en .
+
+triple:page-vocab-arthistory rdf:type foaf:Document ;
+                            schema:headline "Art History Vocabulary - Landing Page"@en .
+
+triple:page-medieval-landing rdf:type foaf:Document ;
+                            schema:headline "Medieval Studies Ontology - Landing Page"@en .
+
+###  Semantic Artifact Identifiers
+
+###  Thesaurus Identifiers
+triple:identifier-thesaurus-download rdf:type owl:NamedIndividual ,
+                                              datacite:Identifier ;
+                                     datacite:usesIdentifierScheme triple:full_text_url_schema ;
+                                     litre:hasLiteralValue "https://thesaurus.gotriple.eu/download/rdf" .
+
+triple:identifier-thesaurus-landing rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+                                    litre:hasLiteralValue "https://thesaurus.gotriple.eu/landing" .
+
+###  Vocabulary Identifiers  
+triple:identifier-vocab-download rdf:type owl:NamedIndividual ,
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:full_text_url_schema ;
+                                 litre:hasLiteralValue "https://vocab.arthistory.eu/skos.ttl" .
+
+triple:identifier-vocab-landing rdf:type owl:NamedIndividual ,
+                                         datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+                                litre:hasLiteralValue "https://vocab.arthistory.eu/landing" .
+
+triple:identifier-vocab-source rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                               datacite:usesIdentifierScheme triple:source_url_schema ;
+                               litre:hasLiteralValue "https://getty.edu/research/tools/vocabularies/aat/" .
+
+###  Medieval Ontology Identifiers
+triple:identifier-medieval-download rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+                                    litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl" .
+
+triple:identifier-medieval-landing rdf:type owl:NamedIndividual ,
+                                            datacite:Identifier ;
+                                   datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+                                   litre:hasLiteralValue "https://ontology.medieval.unibo.it/landing" .
+
+###  Thesaurus Platform Identifiers
+triple:identifier-thesaurus-internal rdf:type owl:NamedIndividual ,
+                                              triple:ID ;
+                                     litre:hasLiteralValue "gotriple:thesaurus:ssh:v2.1" .
+
+triple:identifier-thesaurus-pid rdf:type owl:NamedIndividual ,
+                                         triple:PID ;
+                                litre:hasLiteralValue "gotriple:semantic:thesaurus-ssh-v2" .
+
+triple:identifier-thesaurus-original rdf:type owl:NamedIndividual ,
+                                              triple:OriginalIdentifier ;
+                                     litre:hasLiteralValue "gotriple_thesaurus_ssh_v21" .
+
+###  Vocabulary Platform Identifiers
+triple:identifier-vocab-internal rdf:type owl:NamedIndividual ,
+                                          triple:ID ;
+                                 litre:hasLiteralValue "dhi:vocab:arthistory:v1.3" .
+
+triple:identifier-vocab-pid rdf:type owl:NamedIndividual ,
+                                     triple:PID ;
+                            litre:hasLiteralValue "gotriple:semantic:vocab-arthistory-v1" .
+
+triple:identifier-vocab-original rdf:type owl:NamedIndividual ,
+                                          triple:OriginalIdentifier ;
+                                 litre:hasLiteralValue "dhi_vocab_arthistory_v13" .
+
+###  Medieval Ontology Platform Identifiers
+triple:identifier-medieval-internal rdf:type owl:NamedIndividual ,
+                                             triple:ID ;
+                                    litre:hasLiteralValue "unibo:ontology:medieval:v0.9" .
+
+triple:identifier-medieval-pid rdf:type owl:NamedIndividual ,
+                                        triple:PID ;
+                               litre:hasLiteralValue "gotriple:semantic:ontology-medieval-studies" .
+
+triple:identifier-medieval-original rdf:type owl:NamedIndividual ,
+                                             triple:OriginalIdentifier ;
+                                    litre:hasLiteralValue "unibo_ontology_medieval_v09" .
+
+###  Thesaurus Standard Identifiers
+triple:identifier-thesaurus-doi rdf:type owl:NamedIndividual ,
+                                         triple:DOI ;
+                                litre:hasLiteralValue "10.5281/zenodo.thesaurus.ssh.v2" .
+
+triple:identifier-thesaurus-handle rdf:type owl:NamedIndividual ,
+                                            triple:Handle ;
+                                   litre:hasLiteralValue "21.11130/00-THESAURUS-SSH-V2" .
+
+triple:identifier-thesaurus-uri rdf:type owl:NamedIndividual ,
+                                         triple:URI ;
+                                litre:hasLiteralValue "https://gotriple.eu/thesaurus/ssh#" .
+
+###  Vocabulary Standard Identifiers
+triple:identifier-vocab-doi rdf:type owl:NamedIndividual ,
+                                     triple:DOI ;
+                            litre:hasLiteralValue "10.5281/zenodo.vocab.arthistory.v1" .
+
+triple:identifier-vocab-handle rdf:type owl:NamedIndividual ,
+                                        triple:Handle ;
+                               litre:hasLiteralValue "21.11130/00-VOCAB-ARTHISTORY-V1" .
+
+triple:identifier-vocab-uri rdf:type owl:NamedIndividual ,
+                                     triple:URI ;
+                            litre:hasLiteralValue "https://vocab.arthistory.eu/skos#" .
+
+###  Medieval Ontology Standard Identifiers
+triple:identifier-medieval-doi rdf:type owl:NamedIndividual ,
+                                        triple:DOI ;
+                               litre:hasLiteralValue "10.5281/zenodo.ontology.medieval.v09" .
+
+triple:identifier-medieval-handle rdf:type owl:NamedIndividual ,
+                                           triple:Handle ;
+                                  litre:hasLiteralValue "21.11130/00-ONTOLOGY-MEDIEVAL-V09" .
+
+triple:identifier-medieval-uri rdf:type owl:NamedIndividual ,
+                                        triple:URI ;
+                               litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl#" .
+
+###  Referenced Documents (for competency questions)
+triple:document-dh-methodology rdf:type triple:Document ;
+                              schema:headline "Digital Humanities Methodology Paper"@en ;
+                              schema:abstract "Comprehensive review of methodological approaches in digital humanities research"@en .
+
+triple:document-carolingian rdf:type triple:Document ;
+                           schema:headline "Carolingian Renaissance Research Article"@en ;
+                           schema:abstract "Analysis of cultural and educational reforms during the Carolingian period"@en .

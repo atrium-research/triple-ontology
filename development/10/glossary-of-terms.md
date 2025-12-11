@@ -1,18 +1,40 @@
 # Glossary of Terms (Iteration 10)
 
-| Term                      | Definition                                                                                                                                                  |
-|---------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `datacite:Identifier`     | Base class for all identifiers following DataCite specification.                                                                                           |
-| `datacite:IdentifierScheme` | A standardized system for creating and managing identifiers in DataCite.                                                                                 |
-| `triple:DOI`              | DOI identifier class - Digital Object Identifier for digital objects, subclass of `datacite:Identifier`.                                                  |
-| `datacite:doi`              | The identifier scheme instance representing the DOI system.                                                                                                 |
-| `triple:ISSN`             | ISSN identifier class - International Standard Serial Number for serial publications, subclass of `datacite:Identifier`.                                  |
-| `datacite:issn`             | The identifier scheme instance representing the ISSN system.                                                                                                |
-| `triple:ISBN`             | ISBN identifier class - International Standard Book Number for books, subclass of `datacite:Identifier`.                                                   |
-| `datacite:isbn`             | The identifier scheme instance representing the ISBN system.                                                                                                |
-| `triple:Handle`           | Handle identifier class - persistent identifier system for digital objects, subclass of `datacite:Identifier`.                                            |
-| `datacite:handle`           | The identifier scheme instance representing the Handle system.                                                                                              |
-| `hasIdentifier`           | The property connecting a document to its identifiers (`datacite:hasIdentifier`).                                                                           |
-| `usesIdentifierScheme`    | The property connecting an identifier to its scheme (`datacite:usesIdentifierScheme`).                                                                      |
-| `hasLiteralValue`         | The property connecting an identifier to its string value (`litre:hasLiteralValue`).                                                                        |
-| `Document`                | An entity representing any type of resource available on the GoTriple platform.                                                                             |
+| Term                           | Definition                                                                                                                                          |
+|--------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
+| `triple:Dataset`               | GoTriple ontology class representing a dataset, subclass of schema:Dataset, with specific metadata requirements for research data.                 |
+| `Dataset`                      | A research dataset indexed in the GoTriple platform, representing data from various sources including institutional repositories and data catalogs. |
+| `schema:spatialCoverage`       | Schema.org property indicating the geographical area covered by the dataset.                                                                        |
+| `schema:temporalCoverage`      | Schema.org property indicating the temporal period that the dataset covers.                                                                         |
+| `schema:encodingFormat`        | Schema.org property specifying the file format of the dataset (e.g., text/csv, application/json, application/x-spss).                             |
+| `schema:size`                  | Schema.org property indicating the size of the dataset (e.g., file size in MB).                                                                    |
+| `schema:creativeWorkStatus`    | Schema.org property describing the status of the dataset in terms of its stage in a lifecycle.                                                     |
+| `schema:GeoShape`              | Schema.org class representing the geographic shape or bounding box of the dataset's spatial coverage.                                               |
+| `schema:contactPoint`          | Schema.org property providing contact information for the dataset.                                                                                  |
+| `triple:ID`                    | Platform identifier class for internal dataset management within GoTriple, subclass of datacite:Identifier.                                        |
+| `triple:PID`                   | Persistent identifier class generated by GoTriple platform for external exposure, subclass of datacite:Identifier.                                 |
+| `triple:OriginalIdentifier`    | Original identifier class from source system where dataset was harvested, subclass of datacite:Identifier.                                         |
+| `triple:DOI`                   | DOI identifier class - Digital Object Identifier for datasets, subclass of datacite:Identifier.                                                    |
+| `triple:Handle`                | Handle identifier class - persistent identifier system for datasets, subclass of datacite:Identifier.                                              |
+| `datacite:Identifier`          | Base class for all identifiers following DataCite specification.                                                                                    |
+| `datacite:IdentifierScheme`    | A standardized system for creating and managing identifiers in DataCite.                                                                            |
+| `datacite:hasIdentifier`       | DataCite property connecting datasets to their identifiers.                                                                                         |
+| `datacite:usesIdentifierScheme`| DataCite property connecting identifiers to their schemes (inferred automatically for typed identifiers).                                          |
+| `litre:hasLiteralValue`        | Property connecting identifiers to their string values.                                                                                             |
+| `Spatial Coverage`             | The geographical scope of the data contained in the dataset.                                                                                        |
+| `Temporal Coverage`            | The time period that the dataset's data represents or covers.                                                                                       |
+| `Distribution`                 | Information about how the dataset can be accessed, downloaded, or obtained.                                                                         |
+| `Bounding Box`                 | Geographic coordinates defining the spatial extent of the dataset.                                                                                  |
+| `Lineage`                      | Provenance information describing the dataset's chain of custody and processing history.                                                            |
+| `schema:contributor`           | Schema.org property indicating a secondary contributor to the dataset.                                                                              |
+| `schema:dateModified`          | Schema.org property indicating the date on which the dataset was most recently modified.                                                            |
+| `schema:provider`              | Schema.org property indicating the aggregator or service provider of the dataset.                                                                   |
+| `schema:additionalType`        | Schema.org property specifying additional type information for the dataset (e.g., "Geospatial Dataset", "Survey Dataset").                       |
+| `schema:knowsAbout`            | Schema.org property indicating topics that the dataset is about, often automatically detected from controlled vocabularies.                        |
+| `schema:funding`               | Schema.org property linking the dataset to research projects that funded its creation.                                                              |
+| `schema:mentions`              | Schema.org property indicating references or mentions of other datasets or entities within the dataset's metadata.                                 |
+| `schema:comment`               | Schema.org property used for lineage information - free-text descriptions of the dataset's processing history.                                     |
+| `sioc:topic`                   | SIOC vocabulary property linking the dataset to topic concepts or themes.                                                                           |
+| `dcterms:isReferencedBy`       | Dublin Core Terms property indicating documents or publications that reference this dataset.                                                        |
+| `schema:keywords`              | Schema.org object property linking to defined terms that describe the dataset content.                                                              |
+| `schema:DefinedTerm`           | Schema.org class representing a word, name, acronym, phrase, etc. with a formal definition used to describe dataset topics.                        |

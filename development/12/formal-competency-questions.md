@@ -1,68 +1,33 @@
-## Formal Competency Questions (Iteration 12)
+# Formal Competency Questions - Iteration 12
+
+## Semantic Artefact Resource Type
 
 ## CQ_12.1
 
-Return all datasets available in the platform.
+Retrieve all semantic artifacts with their basic metadata (title, abstract, publisher)
 
 ```sparql
 PREFIX schema: <http://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-SELECT ?dataset ?title WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title .
+SELECT ?artifact ?title ?abstract ?publisherName WHERE {
+  ?artifact a triple:SemanticArtefact ;
+           schema:headline ?title ;
+           schema:abstract ?abstract ;
+           schema:publisher ?publisher .
+  ?publisher schema:name ?publisherName .
 }
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023"
-
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "Controlled vocabulary for Social Sciences and Humanities research classification", "GoTriple Consortium"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "Comprehensive vocabulary for art historical concepts and terminology", "Digital Humanities Institute"
+- `triple:ontology-medieval` → "Medieval Studies Ontology", "Formal ontology for medieval studies research domain", "University of Bologna"
 
 ## CQ_12.2
 
-Return all datasets with their spatial coverage.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?dataset ?title ?spatial WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           schema:spatialCoverage ?spatial .
-}
-```
-
-**Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "Europe"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "European Union"
-
-
-## CQ_12.3
-
-Return all datasets with their format and size information.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?dataset ?title ?format ?size WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           schema:encodingFormat ?format ;
-           schema:size ?size .
-}
-```
-
-**Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "text/csv" → "15.2 MB"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "application/x-spss" → "245 MB"
-
-
-## CQ_12.4
-
-Return all datasets that have DOI identifiers.
+Find semantic artifacts with DOI or Handle persistent identifiers
 
 ```sparql
 PREFIX schema: <http://schema.org/>
@@ -70,23 +35,112 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
-SELECT ?dataset ?title ?identifierValue WHERE {
-  ?dataset a triple:Dataset ;
+SELECT ?artifact ?title ?identifierValue ?schemeLabel WHERE {
+  ?artifact a triple:SemanticArtefact ;
            schema:headline ?title ;
            datacite:hasIdentifier ?identifier .
+  ?identifier litre:hasLiteralValue ?identifierValue ;
+             datacite:usesIdentifierScheme ?scheme .
+  ?scheme rdfs:label ?schemeLabel .
+  FILTER(?scheme = triple:doi || ?scheme = triple:handle)
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "10.5281/zenodo.1234567", "DOI"
+- `triple:ontology-medieval` → "Medieval Studies Ontology", "hdl:1234.5/medieval-ontology", "Handle"
+
+## CQ_12.3
+
+List all representation techniques used by semantic artifacts
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT DISTINCT ?technique WHERE {
+  ?artifact a triple:SemanticArtefact ;
+           schema:encodingFormat ?technique .
+}
+```
+
+**Expected result:**
+- "SKOS vocabulary"
+- "OWL ontology"  
+- "XML schema"
+- "RDF Schema"
+
+## CQ_12.4
+
+Find semantic artifacts and the documents that reference them
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?artifact ?artifactTitle ?document ?documentTitle WHERE {
+  ?artifact a triple:SemanticArtefact ;
+           schema:headline ?artifactTitle ;
+           dcterms:isReferencedBy ?document .
+  ?document a triple:Document ;
+           schema:headline ?documentTitle .
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", `triple:document-dh-methodology` → "Digital Humanities Methodology Paper"
+- `triple:ontology-medieval` → "Medieval Studies Ontology", `triple:document-carolingian` → "Carolingian Renaissance Research Article"
+
+## CQ_12.5
+
+Retrieve semantic artifacts with their file formats and download URLs
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?artifact ?title ?fileFormat WHERE {
+  ?artifact a triple:SemanticArtefact ;
+           schema:headline ?title ;
+           schema:fileFormat ?fileFormat .
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "application/rdf+xml"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "text/turtle"
+- `triple:ontology-medieval` → "Medieval Studies Ontology", "application/owl+xml"
+
+
+## CQ_12.6
+
+Return all semantic artifacts that have DOI identifiers using class-based approach.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://purl.org/spar/literal/>
+
+SELECT ?artifact ?title ?identifierValue WHERE {
+  ?artifact a triple:SemanticArtefact ;
+            schema:headline ?title ;
+            datacite:hasIdentifier ?identifier .
   ?identifier a triple:DOI ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
 
 **Expected result:**
-- `triple:dataset-001` → "European Archaeological Sites Database" → "10.5281/zenodo.heritage.arch.2023"
-- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "10.5281/zenodo.social.attitudes.2023"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "10.5281/zenodo.thesaurus.ssh.v2"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "10.5281/zenodo.vocab.arthistory.v1"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "10.5281/zenodo.ontology.medieval.v09"
 
 
-## CQ_12.10
+## CQ_12.7
 
-Return all datasets that have Handle identifiers using class-based approach.
+Return all semantic artifacts that have URI identifiers using class-based approach.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
@@ -94,23 +148,24 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
-SELECT ?dataset ?title ?identifierValue WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           datacite:hasIdentifier ?identifier .
-  ?identifier a triple:Handle ;
+SELECT ?artifact ?title ?identifierValue WHERE {
+  ?artifact a triple:SemanticArtefact ;
+            schema:headline ?title ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier a triple:URI ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
 
 **Expected result:**
-- `triple:dataset-001` → "European Archaeological Sites Database" → "21.11130/00-HERITAGE-ARCH-2023"
-- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "21.11130/00-SOCIAL-ATTITUDES-2023"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "https://gotriple.eu/thesaurus/ssh#"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "https://vocab.arthistory.eu/skos#"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "https://ontology.medieval.unibo.it/owl#"
 
 
-## CQ_12.11
+## CQ_12.8
 
-Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
+Return all semantic artifacts with their identifier types and values.
 
 ```sparql
 PREFIX schema: <http://schema.org/>
@@ -118,123 +173,19 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
-SELECT ?dataset ?title ?identifier ?identifierType ?value WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           datacite:hasIdentifier ?identifier .
+SELECT ?artifact ?title ?identifierType ?value WHERE {
+  ?artifact a triple:SemanticArtefact ;
+            schema:headline ?title ;
+            datacite:hasIdentifier ?identifier .
   ?identifier a ?identifierType ;
               litre:hasLiteralValue ?value .
-  FILTER (?identifierType IN (triple:ID, triple:PID, triple:OriginalIdentifier))
+  FILTER (?identifierType IN (triple:DOI, triple:Handle, triple:URI, triple:ID, triple:PID))
 }
 ```
 
 **Expected result:**
-- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-internal` → `triple:ID` → "TRIPLE_DATASET_HERITAGE_001"
-- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `triple:PID` → "gotriple:dataset:heritage-archaeological-sites"
-- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-internal` → `triple:ID` → "TRIPLE_DATASET_SOCIAL_002"
-
-
-## CQ_12.5
-
-Return all datasets with their keywords.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?dataset ?title ?keyword ?keywordName WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           schema:keywords ?keyword .
-  ?keyword schema:name ?keywordName .
-}
-```
-
-**Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:keyword-archaeology` → "archaeology"
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:keyword-heritage` → "heritage"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:keyword-survey` → "survey"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:keyword-politics` → "politics"
-
-
-## CQ_12.6
-
-Return all datasets with temporal coverage.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?dataset ?title ?temporal WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           schema:temporalCoverage ?temporal .
-}
-```
-
-**Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "2000 BCE - 1500 CE"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "2023"
-
-
-## CQ_12.7
-
-Return all datasets with their contributors.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?dataset ?title ?contributor WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           schema:contributor ?contributor .
-}
-```
-
-**Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "Dr. Anna Fischer"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "Prof. Elena Rodriguez"
-
-
-## CQ_12.8
-
-Return all datasets with their funding projects.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?dataset ?title ?project WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           schema:funding ?project .
-  ?project schema:name ?projectName .
-}
-```
-
-**Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:project-heritage-mapping`
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:project-social-cohesion`
-
-
-## CQ_12.9
-
-Return all datasets with their contact points.
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?dataset ?title ?contact ?email WHERE {
-  ?dataset a triple:Dataset ;
-           schema:headline ?title ;
-           schema:contactPoint ?contact .
-  ?contact schema:email ?email .
-}
-```
-
-**Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:contact-heritage-institute` → "data@heritage.eu"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:contact-social-observatory` → "support@social-eu.org"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:DOI` → "10.5281/zenodo.thesaurus.ssh.v2"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:URI` → "https://gotriple.eu/thesaurus/ssh#"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → `triple:DOI` → "10.5281/zenodo.vocab.arthistory.v1"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → `triple:URI` → "https://ontology.medieval.unibo.it/owl#"
 
