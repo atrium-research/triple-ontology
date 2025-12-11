@@ -28,7 +28,7 @@ This repository contains the full documentation produced during the development 
 
 ### Core Directories
 
-* **`development/`** - Contains 16 SAMOD iterations (01-16), each representing a complete development cycle with:
+* **`development/`** - Contains 14 SAMOD iterations (01-14), each representing a complete development cycle with:
   * `motivating-scenario.md` - Use case description and examples
   * `informal-competency-questions.md` - Natural language requirements
   * `glossary-of-terms.md` - Domain terminology definitions
