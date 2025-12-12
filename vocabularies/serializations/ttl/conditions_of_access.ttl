@@ -72,72 +72,48 @@
     skos:inScheme :conditionsOfAccess .
 
 :acr_all-rights-reserved a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
+        owl:NamedIndividual .
 
 :acr_closed-access a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
-
-:acr_free-access a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
-
-:acr_open-access a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
-
-:acr_public-domain a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
-
-:acr_restricted-access-or-use a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
+        owl:NamedIndividual .
 
 :acr_embargoed-access a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
+        owl:NamedIndividual .
+
+:acr_free-access a datacite:Identifier,
+        owl:NamedIndividual .
 
 :acr_metadata-only-access a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier .
+        owl:NamedIndividual .
 
-:other a datacite:Identifier,
-        owl:NamedIndividual,
+:acr_open-access a datacite:Identifier,
+        owl:NamedIndividual .
+
+:acr_other a datacite:Identifier,
+        owl:NamedIndividual .
+
+:acr_public-domain a datacite:Identifier,
+        owl:NamedIndividual .
+
+:acr_restricted-access-or-use a datacite:Identifier,
+        owl:NamedIndividual .
+
+:acr_undefined a datacite:Identifier,
+        owl:NamedIndividual .
+
+:other a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "Other"@en ;
-    datacite:hasIdentifier :other ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier ;
+    datacite:hasIdentifier :acr_other ;
     skos:inScheme :conditionsOfAccess .
 
-:undefined a datacite:Identifier,
-        owl:NamedIndividual,
+:undefined a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "Undefined"@en ;
-    datacite:hasIdentifier :undefined ;
-    datacite:usesIdentifierScheme :conditionsOfAccess_identifier ;
+    datacite:hasIdentifier :acr_undefined ;
     skos:inScheme :conditionsOfAccess .
-
-datacite:IdentifierScheme a owl:Class ;
-    rdfs:label "identifier scheme"@en ;
-    rdfs:comment "The identifier scheme used to identify an entity such as a funding agency, a person or a resource. Individual schemes are defines as members of this class."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
-
-skos:Concept a owl:Class ;
-    rdfs:label "Concept"@en ;
-    rdfs:comment "An idea or notion; a unit of thought."@en ;
-    rdfs:isDefinedBy skos: .
 
 :conditionsOfAccess a owl:NamedIndividual,
         skos:ConceptScheme ;
     rdfs:label "conditions of access"@en .
-
-:conditionsOfAccess_identifier a datacite:IdentifierScheme,
-        owl:NamedIndividual .
-
-datacite:Identifier a owl:Class ;
-    rdfs:label "identifier"@en ;
-    rdfs:comment "An identifier that uniquely identities an entity belonging to a particular scheme such as those specified by individuals of the class datacite:IdentifierScheme."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
 

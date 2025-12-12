@@ -80,64 +80,53 @@
     skos:inScheme :licenses .
 
 :lic_clarin-aca a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_clarin-pub a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_clarin-res a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_creative-commons a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_elra a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_meta-share a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_ms-pl a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_ms-rl a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_open-data a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
 :lic_open-source a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :licenses_identifier .
+        owl:NamedIndividual .
 
-:other a datacite:Identifier,
-        owl:NamedIndividual,
+:lic_other a datacite:Identifier,
+        owl:NamedIndividual .
+
+:lic_undefined a datacite:Identifier,
+        owl:NamedIndividual .
+
+:other a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "Other"@en ;
-    datacite:hasIdentifier :other ;
-    datacite:usesIdentifierScheme :licenses_identifier ;
+    datacite:hasIdentifier :lic_other ;
     skos:inScheme :licenses .
 
-:undefined a datacite:Identifier,
-        owl:NamedIndividual,
+:undefined a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "Undefined"@en ;
-    datacite:hasIdentifier :undefined ;
-    datacite:usesIdentifierScheme :licenses_identifier ;
+    datacite:hasIdentifier :lic_undefined ;
     skos:inScheme :licenses .
 
 :licenses a owl:NamedIndividual,
         skos:ConceptScheme ;
     rdfs:label "licenses"@en .
-
-:licenses_identifier a datacite:IdentifierScheme,
-        owl:NamedIndividual .

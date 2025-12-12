@@ -155,96 +155,89 @@
     skos:exactMatch coar:c_46ec ;
     skos:inScheme :documentType .
 
-:other a datacite:Identifier,
-        owl:NamedIndividual,
+:video a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Video"@en ;
+    datacite:hasIdentifier :typ_video ;
+    skos:exactMatch coar:c_12ce ;
+    skos:inScheme :documentType .
+
+:other a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "Other"@en ;
-    datacite:hasIdentifier :other ;
-    datacite:usesIdentifierScheme :documentType_identifier ;
+    datacite:hasIdentifier :typ_other ;
     skos:inScheme :documentType .
 
 :typ_article a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_bibliography a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_blog-post a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_book a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_book-part a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_conference a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_dataset a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_image a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_learning-object a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_manuscript a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_map a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
+
+:typ_other a datacite:Identifier,
+        owl:NamedIndividual .
 
 :typ_periodical a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_preprint a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_report a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_review a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_software a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_sound a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_text a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
 :typ_thesis a datacite:Identifier,
-        owl:NamedIndividual ;
-    datacite:usesIdentifierScheme :documentType_identifier .
+        owl:NamedIndividual .
 
-:undefined a datacite:Identifier,
-        owl:NamedIndividual,
+:typ_undefined a datacite:Identifier,
+        owl:NamedIndividual .
+
+:typ_video a datacite:Identifier,
+        owl:NamedIndividual .
+
+:undefined a owl:NamedIndividual,
         skos:Concept ;
     rdfs:label "Undefined"@en ;
-    datacite:hasIdentifier :undefined ;
-    datacite:usesIdentifierScheme :documentType_identifier ;
+    datacite:hasIdentifier :typ_undefined ;
     skos:inScheme :documentType .
 
 coar:QX5C-AR31 a owl:NamedIndividual,
@@ -323,19 +316,10 @@ coar:c_efa0 a owl:NamedIndividual,
         skos:Concept ;
     rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
 
-datacite:IdentifierScheme a owl:Class ;
-    rdfs:label "identifier scheme"@en ;
-    rdfs:comment "The identifier scheme used to identify an entity such as a funding agency, a person or a resource. Individual schemes are defines as members of this class."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
+coar:c_12ce a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
 
 :documentType a owl:NamedIndividual,
         skos:ConceptScheme ;
     rdfs:label "content type"@en .
-
-:documentType_identifier a datacite:IdentifierScheme,
-        owl:NamedIndividual .
-
-datacite:Identifier a owl:Class ;
-    rdfs:label "identifier"@en ;
-    rdfs:comment "An identifier that uniquely identities an entity belonging to a particular scheme such as those specified by individuals of the class datacite:IdentifierScheme."@en ;
-    rdfs:isDefinedBy <http://purl.org/spar/datacite> .
