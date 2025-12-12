@@ -15,6 +15,33 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-12 - Refactoring: Controlled Vocabularies Simplification
+
+**Type**: Refactoring
+
+**Description**:
+Simplified controlled vocabularies by removing `datacite:IdentifierScheme` and `datacite:usesIdentifierScheme` from all vocabulary files. Identifiers are now declared as simple `datacite:Identifier` instances without scheme references.
+
+**Details**:
+- Removed `datacite:usesIdentifierScheme` property from all identifier declarations
+- Removed `datacite:IdentifierScheme` class declarations
+- Removed individual identifier scheme instances (`:documentType_identifier`, `:conditionsOfAccess_identifier`, `:licenses_identifier`, `:disciplines_identifier`)
+- Fixed `:other` and `:undefined` concept identifiers to follow naming pattern (`:typ_other`, `:acr_other`, `:lic_other`, etc.)
+- Maintained all SKOS concept definitions and external vocabulary mappings
+
+**Files Modified**:
+- `vocabularies/serializations/ttl/content_types.ttl` - Added `:video` and `:image` concepts (COAR c_12ce, c_c513), removed identifier schemes
+- `vocabularies/serializations/ttl/conditions_of_access.ttl` - Removed identifier schemes
+- `vocabularies/serializations/ttl/license.ttl` - Removed identifier schemes
+- `vocabularies/serializations/ttl/disciplines.ttl` - Removed identifier schemes
+
+**Rationale**:
+The identifier scheme pattern added unnecessary complexity to controlled vocabularies. Since vocabularies use a consistent internal identifier pattern and rely on SKOS for semantic alignment with external vocabularies, the explicit scheme declaration was redundant.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-12 - Refactoring: Iteration 06 Profile Model Simplification
 
 **Type**: Refactoring
