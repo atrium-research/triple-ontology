@@ -1,7 +1,7 @@
 # Formal Competency Questions (Iteration 15)
 
 ## CQ_15.1 - Unified Retrieval
-Return all people mentioned in "Document1", regardless of whether they are external (Wikidata), internal, or new local entities.
+Return all entities mentioned in "Document1", regardless of type or source.
 
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
@@ -13,9 +13,9 @@ SELECT ?doc ?entityName WHERE {
     ?ann oa:hasTarget triple:Document1 ;
          oa:hasBody ?entity .
     
-    # Matches both Wikidata URIs and Local URIs thanks to type assertions
-    ?entity a schema:Person ; 
-            schema:name|skos:prefLabel ?entityName . 
+    # Optional name matching for different types
+    OPTIONAL { ?entity schema:name ?entityName }
+    OPTIONAL { ?entity skos:prefLabel ?entityName }
 }
 ```
 
@@ -25,6 +25,7 @@ Return only external entities (e.g., Wikidata) mentioned in "Document1".
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?entity WHERE {
     ?ann oa:hasTarget triple:Document1 ;
@@ -34,17 +35,47 @@ SELECT ?entity WHERE {
 ```
 
 ## CQ_15.3 - New Local Entities
-Return only newly created local entities (Dual Typed).
+Return only newly created local entities (Dual Typed or internal).
 
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?entity WHERE {
-    ?ann oa:hasTarget <https://gotriple.eu/ontology/triple/Document1> ;
+    ?ann oa:hasTarget triple:Document1 ;
          oa:hasBody ?entity .
     
-    ?entity a skos:Concept .
+    FILTER (STRSTARTS(STR(?entity), "https://gotriple.eu/ontology/triple#"))
+}
+```
+
+## CQ_15.4 - Retrieve Annotations from Document
+Retrieve all annotations connected to the document via `schema:mentions`.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX oa: <http://www.w3.org/ns/oa#>
+
+SELECT ?annotation ?body WHERE {
+    triple:Document1 schema:mentions ?annotation .
+    ?annotation oa:hasBody ?body .
+}
+```
+
+## CQ_15.5 - Filter by Type (Place)
+Return only Places mentioned.
+
+```sparql
+PREFIX oa: <http://www.w3.org/ns/oa#>
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?entity WHERE {
+    ?ann oa:hasTarget triple:Document1 ;
+         oa:hasBody ?entity .
+    ?entity a schema:Place .
 }
 ```

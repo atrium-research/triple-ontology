@@ -7,5 +7,7 @@
 | `oa:hasBody` | Property linking the Annotation to the body of the annotation (the entity being mentioned). |
 | `oa:motivatedBy` | Property indicating the motivation for the annotation. In this case, `oa:identifying`. |
 | `oa:identifying` | The motivation for the annotation, indicating that the purpose is to identify the entity mentioned in the target. |
-| `skos:Concept` | Used for dual typing of new local entities to maintain compatibility with SKOS-based tools. |
+| `skos:Concept` | Used for dual typing of new local entities and for concepts (e.g., Democracy). |
 | `schema:Person` | Schema.org class used to type the entities (both external and internal). |
+| `schema:Place` | Schema.org class used for locations (e.g., Rome). |
+| `schema:mentions` | Property linking the Document to the Annotations contained within it. |

@@ -14,6 +14,8 @@ A list of names/URIs: Ada Lovelace, Jane Doe, New Author Name.
 *   <http://www.wikidata.org/entity/Q7259> (Ada Lovelace)
 *   `triple:JaneDoe` (Jane Doe)
 *   `triple:person_1` (New Author Name)
+*   `triple:place_rome` (Rome)
+*   `triple:concept_democracy` (Democracy)
 
 ### Based on
 Motive Scenario
