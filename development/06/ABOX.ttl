@@ -77,7 +77,7 @@ schema:CreativeWork rdf:type owl:Class .
 ###  https://gotriple.eu/ontology/triple#Profile
 triple:Profile rdf:type owl:Class ;
                rdfs:label "profile"@en ;
-               rdfs:subClassOf foaf:Person .
+               rdfs:subClassOf [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 
 #################################################################
