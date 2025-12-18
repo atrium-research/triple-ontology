@@ -292,3 +292,16 @@ SELECT ?document WHERE {
   ?identifier a triple:ID .
 }
 ```
+
+## CQ_1.19
+
+Return the source of `triple:document_1`.
+
+```
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT ?source WHERE {
+  triple:document_1 dcterms:source ?source .
+}
+```

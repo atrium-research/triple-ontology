@@ -93,12 +93,20 @@ triple:Document rdf:type owl:Class ;
    - Cardinality: At least one (`owl:someValuesFrom`)
    - Indicates the file format (e.g., "application/pdf", "text/html")
 
+7. **Source** (`dcterms:source`):
+   - Domain: `triple:Document`
+   - Range: `owl:Thing` (unrestricted)
+   - Cardinality: Optional (`owl:minCardinality 0`)
+   - Indicates a related resource from which the described resource is derived or mentions.
+
 **External Vocabularies Used**:
 - **Schema.org** (`schema:additionalType`, `schema:inLanguage`, `schema:Language`, `schema:CreativeWork`, `schema:headline`, `schema:abstract`, `schema:encodingFormat`): Document type classification, language metadata, creative work modeling, and descriptive metadata
 - **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): Base classes and properties for identifier management with class-based extensions
 - **FOAF** (`foaf:Document`): Document representation
 - **SKOS** (`skos:Concept`): Controlled vocabulary concepts for document types
 - **SPAR Literal** (`litre:hasLiteralValue`): Literal value management for identifiers
+- **Dublin Core Terms** (`dcterms:source`): Source reference
+
 
 ## Example 1
 
@@ -119,6 +127,8 @@ A scholarly article in English and French with multiple identifiers including UR
 - **Title**: "The Impact of Digital Humanities on SSH Research"@en, "L'impact des humanités numériques sur la recherche SHS"@fr
 - **Abstract**: "This paper examines the transformative role of digital humanities in Social Sciences and Humanities research."@en, "Cet article examine le rôle transformateur des humanités numériques dans la recherche en sciences humaines et sociales."@fr
 - **Format**: "application/pdf"
+- **Source**: `document_journal` (The "Journal of Digital Humanities" containing this article)
+
 
 The example demonstrates the dual approach: class-based identifiers for platform management with automatic schema inference, and traditional schema-based identifiers for URLs and external systems.
 

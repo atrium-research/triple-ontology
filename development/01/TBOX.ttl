@@ -10,6 +10,7 @@
 @prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://gotriple.eu/ontology/triple/> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -18,6 +19,10 @@
 #################################################################
 #    Object Properties
 #################################################################
+
+###  http://purl.org/dc/terms/source
+dcterms:source rdf:type owl:ObjectProperty .
+
 
 ###  https://schema.org/additionalType
 schema:additionalType rdf:type owl:ObjectProperty ;
@@ -143,6 +148,10 @@ foaf:Document rdf:type owl:Class ;
 triple:Document rdf:type owl:Class ;
                 rdfs:subClassOf schema:CreativeWork ,
                                 foaf:Document ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty dcterms:source ;
+                                  owl:someValuesFrom owl:Thing
+                                ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty schema:additionalType ;
                                   owl:someValuesFrom skos:Concept

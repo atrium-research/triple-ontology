@@ -8,6 +8,7 @@
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <http://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @base <https://gotriple.eu/ontology/triple/> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -110,6 +111,8 @@ triple:Document rdf:type owl:Class ;
             <http://schema.org/headline> "L'impact des humanités numériques sur la recherche SHS"@fr ;
             <http://schema.org/abstract> "This paper examines the transformative role of digital humanities in Social Sciences and Humanities research."@en ;
             <http://schema.org/abstract> "Cet article examine le rôle transformateur des humanités numériques dans la recherche en sciences humaines et sociales."@fr ;
+            <http://schema.org/abstract> "Cet article examine le rôle transformateur des humanités numériques dans la recherche en sciences humaines et sociales."@fr ;
+            dcterms:source :document_journal ;
             <http://schema.org/encodingFormat> "application/pdf" .
 
 
@@ -132,6 +135,13 @@ triple:Document rdf:type owl:Class ;
              datacite:usesIdentifierScheme :identifier_67 ,
                                           :identifier_678 ;
              <http://schema.org/inLanguage> :language_2 .
+
+
+###  triple:document_journal
+:document_journal rdf:type owl:NamedIndividual ,
+                           triple:Document ;
+                  <http://schema.org/headline> "Journal of Digital Humanities"@en ;
+                  <http://purl.org/dc/elements/1.1/type> :type_journal .
 
 
 ###  triple:identifier_2

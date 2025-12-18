@@ -262,3 +262,20 @@ A list of URL identifiers.
 
 ### Based on
 Example 1
+
+## Question 15
+
+### Identifier
+CQ_1.19
+
+### Question
+Return the source of `document_1`.
+
+### Expected Outcome
+The source entity (or string).
+
+### Result
+`document_journal`
+
+### Based on
+Example 1
