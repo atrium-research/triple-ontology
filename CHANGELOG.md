@@ -15,6 +15,39 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-19 - Refactoring: Project and Dataset Metadata Alignment
+
+**Type**: Refactoring / Addition
+
+**Description**:
+Aligned Iteration 07 (Projects) with new metadata requirements and refined identifier usage. Identified Iteration 10 (Datasets) and began metadata alignment. Refactored Iteration 01 to standardise schema.org prefix usage.
+
+**Details**:
+
+**Iteration 07 (Projects)**:
+- **Refined Identifiers**:
+  - Restricted `datacite:hasIdentifier` to `triple:ID`, `triple:PID`, `triple:OriginalIdentifier`
+  - Removed `triple:DOI` and `triple:Handle` from Project restrictions
+- **Added Metadata**:
+  - `schema:organizer` (Range: `schema:Organization`)
+  - `schema:knowsAbout` (Range: `skos:Concept`)
+  - `schema:mainEntityOfPage` (Range: `schema:URL`)
+  - `schema:inLanguage` (Range: `schema:Language`)
+  - `schema:dateCreated`, `schema:dateModified` (Range: `xsd:date`, maxCardinality 1)
+- **Files Aligned**: TBOX, ABOX, Motivating Scenario, Glossary, Competency Questions updated
+
+**Iteration 10 (Datasets)**:
+- Identified Iteration 10 as the "Dataset" definition iteration
+- Added `schema:mainEntityOfPage` with `schema:URL` range
+- Performed gap analysis for missing metadata fields
+
+**Iteration 01 (Core)**:
+- Refactored property definitions to preferentially use `schema:` prefix (e.g., `schema:inLanguage`, `schema:abstract`, `schema:headline`)
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-12 - Refactoring: Controlled Vocabularies Simplification
 
 **Type**: Refactoring
