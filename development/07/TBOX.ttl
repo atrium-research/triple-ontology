@@ -47,9 +47,45 @@ schema:sponsor rdf:type owl:ObjectProperty ;
                rdfs:comment "A person or organization that supports a thing through a pledge, promise, or financial contribution"@en .
 
 
+###  http://schema.org/organizer
+schema:organizer rdf:type owl:ObjectProperty ;
+                 rdfs:label "schema:organizer"@en ;
+                 rdfs:comment "The organization who organizes the event or project."@en ;
+                 rdfs:range schema:Organization .
+
+
+###  http://schema.org/knowsAbout
+schema:knowsAbout rdf:type owl:ObjectProperty ;
+                  rdfs:label "schema:knowsAbout"@en ;
+                  rdfs:comment "Of a Person, and less typically of an Organization, to indicate a topic that is known about - suggested for areas of expertise."@en ;
+                  rdfs:range skos:Concept .
+
+
+
+
+
+###  http://schema.org/mainEntityOfPage
+schema:mainEntityOfPage rdf:type owl:DatatypeProperty ;
+                        rdfs:label "schema:mainEntityOfPage"@en ;
+                        rdfs:comment "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."@en ;
+                        rdfs:range schema:URL .
+
+
 #################################################################
 #    Data properties
 #################################################################
+
+###  http://schema.org/dateCreated
+schema:dateCreated rdf:type owl:DatatypeProperty ;
+                   rdfs:label "schema:dateCreated"@en ;
+                   rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
+                   rdfs:range xsd:date .
+
+###  http://schema.org/dateModified
+schema:dateModified rdf:type owl:DatatypeProperty ;
+                    rdfs:label "schema:dateModified"@en ;
+                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en ;
+                    rdfs:range xsd:date .
 
 ###  http://schema.org/alternateName
 schema:alternateName rdf:type owl:DatatypeProperty ;
@@ -79,14 +115,30 @@ schema:startDate rdf:type owl:DatatypeProperty ;
                  rdfs:range xsd:date .
 
 
+
+
+
 #################################################################
 #    Classes
 #################################################################
+
+
+###  http://schema.org/Language
+schema:Language rdf:type owl:Class ;
+                rdfs:label "schema:Language"@en ;
+                rdfs:comment "Natural language such as Spanish, Tamil, or English."@en .
 
 ###  http://schema.org/DefinedTerm
 schema:DefinedTerm rdf:type owl:Class ;
                    rdfs:label "schema:DefinedTerm"@en ;
                    rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition"@en .
+
+
+
+###  http://schema.org/URL
+schema:URL rdf:type rdfs:Datatype ;
+           rdfs:label "schema:URL"@en ;
+           rdfs:comment "Data type: URL."@en .
 
 
 ###  http://schema.org/Grant
@@ -122,7 +174,8 @@ triple:Project rdf:type owl:Class ;
                # Optional identifier (0 or more)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty datacite:hasIdentifier ;
-                                 owl:allValuesFrom datacite:Identifier
+                                 owl:allValuesFrom [ rdf:type owl:Class ;
+                                                     owl:unionOf ( datacite:Identifier triple:ID triple:PID triple:OriginalIdentifier ) ]
                                ] ;
 
                # Optional start date (0 or 1)
@@ -175,7 +228,54 @@ triple:Project rdf:type owl:Class ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:alternateName ;
                                  owl:allValuesFrom rdf:langString
+                               ] ;
+
+               # Optional organizer (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:organizer ;
+                                 owl:allValuesFrom schema:Organization
+                               ] ;
+
+               # Optional knowsAbout (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:knowsAbout ;
+                                 owl:allValuesFrom skos:Concept
+                               ] ;
+
+               # Optional mainEntityOfPage (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:mainEntityOfPage ;
+                                 owl:allValuesFrom schema:URL
+                               ] ;
+
+               # Optional language (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:inLanguage ;
+                                 owl:someValuesFrom schema:Language
+                               ] ;
+
+               # Optional date created (0 or 1)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:dateCreated ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:dateCreated ;
+                                 owl:allValuesFrom xsd:date
+                               ] ;
+
+               # Optional date modified (0 or 1)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:dateModified ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:dateModified ;
+                                 owl:allValuesFrom xsd:date
                                ] .
 
 
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi
+
+
+
+

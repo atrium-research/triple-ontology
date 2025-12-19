@@ -38,8 +38,9 @@ datacite:hasIdentifier rdf:type owl:ObjectProperty .
 datacite:usesIdentifierScheme rdf:type owl:ObjectProperty .
 
 
+
 ###  http://schema.org/inLanguage
-<http://schema.org/inLanguage> rdf:type owl:ObjectProperty .
+schema:inLanguage rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -51,15 +52,16 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty .
 
 
 ###  http://schema.org/abstract
-<http://schema.org/abstract> rdf:type owl:DatatypeProperty .
+schema:abstract rdf:type owl:DatatypeProperty .
 
 
 ###  http://schema.org/encodingFormat
-<http://schema.org/encodingFormat> rdf:type owl:DatatypeProperty .
+schema:encodingFormat rdf:type owl:DatatypeProperty .
 
 
 ###  http://schema.org/headline
-<http://schema.org/headline> rdf:type owl:DatatypeProperty .
+schema:headline rdf:type owl:DatatypeProperty .
+
 
 
 #################################################################
@@ -125,8 +127,8 @@ triple:OriginalIdentifier rdf:type owl:Class ;
 
 
 ###  http://schema.org/Language
-<http://schema.org/Language> rdf:type owl:Class ;
-                             rdfs:label "schema:Language"@en .
+schema:Language rdf:type owl:Class ;
+                rdfs:label "schema:Language"@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
@@ -169,19 +171,19 @@ triple:Document rdf:type owl:Class ;
                                   owl:someValuesFrom triple:OriginalIdentifier
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty <http://schema.org/inLanguage> ;
-                                  owl:someValuesFrom <http://schema.org/Language>
+                                  owl:onProperty schema:inLanguage ;
+                                  owl:someValuesFrom schema:Language
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty <http://schema.org/headline> ;
+                                  owl:onProperty schema:headline ;
                                   owl:someValuesFrom rdf:langString
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty <http://schema.org/abstract> ;
+                                  owl:onProperty schema:abstract ;
                                   owl:someValuesFrom rdf:langString
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty <http://schema.org/encodingFormat> ;
+                                  owl:onProperty schema:encodingFormat ;
                                   owl:someValuesFrom xsd:string
                                 ] ,
                                 [ rdf:type owl:Restriction ;
