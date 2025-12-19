@@ -22,6 +22,11 @@ For `project_1` (TRIPLE-SSH):
 * Topic: Digital Humanities
 * Keywords: discovery platform, semantic web, SSH research
 * Funding: grant_1
+* Date created: 2018-12-01
+* Date modified: 2023-01-15
+* Language: en
+* Organizer: ACDH-CH
+* Main Entity of Page: https://triple.eu/projects/1
 
 ### Based on
 Example 1

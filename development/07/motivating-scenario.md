@@ -47,6 +47,12 @@ Projects in GoTriple are modeled as instances of `triple:Project` (subclass of s
 - `schema:name`: Official project name (multilingual using @lang tags)
 - `schema:alternateName`: Project acronym or alternative names
 - `schema:description`: Project abstract/description (multilingual)
+- `schema:organizer`: Managing organization of the project (`schema:Organization`)
+- `schema:knowsAbout`: Areas of expertise (`skos:Concept`)
+- `schema:mainEntityOfPage`: Main web page of the project (`schema:URL`)
+- `schema:inLanguage`: Language of the project content (`schema:Language`)
+- `schema:dateCreated`: Creation date of the record (`xsd:date`)
+- `schema:dateModified`: Last modification date of the record (`xsd:date`)
 
 ## Example 1
 
@@ -61,6 +67,10 @@ The TRIPLE project ("Transforming Research through Innovative Practices for Link
 - Coordinating entity: Austrian Centre for Digital Humanities and Cultural Heritage (ACDH-CH)
 - Funder: European Commission
 - Sponsor: European Research Executive Agency (REA)
+- Language: en
+- Main Entity of Page: https://triple.eu/projects/1
+- Date Created: 2018-12-01
+- Date Modified: 2023-01-15
 - Topic: Digital Humanities (discipline)
 - Keywords: discovery platform, semantic web, SSH research
 - Name: Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration
@@ -80,6 +90,9 @@ A 2-year research project (2020-2022) on contemporary migration patterns in Sout
 - Coordinating entity: University of Bologna - Department of Sociology and Business Law
 - Funder: Italian Ministry of University and Research (MUR)
 - Sponsor: Italian Ministry of University and Research (MUR)
+- Language: it
+- Main Entity of Page: https://miguris.project.it
+- Date Created: 2020-02-01
 - Topic: Sociology, Migration Studies (disciplines)
 - Keywords: migration, integration, urban studies, Southern Europe
 - Name: Socio-Economic Integration of Migrants in Italian Urban Contexts
@@ -99,6 +112,8 @@ A digital humanities project (2021-2024) focused on documenting endangered cultu
 - Coordinating entity: University of Vienna - Institute for Cultural Heritage
 - Funders: Austrian Science Fund (FWF), The Getty Foundation
 - Sponsors: Austrian Science Fund (FWF), The Getty Foundation
+- Language: en
+- Date Modified: 2021-12-01
 - Topics: Cultural Heritage, Digital Humanities, History (disciplines)
 - Keywords: heritage documentation, Balkans, digital preservation, cultural memory
 - Name: Digital Documentation of Endangered Cultural Heritage in the Balkans
@@ -118,6 +133,8 @@ A 5-year individual research project (2022-2027) examining the concept of justic
 - Coordinating entity: Humboldt University Berlin - Faculty of Philosophy
 - Funder: European Research Council (ERC)
 - Sponsor: European Research Council (ERC)
+- Language: en
+- Main Entity of Page: https://erc.europa.eu/projects/hellenistic
 - Topics: Philosophy, Ancient History (disciplines)
 - Keywords: Hellenistic philosophy, justice, ancient ethics, Stoicism
 - Name: Conceptions of Justice in Hellenistic Philosophy

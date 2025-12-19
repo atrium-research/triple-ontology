@@ -312,3 +312,94 @@ WHERE {
 - project_3 (BALKAN-HERITAGE) - contains "heritage" in multiple fields
 
 
+## CQ_7.11
+
+Which organization is the organizer of a specific project?
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?project ?projectName ?organizerName
+WHERE {
+  ?project a triple:Project ;
+           schema:name ?projectName ;
+           schema:organizer ?organizer .
+
+  ?organizer schema:name ?organizerName .
+}
+```
+
+**Expected Results:**
+- project_1: Austrian Centre for Digital Humanities and Cultural Heritage
+- project_2: University of Bologna...
+- project_3: University of Vienna...
+
+
+## CQ_7.12
+
+What topics does a project "know about" (areas of expertise)?
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?project ?projectName ?topicLabel
+WHERE {
+  ?project a triple:Project ;
+           schema:name ?projectName ;
+           schema:knowsAbout ?topic .
+
+  ?topic rdfs:label ?topicLabel .
+}
+```
+
+**Expected Results:**
+- project_2: Migration Studies
+
+
+## CQ_7.13
+
+What is the main web page (URL) associated with the project?
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?project ?projectName ?url
+WHERE {
+  ?project a triple:Project ;
+           schema:name ?projectName ;
+           schema:mainEntityOfPage ?url .
+}
+```
+
+**Expected Results:**
+- project_1: https://triple.eu/projects/1
+- project_2: https://miguris.project.it
+- project_4: https://erc.europa.eu/projects/hellenistic
+
+
+## CQ_7.14
+
+What is the language of the project content?
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?project ?projectName ?language
+WHERE {
+  ?project a triple:Project ;
+           schema:name ?projectName ;
+           schema:inLanguage ?language .
+}
+```
+
+**Expected Results:**
+- project_1: en
+- project_2: it
+- project_3: en
+- project_4: en
