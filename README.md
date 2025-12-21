@@ -28,7 +28,7 @@ This repository contains the full documentation produced during the development 
 
 ### Core Directories
 
-* **`development/`** - Contains 14 SAMOD iterations (01-14), each representing a complete development cycle with:
+* **`development/`** - Contains 16 SAMOD iterations (01-16), each representing a complete development cycle with:
   * `motivating-scenario.md` - Use case description and examples
   * `informal-competency-questions.md` - Natural language requirements
   * `glossary-of-terms.md` - Domain terminology definitions
@@ -41,9 +41,9 @@ This repository contains the full documentation produced during the development 
 * **`ontology/`** - Consolidated final ontology
   * `triple-ontology.ttl` - Merged TBOX from all iterations (structure only, no instances)
 
-* **`diagrams/`** - Refactored Graffoo diagrams (01.png - 07.png) showing the consolidated model after each of the first 7 iterations
+* **`diagrams/`** - Refactored Graffoo diagrams showing the consolidated model
 
-* **`sparql/`** - Refactored formal competency questions (01.md - 07.md) with SPARQL queries for testing the final ontology
+* **`sparql/`** - Refactored formal competency questions with SPARQL queries for testing the final ontology
 
 * **`examples/`** - Practical data examples
   * `jsonld/` - Real-world JSON-LD serialization examples from GoTriple platform
