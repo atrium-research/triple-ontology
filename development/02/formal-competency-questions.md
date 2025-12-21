@@ -34,22 +34,6 @@ SELECT ?accessConditions WHERE {
 - `triple:open_access`
 
 
-## CQ_2.3
-
-What type of document is `document_3`?
-
-```sparql
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?type WHERE {
-  triple:document_3 schema:additionalType ?type .
-}
-```
-
-**Expected Result:**
-- `triple:article`
-
 
 ## CQ_2.4
 
@@ -158,24 +142,6 @@ SELECT ?document WHERE {
 - `triple:document_1`
 
 
-## CQ_2.10
-
-Return all documents that are of type "Article" and are Open Access.
-
-```sparql
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?document WHERE {
-  ?document schema:additionalType triple:article .
-  ?document schema:conditionsOfAccess triple:open_access .
-}
-```
-
-**Expected Result:**
-- (No documents currently match both criteria in the ABOX)
-
 
 ## CQ_2.11
 
@@ -209,7 +175,6 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 SELECT ?license ?access ?type ?discipline WHERE {
   OPTIONAL { triple:document_1 schema:license ?license . }
   OPTIONAL { triple:document_1 schema:conditionsOfAccess ?access . }
-  OPTIONAL { triple:document_1 schema:additionalType ?type . }
   OPTIONAL { triple:document_1 sioc:topic ?discipline . }
 }
 ```

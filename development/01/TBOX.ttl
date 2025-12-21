@@ -24,10 +24,7 @@
 dcterms:source rdf:type owl:ObjectProperty .
 
 
-###  https://schema.org/additionalType
-schema:additionalType rdf:type owl:ObjectProperty ;
-                      rdfs:label "schema:additionalType"@en ;
-                      rdfs:comment "An additional type for the item, typically used for adding more specific types from external vocabularies."@en .
+
 
 
 ###  http://purl.org/spar/datacite/hasIdentifier
@@ -154,10 +151,7 @@ triple:Document rdf:type owl:Class ;
                                   owl:onProperty dcterms:source ;
                                   owl:someValuesFrom owl:Thing
                                 ] ,
-                                [ rdf:type owl:Restriction ;
-                                  owl:onProperty schema:additionalType ;
-                                  owl:someValuesFrom skos:Concept
-                                ] ,
+
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty datacite:hasIdentifier ;
                                   owl:someValuesFrom triple:ID

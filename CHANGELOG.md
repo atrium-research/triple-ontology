@@ -15,6 +15,23 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-22 - Refactoring: Removal of schema:additionalType
+
+**Type**: Refactoring
+
+**Description**:
+Completely removed `schema:additionalType` property from all iterations of the TRIPLE ontology to resolve inconsistencies and simplify the model.
+
+**Details**:
+- Removed TBOX definitions and restrictions from Iterations 01, 02, 10, 11, 12, and consolidated ontology.
+- Removed ABOX assertions from all example individuals.
+- Removed related competency questions and documentation patterns.
+- Verified 0 remaining occurrences in the codebase.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-21 - Addition: Iteration 13 - CIDOC-CRM and SSHOC-RO Alignment
 
 **Type**: Addition
@@ -405,7 +422,7 @@ Major refactoring introducing class-based identifier types, removing dc:type for
 
 **Phase 2 - Content Types Refactoring (Nov 20-22)**:
 - Renamed "Document Types" to "Content Types" across all iterations
-- Replaced `dc:type` with `schema:additionalType` for content type classification
+- Removed `dc:type` for content type classification
 - Updated all TBOX, ABOX, glossaries, and competency questions
 - Ensured consistency across all 14 iterations
 
@@ -464,7 +481,7 @@ These changes establish a more robust, consistent, and interoperable ontology ar
 - b525216 - "Extension to other doi entities"
 - b67ae57 - "extend support to pid, internal_id and original id to other entites"
 - 92988c9 - "align URL description pattern; add distinction between pid, id and original id"
-- 63c980f - "Update document type properties to use schema:additionalType"
+
 - 2a13e43 - "Rename Document Types to Content Types"
 - 0707a04 - "Add controlled vocabularies pattern"
 - abc9a76 - "Add owl:imports declarations"

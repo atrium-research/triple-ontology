@@ -149,11 +149,7 @@ schema:temporalCoverage rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:string .
 
 
-###  https://schema.org/additionalType
-schema:additionalType rdf:type owl:DatatypeProperty ;
-                      rdfs:label "schema:additionalType"@en ;
-                      rdfs:comment "An additional type for the item."@en ;
-                      rdfs:range xsd:string .
+
 
 ###  https://schema.org/knowsAbout
 schema:knowsAbout rdf:type owl:DatatypeProperty ;
@@ -258,9 +254,7 @@ triple:MediaObject rdf:type owl:Class ;
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:temporalCoverage ;
                                      owl:allValuesFrom xsd:string ] ,
-                                   [ rdf:type owl:Restriction ;
-                                     owl:onProperty schema:additionalType ;
-                                     owl:allValuesFrom xsd:string ] ,
+
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:knowsAbout ;
                                      owl:allValuesFrom xsd:string ] ,

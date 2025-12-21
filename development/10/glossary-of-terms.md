@@ -29,7 +29,6 @@
 | `schema:contributor`           | Schema.org property indicating a secondary contributor to the dataset.                                                                              |
 | `schema:dateModified`          | Schema.org property indicating the date on which the dataset was most recently modified.                                                            |
 | `schema:provider`              | Schema.org property indicating the aggregator or service provider of the dataset.                                                                   |
-| `schema:additionalType`        | Schema.org property specifying additional type information for the dataset (e.g., "Geospatial Dataset", "Survey Dataset").                       |
 | `schema:knowsAbout`            | Schema.org property indicating topics that the dataset is about, often automatically detected from controlled vocabularies.                        |
 | `schema:funding`               | Schema.org property linking the dataset to research projects that funded its creation.                                                              |
 | `schema:mentions`              | Schema.org property indicating references or mentions of other datasets or entities within the dataset's metadata.                                 |

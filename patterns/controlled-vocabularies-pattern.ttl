@@ -96,14 +96,12 @@ triple:acc_restricted-access rdf:type owl:NamedIndividual ,
 
 # Linking documents to vocabulary concepts
 :example_document rdf:type triple:Document ;
-                  schema:additionalType triple:typ_journal-article ;
+
                   schema:conditionsOfAccess triple:acc_open-access ;
                   sioc:topic triple:dis_digital-humanities .
 
 # Class restrictions using vocabulary concepts
-triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty schema:additionalType ;
-                                 owl:someValuesFrom skos:Concept ] ,
+
                                 [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:conditionsOfAccess ;
                                  owl:someValuesFrom skos:Concept ] .

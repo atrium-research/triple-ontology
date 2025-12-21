@@ -25,18 +25,7 @@ SELECT ?ids WHERE {
   triple:document_1 datacite:hasIdentifer ?ids .
 }
 ```
-## CQ_1.3
 
-Return the types associated with `document_1`.
-
-```
-PREFIX schema: <http://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-	
-SELECT ?type WHERE {
-  triple:document_1 schema:additionalType ?type .
-}
-```
 
 ## CQ_1.4
 Return all `documents`.
@@ -62,19 +51,7 @@ SELECT ?languages WHERE {
 }
 ```
 
-## CQ_1.6
-Return all documents, given the `type_5` and the language `language_10`.
 
-```
-PREFIX schema: <http://schema.org/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
-
-SELECT ?documents WHERE {
- ?documents schema:inLanguage triple:language_10 .
- ?documents schema:additionalType triple:type_5 .
-}
-```
 
 ## CQ_1.8
 

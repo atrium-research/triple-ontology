@@ -136,9 +136,7 @@ triple:Dataset a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty schema:abstract ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:additionalType ],
+
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:knowsAbout ],
@@ -246,9 +244,7 @@ triple:MediaObject a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:temporalCoverage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:additionalType ],
+
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:knowsAbout ],
@@ -647,14 +643,7 @@ schema:URL a rdfs:Datatype ;
     rdfs:label "schema:URL"@en ;
     rdfs:comment "Data type: URL."@en .
 
-schema:additionalType a owl:DatatypeProperty,
-        owl:ObjectProperty ;
-    rdfs:label "schema:additionalType"@en ;
-    rdfs:comment "An additional type for the item, typically used for adding more specific types from external vocabularies."@en,
-        "An additional type for the item, typically used for adding more specific types from external vocabularies. Links to document type terms from controlled vocabulary. Official reference: COAR Resource Types (http://vocabularies.coar-repositories.org/resource_types/)."@en,
-        "An additional type for the item, typically used for adding more specific types."@en,
-        "An additional type for the item."@en ;
-    rdfs:range xsd:string .
+
 
 schema:knowsAbout a owl:DatatypeProperty,
         owl:ObjectProperty ;
@@ -812,9 +801,7 @@ triple:Document a owl:Class ;
         [ a owl:Restriction ;
             owl:onProperty dcterms:source ;
             owl:someValuesFrom owl:Thing ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:additionalType ;
-            owl:someValuesFrom skos:Concept ],
+
         [ a owl:Restriction ;
             owl:onProperty datacite:hasIdentifier ;
             owl:someValuesFrom triple:ID ],

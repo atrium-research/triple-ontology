@@ -57,12 +57,6 @@ triple:Document rdf:type owl:Class ;
 
 **Core Properties and Restrictions**:
 
-1. **Document Type** (`schema:additionalType`):
-   - Domain: `triple:Document`  
-   - Range: `skos:Concept`
-   - Cardinality: At least one (`owl:someValuesFrom`)
-   - Represents the nature and format of the document using controlled vocabulary
-
 2. **Class-based Identifiers** (`datacite:hasIdentifier`):
    - Domain: `triple:Document`
    - Range: `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` (mandatory)
@@ -100,7 +94,7 @@ triple:Document rdf:type owl:Class ;
    - Indicates a related resource from which the described resource is derived or mentions.
 
 **External Vocabularies Used**:
-- **Schema.org** (`schema:additionalType`, `schema:inLanguage`, `schema:Language`, `schema:CreativeWork`, `schema:headline`, `schema:abstract`, `schema:encodingFormat`): Document type classification, language metadata, creative work modeling, and descriptive metadata
+- **Schema.org** (`schema:inLanguage`, `schema:Language`, `schema:CreativeWork`, `schema:headline`, `schema:abstract`, `schema:encodingFormat`): Document type classification, language metadata, creative work modeling, and descriptive metadata
 - **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): Base classes and properties for identifier management with class-based extensions
 - **FOAF** (`foaf:Document`): Document representation
 - **SKOS** (`skos:Concept`): Controlled vocabulary concepts for document types
