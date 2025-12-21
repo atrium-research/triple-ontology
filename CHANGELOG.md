@@ -15,6 +15,28 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-22 - Refactoring: Iteration 02 - Bridge Classes and Concept Scheme Removal
+
+**Type**: Refactoring
+
+**Description**:
+Refactored Iteration 02 to implement a "Bridge Classes" pattern for controlled vocabularies and simplified the ontology by removing `skos:ConceptScheme`.
+
+**Details**:
+- **Bridge Classes**: Defined local classes (`triple:License`, `triple:AccessCondition`, `triple:Discipline`, `triple:ContentType`) that subclass both `skos:Concept` and relevant Dublin Core classes.
+- **Properties**:
+  - `triple:hasLicense` (subPropertyOf `dcterms:license`)
+  - `triple:hasAccessCondition` (subPropertyOf `dcterms:accessRights`)
+  - `triple:hasContentType` (subPropertyOf `dcterms:type`)
+  - `sioc:topic` (subPropertyOf `dcterms:subject`, removed global range)
+- **Restrictions**: Added local `owl:Restriction`s to `triple:Document` for all four properties to enforce typing.
+- **Simplification**: Removed `skos:ConceptScheme` definitions and `skos:inScheme` assertions entirely; grouping is now handled via Bridge Classes.
+- **Documentation**: Updated `motivating-scenario.md`, `glossary-of-terms.md`, and renumbered Competency Questions (2.1-2.10).
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-22 - Refactoring: Removal of schema:additionalType
 
 **Type**: Refactoring
