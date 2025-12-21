@@ -14,13 +14,81 @@
                                        owl:versionIRI <https://gotriple.eu/ontology/triple/1.0.0> .
 
 #################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/2004/02/skos/core#closeMatch
+skos:closeMatch rdf:type owl:ObjectProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#exactMatch
+skos:exactMatch rdf:type owl:ObjectProperty .
+
+
+#################################################################
 #    External Classes (CIDOC-CRM)
 #################################################################
+
+###  http://www.cidoc-crm.org/cidoc-crm/E7_Activity
+cidoc:E7_Activity rdf:type owl:Class ;
+                  rdfs:label "E7 Activity"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E31_Document
+cidoc:E31_Document rdf:type owl:Class ;
+                   rdfs:label "E31 Document"@en .
+
+
+###  http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object
+cidoc:E90_Symbolic_Object rdf:type owl:Class ;
+                          rdfs:label "E90 Symbolic Object"@en .
+
 
 #################################################################
 #    External Classes (SSHOCRo)
 #################################################################
 
+###  https://sshoc.eu/ontology/SHE1_Dataset
+sshocro:SHE1_Dataset rdf:type owl:Class ;
+                     rdfs:label "SHE1 Dataset"@en .
+
+
+###  https://sshoc.eu/ontology/SHE3_SSH_Project
+sshocro:SHE3_SSH_Project rdf:type owl:Class ;
+                         rdfs:label "SHE3 SSH Project"@en .
+
+
+###  https://sshoc.eu/ontology/SHE8_Publication
+sshocro:SHE8_Publication rdf:type owl:Class ;
+                         rdfs:label "SHE8 Publication"@en .
+
+
 #################################################################
 #    TRIPLE Class Alignments
 #################################################################
+
+###  https://gotriple.eu/ontology/triple#Dataset
+triple:Dataset rdf:type owl:Class ;
+               skos:exactMatch sshocro:SHE1_Dataset .
+
+
+###  https://gotriple.eu/ontology/triple#Document
+triple:Document rdf:type owl:Class ;
+                skos:exactMatch cidoc:E31_Document ,
+                                sshocro:SHE8_Publication .
+
+
+###  https://gotriple.eu/ontology/triple#MediaObject
+triple:MediaObject rdf:type owl:Class ;
+                   skos:closeMatch cidoc:E90_Symbolic_Object .
+
+
+###  https://gotriple.eu/ontology/triple#Project
+triple:Project rdf:type owl:Class ;
+               skos:closeMatch cidoc:E7_Activity ;
+               skos:exactMatch sshocro:SHE3_SSH_Project .
+
+
+###  https://gotriple.eu/ontology/triple#SemanticArtefact
+triple:SemanticArtefact rdf:type owl:Class ;
+                        skos:closeMatch cidoc:E90_Symbolic_Object .

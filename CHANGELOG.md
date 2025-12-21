@@ -15,6 +15,25 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-21 - Addition: Iteration 13 - CIDOC-CRM and SSHOC-RO Alignment
+
+**Type**: Addition
+
+**Description**:
+Implemented Iteration 13 to align TRIPLE ontology classes with CIDOC-CRM and SSHOC-RO using intensional mappings (`skos:exactMatch` and `skos:closeMatch`).
+
+**Details**:
+- **Mappings**:
+  - `triple:Document`: `cidoc:E31_Document`, `sshocro:SHE8_Publication`
+  - `triple:Project`: `cidoc:E7_Activity` (close), `sshocro:SHE3_SSH_Project` (exact)
+  - `triple:Dataset`: `sshocro:SHE1_Dataset`
+  - `triple:MediaObject` & `triple:SemanticArtefact`: `cidoc:E90_Symbolic_Object` (close)
+- **Files**: Updated all files in `development/13/` to reflect these alignments.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-21 - Addition: Iteration 16 - SKG-IF Alignment
 
 **Type**: Addition

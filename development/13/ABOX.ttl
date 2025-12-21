@@ -5,8 +5,6 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
-@prefix cidoc: <http://www.cidoc-crm.org/cidoc-crm/> .
-@prefix sshocro: <https://sshoc.eu/ontology/> .
 @base <https://gotriple.eu/ontology/triple#> .
 
 <https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
@@ -15,3 +13,9 @@
 #################################################################
 #    Individuals
 #################################################################
+
+###  https://gotriple.eu/ontology/triple#project_cidoc_alignment
+triple:project_cidoc_alignment rdf:type owl:NamedIndividual ,
+                                        triple:Project ;
+                               rdfs:label "CIDOC Alignment Project" ;
+                               rdfs:comment "A Project that corresponds to a SSHOC SSH Project and CIDOC Activity." .
