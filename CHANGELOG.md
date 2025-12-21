@@ -15,6 +15,40 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-21 - Enhancement: Project and Dataset Metadata Extensions
+
+**Type**: Enhancement / Addition
+
+**Description**:
+Added contact points to all main ontology entities. Extended Dataset model with DCAT distribution, provenance support, and spatial bounding box properties.
+
+**Details**:
+
+**Iteration 10 (Datasets)**:
+- **New Properties**:
+  - `dcat:distribution` (Range: `dcat:Distribution`)
+  - `dcat:bbox` (Range: `rdfs:Literal`)
+  - `dcterms:provenance` (Range: `dcterms:ProvenanceStatement`)
+- Added `schema:contactPoint` property
+
+**Iteration 07 (Projects)**:
+- Added `schema:contactPoint` property
+
+**Cross-Cutting Changes**:
+- Added `schema:contactPoint` to all other main resource types:
+  - Iteration 03 (Documents)
+  - Iteration 11 (MediaObject/Multimedia)
+  - Iteration 12 (Semantic Artefacts)
+
+**Author**: Alessandro Bertozzi
+
+**Commits**:
+- a9bddf1 - "add provenance, bbox adn distribution to dataset"
+- 6c2f0f6 - "add contact point to project and add dcat distribution to dataset"
+- 2115257 - "add contact point to all entities of the ontology"
+
+---
+
 ### 2025-12-19 - Refactoring: Project and Dataset Metadata Alignment
 
 **Type**: Refactoring / Addition
