@@ -59,3 +59,20 @@ A list of roles with the associated year and agents.
 
 ### Based on
 Example 1
+
+
+## Question 3.7
+
+### Identifier
+CQ_3.7
+
+### Question
+Who is the contact point for a specific document?
+
+### Expected Outcome
+The contact point for the document.
+
+### Result
+`contact@example.org`
+
+```

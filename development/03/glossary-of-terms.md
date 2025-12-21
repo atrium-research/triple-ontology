@@ -18,3 +18,4 @@
 | `Agent`                 | A person or Organization that held a role.                                                                                                               |
 | `Organization`          | A type of Agent.                                                                                                                                         |
 | `Person`                | A type of Agent.                                                                                                                                         |
+| `Contact Point`         | A contact point for a person or organization.                                                                                                            |

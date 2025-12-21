@@ -281,7 +281,10 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:someValuesFrom skos:Concept ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty dcterms:isReferencedBy ;
-                                     owl:allValuesFrom triple:Document ] .
+                                     owl:allValuesFrom triple:Document ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty schema:contactPoint ;
+                                     owl:allValuesFrom schema:ContactPoint ] .
 
 ###  https://schema.org/DefinedTerm
 schema:DefinedTerm rdf:type owl:Class ;

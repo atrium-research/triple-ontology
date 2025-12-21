@@ -102,3 +102,22 @@ SELECT ?document WHERE {
 
 **Expected Result:**
 - document: document_1
+
+## CQ_3.7
+
+Who is the contact point for a specific document?
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+  
+SELECT ?document ?email
+WHERE {
+  triple:document_1 schema:contactPoint ?cp .
+  ?cp schema:email ?email .
+}
+```
+
+**Expected Result:**
+- contact@example.org

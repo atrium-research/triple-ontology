@@ -25,6 +25,8 @@ The life cycle and creation of a document in GoTriple involve various roles, eac
 
 8. **Funder**: Funders are individuals or organizations that provide financial support for the creation, research, or publication of the document. Their role is vital in enabling the research and dissemination process, especially in academic and scholarly contexts.
 
+9. **Contact Point**: A specific contact point (person or organization) designated for the document, providing a way to reach out for inquiries or feedback related to the resource.
+
 Each of these roles contributes to the lifecycle of a document in GoTriple, from its initial creation to its eventual dissemination and use. This dynamic ecosystem ensures that documents are not only rich in content but also supported by a network of contributors and facilitators, enhancing the overall value and accessibility of SSH resources on the GoTriple platform.
 
 ### Technical specification
@@ -46,6 +48,10 @@ In this role system, the interplay between the temporal collocation, the entitie
 
 ## Example 1
 
-`document_1` has as author the individual `author_34`, as provider the organization `provider_9` in `2012` and the organization `provider_45` in `2022`.
+`document_1` has the following metadata:
 
-
+- **Author**: name_34 (Person)
+- **Providers**: name_3 (Organization, 2012), name_1 (Organization, 2022)
+- **Contact Point**: contact@example.org
+- **Aggregator**: name_56 (Organization)
+- **Funder**: name_78 (Organization) `2022`.

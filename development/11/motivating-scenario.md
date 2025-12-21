@@ -18,6 +18,7 @@ The extension builds upon the existing Document model while introducing the trip
 - Support for multimedia-specific identifiers and licensing information
 - Enable classification through MORESS categories and TRIPLE thesaurus for multimedia content
 - Implement relationships to projects, contributors, and referenced documents
+- Support contact point information for administrative queries (schema:ContactPoint)
 
 ## Examples
 - Video lectures from Canal-U with technical metadata (duration, format) and scholarly metadata (author, subject classification)
