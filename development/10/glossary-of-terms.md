@@ -40,3 +40,6 @@
 | `schema:DefinedTerm`           | Schema.org class representing a word, name, acronym, phrase, etc. with a formal definition used to describe dataset topics.                        |
 | `dcat:Distribution`            | DCAT class representing a specific representation of a dataset (e.g., a specific file or API).                                                      |
 | `dcat:distribution`            | DCAT property linking a dataset to its available distributions.                                                                                     |
+| `dcat:bbox`                    | DCAT property defining the spatial bounding box of the dataset, typically as a WKT literal.                                                         |
+| `dcterms:provenance`           | Dublin Core property indicating a statement of any changes in ownership and custody of the resource since its creation.                             |
+| `dcterms:ProvenanceStatement`  | Dublin Core class representing a statement of provenance information.                                                                               |

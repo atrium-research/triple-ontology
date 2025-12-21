@@ -259,3 +259,47 @@ SELECT ?dataset ?title ?accessURL WHERE {
 **Expected result:**
 - `triple:dataset_001` → "European Archaeological Sites Database" → "https://data.heritage.eu/download/sites.csv"
 
+
+## CQ_10.13
+
+Return all datasets with their bounding box.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+SELECT ?dataset ?title ?bbox WHERE {
+  ?dataset a triple:Dataset ;
+           schema:headline ?title ;
+           dcat:bbox ?bbox .
+}
+```
+
+**Expected result:**
+- `triple:dataset_001` → "European Archaeological Sites Database" → "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"
+- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"
+
+
+## CQ_10.14
+
+Return the provenance statement for all datasets.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?dataset ?title ?provenanceComment WHERE {
+  ?dataset a triple:Dataset ;
+           schema:headline ?title ;
+           dcterms:provenance ?provenance .
+  ?provenance rdfs:comment ?provenanceComment .
+}
+```
+
+**Expected result:**
+- `triple:dataset_001` → "European Archaeological Sites Database" → "Data aggregated from 15 national museums..."
+- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "Survey results merged from 27 EU member state polls..."
+

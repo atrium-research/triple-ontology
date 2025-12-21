@@ -10,6 +10,8 @@ The GoTriple platform needs to index and represent research datasets from variou
 - Extend the ontology to support `triple:Dataset` as a primary resource type (subclass of schema:Dataset)
 - Map dataset-specific properties from multiple standards (DCAT, GeoDCAT, ISO 19115, OGC CSW)
 - Support both georeferenced and non-georeferenced datasets
+- Support bounding box information for spatial search (`dcat:bbox`)
+- Support provenance information (`dcterms:provenance`)
 - Include comprehensive metadata for discovery, access, and reuse
 - Maintain compatibility with existing Document and Project models
 - Support distribution and access information for data files (`dcat:distribution`, `dcat:Distribution`)

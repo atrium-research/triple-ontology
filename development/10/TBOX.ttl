@@ -87,6 +87,12 @@ dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
                        rdfs:label "dcterms:isReferencedBy"@en ;
                        rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en .
 
+###  http://purl.org/dc/terms/provenance
+dcterms:provenance rdf:type owl:ObjectProperty ;
+                   rdfs:label "dcterms:provenance"@en ;
+                   rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
+                   rdfs:range dcterms:ProvenanceStatement .
+
 ###  https://schema.org/keywords
 schema:keywords rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:keywords"@en ;
@@ -102,8 +108,14 @@ datacite:hasIdentifier rdf:type owl:ObjectProperty ;
 ###  http://purl.org/spar/datacite/usesIdentifierScheme
 datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
                               rdfs:label "datacite:usesIdentifierScheme"@en ;
-                              rdfs:comment "Links an identifier to its scheme"@en ;
-                              rdfs:domain datacite:Identifier .
+                              rdfs:comment "An available distribution of the dataset."@en ;
+                  rdfs:range dcat:Distribution .
+
+###  http://www.w3.org/ns/dcat#bbox
+dcat:bbox rdf:type owl:DatatypeProperty ;
+          rdfs:label "dcat:bbox"@en ;
+          rdfs:comment "The bounding box of the dataset, expressed as a literal (e.g., WKT)."@en ;
+          rdfs:range rdfs:Literal .
 
 #################################################################
 #    Data Properties
@@ -316,7 +328,13 @@ triple:Dataset rdf:type owl:Class ;
                                owl:allValuesFrom schema:URL ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty dcat:distribution ;
-                               owl:allValuesFrom dcat:Distribution ] .
+                               owl:allValuesFrom dcat:Distribution ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty dcat:bbox ;
+                               owl:allValuesFrom rdfs:Literal ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty dcterms:provenance ;
+                               owl:allValuesFrom dcterms:ProvenanceStatement ] .
 
 ###  https://schema.org/GeoShape  
 schema:GeoShape rdf:type owl:Class ;
@@ -360,6 +378,11 @@ datacite:Identifier rdf:type owl:Class ;
                                       owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                       owl:onDataRange xsd:string
                                     ] .
+
+###  http://purl.org/dc/terms/ProvenanceStatement
+dcterms:ProvenanceStatement rdf:type owl:Class ;
+                            rdfs:label "dcterms:ProvenanceStatement"@en ;
+                            rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en .
 
 ###  http://purl.org/spar/datacite/IdentifierScheme
 datacite:IdentifierScheme rdf:type owl:Class ;

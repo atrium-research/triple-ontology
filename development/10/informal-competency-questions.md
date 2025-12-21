@@ -226,3 +226,22 @@ A list of datasets with the URL to access/download the data.
 
 ### Based on
 Example 1
+
+
+## Question 13
+
+### Identifier
+CQ_10.13
+
+### Question
+Return all datasets with their bounding box.
+
+### Expected Outcome
+A list of datasets with their spatial extent defined as a WKT literal.
+
+### Result
+* `dataset_001` → POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))
+* `dataset_002` → POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))
+
+### Based on
+Example 1 and Example 2

@@ -29,10 +29,12 @@ triple:dataset-001 rdf:type triple:Dataset ;
                    schema:author "Jane Smith", "Mario Rossi" ;
                    schema:contributor "Dr. Anna Fischer" ;
                    schema:dateCreated "2023-01-15"^^xsd:date ;
+                   dcterms:provenance triple:provenance-heritage-001 ;
                    schema:datePublished "2023-03-01"^^xsd:date ;
                    schema:dateModified "2023-05-20"^^xsd:date ;
                    schema:publisher "European Heritage Institute" ;
                    schema:provider "ISIDORE" ;
+                   dcat:bbox "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"^^rdfs:Literal ;
                    schema:keywords triple:keyword-archaeology, triple:keyword-europe, triple:keyword-heritage, triple:keyword-spatial-data ;
                    schema:additionalType "Geospatial Dataset" ;
                    schema:inLanguage "en" ;
@@ -69,10 +71,12 @@ triple:dataset-002 rdf:type triple:Dataset ;
                    schema:dateModified "2023-10-02"^^xsd:date ;
                    schema:publisher "EU Social Observatory" ;
                    schema:provider "OpenAIRE" ;
+                   dcat:bbox "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"^^rdfs:Literal ;
                    schema:keywords triple:keyword-social-attitudes, triple:keyword-survey, triple:keyword-politics, triple:keyword-demographics ;
                    schema:additionalType "Survey Dataset" ;
                    schema:knowsAbout "political science", "sociology", "public opinion" ;
                    schema:inLanguage "en", "de", "fr", "it" ;
+                   dcterms:provenance triple:provenance-social-002 ;
                    schema:spatialCoverage triple:place-european-union ;
                    schema:temporalCoverage "2023" ;
                    schema:encodingFormat "application/x-spss", "text/csv" ;
@@ -91,6 +95,15 @@ triple:dataset-002 rdf:type triple:Dataset ;
                    schema:mentions triple:dataset-001 ;
                    schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
                    dcterms:isReferencedBy triple:document-social-report-2023 .
+
+###  Provenance Statements
+triple:provenance-heritage-001 rdf:type dcterms:ProvenanceStatement ;
+                               rdfs:label "Provenance for Heritage Dataset 001"@en ;
+                               rdfs:comment "Data aggregated from 15 national museums and normalized to CIDOC-CRM before conversion to CSV."@en .
+
+triple:provenance-social-002 rdf:type dcterms:ProvenanceStatement ;
+                             rdfs:label "Provenance for Social Dataset 002"@en ;
+                             rdfs:comment "Survey results merged from 27 EU member state polls, anonymized, and weighted for demographic representativeness."@en .
 
 ###  Dataset Identifiers
 
