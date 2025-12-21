@@ -15,6 +15,28 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-21 - Addition: Iteration 16 - SKG-IF Alignment
+
+**Type**: Addition
+
+**Description**:
+Added Iteration 16 to formally align TRIPLE ontology classes with the SKG-IF (Scientific Knowledge Graph Interoperability Framework) using mappings to FaBiO, FRAPO, and FOAF.
+
+**Details**:
+- **New Iteration**: `development/16/`
+- **Mappings**:
+  - `triple:Document` matches `fabio:ScholarlyWork`
+  - `triple:Dataset` matches `fabio:Dataset`
+  - `triple:SemanticArtefact` close match `fabio:Work`
+  - `triple:MediaObject` close match `fabio:Work`
+  - `triple:Profile` matches `foaf:Agent`
+  - `triple:Project` close match `frapo:Grant`
+- **Documentation**: Added motivating scenario, glossary, and competency questions.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-21 - Enhancement: Project and Dataset Metadata Extensions
 
 **Type**: Enhancement / Addition
