@@ -12,7 +12,7 @@ The GoTriple platform needs to index and represent research datasets from variou
 - Support both georeferenced and non-georeferenced datasets
 - Include comprehensive metadata for discovery, access, and reuse
 - Maintain compatibility with existing Document and Project models
-- Support distribution and access information for data files
+- Support distribution and access information for data files (`dcat:distribution`, `dcat:Distribution`)
 - Support contact point information for administrative queries (schema:ContactPoint)
 
 ## Examples

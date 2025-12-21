@@ -10,6 +10,7 @@ In addition to documents, GoTriple facilitates the integration of projects withi
 - **Identification**: Analogous to documents, it is feasible to associate one or more identifiers with a project.
 - **Temporal Placement**: Metadata are available to denote the project's duration or period of execution.
 - **Roles**: The roles involved in the organization and funding of the project are specified.
+- **Contact**: A specific contact point (email, etc.) can be associated with the project.
 - **Subject**: Similar to documents, a project can be linked to one or more disciplinary categories or to one or more keywords.
 - **Name, Acronyms, and Description**: Basic textual metadata are provided to offer human-readable information about the project.
 
@@ -53,6 +54,7 @@ Projects in GoTriple are modeled as instances of `triple:Project` (subclass of s
 - `schema:inLanguage`: Language of the project content (`schema:Language`)
 - `schema:dateCreated`: Creation date of the record (`xsd:date`)
 - `schema:dateModified`: Last modification date of the record (`xsd:date`)
+- `schema:contactPoint`: Contact point for the project (`schema:ContactPoint`)
 
 ## Example 1
 

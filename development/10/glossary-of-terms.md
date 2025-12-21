@@ -38,3 +38,5 @@
 | `dcterms:isReferencedBy`       | Dublin Core Terms property indicating documents or publications that reference this dataset.                                                        |
 | `schema:keywords`              | Schema.org object property linking to defined terms that describe the dataset content.                                                              |
 | `schema:DefinedTerm`           | Schema.org class representing a word, name, acronym, phrase, etc. with a formal definition used to describe dataset topics.                        |
+| `dcat:Distribution`            | DCAT class representing a specific representation of a dataset (e.g., a specific file or API).                                                      |
+| `dcat:distribution`            | DCAT property linking a dataset to its available distributions.                                                                                     |

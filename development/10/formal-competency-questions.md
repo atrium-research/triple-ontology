@@ -238,3 +238,24 @@ SELECT ?dataset ?title ?contact ?email WHERE {
 - `triple:dataset_001` → "European Archaeological Sites Database" → `triple:contact-heritage-institute` → "data@heritage.eu"
 - `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:contact-social-observatory` → "support@social-eu.org"
 
+
+## CQ_10.12
+
+Return all datasets with their distribution access URLs.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+
+SELECT ?dataset ?title ?accessURL WHERE {
+  ?dataset a triple:Dataset ;
+           schema:headline ?title ;
+           dcat:distribution ?distribution .
+  ?distribution dcat:accessURL ?accessURL .
+}
+```
+
+**Expected result:**
+- `triple:dataset_001` → "European Archaeological Sites Database" → "https://data.heritage.eu/download/sites.csv"
+

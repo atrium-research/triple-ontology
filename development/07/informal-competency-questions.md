@@ -215,3 +215,21 @@ For search term "philosophy":
 
 ### Based on
 Examples 3 and 4
+
+
+## Question 15
+
+### Identifier
+CQ_7.15
+
+### Question
+What is the contact point email for a specific project?
+
+### Expected Outcome
+The email address associated with the project's contact point.
+
+### Result
+For `project_1`: "project-team@triple.eu"
+
+### Based on
+Example 1

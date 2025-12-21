@@ -403,3 +403,25 @@ WHERE {
 - project_2: it
 - project_3: en
 - project_4: en
+
+
+## CQ_7.15
+
+What is the contact point email for a specific project?
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+
+SELECT ?project ?projectName ?email
+WHERE {
+  ?project a triple:Project ;
+           schema:name ?projectName ;
+           schema:contactPoint ?contact .
+
+  ?contact schema:email ?email .
+}
+```
+
+**Expected Results:**
+- project_1: project-team@triple.eu

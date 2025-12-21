@@ -313,7 +313,10 @@ triple:Dataset rdf:type owl:Class ;
                                owl:allValuesFrom triple:Document ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:mainEntityOfPage ;
-                               owl:allValuesFrom schema:URL ] .
+                               owl:allValuesFrom schema:URL ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty dcat:distribution ;
+                               owl:allValuesFrom dcat:Distribution ] .
 
 ###  https://schema.org/GeoShape  
 schema:GeoShape rdf:type owl:Class ;

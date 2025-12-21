@@ -208,3 +208,21 @@ A list of datasets with their internal platform identifiers by type.
 
 ### Based on
 Example 1 and Example 2
+
+
+## Question 12
+
+### Identifier
+CQ_10.12
+
+### Question
+Return all datasets with their distribution access URLs.
+
+### Expected Outcome
+A list of datasets with the URL to access/download the data.
+
+### Result
+* `dataset_001` → https://data.heritage.eu/download/sites.csv
+
+### Based on
+Example 1
