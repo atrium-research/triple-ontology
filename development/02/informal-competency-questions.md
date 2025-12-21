@@ -115,43 +115,6 @@ Example 2
 CQ_2.7
 
 ### Question
-Which vocabulary (ConceptScheme) does the term `article` belong to?
-
-### Expected Outcome
-The ConceptScheme containing the term.
-
-### Result
-* `document_type_vocabulary`
-
-### Based on
-Example 3
-
-
-## Question 8
-
-### Identifier
-CQ_2.8
-
-### Question
-Return all terms that belong to the `disciplines` vocabulary.
-
-### Expected Outcome
-A list of all concepts in the Discipline Vocabulary.
-
-### Result
-* `digital_humanities`
-* `linguistics`
-
-### Based on
-Example 4
-
-
-## Question 9
-
-### Identifier
-CQ_2.9
-
-### Question
 Return all documents that are licensed under Creative Commons licenses (any CC license).
 
 ### Expected Outcome
@@ -164,19 +127,55 @@ A list of documents with CC licenses.
 Example 1
 
 
+## Question 8
+
+### Identifier
+CQ_2.8
+
+### Question
+Return all documents that are of type "Article" and are Open Access.
+
+### Expected Outcome
+Documents that match both criteria.
+
+### Result
+* (Would return documents matching both criteria)
+
+### Based on
+Examples 2 and 3
+
+
+## Question 9
+
+### Identifier
+CQ_2.9
+
+### Question
+For a given document, return all its classification metadata (license, access conditions, type, and disciplines).
+
+### Expected Outcome
+A consolidated view of all vocabulary terms linked to the document.
+
+### Result
+* License, Access Condition, Content Type, and Disciplines for the document.
+
+### Based on
+All Examples
+
+
 ## Question 10
 
 ### Identifier
 CQ_2.10
 
 ### Question
-Return all documents that are of type "Article" and are Open Access.
+List all imported vocabulary modules in the ontology.
 
 ### Expected Outcome
-Documents that match both criteria (if any exist in the data).
+The URIs of the imported ontology modules.
 
 ### Result
-* (Would return documents matching both criteria - none explicitly modeled with both properties in current examples)
+* `content_types`, `conditions_of_access`, `licenses`, `disciplines` modules.
 
 ### Based on
-Examples 2 and 3 (combined query)
+Ontology imports

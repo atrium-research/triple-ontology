@@ -7,7 +7,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <http://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @base <https://gotriple.eu/ontology/triple#> .
 
@@ -18,29 +18,63 @@
                                                    <https://gotriple.eu/ontology/triple/licenses#> ,
                                                    <https://gotriple.eu/ontology/triple/disciplines#> .
 
+
+#################################################################
+#    Bridge Classes (Bridge Concepts)
+#################################################################
+
+###  https://gotriple.eu/ontology/triple#License
+triple:License rdf:type owl:Class ;
+               rdfs:subClassOf skos:Concept ,
+                               dcterms:LicenseDocument ;
+               rdfs:label "License"@en .
+
+###  https://gotriple.eu/ontology/triple#AccessCondition
+triple:AccessCondition rdf:type owl:Class ;
+                       rdfs:subClassOf skos:Concept ,
+                                       dcterms:RightsStatement ;
+                       rdfs:label "Access Condition"@en .
+
+###  https://gotriple.eu/ontology/triple#Discipline
+triple:Discipline rdf:type owl:Class ;
+                  rdfs:subClassOf skos:Concept ;
+                  rdfs:label "Discipline"@en .
+
+###  https://gotriple.eu/ontology/triple#ContentType
+triple:ContentType rdf:type owl:Class ;
+                   rdfs:subClassOf skos:Concept ;
+                   rdfs:label "Content Type"@en .
+
+
 #################################################################
 #    Object Properties
 #################################################################
 
+###  https://gotriple.eu/ontology/triple#hasLicense
+triple:hasLicense rdf:type owl:ObjectProperty ;
+                  rdfs:subPropertyOf dcterms:license ;
+                  rdfs:range triple:License ;
+                  rdfs:label "has license"@en .
+
+###  https://gotriple.eu/ontology/triple#hasAccessCondition
+triple:hasAccessCondition rdf:type owl:ObjectProperty ;
+                          rdfs:subPropertyOf dcterms:accessRights ;
+                          rdfs:range triple:AccessCondition ;
+                          rdfs:label "has access condition"@en .
+
 ###  http://rdfs.org/sioc/ns#topic
 sioc:topic rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf dcterms:subject ;
            rdfs:label "sioc:topic"@en ;
-           rdfs:comment "A topic of interest, linking to the concept URI. The subject or topic of the document. Links to subject/discipline terms from controlled vocabulary. Official references: UNESCO Thesaurus (https://vocabularies.unesco.org/), Library of Congress Subject Headings (https://id.loc.gov/authorities/subjects/)."@en .
+           rdfs:comment "A topic of interest, linking to the concept URI. Links to discipline terms."@en .
 
 
 
-
-
-###  http://schema.org/conditionsOfAccess
-schema:conditionsOfAccess rdf:type owl:ObjectProperty ;
-                          rdfs:label "schema:conditionsOfAccess"@en ;
-                          rdfs:comment "The conditions under which the document can be accessed. Links to access rights terms from controlled vocabulary. Official reference: COAR Access Rights Vocabulary (http://vocabularies.coar-repositories.org/access_rights/)."@en .
-
-
-###  http://schema.org/license
-schema:license rdf:type owl:ObjectProperty ;
-               rdfs:label "schema:license"@en ;
-               rdfs:comment "The license under which the document is published. Links to license terms from controlled vocabulary. Official licenses reference: Creative Commons (https://creativecommons.org/licenses/), SPDX (https://spdx.org/licenses/)."@en .
+###  https://gotriple.eu/ontology/triple#hasContentType
+triple:hasContentType rdf:type owl:ObjectProperty ;
+                      rdfs:subPropertyOf dcterms:type ;
+                      rdfs:range triple:ContentType ;
+                      rdfs:label "has content type"@en .
 
 
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
@@ -48,17 +82,12 @@ skos:closeMatch rdf:type owl:ObjectProperty ;
                 rdfs:label "skos:closeMatch"@en ;
                 rdfs:comment "A SKOS property indicating that two concepts are sufficiently similar to be used interchangeably in some contexts."@en .
 
-
 ###  http://www.w3.org/2004/02/skos/core#exactMatch
 skos:exactMatch rdf:type owl:ObjectProperty ;
                 rdfs:label "skos:exactMatch"@en ;
                 rdfs:comment "A SKOS property indicating that two concepts can be used interchangeably across all contexts."@en .
 
 
-###  http://www.w3.org/2004/02/skos/core#inScheme
-skos:inScheme rdf:type owl:ObjectProperty ;
-              rdfs:label "skos:inScheme"@en ;
-              rdfs:comment "A SKOS property linking a concept to the concept scheme it belongs to."@en .
 
 
 #################################################################
@@ -79,19 +108,32 @@ skos:definition rdf:type owl:AnnotationProperty ;
 schema:CreativeWork rdf:type owl:Class ;
                     rdfs:label "schema:CreativeWork"@en .
 
-
 ###  http://xmlns.com/foaf/0.1/Document
 foaf:Document rdf:type owl:Class ;
               rdfs:label "foaf:Document"@en .
 
-
 ###  https://gotriple.eu/ontology/triple#Document
 triple:Document rdf:type owl:Class ;
                 rdfs:label "Document (Triple)"@en ;
-                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts."@en ;
                 rdfs:subClassOf schema:CreativeWork ,
-                                foaf:Document .
-
+                                foaf:Document ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty sioc:topic ;
+                                  owl:allValuesFrom triple:Discipline
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty triple:hasLicense ;
+                                  owl:allValuesFrom triple:License
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty triple:hasAccessCondition ;
+                                  owl:allValuesFrom triple:AccessCondition
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty triple:hasContentType ;
+                                  owl:allValuesFrom triple:ContentType
+                                ] .
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
 skos:Concept rdf:type owl:Class ;
@@ -99,39 +141,14 @@ skos:Concept rdf:type owl:Class ;
              rdfs:comment "A SKOS concept representing a term in a controlled vocabulary."@en .
 
 
-###  http://www.w3.org/2004/02/skos/core#ConceptScheme
-skos:ConceptScheme rdf:type owl:Class ;
-                   rdfs:label "skos:ConceptScheme"@en ;
-                   rdfs:comment "A SKOS concept scheme representing a controlled vocabulary (e.g., licenses, document types, disciplines)."@en .
 
 
 #################################################################
 #    Individuals
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#licenses
-triple:licenses rdf:type owl:NamedIndividual ,
-                         skos:ConceptScheme ;
-                rdfs:label "Licenses"@en ;
-                rdfs:comment "Controlled vocabulary of licenses used in GoTriple"@en .
 
-###  https://gotriple.eu/ontology/triple#conditions_of_access  
-triple:conditions_of_access rdf:type owl:NamedIndividual ,
-                                     skos:ConceptScheme ;
-                            rdfs:label "Conditions of Access"@en ;
-                            rdfs:comment "Controlled vocabulary of access conditions used in GoTriple"@en .
 
-###  https://gotriple.eu/ontology/triple#content_types
-triple:content_types rdf:type owl:NamedIndividual ,
-                               skos:ConceptScheme ;
-                      rdfs:label "Content Types"@en ;
-                      rdfs:comment "Controlled vocabulary of content types used in GoTriple"@en .
-
-###  https://gotriple.eu/ontology/triple#disciplines
-triple:disciplines rdf:type owl:NamedIndividual ,
-                            skos:ConceptScheme ;
-                   rdfs:label "Disciplines"@en ;
-                   rdfs:comment "Controlled vocabulary of academic disciplines used in GoTriple"@en .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

@@ -40,59 +40,61 @@ These modules are imported into the main ontology using `owl:imports` declaratio
 
 #### SKOS Structure
 
-Every controlled vocabulary is modeled as a **`skos:ConceptScheme`**, and every term within that vocabulary is modeled as a **`skos:Concept`**.
+Every term in the vocabulary is modeled as a **`skos:Concept`** and belongs to a specific Bridge Class (e.g., `triple:License`).
 
 Every term in the vocabulary has the following capabilities:
 
-1. **Connection to a Vocabulary** (`skos:inScheme`): Each term must be associated with a specific controlled vocabulary. This ensures that it is categorized correctly and is part of a structured collection of standardized terms. This association helps in maintaining the integrity and organization of the vocabularies across different entities.
+1.  **Unique Identifier**: Every term in the vocabulary has a unique URI identifier. This is crucial for distinguishing between terms.
 
-2. **Unique Identifier**: Every term in the vocabulary has a unique URI identifier. This is crucial for distinguishing between terms, especially when different terms might have similar names or descriptions.
+2.  **Labels and Definitions** (`rdfs:label`, `skos:definition`): Each term has human-readable labels and optional definitions explaining its meaning.
 
-3. **Labels and Definitions** (`rdfs:label`, `skos:definition`): Each term has human-readable labels and optional definitions explaining its meaning.
-
-4. **Ability to Connect to One or More External Entities**: Each term should have the capacity to link to external entities in two specific ways:
-   - **Close Match** (`skos:closeMatch`): This implies that the term in the vocabulary is nearly equivalent to, but not exactly the same as, a term in an external system or entity (e.g., COAR, Wikidata, Getty vocabularies). A close match suggests a high degree of similarity or relevance, though the terms might not be identical.
-   - **Exact Match** (`skos:exactMatch`): This indicates that the term in the controlled vocabulary is precisely the same as a term in an external entity. An exact match is used when the terms are interchangeable, with no variation in meaning or context.
+3.  **Ability to Connect to One or More External Entities**: Each term should have the capacity to link to external entities in two specific ways:
+    - **Close Match** (`skos:closeMatch`): This implies that the term in the vocabulary is nearly equivalent to, but not exactly the same as, a term in an external system or entity.
+    - **Exact Match** (`skos:exactMatch`): This indicates that the term in the controlled vocabulary is precisely the same as a term in an external entity.
 
 #### Properties Connecting Documents to Vocabularies
-
-- **`schema:license`**: Links a document to a license term from the License Vocabulary
-- **`schema:conditionsOfAccess`**: Links a document to an access condition term from the Access Conditions Vocabulary
-
-- **`sioc:topic`**: Links a document to one or more discipline terms from the Discipline Vocabulary
+    
+- **`triple:hasLicense`**: Links a document to a license term (instance of `triple:License`) from the License Vocabulary. Subproperty of `dcterms:license`.
+- **`triple:hasAccessCondition`**: Links a document to an access condition term (instance of `triple:AccessCondition`) from the Access Conditions Vocabulary. Subproperty of `dcterms:accessRights`.
+- **`triple:hasContentType`**: Links a document to a content type term (instance of `triple:ContentType`) from the Content Type Vocabulary. Subproperty of `dcterms:type`.
+- **`sioc:topic`**: Links a document to a discipline term (instance of `triple:Discipline`) from the Discipline Vocabulary. Subproperty of `dcterms:subject`.
 
 ## Example 1: Document with License
 
-`document_1` is an open access article published under a Creative Commons Attribution 4.0 license. The document is linked to the term `cc_by_4_0` from the `licenses` vocabulary. This term has an exact match to the official Creative Commons URI.
+`document_1` is an open access article published under a Creative Commons Attribution 4.0 license. The document is linked via `triple:hasLicense` to the term `cc_by_4_0` (a `triple:License`).
 
 - Document: `document_1`
+- Property: `triple:hasLicense`
 - License term: `cc_by_4_0`
-- Belongs to: `licenses` (ConceptScheme)
+- Class: `triple:License`
 - External match: Exact match to `https://creativecommons.org/licenses/by/4.0/`
 
 ## Example 2: Document with Access Conditions
 
-`document_2` is a research paper that is freely available to anyone. The document is linked to the term `open_access` from the `access_conditions_vocabulary`. This term has a close match to the COAR Access Rights vocabulary.
+`document_2` is a research paper that is freely available. The document is linked via `triple:hasAccessCondition` to the term `open_access` (a `triple:AccessCondition`).
 
 - Document: `document_2`
+- Property: `triple:hasAccessCondition`
 - Access term: `open_access`
-- Belongs to: `access_conditions_vocabulary` (ConceptScheme)
+- Class: `triple:AccessCondition`
 - External match: Close match to COAR's "Open Access" concept
 
 ## Example 3: Document with Type
 
-`document_3` is a scholarly article. The document is linked to the term `article` from the `document_type_vocabulary`. This term has an exact match to the COAR Resource Type "article".
+`document_3` is a scholarly article. The document is linked via `triple:hasContentType` to the term `article` (a `triple:ContentType`).
 
 - Document: `document_3`
+- Property: `triple:hasContentType`
 - Type term: `article`
-- Belongs to: `document_type_vocabulary` (ConceptScheme)
+- Class: `triple:ContentType`
 - External match: Exact match to COAR Resource Type "article"
 
 ## Example 4: Document with Multiple Disciplines
 
-`document_4` is an interdisciplinary study covering both Digital Humanities and Linguistics. The document is linked to two terms from the `disciplines` vocabulary: `digital_humanities` and `linguistics`. Both terms have close matches to external classification systems.
+`document_4` is an interdisciplinary study covering both Digital Humanities and Linguistics. The document is linked via `sioc:topic` to two terms (instances of `triple:Discipline`): `digital_humanities` and `linguistics`.
 
 - Document: `document_4`
+- Property: `sioc:topic`
 - Discipline terms: `digital_humanities`, `linguistics`
-- Belong to: `disciplines` (ConceptScheme)
+- Class: `triple:Discipline`
 - External matches: Close matches to UNESCO Thesaurus and Library of Congress Subject Headings
