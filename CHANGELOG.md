@@ -15,6 +15,23 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-22 - Refactoring: Geographic Properties and Publisher Cardinality
+
+**Type**: Refactoring
+
+**Description**:
+Removed deprecated geographic properties and relaxed publisher cardinality constraints to improve flexibility and consistency.
+
+**Details**:
+- **Geographic Properties**: Removed `schema:geo` and `schema:GeoShape` from Iterations 04 (Places), 10 (Datasets), 11 (Multimedia), and 12 (Semantic Artefact).
+- **Publisher Cardinality**: Removed `owl:maxCardinality 1` restriction on `schema:publisher` for `triple:Document` (Iteration 03), allowing multiple publishers.
+- **ABOX Cleanup**: Updated `triple:place-northern-italy` in Iteration 11 to be `schema:Place` instead of `schema:GeoShape`.
+- **Glossary**: Removed `schema:GeoShape` definitions.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-22 - Refactoring: Iterations 10 & 12 - Licensing Bridge Classes
 
 **Type**: Refactoring / Addition

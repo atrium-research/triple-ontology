@@ -35,12 +35,6 @@ schema:spatialCoverage rdf:type owl:ObjectProperty ;
                        rdfs:comment "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content."@en ;
                        rdfs:range schema:Place .
 
-###  https://schema.org/geo
-schema:geo rdf:type owl:ObjectProperty ;
-           rdfs:label "schema:geo"@en ;
-           rdfs:comment "The geo coordinates of the place."@en ;
-           rdfs:domain schema:Place ;
-           rdfs:range schema:GeoShape .
 
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
@@ -186,10 +180,6 @@ schema:Place rdf:type owl:Class ;
                               owl:onProperty schema:name ;
                               owl:someValuesFrom xsd:string ] .
 
-###  https://schema.org/GeoShape
-schema:GeoShape rdf:type owl:Class ;
-                rdfs:label "schema:GeoShape"@en ;
-                rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs."@en .
 
 ###  https://schema.org/MediaObject
 schema:MediaObject rdf:type owl:Class ;

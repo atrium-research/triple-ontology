@@ -118,10 +118,9 @@ foaf:Document rdf:type owl:Class ;
                             owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                           ] ;
 
-          # Optional publisher (0 or 1)
+          # Optional publisher (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty schema:publisher ;
-                            owl:maxCardinality 1 ;
                             owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                           ] ;
 
