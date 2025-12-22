@@ -15,6 +15,21 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-22 - Bugfix: Ontology Consistency
+
+**Type**: Bugfix / Refactoring
+
+**Description**:
+Resolved inconsistencies in property definitions and relaxed redundant restrictions on `triple:Document`.
+
+**Details**:
+- **Bugfix**: Corrected `datacite:usesIdentifierScheme` in Iteration 10 (`development/10/TBOX.ttl`) which acted as `dcat:distribution` due to a copy-paste error.
+- **Refactoring**: Removed redundant and conflicting `owl:allValuesFrom triple:Profile` restriction on `schema:author` in `triple:Document` (Iteration 06 and consolidated ontology). Now relies on the broader `foaf:Person` or `foaf:Organization` union.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-22 - Refactoring: Vocabularies Simplification
 
 **Type**: Refactoring
