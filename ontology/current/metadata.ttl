@@ -1,0 +1,29 @@
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://gotriple.eu/ontology/triple> a owl:Ontology ;
+    # Descriptive Metadata
+    dcterms:title "TRIPLE Ontology"@en ;
+    dcterms:description "The TRIPLE Ontology is a comprehensive semantic representation of the GoTriple discovery platform's data model for Social Sciences and Humanities (SSH) research artifacts. It models publications, projects, profiles, datasets, and other research outputs."@en ;
+    
+    # Versioning
+    owl:versionInfo "2.0.0" ;
+    
+    # Dates
+    dcterms:created "2021-12-01"^^xsd:date ;
+    dcterms:modified "2025-12-22"^^xsd:date ;
+    
+    # Legal & Publishing
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://www.gotriple.eu/> ;
+    rdfs:comment "Developed by the TRIPLE project."@en ;
+    
+    # Namespace Information (VANN)
+    vann:preferredNamespacePrefix "triple" ;
+    vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple#" .

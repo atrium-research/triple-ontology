@@ -1,0 +1,97 @@
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix litre: <http://purl.org/spar/literal/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://gotriple.eu/ontology/triple/Profile> a owl:Ontology ;
+    rdfs:label "TRIPLE Profile Module"@en ;
+    dcterms:title "TRIPLE Profile Module"@en ;
+    dcterms:description "The Profile module of the TRIPLE Ontology. It defines Agents (Persons, Organizations) and their Accounts within the GoTriple platform."@en ;
+    dcterms:created "2021-12-01" ;
+    dcterms:modified "2025-12-22" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    owl:versionInfo "2.0.0" .
+
+triple:Profile a owl:Class ;
+    rdfs:label "profile"@en ;
+    rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass datacite:Identifier ;
+            owl:onProperty datacite:hasIdentifier ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty schema:name ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass foaf:OnlineAccount ;
+            owl:onProperty foaf:account ],
+        [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+    skos:exactMatch foaf:Agent .
+
+foaf:Agent a owl:Class ;
+    rdfs:label "foaf:Agent"@en ;
+    rdfs:comment "An agent (person or organization)."@en .
+
+foaf:Person a owl:Class ;
+    rdfs:label "foaf:Person"@en ;
+    rdfs:comment "A person."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty schema:name ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        schema:Thing ;
+    owl:equivalentClass schema:Person .
+
+foaf:Organization a owl:Class ;
+    rdfs:label "foaf:Organization"@en ;
+    rdfs:comment "An organization."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty schema:name ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        schema:Thing .
+
+schema:Person a owl:Class ;
+    rdfs:label "Person"@en .
+
+schema:Thing a owl:Class ;
+    rdfs:label "schema:Thing"@en .
+
+foaf:OnlineAccount a owl:Class ;
+    rdfs:label "foaf:OnlineAccount"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onClass datacite:Identifier ;
+            owl:onProperty datacite:hasIdentifier ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
+
+foaf:account a owl:ObjectProperty ;
+    rdfs:label "foaf:account"@en ;
+    rdfs:comment "Indicates an account held by this agent"@en .
+
+# Properties
+schema:name a owl:DatatypeProperty ;
+    rdfs:label "name"@en ;
+    rdfs:range xsd:string .
+
+# Identifiers used in Profile (e.g. for User ID)
+datacite:Identifier a owl:Class ;
+    rdfs:label "datacite:Identifier"@en .
+
+datacite:hasIdentifier a owl:ObjectProperty ;
+    rdfs:label "datacite:hasIdentifier"@en ;
+    rdfs:range datacite:Identifier .
+
+datacite:IdentifierScheme a owl:Class ;
+    rdfs:label "datacite:IdentifierScheme"@en .
+
+litre:hasLiteralValue a owl:DatatypeProperty ;
+    rdfs:label "litre:hasLiteralValue"@en ;
+    rdfs:range xsd:string .

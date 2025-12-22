@@ -1,0 +1,176 @@
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <http://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://gotriple.eu/ontology/triple/Project> a owl:Ontology ;
+    rdfs:label "TRIPLE Project Module"@en ;
+    dcterms:title "TRIPLE Project Module"@en ;
+    dcterms:description "The Project module of the TRIPLE Ontology. It defines Projects, Grants, Funding, and Project Types."@en ;
+    dcterms:created "2021-12-01" ;
+    dcterms:modified "2025-12-22" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    owl:versionInfo "2.0.0" .
+
+triple:Project a owl:Class ;
+    rdfs:label "Project"@en,
+        "Project (Triple)"@en ;
+    rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform."@en,
+        "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( datacite:Identifier triple:ID triple:PID triple:OriginalIdentifier ) ] ;
+            owl:onProperty datacite:hasIdentifier ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:startDate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:startDate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:endDate ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:endDate ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:Grant ;
+            owl:onProperty schema:funding ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:DefinedTerm ;
+            owl:onProperty schema:keywords ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom rdf:langString ;
+            owl:onProperty schema:alternateName ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:Organization ;
+            owl:onProperty schema:organizer ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:knowsAbout ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:URL ;
+            owl:onProperty schema:mainEntityOfPage ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:inLanguage ;
+            owl:someValuesFrom schema:Language ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:dateCreated ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:dateCreated ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:dateModified ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:dateModified ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:ContactPoint ;
+            owl:onProperty schema:contactPoint ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:ProjectType ;
+            owl:onProperty triple:hasProjectType ],
+        [ a owl:Restriction ;
+            owl:minCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:name ],
+        schema:Project ;
+    skos:closeMatch <http://purl.org/cerif/frapo/Grant>,
+        <http://www.cidoc-crm.org/cidoc-crm/E7_Activity> ;
+    skos:exactMatch <https://sshoc.eu/ontology/SHE3_SSH_Project> .
+
+triple:ProjectType a owl:Class ;
+    rdfs:label "Project Type"@en ;
+    rdfs:subClassOf skos:Concept .
+
+triple:hasProjectType a owl:ObjectProperty ;
+    rdfs:label "has project type"@en ;
+    rdfs:range triple:ProjectType ;
+    rdfs:subPropertyOf dcterms:type .
+
+schema:Project a owl:Class ;
+    rdfs:label "schema:Project"@en ;
+    rdfs:comment "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim."@en .
+
+schema:Grant a owl:Class ;
+    rdfs:label "schema:Grant"@en ;
+    rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:funder ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:sponsor ] .
+
+<http://purl.org/cerif/frapo/Grant> a owl:Class ;
+    rdfs:label "frapo:Grant"@en ;
+    rdfs:comment "A funding grant."@en .
+
+<http://www.cidoc-crm.org/cidoc-crm/E7_Activity> a owl:Class ;
+    rdfs:label "E7 Activity"@en .
+
+<https://sshoc.eu/ontology/SHE3_SSH_Project> a owl:Class ;
+    rdfs:label "SHE3 SSH Project"@en .
+
+schema:funding a owl:ObjectProperty ;
+    rdfs:label "schema:funding"@en ;
+    rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en,
+        "A grant, typically financial or otherwise quantifiable, of resources"@en .
+
+schema:funder a owl:ObjectProperty ;
+    rdfs:label "schema:funder"@en ;
+    rdfs:comment "A person or organization that supports through funding"@en,
+        "A person or organization that supports something through some kind of financial contribution"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
+schema:sponsor a owl:ObjectProperty ;
+    rdfs:label "schema:sponsor"@en ;
+    rdfs:comment "A person or organization that supports a thing through a pledge, promise, or financial contribution"@en .
+
+schema:organizer a owl:ObjectProperty ;
+    rdfs:label "schema:organizer"@en ;
+    rdfs:comment "The organization who organizes the event or project."@en ;
+    rdfs:range schema:Organization .
+
+schema:startDate a owl:DatatypeProperty ;
+    rdfs:label "schema:startDate"@en ;
+    rdfs:comment "The start date and time of the item"@en ;
+    rdfs:range xsd:date .
+
+schema:endDate a owl:DatatypeProperty ;
+    rdfs:label "schema:endDate"@en ;
+    rdfs:comment "The end date and time of the item"@en ;
+    rdfs:range xsd:date .
+
+schema:about a owl:ObjectProperty ;
+    rdfs:label "schema:about"@en ;
+    rdfs:comment "The subject matter of the content"@en .
+
+schema:description a owl:DatatypeProperty ;
+    rdfs:label "schema:description"@en ;
+    rdfs:comment "A description of the item"@en ;
+    rdfs:range rdf:langString .
+
+schema:alternateName a owl:DatatypeProperty ;
+    rdfs:label "schema:alternateName"@en ;
+    rdfs:comment "An alias for the item"@en ;
+    rdfs:range rdf:langString .
+
+<http://purl.org/cerif/frapo/isOutputOf> a owl:ObjectProperty ;
+    rdfs:label "frapo:isOutputOf"@en ;
+    rdfs:comment "Indicates that a research output is the result of a particular project."@en ;
+    rdfs:range triple:Project .
