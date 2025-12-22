@@ -30,3 +30,5 @@
 | `date modified`           | The last modification date of the project record. Represented as `schema:dateModified` with range `xsd:date`.                                                                                                                  |
 | `contact point`           | A contact point for the project, such as an email address. Represented as `schema:contactPoint` with range `schema:ContactPoint`.                                                                                              |
 | `Concept`                 | A SKOS concept used to represent disciplines and fields of study. Represented as `skos:Concept`.                                                                                                                               |
+| `triple:ProjectType`         | Bridge class for project types, subclass of skos:Concept.                                                                                           |
+| `triple:hasProjectType`      | Property linking a project to its type, subProperty of dcterms:type.                                                                                |

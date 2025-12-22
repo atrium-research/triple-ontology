@@ -15,6 +15,26 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-22 - Addition: Project Type Controlled Vocabulary
+
+**Type**: Addition
+
+**Description**:
+Implemented a controlled vocabulary for Project Types to classify projects (e.g., Research, Training, Network) and integrated it into Iteration 07.
+
+**Details**:
+- **Vocabulary**: Created `project_types.ttl` with SKOS concepts.
+- **TBOX (Iteration 07)**:
+  - Imported `project_types.ttl`.
+  - Defined `triple:ProjectType` (Bridge Class) and `triple:hasProjectType` property.
+  - Added restriction to `triple:Project`.
+- **ABOX (Iteration 07)**: Added `triple:hasProjectType` assertions to example projects.
+- **Documentation**: Updated Motivating Scenario, Glossary, and Competency Questions.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-22 - Refactoring: Geographic Properties and Publisher Cardinality
 
 **Type**: Refactoring

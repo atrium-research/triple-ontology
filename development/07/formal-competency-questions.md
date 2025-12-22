@@ -424,4 +424,27 @@ WHERE {
 ```
 
 **Expected Results:**
-- project_1: project-team@triple.eu
+
+## CQ_7.16
+
+What is the type of a specific project (e.g., Research, Training, Network)?
+
+```sparql
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?project ?projectName ?typeLabel
+WHERE {
+  ?project a triple:Project ;
+           triple:hasProjectType ?type .
+
+  ?type rdfs:label ?typeLabel .
+  
+  OPTIONAL { ?project schema:name ?projectName . }
+}
+```
+
+**Expected Results:**
+- project_1: Network/Infrastructure
+- project_2: Research Project

@@ -233,3 +233,22 @@ For `project_1`: "project-team@triple.eu"
 
 ### Based on
 Example 1
+
+
+## Question 16
+
+### Identifier
+CQ_7.16
+
+### Question
+What is the type of a specific project (e.g., Research, Training, Network)?
+
+### Expected Outcome
+The project classification from the controlled vocabulary.
+
+### Result
+For `project_1`: Network/Infrastructure
+For `project_2`: Research Project
+
+### Based on
+Examples 1 and 2

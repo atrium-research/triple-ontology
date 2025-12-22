@@ -12,6 +12,7 @@ In addition to documents, GoTriple facilitates the integration of projects withi
 - **Roles**: The roles involved in the organization and funding of the project are specified.
 - **Contact**: A specific contact point (email, etc.) can be associated with the project.
 - **Subject**: Similar to documents, a project can be linked to one or more disciplinary categories or to one or more keywords.
+- **Type**: The nature of the project (e.g., Research, Training, Network) can be specified using a controlled vocabulary.
 - **Name, Acronyms, and Description**: Basic textual metadata are provided to offer human-readable information about the project.
 
 ### Technical specification
@@ -43,6 +44,7 @@ Projects in GoTriple are modeled as instances of `triple:Project` (subclass of s
 **Subject Coverage:**
 - `schema:about`: Links to disciplinary topics (SKOS concepts)
 - `schema:keywords`: Links to keyword terms (`schema:DefinedTerm`)
+- `triple:hasProjectType`: Links to project type (SKOS concept from controlled vocabulary)
 
 **Descriptive Metadata:**
 - `schema:name`: Official project name (multilingual using @lang tags)
@@ -74,6 +76,7 @@ The TRIPLE project ("Transforming Research through Innovative Practices for Link
 - Date Created: 2018-12-01
 - Date Modified: 2023-01-15
 - Topic: Digital Humanities (discipline)
+- Project Type: Network/Infrastructure
 - Keywords: discovery platform, semantic web, SSH research
 - Name: Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration
 - Alternate name: TRIPLE
@@ -96,6 +99,7 @@ A 2-year research project (2020-2022) on contemporary migration patterns in Sout
 - Main Entity of Page: https://miguris.project.it
 - Date Created: 2020-02-01
 - Topic: Sociology, Migration Studies (disciplines)
+- Project Type: Research Project
 - Keywords: migration, integration, urban studies, Southern Europe
 - Name: Socio-Economic Integration of Migrants in Italian Urban Contexts
 - Alternate name: MIGURIS
