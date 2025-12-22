@@ -5,7 +5,7 @@
 What license is associated with `document_1`?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?license WHERE {
@@ -22,7 +22,7 @@ SELECT ?license WHERE {
 What are the access conditions for `document_2`?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?accessConditions WHERE {
@@ -107,7 +107,7 @@ SELECT ?externalEntity WHERE {
 Return all documents that are licensed under Creative Commons licenses (checking for exactMatch to Creative Commons URIs).
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -145,7 +145,7 @@ For a given document, return all its classification metadata (license, access co
 
 ```sparql
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?license ?access ?type ?discipline WHERE {

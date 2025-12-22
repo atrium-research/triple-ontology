@@ -5,7 +5,7 @@
 Return all entities mentioned by `document_1`.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?entity WHERE {
@@ -23,7 +23,7 @@ SELECT ?entity WHERE {
 Return all documents mentioned by `document_89`.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -44,7 +44,7 @@ SELECT ?document WHERE {
 Return all documents that mention `person_78`.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -63,7 +63,7 @@ SELECT ?document WHERE {
 Return all projects mentioned in any document.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT DISTINCT ?project WHERE {
@@ -82,7 +82,7 @@ SELECT DISTINCT ?project WHERE {
 Return all organizations mentioned by `document_67`.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -101,7 +101,7 @@ SELECT ?organization WHERE {
 Return all people mentioned by `document_34`.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -120,7 +120,7 @@ SELECT ?person WHERE {
 Return all documents that mention at least one other document.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT DISTINCT ?document WHERE {
@@ -140,7 +140,7 @@ SELECT DISTINCT ?document WHERE {
 Return all entities mentioned by `document_67` with their types.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?entity ?type WHERE {
@@ -159,7 +159,7 @@ SELECT ?entity ?type WHERE {
 Count how many entities each document mentions.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT ?document (COUNT(?entity) AS ?mentionCount) WHERE {

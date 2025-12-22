@@ -5,7 +5,7 @@
 Return all roles (authors, contributors, publishers, providers, etc.) connected to `document_1`.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT DISTINCT ?roleType ?agent WHERE {
@@ -33,7 +33,7 @@ SELECT DISTINCT ?roleType ?agent WHERE {
 Return all authors of `document_1` with their names.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?author ?name WHERE {
@@ -50,7 +50,7 @@ SELECT ?author ?name WHERE {
 Return all providers of `document_1` with their names.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?provider ?name WHERE {
@@ -68,7 +68,7 @@ SELECT ?provider ?name WHERE {
 Return all agents (persons and organizations) associated with `document_1` in any role.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -90,7 +90,7 @@ SELECT DISTINCT ?agent ?name ?agentType WHERE {
 Return all documents authored by a specific person (author_34).
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -108,7 +108,7 @@ SELECT ?document WHERE {
 Who is the contact point for a specific document?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
   

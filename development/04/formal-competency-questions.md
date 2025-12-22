@@ -7,7 +7,7 @@ Return all spatial subjects of the `document_2`.
 ```
 PREFIX sc: <http://purl.org/science/owl/sciencecommons/>
 PREFIX tr: <http://www.thomsonreuters.com/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?place ?name WHERE {
@@ -23,7 +23,7 @@ Return all temporal subjects of the `document_2`.
 ```
 PREFIX sc: <http://purl.org/science/owl/sciencecommons/>
 PREFIX tr: <http://www.thomsonreuters.com/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?time WHERE {
@@ -36,7 +36,7 @@ SELECT ?time WHERE {
 Return all keywords connected to `document_1`.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?keywords ?name WHERE {

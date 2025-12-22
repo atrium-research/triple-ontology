@@ -5,7 +5,7 @@
 What are all the metadata properties and values associated with a specific project?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
@@ -58,7 +58,7 @@ WHERE {
 What are all the funding grants associated with a project, and who are the funders and sponsors for each grant?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?grant ?funderName ?sponsorName
@@ -89,7 +89,7 @@ WHERE {
 Which projects have multiple funders or sponsors?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName (COUNT(DISTINCT ?grant) AS ?grantCount)
@@ -112,7 +112,7 @@ ORDER BY DESC(?grantCount)
 What projects are associated with a specific discipline or topic (e.g., Digital Humanities)?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
@@ -141,7 +141,7 @@ ORDER BY ?projectName
 What is the duration of each project (time span between start and end dates)?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -167,7 +167,7 @@ ORDER BY DESC(?durationDays)
 Which projects were active during a specific time period (e.g., year 2022)?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -196,7 +196,7 @@ ORDER BY ?startDate
 What are all the identifier schemes used for projects and their corresponding identifier values?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -230,7 +230,7 @@ ORDER BY ?project ?schemeLabel
 Which organizations fund or sponsor multiple projects?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?organization ?orgName (COUNT(DISTINCT ?project) AS ?projectCount)
@@ -265,7 +265,7 @@ ORDER BY DESC(?projectCount)
 What keywords are most frequently associated with projects in the platform?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?keywordName (COUNT(?project) AS ?frequency)
@@ -288,7 +288,7 @@ ORDER BY DESC(?frequency) ?keywordName
 Retrieve projects by searching for specific keywords in their names, descriptions, or acronyms?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT DISTINCT ?project ?projectName ?alternateName ?description
@@ -317,7 +317,7 @@ WHERE {
 Which organization is the organizer of a specific project?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?organizerName
@@ -341,7 +341,7 @@ WHERE {
 What topics does a project "know about" (areas of expertise)?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
@@ -365,7 +365,7 @@ WHERE {
 What is the main web page (URL) associated with the project?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?url
@@ -387,7 +387,7 @@ WHERE {
 What is the language of the project content?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?language
@@ -410,7 +410,7 @@ WHERE {
 What is the contact point email for a specific project?
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?project ?projectName ?email

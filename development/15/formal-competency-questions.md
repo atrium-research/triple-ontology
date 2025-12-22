@@ -5,7 +5,7 @@ Return all entities mentioned in "Document1", regardless of type or source.
 
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
@@ -24,7 +24,7 @@ Return only external entities (e.g., Wikidata) mentioned in "Document1".
 
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?entity WHERE {
@@ -40,7 +40,7 @@ Return only newly created local entities (Dual Typed or internal).
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?entity WHERE {
@@ -55,7 +55,7 @@ SELECT ?entity WHERE {
 Retrieve all annotations connected to the document via `schema:mentions`.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX oa: <http://www.w3.org/ns/oa#>
 
@@ -70,7 +70,7 @@ Return only Places mentioned.
 
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?entity WHERE {

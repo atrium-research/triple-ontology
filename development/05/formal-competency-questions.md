@@ -17,7 +17,7 @@ SELECT ?documents WHERE {
 Return all authors from `document_56` and if they are discarded or not.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?agent ?discarded WHERE {
@@ -31,7 +31,7 @@ SELECT ?agent ?discarded WHERE {
 Return all keywords from `document_67` and if they are discarded or not.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?keywords ?discarded WHERE {

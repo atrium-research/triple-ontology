@@ -4,14 +4,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix schema: <http://schema.org/> .
+@prefix schema: <https://schema.org/> .
 @base <https://gotriple.eu/ontology/triple> .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://schema.org/author
+###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
               rdfs:comment "The author of this content"@en ;
@@ -19,14 +19,14 @@ schema:author rdf:type owl:ObjectProperty ;
               rdfs:subPropertyOf schema:creator .
 
 
-###  http://schema.org/contributor
+###  https://schema.org/contributor
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contributor"@en ;
                    rdfs:comment "A secondary contributor to the CreativeWork"@en ;
                    rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
-###  http://schema.org/publisher
+###  https://schema.org/publisher
 schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:label "schema:publisher"@en ;
                  rdfs:comment "The publisher of the creative work"@en ;
@@ -34,14 +34,14 @@ schema:publisher rdf:type owl:ObjectProperty ;
 
 
 
-###  http://schema.org/funder
+###  https://schema.org/funder
 schema:funder rdf:type owl:ObjectProperty ;
               rdfs:label "schema:funder"@en ;
               rdfs:comment "A person or organization that supports through funding"@en ;
               rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
-###  http://schema.org/provider
+###  https://schema.org/provider
 schema:provider rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:provider"@en ;
                 rdfs:comment "The service provider, organization, or individual that provides the data"@en ;
@@ -56,7 +56,7 @@ schema:provider rdf:type owl:ObjectProperty ;
             rdfs:subPropertyOf schema:contributor .
 
 
-###  http://schema.org/contactPoint
+###  https://schema.org/contactPoint
 schema:contactPoint rdf:type owl:ObjectProperty ;
                     rdfs:label "schema:contactPoint"@en ;
                     rdfs:comment "A contact point for a person or organization."@en ;
@@ -68,20 +68,20 @@ schema:contactPoint rdf:type owl:ObjectProperty ;
 #    Data properties
 #################################################################
 
-###  http://schema.org/name
+###  https://schema.org/name
 schema:name rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:name"@en ;
             rdfs:range xsd:string .
 
 
-###  http://schema.org/datePublished
+###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:datePublished"@en ;
                      rdfs:comment "Date of first publication or broadcast"@en ;
                      rdfs:range xsd:date .
 
 
-###  http://schema.org/email
+###  https://schema.org/email
 schema:email rdf:type owl:DatatypeProperty ;
              rdfs:label "schema:email"@en ;
              rdfs:range xsd:string .
@@ -167,12 +167,12 @@ foaf:Person rdf:type owl:Class ;
                             ] .
 
 
-###  http://schema.org/CreativeWork
+###  https://schema.org/CreativeWork
 schema:CreativeWork rdf:type owl:Class ;
                     rdfs:label "schema:CreativeWork"@en .
 
 
-###  http://schema.org/ContactPoint
+###  https://schema.org/ContactPoint
 schema:ContactPoint rdf:type owl:Class ;
                     rdfs:label "schema:ContactPoint"@en ;
                     rdfs:comment "A contact point for a person or organization."@en .

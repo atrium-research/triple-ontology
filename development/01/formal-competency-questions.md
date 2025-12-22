@@ -5,7 +5,7 @@
 Return the language associated with `triple:document_1`.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?language WHERE {
@@ -43,7 +43,7 @@ SELECT ?documents WHERE {
 Return all `languages`.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?languages WHERE {
@@ -58,7 +58,7 @@ SELECT ?languages WHERE {
 Return the title (headline) of `triple:document_1` in English.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?headline WHERE {
@@ -72,7 +72,7 @@ SELECT ?headline WHERE {
 Return all titles (headlines) associated with `triple:document_1`.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?headline WHERE {
@@ -85,7 +85,7 @@ SELECT ?headline WHERE {
 Return the abstract of `triple:document_31`.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?abstract WHERE {
@@ -98,7 +98,7 @@ SELECT ?abstract WHERE {
 Return the encoding format of all documents.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
@@ -113,7 +113,7 @@ SELECT ?document ?format WHERE {
 Return all documents in PDF format.
 
 ```
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 

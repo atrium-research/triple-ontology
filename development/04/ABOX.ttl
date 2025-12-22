@@ -16,26 +16,26 @@
 #    Datatypes
 #################################################################
 
-###  http://schema.org/DateTime
-<http://schema.org/DateTime> rdf:type rdfs:Datatype .
+###  https://schema.org/DateTime
+<https://schema.org/DateTime> rdf:type rdfs:Datatype .
 
 
-###  http://schema.org/Text
-<http://schema.org/Text> rdf:type rdfs:Datatype .
+###  https://schema.org/Text
+<https://schema.org/Text> rdf:type rdfs:Datatype .
 
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  http://schema.org/keywords
-<http://schema.org/keywords> rdf:type owl:ObjectProperty ;
+###  https://schema.org/keywords
+<https://schema.org/keywords> rdf:type owl:ObjectProperty ;
                              rdfs:label "keywords" .
 
 
-###  http://schema.org/spatialCoverage
-<http://schema.org/spatialCoverage> rdf:type owl:ObjectProperty ;
-                                    rdfs:range <http://schema.org/Place> ;
+###  https://schema.org/spatialCoverage
+<https://schema.org/spatialCoverage> rdf:type owl:ObjectProperty ;
+                                    rdfs:range <https://schema.org/Place> ;
                                     rdfs:label "spatial coverage" .
 
 
@@ -43,14 +43,14 @@
 #    Data properties
 #################################################################
 
-###  http://schema.org/name
-<http://schema.org/name> rdf:type owl:DatatypeProperty ;
+###  https://schema.org/name
+<https://schema.org/name> rdf:type owl:DatatypeProperty ;
                          rdfs:label "name" .
 
 
-###  http://schema.org/temporalCoverage
-<http://schema.org/temporalCoverage> rdf:type owl:DatatypeProperty ;
-                                     rdfs:range <http://schema.org/DateTime> ;
+###  https://schema.org/temporalCoverage
+<https://schema.org/temporalCoverage> rdf:type owl:DatatypeProperty ;
+                                     rdfs:range <https://schema.org/DateTime> ;
                                      rdfs:label "temporal coverage" .
 
 
@@ -58,20 +58,20 @@
 #    Classes
 #################################################################
 
-###  http://schema.org/Place
-<http://schema.org/Place> rdf:type owl:Class ;
+###  https://schema.org/Place
+<https://schema.org/Place> rdf:type owl:Class ;
                           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                            owl:onProperty <http://schema.org/name> ;
-                                            owl:someValuesFrom <http://schema.org/Text>
+                                            owl:onProperty <https://schema.org/name> ;
+                                            owl:someValuesFrom <https://schema.org/Text>
                                           ] ;
                           rdfs:label "place" .
 
 
-###  http://schema.org/definedTerm
-<http://schema.org/definedTerm> rdf:type owl:Class ;
+###  https://schema.org/definedTerm
+<https://schema.org/definedTerm> rdf:type owl:Class ;
                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                  owl:onProperty <http://schema.org/name> ;
-                                                  owl:someValuesFrom <http://schema.org/Text>
+                                                  owl:onProperty <https://schema.org/name> ;
+                                                  owl:someValuesFrom <https://schema.org/Text>
                                                 ] ;
                                 rdfs:label "defined term" .
 
@@ -79,16 +79,16 @@
 ###  http://xmlns.com/foaf/0.1/Document
 <http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://schema.org/keywords> ;
-                                                       owl:someValuesFrom <http://schema.org/definedTerm>
+                                                       owl:onProperty <https://schema.org/keywords> ;
+                                                       owl:someValuesFrom <https://schema.org/definedTerm>
                                                      ] ,
                                                      [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://schema.org/spatialCoverage> ;
-                                                       owl:someValuesFrom <http://schema.org/Place>
+                                                       owl:onProperty <https://schema.org/spatialCoverage> ;
+                                                       owl:someValuesFrom <https://schema.org/Place>
                                                      ] ,
                                                      [ rdf:type owl:Restriction ;
-                                                       owl:onProperty <http://schema.org/temporalCoverage> ;
-                                                       owl:someValuesFrom <http://schema.org/DateTime>
+                                                       owl:onProperty <https://schema.org/temporalCoverage> ;
+                                                       owl:someValuesFrom <https://schema.org/DateTime>
                                                      ] ;
                                      rdfs:label "document" .
 
@@ -100,7 +100,7 @@
 ###  https://gotriple.eu/ontology/triple#document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
                            <http://xmlns.com/foaf/0.1/Document> ;
-                  <http://schema.org/keywords> triple:keyword_3 ,
+                  <https://schema.org/keywords> triple:keyword_3 ,
                                                triple:keyword_56 ,
                                                triple:keyword_6 .
 
@@ -108,33 +108,33 @@ triple:document_1 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple#document_2
 triple:document_2 rdf:type owl:NamedIndividual ,
                            <http://xmlns.com/foaf/0.1/Document> ;
-                  <http://schema.org/keywords> triple:keyword_3 ;
-                  <http://schema.org/spatialCoverage> triple:place_67 ;
-                  <http://schema.org/temporalCoverage> "1942"^^<http://schema.org/DateTime> .
+                  <https://schema.org/keywords> triple:keyword_3 ;
+                  <https://schema.org/spatialCoverage> triple:place_67 ;
+                  <https://schema.org/temporalCoverage> "1942"^^<https://schema.org/DateTime> .
 
 
 ###  https://gotriple.eu/ontology/triple#keyword_3
 triple:keyword_3 rdf:type owl:NamedIndividual ,
-                          <http://schema.org/definedTerm> ;
-                 <http://schema.org/name> "keyword_3"^^<http://schema.org/Text> .
+                          <https://schema.org/definedTerm> ;
+                 <https://schema.org/name> "keyword_3"^^<https://schema.org/Text> .
 
 
 ###  https://gotriple.eu/ontology/triple#keyword_56
 triple:keyword_56 rdf:type owl:NamedIndividual ,
-                           <http://schema.org/definedTerm> ;
-                  <http://schema.org/name> "keyword_56"^^<http://schema.org/Text> .
+                           <https://schema.org/definedTerm> ;
+                  <https://schema.org/name> "keyword_56"^^<https://schema.org/Text> .
 
 
 ###  https://gotriple.eu/ontology/triple#keyword_6
 triple:keyword_6 rdf:type owl:NamedIndividual ,
-                          <http://schema.org/definedTerm> ;
-                 <http://schema.org/name> "keyword_6"^^<http://schema.org/Text> .
+                          <https://schema.org/definedTerm> ;
+                 <https://schema.org/name> "keyword_6"^^<https://schema.org/Text> .
 
 
 ###  https://gotriple.eu/ontology/triple#place_67
 triple:place_67 rdf:type owl:NamedIndividual ,
-                         <http://schema.org/Place> ;
-                <http://schema.org/name> "place_67"^^<http://schema.org/Text> .
+                         <https://schema.org/Place> ;
+                <https://schema.org/name> "place_67"^^<https://schema.org/Text> .
 
 
 ###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

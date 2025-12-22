@@ -21,7 +21,7 @@ Return all authors of `document_56` that are associated with a user account.
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?author ?account WHERE {
@@ -43,7 +43,7 @@ Return all unassociated authors of `document_56` (authors without an account).
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?author ?name WHERE {
@@ -62,7 +62,7 @@ Return all profiles associated with `account_109`.
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?profile ?name WHERE {
@@ -83,7 +83,7 @@ Return all documents authored by profiles associated with `account_109`.
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT DISTINCT ?document ?authorProfile WHERE {
@@ -107,7 +107,7 @@ Return all unassociated profiles (profiles without an account).
 
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?profile ?name WHERE {

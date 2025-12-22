@@ -5,7 +5,7 @@
 Return all datasets available in the platform.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title WHERE {
@@ -24,7 +24,7 @@ SELECT ?dataset ?title WHERE {
 Return all datasets with their spatial coverage.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?spatial WHERE {
@@ -44,7 +44,7 @@ SELECT ?dataset ?title ?spatial WHERE {
 Return all datasets with their format and size information.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?format ?size WHERE {
@@ -65,7 +65,7 @@ SELECT ?dataset ?title ?format ?size WHERE {
 Return all datasets that have DOI identifiers.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
@@ -89,7 +89,7 @@ SELECT ?dataset ?title ?identifierValue WHERE {
 Return all datasets that have Handle identifiers using class-based approach.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
@@ -113,7 +113,7 @@ SELECT ?dataset ?title ?identifierValue WHERE {
 Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
@@ -139,7 +139,7 @@ SELECT ?dataset ?title ?identifier ?identifierType ?value WHERE {
 Return all datasets with their keywords.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?keyword ?keywordName WHERE {
@@ -162,7 +162,7 @@ SELECT ?dataset ?title ?keyword ?keywordName WHERE {
 Return all datasets with temporal coverage.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?temporal WHERE {
@@ -182,7 +182,7 @@ SELECT ?dataset ?title ?temporal WHERE {
 Return all datasets with their contributors.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?contributor WHERE {
@@ -202,7 +202,7 @@ SELECT ?dataset ?title ?contributor WHERE {
 Return all datasets with their funding projects.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?project WHERE {
@@ -223,7 +223,7 @@ SELECT ?dataset ?title ?project WHERE {
 Return all datasets with their contact points.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 
 SELECT ?dataset ?title ?contact ?email WHERE {
@@ -244,7 +244,7 @@ SELECT ?dataset ?title ?contact ?email WHERE {
 Return all datasets with their distribution access URLs.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 
@@ -265,7 +265,7 @@ SELECT ?dataset ?title ?accessURL WHERE {
 Return all datasets with their bounding box.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX dcat: <http://www.w3.org/ns/dcat#>
 
@@ -286,7 +286,7 @@ SELECT ?dataset ?title ?bbox WHERE {
 Return the provenance statement for all datasets.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -308,7 +308,7 @@ SELECT ?dataset ?title ?provenanceComment WHERE {
 Return all datasets with their license.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -330,7 +330,7 @@ SELECT ?dataset ?title ?license WHERE {
 Return all datasets with their access conditions.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 

@@ -5,7 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix schema: <http://schema.org/> .
+@prefix schema: <https://schema.org/> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
@@ -20,38 +20,38 @@
 #    Object Properties
 #################################################################
 
-###  http://schema.org/spatialCoverage
+###  https://schema.org/spatialCoverage
 schema:spatialCoverage rdf:type owl:ObjectProperty ;
                        rdfs:label "schema:spatialCoverage"@en ;
                        rdfs:comment "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content."@en ;
                        rdfs:range schema:Place .
 
 
-###  http://schema.org/author
+###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
               rdfs:comment "The author of this content."@en ;
               rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
-###  http://schema.org/contributor
+###  https://schema.org/contributor
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contributor"@en ;
                    rdfs:comment "A secondary contributor to the CreativeWork."@en ;
                    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
-###  http://schema.org/publisher
+###  https://schema.org/publisher
 schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:label "schema:publisher"@en ;
                  rdfs:comment "The publisher of the creative work."@en ;
                  rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
-###  http://schema.org/creativeWorkStatus
+###  https://schema.org/creativeWorkStatus
 schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
                          rdfs:label "schema:creativeWorkStatus" ;
                          rdfs:comment "The status of a creative work in terms of its stage in a lifecycle"@en ;
                          rdfs:range xsd:string .
 
-###  http://schema.org/keywords
+###  https://schema.org/keywords
 schema:keywords rdf:type owl:ObjectProperty ;
                rdfs:label "schema:keywords" ;
                rdfs:comment "Keywords or tags used to describe content"@en ;
@@ -62,7 +62,7 @@ dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
                       rdfs:label "dcterms:isReferencedBy"@en ;
                       rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en .
 
-###  http://schema.org/contactPoint
+###  https://schema.org/contactPoint
 schema:contactPoint rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contactPoint"@en ;
                    rdfs:comment "A contact point for a person or organization."@en ;
@@ -93,55 +93,55 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
 #    Data Properties
 #################################################################
 
-###  http://schema.org/name
+###  https://schema.org/name
 schema:name rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:name"@en ;
             rdfs:comment "The name of the item."@en ;
             rdfs:range xsd:string .
 
-###  http://schema.org/abstract
+###  https://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:abstract" ;
                rdfs:comment "An abstract is a short description that summarizes a CreativeWork"@en ;
                rdfs:range rdf:langString .
 
-###  http://schema.org/headline
+###  https://schema.org/headline
 schema:headline rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:headline" ;
                rdfs:comment "Headline of the article"@en ;
                rdfs:range rdf:langString .
 
-###  http://schema.org/datePublished
+###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:datePublished" ;
                     rdfs:comment "Date of first publication"@en ;
                     rdfs:range xsd:date .
 
-###  http://schema.org/dateModified
+###  https://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateModified" ;
                    rdfs:comment "The date on which the CreativeWork was most recently modified"@en ;
                    rdfs:range xsd:date .
 
-###  http://schema.org/dateCreated
+###  https://schema.org/dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateCreated" ;
                    rdfs:comment "The date on which the CreativeWork was created"@en ;
                    rdfs:range xsd:date .
 
-###  http://schema.org/version
+###  https://schema.org/version
 schema:version rdf:type owl:DatatypeProperty ;
               rdfs:label "schema:version" ;
               rdfs:comment "The version of the CreativeWork"@en ;
               rdfs:range xsd:string .
 
-###  http://schema.org/fileFormat
+###  https://schema.org/fileFormat
 schema:fileFormat rdf:type owl:DatatypeProperty ;
                  rdfs:label "schema:fileFormat" ;
                  rdfs:comment "Media type, typically MIME format"@en ;
                  rdfs:range xsd:string .
 
-###  http://schema.org/encodingFormat
+###  https://schema.org/encodingFormat
 schema:encodingFormat rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:encodingFormat" ;
                      rdfs:comment "Media type typically expressed using a MIME format"@en ;
@@ -154,7 +154,7 @@ schema:encodingFormat rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  http://schema.org/Place
+###  https://schema.org/Place
 schema:Place rdf:type owl:Class ;
              rdfs:label "schema:Place"@en ;
              rdfs:comment "Entities that have a somewhat fixed, physical extension."@en ;
@@ -162,7 +162,7 @@ schema:Place rdf:type owl:Class ;
                               owl:onProperty schema:name ;
                               owl:someValuesFrom xsd:string ] .
 
-###  http://schema.org/ContactPoint
+###  https://schema.org/ContactPoint
 schema:ContactPoint rdf:type owl:Class ;
                    rdfs:label "schema:ContactPoint" ;
                    rdfs:comment "A contact point for a person or organization"@en .

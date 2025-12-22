@@ -5,7 +5,7 @@
 Find the research projects that produced a specific document as an output.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 
@@ -23,7 +23,7 @@ SELECT ?project ?projectName WHERE {
 Find all research outputs produced by a specific research project.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 
@@ -44,7 +44,7 @@ SELECT ?output ?outputName ?outputType WHERE {
 Find all documents that reference or cite a specific semantic artefact.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
@@ -62,7 +62,7 @@ SELECT ?citingDocument ?documentName WHERE {
 For a given dataset, find both its originating project and any documents that reference it.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
@@ -83,7 +83,7 @@ SELECT ?project ?projectName ?citingDocument ?documentName WHERE {
 Find all research artifacts that use FRAPO properties to link to their originating projects.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 
@@ -105,7 +105,7 @@ SELECT ?artifact ?artifactName ?project ?projectName WHERE {
 Find all research artifacts (of any type) that were both produced by projects and are referenced by other works.
 
 ```sparql
-PREFIX schema: <http://schema.org/>
+PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple#>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
