@@ -173,6 +173,7 @@ def merge_graphs(ttl_files):
     SIOC = Namespace("http://rdfs.org/sioc/ns#")
     MOD = Namespace("https://w3id.org/mod#")
     OA = Namespace("http://www.w3.org/ns/oa#")
+    FRAPO = Namespace("http://purl.org/cerif/frapo/")
 
     # Bind essential namespaces (let files define their own schema: prefix)
     merged_graph.bind("triple", TRIPLE)
@@ -181,6 +182,7 @@ def merge_graphs(ttl_files):
     merged_graph.bind("dc", DC)
     merged_graph.bind("dcterms", DCTERMS)
     merged_graph.bind("datacite", DATACITE)
+    merged_graph.bind("frapo", FRAPO)
     merged_graph.bind("litre", LITRE)
     merged_graph.bind("sioc", SIOC)
     merged_graph.bind("mod", MOD)
