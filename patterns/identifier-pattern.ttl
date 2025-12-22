@@ -18,10 +18,12 @@ datacite:hasIdentifier rdf:type owl:ObjectProperty ;
                        rdfs:range datacite:Identifier .
 
 # Identifier scheme property  
-datacite:hasIdentifierScheme rdf:type owl:ObjectProperty ;
-                             rdfs:label "datacite:hasIdentifierScheme"@en ;
+# Identifier scheme property  
+datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
+                             rdfs:label "datacite:usesIdentifierScheme"@en ;
                              rdfs:comment "Links an identifier to its scheme"@en ;
-                             rdfs:domain datacite:Identifier .
+                             rdfs:domain datacite:Identifier ;
+                             rdfs:range datacite:IdentifierScheme .
 
 # Identifier class
 datacite:Identifier rdf:type owl:Class ;
@@ -52,7 +54,7 @@ triple:doi rdf:type datacite:IdentifierScheme ;
 
 # Identifier instances
 triple:identifier-example rdf:type datacite:Identifier ;
-                         datacite:hasIdentifierScheme triple:internal_id ;
+                         datacite:usesIdentifierScheme triple:internal_id ;
                          litre:hasLiteralValue "TRIPLE_DOC_001" .
 
 # Usage on entities
@@ -61,7 +63,7 @@ triple:example datacite:hasIdentifier triple:identifier-example .
 # Pattern Notes:
 # - Only DataCite model used (no schema:identifier strings)
 # - Structured identifier management with schemes
-# - Uses datacite:hasIdentifierScheme to link identifier to scheme
+# - Uses datacite:usesIdentifierScheme to link identifier to scheme
 # - Uses litre:hasLiteralValue for the actual identifier string
 # - Supports multiple identifier types (DOI, internal, PID, etc.)
 # - Consistent across all main classes (Dataset, MediaObject, SemanticArtefact)

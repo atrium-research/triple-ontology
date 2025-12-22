@@ -7,11 +7,6 @@
 # Spatial Coverage Pattern
 # This pattern demonstrates how spatial coverage should be standardized in the TRIPLE ontology
 
-# CURRENT INCONSISTENCY IDENTIFIED:
-# - Iteration 4: ObjectProperty with range schema:Place (expects complex objects)
-# - Iteration 12: ObjectProperty with range schema:GeoShape (expects complex objects)  
-# - BUT ABOX values are always simple strings: "Europe", "Italy", "Florence, Italy"
-
 # STANDARDIZED PATTERN - Structured Geographical Modeling:
 # Property Definition - ObjectProperty linking to structured Place objects
 schema:spatialCoverage rdf:type owl:ObjectProperty ;
@@ -19,25 +14,13 @@ schema:spatialCoverage rdf:type owl:ObjectProperty ;
                        rdfs:comment "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content."@en ;
                        rdfs:range schema:Place .
 
-# Place Class with name and optional geographical shape
+# Place Class with name
 schema:Place rdf:type owl:Class ;
              rdfs:label "schema:Place"@en ;
              rdfs:comment "Entities that have a somewhat fixed, physical extension."@en ;
              rdfs:subClassOf [ rdf:type owl:Restriction ;
                               owl:onProperty schema:name ;
                               owl:someValuesFrom xsd:string ] .
-
-# Geo property linking Place to GeoShape
-schema:geo rdf:type owl:ObjectProperty ;
-           rdfs:label "schema:geo"@en ;
-           rdfs:comment "The geo coordinates of the place."@en ;
-           rdfs:domain schema:Place ;
-           rdfs:range schema:GeoShape .
-
-# GeoShape for geographical coordinates and boundaries
-schema:GeoShape rdf:type owl:Class ;
-                rdfs:label "schema:GeoShape"@en ;
-                rdfs:comment "The geographic shape of a place. A GeoShape can be described using several properties whose values are based on latitude/longitude pairs."@en .
 
 # Usage Pattern in Classes
 schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -46,8 +29,7 @@ schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 # Standard Requirements:
 # - schema:spatialCoverage is owl:ObjectProperty with range schema:Place
-# - schema:Place has schema:name property (required) and optional schema:geo
-# - schema:geo links to schema:GeoShape for coordinates/boundaries when available
+# - schema:Place has schema:name property (required)
 # - Use owl:allValuesFrom schema:Place in class restrictions
 
 # Example ABOX Structure:
@@ -56,20 +38,10 @@ schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
               schema:name "Europe" .
 
 :place-italy rdf:type schema:Place ;
-             schema:name "Italy" ;
-             schema:geo :italy-geoshape .
+             schema:name "Italy" .
 
 :place-florence rdf:type schema:Place ;
-                schema:name "Florence, Italy" ;
-                schema:geo :florence-geoshape .
-
-# Optional GeoShape instances with coordinates:
-:italy-geoshape rdf:type schema:GeoShape ;
-                schema:polygon "41.9 12.5, 47.1 12.5, 47.1 18.5, 41.9 18.5, 41.9 12.5" .
-
-:florence-geoshape rdf:type schema:GeoShape ;
-                   schema:latitude "43.7696" ;
-                   schema:longitude "11.2558" .
+                schema:name "Florence, Italy" .
 
 # Dataset usage:
 triple:dataset-example schema:spatialCoverage :place-italy .

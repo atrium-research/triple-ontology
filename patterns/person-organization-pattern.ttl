@@ -38,11 +38,7 @@ schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:comment "The publisher of the creative work"@en ;
                  rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
-###  schema:producer
-schema:producer rdf:type owl:ObjectProperty ;
-                rdfs:label "schema:producer"@en ;
-                rdfs:comment "The person or organization who produced the work"@en ;
-                rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
+
 
 ###  schema:funder
 schema:funder rdf:type owl:ObjectProperty ;
@@ -63,12 +59,7 @@ triple:aggregator rdf:type owl:ObjectProperty ;
                   rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
                   rdfs:subPropertyOf schema:contributor .
 
-###  triple:primaryProducer
-triple:primaryProducer rdf:type owl:ObjectProperty ;
-                       rdfs:label "primary producer"@en ;
-                       rdfs:comment "The original source or creator of the document"@en ;
-                       rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
-                       rdfs:subPropertyOf schema:producer .
+
 
 # Usage Pattern in Classes - Example with Dataset
 schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -107,6 +98,6 @@ triple:MediaObject rdfs:subClassOf [ rdf:type owl:Restriction ;
 # - Use owl:allValuesFrom with union type for class restrictions
 # - Properties like schema:funding link to grants/projects (owl:Thing), not directly to funders
 # - Some properties are subProperties: schema:author rdfs:subPropertyOf schema:creator
-# - TRIPLE-specific properties: triple:aggregator, triple:primaryProducer
+# - TRIPLE-specific properties: triple:aggregator
 # - schema:mentions is ObjectProperty with range owl:Thing (can reference any entity)
 # - Consistent modeling across Document, Dataset, and other creative works
