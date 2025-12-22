@@ -300,6 +300,49 @@ SELECT ?dataset ?title ?provenanceComment WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "Data aggregated from 15 national museums..."
 - `triple:dataset_002` → "European Social Attitudes Survey 2023" → "Survey results merged from 27 EU member state polls..."
+
+
+## CQ_10.15
+
+Return all datasets with their license.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?dataset ?title ?license WHERE {
+  ?dataset a triple:Dataset ;
+           schema:headline ?title ;
+           triple:hasLicense ?lic .
+  ?lic rdfs:label ?license .
+}
+```
+
+**Expected result:**
+- `triple:dataset-001` → "European Archaeological Sites Database" → "CC BY-NC-ND 4.0"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "CC BY 4.0"
+
+
+## CQ_10.16
+
+Return all datasets with their access conditions.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?dataset ?title ?access WHERE {
+  ?dataset a triple:Dataset ;
+           schema:headline ?title ;
+           triple:hasAccessCondition ?acc .
+  ?acc rdfs:label ?access .
+}
+```
+
+**Expected result:**
+- `triple:dataset-001` → "European Archaeological Sites Database" → "Open Access"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Restricted Access"
 

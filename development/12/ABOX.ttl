@@ -46,6 +46,8 @@ triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
                                            triple:identifier-thesaurus-doi ,
                                            triple:identifier-thesaurus-handle ,
                                            triple:identifier-thesaurus-uri ;
+                    triple:hasLicense triple:cc_by_4_0 ;
+                    triple:hasAccessCondition triple:open_access ;
                     dcterms:isReferencedBy triple:document-dh-methodology .
 
 ###  Example 2: SKOS Art History Vocabulary
@@ -71,7 +73,9 @@ triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
                                               triple:identifier-vocab-original ,
                                               triple:identifier-vocab-doi ,
                                               triple:identifier-vocab-handle ,
-                                              triple:identifier-vocab-uri .
+                                              triple:identifier-vocab-uri ;
+                       triple:hasLicense triple:cc0_1_0 ;
+                       triple:hasAccessCondition triple:open_access .
 
 ###  Example 3: Medieval Studies Ontology
 triple:ontology-medieval rdf:type triple:SemanticArtefact ;
@@ -96,6 +100,8 @@ triple:ontology-medieval rdf:type triple:SemanticArtefact ;
                                                triple:identifier-medieval-doi ,
                                                triple:identifier-medieval-handle ,
                                                triple:identifier-medieval-uri ;
+                        triple:hasLicense triple:cc_by_nc_4_0 ;
+                        triple:hasAccessCondition triple:restricted_access ;
                         dcterms:isReferencedBy triple:document-carolingian .
 
 ###  Supporting Organizations
@@ -336,3 +342,30 @@ triple:document-dh-methodology rdf:type triple:Document ;
 triple:document-carolingian rdf:type triple:Document ;
                            schema:headline "Carolingian Renaissance Research Article"@en ;
                            schema:abstract "Analysis of cultural and educational reforms during the Carolingian period"@en .
+
+###  Licenses
+triple:cc_by_4_0 rdf:type owl:NamedIndividual ,
+                          triple:License ;
+                 rdfs:label "CC BY 4.0"@en ;
+                 rdfs:comment "Creative Commons Attribution 4.0 International License"@en .
+
+triple:cc0_1_0 rdf:type owl:NamedIndividual ,
+                        triple:License ;
+               rdfs:label "CC0 1.0"@en ;
+               rdfs:comment "Creative Commons Zero v1.0 Universal"@en .
+
+triple:cc_by_nc_4_0 rdf:type owl:NamedIndividual ,
+                             triple:License ;
+                    rdfs:label "CC BY-NC 4.0"@en ;
+                    rdfs:comment "Creative Commons Attribution-NonCommercial 4.0 International License"@en .
+
+###  Access Conditions
+triple:open_access rdf:type owl:NamedIndividual ,
+                            triple:AccessCondition ;
+                   rdfs:label "Open Access"@en ;
+                   rdfs:comment "The resource is freely available for access."@en .
+
+triple:restricted_access rdf:type owl:NamedIndividual ,
+                                  triple:AccessCondition ;
+                         rdfs:label "Restricted Access"@en ;
+                         rdfs:comment "Access to the resource is restricted."@en .

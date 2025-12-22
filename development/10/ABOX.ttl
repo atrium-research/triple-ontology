@@ -54,6 +54,8 @@ triple:dataset-001 rdf:type triple:Dataset ;
                    schema:funding triple:project-heritage-mapping ;
                    sioc:topic triple:topic-archaeology ;
                    dcat:distribution triple:distribution-heritage-001 ;
+                   triple:hasLicense triple:cc_by_nc_nd_4_0 ;
+                   triple:hasAccessCondition triple:open_access ;
                    schema:comment "Dataset created through systematic archaeological surveys across 15 European countries with standardized recording protocols."@en .
 
 triple:distribution-heritage-001 rdf:type dcat:Distribution ;
@@ -94,6 +96,8 @@ triple:dataset-002 rdf:type triple:Dataset ;
                    sioc:topic triple:topic-social-science ;
                    schema:mentions triple:dataset-001 ;
                    schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
+                   triple:hasLicense triple:cc_by_4_0 ;
+                   triple:hasAccessCondition triple:restricted_access ;
                    dcterms:isReferencedBy triple:document-social-report-2023 .
 
 ###  Provenance Statements
@@ -194,11 +198,11 @@ triple:project-social-cohesion rdf:type schema:Project ;
                                datacite:hasIdentifier triple:identifier-project-002 .
 
 ###  Topics
-triple:topic-archaeology rdf:type skos:Concept ;
+triple:topic-archaeology rdf:type triple:Discipline ;
                          skos:prefLabel "Archaeology"@en ;
                          skos:definition "The study of human activity through the recovery and analysis of material culture."@en .
 
-triple:topic-social-science rdf:type skos:Concept ;
+triple:topic-social-science rdf:type triple:Discipline ;
                             skos:prefLabel "Social Science"@en ;
                             skos:definition "Academic disciplines concerned with society and the relationships among individuals within a society."@en .
 
@@ -267,3 +271,25 @@ triple:identifier-project-002 rdf:type triple:ID ;
 triple:document-social-report-2023 rdf:type schema:CreativeWork ;
                                    schema:headline "European Social Cohesion Report 2023"@en ;
                                    schema:datePublished "2023-11-15"^^xsd:date .
+
+###  Licenses
+triple:cc_by_nc_nd_4_0 rdf:type owl:NamedIndividual ,
+                                triple:License ;
+                       rdfs:label "CC BY-NC-ND 4.0"@en ;
+                       rdfs:comment "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License"@en .
+
+triple:cc_by_4_0 rdf:type owl:NamedIndividual ,
+                          triple:License ;
+                 rdfs:label "CC BY 4.0"@en ;
+                 rdfs:comment "Creative Commons Attribution 4.0 International License"@en .
+
+###  Access Conditions
+triple:open_access rdf:type owl:NamedIndividual ,
+                            triple:AccessCondition ;
+                   rdfs:label "Open Access"@en ;
+                   rdfs:comment "The resource is freely available for access."@en .
+
+triple:restricted_access rdf:type owl:NamedIndividual ,
+                                  triple:AccessCondition ;
+                         rdfs:label "Restricted Access"@en ;
+                         rdfs:comment "Access to the resource is restricted."@en .

@@ -245,3 +245,41 @@ A list of datasets with their spatial extent defined as a WKT literal.
 
 ### Based on
 Example 1 and Example 2
+
+
+## Question 14
+
+### Identifier
+CQ_10.15
+
+### Question
+Return all datasets with their license.
+
+### Expected Outcome
+A list of datasets with their license information.
+
+### Result
+* `dataset_001` → CC BY-NC-ND 4.0
+* `dataset_002` → CC BY 4.0
+
+### Based on
+Example 1 and Example 2
+
+
+## Question 15
+
+### Identifier
+CQ_10.16
+
+### Question
+Return all datasets with their access conditions.
+
+### Expected Outcome
+A list of datasets with their access status.
+
+### Result
+* `dataset_001` → Open Access
+* `dataset_002` → Restricted Access
+
+### Based on
+Example 1 and Example 2

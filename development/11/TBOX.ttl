@@ -22,9 +22,12 @@
 #################################################################
 
 
+
 #################################################################
 #    Object Properties
 #################################################################
+
+
 
 ###  https://schema.org/spatialCoverage
 schema:spatialCoverage rdf:type owl:ObjectProperty ;
@@ -83,6 +86,7 @@ datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
                               rdfs:label "datacite:usesIdentifierScheme"@en ;
                               rdfs:comment "Links an identifier to its scheme"@en ;
                               rdfs:domain datacite:Identifier .
+
 
 ###  http://purl.org/spar/literal/hasLiteralValue
 litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
@@ -252,6 +256,12 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:onProperty schema:inLanguage ;
                                      owl:someValuesFrom schema:Language ] ,
                                    [ rdf:type owl:Restriction ;
+                                     owl:onProperty triple:hasLicense ;
+                                     owl:allValuesFrom triple:License ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty triple:hasAccessCondition ;
+                                     owl:allValuesFrom triple:AccessCondition ] ,
+                                   [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:temporalCoverage ;
                                      owl:allValuesFrom xsd:string ] ,
 
@@ -272,7 +282,10 @@ triple:MediaObject rdf:type owl:Class ;
                                                                      triple:Handle ) ] ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty sioc:topic ;
-                                     owl:someValuesFrom skos:Concept ] ,
+                                     owl:allValuesFrom triple:Discipline ] ,
+                                   [ rdf:type owl:Restriction ;
+                                     owl:onProperty triple:hasContentType ;
+                                     owl:allValuesFrom triple:ContentType ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty dcterms:isReferencedBy ;
                                      owl:allValuesFrom triple:Document ] ,

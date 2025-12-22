@@ -42,3 +42,7 @@
 | `dcat:bbox`                    | DCAT property defining the spatial bounding box of the dataset, typically as a WKT literal.                                                         |
 | `dcterms:provenance`           | Dublin Core property indicating a statement of any changes in ownership and custody of the resource since its creation.                             |
 | `dcterms:ProvenanceStatement`  | Dublin Core class representing a statement of provenance information.                                                                               |
+| `triple:License`               | Bridge class for licenses, subclass of skos:Concept and dcterms:LicenseDocument.                                                                    |
+| `triple:AccessCondition`       | Bridge class for access rights, subclass of skos:Concept and dcterms:RightsStatement.                                                               |
+| `triple:hasLicense`            | Property connecting a dataset to its license.                                                                                                       |
+| `triple:hasAccessCondition`    | Property connecting a dataset to its access conditions.                                                                                             |

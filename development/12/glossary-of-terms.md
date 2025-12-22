@@ -29,3 +29,7 @@
 | `datacite:hasIdentifier` | DataCite property connecting semantic artifacts to their identifiers. |
 | `datacite:usesIdentifierScheme` | DataCite property connecting identifiers to their schemes (inferred automatically for typed identifiers). |
 | `litre:hasLiteralValue` | Property connecting identifiers to their string values. |
+| `triple:License` | Bridge class for licenses, subclass of skos:Concept and dcterms:LicenseDocument. |
+| `triple:AccessCondition` | Bridge class for access rights, subclass of skos:Concept and dcterms:RightsStatement. |
+| `triple:hasLicense` | Property connecting a semantic artifact to its license. |
+| `triple:hasAccessCondition` | Property connecting a semantic artifact to its access conditions. |

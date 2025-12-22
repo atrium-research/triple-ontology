@@ -314,7 +314,7 @@ triple:Dataset rdf:type owl:Class ;
                                owl:allValuesFrom xsd:string ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty sioc:topic ;
-                               owl:someValuesFrom skos:Concept ] ;
+                               owl:allValuesFrom triple:Discipline ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty dcterms:isReferencedBy ;
                                owl:allValuesFrom triple:Document ] ;
@@ -329,7 +329,16 @@ triple:Dataset rdf:type owl:Class ;
                                owl:allValuesFrom rdfs:Literal ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty dcterms:provenance ;
-                               owl:allValuesFrom dcterms:ProvenanceStatement ] .
+                               owl:allValuesFrom dcterms:ProvenanceStatement ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty triple:hasLicense ;
+                               owl:allValuesFrom triple:License ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty triple:hasAccessCondition ;
+                               owl:allValuesFrom triple:AccessCondition ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty triple:hasContentType ;
+                               owl:allValuesFrom triple:ContentType ] .
 
 ###  https://schema.org/GeoShape  
 schema:GeoShape rdf:type owl:Class ;

@@ -51,7 +51,7 @@ A list of multimedia objects with storage and access information.
 
 ### Result
 * `multimedia-001` → 1.2 GB, Open Access
-* `multimedia-002` → 198 MB, Open Access with attribution
+* `multimedia-002` → 198 MB, Open Access
 * `multimedia-003` → 850 MB, Educational and Research Use
 
 ### Based on

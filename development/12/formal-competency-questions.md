@@ -189,3 +189,49 @@ SELECT ?artifact ?title ?identifierType ?value WHERE {
 - `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → `triple:DOI` → "10.5281/zenodo.vocab.arthistory.v1"
 - `triple:ontology-medieval` → "Medieval Studies Ontology" → `triple:URI` → "https://ontology.medieval.unibo.it/owl#"
 
+
+## CQ_12.9
+
+Return all semantic artifacts with their license.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?artifact ?title ?license WHERE {
+  ?artifact a triple:SemanticArtefact ;
+           schema:headline ?title ;
+           triple:hasLicense ?lic .
+  ?lic rdfs:label ?license .
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "CC BY 4.0"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "CC0 1.0"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "CC BY-NC 4.0"
+
+
+## CQ_12.10
+
+Return all semantic artifacts with their access conditions.
+
+```sparql
+PREFIX schema: <http://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?artifact ?title ?access WHERE {
+  ?artifact a triple:SemanticArtefact ;
+           schema:headline ?title ;
+           triple:hasAccessCondition ?acc .
+  ?acc rdfs:label ?access .
+}
+```
+
+**Expected result:**
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "Open Access"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "Open Access"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "Restricted Access"
+

@@ -96,6 +96,8 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
                       rdfs:range xsd:string .
 
 
+
+
 #################################################################
 #    Data Properties
 #################################################################
@@ -204,10 +206,6 @@ datacite:Identifier rdf:type owl:Class ;
                                       owl:onDataRange xsd:string
                                     ] .
 
-###  http://purl.org/spar/datacite/IdentifierScheme
-datacite:IdentifierScheme rdf:type owl:Class ;
-                          rdfs:label "datacite:IdentifierScheme"@en ;
-                          rdfs:comment "A scheme that uniquely identifies entities of a particular type."@en .
 
 ###  https://gotriple.eu/ontology/triple#ID
 triple:ID rdf:type owl:Class ;
@@ -401,7 +399,19 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                       ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty sioc:topic ;
-                                        owl:someValuesFrom skos:Concept
+                                        owl:allValuesFrom triple:Discipline
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty triple:hasLicense ;
+                                        owl:allValuesFrom triple:License
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty triple:hasAccessCondition ;
+                                        owl:allValuesFrom triple:AccessCondition
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty triple:hasContentType ;
+                                        owl:allValuesFrom triple:ContentType
                                       ] .
 
 

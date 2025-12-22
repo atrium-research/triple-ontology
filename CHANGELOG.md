@@ -15,6 +15,46 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-22 - Refactoring: Iterations 10 & 12 - Licensing Bridge Classes
+
+**Type**: Refactoring / Addition
+
+**Description**:
+Extended the "Bridge Classes" pattern to Iteration 10 (Datasets) and Iteration 12 (Semantic Artefact), ensuring consistent rights and licensing metadata modeling across all resource types.
+
+**Details**:
+- **Dataset (Iteration 10)** & **Semantic Artefact (Iteration 12)**:
+  - **TBOX**: Added `triple:License`, `triple:AccessCondition` classes and `triple:hasLicense`, `triple:hasAccessCondition` properties. Added restrictions to main classes.
+  - **ABOX**: Added license/access instances and assertions to example resources.
+  - **Documentation**: Updated Motivating Scenarios, Glossaries, and added Competency Questions checking for rights metadata.
+
+**Author**: Alessandro Bertozzi
+
+---
+
+### 2025-12-22 - Refactoring: Iteration 11 - Multimedia Licensing Alignment
+
+**Type**: Refactoring
+
+**Description**:
+Refactored Iteration 11 (Multimedia) to align with the "Bridge Classes" pattern introduced in Iteration 02, replacing legacy string-based properties with semantic references.
+
+**Details**:
+- **TBOX**:
+  - Added `triple:License` and `triple:AccessCondition` bridge classes.
+  - Defined `triple:hasLicense` and `triple:hasAccessCondition` properties.
+  - Added restrictions to `triple:MediaObject`.
+- **ABOX**:
+  - Replaced `schema:license` and `schema:conditionsOfAccess` string literals with URI references to new Bridge Class instances.
+  - Instantiated specific licenses (e.g., `triple:cc_by_nc_nd_4_0`) and access conditions (e.g., `triple:open_access`).
+- **Documentation**:
+  - Updated `formal-competency-questions.md` SPARQL queries and expected results.
+  - Updated `informal-competency-questions.md` expected results.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-22 - Refactoring: Iteration 02 - Bridge Classes and Concept Scheme Removal
 
 **Type**: Refactoring

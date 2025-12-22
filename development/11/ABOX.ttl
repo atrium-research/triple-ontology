@@ -33,7 +33,7 @@ triple:multimedia-001 rdf:type triple:MediaObject ;
                       schema:dateModified "2023-11-02"^^xsd:date ;
                       schema:publisher "Canal-U" ;
                       schema:provider "Canal-U" ;
-                      schema:license "CC BY-NC-ND 4.0" ;
+                      triple:hasLicense triple:cc_by_nc_nd_4_0 ;
                       schema:keywords triple:keyword-histoire-medievale, triple:keyword-renaissance-carolingienne, triple:keyword-charlemagne ;
 
                       schema:knowsAbout "medieval history", "Carolingian period" ;
@@ -50,7 +50,7 @@ triple:multimedia-001 rdf:type triple:MediaObject ;
                                              triple:identifier-video-original ,
                                              triple:identifier-video-doi ,
                                              triple:identifier-video-handle ;
-                      schema:conditionsOfAccess "Open Access" ;
+                      triple:hasAccessCondition triple:open_access ;
                       schema:funding triple:project-medieval-studies ;
                       sioc:topic triple:topic-medieval-history ;
                       schema:mentions triple:keyword-charlemagne, triple:keyword-alcuin ;
@@ -71,7 +71,7 @@ triple:multimedia-002 rdf:type triple:MediaObject ;
                       schema:datePublished "2023-08-10"^^xsd:date ;
                       schema:publisher "European Memory Institute" ;
                       schema:provider "ISIDORE" ;
-                      schema:license "CC BY-SA 4.0" ;
+                      triple:hasLicense triple:cc_by_sa_4_0 ;
                       schema:keywords triple:keyword-oral-history, triple:keyword-world-war-ii, triple:keyword-italian-resistance, triple:keyword-memory-studies ;
 
                       schema:knowsAbout "European history", "resistance movements", "oral testimony" ;
@@ -88,7 +88,7 @@ triple:multimedia-002 rdf:type triple:MediaObject ;
                                              triple:identifier-audio-original ,
                                              triple:identifier-audio-doi ,
                                              triple:identifier-audio-handle ;
-                      schema:conditionsOfAccess "Open Access with attribution" ;
+                      triple:hasAccessCondition triple:open_access ;
                       schema:funding triple:project-european-memory ;
                       sioc:topic triple:topic-european-history ;
                       schema:mentions triple:place-northern-italy .
@@ -104,7 +104,7 @@ triple:multimedia-003 rdf:type triple:MediaObject ;
                       schema:datePublished "2023-09-05"^^xsd:date ;
                       schema:publisher "Uffizi Gallery" ;
                       schema:provider "Europeana" ;
-                      schema:license "CC BY-NC 4.0" ;
+                      triple:hasLicense triple:cc_by_nc_4_0 ;
                       schema:keywords triple:keyword-renaissance-art, triple:keyword-botticelli, triple:keyword-digital-humanities, triple:keyword-cultural-heritage ;
 
                       schema:knowsAbout "Renaissance painting", "Italian art", "digital preservation" ;
@@ -120,7 +120,7 @@ triple:multimedia-003 rdf:type triple:MediaObject ;
                                              triple:identifier-image-original ,
                                              triple:identifier-image-doi ,
                                              triple:identifier-image-handle ;
-                      schema:conditionsOfAccess "Educational and Research Use" ;
+                      triple:hasAccessCondition triple:educational_use ;
                       schema:funding triple:project-digital-uffizi ;
                       sioc:topic triple:topic-art-history ;
                       dcterms:isReferencedBy triple:document-botticelli-analysis-2023 .
@@ -141,22 +141,45 @@ triple:project-digital-uffizi rdf:type schema:Project ;
                                datacite:hasIdentifier triple:identifier-project-003 .
 
 ###  Topics
-triple:topic-medieval-history rdf:type skos:Concept ;
+triple:topic-medieval-history rdf:type triple:Discipline ;
                                skos:prefLabel "Medieval History"@en ;
                                skos:definition "The study of European history from approximately 500 to 1500 CE."@en .
 
-triple:topic-european-history rdf:type skos:Concept ;
+triple:topic-european-history rdf:type triple:Discipline ;
                                skos:prefLabel "European History"@en ;
                                skos:definition "Historical studies focusing on European civilizations and societies."@en .
 
-triple:topic-art-history rdf:type skos:Concept ;
+triple:topic-art-history rdf:type triple:Discipline ;
                          skos:prefLabel "Art History"@en ;
                          skos:definition "The study of art objects in their historical development and stylistic contexts."@en .
 
 ###  Places
 triple:place-northern-italy rdf:type schema:GeoShape ;
                             schema:name "Northern Italy"@en ;
+                            schema:name "Northern Italy"@en ;
                             schema:description "Geographic region covering the northern part of the Italian Peninsula."@en .
+
+###  Licenses
+triple:cc_by_nc_nd_4_0 rdf:type owl:NamedIndividual , triple:License ;
+                       skos:exactMatch <https://creativecommons.org/licenses/by-nc-nd/4.0/> ;
+                       rdfs:label "CC BY-NC-ND 4.0"@en .
+
+triple:cc_by_sa_4_0 rdf:type owl:NamedIndividual , triple:License ;
+                    skos:exactMatch <https://creativecommons.org/licenses/by-sa/4.0/> ;
+                    rdfs:label "CC BY-SA 4.0"@en .
+
+triple:cc_by_nc_4_0 rdf:type owl:NamedIndividual , triple:License ;
+                    skos:exactMatch <https://creativecommons.org/licenses/by-nc/4.0/> ;
+                    rdfs:label "CC BY-NC 4.0"@en .
+
+###  Access Conditions
+triple:open_access rdf:type owl:NamedIndividual , triple:AccessCondition ;
+                   skos:closeMatch <http://purl.org/coar/access_right/c_abf2> ;
+                   rdfs:label "Open Access"@en .
+
+triple:educational_use rdf:type owl:NamedIndividual , triple:AccessCondition ;
+                       rdfs:label "Educational and Research Use"@en ;
+                       rdfs:comment "Access restricted to educational and research purposes."@en .
 
 ###  Referenced Documents
 triple:document-medieval-anthology-2023 rdf:type schema:CreativeWork ;

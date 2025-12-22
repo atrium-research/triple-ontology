@@ -156,3 +156,45 @@ A comprehensive list of semantic artifacts with all their identifier types (DOI,
 ### Based on
 Example 1, Example 2, and Example 3
 
+### Based on
+Example 1, Example 2, and Example 3
+
+
+## Question 9
+
+### Identifier
+CQ_12.9
+
+### Question
+What are the licenses associated with the semantic artifacts?
+
+### Expected Outcome
+List of semantic artifacts and their licenses.
+
+### Result
+* `TRIPLE SSH Thesaurus` → CC BY 4.0
+* `SKOS Art History Vocabulary` → CC0 1.0
+* `Medieval Studies Ontology` → CC BY-NC 4.0
+
+### Based on
+Example 1, Example 2, and Example 3
+
+
+## Question 10
+
+### Identifier
+CQ_12.10
+
+### Question
+What are the access conditions for the semantic artifacts?
+
+### Expected Outcome
+List of semantic artifacts and their access conditions.
+
+### Result
+* `TRIPLE SSH Thesaurus` → Open Access
+* `SKOS Art History Vocabulary` → Open Access
+* `Medieval Studies Ontology` → Restricted Access
+
+### Based on
+Example 1, Example 2, and Example 3

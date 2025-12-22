@@ -19,7 +19,9 @@ This iteration extends the TRIPLE ontology to support semantic artifacts followi
 - Language specification with ISO 639 language code support
 - Format and representation technique metadata using MIME types and encoding standards
 - Status tracking for semantic artifact lifecycle stages
+- Status tracking for semantic artifact lifecycle stages
 - Contact point information for administrative queries
+- Support for license and access conditions using Bridge Classes (`triple:License`, `triple:AccessCondition`)
 
 ## Examples
 - Ontology repositories from OntoPortal with version control, publisher information, and status tracking

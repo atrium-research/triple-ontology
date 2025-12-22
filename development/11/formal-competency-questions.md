@@ -54,13 +54,14 @@ SELECT ?multimedia ?title ?size ?access WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               schema:size ?size ;
-              schema:conditionsOfAccess ?access .
+              triple:hasAccessCondition ?accessCond .
+  ?accessCond rdfs:label ?access .
 }
 ```
 
 **Expected result:**
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "1.2 GB" → "Open Access"
-- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "198 MB" → "Open Access with attribution"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "198 MB" → "Open Access"
 - `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "850 MB" → "Educational and Research Use"
 
 
@@ -142,7 +143,8 @@ PREFIX triple: <https://gotriple.eu/ontology/triple#>
 SELECT ?multimedia ?title ?license WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
-              schema:license ?license .
+              triple:hasLicense ?lic .
+  ?lic rdfs:label ?license .
   FILTER(CONTAINS(?license, "CC"))
 }
 ```
