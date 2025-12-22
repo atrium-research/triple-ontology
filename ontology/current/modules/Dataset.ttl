@@ -15,12 +15,16 @@
 <https://gotriple.eu/ontology/triple/Dataset> a owl:Ontology ;
     rdfs:label "TRIPLE Dataset Module"@en ;
     dcterms:title "TRIPLE Dataset Module"@en ;
-    dcterms:description "The Dataset module of the TRIPLE Ontology. It defines Datasets and their Distributions, incorporating definitions from DCAT and FABIO."@en ;
+    dcterms:abstract "The Dataset module of the TRIPLE Ontology, defining Datasets and Distributions aligned with DCAT."@en ;
+    dcterms:description "The Dataset module specializes in representing research data. It defines `triple:Dataset` as a connection point to the DCAT ontology, supporting the description of datasets, their distributions, temporal/spatial coverage, and access rights. This facilitates the discovery and reuse of research data within the SSH domain."@en ;
     dcterms:created "2021-12-01" ;
     dcterms:modified "2025-12-22" ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
-    owl:versionInfo "2.0.0" .
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://www.gotriple.eu/> ;
+    owl:versionInfo "2.0.0" ;
+    schema:creativeWorkStatus "Ontology Module" .
 
 triple:Dataset a owl:Class ;
     rdfs:label "Dataset"@en,

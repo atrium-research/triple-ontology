@@ -2,6 +2,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix litre: <http://purl.org/spar/literal/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -11,12 +12,16 @@
 <https://gotriple.eu/ontology/triple/Profile> a owl:Ontology ;
     rdfs:label "TRIPLE Profile Module"@en ;
     dcterms:title "TRIPLE Profile Module"@en ;
-    dcterms:description "The Profile module of the TRIPLE Ontology. It defines Agents (Persons, Organizations) and their Accounts within the GoTriple platform."@en ;
+    dcterms:abstract "The Profile module of the TRIPLE Ontology, defining Agents (People, Organizations) and Accounts."@en ;
+    dcterms:description "The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity."@en ;
     dcterms:created "2021-12-01" ;
     dcterms:modified "2025-12-22" ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
-    owl:versionInfo "2.0.0" .
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://www.gotriple.eu/> ;
+    owl:versionInfo "2.0.0" ;
+    schema:creativeWorkStatus "Ontology Module" .
 
 triple:Profile a owl:Class ;
     rdfs:label "profile"@en ;
