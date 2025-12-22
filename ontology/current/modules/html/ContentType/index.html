@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TRIPLE Content Types Vocabulary</title>
+    <link href="static/owl.css" rel="stylesheet" type="text/css" />
+    <link href="static/yeti.css" rel="stylesheet" type="text/css" />
+    <link href="static/rec.css" rel="stylesheet" type="text/css" />
+    <link href="static/extra.css" rel="stylesheet" type="text/css" />
+    <script src="static/jquery.js"></script>
+    <script src="static/jquery.scrollTo.js"></script>
+    <script src="static/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <div style="float:right">language <a href="index.html"><b>en</b></a> </div>
+            <h1>TRIPLE Content Types Vocabulary</h1>
+
+            <dl>
+                <dt>This version:</dt>
+                <dd><a href="https://gotriple.eu/ontology/triple/ContentType">https://gotriple.eu/ontology/triple/ContentType</a></dd>
+
+                
+                <dt>Revision:</dt>
+                <dd>2.0.0</dd>
+                
+
+                
+                <dt>Authors:</dt>
+                <dd>
+                    
+                    Alessandro Bertozzi
+                    
+                </dd>
+                
+
+                
+                <dt>Contributors:</dt>
+                <dd>
+                    
+                    Luca De Santis, 
+                    
+                    Silvio Peroni
+                    
+                </dd>
+                
+
+                
+                <dt>Publisher:</dt>
+                <dd>
+                    
+                    https://www.gotriple.eu/
+                    
+                </dd>
+                
+
+                
+
+                
+                <dt>License:</dt>
+                <dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a></dd>
+                
+
+            </dl>
+
+            <div class="copyright">
+                <span class="markdown"></span>
+            </div>
+        </div>
+
+        <hr />
+
+        
+        <h2>Abstract</h2>
+        <div id="abstract">
+            <p>The Content Types vocabulary of the TRIPLE Ontology.</p>
+        </div>
+        
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#classes">2. Classes</a></li>
+                
+                
+                
+                <li><a href="#namedindividuals">6. Named Individuals</a></li>
+                <li><a href="#namespacedeclarations">7. Namespaces</a></li>
+            </ul>
+        </div>
+
+
+
+        
+        <div id="introduction">
+            <h2>Introduction</h2>
+            <div class="markdown">Defines the types of content catalogued in the GoTriple platform (e.g., Article, Dataset, Video).</div>
+        </div>
+        
+
+        <hr />
+
+        <div id="classes">
+            <h2>Classes</h2>
+            <ul class="hlist">
+                
+                <li><a href="#https://gotriple.eu/ontology/triple#ContentType" title="https://gotriple.eu/ontology/triple#ContentType">Content Type</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple#ContentType">
+                <h3>Content Type
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#ContentType</p>
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <dt>has members</dt>
+                    <dd>
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#article" title="https://gotriple.eu/ontology/triple/ContentType#article">Article</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#bibliography" title="https://gotriple.eu/ontology/triple/ContentType#bibliography">Bibliography</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#blog_post" title="https://gotriple.eu/ontology/triple/ContentType#blog_post">Blog post</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#book" title="https://gotriple.eu/ontology/triple/ContentType#book">Book</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#book_part" title="https://gotriple.eu/ontology/triple/ContentType#book_part">Book Part</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#conference" title="https://gotriple.eu/ontology/triple/ContentType#conference">Conference</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#dataset" title="https://gotriple.eu/ontology/triple/ContentType#dataset">Dataset</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#image" title="https://gotriple.eu/ontology/triple/ContentType#image">Image</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#learning_object" title="https://gotriple.eu/ontology/triple/ContentType#learning_object">Learning object</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#manuscript" title="https://gotriple.eu/ontology/triple/ContentType#manuscript">Manuscript</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#map" title="https://gotriple.eu/ontology/triple/ContentType#map">Map</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#periodical" title="https://gotriple.eu/ontology/triple/ContentType#periodical">Periodical</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#preprint" title="https://gotriple.eu/ontology/triple/ContentType#preprint">Preprint</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#report" title="https://gotriple.eu/ontology/triple/ContentType#report">Report</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#review" title="https://gotriple.eu/ontology/triple/ContentType#review">Review</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#software" title="https://gotriple.eu/ontology/triple/ContentType#software">Software</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#sound" title="https://gotriple.eu/ontology/triple/ContentType#sound">Sound</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#text" title="https://gotriple.eu/ontology/triple/ContentType#text">Text</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#thesis" title="https://gotriple.eu/ontology/triple/ContentType#thesis">Thesis</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#video" title="https://gotriple.eu/ontology/triple/ContentType#video">Video</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#other" title="https://gotriple.eu/ontology/triple/ContentType#other">Other</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ContentType#undefined" title="https://gotriple.eu/ontology/triple/ContentType#undefined">Undefined</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31" title="https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31">https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_0040" title="https://vocabularies.coar-repositories.org/resource_types/c_0040">https://vocabularies.coar-repositories.org/resource_types/c_0040</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_12cd" title="https://vocabularies.coar-repositories.org/resource_types/c_12cd">https://vocabularies.coar-repositories.org/resource_types/c_12cd</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_18cf" title="https://vocabularies.coar-repositories.org/resource_types/c_18cf">https://vocabularies.coar-repositories.org/resource_types/c_18cf</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_2f33" title="https://vocabularies.coar-repositories.org/resource_types/c_2f33">https://vocabularies.coar-repositories.org/resource_types/c_2f33</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_3248" title="https://vocabularies.coar-repositories.org/resource_types/c_3248">https://vocabularies.coar-repositories.org/resource_types/c_3248</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_46ec" title="https://vocabularies.coar-repositories.org/resource_types/c_46ec">https://vocabularies.coar-repositories.org/resource_types/c_46ec</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_5ce6" title="https://vocabularies.coar-repositories.org/resource_types/c_5ce6">https://vocabularies.coar-repositories.org/resource_types/c_5ce6</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_18cc" title="https://vocabularies.coar-repositories.org/resource_types/c_18cc">https://vocabularies.coar-repositories.org/resource_types/c_18cc</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_6501" title="https://vocabularies.coar-repositories.org/resource_types/c_6501">https://vocabularies.coar-repositories.org/resource_types/c_6501</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_6947" title="https://vocabularies.coar-repositories.org/resource_types/c_6947">https://vocabularies.coar-repositories.org/resource_types/c_6947</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_816b" title="https://vocabularies.coar-repositories.org/resource_types/c_816b">https://vocabularies.coar-repositories.org/resource_types/c_816b</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_86bc" title="https://vocabularies.coar-repositories.org/resource_types/c_86bc">https://vocabularies.coar-repositories.org/resource_types/c_86bc</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_93fc" title="https://vocabularies.coar-repositories.org/resource_types/c_93fc">https://vocabularies.coar-repositories.org/resource_types/c_93fc</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_c513" title="https://vocabularies.coar-repositories.org/resource_types/c_c513">https://vocabularies.coar-repositories.org/resource_types/c_c513</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_c94f" title="https://vocabularies.coar-repositories.org/resource_types/c_c94f">https://vocabularies.coar-repositories.org/resource_types/c_c94f</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_ddb1" title="https://vocabularies.coar-repositories.org/resource_types/c_ddb1">https://vocabularies.coar-repositories.org/resource_types/c_ddb1</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_e059" title="https://vocabularies.coar-repositories.org/resource_types/c_e059">https://vocabularies.coar-repositories.org/resource_types/c_e059</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_efa0" title="https://vocabularies.coar-repositories.org/resource_types/c_efa0">https://vocabularies.coar-repositories.org/resource_types/c_efa0</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://vocabularies.coar-repositories.org/resource_types/c_12ce" title="https://vocabularies.coar-repositories.org/resource_types/c_12ce">https://vocabularies.coar-repositories.org/resource_types/c_12ce</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <div id="namedindividuals">
+            <h2>Named Individuals</h2>
+            <ul class="hlist">
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#article" title="https://gotriple.eu/ontology/triple/ContentType#article">Article</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#bibliography" title="https://gotriple.eu/ontology/triple/ContentType#bibliography">Bibliography</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#blog_post" title="https://gotriple.eu/ontology/triple/ContentType#blog_post">Blog post</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#book" title="https://gotriple.eu/ontology/triple/ContentType#book">Book</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#book_part" title="https://gotriple.eu/ontology/triple/ContentType#book_part">Book Part</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#conference" title="https://gotriple.eu/ontology/triple/ContentType#conference">Conference</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#dataset" title="https://gotriple.eu/ontology/triple/ContentType#dataset">Dataset</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#image" title="https://gotriple.eu/ontology/triple/ContentType#image">Image</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#learning_object" title="https://gotriple.eu/ontology/triple/ContentType#learning_object">Learning object</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#manuscript" title="https://gotriple.eu/ontology/triple/ContentType#manuscript">Manuscript</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#map" title="https://gotriple.eu/ontology/triple/ContentType#map">Map</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#other" title="https://gotriple.eu/ontology/triple/ContentType#other">Other</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#periodical" title="https://gotriple.eu/ontology/triple/ContentType#periodical">Periodical</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#preprint" title="https://gotriple.eu/ontology/triple/ContentType#preprint">Preprint</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#report" title="https://gotriple.eu/ontology/triple/ContentType#report">Report</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#review" title="https://gotriple.eu/ontology/triple/ContentType#review">Review</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#software" title="https://gotriple.eu/ontology/triple/ContentType#software">Software</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#sound" title="https://gotriple.eu/ontology/triple/ContentType#sound">Sound</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#text" title="https://gotriple.eu/ontology/triple/ContentType#text">Text</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#thesis" title="https://gotriple.eu/ontology/triple/ContentType#thesis">Thesis</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#undefined" title="https://gotriple.eu/ontology/triple/ContentType#undefined">Undefined</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#video" title="https://gotriple.eu/ontology/triple/ContentType#video">Video</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_article" title="https://gotriple.eu/ontology/triple/ContentType#typ_article">https://gotriple.eu/ontology/triple/ContentType#typ_article</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_bibliography" title="https://gotriple.eu/ontology/triple/ContentType#typ_bibliography">https://gotriple.eu/ontology/triple/ContentType#typ_bibliography</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_blog-post" title="https://gotriple.eu/ontology/triple/ContentType#typ_blog-post">https://gotriple.eu/ontology/triple/ContentType#typ_blog-post</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_book" title="https://gotriple.eu/ontology/triple/ContentType#typ_book">https://gotriple.eu/ontology/triple/ContentType#typ_book</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_book-part" title="https://gotriple.eu/ontology/triple/ContentType#typ_book-part">https://gotriple.eu/ontology/triple/ContentType#typ_book-part</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_conference" title="https://gotriple.eu/ontology/triple/ContentType#typ_conference">https://gotriple.eu/ontology/triple/ContentType#typ_conference</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_dataset" title="https://gotriple.eu/ontology/triple/ContentType#typ_dataset">https://gotriple.eu/ontology/triple/ContentType#typ_dataset</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_image" title="https://gotriple.eu/ontology/triple/ContentType#typ_image">https://gotriple.eu/ontology/triple/ContentType#typ_image</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_learning-object" title="https://gotriple.eu/ontology/triple/ContentType#typ_learning-object">https://gotriple.eu/ontology/triple/ContentType#typ_learning-object</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_manuscript" title="https://gotriple.eu/ontology/triple/ContentType#typ_manuscript">https://gotriple.eu/ontology/triple/ContentType#typ_manuscript</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_map" title="https://gotriple.eu/ontology/triple/ContentType#typ_map">https://gotriple.eu/ontology/triple/ContentType#typ_map</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_other" title="https://gotriple.eu/ontology/triple/ContentType#typ_other">https://gotriple.eu/ontology/triple/ContentType#typ_other</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_periodical" title="https://gotriple.eu/ontology/triple/ContentType#typ_periodical">https://gotriple.eu/ontology/triple/ContentType#typ_periodical</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_preprint" title="https://gotriple.eu/ontology/triple/ContentType#typ_preprint">https://gotriple.eu/ontology/triple/ContentType#typ_preprint</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_report" title="https://gotriple.eu/ontology/triple/ContentType#typ_report">https://gotriple.eu/ontology/triple/ContentType#typ_report</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_review" title="https://gotriple.eu/ontology/triple/ContentType#typ_review">https://gotriple.eu/ontology/triple/ContentType#typ_review</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_software" title="https://gotriple.eu/ontology/triple/ContentType#typ_software">https://gotriple.eu/ontology/triple/ContentType#typ_software</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_sound" title="https://gotriple.eu/ontology/triple/ContentType#typ_sound">https://gotriple.eu/ontology/triple/ContentType#typ_sound</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_text" title="https://gotriple.eu/ontology/triple/ContentType#typ_text">https://gotriple.eu/ontology/triple/ContentType#typ_text</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_thesis" title="https://gotriple.eu/ontology/triple/ContentType#typ_thesis">https://gotriple.eu/ontology/triple/ContentType#typ_thesis</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_undefined" title="https://gotriple.eu/ontology/triple/ContentType#typ_undefined">https://gotriple.eu/ontology/triple/ContentType#typ_undefined</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ContentType#typ_video" title="https://gotriple.eu/ontology/triple/ContentType#typ_video">https://gotriple.eu/ontology/triple/ContentType#typ_video</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31" title="https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31">https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_0040" title="https://vocabularies.coar-repositories.org/resource_types/c_0040">https://vocabularies.coar-repositories.org/resource_types/c_0040</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_12cd" title="https://vocabularies.coar-repositories.org/resource_types/c_12cd">https://vocabularies.coar-repositories.org/resource_types/c_12cd</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_12ce" title="https://vocabularies.coar-repositories.org/resource_types/c_12ce">https://vocabularies.coar-repositories.org/resource_types/c_12ce</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_18cc" title="https://vocabularies.coar-repositories.org/resource_types/c_18cc">https://vocabularies.coar-repositories.org/resource_types/c_18cc</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_18cf" title="https://vocabularies.coar-repositories.org/resource_types/c_18cf">https://vocabularies.coar-repositories.org/resource_types/c_18cf</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_2f33" title="https://vocabularies.coar-repositories.org/resource_types/c_2f33">https://vocabularies.coar-repositories.org/resource_types/c_2f33</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_3248" title="https://vocabularies.coar-repositories.org/resource_types/c_3248">https://vocabularies.coar-repositories.org/resource_types/c_3248</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_46ec" title="https://vocabularies.coar-repositories.org/resource_types/c_46ec">https://vocabularies.coar-repositories.org/resource_types/c_46ec</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_5ce6" title="https://vocabularies.coar-repositories.org/resource_types/c_5ce6">https://vocabularies.coar-repositories.org/resource_types/c_5ce6</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_6501" title="https://vocabularies.coar-repositories.org/resource_types/c_6501">https://vocabularies.coar-repositories.org/resource_types/c_6501</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_6947" title="https://vocabularies.coar-repositories.org/resource_types/c_6947">https://vocabularies.coar-repositories.org/resource_types/c_6947</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_816b" title="https://vocabularies.coar-repositories.org/resource_types/c_816b">https://vocabularies.coar-repositories.org/resource_types/c_816b</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_86bc" title="https://vocabularies.coar-repositories.org/resource_types/c_86bc">https://vocabularies.coar-repositories.org/resource_types/c_86bc</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_93fc" title="https://vocabularies.coar-repositories.org/resource_types/c_93fc">https://vocabularies.coar-repositories.org/resource_types/c_93fc</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_c513" title="https://vocabularies.coar-repositories.org/resource_types/c_c513">https://vocabularies.coar-repositories.org/resource_types/c_c513</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_c94f" title="https://vocabularies.coar-repositories.org/resource_types/c_c94f">https://vocabularies.coar-repositories.org/resource_types/c_c94f</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_ddb1" title="https://vocabularies.coar-repositories.org/resource_types/c_ddb1">https://vocabularies.coar-repositories.org/resource_types/c_ddb1</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_e059" title="https://vocabularies.coar-repositories.org/resource_types/c_e059">https://vocabularies.coar-repositories.org/resource_types/c_e059</a></li>
+                
+                <li><a href="#https://vocabularies.coar-repositories.org/resource_types/c_efa0" title="https://vocabularies.coar-repositories.org/resource_types/c_efa0">https://vocabularies.coar-repositories.org/resource_types/c_efa0</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#article">
+    <h3>Article
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#article</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#bibliography">
+    <h3>Bibliography
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#bibliography</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#blog_post">
+    <h3>Blog post
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#blog_post</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#book">
+    <h3>Book
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#book</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#book_part">
+    <h3>Book Part
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#book_part</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#conference">
+    <h3>Conference
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#conference</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#dataset">
+    <h3>Dataset
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#dataset</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#image">
+    <h3>Image
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#image</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#learning_object">
+    <h3>Learning object
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#learning_object</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#manuscript">
+    <h3>Manuscript
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#manuscript</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#map">
+    <h3>Map
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#map</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#other">
+    <h3>Other
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#other</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#periodical">
+    <h3>Periodical
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#periodical</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#preprint">
+    <h3>Preprint
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#preprint</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#report">
+    <h3>Report
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#report</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#review">
+    <h3>Review
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#review</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#software">
+    <h3>Software
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#software</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#sound">
+    <h3>Sound
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#sound</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#text">
+    <h3>Text
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#text</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#thesis">
+    <h3>Thesis
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#thesis</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#undefined">
+    <h3>Undefined
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#undefined</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#video">
+    <h3>Video
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#video</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_article">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_article
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_article</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_bibliography">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_bibliography
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_bibliography</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_blog-post">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_blog-post
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_blog-post</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_book">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_book
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_book</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_book-part">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_book-part
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_book-part</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_conference">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_conference
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_conference</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_dataset">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_dataset
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_dataset</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_image">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_image
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_image</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_learning-object">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_learning-object
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_learning-object</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_manuscript">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_manuscript
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_manuscript</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_map">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_map
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_map</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_other">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_other
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_other</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_periodical">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_periodical
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_periodical</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_preprint">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_preprint
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_preprint</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_report">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_report
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_report</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_review">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_review
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_review</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_software">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_software
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_software</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_sound">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_sound
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_sound</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_text">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_text
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_text</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_thesis">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_thesis
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_thesis</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_undefined">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_undefined
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_undefined</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ContentType#typ_video">
+    <h3>https://gotriple.eu/ontology/triple/ContentType#typ_video
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType#typ_video</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_0040">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_0040
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_0040</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_12cd">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_12cd
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_12cd</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_12ce">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_12ce
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_12ce</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_18cc">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_18cc
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_18cc</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_18cf">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_18cf
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_18cf</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_2f33">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_2f33
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_2f33</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_3248">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_3248
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_3248</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_46ec">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_46ec
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_46ec</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_5ce6">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_5ce6
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_5ce6</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_6501">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_6501
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_6501</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_6947">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_6947
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_6947</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_816b">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_816b
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_816b</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_86bc">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_86bc
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_86bc</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_93fc">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_93fc
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_93fc</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_c513">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_c513
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_c513</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_c94f">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_c94f
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_c94f</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_ddb1">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_ddb1
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_ddb1</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_e059">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_e059
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_e059</p>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://vocabularies.coar-repositories.org/resource_types/c_efa0">
+    <h3>https://vocabularies.coar-repositories.org/resource_types/c_efa0
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://vocabularies.coar-repositories.org/resource_types/c_efa0</p>
+    
+
+    
+</div>
+            
+        </div>
+        
+
+        <div id="namespacedeclarations">
+            <h2>Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>URI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>brick</td>
+                        <td>https://brickschema.org/schema/Brick#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>coar</td>
+                        <td>https://vocabularies.coar-repositories.org/resource_types/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>csvw</td>
+                        <td>http://www.w3.org/ns/csvw#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>ct</td>
+                        <td>https://gotriple.eu/ontology/triple/ContentType#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>datacite</td>
+                        <td>http://purl.org/spar/datacite/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dc</td>
+                        <td>http://purl.org/dc/elements/1.1/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcam</td>
+                        <td>http://purl.org/dc/dcam/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcat</td>
+                        <td>http://www.w3.org/ns/dcat#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcmitype</td>
+                        <td>http://purl.org/dc/dcmitype/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcterms</td>
+                        <td>http://purl.org/dc/terms/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>doap</td>
+                        <td>http://usefulinc.com/ns/doap#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>foaf</td>
+                        <td>http://xmlns.com/foaf/0.1/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>geo</td>
+                        <td>http://www.opengis.net/ont/geosparql#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>odrl</td>
+                        <td>http://www.w3.org/ns/odrl/2/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>org</td>
+                        <td>http://www.w3.org/ns/org#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>owl</td>
+                        <td>http://www.w3.org/2002/07/owl#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>prof</td>
+                        <td>http://www.w3.org/ns/dx/prof/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>prov</td>
+                        <td>http://www.w3.org/ns/prov#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>qb</td>
+                        <td>http://purl.org/linked-data/cube#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>rdf</td>
+                        <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>rdfs</td>
+                        <td>http://www.w3.org/2000/01/rdf-schema#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>schema</td>
+                        <td>https://schema.org/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>sh</td>
+                        <td>http://www.w3.org/ns/shacl#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>skos</td>
+                        <td>http://www.w3.org/2004/02/skos/core#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>sosa</td>
+                        <td>http://www.w3.org/ns/sosa/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>ssn</td>
+                        <td>http://www.w3.org/ns/ssn/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>time</td>
+                        <td>http://www.w3.org/2006/time#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>triple</td>
+                        <td>https://gotriple.eu/ontology/triple#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>vann</td>
+                        <td>http://purl.org/vocab/vann/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>vann1</td>
+                        <td>https://vocab.org/vann/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>void</td>
+                        <td>http://rdfs.org/ns/void#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>wgs</td>
+                        <td>https://www.w3.org/2003/01/geo/wgs84_pos#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>xml</td>
+                        <td>http://www.w3.org/XML/1998/namespace</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>xsd</td>
+                        <td>http://www.w3.org/2001/XMLSchema#</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <p class="endnote">
+            This HTML document was obtained by processing the OWL ontology source code through <a
+                href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed
+            by <a href="http://www.essepuntato.it/">Silvio Peroni</a>.
+        </p>
+    </div>
+</body>
+
+</html>

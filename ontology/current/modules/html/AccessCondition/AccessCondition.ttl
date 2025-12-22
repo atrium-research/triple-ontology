@@ -1,0 +1,118 @@
+# TRIPLE Ontology - Conditions_Of_Access Vocabulary
+# Converted from RDF/XML to Turtle format
+# Original file: AccessCondition.rdf
+# License: CC BY 4.0
+# Website: https://gotriple.eu/ontology/triple
+
+@prefix acc: <https://gotriple.eu/ontology/triple/AccessCondition#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
+
+<https://gotriple.eu/ontology/triple/AccessCondition> a owl:Ontology ;
+    rdfs:label "TRIPLE Conditions of Access Vocabulary"@en ;
+    dcterms:title "TRIPLE Conditions of Access Vocabulary"@en ;
+    dcterms:abstract "The Conditions of Access vocabulary of the TRIPLE Ontology."@en ;
+    dcterms:description "Defines the conditions under which a resource can be accessed (e.g., Open Access, Restricted)."@en ;
+    dcterms:created "2021-12-01" ;
+    dcterms:modified "2025-12-22" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    dcterms:publisher <https://www.gotriple.eu/> ;
+    owl:versionInfo "2.0.0" ;
+    schema:creativeWorkStatus "Conditions_Of_Access documentation" .
+
+triple:AccessCondition a owl:Class ;
+    rdfs:label "Access Condition"@en ;
+    rdfs:subClassOf dcterms:RightsStatement, skos:Concept .
+
+acc:all_rights_reserved a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "All Rights Reserved"@en ;
+    datacite:hasIdentifier acc:acr_all-rights-reserved .
+
+acc:closed_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Closed Access"@en ;
+    datacite:hasIdentifier acc:acr_closed-access .
+
+acc:free_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Free Access"@en ;
+    datacite:hasIdentifier acc:acr_free-access .
+
+acc:open_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Open Access"@en ;
+    datacite:hasIdentifier acc:acr_open-access ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> .
+
+acc:public_domain a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Public Domain"@en ;
+    datacite:hasIdentifier acc:acr_public-domain .
+
+acc:restricted_access_or_use a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Restricted access or use"@en ;
+    datacite:hasIdentifier acc:acr_restricted-access-or-use ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> .
+
+acc:embargoed_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Embargoed Access"@en ;
+    datacite:hasIdentifier acc:acr_embargoed-access ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> .
+
+acc:metadata_only_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Metadata Only Access"@en ;
+    datacite:hasIdentifier acc:acr_metadata-only-access ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> .
+
+acc:acr_all-rights-reserved a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_closed-access a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_embargoed-access a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_free-access a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_metadata-only-access a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_open-access a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_other a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_public-domain a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_restricted-access-or-use a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:acr_undefined a datacite:Identifier,
+        owl:NamedIndividual .
+
+acc:other a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Other"@en ;
+    datacite:hasIdentifier acc:acr_other .
+
+acc:undefined a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Undefined"@en ;
+    datacite:hasIdentifier acc:acr_undefined .
+
+

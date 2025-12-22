@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>TRIPLE Project Module</title>
+    <link href="static/owl.css" rel="stylesheet" type="text/css" />
+    <link href="static/yeti.css" rel="stylesheet" type="text/css" />
+    <link href="static/rec.css" rel="stylesheet" type="text/css" />
+    <link href="static/extra.css" rel="stylesheet" type="text/css" />
+    <script src="static/jquery.js"></script>
+    <script src="static/jquery.scrollTo.js"></script>
+    <script src="static/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <div style="float:right">language <a href="index.html"><b>en</b></a> </div>
+            <h1>TRIPLE Project Module</h1>
+
+            <dl>
+                <dt>This version:</dt>
+                <dd><a href="https://gotriple.eu/ontology/triple/Project">https://gotriple.eu/ontology/triple/Project</a></dd>
+
+                
+                <dt>Revision:</dt>
+                <dd>2.0.0</dd>
+                
+
+                
+                <dt>Authors:</dt>
+                <dd>
+                    
+                    Alessandro Bertozzi
+                    
+                </dd>
+                
+
+                
+                <dt>Contributors:</dt>
+                <dd>
+                    
+                    Luca De Santis, 
+                    
+                    Silvio Peroni
+                    
+                </dd>
+                
+
+                
+                <dt>Publisher:</dt>
+                <dd>
+                    
+                    https://www.gotriple.eu/
+                    
+                </dd>
+                
+
+                
+
+                
+                <dt>License:</dt>
+                <dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a></dd>
+                
+
+            </dl>
+
+            <div class="copyright">
+                <span class="markdown"></span>
+            </div>
+        </div>
+
+        <hr />
+
+        
+        <h2>Abstract</h2>
+        <div id="abstract">
+            <p>The Project module of the TRIPLE Ontology, defining Projects, Grants, and Funding.</p>
+        </div>
+        
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#classes">2. Classes</a></li>
+                <li><a href="#objectproperties">3. Object Properties</a></li>
+                <li><a href="#dataproperties">4. Datatype Properties</a></li>
+                
+                
+                <li><a href="#namespacedeclarations">7. Namespaces</a></li>
+            </ul>
+        </div>
+
+
+
+        
+        <div id="introduction">
+            <h2>Introduction</h2>
+            <div class="markdown">The Project module describes research projects and their funding structures. It defines the `triple:Project` class and links it to Grants (`schema:Grant`, `frapo:Grant`), Funding sources, and Organizations. It also includes the `triple:ProjectType` classification to categorize projects (e.g., EU-funded, National, Citizen Science).</div>
+        </div>
+        
+
+        <hr />
+
+        <div id="classes">
+            <h2>Classes</h2>
+            <ul class="hlist">
+                
+                <li><a href="#http://www.cidoc-crm.org/cidoc-crm/E7_Activity" title="http://www.cidoc-crm.org/cidoc-crm/E7_Activity">E7 Activity</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple#Project" title="https://gotriple.eu/ontology/triple#Project">Project</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple#ProjectType" title="https://gotriple.eu/ontology/triple#ProjectType">Project Type</a></li>
+                
+                <li><a href="#https://sshoc.eu/ontology/SHE3_SSH_Project" title="https://sshoc.eu/ontology/SHE3_SSH_Project">SHE3 SSH Project</a></li>
+                
+                <li><a href="#http://purl.org/cerif/frapo/Grant" title="http://purl.org/cerif/frapo/Grant">frapo:Grant</a></li>
+                
+                <li><a href="#https://schema.org/Grant" title="https://schema.org/Grant">schema:Grant</a></li>
+                
+                <li><a href="#https://schema.org/Project" title="https://schema.org/Project">schema:Project</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="http://www.cidoc-crm.org/cidoc-crm/E7_Activity">
+                <h3>E7 Activity
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://www.cidoc-crm.org/cidoc-crm/E7_Activity</p>
+                
+
+                
+
+                
+            </div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple#Project">
+                <h3>Project
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#Project</p>
+                
+                <div class="comment">
+                    <p>A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform.</p>
+                </div>
+                
+
+                
+                <div class="skos-box">
+                    <h4>External Alignment</h4>
+                    <dl>
+                        
+                        <dt>skos:closeMatch</dt>
+                        <dd>http://purl.org/cerif/frapo/Grant</dd>
+                        
+                        <dt>skos:closeMatch</dt>
+                        <dd>http://www.cidoc-crm.org/cidoc-crm/E7_Activity</dd>
+                        
+                        <dt>skos:exactMatch</dt>
+                        <dd>https://sshoc.eu/ontology/SHE3_SSH_Project</dd>
+                        
+                    </dl>
+                </div>
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#https://schema.org/Project" title="https://schema.org/Project">schema:Project</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+                    <dt>has restrictions</dt>
+                    <dd>
+                        <ul class="restrictions">
+                            
+                            <li>
+                                <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">http://purl.org/spar/datacite/hasIdentifier</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier">datacite:Identifier</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#https://gotriple.eu/ontology/triple#ID" title="https://gotriple.eu/ontology/triple#ID">triple:ID</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#https://gotriple.eu/ontology/triple#PID" title="https://gotriple.eu/ontology/triple#PID">triple:PID</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#https://gotriple.eu/ontology/triple#OriginalIdentifier" title="https://gotriple.eu/ontology/triple#OriginalIdentifier">triple:OriginalIdentifier</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/startDate" title="https://schema.org/startDate">schema:startDate</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/startDate" title="https://schema.org/startDate">schema:startDate</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">xsd:date</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/endDate" title="https://schema.org/endDate">schema:endDate</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">xsd:date</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/endDate" title="https://schema.org/endDate">schema:endDate</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/funding" title="https://schema.org/funding">schema:funding</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/Grant" title="https://schema.org/Grant">schema:Grant</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/keywords" title="https://schema.org/keywords">https://schema.org/keywords</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm">schema:DefinedTerm</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/description" title="https://schema.org/description">schema:description</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">rdf:langString</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/alternateName" title="https://schema.org/alternateName">schema:alternateName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">rdf:langString</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/organizer" title="https://schema.org/organizer">schema:organizer</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/Organization" title="https://schema.org/Organization">schema:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/knowsAbout" title="https://schema.org/knowsAbout">https://schema.org/knowsAbout</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/mainEntityOfPage" title="https://schema.org/mainEntityOfPage">https://schema.org/mainEntityOfPage</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/URL" title="https://schema.org/URL">schema:URL</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/inLanguage" title="https://schema.org/inLanguage">https://schema.org/inLanguage</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">some</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/Language" title="https://schema.org/Language">schema:Language</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/dateCreated" title="https://schema.org/dateCreated">https://schema.org/dateCreated</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/dateCreated" title="https://schema.org/dateCreated">https://schema.org/dateCreated</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">xsd:date</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">https://schema.org/dateModified</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">https://schema.org/dateModified</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">xsd:date</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/contactPoint" title="https://schema.org/contactPoint">https://schema.org/contactPoint</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://gotriple.eu/ontology/triple#hasProjectType" title="https://gotriple.eu/ontology/triple#hasProjectType">has project type</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://gotriple.eu/ontology/triple#ProjectType" title="https://gotriple.eu/ontology/triple#ProjectType">Project Type</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/name" title="https://schema.org/name">https://schema.org/name</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">min</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                        </ul>
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+                    <dt>is in range of</dt>
+                    <dd>
+                        
+                        <a href="#http://purl.org/cerif/frapo/isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                        <sup class="type-op" title="op">op</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple#ProjectType">
+                <h3>Project Type
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#ProjectType</p>
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <dt>is in range of</dt>
+                    <dd>
+                        
+                        <a href="#https://gotriple.eu/ontology/triple#hasProjectType" title="https://gotriple.eu/ontology/triple#hasProjectType">has project type</a>
+                        <sup class="type-op" title="op">op</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="https://sshoc.eu/ontology/SHE3_SSH_Project">
+                <h3>SHE3 SSH Project
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://sshoc.eu/ontology/SHE3_SSH_Project</p>
+                
+
+                
+
+                
+            </div>
+            
+            <div class="entity" id="http://purl.org/cerif/frapo/Grant">
+                <h3>frapo:Grant
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://purl.org/cerif/frapo/Grant</p>
+                
+                <div class="comment">
+                    <p>A funding grant.</p>
+                </div>
+                
+
+                
+
+                
+            </div>
+            
+            <div class="entity" id="https://schema.org/Grant">
+                <h3>schema:Grant
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://schema.org/Grant</p>
+                
+                <div class="comment">
+                    <p>A grant, typically financial or otherwise quantifiable, of resources</p>
+                </div>
+                
+
+                
+
+                
+                <dl class="description">
+                    
+
+                    
+                    <dt>has restrictions</dt>
+                    <dd>
+                        <ul class="restrictions">
+                            
+                            <li>
+                                <a href="#https://schema.org/funder" title="https://schema.org/funder">schema:funder</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#http://xmlns.com/foaf/0.1/Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#http://xmlns.com/foaf/0.1/Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/sponsor" title="https://schema.org/sponsor">schema:sponsor</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#http://xmlns.com/foaf/0.1/Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#http://xmlns.com/foaf/0.1/Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                        </ul>
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="https://schema.org/Project">
+                <h3>schema:Project
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://schema.org/Project</p>
+                
+                <div class="comment">
+                    <p>An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim.</p>
+                </div>
+                
+
+                
+
+                
+                <dl class="description">
+                    
+
+                    
+
+                    
+                    <dt>has sub-classes</dt>
+                    <dd>
+                        
+                        <a href="#https://gotriple.eu/ontology/triple#Project" title="https://gotriple.eu/ontology/triple#Project">Project</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+        </div>
+
+        
+        <div id="objectproperties">
+            <h2>Object Properties</h2>
+            <ul class="hlist">
+                
+                <li><a href="#http://purl.org/cerif/frapo/isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple#hasProjectType" title="https://gotriple.eu/ontology/triple#hasProjectType">has project type</a></li>
+                
+                <li><a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a></li>
+                
+                <li><a href="#https://schema.org/funder" title="https://schema.org/funder">schema:funder</a></li>
+                
+                <li><a href="#https://schema.org/funding" title="https://schema.org/funding">schema:funding</a></li>
+                
+                <li><a href="#https://schema.org/organizer" title="https://schema.org/organizer">schema:organizer</a></li>
+                
+                <li><a href="#https://schema.org/sponsor" title="https://schema.org/sponsor">schema:sponsor</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="http://purl.org/cerif/frapo/isOutputOf">
+    <h3>frapo:isOutputOf
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://purl.org/cerif/frapo/isOutputOf</p>
+    
+    <div class="comment">
+        <p>Indicates that a research output is the result of a particular project.</p>
+    </div>
+    
+
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#https://gotriple.eu/ontology/triple#Project" title="https://gotriple.eu/ontology/triple#Project">Project</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple#hasProjectType">
+    <h3>has project type
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#hasProjectType</p>
+    
+
+    
+    <dl class="description">
+        
+        <dt>has super-properties</dt>
+        <dd>
+            
+            <a href="#http://purl.org/dc/terms/type" title="http://purl.org/dc/terms/type">http://purl.org/dc/terms/type</a>
+            <sup class="type-op" title="op">op</sup>
+            
+            
+        </dd>
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#https://gotriple.eu/ontology/triple#ProjectType" title="https://gotriple.eu/ontology/triple#ProjectType">Project Type</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/about">
+    <h3>schema:about
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/about</p>
+    
+    <div class="comment">
+        <p>The subject matter of the content</p>
+    </div>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/funder">
+    <h3>schema:funder
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/funder</p>
+    
+    <div class="comment">
+        <p>A person or organization that supports through funding</p>
+    </div>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/funding">
+    <h3>schema:funding
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/funding</p>
+    
+    <div class="comment">
+        <p>A Grant that directly or indirectly provide funding or sponsorship for this item.</p>
+    </div>
+    
+
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/organizer">
+    <h3>schema:organizer
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/organizer</p>
+    
+    <div class="comment">
+        <p>The organization who organizes the event or project.</p>
+    </div>
+    
+
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#https://schema.org/Organization" title="https://schema.org/Organization">https://schema.org/Organization</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/sponsor">
+    <h3>schema:sponsor
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/sponsor</p>
+    
+    <div class="comment">
+        <p>A person or organization that supports a thing through a pledge, promise, or financial contribution</p>
+    </div>
+    
+
+    
+</div>
+            
+        </div>
+        
+
+        
+        <div id="dataproperties">
+            <h2>Datatype Properties</h2>
+            <ul class="hlist">
+                
+                <li><a href="#https://schema.org/alternateName" title="https://schema.org/alternateName">schema:alternateName</a></li>
+                
+                <li><a href="#https://schema.org/description" title="https://schema.org/description">schema:description</a></li>
+                
+                <li><a href="#https://schema.org/endDate" title="https://schema.org/endDate">schema:endDate</a></li>
+                
+                <li><a href="#https://schema.org/startDate" title="https://schema.org/startDate">schema:startDate</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="https://schema.org/alternateName">
+    <h3>schema:alternateName
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/alternateName</p>
+    
+    <div class="comment">
+        <p>An alias for the item</p>
+    </div>
+    
+
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/description">
+    <h3>schema:description
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/description</p>
+    
+    <div class="comment">
+        <p>A description of the item</p>
+    </div>
+    
+
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/endDate">
+    <h3>schema:endDate
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/endDate</p>
+    
+    <div class="comment">
+        <p>The end date and time of the item</p>
+    </div>
+    
+
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">http://www.w3.org/2001/XMLSchema#date</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/startDate">
+    <h3>schema:startDate
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/startDate</p>
+    
+    <div class="comment">
+        <p>The start date and time of the item</p>
+    </div>
+    
+
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">http://www.w3.org/2001/XMLSchema#date</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+        </div>
+        
+
+        
+
+        
+
+        <div id="namespacedeclarations">
+            <h2>Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>URI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>brick</td>
+                        <td>https://brickschema.org/schema/Brick#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>csvw</td>
+                        <td>http://www.w3.org/ns/csvw#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>datacite</td>
+                        <td>http://purl.org/spar/datacite/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dc</td>
+                        <td>http://purl.org/dc/elements/1.1/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcam</td>
+                        <td>http://purl.org/dc/dcam/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcat</td>
+                        <td>http://www.w3.org/ns/dcat#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcmitype</td>
+                        <td>http://purl.org/dc/dcmitype/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcterms</td>
+                        <td>http://purl.org/dc/terms/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>doap</td>
+                        <td>http://usefulinc.com/ns/doap#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>foaf</td>
+                        <td>http://xmlns.com/foaf/0.1/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>geo</td>
+                        <td>http://www.opengis.net/ont/geosparql#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>odrl</td>
+                        <td>http://www.w3.org/ns/odrl/2/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>org</td>
+                        <td>http://www.w3.org/ns/org#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>owl</td>
+                        <td>http://www.w3.org/2002/07/owl#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>prof</td>
+                        <td>http://www.w3.org/ns/dx/prof/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>prov</td>
+                        <td>http://www.w3.org/ns/prov#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>qb</td>
+                        <td>http://purl.org/linked-data/cube#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>rdf</td>
+                        <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>rdfs</td>
+                        <td>http://www.w3.org/2000/01/rdf-schema#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>schema</td>
+                        <td>https://schema.org/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>sh</td>
+                        <td>http://www.w3.org/ns/shacl#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>skos</td>
+                        <td>http://www.w3.org/2004/02/skos/core#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>sosa</td>
+                        <td>http://www.w3.org/ns/sosa/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>ssn</td>
+                        <td>http://www.w3.org/ns/ssn/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>time</td>
+                        <td>http://www.w3.org/2006/time#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>triple</td>
+                        <td>https://gotriple.eu/ontology/triple#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>vann</td>
+                        <td>http://purl.org/vocab/vann/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>void</td>
+                        <td>http://rdfs.org/ns/void#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>wgs</td>
+                        <td>https://www.w3.org/2003/01/geo/wgs84_pos#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>xml</td>
+                        <td>http://www.w3.org/XML/1998/namespace</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>xsd</td>
+                        <td>http://www.w3.org/2001/XMLSchema#</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <p class="endnote">
+            This HTML document was obtained by processing the OWL ontology source code through <a
+                href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed
+            by <a href="http://www.essepuntato.it/">Silvio Peroni</a>.
+        </p>
+    </div>
+</body>
+
+</html>
