@@ -60,9 +60,6 @@ The final ontology is available at [https://www.gotriple.eu/ontology/triple](htt
 To work with the ontology locally:
 
 ```bash
-# View the consolidated ontology
-cat ontology/triple-ontology.ttl
-
 # Regenerate the consolidated ontology from iterations
 cd scripts
 pip install -r requirements.txt
