@@ -11,6 +11,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
 
 : a owl:Ontology ;
     rdfs:label "conditions_of_access" ;
@@ -20,45 +21,45 @@
     schema:creativeWorkStatus "Conditions_of_access documentation" .
 
 :all_rights_reserved a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "All Rights Reserved"@en ;
     datacite:hasIdentifier :acr_all-rights-reserved ;
 
 :closed_access a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Closed Access"@en ;
     datacite:hasIdentifier :acr_closed-access ;
 
 :free_access a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Free Access"@en ;
     datacite:hasIdentifier :acr_free-access ;
 
 :open_access a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Open Access"@en ;
     datacite:hasIdentifier :acr_open-access ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
 
 :public_domain a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Public Domain"@en ;
     datacite:hasIdentifier :acr_public-domain ;
 
 :restricted_access_or_use a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Restricted access or use"@en ;
     datacite:hasIdentifier :acr_restricted-access-or-use ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> ;
 
 :embargoed_access a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Embargoed Access"@en ;
     datacite:hasIdentifier :acr_embargoed-access ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> ;
 
 :metadata_only_access a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Metadata Only Access"@en ;
     datacite:hasIdentifier :acr_metadata-only-access ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> ;
@@ -94,12 +95,12 @@
         owl:NamedIndividual .
 
 :other a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Other"@en ;
     datacite:hasIdentifier :acr_other ;
 
 :undefined a owl:NamedIndividual,
-        skos:Concept ;
+        triple:AccessCondition ;
     rdfs:label "Undefined"@en ;
     datacite:hasIdentifier :acr_undefined ;
 

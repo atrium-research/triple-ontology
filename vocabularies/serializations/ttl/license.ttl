@@ -11,6 +11,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple#> .
 
 : a owl:Ontology ;
     rdfs:label "licenses" ;
@@ -20,52 +21,52 @@
     schema:creativeWorkStatus "Licenses documentation" .
 
 :clarin-aca a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "CLARIN-ACA"@en ;
     datacite:hasIdentifier :lic_clarin-aca ;
 
 :clarin-res a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "CLARIN-RES"@en ;
     datacite:hasIdentifier :lic_clarin-res ;
 
 :clarin_pub a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Clarin Pub"@en ;
     datacite:hasIdentifier :lic_clarin-pub ;
 
 :creative_commons a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Creative Commons"@en ;
     datacite:hasIdentifier :lic_creative-commons ;
 
 :elra_licences a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "ELRA licences"@en ;
     datacite:hasIdentifier :lic_elra ;
 
 :meta-share a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Meta-Share"@en ;
     datacite:hasIdentifier :lic_meta-share ;
 
 :microsoft_public_licence a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Microsoft Public Licence"@en ;
     datacite:hasIdentifier :lic_ms-pl ;
 
 :microsoft_reciprocal_licence a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Microsoft Reciprocal Licence"@en ;
     datacite:hasIdentifier :lic_ms-rl ;
 
 :open_data a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Open Data"@en ;
     datacite:hasIdentifier :lic_open-data ;
 
 :open_source a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Open source"@en ;
     datacite:hasIdentifier :lic_open-source ;
 
@@ -106,12 +107,12 @@
         owl:NamedIndividual .
 
 :other a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Other"@en ;
     datacite:hasIdentifier :lic_other ;
 
 :undefined a owl:NamedIndividual,
-        skos:Concept ;
+        triple:License ;
     rdfs:label "Undefined"@en ;
     datacite:hasIdentifier :lic_undefined ;
 

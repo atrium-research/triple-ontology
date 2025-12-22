@@ -28,6 +28,8 @@ Removed `skos:ConceptScheme` definitions and `skos:inScheme` assertions from all
   - `content_types.ttl`
   - `disciplines.ttl`
   - `license.ttl`
+- **Enhancement**: Added reference classes definition (`triple:AccessCondition`, `triple:ContentType`, `triple:Discipline`, `triple:License`) to all vocabulary individuals.
+- **Refactoring**: Removed redundant `skos:Concept` type assertion from vocabulary individuals, as they are now typed with specific subclasses of `skos:Concept`.
 - **Revert**: Cleared `project_types.ttl` content.
 
 **Author**: Alessandro Bertozzi
