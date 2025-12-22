@@ -15,6 +15,25 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-22 - Refactoring: Vocabularies Simplification
+
+**Type**: Refactoring
+
+**Description**:
+Removed `skos:ConceptScheme` definitions and `skos:inScheme` assertions from all controlled vocabularies to simplify the model. Reset `project_types.ttl` to an empty state.
+
+**Details**:
+- **Refactoring**: Removed concept scheme elements from:
+  - `conditions_of_access.ttl`
+  - `content_types.ttl`
+  - `disciplines.ttl`
+  - `license.ttl`
+- **Revert**: Cleared `project_types.ttl` content.
+
+**Author**: Alessandro Bertozzi
+
+---
+
 ### 2025-12-22 - Addition: Project Type Controlled Vocabulary
 
 **Type**: Addition
