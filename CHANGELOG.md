@@ -15,6 +15,28 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2025-12-23 - Refactoring: Vocabulary Standardization and Modularization
+
+**Type**: Refactoring / Enhancement
+
+**Description**:
+Standardized vocabulary file names, implemented the "Bridge Classes" pattern for better modularity, fixed prefix usage, and established strict imports in the main ontology file.
+
+**Details**:
+- **Renaming**: Renamed all vocabulary files to PascalCase to match their class definitions:
+  - `disciplines.ttl` -> `Discipline.ttl`
+  - `license.ttl` -> `License.ttl`
+  - `conditions_of_access.ttl` -> `AccessCondition.ttl`
+  - `content_types.ttl` -> `ContentType.ttl`
+- **New Vocabulary**: Created `ProjectType.ttl` for project types.
+- **Bridge Classes**: Defined bridge classes (e.g., `triple:Discipline`) directly within each vocabulary file to make them self-contained.
+- **Prefix Fixes**: Corrected `Discipline.ttl` to use the `disc:` prefix for individuals and identifiers, replacing incorrect `owl:` usage.
+- **Descriptions**: Replaced `skos:definition` with `rdfs:comment` for consistency and added descriptions to all vocabulary concepts.
+- **Ontology Imports**: Updated `ontology/triple.ttl` to explicitly import all modular vocabularies and declare the `disc:` prefix.
+- **Restrictions**: Fixed `sioc:topic` restrictions in `ontology/triple.ttl` to correctly reference `triple:Discipline`.
+
+**Author**: Alessandro Bertozzi
+
 ### 2025-12-22 - Bugfix: Ontology Consistency
 
 **Type**: Bugfix / Refactoring
