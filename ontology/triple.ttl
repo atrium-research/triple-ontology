@@ -13,6 +13,7 @@
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix disc: <https://gotriple.eu/ontology/triple/Discipline#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 skos:closeMatch a owl:ObjectProperty ;
@@ -49,7 +50,12 @@ oa:motivatedBy a owl:ObjectProperty ;
     rdfs:comment "Comprehensive semantic representation of the GoTriple discovery platform's data model for Social Sciences and Humanities (SSH) research artifacts."@en ;
     owl:versionIRI <https://gotriple.eu/ontology/triple/1.0.0>,
         <https://gotriple.eu/ontology/triple/15.0.0> ;
-    owl:versionInfo "1.0.0" .
+    owl:versionInfo "1.0.0" ;
+    owl:imports <https://gotriple.eu/ontology/triple/Discipline>,
+        <https://gotriple.eu/ontology/triple/License>,
+        <https://gotriple.eu/ontology/triple/AccessCondition>,
+        <https://gotriple.eu/ontology/triple/ContentType>,
+        <https://gotriple.eu/ontology/triple/ProjectType> .
 
 triple:Dataset a owl:Class ;
     rdfs:label "Dataset"@en,
@@ -84,7 +90,7 @@ triple:Dataset a owl:Class ;
             owl:allValuesFrom schema:DefinedTerm ;
             owl:onProperty schema:keywords ],
         [ a owl:Restriction ;
-            owl:allValuesFrom owl:Thing ;
+            owl:allValuesFrom triple:Discipline ;
             owl:onProperty sioc:topic ],
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
@@ -806,7 +812,7 @@ triple:Document a owl:Class ;
             owl:someValuesFrom xsd:string ],
         [ a owl:Restriction ;
             owl:onProperty sioc:topic ;
-            owl:someValuesFrom skos:Concept ],
+            owl:someValuesFrom triple:Discipline ],
         [ a owl:Restriction ;
             owl:onProperty dcterms:source ;
             owl:someValuesFrom owl:Thing ],

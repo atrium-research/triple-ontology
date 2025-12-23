@@ -20,45 +20,53 @@ triple:AccessCondition a owl:Class ;
 acc:all_rights_reserved a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "All Rights Reserved"@en ;
-    datacite:hasIdentifier acc:acr_all-rights-reserved .
+    datacite:hasIdentifier acc:acr_all-rights-reserved ;
+    rdfs:comment "All rights are reserved by the copyright holder."@en .
 
 acc:closed_access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Closed Access"@en ;
-    datacite:hasIdentifier acc:acr_closed-access .
+    datacite:hasIdentifier acc:acr_closed-access ;
+    rdfs:comment "Access to the resource is closed."@en .
 
 acc:free_access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Free Access"@en ;
-    datacite:hasIdentifier acc:acr_free-access .
+    datacite:hasIdentifier acc:acr_free-access ;
+    rdfs:comment "Access to the resource is free of charge."@en .
 
 acc:open_access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Open Access"@en ;
     datacite:hasIdentifier acc:acr_open-access ;
+    rdfs:comment "The resource is available under an open license."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> .
 
 acc:public_domain a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Public Domain"@en ;
-    datacite:hasIdentifier acc:acr_public-domain .
+    datacite:hasIdentifier acc:acr_public-domain ;
+    rdfs:comment "The resource is in the public domain."@en .
 
 acc:restricted_access_or_use a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Restricted access or use"@en ;
     datacite:hasIdentifier acc:acr_restricted-access-or-use ;
+    rdfs:comment "Access or use of the resource is restricted."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> .
 
 acc:embargoed_access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Embargoed Access"@en ;
     datacite:hasIdentifier acc:acr_embargoed-access ;
+    rdfs:comment "Access to the resource is embargoed until a specific date."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> .
 
 acc:metadata_only_access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Metadata Only Access"@en ;
     datacite:hasIdentifier acc:acr_metadata-only-access ;
+    rdfs:comment "Only the metadata of the resource is accessible."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> .
 
 acc:acr_all-rights-reserved a datacite:Identifier,
@@ -94,11 +102,13 @@ acc:acr_undefined a datacite:Identifier,
 acc:other a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Other"@en ;
-    datacite:hasIdentifier acc:acr_other .
+    datacite:hasIdentifier acc:acr_other ;
+    rdfs:comment "Other access conditions not listed in the vocabulary."@en .
 
 acc:undefined a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Undefined"@en ;
-    datacite:hasIdentifier acc:acr_undefined .
+    datacite:hasIdentifier acc:acr_undefined ;
+    rdfs:comment "Access condition is undefined or unknown."@en .
 
 
