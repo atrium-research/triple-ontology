@@ -44,7 +44,8 @@ def load_shared_metadata():
         DCTERMS.contributor,
         OWL.versionInfo,
         VANN.preferredNamespaceUri, # We might want to customize this per vocab, but base is good
-        RDFS.comment # Base comment
+        RDFS.comment, # Base comment
+        DCTERMS.abstract
     ]
     
     for p in properties_to_copy:
@@ -52,6 +53,58 @@ def load_shared_metadata():
         if objs:
             metadata[p] = objs
             
+    return metadata
+
+def get_or_create_local_metadata(vocab_path, vocab_name):
+    """Gets local metadata from sidecar file, creating it if missing."""
+    metadata_path = vocab_path.replace(".ttl", ".metadata.ttl")
+    
+    if not os.path.exists(metadata_path):
+        print(f"   ✨ Creating default metadata sidecar: {os.path.basename(metadata_path)}")
+        
+        default_uri = f"{BASE_URI}/{vocab_name}"
+        default_title = f"TRIPLE Ontology - {vocab_name} Vocabulary"
+        default_desc = f"Vocabulary defining {vocab_name} concepts for the TRIPLE platform."
+        default_prefix = vocab_name.lower()
+        
+        # Create default TTL
+        ttl_content = f"""@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<{default_uri}> a owl:Ontology ;
+    dcterms:title "{default_title}"@en ;
+    rdfs:label "{default_title}"@en ;
+    dcterms:description "{default_desc}"@en ;
+    dcterms:abstract "Abstract for {vocab_name} vocabulary."@en ;
+    vann:preferredNamespacePrefix "{default_prefix}" ;
+    vann:preferredNamespaceUri "{default_uri}#" .
+"""
+        with open(metadata_path, 'w') as f:
+            f.write(ttl_content)
+            
+    # Load it
+    g = Graph()
+    g.parse(metadata_path, format="ttl")
+    
+    metadata = {}
+    
+    ontology_node = None
+    for s, p, o in g.triples((None, RDF.type, OWL.Ontology)):
+        ontology_node = s
+        break
+        
+    if not ontology_node:
+        print(f"⚠️  Warning: No owl:Ontology in {os.path.basename(metadata_path)}")
+        return {}
+
+    # Read everything on the ontology node
+    for s, p, o in g.triples((ontology_node, None, None)):
+        if p == RDF.type: continue
+        if p not in metadata: metadata[p] = []
+        metadata[p].append(o)
+        
     return metadata
 
 def validate_file(filepath):
@@ -66,28 +119,63 @@ def validate_file(filepath):
         print(e)
         return False
 
-def generate_header_string(vocab_name, shared_metadata):
+def generate_header_string(vocab_name, shared_metadata, local_metadata):
     """Generates the Turtle string for the owl:Ontology header."""
     
     uri = f"{BASE_URI}/{vocab_name}"
-    title = f"TRIPLE Ontology - {vocab_name} Vocabulary"
     
     # Start building string
     header = f"<{uri}> a owl:Ontology ;\n"
-    header += f'    dcterms:title "{title}"@en ;\n'
-    header += f'    rdfs:label "{title}"@en ;\n'
     
-    # Add shared metadata
-    for p, objs in shared_metadata.items():
-        predicate_qname = ""
-        if p == DCTERMS.publisher: predicate_qname = "dcterms:publisher"
-        elif p == DCTERMS.license: predicate_qname = "dcterms:license"
-        elif p == DCTERMS.creator: predicate_qname = "dcterms:creator"
-        elif p == DCTERMS.contributor: predicate_qname = "dcterms:contributor"
-        elif p == OWL.versionInfo: predicate_qname = "owl:versionInfo"
-        elif p == RDFS.comment: predicate_qname = "rdfs:comment"
-        
-        if not predicate_qname: continue 
+    # Merge metadata: Local overrides Shared
+    # We want to use all keys from both
+    all_keys = set(shared_metadata.keys()) | set(local_metadata.keys())
+    
+    # Helper to mapping predicate to QName string
+    pred_map = {
+        DCTERMS.publisher: "dcterms:publisher",
+        DCTERMS.license: "dcterms:license",
+        DCTERMS.creator: "dcterms:creator",
+        DCTERMS.contributor: "dcterms:contributor",
+        OWL.versionInfo: "owl:versionInfo",
+        RDFS.comment: "rdfs:comment",
+        DCTERMS.title: "dcterms:title",
+        RDFS.label: "rdfs:label",
+        DCTERMS.description: "dcterms:description",
+        DCTERMS.abstract: "dcterms:abstract",
+        VANN.preferredNamespacePrefix: "vann:preferredNamespacePrefix",
+        VANN.preferredNamespaceUri: "vann:preferredNamespaceUri"
+    }
+    
+    # Process known predicates in a specific order for better readability
+    ordered_preds = [
+        DCTERMS.title, RDFS.label, DCTERMS.description, DCTERMS.abstract,
+        DCTERMS.publisher, DCTERMS.license, 
+        DCTERMS.creator, DCTERMS.contributor, 
+        OWL.versionInfo, RDFS.comment,
+        VANN.preferredNamespacePrefix, VANN.preferredNamespaceUri
+    ]
+    
+    # Add any others at the end
+    for k in all_keys:
+        if k not in ordered_preds:
+            ordered_preds.append(k)
+            
+    for p in ordered_preds:
+        # Get values: Local first, then Shared
+        if p in local_metadata:
+            objs = local_metadata[p]
+        elif p in shared_metadata:
+            objs = shared_metadata[p]
+        else:
+            continue
+            
+        # Get QName
+        if p in pred_map:
+            predicate_qname = pred_map[p]
+        else:
+            # Fallback for unknown predicates: use full URI or try to qname it if simple
+            predicate_qname = f"<{str(p)}>"
 
         # Format objects
         obj_strs = []
@@ -99,7 +187,12 @@ def generate_header_string(vocab_name, shared_metadata):
                 if obj.language:
                     obj_strs.append(f'"{obj}"@{obj.language}')
                 elif obj.datatype:
-                     obj_strs.append(f'"{obj}"^^{obj.datatype.n3()}')
+                     # Check if it's xsd
+                     if str(obj.datatype).startswith("http://www.w3.org/2001/XMLSchema#"):
+                         dtype = str(obj.datatype).replace("http://www.w3.org/2001/XMLSchema#", "xsd:")
+                         obj_strs.append(f'"{obj}"^^{dtype}')
+                     else:
+                         obj_strs.append(f'"{obj}"^^{obj.datatype.n3()}')
                 else:
                     obj_strs.append(f'"{obj}"')
         
@@ -108,12 +201,9 @@ def generate_header_string(vocab_name, shared_metadata):
 
     # Add dynamic dates
     today = date.today().isoformat()
-    header += f'    dcterms:created "2021-12-01"^^xsd:date ;\n' # Keep original creation? Or make dynamic? Let's fix it for now or assume replacement.
-    header += f'    dcterms:modified "{today}"^^xsd:date ;\n'
-    
-    # VANN
-    header += f'    vann:preferredNamespacePrefix "{vocab_name.lower()}" ;\n' # deriving prefix from vocab name
-    header += f'    vann:preferredNamespaceUri "{uri}#" .\n'
+    # Check if dates are already in metadata? Ideally yes, but let's enforce modification date
+    header += f'    dcterms:created "2021-12-01"^^xsd:date ;\n' 
+    header += f'    dcterms:modified "{today}"^^xsd:date .\n'
     
     return header
 
@@ -126,7 +216,10 @@ def process_file(filepath, shared_metadata):
     vocab_name = os.path.splitext(filename)[0]
     dest_path = os.path.join(BUILD_DIR, filename)
 
-    new_header = generate_header_string(vocab_name, shared_metadata)
+    # Load local metadata
+    local_metadata = get_or_create_local_metadata(filepath, vocab_name)
+
+    new_header = generate_header_string(vocab_name, shared_metadata, local_metadata)
     
     # Ensure required prefixes exist
     required_prefixes = {
@@ -191,8 +284,13 @@ def process_file(filepath, shared_metadata):
 def main():
     print("🚀 Starting Build Script...")
     
-    # 0. Create Build Dir
-    if not os.path.exists(BUILD_DIR):
+    # 0. Create/Clean Build Dir
+    if os.path.exists(BUILD_DIR):
+        # Clean existing files
+        for f in glob.glob(os.path.join(BUILD_DIR, "*")):
+            os.remove(f)
+        print(f"🧹 Cleaned build directory: {BUILD_DIR}")
+    else:
         os.makedirs(BUILD_DIR)
         print(f"📂 Created build directory: {BUILD_DIR}")
     
@@ -202,7 +300,9 @@ def main():
     
     # 2. Process Files
     print(f"📂 Processing vocabularies from {VOCAB_DIR} to {BUILD_DIR}...")
-    files = glob.glob(os.path.join(VOCAB_DIR, "*.ttl"))
+    all_files = glob.glob(os.path.join(VOCAB_DIR, "*.ttl"))
+    # Exclude metadata files
+    files = [f for f in all_files if not f.endswith(".metadata.ttl") and not f.endswith(".metadata.metadata.ttl")]
     
     success_count = 0
     fail_count = 0
