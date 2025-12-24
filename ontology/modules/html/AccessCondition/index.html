@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TRIPLE Conditions of Access Vocabulary</title>
+    <title>Access Condition</title>
     <link href="static/owl.css" rel="stylesheet" type="text/css" />
     <link href="static/yeti.css" rel="stylesheet" type="text/css" />
     <link href="static/rec.css" rel="stylesheet" type="text/css" />
@@ -16,8 +16,7 @@
 <body>
     <div class="container">
         <div class="head">
-            <div style="float:right">language <a href="index.html"><b>en</b></a> </div>
-            <h1>TRIPLE Conditions of Access Vocabulary</h1>
+            <h1>Access Condition</h1>
 
             <dl>
                 <dt>This version:</dt>
@@ -25,7 +24,7 @@
 
                 
                 <dt>Revision:</dt>
-                <dd>2.0.0</dd>
+                <dd>2.1.0</dd>
                 
 
                 
@@ -49,19 +48,9 @@
                 
 
                 
-                <dt>Publisher:</dt>
-                <dd>
-                    
-                    https://www.gotriple.eu/
-                    
-                </dd>
-                
 
                 
 
-                
-                <dt>License:</dt>
-                <dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a></dd>
                 
 
             </dl>
@@ -76,8 +65,17 @@
         
         <h2>Abstract</h2>
         <div id="abstract">
-            <p>The Conditions of Access vocabulary of the TRIPLE Ontology.</p>
+            <p>A controlled vocabulary for specifying access conditions, aligned with COAR Access Rights where applicable.</p>
         </div>
+        
+
+        
+        
+        
+        
+        
+        
+        
         
 
         <div id="toc">
@@ -88,8 +86,8 @@
                 
                 
                 
-                <li><a href="#namedindividuals">6. Named Individuals</a></li>
-                <li><a href="#namespacedeclarations">7. Namespaces</a></li>
+                <li><a href="#namedindividuals">3. Named Individuals</a></li>
+                <li><a href="#namespacedeclarations">4. Namespaces</a></li>
             </ul>
         </div>
 
@@ -97,22 +95,22 @@
 
         
         <div id="introduction">
-            <h2>Introduction</h2>
-            <div class="markdown">Defines the conditions under which a resource can be accessed (e.g., Open Access, Restricted).</div>
+            <h2>1. Introduction</h2>
+            <div class="markdown">The Access Condition vocabulary defines the access rights associated with resources in the TRIPLE platform, such as Open Access, Restricted Access, or Closed Access. It facilitates the filtering and identification of resource availability.</div>
         </div>
         
 
         <hr />
 
         <div id="classes">
-            <h2>Classes</h2>
+            <h2>2. Classes</h2>
             <ul class="hlist">
                 
-                <li><a href="#https://gotriple.eu/ontology/triple#AccessCondition" title="https://gotriple.eu/ontology/triple#AccessCondition">Access Condition</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a></li>
                 
             </ul>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple#AccessCondition">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition">
                 <h3>Access Condition
                     <sup class="type-c" title="c">
                         c
@@ -121,7 +119,9 @@
                         back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
                     </span>
                 </h3>
-                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#AccessCondition</p>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition</p>
+                
+
                 
 
                 
@@ -132,11 +132,11 @@
                     <dt>has super-classes</dt>
                     <dd>
                         
-                        <a href="#http://purl.org/dc/terms/RightsStatement" title="http://purl.org/dc/terms/RightsStatement">http://purl.org/dc/terms/RightsStatement</a>
+                        <a href="#http://purl.org/dc/terms/RightsStatement" title="http://purl.org/dc/terms/RightsStatement">dcterms:RightsStatement</a>
                         <sup class="type-c" title="c">c</sup>
                         , 
                         
-                        <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a>
+                        <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
                         <sup class="type-c" title="c">c</sup>
                         
                         
@@ -155,43 +155,43 @@
                     <dt>has members</dt>
                     <dd>
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#all_rights_reserved" title="https://gotriple.eu/ontology/triple/AccessCondition#all_rights_reserved">All Rights Reserved</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved" title="https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved">All Rights Reserved</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#closed_access" title="https://gotriple.eu/ontology/triple/AccessCondition#closed_access">Closed Access</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/closed_access" title="https://gotriple.eu/ontology/triple/AccessCondition/closed_access">Closed Access</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#free_access" title="https://gotriple.eu/ontology/triple/AccessCondition#free_access">Free Access</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/free_access" title="https://gotriple.eu/ontology/triple/AccessCondition/free_access">Free Access</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#open_access" title="https://gotriple.eu/ontology/triple/AccessCondition#open_access">Open Access</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/open_access" title="https://gotriple.eu/ontology/triple/AccessCondition/open_access">Open Access</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#public_domain" title="https://gotriple.eu/ontology/triple/AccessCondition#public_domain">Public Domain</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/public_domain" title="https://gotriple.eu/ontology/triple/AccessCondition/public_domain">Public Domain</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#restricted_access_or_use" title="https://gotriple.eu/ontology/triple/AccessCondition#restricted_access_or_use">Restricted access or use</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use" title="https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use">Restricted access or use</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#embargoed_access" title="https://gotriple.eu/ontology/triple/AccessCondition#embargoed_access">Embargoed Access</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access" title="https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access">Embargoed Access</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#metadata_only_access" title="https://gotriple.eu/ontology/triple/AccessCondition#metadata_only_access">Metadata Only Access</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access" title="https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access">Metadata Only Access</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#other" title="https://gotriple.eu/ontology/triple/AccessCondition#other">Other</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/other" title="https://gotriple.eu/ontology/triple/AccessCondition/other">Other</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition#undefined" title="https://gotriple.eu/ontology/triple/AccessCondition#undefined">Undefined</a>
+                        <a href="#https://gotriple.eu/ontology/triple/AccessCondition/undefined" title="https://gotriple.eu/ontology/triple/AccessCondition/undefined">Undefined</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         
                         
@@ -213,52 +213,52 @@
 
         
         <div id="namedindividuals">
-            <h2>Named Individuals</h2>
+            <h2>3. Named Individuals</h2>
             <ul class="hlist">
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#all_rights_reserved" title="https://gotriple.eu/ontology/triple/AccessCondition#all_rights_reserved">All Rights Reserved</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved" title="https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved">All Rights Reserved</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#closed_access" title="https://gotriple.eu/ontology/triple/AccessCondition#closed_access">Closed Access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/closed_access" title="https://gotriple.eu/ontology/triple/AccessCondition/closed_access">Closed Access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#embargoed_access" title="https://gotriple.eu/ontology/triple/AccessCondition#embargoed_access">Embargoed Access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access" title="https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access">Embargoed Access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#free_access" title="https://gotriple.eu/ontology/triple/AccessCondition#free_access">Free Access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/free_access" title="https://gotriple.eu/ontology/triple/AccessCondition/free_access">Free Access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#metadata_only_access" title="https://gotriple.eu/ontology/triple/AccessCondition#metadata_only_access">Metadata Only Access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access" title="https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access">Metadata Only Access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#open_access" title="https://gotriple.eu/ontology/triple/AccessCondition#open_access">Open Access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/open_access" title="https://gotriple.eu/ontology/triple/AccessCondition/open_access">Open Access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#other" title="https://gotriple.eu/ontology/triple/AccessCondition#other">Other</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/other" title="https://gotriple.eu/ontology/triple/AccessCondition/other">Other</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#public_domain" title="https://gotriple.eu/ontology/triple/AccessCondition#public_domain">Public Domain</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/public_domain" title="https://gotriple.eu/ontology/triple/AccessCondition/public_domain">Public Domain</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#restricted_access_or_use" title="https://gotriple.eu/ontology/triple/AccessCondition#restricted_access_or_use">Restricted access or use</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use" title="https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use">Restricted access or use</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#undefined" title="https://gotriple.eu/ontology/triple/AccessCondition#undefined">Undefined</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/undefined" title="https://gotriple.eu/ontology/triple/AccessCondition/undefined">Undefined</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_all-rights-reserved" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_all-rights-reserved">https://gotriple.eu/ontology/triple/AccessCondition#acr_all-rights-reserved</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_all-rights-reserved" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_all-rights-reserved">acc:acr_all-rights-reserved</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_closed-access" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_closed-access">https://gotriple.eu/ontology/triple/AccessCondition#acr_closed-access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_closed-access" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_closed-access">acc:acr_closed-access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_embargoed-access" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_embargoed-access">https://gotriple.eu/ontology/triple/AccessCondition#acr_embargoed-access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access">acc:acr_embargoed-access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_free-access" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_free-access">https://gotriple.eu/ontology/triple/AccessCondition#acr_free-access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access">acc:acr_free-access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_metadata-only-access" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_metadata-only-access">https://gotriple.eu/ontology/triple/AccessCondition#acr_metadata-only-access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access">acc:acr_metadata-only-access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_open-access" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_open-access">https://gotriple.eu/ontology/triple/AccessCondition#acr_open-access</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access">acc:acr_open-access</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_other" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_other">https://gotriple.eu/ontology/triple/AccessCondition#acr_other</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_other" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_other">acc:acr_other</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_public-domain" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_public-domain">https://gotriple.eu/ontology/triple/AccessCondition#acr_public-domain</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain">acc:acr_public-domain</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_restricted-access-or-use" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_restricted-access-or-use">https://gotriple.eu/ontology/triple/AccessCondition#acr_restricted-access-or-use</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use">acc:acr_restricted-access-or-use</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition#acr_undefined" title="https://gotriple.eu/ontology/triple/AccessCondition#acr_undefined">https://gotriple.eu/ontology/triple/AccessCondition#acr_undefined</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_undefined" title="https://gotriple.eu/ontology/triple/AccessCondition/acr_undefined">acc:acr_undefined</a></li>
                 
             </ul>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#all_rights_reserved">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved">
     <h3>All Rights Reserved
         <sup class="type-ni" title="ni">
             ni
@@ -267,13 +267,45 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#all_rights_reserved</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved</p>
     
+    <div class="comment">
+        <p>All rights are reserved by the copyright holder.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_all-rights-reserved" target="_self">acc:acr_all-rights-reserved</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#closed_access">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/closed_access">
     <h3>Closed Access
         <sup class="type-ni" title="ni">
             ni
@@ -282,13 +314,45 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#closed_access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/closed_access</p>
     
+    <div class="comment">
+        <p>Access to the resource is closed.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_closed-access" target="_self">acc:acr_closed-access</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#embargoed_access">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access">
     <h3>Embargoed Access
         <sup class="type-ni" title="ni">
             ni
@@ -297,13 +361,52 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#embargoed_access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access</p>
     
+    <div class="comment">
+        <p>Access to the resource is embargoed until a specific date.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access" target="_self">acc:acr_embargoed-access</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_f1cf/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_f1cf/</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#free_access">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/free_access">
     <h3>Free Access
         <sup class="type-ni" title="ni">
             ni
@@ -312,13 +415,45 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#free_access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/free_access</p>
     
+    <div class="comment">
+        <p>Access to the resource is free of charge.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access" target="_self">acc:acr_free-access</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#metadata_only_access">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access">
     <h3>Metadata Only Access
         <sup class="type-ni" title="ni">
             ni
@@ -327,13 +462,52 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#metadata_only_access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access</p>
     
+    <div class="comment">
+        <p>Only the metadata of the resource is accessible.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access" target="_self">acc:acr_metadata-only-access</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_14cb/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_14cb/</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#open_access">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/open_access">
     <h3>Open Access
         <sup class="type-ni" title="ni">
             ni
@@ -342,13 +516,52 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#open_access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/open_access</p>
     
+    <div class="comment">
+        <p>The resource is available under an open license.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access" target="_self">acc:acr_open-access</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_abf2/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_abf2/</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#other">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/other">
     <h3>Other
         <sup class="type-ni" title="ni">
             ni
@@ -357,13 +570,45 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#other</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/other</p>
     
+    <div class="comment">
+        <p>Other access conditions not listed in the vocabulary.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_other" target="_self">acc:acr_other</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#public_domain">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/public_domain">
     <h3>Public Domain
         <sup class="type-ni" title="ni">
             ni
@@ -372,13 +617,45 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#public_domain</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/public_domain</p>
     
+    <div class="comment">
+        <p>The resource is in the public domain.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain" target="_self">acc:acr_public-domain</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#restricted_access_or_use">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use">
     <h3>Restricted access or use
         <sup class="type-ni" title="ni">
             ni
@@ -387,13 +664,52 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#restricted_access_or_use</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use</p>
     
+    <div class="comment">
+        <p>Access or use of the resource is restricted.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use" target="_self">acc:acr_restricted-access-or-use</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_16ec/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_16ec/</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#undefined">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/undefined">
     <h3>Undefined
         <sup class="type-ni" title="ni">
             ni
@@ -402,14 +718,46 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#undefined</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/undefined</p>
     
+    <div class="comment">
+        <p>Access condition is undefined or unknown.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/hasIdentifier" target="_blank">datacite:hasIdentifier</a>
+            
+            <a href="#https://gotriple.eu/ontology/triple/AccessCondition/acr_undefined" target="_self">acc:acr_undefined</a>
+            
+        </dd>
+        
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_all-rights-reserved">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_all-rights-reserved
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_all-rights-reserved">
+    <h3>acc:acr_all-rights-reserved
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -417,14 +765,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_all-rights-reserved</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_all-rights-reserved</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_closed-access">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_closed-access
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_closed-access">
+    <h3>acc:acr_closed-access
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -432,14 +798,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_closed-access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_closed-access</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_embargoed-access">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_embargoed-access
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access">
+    <h3>acc:acr_embargoed-access
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -447,14 +831,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_embargoed-access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_free-access">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_free-access
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access">
+    <h3>acc:acr_free-access
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -462,14 +864,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_free-access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_metadata-only-access">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_metadata-only-access
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access">
+    <h3>acc:acr_metadata-only-access
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -477,14 +897,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_metadata-only-access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_open-access">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_open-access
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access">
+    <h3>acc:acr_open-access
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -492,14 +930,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_open-access</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_other">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_other
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_other">
+    <h3>acc:acr_other
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -507,14 +963,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_other</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_other</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_public-domain">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_public-domain
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain">
+    <h3>acc:acr_public-domain
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -522,14 +996,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_public-domain</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_restricted-access-or-use">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_restricted-access-or-use
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use">
+    <h3>acc:acr_restricted-access-or-use
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -537,14 +1029,32 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_restricted-access-or-use</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition#acr_undefined">
-    <h3>https://gotriple.eu/ontology/triple/AccessCondition#acr_undefined
+            <div class="entity" id="https://gotriple.eu/ontology/triple/AccessCondition/acr_undefined">
+    <h3>acc:acr_undefined
         <sup class="type-ni" title="ni">
             ni
         </sup>
@@ -552,9 +1062,27 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition#acr_undefined</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition/acr_undefined</p>
     
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_blank">datacite:Identifier</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
 
+        
+
+        
+    </dl>
+    
     
 </div>
             
@@ -562,7 +1090,7 @@
         
 
         <div id="namespacedeclarations">
-            <h2>Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <h2>4. Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -574,7 +1102,7 @@
                     
                     <tr>
                         <td>acc</td>
-                        <td>https://gotriple.eu/ontology/triple/AccessCondition#</td>
+                        <td>https://gotriple.eu/ontology/triple/AccessCondition/</td>
                     </tr>
                     
                     <tr>
@@ -704,7 +1232,7 @@
                     
                     <tr>
                         <td>triple</td>
-                        <td>https://gotriple.eu/ontology/triple#</td>
+                        <td>https://gotriple.eu/ontology/triple/</td>
                     </tr>
                     
                     <tr>

@@ -1,0 +1,784 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+# TRIPLE Ontology - Disciplines Vocabulary
+# Converted from RDF/XML to Turtle format
+# Original file: disciplines.rdf
+# License: CC BY 4.0
+# Website: https://gotriple.eu/ontology/triple
+
+@prefix disc: <https://gotriple.eu/ontology/triple/Discipline/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+
+<https://gotriple.eu/ontology/triple/Discipline> a owl:Ontology ;
+    dcterms:title "Discipline Vocabulary"@en ;
+    dcterms:description "The Discipline vocabulary provides a classification scheme for academic disciplines and fields of study, with a focus on Humanities and Social Sciences. It allows resources to be categorized by their subject area."@en ;
+    dcterms:abstract "A controlled vocabulary of academic disciplines, supporting multilingual discovery of resources."@en ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    owl:versionInfo "2.1.0" ;
+    vann:preferredNamespacePrefix "discipline" ;
+    vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/Discipline/" ;
+    dcterms:created "2021-12-01"^^xsd:date ;
+    dcterms:modified "2025-12-24"^^xsd:date .
+
+
+disc:archaeology_and_prehistory a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Archäologie und Vor- und Frühgeschichte"@de,
+        "Archaeology and Prehistory"@en,
+        "Archéologie et Préhistoire"@fr,
+        "Archeologia e Preistoria"@it ;
+    datacite:hasIdentifier disc:archeo ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh85006507>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85061212>,
+        disc:ddc_930_1,
+        disc:ddc_930_11 ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q2415966> .
+
+disc:architecture_and_space_management a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Architektur und Raummanagement"@de,
+        "Architecture and Space Management"@en,
+        "Architecture, aménagement de l'espace"@fr,
+        "Architettura e Organizzazione dello Spazio"@it ;
+    datacite:hasIdentifier disc:archi ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh85006611>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85125911>,
+        disc:ddc_71,
+        disc:ddc_72 ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q7102036> .
+
+disc:art_and_art_history a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Kunst und Kunstgeschichte"@de,
+        "Art and Art History"@en,
+        "Art et histoire de l'art"@fr,
+        "Arte e Storia dell'Arte"@it ;
+    datacite:hasIdentifier disc:art ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh2005003729>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85007461>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85007960>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85008324>,
+        disc:ddc_70,
+        disc:ddc_73,
+        disc:ddc_74,
+        disc:ddc_75,
+        disc:ddc_76,
+        disc:ddc_77 ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85007461>,
+        <http://id.loc.gov/authorities/subjects/sh85007488>,
+        <https://www.wikidata.org/entity/Q50637>,
+        <https://www.wikidata.org/entity/Q735> .
+
+disc:biological_anthropology a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Biologische Anthropologie"@de,
+        "Biological Anthropology"@en,
+        "Anthropologie biologique"@fr,
+        "Antropologia Biologica"@it ;
+    datacite:hasIdentifier disc:anthro-bio ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85101512>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85005581>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh89006497>,
+        disc:ddc_599_9 ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q27172> .
+
+disc:classical_studies a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Klassische Studien"@de,
+        "Classical Studies"@en,
+        "Études classiques"@fr,
+        "Studi Classici"@it ;
+    datacite:hasIdentifier disc:class ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh85026706>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85026710>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85026714>,
+        disc:ddc_93,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.InformationSociety> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85026710>,
+        <https://www.wikidata.org/entity/Q7007177> .
+
+disc:communication_sciences a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Kommunikationswissenschaft"@de,
+        "Communication Sciences"@en,
+        "Sciences de l'information et de la communication"@fr,
+        "Scienze della Comunicazione"@it ;
+    datacite:hasIdentifier disc:info ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh85029027>,
+        disc:ddc_384,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.InformationSociety>,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.Media>,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.PublicRelations> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85029103>,
+        <https://www.wikidata.org/entity/Q9477142> .
+
+disc:cultural_heritage_and_museology a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Kulturelles Erbe und Museologie"@de,
+        "Cultural Heritage and Museology"@en,
+        "Héritage culturel et muséologie"@fr,
+        "Beni Culturali e Museologia"@it ;
+    datacite:hasIdentifier disc:museo ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85088723>,
+        disc:ddc_069 ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85029103>,
+        <http://id.loc.gov/authorities/subjects/sh97000183>,
+        <http://id.loc.gov/vocabulary/ethnographicTerms/afset012103>,
+        <https://www.wikidata.org/entity/Q210272>,
+        <https://www.wikidata.org/entity/Q460162> .
+
+disc:demography a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Demografie"@de,
+        "Demography"@en,
+        "Démographie"@fr,
+        "Demografia"@it ;
+    datacite:hasIdentifier disc:demo ;
+    skos:closeMatch disc:ddc_304_6,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Demography> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85036659>,
+        <https://www.semantics.gr/authorities/vocabularies/SSH-LCSH/sh85036659>,
+        <https://www.wikidata.org/entity/Q37732> .
+
+disc:economies_and_finances a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Wirtschaft und Finanzen"@de,
+        "Economies and Finances"@en,
+        "Économies et finances"@fr,
+        "Economia e Finanza"@it ;
+    datacite:hasIdentifier disc:eco ;
+    skos:closeMatch disc:ddc_33,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Economics> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85040850>,
+        <http://id.loc.gov/authorities/subjects/sh85048256>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85040850>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85048256>,
+        <https://www.wikidata.org/entity/Q159810>,
+        <https://www.wikidata.org/entity/Q43015> .
+
+disc:education a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Bildung"@de,
+        "Education"@en,
+        "Éducation"@fr,
+        "Formazione"@it ;
+    datacite:hasIdentifier disc:edu ;
+    skos:closeMatch disc:ddc_37,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Education> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85040989>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85040989>,
+        <https://www.wikidata.org/entity/Q8434> .
+
+disc:environmental_studies a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Umweltwissenschaften"@de,
+        "Environmental studies"@en,
+        "Études de l'environnement"@fr,
+        "Scienze Ambientali"@it ;
+    datacite:hasIdentifier disc:envir ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh2008001585>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2009010555>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85044169>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85044184>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85044210>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh93004763>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh99004421>,
+        disc:ddc_37,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#NaturalEnvironment> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh92004048>,
+        <https://www.wikidata.org/entity/Q5381367> .
+
+disc:gender_studies a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Gender Studies"@de,
+        "Gender Studies"@en,
+        "Gender Studies"@fr,
+        "Studi di Genere"@it ;
+    datacite:hasIdentifier disc:genre ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85147771>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2001004859>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2001006204>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2007002363>,
+        disc:ddc_363_7,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocialStratificationAndGroupings.GenderAndGenderRoles> ;
+    skos:exactMatch <http://id.loc.gov/vocabulary/ethnographicTerms/afset007751>,
+        <http://www.wikidata.org/entity/Q1662673> .
+
+disc:geography a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Geografie"@de,
+        "Geography"@en,
+        "Géographie"@fr,
+        "Geografia"@it ;
+    datacite:hasIdentifier disc:geo ;
+    skos:closeMatch disc:ddc_91 ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85053986>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85053986>,
+        <https://www.wikidata.org/entity/Q1071> .
+
+disc:history a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Geschichtswissenschaft"@de,
+        "History"@en,
+        "Histoire"@fr,
+        "Storia"@it ;
+    datacite:hasIdentifier disc:hist ;
+    skos:closeMatch disc:ddc_94,
+        disc:ddc_95,
+        disc:ddc_96,
+        disc:ddc_97,
+        disc:ddc_98,
+        disc:ddc_99,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#History> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85061212>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85061212>,
+        disc:ddc_90,
+        <https://www.wikidata.org/entity/Q309> .
+
+disc:law a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Rechtswissenschaften"@de,
+        "Law"@en,
+        "Droit"@fr,
+        "Legge"@it ;
+    datacite:hasIdentifier disc:droit ;
+    skos:closeMatch <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#LawCrimeAndLegalSystems> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85075119>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85075119>,
+        disc:ddc_34,
+        <https://www.wikidata.org/entity/Q7748> .
+
+disc:linguistics a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Linguistik"@de,
+        "Linguistics"@en,
+        "Linguistique"@fr,
+        "Linguistica"@it ;
+    datacite:hasIdentifier disc:lang ;
+    skos:closeMatch <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.LanguageAndLinguistics> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85077222>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85077222>,
+        disc:ddc_41,
+        <https://www.wikidata.org/entity/Q8162> .
+
+disc:literature a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Literaturwissenschaft"@de,
+        "Literature"@en,
+        "Littératures"@fr,
+        "Letteratura"@it ;
+    datacite:hasIdentifier disc:litt ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85077507>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2003003668>,
+        disc:ddc_8,
+        <https://www.wikidata.org/entity/Q8242> .
+
+disc:management a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Management"@de,
+        "Management"@en,
+        "Gestion et management"@fr,
+        "Management"@it ;
+    datacite:hasIdentifier disc:manag ;
+    skos:closeMatch <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#TradeIndustryAndMarkets.BusinessIndustrialManagementAndOrganisation> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85080336>,
+        disc:ddc_658,
+        <https://www.wikidata.org/entity/Q2920921> .
+
+disc:methods_and_statistics a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Methoden und Statistik"@de,
+        "Methods and Statistics"@en,
+        "Méthodes et statistiques"@fr,
+        "Statistica"@it ;
+    datacite:hasIdentifier disc:stat ;
+    skos:closeMatch disc:ddc_31 ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85127580>,
+        <https://www.wikidata.org/entity/Q12483> .
+
+disc:musicology_and_performing_arts a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Musikwissenschaft und Darstellende Künste"@de,
+        "Musicology and Performing Arts"@en,
+        "Musique, musicologie et arts de la scène"@fr,
+        "Musicologia e Arti Performative"@it ;
+    datacite:hasIdentifier disc:musiq ;
+    skos:closeMatch disc:ddc_78,
+        disc:ddc_79 ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85089048>,
+        <http://id.loc.gov/authorities/subjects/sh85099818>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85045421>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85099818>,
+        <https://www.wikidata.org/entity/Q164204>,
+        <https://www.wikidata.org/entity/Q184485> .
+
+disc:philosophy a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Philosophie"@de,
+        "Philosophy"@en,
+        "Philosophie"@fr,
+        "Filosofia"@it ;
+    datacite:hasIdentifier disc:phil ;
+    skos:closeMatch disc:ddc_11,
+        disc:ddc_12,
+        disc:ddc_14,
+        disc:ddc_16,
+        disc:ddc_17,
+        disc:ddc_18,
+        disc:ddc_19 ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85100849>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85100849>,
+        disc:ddc_10,
+        <https://www.wikidata.org/entity/Q5891> .
+
+disc:political_science a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Politikwissenschaft"@de,
+        "Political Science"@en,
+        "Science politique"@fr,
+        "Scienze Politiche"@it ;
+    datacite:hasIdentifier disc:scipo ;
+    skos:closeMatch <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Politics> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85104440>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85104440>,
+        disc:ddc_32,
+        <https://www.wikidata.org/entity/Q36442> .
+
+disc:psychology a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Psychologie"@de,
+        "Psychology"@en,
+        "Psychologie"@fr,
+        "Psicologia"@it ;
+    datacite:hasIdentifier disc:psy ;
+    skos:closeMatch <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Psychology> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85108459>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85108459>,
+        disc:ddc_15,
+        <https://www.wikidata.org/entity/Q9418> .
+
+disc:religions a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Religionen"@de,
+        "Religions"@en,
+        "Religions"@fr,
+        "Religioni"@it ;
+    datacite:hasIdentifier disc:relig ;
+    skos:closeMatch <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocietyAndCulture.ReligionAndValues> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85112599>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85112599>,
+        disc:ddc_2,
+        <https://www.wikidata.org/entity/Q9174> .
+
+disc:social_anthropology_and_ethnology a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Soziale Anthropologie and Ethnologie"@de,
+        "Social Anthropology and Ethnology"@en,
+        "Anthropologie sociale et ethnologie"@fr,
+        "Antropologia Sociale ed Etnologia"@it ;
+    datacite:hasIdentifier disc:anthro-se ;
+    skos:closeMatch disc:ddc_301,
+        disc:ddc_305,
+        disc:ddc_307 ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85045198>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85045198>,
+        <https://www.wikidata.org/entity/Q29051>,
+        <https://www.wikidata.org/entity/Q43455> .
+
+disc:sociology a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Soziologie"@de,
+        "Sociology"@en,
+        "Sociologie"@fr,
+        "Sociologia"@it ;
+    datacite:hasIdentifier disc:socio ;
+    skos:closeMatch disc:ddc_300,
+        disc:ddc_302,
+        disc:ddc_303,
+        disc:ddc_304,
+        disc:ddc_306,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocietyAndCulture> ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85124200>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85124200>,
+        <https://www.wikidata.org/entity/Q21201> .
+
+triple:Discipline a owl:Class ;
+    rdfs:label "Discipline"@en ;
+    rdfs:subClassOf skos:Concept .
+
+<https://gotriple.eu/ontology/triple/Discipline/history,_philosophy_and_sociology_of_sciences> a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Geschichtswissenschaft, Philosophie und Soziologie"@de,
+        "History, Philosophy and Sociology of Sciences"@en,
+        "Histoire, Philosophie et Sociologie des sciences"@fr,
+        "Storia, Filosofia e Sociologia delle Scienze"@it ;
+    datacite:hasIdentifier disc:hisphilso ;
+    skos:closeMatch disc:ddc_120,
+        disc:ddc_121,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#History>,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocietyAndCulture> ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q201486> .
+
+
+disc:anthro-bio a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:anthro-se a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:archeo a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:archi a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:art a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:class a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:ddc_069 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 069 (Museums)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_10 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 10 (Philosophy)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_11 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 11 (Metaphysics)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_12 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 12 (Philosophy of Humanity)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_120 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 120 (Epistemology, causation, humankind)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_121 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 121 (Epistemology)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_14 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 14 (Philosophical Systems)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_15 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 15 (Psychology)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_16 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 16 (Logic)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_17 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 17 (Ethics)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_18 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 18 (Ancient, medieval and eastern philosophy)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_19 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 19 (Modern western philosophy)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_2 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 2 (Religions)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_300 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 300 (Social sciences)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_301 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 301 (Sociology and anthropology)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_302 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 302 (Social Interaction)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_303 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 303 (Social Processes)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_304 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 304 (Factors affecting social behavior)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_304_6 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 304.6 (Population)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_305 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 305 (Groups of people)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_306 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 306 (Culture and Institutions)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_307 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 307 (Communities)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_31 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 31 (Statistics)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_32 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 32 (Political Science)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_33 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 33 (Economics)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_34 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 34 (Law)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_363_7 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 363.7 (Environmental problems)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_384 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 384 (Telecommunications (Telegraph, Internet, Cables, Broadcasting, Telephones, Movies)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_41 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 41 (Linguistics)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_599_9 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 599.9 (Humans)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_658 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 658 (Management)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_70 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 70 (Modified subdivisions of the arts)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_71 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 71 (Area planning and landscape architecture)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_72 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 72 (Architecture)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_73 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 73 (Sculpture and related arts)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_74 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 74 (Graphic arts and decorative arts)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_75 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 75 (Painting)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_76 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 76 (Printmaking and prints)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_77 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 77 (Photography, computer art, cinematography, videography)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_78 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 78 (Music)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_79 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 79 (Recreational and performing arts)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_8 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 8 (Literature)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_90 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 90 (History)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_91 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 91 (Geography and Travel)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_93 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 93 (Ancient World)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_930_1 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 930.1 (Archeology)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_930_11 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 930.11 (Prehistoric)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_94 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 94 (Europe)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_95 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 95 (Asia)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_96 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 96 (Africa)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_97 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 97 (North America)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_98 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 98 (South America)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:ddc_99 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 99 (Oceania and elsewhere)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .
+
+disc:demo a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:droit a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:eco a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:edu a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:envir a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:genre a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:geo a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:hisphilso a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:hist a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:info a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:lang a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:litt a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:manag a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:museo a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:musiq a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:phil a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:psy a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:relig a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:scipo a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:socio a datacite:Identifier,
+        owl:NamedIndividual .
+
+disc:stat a datacite:Identifier,
+        owl:NamedIndividual .
+
+skos:closeMatch a owl:ObjectProperty ;
+    rdfs:label "has close match"@en ;
+    rdfs:comment "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."@en ;
+    rdfs:isDefinedBy skos: .
+
+disc:ddc_37 a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Dewey Decimal Classification: 37 (Education)"@en ;
+    rdfs:isDefinedBy disc:dewey_decimal_system .

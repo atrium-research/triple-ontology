@@ -1,0 +1,30 @@
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix pt: <https://gotriple.eu/ontology/triple/ProjectType/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://gotriple.eu/ontology/triple/ProjectType> a owl:Ontology ;
+    dcterms:title "Project Type Vocabulary"@en ;
+    dcterms:description "The Project Type vocabulary defines the various categories of research projects included in the TRIPLE platform, distinguishing between different funding schemes and project structures."@en ;
+    dcterms:abstract "A controlled vocabulary for classifying research projects."@en ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    owl:versionInfo "2.1.0" ;
+    vann:preferredNamespacePrefix "projecttype" ;
+    vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/ProjectType/" ;
+    dcterms:created "2021-12-01"^^xsd:date ;
+    dcterms:modified "2025-12-24"^^xsd:date .
+
+
+triple:ProjectType a owl:Class ;
+    rdfs:label "Project Type"@en ;
+    rdfs:subClassOf skos:Concept .
+
+pt: a owl:NamedIndividual, triple:ProjectType ;
+    rdfs:label "Project Type"@en ;
+    rdfs:comment "A generic project type categorization."@en .

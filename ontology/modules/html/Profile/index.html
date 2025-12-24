@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TRIPLE Profile Module</title>
+    <title>Profile</title>
     <link href="static/owl.css" rel="stylesheet" type="text/css" />
     <link href="static/yeti.css" rel="stylesheet" type="text/css" />
     <link href="static/rec.css" rel="stylesheet" type="text/css" />
@@ -16,8 +16,7 @@
 <body>
     <div class="container">
         <div class="head">
-            <div style="float:right">language <a href="index.html"><b>en</b></a> </div>
-            <h1>TRIPLE Profile Module</h1>
+            <h1>Profile</h1>
 
             <dl>
                 <dt>This version:</dt>
@@ -25,7 +24,7 @@
 
                 
                 <dt>Revision:</dt>
-                <dd>2.0.0</dd>
+                <dd>2.1.0</dd>
                 
 
                 
@@ -49,19 +48,9 @@
                 
 
                 
-                <dt>Publisher:</dt>
-                <dd>
-                    
-                    https://www.gotriple.eu/
-                    
-                </dd>
-                
 
                 
 
-                
-                <dt>License:</dt>
-                <dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a></dd>
                 
 
             </dl>
@@ -80,16 +69,27 @@
         </div>
         
 
+        
+        
+        
+        
+        
+        
+        
+        
+
         <div id="toc">
             <h2>Table of Contents</h2>
             <ul>
                 <li><a href="#introduction">1. Introduction</a></li>
                 <li><a href="#classes">2. Classes</a></li>
-                <li><a href="#objectproperties">3. Object Properties</a></li>
-                <li><a href="#dataproperties">4. Datatype Properties</a></li>
+                <li><a href="#objectproperties">3. Object Properties</a>
+                </li>
+                <li><a href="#dataproperties">4. Datatype
+                        Properties</a></li>
                 
                 
-                <li><a href="#namespacedeclarations">7. Namespaces</a></li>
+                <li><a href="#namespacedeclarations">5. Namespaces</a></li>
             </ul>
         </div>
 
@@ -97,7 +97,7 @@
 
         
         <div id="introduction">
-            <h2>Introduction</h2>
+            <h2>1. Introduction</h2>
             <div class="markdown">The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity.</div>
         </div>
         
@@ -105,10 +105,12 @@
         <hr />
 
         <div id="classes">
-            <h2>Classes</h2>
+            <h2>2. Classes</h2>
             <ul class="hlist">
                 
                 <li><a href="#https://schema.org/Person" title="https://schema.org/Person">Person</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/Profile" title="https://gotriple.eu/ontology/triple/Profile">Profile</a></li>
                 
                 <li><a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier">datacite:Identifier</a></li>
                 
@@ -121,8 +123,6 @@
                 <li><a href="#http://xmlns.com/foaf/0.1/Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a></li>
                 
                 <li><a href="#http://xmlns.com/foaf/0.1/Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></li>
-                
-                <li><a href="#https://gotriple.eu/ontology/triple#Profile" title="https://gotriple.eu/ontology/triple#Profile">profile</a></li>
                 
                 <li><a href="#https://schema.org/Thing" title="https://schema.org/Thing">schema:Thing</a></li>
                 
@@ -143,10 +143,12 @@
                 
 
                 
+
+                
             </div>
             
-            <div class="entity" id="http://purl.org/spar/datacite/Identifier">
-                <h3>datacite:Identifier
+            <div class="entity" id="https://gotriple.eu/ontology/triple/Profile">
+                <h3>Profile
                     <sup class="type-c" title="c">
                         c
                     </sup>
@@ -154,284 +156,21 @@
                         back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
                     </span>
                 </h3>
-                <p><strong>IRI:</strong> http://purl.org/spar/datacite/Identifier</p>
-                
-
-                
-
-                
-                <dl class="description">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <dt>is in range of</dt>
-                    <dd>
-                        
-                        <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a>
-                        <sup class="type-op" title="op">op</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
-            
-            <div class="entity" id="http://purl.org/spar/datacite/IdentifierScheme">
-                <h3>datacite:IdentifierScheme
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> http://purl.org/spar/datacite/IdentifierScheme</p>
-                
-
-                
-
-                
-            </div>
-            
-            <div class="entity" id="http://xmlns.com/foaf/0.1/Agent">
-                <h3>foaf:Agent
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/Agent</p>
-                
-                <div class="comment">
-                    <p>An agent (person or organization).</p>
-                </div>
-                
-
-                
-
-                
-            </div>
-            
-            <div class="entity" id="http://xmlns.com/foaf/0.1/OnlineAccount">
-                <h3>foaf:OnlineAccount
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/OnlineAccount</p>
-                
-
-                
-
-                
-                <dl class="description">
-                    
-
-                    
-                    <dt>has restrictions</dt>
-                    <dd>
-                        <ul class="restrictions">
-                            
-                            <li>
-                                <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">exactly</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                        </ul>
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
-            
-            <div class="entity" id="http://xmlns.com/foaf/0.1/Organization">
-                <h3>foaf:Organization
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/Organization</p>
-                
-                <div class="comment">
-                    <p>An organization.</p>
-                </div>
-                
-
-                
-
-                
-                <dl class="description">
-                    
-                    <dt>has super-classes</dt>
-                    <dd>
-                        
-                        <a href="#https://schema.org/Thing" title="https://schema.org/Thing">schema:Thing</a>
-                        <sup class="type-c" title="c">c</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-                    <dt>has restrictions</dt>
-                    <dd>
-                        <ul class="restrictions">
-                            
-                            <li>
-                                <a href="#https://schema.org/name" title="https://schema.org/name">name</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">exactly</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                        </ul>
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
-            
-            <div class="entity" id="http://xmlns.com/foaf/0.1/Person">
-                <h3>foaf:Person
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/Person</p>
-                
-                <div class="comment">
-                    <p>A person.</p>
-                </div>
-                
-
-                
-
-                
-                <dl class="description">
-                    
-                    <dt>has super-classes</dt>
-                    <dd>
-                        
-                        <a href="#https://schema.org/Thing" title="https://schema.org/Thing">schema:Thing</a>
-                        <sup class="type-c" title="c">c</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-                    <dt>has restrictions</dt>
-                    <dd>
-                        <ul class="restrictions">
-                            
-                            <li>
-                                <a href="#https://schema.org/name" title="https://schema.org/name">name</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">exactly</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                        </ul>
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
-            
-            <div class="entity" id="https://gotriple.eu/ontology/triple#Profile">
-                <h3>profile
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#Profile</p>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/Profile</p>
                 
                 <div class="comment">
                     <p>A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account.</p>
+                </div>
+                
+
+                
+                <div class="comment">
+                    <p><strong>Alternative Labels:</strong></p>
+                    <ul>
+                        
+                        <li>profile @en</li>
+                        
+                    </ul>
                 </div>
                 
 
@@ -521,6 +260,292 @@
                 
             </div>
             
+            <div class="entity" id="http://purl.org/spar/datacite/Identifier">
+                <h3>datacite:Identifier
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://purl.org/spar/datacite/Identifier</p>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <dt>is in range of</dt>
+                    <dd>
+                        
+                        <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a>
+                        <sup class="type-op" title="op">op</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="http://purl.org/spar/datacite/IdentifierScheme">
+                <h3>datacite:IdentifierScheme
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://purl.org/spar/datacite/IdentifierScheme</p>
+                
+
+                
+
+                
+
+                
+            </div>
+            
+            <div class="entity" id="http://xmlns.com/foaf/0.1/Agent">
+                <h3>foaf:Agent
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/Agent</p>
+                
+                <div class="comment">
+                    <p>An agent (person or organization).</p>
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+            
+            <div class="entity" id="http://xmlns.com/foaf/0.1/OnlineAccount">
+                <h3>foaf:OnlineAccount
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/OnlineAccount</p>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+
+                    
+                    <dt>has restrictions</dt>
+                    <dd>
+                        <ul class="restrictions">
+                            
+                            <li>
+                                <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">exactly</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                        </ul>
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="http://xmlns.com/foaf/0.1/Organization">
+                <h3>foaf:Organization
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/Organization</p>
+                
+                <div class="comment">
+                    <p>An organization.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#https://schema.org/Thing" title="https://schema.org/Thing">schema:Thing</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+                    <dt>has restrictions</dt>
+                    <dd>
+                        <ul class="restrictions">
+                            
+                            <li>
+                                <a href="#https://schema.org/name" title="https://schema.org/name">name</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">exactly</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                        </ul>
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="http://xmlns.com/foaf/0.1/Person">
+                <h3>foaf:Person
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/Person</p>
+                
+                <div class="comment">
+                    <p>A person.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#https://schema.org/Thing" title="https://schema.org/Thing">schema:Thing</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+                    <dt>has restrictions</dt>
+                    <dd>
+                        <ul class="restrictions">
+                            
+                            <li>
+                                <a href="#https://schema.org/name" title="https://schema.org/name">name</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">exactly</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                        </ul>
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
             <div class="entity" id="https://schema.org/Thing">
                 <h3>schema:Thing
                     <sup class="type-c" title="c">
@@ -531,6 +556,8 @@
                     </span>
                 </h3>
                 <p><strong>IRI:</strong> https://schema.org/Thing</p>
+                
+
                 
 
                 
@@ -571,7 +598,7 @@
 
         
         <div id="objectproperties">
-            <h2>Object Properties</h2>
+            <h2>3. Object Properties</h2>
             <ul class="hlist">
                 
                 <li><a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a></li>
@@ -591,7 +618,8 @@
     </h3>
     <p><strong>IRI:</strong> http://purl.org/spar/datacite/hasIdentifier</p>
     
-
+    
+    
     
     <dl class="description">
         
@@ -604,7 +632,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier">datacite:Identifier</a>
+            <a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier"
+                target="_self">datacite:Identifier</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -631,7 +660,8 @@
         <p>Indicates an account held by this agent</p>
     </div>
     
-
+    
+    
     
 </div>
             
@@ -640,7 +670,7 @@
 
         
         <div id="dataproperties">
-            <h2>Datatype Properties</h2>
+            <h2>4. Datatype Properties</h2>
             <ul class="hlist">
                 
                 <li><a href="#http://purl.org/spar/literal/hasLiteralValue" title="http://purl.org/spar/literal/hasLiteralValue">litre:hasLiteralValue</a></li>
@@ -660,7 +690,8 @@
     </h3>
     <p><strong>IRI:</strong> http://purl.org/spar/literal/hasLiteralValue</p>
     
-
+    
+    
     
     <dl class="description">
         
@@ -673,7 +704,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#http://www.w3.org/2001/XMLSchema#string" title="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a>
+            <a href="http://www.w3.org/2001/XMLSchema#string" title="http://www.w3.org/2001/XMLSchema#string"
+                target="_blank">xsd:string</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -696,7 +728,8 @@
     </h3>
     <p><strong>IRI:</strong> https://schema.org/name</p>
     
-
+    
+    
     
     <dl class="description">
         
@@ -709,7 +742,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#http://www.w3.org/2001/XMLSchema#string" title="http://www.w3.org/2001/XMLSchema#string">http://www.w3.org/2001/XMLSchema#string</a>
+            <a href="http://www.w3.org/2001/XMLSchema#string" title="http://www.w3.org/2001/XMLSchema#string"
+                target="_blank">xsd:string</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -729,7 +763,7 @@
         
 
         <div id="namespacedeclarations">
-            <h2>Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <h2>5. Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -871,7 +905,7 @@
                     
                     <tr>
                         <td>triple</td>
-                        <td>https://gotriple.eu/ontology/triple#</td>
+                        <td>https://gotriple.eu/ontology/triple/</td>
                     </tr>
                     
                     <tr>

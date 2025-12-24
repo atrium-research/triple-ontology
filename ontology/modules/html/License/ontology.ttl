@@ -1,31 +1,32 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 # TRIPLE Ontology - License Vocabulary
 # Converted from RDF/XML to Turtle format
 # Original file: license.rdf
 # License: CC BY 4.0
 # Website: https://gotriple.eu/ontology/triple
 
-@prefix lic: <https://gotriple.eu/ontology/triple/License#> .
+@prefix lic: <https://gotriple.eu/ontology/triple/License/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 
 <https://gotriple.eu/ontology/triple/License> a owl:Ontology ;
-    rdfs:label "TRIPLE Licenses Vocabulary"@en ;
-    dcterms:title "TRIPLE Licenses Vocabulary"@en ;
-    dcterms:abstract "The Licenses vocabulary of the TRIPLE Ontology."@en ;
-    dcterms:description "Defines the license types used to categorize resources within the GoTriple platform."@en ;
-    dcterms:created "2021-12-01" ;
-    dcterms:modified "2025-12-22" ;
+    dcterms:title "License Vocabulary"@en ;
+    dcterms:description "The License vocabulary enumerates the standard licenses used to release resources/items in the TRIPLE platform, including Creative Commons licenses and other open or proprietary licenses."@en ;
+    dcterms:abstract "A controlled vocabulary for rights and licenses concepts."@en ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
-    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:publisher <https://www.gotriple.eu/> ;
-    owl:versionInfo "2.0.0" ;
-    schema:creativeWorkStatus "Licenses documentation" .
+    owl:versionInfo "2.1.0" ;
+    vann:preferredNamespacePrefix "license" ;
+    vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/License/" ;
+    dcterms:created "2021-12-01"^^xsd:date ;
+    dcterms:modified "2025-12-24"^^xsd:date .
+
 
 triple:License a owl:Class ;
     rdfs:label "License"@en ;
@@ -34,52 +35,62 @@ triple:License a owl:Class ;
 lic:clarin-aca a owl:NamedIndividual,
         triple:License ;
     rdfs:label "CLARIN-ACA"@en ;
-    datacite:hasIdentifier lic:lic_clarin-aca .
+    datacite:hasIdentifier lic:lic_clarin-aca ;
+    rdfs:comment "License for CLARIN Academic endpoints."@en .
 
 lic:clarin-res a owl:NamedIndividual,
         triple:License ;
     rdfs:label "CLARIN-RES"@en ;
-    datacite:hasIdentifier lic:lic_clarin-res .
+    datacite:hasIdentifier lic:lic_clarin-res ;
+    rdfs:comment "License for CLARIN Restricted endpoints."@en .
 
 lic:clarin_pub a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Clarin Pub"@en ;
-    datacite:hasIdentifier lic:lic_clarin-pub .
+    datacite:hasIdentifier lic:lic_clarin-pub ;
+    rdfs:comment "License for CLARIN Public endpoints."@en .
 
 lic:creative_commons a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Creative Commons"@en ;
-    datacite:hasIdentifier lic:lic_creative-commons .
+    datacite:hasIdentifier lic:lic_creative-commons ;
+    rdfs:comment "A Creative Commons license."@en .
 
 lic:elra_licences a owl:NamedIndividual,
         triple:License ;
     rdfs:label "ELRA licences"@en ;
-    datacite:hasIdentifier lic:lic_elra .
+    datacite:hasIdentifier lic:lic_elra ;
+    rdfs:comment "License by ELRA."@en .
 
 lic:meta-share a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Meta-Share"@en ;
-    datacite:hasIdentifier lic:lic_meta-share .
+    datacite:hasIdentifier lic:lic_meta-share ;
+    rdfs:comment "Meta-Share license."@en .
 
 lic:microsoft_public_licence a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Microsoft Public Licence"@en ;
-    datacite:hasIdentifier lic:lic_ms-pl .
+    datacite:hasIdentifier lic:lic_ms-pl ;
+    rdfs:comment "Microsoft Public License (MS-PL)."@en .
 
 lic:microsoft_reciprocal_licence a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Microsoft Reciprocal Licence"@en ;
-    datacite:hasIdentifier lic:lic_ms-rl .
+    datacite:hasIdentifier lic:lic_ms-rl ;
+    rdfs:comment "Microsoft Reciprocal License (MS-RL)."@en .
 
 lic:open_data a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Open Data"@en ;
-    datacite:hasIdentifier lic:lic_open-data .
+    datacite:hasIdentifier lic:lic_open-data ;
+    rdfs:comment "An open data license."@en .
 
 lic:open_source a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Open source"@en ;
-    datacite:hasIdentifier lic:lic_open-source .
+    datacite:hasIdentifier lic:lic_open-source ;
+    rdfs:comment "An open source software license."@en .
 
 lic:lic_clarin-aca a datacite:Identifier,
         owl:NamedIndividual .
@@ -120,10 +131,12 @@ lic:lic_undefined a datacite:Identifier,
 lic:other a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Other"@en ;
-    datacite:hasIdentifier lic:lic_other .
+    datacite:hasIdentifier lic:lic_other ;
+    rdfs:comment "Other license not listed in the vocabulary."@en .
 
 lic:undefined a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Undefined"@en ;
-    datacite:hasIdentifier lic:lic_undefined .
+    datacite:hasIdentifier lic:lic_undefined ;
+    rdfs:comment "License is undefined or unknown."@en .
 

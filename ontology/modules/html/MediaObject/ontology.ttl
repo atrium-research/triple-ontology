@@ -1,5 +1,4 @@
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix litre: <http://purl.org/spar/literal/> .
@@ -9,31 +8,32 @@
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://gotriple.eu/ontology/triple/Dataset> a owl:Ontology ;
-    rdfs:label "TRIPLE Dataset Module"@en ;
-    dcterms:title "TRIPLE Dataset Module"@en ;
-    dcterms:abstract "The Dataset module of the TRIPLE Ontology, defining Datasets and Distributions aligned with DCAT."@en ;
-    dcterms:description "The Dataset module specializes in representing research data. It defines `triple:Dataset` as a connection point to the DCAT ontology, supporting the description of datasets, their distributions, temporal/spatial coverage, and access rights. This facilitates the discovery and reuse of research data within the SSH domain."@en ;
+<https://gotriple.eu/ontology/triple/MediaObject> a owl:Ontology ;
+    rdfs:label "Media Object"@en ;
+    dcterms:title "Media Object"@en ;
+    dcterms:abstract "The Media Object module of the TRIPLE Ontology, defining Audio, Video, and Image resources."@en ;
+    dcterms:description "The Media Object module manages multimedia resources within the platform. It defines the `triple:MediaObject` class for audio, video, and image content, providing properties to describe their technical characteristics (duration, size, encoding format) and intellectual content, aligned with `schema:MediaObject` and `fabio:Work`."@en ;
     dcterms:created "2021-12-01" ;
     dcterms:modified "2025-12-22" ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
-    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:publisher <https://www.gotriple.eu/> ;
-    owl:versionInfo "2.0.0" ;
+    owl:versionInfo "2.1.0" ;
     schema:creativeWorkStatus "Ontology Module" .
 
-triple:Dataset a owl:Class ;
-    rdfs:label "Dataset"@en,
-        "Dataset (Triple)"@en ;
-    rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en,
-        "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
+triple:MediaObject a owl:Class ;
+    rdfs:label "Media Object"@en,
+        "Media Object (Triple)"@en ;
+    rdfs:comment "A media object such as an image, video, audio, or other multimedia content used in SSH research."@en,
+        "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom schema:Place ;
-            owl:onProperty schema:spatialCoverage ],
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty <http://purl.org/cerif/frapo/isOutputOf> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:CreativeWork ;
+            owl:onProperty dcterms:isReferencedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:publisher ],
@@ -41,42 +41,11 @@ triple:Dataset a owl:Class ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:provider ],
         [ a owl:Restriction ;
-            owl:allValuesFrom owl:Thing ;
-            owl:onProperty schema:funding ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:ContactPoint ;
-            owl:onProperty schema:contactPoint ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom owl:Thing ;
-            owl:onProperty schema:mentions ],
-        [ a owl:Restriction ;
             owl:allValuesFrom schema:DefinedTerm ;
             owl:onProperty schema:keywords ],
         [ a owl:Restriction ;
-            owl:allValuesFrom owl:Thing ;
-            owl:onProperty sioc:topic ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom owl:Thing ;
-            owl:onProperty dcterms:isReferencedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:temporalCoverage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:encodingFormat ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:size ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:creativeWorkStatus ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Class ;
-                    owl:unionOf ( datacite:Identifier triple:ID triple:PID triple:OriginalIdentifier triple:DOI triple:Handle ) ] ;
-            owl:onProperty datacite:hasIdentifier ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:author ],
+            owl:allValuesFrom schema:Place ;
+            owl:onProperty schema:spatialCoverage ],
         [ a owl:Restriction ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty schema:headline ],
@@ -84,50 +53,38 @@ triple:Dataset a owl:Class ;
             owl:allValuesFrom rdf:langString ;
             owl:onProperty schema:abstract ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:dateCreated ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:datePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:dateModified ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:dateCreated ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:datePublished ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:dateModified ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:knowsAbout ],
+            owl:onProperty schema:encodingFormat ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty schema:duration ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:author ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty schema:size ],
         [ a owl:Restriction ;
             owl:onProperty schema:inLanguage ;
             owl:someValuesFrom schema:Language ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty schema:dateCreated ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty schema:datePublished ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:date ;
-            owl:onProperty schema:dateModified ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty schema:dateCreated ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty schema:datePublished ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty schema:dateModified ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:comment ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:Discipline ;
-            owl:onProperty sioc:topic ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:Document ;
-            owl:onProperty dcterms:isReferencedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:URL ;
-            owl:onProperty schema:mainEntityOfPage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom dcat:Distribution ;
-            owl:onProperty dcat:distribution ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdfs:Literal ;
-            owl:onProperty dcat:bbox ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom dcterms:ProvenanceStatement ;
-            owl:onProperty dcterms:provenance ],
         [ a owl:Restriction ;
             owl:allValuesFrom triple:License ;
             owl:onProperty triple:hasLicense ],
@@ -135,8 +92,30 @@ triple:Dataset a owl:Class ;
             owl:allValuesFrom triple:AccessCondition ;
             owl:onProperty triple:hasAccessCondition ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty schema:temporalCoverage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty schema:knowsAbout ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom owl:Thing ;
+            owl:onProperty schema:mentions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ a owl:Class ;
+                    owl:unionOf ( datacite:Identifier triple:ID triple:PID triple:OriginalIdentifier triple:DOI triple:Handle ) ] ;
+            owl:onProperty datacite:hasIdentifier ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:Discipline ;
+            owl:onProperty sioc:topic ],
+        [ a owl:Restriction ;
             owl:allValuesFrom triple:ContentType ;
             owl:onProperty triple:hasContentType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:Document ;
+            owl:onProperty dcterms:isReferencedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:ContactPoint ;
+            owl:onProperty schema:contactPoint ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
@@ -146,46 +125,32 @@ triple:Dataset a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom schema:CreativeWork ;
             owl:onProperty dcterms:isReferencedBy ],
-        schema:Dataset,
-        dcat:Dataset ;
-    skos:exactMatch <http://purl.org/spar/fabio/Dataset>,
-        <https://sshoc.eu/ontology/SHE1_Dataset> .
+        schema:MediaObject ;
+    skos:closeMatch <http://purl.org/spar/fabio/Work>,
+        <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> .
 
-# Classes
-schema:Dataset a owl:Class ;
-    rdfs:label "schema:Dataset"@en ;
-    rdfs:comment "A body of structured information describing some topic(s) of interest."@en .
-
-dcat:Dataset a owl:Class ;
-    rdfs:label "dcat:Dataset"@en ;
-    rdfs:comment "A collection of data, published or curated by a single agent, and available for access or download in one or more representations."@en .
+schema:MediaObject a owl:Class ;
+    rdfs:label "schema:MediaObject"@en ;
+    rdfs:comment "A media object, such as an image, video, or audio object embedded in a web page or a downloadable dataset."@en .
 
 schema:CreativeWork a owl:Class ;
     rdfs:label "schema:CreativeWork"@en .
 
 # Properties
-dcat:bbox a owl:DatatypeProperty ;
-    rdfs:label "dcat:bbox"@en ;
-    rdfs:comment "The bounding box of the dataset, expressed as a literal (e.g., WKT)."@en ;
-    rdfs:range rdfs:Literal .
+schema:duration a owl:DatatypeProperty ;
+    rdfs:label "schema:duration"@en ;
+    rdfs:comment "The duration of the item (movie, audio recording, event, etc.) in ISO 8601 duration format."@en .
 
-dcat:distribution a owl:ObjectProperty ;
-    rdfs:label "dcat:distribution"@en ;
-    rdfs:range dcat:Distribution .
+schema:encodingFormat a owl:DatatypeProperty ;
+    rdfs:label "schema:encodingFormat",
+        "schema:encodingFormat"@en ;
+    rdfs:comment "Media type typically expressed using a MIME format"@en,
+        "Media type typically expressed using a MIME format."@en ;
+    rdfs:range xsd:string .
 
-dcat:Distribution a owl:Class ;
-    rdfs:label "dcat:Distribution"@en .
-
-dcterms:ProvenanceStatement a owl:Class ;
-    rdfs:label "dcterms:ProvenanceStatement"@en .
-
-dcterms:provenance a owl:ObjectProperty ;
-    rdfs:label "dcterms:provenance"@en ;
-    rdfs:range dcterms:ProvenanceStatement .
-
-schema:funding a owl:ObjectProperty ;
-    rdfs:label "schema:funding"@en ;
-    rdfs:range owl:Thing .
+schema:size a owl:DatatypeProperty ;
+    rdfs:label "schema:size"@en ;
+    rdfs:comment "A standardized size of a product or creative work."@en .
 
 schema:headline a owl:DatatypeProperty ;
     rdfs:label "schema:headline"@en ;
@@ -194,9 +159,6 @@ schema:headline a owl:DatatypeProperty ;
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
     rdfs:range rdf:langString .
-
-schema:comment a owl:DatatypeProperty ;
-    rdfs:label "schema:comment"@en .
 
 schema:dateCreated a owl:DatatypeProperty ;
     rdfs:label "schema:dateCreated"@en ;
@@ -221,18 +183,6 @@ schema:knowsAbout a owl:DatatypeProperty ;
 schema:mentions a owl:ObjectProperty ;
     rdfs:label "schema:mentions"@en ;
     rdfs:range owl:Thing .
-
-schema:encodingFormat a owl:DatatypeProperty ;
-    rdfs:label "schema:encodingFormat"@en ;
-    rdfs:range xsd:string .
-
-schema:size a owl:DatatypeProperty ;
-    rdfs:label "schema:size"@en ;
-    rdfs:range xsd:string .
-
-schema:creativeWorkStatus a owl:DatatypeProperty ;
-    rdfs:label "schema:creativeWorkStatus"@en ;
-    rdfs:range xsd:string .
 
 schema:author a owl:ObjectProperty ;
     rdfs:label "schema:author"@en ;
@@ -266,10 +216,6 @@ schema:contactPoint a owl:ObjectProperty ;
     rdfs:label "schema:contactPoint"@en ;
     rdfs:range schema:ContactPoint .
 
-schema:mainEntityOfPage a owl:DatatypeProperty ;
-    rdfs:label "schema:mainEntityOfPage"@en ;
-    rdfs:range schema:URL .
-
 dcterms:isReferencedBy a owl:ObjectProperty ;
     rdfs:label "dcterms:isReferencedBy"@en .
 
@@ -296,16 +242,18 @@ schema:name a owl:DatatypeProperty ;
     rdfs:range xsd:string .
 
 schema:DefinedTerm a owl:Class ;
-    rdfs:label "schema:DefinedTerm"@en .
+    rdfs:label "schema:DefinedTerm"@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty schema:name ;
+            owl:someValuesFrom schema:Text ] .
+
+schema:Text a rdfs:Datatype .
 
 schema:ContactPoint a owl:Class ;
     rdfs:label "schema:ContactPoint"@en .
 
 schema:Thing a owl:Class ;
     rdfs:label "schema:Thing"@en .
-
-schema:URL a rdfs:Datatype ;
-    rdfs:label "schema:URL"@en .
 
 foaf:Person a owl:Class ;
     rdfs:label "foaf:Person"@en .
@@ -319,7 +267,7 @@ triple:Project a owl:Class ;
 triple:Document a owl:Class ;
     rdfs:label "Document"@en .
 
-# Bridge Classes
+# Bridge Classes & Vocabulary Props
 skos:Concept a owl:Class ;
     rdfs:label "Concept"@en .
 
@@ -404,8 +352,8 @@ datacite:local-resource-identifier-scheme a datacite:IdentifierScheme, owl:Named
     rdfs:label "datacite:local-resource-identifier-scheme"@en .
 
 # Matches
-<http://purl.org/spar/fabio/Dataset> a owl:Class ;
-    rdfs:label "fabio:Dataset"@en .
+<http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> a owl:Class ;
+    rdfs:label "E90 Symbolic Object"@en .
 
-<https://sshoc.eu/ontology/SHE1_Dataset> a owl:Class ;
-    rdfs:label "SHE1 Dataset"@en .
+<http://purl.org/spar/fabio/Work> a owl:Class ;
+    rdfs:label "fabio:Work"@en .

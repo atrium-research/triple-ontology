@@ -1,33 +1,33 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
 # TRIPLE Ontology - Content_Types Vocabulary
 # Converted from RDF/XML to Turtle format
 # Original file: ContentType.rdf
 # License: CC BY 4.0
 # Website: https://gotriple.eu/ontology/triple
 
-@prefix ct: <https://gotriple.eu/ontology/triple/ContentType#> .
-@prefix coar: <https://vocabularies.coar-repositories.org/resource_types/> .
+@prefix ct: <https://gotriple.eu/ontology/triple/ContentType/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix vann1: <https://vocab.org/vann/> .
 
 <https://gotriple.eu/ontology/triple/ContentType> a owl:Ontology ;
-    rdfs:label "TRIPLE Content Types Vocabulary"@en ;
-    dcterms:title "TRIPLE Content Types Vocabulary"@en ;
-    dcterms:abstract "The Content Types vocabulary of the TRIPLE Ontology."@en ;
-    dcterms:description "Defines the types of content catalogued in the GoTriple platform (e.g., Article, Dataset, Video)."@en ;
-    dcterms:created "2021-12-01" ;
-    dcterms:modified "2025-12-22" ;
+    dcterms:title "Content Type Vocabulary"@en ;
+    dcterms:description "The Content Type vocabulary categorizes the different types of resources available in the TRIPLE platform, such as journal articles, datasets, images, and video. It includes mappings to the COAR Resource Type Vocabulary to ensure interoperability."@en ;
+    dcterms:abstract "A hierarchical controlled vocabulary for classifying the nature and genre of scholarly resources."@en ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
-    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
-    dcterms:publisher <https://www.gotriple.eu/> ;
-    owl:versionInfo "2.0.0" ;
-    schema:creativeWorkStatus "Content_Types documentation" .
+    owl:versionInfo "2.1.0" ;
+    vann:preferredNamespacePrefix "contenttype" ;
+    vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/ContentType/" ;
+    dcterms:created "2021-12-01"^^xsd:date ;
+    dcterms:modified "2025-12-24"^^xsd:date .
+
 
 triple:ContentType a owl:Class ;
     rdfs:label "Content Type"@en ;
@@ -37,127 +37,147 @@ ct:article a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Article"@en ;
     datacite:hasIdentifier ct:typ_article ;
-    skos:exactMatch coar:c_6501 .
+    rdfs:comment "A scholarly work that describes research results, published in a journal or other publication series."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6501> .
 
 ct:bibliography a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Bibliography"@en ;
     datacite:hasIdentifier ct:typ_bibliography ;
-    skos:exactMatch coar:c_86bc .
+    rdfs:comment "A systematic list of resources (books, articles, etc.) sharing specific characteristics."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_86bc> .
 
 ct:blog_post a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Blog post"@en ;
     datacite:hasIdentifier ct:typ_blog-post ;
-    skos:exactMatch coar:c_6947 .
+    rdfs:comment "A discrete entry or post in a blog."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6947> .
 
 ct:book a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Book"@en ;
     datacite:hasIdentifier ct:typ_book ;
-    skos:exactMatch coar:c_2f33 .
+    rdfs:comment "A non-serial publication that is complete in one volume or a finite number of volumes."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_2f33> .
 
 ct:book_part a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Book Part"@en ;
     datacite:hasIdentifier ct:typ_book-part ;
-    skos:definition "A defined chapter or section of a book, usually with a separate title or number"@en ;
-    skos:exactMatch coar:c_3248 .
+    rdfs:comment "A defined chapter or section of a book, usually with a separate title or number."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_3248> .
 
 ct:conference a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Conference"@en ;
     datacite:hasIdentifier ct:typ_conference ;
-    skos:exactMatch coar:c_c94f .
+    rdfs:comment "Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters)."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_c94f> .
 
 ct:dataset a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Dataset"@en ;
     datacite:hasIdentifier ct:typ_dataset ;
-    skos:exactMatch coar:c_ddb1 .
+    rdfs:comment "A collection of data, published or curated for a single agent or community."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_ddb1> .
 
 ct:image a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Image"@en ;
     datacite:hasIdentifier ct:typ_image ;
-    skos:exactMatch coar:c_c513 .
+    rdfs:comment "A visual representation other than text, such as a photograph or diagram."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_c513> .
 
 ct:learning_object a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Learning object"@en ;
     datacite:hasIdentifier ct:typ_learning-object ;
-    skos:exactMatch coar:c_e059 .
+    rdfs:comment "A resource designed to be used for learning or teaching."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_e059> .
 
 ct:manuscript a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Manuscript"@en ;
     datacite:hasIdentifier ct:typ_manuscript ;
-    skos:exactMatch coar:c_0040 .
+    rdfs:comment "A document written by hand or typewritten, as opposed to printed."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_0040> .
 
 ct:map a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Map"@en ;
     datacite:hasIdentifier ct:typ_map ;
-    skos:exactMatch coar:c_12cd .
+    rdfs:comment "A visual representation of an area."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_12cd> .
 
 ct:periodical a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Periodical"@en ;
     datacite:hasIdentifier ct:typ_periodical ;
-    skos:exactMatch coar:QX5C-AR31 .
+    rdfs:comment "A publication that appears at regular intervals, such as a journal, magazine, or newspaper."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31> .
 
 ct:preprint a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Preprint"@en ;
     datacite:hasIdentifier ct:typ_preprint ;
-    skos:exactMatch coar:c_816b .
+    rdfs:comment "A version of a scholarly paper that precedes formal peer review and publication."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_816b> .
 
 ct:report a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Report"@en ;
     datacite:hasIdentifier ct:typ_report ;
-    skos:exactMatch coar:c_93fc .
+    rdfs:comment "A document that presents information in an organized format for a specific audience and purpose."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_93fc> .
 
 ct:review a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Review"@en ;
     datacite:hasIdentifier ct:typ_review ;
-    skos:exactMatch coar:c_efa0 .
+    rdfs:comment "A critical evaluation of a book, article, or other work."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_efa0> .
 
 ct:software a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Software"@en ;
     datacite:hasIdentifier ct:typ_software ;
-    skos:exactMatch coar:c_5ce6 .
+    rdfs:comment "A set of instructions/programs used to operate computers and execute specific tasks."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_5ce6> .
 
 ct:sound a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Sound"@en ;
     datacite:hasIdentifier ct:typ_sound ;
-    skos:exactMatch coar:c_18cc .
+    rdfs:comment "An audio recording."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_18cc> .
 
 ct:text a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Text"@en ;
     datacite:hasIdentifier ct:typ_text ;
-    skos:exactMatch coar:c_18cf .
+    rdfs:comment "A written work or content consisting primarily of text."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_18cf> .
 
 ct:thesis a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Thesis"@en ;
     datacite:hasIdentifier ct:typ_thesis ;
-    skos:exactMatch coar:c_46ec .
+    rdfs:comment "A document submitted in support of candidature for an academic degree or professional qualification."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_46ec> .
 
 ct:video a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Video"@en ;
     datacite:hasIdentifier ct:typ_video ;
-    skos:exactMatch coar:c_12ce .
+    rdfs:comment "A recording of moving visual images."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_12ce> .
 
 ct:other a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Other"@en ;
-    datacite:hasIdentifier ct:typ_other .
+    datacite:hasIdentifier ct:typ_other ;
+    rdfs:comment "A content type that does not fit into other defined categories."@en .
 
 ct:typ_article a datacite:Identifier,
         owl:NamedIndividual .
@@ -229,84 +249,3 @@ ct:undefined a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Undefined"@en ;
     datacite:hasIdentifier ct:typ_undefined .
-
-coar:QX5C-AR31 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_0040 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_12cd a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_18cf a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_2f33 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_3248 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_46ec a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_5ce6 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_18cc a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_6501 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_6947 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_816b a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_86bc a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_93fc a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_c513 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_c94f a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_ddb1 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_e059 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_efa0 a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-
-coar:c_12ce a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:isDefinedBy "https://vocabularies.coar-repositories.org" .
-

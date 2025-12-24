@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>TRIPLE Project Module</title>
+    <title>Project</title>
     <link href="static/owl.css" rel="stylesheet" type="text/css" />
     <link href="static/yeti.css" rel="stylesheet" type="text/css" />
     <link href="static/rec.css" rel="stylesheet" type="text/css" />
@@ -16,8 +16,7 @@
 <body>
     <div class="container">
         <div class="head">
-            <div style="float:right">language <a href="index.html"><b>en</b></a> </div>
-            <h1>TRIPLE Project Module</h1>
+            <h1>Project</h1>
 
             <dl>
                 <dt>This version:</dt>
@@ -25,7 +24,7 @@
 
                 
                 <dt>Revision:</dt>
-                <dd>2.0.0</dd>
+                <dd>2.1.0</dd>
                 
 
                 
@@ -49,19 +48,9 @@
                 
 
                 
-                <dt>Publisher:</dt>
-                <dd>
-                    
-                    https://www.gotriple.eu/
-                    
-                </dd>
-                
 
                 
 
-                
-                <dt>License:</dt>
-                <dd><a href="https://creativecommons.org/licenses/by/4.0/" target="_blank">https://creativecommons.org/licenses/by/4.0/</a></dd>
                 
 
             </dl>
@@ -80,16 +69,27 @@
         </div>
         
 
+        
+        
+        
+        
+        
+        
+        
+        
+
         <div id="toc">
             <h2>Table of Contents</h2>
             <ul>
                 <li><a href="#introduction">1. Introduction</a></li>
                 <li><a href="#classes">2. Classes</a></li>
-                <li><a href="#objectproperties">3. Object Properties</a></li>
-                <li><a href="#dataproperties">4. Datatype Properties</a></li>
+                <li><a href="#objectproperties">3. Object Properties</a>
+                </li>
+                <li><a href="#dataproperties">4. Datatype
+                        Properties</a></li>
                 
                 
-                <li><a href="#namespacedeclarations">7. Namespaces</a></li>
+                <li><a href="#namespacedeclarations">5. Namespaces</a></li>
             </ul>
         </div>
 
@@ -97,7 +97,7 @@
 
         
         <div id="introduction">
-            <h2>Introduction</h2>
+            <h2>1. Introduction</h2>
             <div class="markdown">The Project module describes research projects and their funding structures. It defines the `triple:Project` class and links it to Grants (`schema:Grant`, `frapo:Grant`), Funding sources, and Organizations. It also includes the `triple:ProjectType` classification to categorize projects (e.g., EU-funded, National, Citizen Science).</div>
         </div>
         
@@ -105,14 +105,14 @@
         <hr />
 
         <div id="classes">
-            <h2>Classes</h2>
+            <h2>2. Classes</h2>
             <ul class="hlist">
                 
                 <li><a href="#http://www.cidoc-crm.org/cidoc-crm/E7_Activity" title="http://www.cidoc-crm.org/cidoc-crm/E7_Activity">E7 Activity</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple#Project" title="https://gotriple.eu/ontology/triple#Project">Project</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/Project" title="https://gotriple.eu/ontology/triple/Project">Project</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple#ProjectType" title="https://gotriple.eu/ontology/triple#ProjectType">Project Type</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/ProjectType" title="https://gotriple.eu/ontology/triple/ProjectType">Project Type</a></li>
                 
                 <li><a href="#https://sshoc.eu/ontology/SHE3_SSH_Project" title="https://sshoc.eu/ontology/SHE3_SSH_Project">SHE3 SSH Project</a></li>
                 
@@ -139,9 +139,11 @@
                 
 
                 
+
+                
             </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple#Project">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/Project">
                 <h3>Project
                     <sup class="type-c" title="c">
                         c
@@ -150,10 +152,23 @@
                         back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
                     </span>
                 </h3>
-                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#Project</p>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/Project</p>
                 
                 <div class="comment">
-                    <p>A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform.</p>
+                    <p>A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform.
+
+A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project. @en</p>
+                </div>
+                
+
+                
+                <div class="comment">
+                    <p><strong>Alternative Labels:</strong></p>
+                    <ul>
+                        
+                        <li>Project (Triple) @en</li>
+                        
+                    </ul>
                 </div>
                 
 
@@ -194,7 +209,7 @@
                         <ul class="restrictions">
                             
                             <li>
-                                <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">http://purl.org/spar/datacite/hasIdentifier</a>
+                                <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -216,19 +231,19 @@
                                 <span class="literal"> or </span>
                                 
                                 
-                                <a href="#https://gotriple.eu/ontology/triple#ID" title="https://gotriple.eu/ontology/triple#ID">triple:ID</a>
+                                <a href="#https://gotriple.eu/ontology/triple/ID" title="https://gotriple.eu/ontology/triple/ID">triple:ID</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 <span class="literal"> or </span>
                                 
                                 
-                                <a href="#https://gotriple.eu/ontology/triple#PID" title="https://gotriple.eu/ontology/triple#PID">triple:PID</a>
+                                <a href="#https://gotriple.eu/ontology/triple/PID" title="https://gotriple.eu/ontology/triple/PID">triple:PID</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 <span class="literal"> or </span>
                                 
                                 
-                                <a href="#https://gotriple.eu/ontology/triple#OriginalIdentifier" title="https://gotriple.eu/ontology/triple#OriginalIdentifier">triple:OriginalIdentifier</a>
+                                <a href="#https://gotriple.eu/ontology/triple/OriginalIdentifier" title="https://gotriple.eu/ontology/triple/OriginalIdentifier">triple:OriginalIdentifier</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -368,7 +383,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/keywords" title="https://schema.org/keywords">https://schema.org/keywords</a>
+                                <a href="#https://schema.org/keywords" title="https://schema.org/keywords">schema:keywords</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -464,7 +479,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/knowsAbout" title="https://schema.org/knowsAbout">https://schema.org/knowsAbout</a>
+                                <a href="#https://schema.org/knowsAbout" title="https://schema.org/knowsAbout">schema:knowsAbout</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -488,7 +503,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/mainEntityOfPage" title="https://schema.org/mainEntityOfPage">https://schema.org/mainEntityOfPage</a>
+                                <a href="#https://schema.org/mainEntityOfPage" title="https://schema.org/mainEntityOfPage">schema:mainEntityOfPage</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -512,7 +527,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/inLanguage" title="https://schema.org/inLanguage">https://schema.org/inLanguage</a>
+                                <a href="#https://schema.org/inLanguage" title="https://schema.org/inLanguage">schema:inLanguage</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -536,7 +551,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/dateCreated" title="https://schema.org/dateCreated">https://schema.org/dateCreated</a>
+                                <a href="#https://schema.org/dateCreated" title="https://schema.org/dateCreated">schema:dateCreated</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -552,7 +567,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/dateCreated" title="https://schema.org/dateCreated">https://schema.org/dateCreated</a>
+                                <a href="#https://schema.org/dateCreated" title="https://schema.org/dateCreated">schema:dateCreated</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -576,7 +591,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">https://schema.org/dateModified</a>
+                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">schema:dateModified</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -592,7 +607,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">https://schema.org/dateModified</a>
+                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">schema:dateModified</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -616,7 +631,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/contactPoint" title="https://schema.org/contactPoint">https://schema.org/contactPoint</a>
+                                <a href="#https://schema.org/contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -640,7 +655,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://gotriple.eu/ontology/triple#hasProjectType" title="https://gotriple.eu/ontology/triple#hasProjectType">has project type</a>
+                                <a href="#https://gotriple.eu/ontology/triple/hasProjectType" title="https://gotriple.eu/ontology/triple/hasProjectType">has project type</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -654,7 +669,7 @@
                                 
 
                                 
-                                <a href="#https://gotriple.eu/ontology/triple#ProjectType" title="https://gotriple.eu/ontology/triple#ProjectType">Project Type</a>
+                                <a href="#https://gotriple.eu/ontology/triple/ProjectType" title="https://gotriple.eu/ontology/triple/ProjectType">Project Type</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -664,7 +679,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://schema.org/name" title="https://schema.org/name">https://schema.org/name</a>
+                                <a href="#https://schema.org/name" title="https://schema.org/name">schema:name</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -705,7 +720,7 @@
                 
             </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple#ProjectType">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ProjectType">
                 <h3>Project Type
                     <sup class="type-c" title="c">
                         c
@@ -714,7 +729,9 @@
                         back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
                     </span>
                 </h3>
-                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#ProjectType</p>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ProjectType</p>
+                
+
                 
 
                 
@@ -725,7 +742,7 @@
                     <dt>has super-classes</dt>
                     <dd>
                         
-                        <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">http://www.w3.org/2004/02/skos/core#Concept</a>
+                        <a href="#http://www.w3.org/2004/02/skos/core#Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
                         <sup class="type-c" title="c">c</sup>
                         
                         
@@ -742,7 +759,7 @@
                     <dt>is in range of</dt>
                     <dd>
                         
-                        <a href="#https://gotriple.eu/ontology/triple#hasProjectType" title="https://gotriple.eu/ontology/triple#hasProjectType">has project type</a>
+                        <a href="#https://gotriple.eu/ontology/triple/hasProjectType" title="https://gotriple.eu/ontology/triple/hasProjectType">has project type</a>
                         <sup class="type-op" title="op">op</sup>
                         
                         
@@ -771,6 +788,8 @@
                 
 
                 
+
+                
             </div>
             
             <div class="entity" id="http://purl.org/cerif/frapo/Grant">
@@ -792,6 +811,8 @@
                 
 
                 
+
+                
             </div>
             
             <div class="entity" id="https://schema.org/Grant">
@@ -808,6 +829,8 @@
                 <div class="comment">
                     <p>A grant, typically financial or otherwise quantifiable, of resources</p>
                 </div>
+                
+
                 
 
                 
@@ -925,6 +948,8 @@
                 
 
                 
+
+                
                 <dl class="description">
                     
 
@@ -934,7 +959,7 @@
                     <dt>has sub-classes</dt>
                     <dd>
                         
-                        <a href="#https://gotriple.eu/ontology/triple#Project" title="https://gotriple.eu/ontology/triple#Project">Project</a>
+                        <a href="#https://gotriple.eu/ontology/triple/Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
                         <sup class="type-c" title="c">c</sup>
                         
                         
@@ -956,12 +981,12 @@
 
         
         <div id="objectproperties">
-            <h2>Object Properties</h2>
+            <h2>3. Object Properties</h2>
             <ul class="hlist">
                 
                 <li><a href="#http://purl.org/cerif/frapo/isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a></li>
                 
-                <li><a href="#https://gotriple.eu/ontology/triple#hasProjectType" title="https://gotriple.eu/ontology/triple#hasProjectType">has project type</a></li>
+                <li><a href="#https://gotriple.eu/ontology/triple/hasProjectType" title="https://gotriple.eu/ontology/triple/hasProjectType">has project type</a></li>
                 
                 <li><a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a></li>
                 
@@ -990,7 +1015,8 @@
         <p>Indicates that a research output is the result of a particular project.</p>
     </div>
     
-
+    
+    
     
     <dl class="description">
         
@@ -1003,7 +1029,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#https://gotriple.eu/ontology/triple#Project" title="https://gotriple.eu/ontology/triple#Project">Project</a>
+            <a href="#https://gotriple.eu/ontology/triple/Project" title="https://gotriple.eu/ontology/triple/Project"
+                target="_self">Project</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -1015,7 +1042,7 @@
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple#hasProjectType">
+            <div class="entity" id="https://gotriple.eu/ontology/triple/hasProjectType">
     <h3>has project type
         <sup class="type-op" title="op">
             op
@@ -1024,16 +1051,18 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple#hasProjectType</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasProjectType</p>
     
-
+    
+    
     
     <dl class="description">
         
         <dt>has super-properties</dt>
         <dd>
             
-            <a href="#http://purl.org/dc/terms/type" title="http://purl.org/dc/terms/type">http://purl.org/dc/terms/type</a>
+            <a href="http://purl.org/dc/terms/type" title="http://purl.org/dc/terms/type"
+                target="_blank">dcterms:type</a>
             <sup class="type-op" title="op">op</sup>
             
             
@@ -1048,7 +1077,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#https://gotriple.eu/ontology/triple#ProjectType" title="https://gotriple.eu/ontology/triple#ProjectType">Project Type</a>
+            <a href="#https://gotriple.eu/ontology/triple/ProjectType" title="https://gotriple.eu/ontology/triple/ProjectType"
+                target="_self">Project Type</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -1075,7 +1105,8 @@
         <p>The subject matter of the content</p>
     </div>
     
-
+    
+    
     
 </div>
             
@@ -1091,10 +1122,13 @@
     <p><strong>IRI:</strong> https://schema.org/funder</p>
     
     <div class="comment">
-        <p>A person or organization that supports through funding</p>
+        <p>A person or organization that supports through funding
+
+A person or organization that supports something through some kind of financial contribution @en</p>
     </div>
     
-
+    
+    
     
 </div>
             
@@ -1110,10 +1144,13 @@
     <p><strong>IRI:</strong> https://schema.org/funding</p>
     
     <div class="comment">
-        <p>A Grant that directly or indirectly provide funding or sponsorship for this item.</p>
+        <p>A Grant that directly or indirectly provide funding or sponsorship for this item.
+
+A grant, typically financial or otherwise quantifiable, of resources @en</p>
     </div>
     
-
+    
+    
     
 </div>
             
@@ -1132,7 +1169,8 @@
         <p>The organization who organizes the event or project.</p>
     </div>
     
-
+    
+    
     
     <dl class="description">
         
@@ -1145,7 +1183,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#https://schema.org/Organization" title="https://schema.org/Organization">https://schema.org/Organization</a>
+            <a href="https://schema.org/Organization" title="https://schema.org/Organization"
+                target="_blank">schema:Organization</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -1172,7 +1211,8 @@
         <p>A person or organization that supports a thing through a pledge, promise, or financial contribution</p>
     </div>
     
-
+    
+    
     
 </div>
             
@@ -1181,7 +1221,7 @@
 
         
         <div id="dataproperties">
-            <h2>Datatype Properties</h2>
+            <h2>4. Datatype Properties</h2>
             <ul class="hlist">
                 
                 <li><a href="#https://schema.org/alternateName" title="https://schema.org/alternateName">schema:alternateName</a></li>
@@ -1209,7 +1249,8 @@
         <p>An alias for the item</p>
     </div>
     
-
+    
+    
     
     <dl class="description">
         
@@ -1222,7 +1263,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</a>
+            <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+                target="_blank">rdf:langString</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -1249,7 +1291,8 @@
         <p>A description of the item</p>
     </div>
     
-
+    
+    
     
     <dl class="description">
         
@@ -1262,7 +1305,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">http://www.w3.org/1999/02/22-rdf-syntax-ns#langString</a>
+            <a href="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+                target="_blank">rdf:langString</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -1289,7 +1333,8 @@
         <p>The end date and time of the item</p>
     </div>
     
-
+    
+    
     
     <dl class="description">
         
@@ -1302,7 +1347,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">http://www.w3.org/2001/XMLSchema#date</a>
+            <a href="http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date"
+                target="_blank">xsd:date</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -1329,7 +1375,8 @@
         <p>The start date and time of the item</p>
     </div>
     
-
+    
+    
     
     <dl class="description">
         
@@ -1342,7 +1389,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date">http://www.w3.org/2001/XMLSchema#date</a>
+            <a href="http://www.w3.org/2001/XMLSchema#date" title="http://www.w3.org/2001/XMLSchema#date"
+                target="_blank">xsd:date</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -1362,7 +1410,7 @@
         
 
         <div id="namespacedeclarations">
-            <h2>Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <h2>5. Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>
@@ -1499,7 +1547,7 @@
                     
                     <tr>
                         <td>triple</td>
-                        <td>https://gotriple.eu/ontology/triple#</td>
+                        <td>https://gotriple.eu/ontology/triple/</td>
                     </tr>
                     
                     <tr>
