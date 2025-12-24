@@ -6,7 +6,7 @@ Return all entities mentioned by `document_1`.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?entity WHERE {
   triple:document_1 schema:mentions ?entity .
@@ -25,7 +25,7 @@ Return all documents mentioned by `document_89`.
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   triple:document_89 schema:mentions ?document .
@@ -46,7 +46,7 @@ Return all documents that mention `person_78`.
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   ?document a triple:Document ;
@@ -84,7 +84,7 @@ Return all organizations mentioned by `document_67`.
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?organization WHERE {
   triple:document_67 schema:mentions ?organization .
@@ -103,7 +103,7 @@ Return all people mentioned by `document_34`.
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?person WHERE {
   triple:document_34 schema:mentions ?person .
@@ -141,7 +141,7 @@ Return all entities mentioned by `document_67` with their types.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?entity ?type WHERE {
   triple:document_67 schema:mentions ?entity .

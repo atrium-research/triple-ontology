@@ -5,7 +5,7 @@
 Return all information about `profile_1`.
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?predicate ?object WHERE {
   triple:profile_1 ?predicate ?object .
@@ -22,7 +22,7 @@ Return all authors of `document_56` that are associated with a user account.
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?author ?account WHERE {
   triple:document_56 schema:author ?author .
@@ -44,7 +44,7 @@ Return all unassociated authors of `document_56` (authors without an account).
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?author ?name WHERE {
   triple:document_56 schema:author ?author .
@@ -63,7 +63,7 @@ Return all profiles associated with `account_109`.
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?profile ?name WHERE {
   ?profile foaf:account triple:account_109 ;
@@ -84,7 +84,7 @@ Return all documents authored by profiles associated with `account_109`.
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT DISTINCT ?document ?authorProfile WHERE {
   ?authorProfile foaf:account triple:account_109 .
@@ -108,7 +108,7 @@ Return all unassociated profiles (profiles without an account).
 ```sparql
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?profile ?name WHERE {
   ?profile a triple:Profile ;
@@ -119,4 +119,3 @@ SELECT ?profile ?name WHERE {
 
 **Expected Result:**
 - profile: profile_23, name: "Pierre Dupont"
-

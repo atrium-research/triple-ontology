@@ -6,7 +6,7 @@ Return all multimedia content available in the platform.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?multimedia ?title WHERE {
   ?multimedia a triple:MediaObject ;
@@ -26,7 +26,7 @@ Return all video content with their duration and encoding format.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?video ?title ?duration ?format WHERE {
   ?video a triple:MediaObject ;
@@ -48,7 +48,7 @@ Return all multimedia content with their file size and access conditions.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?multimedia ?title ?size ?access WHERE {
   ?multimedia a triple:MediaObject ;
@@ -71,7 +71,7 @@ Return all multimedia content that covers medieval history topics.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX sioc: <http://rdfs.org/sioc/ns#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -94,7 +94,7 @@ Return all audio recordings with their language and temporal coverage.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?audio ?title ?language ?temporal WHERE {
   ?audio a triple:MediaObject ;
@@ -117,7 +117,7 @@ Return all multimedia content with their providers.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?multimedia ?title ?provider WHERE {
   ?multimedia a triple:MediaObject ;
@@ -138,7 +138,7 @@ Return all multimedia content with Creative Commons licenses.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?multimedia ?title ?license WHERE {
   ?multimedia a triple:MediaObject ;
@@ -161,7 +161,7 @@ Return all multimedia content with their spatial coverage and subject topics.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX sioc: <http://rdfs.org/sioc/ns#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
@@ -186,7 +186,7 @@ Return all multimedia content that references other documents.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT ?multimedia ?title ?referencedDoc ?docTitle WHERE {
@@ -208,7 +208,7 @@ Return all multimedia content with their descriptive keywords.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?multimedia ?title ?keyword ?keywordName WHERE {
   ?multimedia a triple:MediaObject ;
@@ -231,7 +231,7 @@ Return all multimedia content that have DOI identifiers using class-based approa
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
@@ -256,7 +256,7 @@ Return all multimedia content that have Handle identifiers using class-based app
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
@@ -281,7 +281,7 @@ Return all multimedia content with platform identifiers by type.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
@@ -299,4 +299,3 @@ SELECT ?multimedia ?title ?identifierType ?value WHERE {
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:ID` → "TRIPLE_MEDIA_VIDEO_001"
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:PID` → "gotriple:media:video-medieval-carolingian"
 - `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:ID` → "TRIPLE_MEDIA_AUDIO_002"
-

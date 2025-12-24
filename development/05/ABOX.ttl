@@ -1,22 +1,18 @@
-@prefix : <https://gotriple.eu/ontology/triple#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <https://schema.org/> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@base <https://gotriple.eu/ontology/triple> .
 
-<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
-                                       owl:versionIRI <https://gotriple.eu/ontology/triple/1.0.0> .
 
 #################################################################
 #    Object Properties
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#inCluster
+###  https://gotriple.eu/ontology/triple/inCluster
 triple:inCluster rdf:type owl:ObjectProperty .
 
 
@@ -24,7 +20,7 @@ triple:inCluster rdf:type owl:ObjectProperty .
 #    Data properties
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#isDiscarded
+###  https://gotriple.eu/ontology/triple/isDiscarded
 triple:isDiscarded rdf:type owl:DatatypeProperty .
 
 
@@ -52,15 +48,15 @@ foaf:Document rdf:type owl:Class .
 foaf:Person rdf:type owl:Class .
 
 
-###  https://gotriple.eu/ontology/triple#Document
-:Document rdf:type owl:Class ;
-          rdfs:label "TRIPLE Document"@en ;
-          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
-          rdfs:subClassOf schema:CreativeWork ,
-                          foaf:Document .
+###  https://gotriple.eu/ontology/triple/Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "TRIPLE Document"@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+                rdfs:subClassOf schema:CreativeWork ,
+                                foaf:Document .
 
 
-###  https://gotriple.eu/ontology/triple#Cluster
+###  https://gotriple.eu/ontology/triple/Cluster
 triple:Cluster rdf:type owl:Class ;
                rdfs:label "Cluster"@en ;
                rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en .
@@ -72,48 +68,48 @@ triple:Cluster rdf:type owl:Class ;
 
 ###  Example 1: Two documents in the same cluster (deduplication)
 
-###  https://gotriple.eu/ontology/triple#cluster_45
+###  https://gotriple.eu/ontology/triple/cluster_45
 triple:cluster_45 rdf:type owl:NamedIndividual ,
                            triple:Cluster ;
                   datacite:hasIdentifier triple:identifier_45 ;
                   rdfs:comment "Cluster grouping duplicate documents document_7 and document_89"@en .
 
 
-###  https://gotriple.eu/ontology/triple#identifier_45
+###  https://gotriple.eu/ontology/triple/identifier_45
 triple:identifier_45 rdf:type owl:NamedIndividual ,
                               datacite:Identifier .
 
 
-###  https://gotriple.eu/ontology/triple#document_7
+###  https://gotriple.eu/ontology/triple/document_7
 triple:document_7 rdf:type owl:NamedIndividual ,
-                           :Document ;
+                           triple:Document ;
                   triple:inCluster triple:cluster_45 ;
                   rdfs:comment "First instance of the same document (from one source)"@en .
 
 
-###  https://gotriple.eu/ontology/triple#document_89
+###  https://gotriple.eu/ontology/triple/document_89
 triple:document_89 rdf:type owl:NamedIndividual ,
-                            :Document ;
+                            triple:Document ;
                    triple:inCluster triple:cluster_45 ;
                    rdfs:comment "Second instance of the same document (from another source)"@en .
 
 
 ###  Example 2: Document with discarded author
 
-###  https://gotriple.eu/ontology/triple#document_56
+###  https://gotriple.eu/ontology/triple/document_56
 triple:document_56 rdf:type owl:NamedIndividual ,
-                            :Document ;
+                            triple:Document ;
                    rdfs:comment "Document with two authors, one of which is discarded (author_567)"@en .
 
 
-###  https://gotriple.eu/ontology/triple#person_456
+###  https://gotriple.eu/ontology/triple/person_456
 triple:person_456 rdf:type owl:NamedIndividual ,
                            foaf:Person ;
                   triple:isDiscarded "false"^^xsd:boolean ;
                   rdfs:comment "Valid author (not discarded)"@en .
 
 
-###  https://gotriple.eu/ontology/triple#person_78
+###  https://gotriple.eu/ontology/triple/person_78
 triple:person_78 rdf:type owl:NamedIndividual ,
                           foaf:Person ;
                  triple:isDiscarded "true"^^xsd:boolean ;
@@ -122,24 +118,21 @@ triple:person_78 rdf:type owl:NamedIndividual ,
 
 ###  Example 3: Document with discarded keywords
 
-###  https://gotriple.eu/ontology/triple#document_67
+###  https://gotriple.eu/ontology/triple/document_67
 triple:document_67 rdf:type owl:NamedIndividual ,
-                            :Document ;
+                            triple:Document ;
                    rdfs:comment "Document with two keywords, both discarded"@en .
 
 
-###  https://gotriple.eu/ontology/triple#keyword_67
+###  https://gotriple.eu/ontology/triple/keyword_67
 triple:keyword_67 rdf:type owl:NamedIndividual ,
                            schema:DefinedTerm ;
                   triple:isDiscarded "true"^^xsd:boolean ;
                   rdfs:comment "First discarded keyword"@en .
 
 
-###  https://gotriple.eu/ontology/triple#keyword_90
+###  https://gotriple.eu/ontology/triple/keyword_90
 triple:keyword_90 rdf:type owl:NamedIndividual ,
                            schema:DefinedTerm ;
                   triple:isDiscarded "true"^^xsd:boolean ;
                   rdfs:comment "Second discarded keyword"@en .
-
-
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

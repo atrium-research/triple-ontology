@@ -3,7 +3,7 @@
 ### CQ_16.1: Find the TRIPLE class that exactly matches fabio:ScholarlyWork
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX fabio: <http://purl.org/spar/fabio/>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
@@ -21,7 +21,7 @@ WHERE {
 ### CQ_16.2: Find the TRIPLE class that exactly matches fabio:Dataset
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX fabio: <http://purl.org/spar/fabio/>
 
@@ -38,7 +38,7 @@ WHERE {
 ### CQ_16.3: Find alignment for Profile
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
@@ -56,7 +56,7 @@ WHERE {
 ### CQ_16.4: Check alignment for Project
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 
@@ -73,7 +73,7 @@ WHERE {
 ### CQ_16.5: Find matches for fabio:Work
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX fabio: <http://purl.org/spar/fabio/>
 

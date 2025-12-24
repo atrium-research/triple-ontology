@@ -6,7 +6,7 @@ Return all identifiers that use the DOI scheme.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?identifier WHERE {
   ?identifier a datacite:Identifier ;
@@ -25,7 +25,7 @@ Return the identifier scheme used by `identifier_23`.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?scheme WHERE {
   triple:identifier_23 datacite:usesIdentifierScheme ?scheme .
@@ -42,7 +42,7 @@ Return all documents that have a DOI identifier.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   ?document a triple:Document ;
@@ -81,7 +81,7 @@ Return all identifiers of `document_45` along with their schemes.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?identifier ?scheme WHERE {
   triple:document_45 datacite:hasIdentifier ?identifier .
@@ -101,7 +101,7 @@ Return the literal value of the DOI identifier for `document_1`.
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?value WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -119,7 +119,7 @@ Return all documents that have a DOI identifier using class-based approach.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   ?document a triple:Document ;
@@ -139,7 +139,7 @@ Return all documents that have an ISBN identifier.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   ?document a triple:Document ;
@@ -157,7 +157,7 @@ Return all documents that have an ISSN identifier using class-based approach.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   ?document a triple:Document ;
@@ -176,7 +176,7 @@ Return all identifier values by type using class-based approach.
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?type ?value WHERE {
   ?document a triple:Document ;
@@ -201,7 +201,7 @@ Return all identifiers and their schemes for `document_78`.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?identifier ?scheme WHERE {
   triple:document_78 datacite:hasIdentifier ?identifier .

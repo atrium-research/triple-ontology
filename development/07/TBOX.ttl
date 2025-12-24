@@ -1,16 +1,13 @@
-@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <https://schema.org/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@base <https://gotriple.eu/ontology/triple> .
-
 #################################################################
 #    Object Properties
 #################################################################
@@ -68,7 +65,7 @@ schema:mainEntityOfPage rdf:type owl:DatatypeProperty ;
                         rdfs:comment "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."@en ;
                         rdfs:range schema:URL .
 
-###  https://gotriple.eu/ontology/triple#hasProjectType
+###  https://gotriple.eu/ontology/triple/hasProjectType
 triple:hasProjectType rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf dcterms:type ;
                       rdfs:range triple:ProjectType ;
@@ -144,7 +141,7 @@ schema:URL rdf:type rdfs:Datatype ;
            rdfs:label "schema:URL"@en ;
            rdfs:comment "Data type: URL."@en .
 
-###  https://gotriple.eu/ontology/triple#ProjectType
+###  https://gotriple.eu/ontology/triple/ProjectType
 triple:ProjectType rdf:type owl:Class ;
                    rdfs:subClassOf skos:Concept ;
                    rdfs:label "Project Type"@en .
@@ -290,9 +287,4 @@ triple:Project rdf:type owl:Class ;
                                  owl:onProperty triple:hasProjectType ;
                                  owl:allValuesFrom triple:ProjectType
                                ] .
-
-
-
-
-
-
+                               

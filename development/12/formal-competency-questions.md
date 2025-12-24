@@ -8,7 +8,7 @@ Retrieve all semantic artifacts with their basic metadata (title, abstract, publ
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
 SELECT ?artifact ?title ?abstract ?publisherName WHERE {
@@ -31,7 +31,7 @@ Find semantic artifacts with DOI or Handle persistent identifiers
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
@@ -56,7 +56,7 @@ List all representation techniques used by semantic artifacts
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT DISTINCT ?technique WHERE {
   ?artifact a triple:SemanticArtefact ;
@@ -76,7 +76,7 @@ Find semantic artifacts and the documents that reference them
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT ?artifact ?artifactTitle ?document ?documentTitle WHERE {
@@ -98,7 +98,7 @@ Retrieve semantic artifacts with their file formats and download URLs
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?artifact ?title ?fileFormat WHERE {
   ?artifact a triple:SemanticArtefact ;
@@ -119,7 +119,7 @@ Return all semantic artifacts that have DOI identifiers using class-based approa
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
@@ -144,7 +144,7 @@ Return all semantic artifacts that have URI identifiers using class-based approa
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
@@ -169,7 +169,7 @@ Return all semantic artifacts with their identifier types and values.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
@@ -196,7 +196,7 @@ Return all semantic artifacts with their license.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?artifact ?title ?license WHERE {
@@ -219,7 +219,7 @@ Return all semantic artifacts with their access conditions.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
 SELECT ?artifact ?title ?access WHERE {
@@ -234,4 +234,3 @@ SELECT ?artifact ?title ?access WHERE {
 - `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "Open Access"
 - `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "Open Access"
 - `triple:ontology-medieval` → "Medieval Studies Ontology" → "Restricted Access"
-

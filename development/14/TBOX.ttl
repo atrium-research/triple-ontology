@@ -1,4 +1,4 @@
-@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -6,7 +6,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -15,8 +14,6 @@
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix frapo: <http://purl.org/cerif/frapo/> .
-@base <https://gotriple.eu/ontology/triple#> .
-
 #################################################################
 #    Object Properties
 #################################################################
@@ -42,13 +39,13 @@ schema:Project rdf:type owl:Class ;
                rdfs:label "schema:Project"@en ;
                rdfs:comment "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim."@en .
 
-###  https://gotriple.eu/ontology/triple#Project
+###  https://gotriple.eu/ontology/triple/Project
 triple:Project rdf:type owl:Class ;
                rdfs:label "Project"@en ;
                rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform."@en ;
                rdfs:subClassOf schema:Project .
 
-###  https://gotriple.eu/ontology/triple#Document
+###  https://gotriple.eu/ontology/triple/Document
 triple:Document rdf:type owl:Class ;
                 rdfs:label "Document"@en ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications and research outputs."@en ;
@@ -59,7 +56,7 @@ triple:Document rdf:type owl:Class ;
                                   owl:allValuesFrom triple:Project
                                 ] .
 
-###  https://gotriple.eu/ontology/triple#SemanticArtefact
+###  https://gotriple.eu/ontology/triple/SemanticArtefact
 triple:SemanticArtefact rdf:type owl:Class ;
                        rdfs:label "Semantic Artefact"@en ;
                        rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
@@ -74,7 +71,7 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                          owl:allValuesFrom schema:CreativeWork
                                        ] .
 
-###  https://gotriple.eu/ontology/triple#MediaObject
+###  https://gotriple.eu/ontology/triple/MediaObject
 triple:MediaObject rdf:type owl:Class ;
                    rdfs:label "Media Object"@en ;
                    rdfs:comment "A media object such as an image, video, audio, or other multimedia content used in SSH research."@en ;
@@ -88,7 +85,7 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:allValuesFrom schema:CreativeWork
                                    ] .
 
-###  https://gotriple.eu/ontology/triple#Dataset
+###  https://gotriple.eu/ontology/triple/Dataset
 triple:Dataset rdf:type owl:Class ;
                rdfs:label "Dataset"@en ;
                rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en ;

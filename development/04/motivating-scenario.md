@@ -37,4 +37,3 @@ Each document can have one or more associated keywords.
 
 `document_2` has one keyword `keyword_3`, as temporal subject `temporal_topic_3` and as a place `place_67` as spatial subject.
 
-

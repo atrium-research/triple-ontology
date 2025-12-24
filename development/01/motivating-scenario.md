@@ -11,7 +11,7 @@ The TRIPLE ontology defines a comprehensive model for representing documents in 
 
 **Ontological Design Decision**:
 
-The `triple:Document` class is defined in the TRIPLE namespace (`https://gotriple.eu/ontology/triple#`) as a subclass of:
+The `triple:Document` class is defined in the TRIPLE namespace (`https://gotriple.eu/ontology/triple/`) as a subclass of:
 - **`schema:CreativeWork`**: Aligns with Schema.org's widely-adopted model for creative works, enabling interoperability with web-based systems and search engines
 - **`foaf:Document`**: Ensures compatibility with the Friend-of-a-Friend vocabulary, a foundational semantic web standard for describing resources and documents
 

@@ -1,16 +1,11 @@
-@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <https://schema.org/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
-@base <https://gotriple.eu/ontology/triple> .
-
-<https://gotriple.eu/ontology/triple> rdf:type owl:Ontology ;
-                                       owl:versionInfo "1.0.0" .
 
 #################################################################
 #    Object Properties
@@ -30,8 +25,6 @@ foaf:account rdf:type owl:ObjectProperty .
 
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty .
-
-
 
 
 #################################################################
@@ -74,7 +67,7 @@ foaf:Person rdf:type owl:Class .
 schema:CreativeWork rdf:type owl:Class .
 
 
-###  https://gotriple.eu/ontology/triple#Profile
+###  https://gotriple.eu/ontology/triple/Profile
 triple:Profile rdf:type owl:Class ;
                rdfs:label "profile"@en ;
                rdfs:subClassOf [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
@@ -88,14 +81,14 @@ triple:Profile rdf:type owl:Class ;
 # Example 1: document_1 with associated profile
 # ============================================
 
-###  https://gotriple.eu/ontology/triple#document_1
+###  https://gotriple.eu/ontology/triple/document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
                            triple:Document ;
                   schema:author triple:profile_1 ;
                   rdfs:comment "Document with author profile_1 (associated with account_1)"@en .
 
 
-###  https://gotriple.eu/ontology/triple#profile_1
+###  https://gotriple.eu/ontology/triple/profile_1
 triple:profile_1 rdf:type owl:NamedIndividual ,
                           triple:Profile ;
                  datacite:hasIdentifier triple:agent_identifier_2345678998765 ;
@@ -104,7 +97,7 @@ triple:profile_1 rdf:type owl:NamedIndividual ,
                  rdfs:comment "Profile associated with account_1"@en .
 
 
-###  https://gotriple.eu/ontology/triple#profile_2
+###  https://gotriple.eu/ontology/triple/profile_2
 triple:profile_2 rdf:type owl:NamedIndividual ,
                           triple:Profile ;
                  datacite:hasIdentifier triple:agent_identifier_23456789efefert5 ;
@@ -113,7 +106,7 @@ triple:profile_2 rdf:type owl:NamedIndividual ,
                  rdfs:comment "Profile associated with account_1"@en .
 
 
-###  https://gotriple.eu/ontology/triple#account_1
+###  https://gotriple.eu/ontology/triple/account_1
 triple:account_1 rdf:type owl:NamedIndividual ,
                           foaf:OnlineAccount ;
                  datacite:hasIdentifier triple:account_identifier_1223rfgwe ;
@@ -124,7 +117,7 @@ triple:account_1 rdf:type owl:NamedIndividual ,
 # Example 2: document_56 with multiple authors
 # ============================================
 
-###  https://gotriple.eu/ontology/triple#document_56
+###  https://gotriple.eu/ontology/triple/document_56
 triple:document_56 rdf:type owl:NamedIndividual ,
                             triple:Document ;
                    schema:author triple:profile_56 ,
@@ -134,7 +127,7 @@ triple:document_56 rdf:type owl:NamedIndividual ,
                    rdfs:comment "Document with 4 authors: 3 associated with accounts (profile_56, profile_09, profile_123), 1 unassociated (profile_23)"@en .
 
 
-###  https://gotriple.eu/ontology/triple#profile_56
+###  https://gotriple.eu/ontology/triple/profile_56
 triple:profile_56 rdf:type owl:NamedIndividual ,
                            triple:Profile ;
                   datacite:hasIdentifier triple:agent_identifier_4563678 ;
@@ -143,7 +136,7 @@ triple:profile_56 rdf:type owl:NamedIndividual ,
                   rdfs:comment "Profile associated with account_109"@en .
 
 
-###  https://gotriple.eu/ontology/triple#profile_09
+###  https://gotriple.eu/ontology/triple/profile_09
 triple:profile_09 rdf:type owl:NamedIndividual ,
                            triple:Profile ;
                   datacite:hasIdentifier triple:agent_identifier_rfkgjnerfojgnel48567 ;
@@ -152,7 +145,7 @@ triple:profile_09 rdf:type owl:NamedIndividual ,
                   rdfs:comment "Profile associated with account_109"@en .
 
 
-###  https://gotriple.eu/ontology/triple#profile_123
+###  https://gotriple.eu/ontology/triple/profile_123
 triple:profile_123 rdf:type owl:NamedIndividual ,
                             triple:Profile ;
                    datacite:hasIdentifier triple:agent_identifier_peormcv ;
@@ -161,7 +154,7 @@ triple:profile_123 rdf:type owl:NamedIndividual ,
                    rdfs:comment "Profile associated with account_109"@en .
 
 
-###  https://gotriple.eu/ontology/triple#profile_23
+###  https://gotriple.eu/ontology/triple/profile_23
 triple:profile_23 rdf:type owl:NamedIndividual ,
                            triple:Profile ;
                   datacite:hasIdentifier triple:agent_identifier_ethterhjry764576 ;
@@ -169,7 +162,7 @@ triple:profile_23 rdf:type owl:NamedIndividual ,
                   rdfs:comment "Unassociated profile (no account)"@en .
 
 
-###  https://gotriple.eu/ontology/triple#account_109
+###  https://gotriple.eu/ontology/triple/account_109
 triple:account_109 rdf:type owl:NamedIndividual ,
                             foaf:OnlineAccount ;
                    datacite:hasIdentifier triple:account_identifier_124543twrfg34tfwredwe ;
@@ -180,19 +173,19 @@ triple:account_109 rdf:type owl:NamedIndividual ,
 # Additional documents for testing
 # ============================================
 
-###  https://gotriple.eu/ontology/triple#document_67
+###  https://gotriple.eu/ontology/triple/document_67
 triple:document_67 rdf:type owl:NamedIndividual ,
                             triple:Document ;
                    schema:author triple:profile_56 .
 
 
-###  https://gotriple.eu/ontology/triple#document_98
+###  https://gotriple.eu/ontology/triple/document_98
 triple:document_98 rdf:type owl:NamedIndividual ,
                             triple:Document ;
                    schema:author triple:profile_09 .
 
 
-###  https://gotriple.eu/ontology/triple#document_42
+###  https://gotriple.eu/ontology/triple/document_42
 triple:document_42 rdf:type owl:NamedIndividual ,
                             triple:Document ;
                    schema:author triple:profile_123 ,
@@ -254,6 +247,3 @@ triple:account_identifier_scheme rdf:type owl:NamedIndividual ,
 triple:agent_identifier_scheme rdf:type owl:NamedIndividual ,
                                         datacite:IdentifierScheme ;
                                rdfs:label "Agent Identifier Scheme"@en .
-
-
-###  Generated by the OWL API (version 4.5.26.2023-07-17T20:34:13Z) https://github.com/owlcs/owlapi

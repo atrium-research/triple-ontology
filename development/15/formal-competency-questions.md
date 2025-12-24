@@ -7,7 +7,7 @@ Return all entities mentioned in "Document1", regardless of type or source.
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?doc ?entityName WHERE {
     ?ann oa:hasTarget triple:Document1 ;
@@ -25,7 +25,7 @@ Return only external entities (e.g., Wikidata) mentioned in "Document1".
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?entity WHERE {
     ?ann oa:hasTarget triple:Document1 ;
@@ -41,13 +41,13 @@ Return only newly created local entities (Dual Typed or internal).
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?entity WHERE {
     ?ann oa:hasTarget triple:Document1 ;
          oa:hasBody ?entity .
     
-    FILTER (STRSTARTS(STR(?entity), "https://gotriple.eu/ontology/triple#"))
+    FILTER (STRSTARTS(STR(?entity), "https://gotriple.eu/ontology/triple/"))
 }
 ```
 
@@ -56,7 +56,7 @@ Retrieve all annotations connected to the document via `schema:mentions`.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX oa: <http://www.w3.org/ns/oa#>
 
 SELECT ?annotation ?body WHERE {
@@ -71,7 +71,7 @@ Return only Places mentioned.
 ```sparql
 PREFIX oa: <http://www.w3.org/ns/oa#>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?entity WHERE {
     ?ann oa:hasTarget triple:Document1 ;

@@ -1,16 +1,13 @@
-@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix fabio: <http://purl.org/spar/fabio/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix frapo: <http://purl.org/cerif/frapo/> .
-@base <https://gotriple.eu/ontology/triple#> .
-
 #################################################################
 #    Object Properties
 #################################################################
@@ -57,31 +54,31 @@ foaf:Agent rdf:type owl:Class ;
            rdfs:comment "An agent (person or organization)."@en .
 
 
-###  https://gotriple.eu/ontology/triple#Dataset
+###  https://gotriple.eu/ontology/triple/Dataset
 triple:Dataset rdf:type owl:Class ;
                skos:exactMatch fabio:Dataset .
 
 
-###  https://gotriple.eu/ontology/triple#Document
+###  https://gotriple.eu/ontology/triple/Document
 triple:Document rdf:type owl:Class ;
                 skos:exactMatch fabio:ScholarlyWork .
 
 
-###  https://gotriple.eu/ontology/triple#MediaObject
+###  https://gotriple.eu/ontology/triple/MediaObject
 triple:MediaObject rdf:type owl:Class ;
                    skos:closeMatch fabio:Work .
 
 
-###  https://gotriple.eu/ontology/triple#Profile
+###  https://gotriple.eu/ontology/triple/Profile
 triple:Profile rdf:type owl:Class ;
                skos:exactMatch foaf:Agent .
 
 
-###  https://gotriple.eu/ontology/triple#Project
+###  https://gotriple.eu/ontology/triple/Project
 triple:Project rdf:type owl:Class ;
                skos:closeMatch frapo:Grant .
 
 
-###  https://gotriple.eu/ontology/triple#SemanticArtefact
+###  https://gotriple.eu/ontology/triple/SemanticArtefact
 triple:SemanticArtefact rdf:type owl:Class ;
                         skos:closeMatch fabio:Work .

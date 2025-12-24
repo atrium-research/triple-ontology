@@ -6,7 +6,7 @@ What license is associated with `document_1`?
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?license WHERE {
   triple:document_1 triple:hasLicense ?license .
@@ -23,7 +23,7 @@ What are the access conditions for `document_2`?
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?accessConditions WHERE {
   triple:document_2 triple:hasAccessCondition ?accessConditions .
@@ -39,7 +39,7 @@ SELECT ?accessConditions WHERE {
 What type of document is `document_3`?
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?type WHERE {
   triple:document_3 triple:hasContentType ?type .
@@ -56,7 +56,7 @@ What disciplines is `document_4` associated with?
 
 ```sparql
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?discipline WHERE {
   triple:document_4 sioc:topic ?discipline .
@@ -74,7 +74,7 @@ What external entity does the license term `cc_by_4_0` match exactly?
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?externalEntity WHERE {
   triple:cc_by_4_0 skos:exactMatch ?externalEntity .
@@ -91,7 +91,7 @@ What external entities does the access term `open_access` closely match?
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?externalEntity WHERE {
   triple:open_access skos:closeMatch ?externalEntity .
@@ -109,7 +109,7 @@ Return all documents that are licensed under Creative Commons licenses (checking
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   ?document triple:hasLicense ?license .
@@ -127,7 +127,7 @@ SELECT ?document WHERE {
 Return all documents that are of type "Article" and are Open Access.
 
 ```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
   ?document triple:hasContentType triple:article ;
@@ -146,7 +146,7 @@ For a given document, return all its classification metadata (license, access co
 ```sparql
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?license ?access ?type ?discipline WHERE {
   OPTIONAL { triple:document_1 triple:hasLicense ?license . }
@@ -169,7 +169,7 @@ List all imported vocabulary modules in the ontology.
 
 ```sparql
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?vocabularyModule WHERE {
   <https://gotriple.eu/ontology/triple> owl:imports ?vocabularyModule .

@@ -6,7 +6,7 @@ Find the research projects that produced a specific document as an output.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 
 SELECT ?project ?projectName WHERE {
@@ -24,7 +24,7 @@ Find all research outputs produced by a specific research project.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 
 SELECT ?output ?outputName ?outputType WHERE {
@@ -45,7 +45,7 @@ Find all documents that reference or cite a specific semantic artefact.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT ?citingDocument ?documentName WHERE {
@@ -63,7 +63,7 @@ For a given dataset, find both its originating project and any documents that re
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
@@ -84,7 +84,7 @@ Find all research artifacts that use FRAPO properties to link to their originati
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 
 SELECT ?artifact ?artifactName ?project ?projectName WHERE {
@@ -106,7 +106,7 @@ Find all research artifacts (of any type) that were both produced by projects an
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple#>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX frapo: <http://purl.org/cerif/frapo/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 

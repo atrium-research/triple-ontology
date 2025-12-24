@@ -1,4 +1,4 @@
-@prefix : <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xml: <http://www.w3.org/XML/1998/namespace> .
@@ -6,7 +6,6 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -14,8 +13,6 @@
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix litre: <http://purl.org/spar/literal/> .
-@base <https://gotriple.eu/ontology/triple#> .
-
 #################################################################
 #    Annotation Properties
 #################################################################
@@ -210,7 +207,7 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
 #    Classes
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#Dataset
+###  https://gotriple.eu/ontology/triple/Dataset
 triple:Dataset rdf:type owl:Class ;
                rdfs:label "Dataset (Triple)"@en ;
                rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
@@ -380,7 +377,7 @@ datacite:IdentifierScheme rdf:type owl:Class ;
                           rdfs:label "datacite:IdentifierScheme"@en ;
                           rdfs:comment "A scheme that uniquely identifies entities of a particular type."@en .
 
-###  https://gotriple.eu/ontology/triple#ID
+###  https://gotriple.eu/ontology/triple/ID
 triple:ID rdf:type owl:Class ;
           rdfs:label "ID"@en ;
           rdfs:comment "Internal identifier used within the GoTriple platform for resource management."@en ;
@@ -395,7 +392,7 @@ triple:ID rdf:type owl:Class ;
                             owl:hasValue datacite:local-resource-identifier-scheme
                           ] .
 
-###  https://gotriple.eu/ontology/triple#PID
+###  https://gotriple.eu/ontology/triple/PID
 triple:PID rdf:type owl:Class ;
            rdfs:label "PID"@en ;
            rdfs:comment "Persistent identifier generated and exposed externally by the GoTriple platform."@en ;
@@ -410,7 +407,7 @@ triple:PID rdf:type owl:Class ;
                              owl:hasValue datacite:local-resource-identifier-scheme
                            ] .
 
-###  https://gotriple.eu/ontology/triple#OriginalIdentifier
+###  https://gotriple.eu/ontology/triple/OriginalIdentifier
 triple:OriginalIdentifier rdf:type owl:Class ;
                           rdfs:label "OriginalIdentifier"@en ;
                           rdfs:comment "Original identifier from the source system where the resource was harvested."@en ;
@@ -425,7 +422,7 @@ triple:OriginalIdentifier rdf:type owl:Class ;
                                             owl:hasValue datacite:local-resource-identifier-scheme
                                           ] .
 
-###  https://gotriple.eu/ontology/triple#DOI
+###  https://gotriple.eu/ontology/triple/DOI
 triple:DOI rdf:type owl:Class ;
            rdfs:label "DOI"@en ;
            rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en ;
@@ -440,7 +437,7 @@ triple:DOI rdf:type owl:Class ;
                              owl:hasValue datacite:doi
                            ] .
 
-###  https://gotriple.eu/ontology/triple#Handle
+###  https://gotriple.eu/ontology/triple/Handle
 triple:Handle rdf:type owl:Class ;
               rdfs:label "Handle"@en ;
               rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en ;
@@ -455,7 +452,7 @@ triple:Handle rdf:type owl:Class ;
                                 owl:hasValue datacite:handle
                               ] .
 
-###  https://gotriple.eu/ontology/triple#ISSN
+###  https://gotriple.eu/ontology/triple/ISSN
 triple:ISSN rdf:type owl:Class ;
             rdfs:label "ISSN"@en ;
             rdfs:comment "International Standard Serial Number - an eight-digit identifier used to uniquely identify serial publications."@en ;
@@ -470,7 +467,7 @@ triple:ISSN rdf:type owl:Class ;
                               owl:hasValue datacite:issn
                             ] .
 
-###  https://gotriple.eu/ontology/triple#ISBN
+###  https://gotriple.eu/ontology/triple/ISBN
 triple:ISBN rdf:type owl:Class ;
             rdfs:label "ISBN"@en ;
             rdfs:comment "International Standard Book Number - a numeric commercial book identifier assigned to books and book-like products."@en ;
@@ -490,21 +487,21 @@ triple:ISBN rdf:type owl:Class ;
 #    Individuals
 #################################################################
 
-###  https://gotriple.eu/ontology/triple#landing_page_url_schema
+###  https://gotriple.eu/ontology/triple/landing_page_url_schema
 triple:landing_page_url_schema rdf:type owl:NamedIndividual ,
                                         datacite:IdentifierScheme ;
                                rdfs:label "Landing Page URL"@en ;
                                rdfs:comment "URL of the landing page containing metadata and descriptive information about the document."@en .
 
 
-###  https://gotriple.eu/ontology/triple#full_text_url_schema
+###  https://gotriple.eu/ontology/triple/full_text_url_schema
 triple:full_text_url_schema rdf:type owl:NamedIndividual ,
                                      datacite:IdentifierScheme ;
                             rdfs:label "Full Text URL"@en ;
                             rdfs:comment "URL providing direct access to the full content of the document."@en .
 
 
-###  https://gotriple.eu/ontology/triple#source_url_schema
+###  https://gotriple.eu/ontology/triple/source_url_schema
 triple:source_url_schema rdf:type owl:NamedIndividual ,
                                   datacite:IdentifierScheme ;
                          rdfs:label "Source URL"@en ;
@@ -532,7 +529,7 @@ datacite:handle rdf:type owl:NamedIndividual ,
                 rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
 
 
-###  https://gotriple.eu/ontology/triple#issn_schema
+###  https://gotriple.eu/ontology/triple/issn_schema
 datacite:issn rdf:type owl:NamedIndividual ,
                        datacite:IdentifierScheme ;
               rdfs:label "datacite:issn"@en ;
