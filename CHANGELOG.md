@@ -15,6 +15,26 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+## [2.1.0] - 2025-12-24
+
+### 2025-12-24 - Refactoring: Global Terms Namespace Standardization
+
+**Type**: Refactoring
+
+**Description**:
+Standardized the ontology namespace URI from `https://gotriple.eu/ontology/triple#` to `https://gotriple.eu/ontology/triple/` (slash separator instead of hash) to align with best practices and resolve URI generation consistency issues.
+
+**Details**:
+- **Namespace Change**: Updated `TRIPLE` namespace URI to use a trailing slash `/` across the entire project.
+- **Development Iterations**: Updated all 16 iterations in `development/` (TBox and ABox) to use `triple:` prefix and slash-based URIs. Removed redundant `@base` and `owl:Ontology` declarations from development files.
+- **Source Vocabularies**: Standardized all vocabularies in `vocabularies/serializations/ttl/` to use the new namespace and removed manual ontology headers (delegated to build script).
+- **Ontology Modules**: Updated all module serializations in `ontology/modules/serializations/` to consistent `triple:` prefix usage.
+- **Build Script**: Updated `scripts/build.py` to generate headers with the correct slash-based namespace.
+- **Merge Script**: Updated `scripts/merge_iterations.py` to use the correct `TRIPLE` namespace definition.
+- **Main Ontology**: Consolidate `ontology/triple-ontology.ttl` now uses consistent `triple:` prefix for all TRIPLE-defined entities.
+
+**Author**: Alessandro Bertozzi
+
 ### 2025-12-23 - Refactoring: Vocabulary Standardization and Modularization
 
 **Type**: Refactoring / Enhancement
