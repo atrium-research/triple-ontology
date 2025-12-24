@@ -165,7 +165,7 @@ def merge_graphs(ttl_files):
     merged_graph = Graph()
 
     # Define common namespaces
-    TRIPLE = Namespace("https://gotriple.eu/ontology/triple#")
+    TRIPLE = Namespace("https://gotriple.eu/ontology/triple/")
     SCHEMA = Namespace("http://schema.org/")
     DATACITE = Namespace("http://purl.org/spar/datacite/")
     LITRE = Namespace("http://purl.org/spar/literal/")

@@ -79,7 +79,7 @@ def get_or_create_local_metadata(vocab_path, vocab_name):
     dcterms:description "{default_desc}"@en ;
     dcterms:abstract "Abstract for {vocab_name} vocabulary."@en ;
     vann:preferredNamespacePrefix "{default_prefix}" ;
-    vann:preferredNamespaceUri "{default_uri}#" .
+    vann:preferredNamespaceUri "{default_uri}/" .
 """
         with open(metadata_path, 'w') as f:
             f.write(ttl_content)
