@@ -33,13 +33,6 @@ schema:publisher rdf:type owl:ObjectProperty ;
 
 
 
-###  https://schema.org/funder
-schema:funder rdf:type owl:ObjectProperty ;
-              rdfs:label "schema:funder"@en ;
-              rdfs:comment "A person or organization that supports through funding"@en ;
-              rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
-
-
 ###  https://schema.org/provider
 schema:provider rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:provider"@en ;
@@ -117,12 +110,6 @@ triple:Document rdf:type owl:Class ;
           # Optional publisher (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty schema:publisher ;
-                            owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
-                          ] ;
-
-          # Optional funder (0 or more)
-          rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty schema:funder ;
                             owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                           ] ;
 

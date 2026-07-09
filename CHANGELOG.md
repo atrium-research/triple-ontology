@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Modification: Removed schema:funder from triple:Document (issue #42)
+
+**Type**: Modification
+
+**Iteration**: 03
+
+**Description**:
+Removed the `schema:funder` property declaration and the corresponding restriction on `triple:Document` from `development/03/TBOX.ttl`, since project funding is now modelled via `frapo:isOutputOf` linking documents to projects (grants keep their `schema:funder` from iteration 07). Updated CQ_3.1 in `development/03/formal-competency-questions.md` and `sparql/03.md`, the Document module serializations, and regenerated `ontology/triple.ttl`. Closes [#42](https://github.com/atrium-research/triple-ontology/issues/42).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Fix: Unbound default prefix broke merge of iterations 03 and 04
 
 **Type**: Modification

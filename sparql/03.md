@@ -15,7 +15,6 @@ SELECT DISTINCT ?roleType ?agent WHERE {
     schema:contributor,
     schema:publisher,
     schema:producer,
-    schema:funder,
     schema:provider,
     triple:aggregator,
     triple:primaryProducer

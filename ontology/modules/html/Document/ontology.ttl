@@ -47,9 +47,6 @@ triple:Document a owl:Class ;
             owl:onProperty schema:publisher ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:funder ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:provider ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
@@ -161,10 +158,6 @@ schema:contributor a owl:ObjectProperty ;
 
 schema:publisher a owl:ObjectProperty ;
     rdfs:label "schema:publisher"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-
-schema:funder a owl:ObjectProperty ;
-    rdfs:label "schema:funder"@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 schema:provider a owl:ObjectProperty ;
