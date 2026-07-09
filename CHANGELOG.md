@@ -15,6 +15,32 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: Multilingual labels from the Hackathon spreadsheet (issue #41)
+
+**Type**: Addition
+
+**Iterations**: 01, 06, 07, 10, 11, 12 (class labels) + vocabularies
+
+**Description**:
+Added Portuguese, Polish and French `rdfs:label`s from the Hackathon results ("GoTriple Ontology Labels" spreadsheet):
+- **Discipline**: added @pt and @pl to all 27 concepts (existing @de/@en/@fr/@it labels kept — the pre-existing French labels differ from the Hackathon ones and were preserved).
+- **Content Type**: added @pt/@pl/@fr to all 20 concepts in the sheet.
+- **Access Condition**: added @pt/@pl/@fr to all 8 concepts in the sheet.
+- **License**: added @pt/@pl/@fr to 12 concepts; the "CAIRN" row has no corresponding concept in the vocabulary and was skipped.
+- **Core classes**: added @pt/@pl/@fr labels to `triple:Document`, `triple:Project`, `triple:Dataset`, `triple:MediaObject` ("Multimedia"), `triple:SemanticArtefact` and `triple:Profile` in their owning iterations and module serializations (also fixed the missing @en tag on the Semantic Artefact label). The "Author" and "Software" rows of the classes sheet were skipped (no corresponding class: authors are `foaf:Person`/`triple:Profile`, software is the `ct:software` concept already translated).
+Rebuilt vocabularies, regenerated `ontology/triple.ttl` and refreshed all module serializations (TTL, RDF/XML, JSON-LD). Closes [#41](https://github.com/atrium-research/triple-ontology/issues/41).
+
+**Author**: Alessandro Bertozzi
+
+### 2026-07-10 - Fix: Leftover namespace-migration debris in ABox files of iterations 09, 10, 11
+
+**Type**: Modification
+
+**Description**:
+Removed dangling `eu/ontology/triple/1.0.0> .` line fragments (remnants of the removed `owl:versionIRI` declarations from the 2.1.0 namespace migration) in `development/09/ABOX.ttl`, `development/10/ABOX.ttl` and `development/11/ABOX.ttl`, and added the missing `sioc:` prefix declaration in `development/10/ABOX.ttl`. These files did not parse, so the SAMOD data tests of iterations 09–11 could not run. All 32 TBox/ABox files now parse cleanly.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Documentation: Removed redundant "Vocabulary" from vocabulary titles (issue #36)
 
 **Type**: Documentation

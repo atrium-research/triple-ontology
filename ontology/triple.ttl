@@ -57,7 +57,10 @@ oa:motivatedBy a owl:ObjectProperty ;
 
 triple:Dataset a owl:Class ;
     rdfs:label "Dataset"@en,
-        "Dataset (Triple)"@en ;
+        "Dataset (Triple)"@en,
+        "Jeu de Données"@fr,
+        "Zbiór Danych"@pl,
+        "Base de Dados"@pt ;
     rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en,
         "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -184,16 +187,13 @@ triple:Dataset a owl:Class ;
 
 triple:MediaObject a owl:Class ;
     rdfs:label "Media Object"@en,
-        "Media Object (Triple)"@en ;
+        "Media Object (Triple)"@en,
+        "Multimédia"@fr,
+        "Multimedia"@pl,
+        "Multimédia"@pt ;
     rdfs:comment "A media object such as an image, video, audio, or other multimedia content used in SSH research."@en,
         "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:CreativeWork ;
-            owl:onProperty dcterms:isReferencedBy ],
-        [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
         [ a owl:Restriction ;
@@ -280,12 +280,21 @@ triple:MediaObject a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:author ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:CreativeWork ;
+            owl:onProperty dcterms:isReferencedBy ],
         schema:MediaObject ;
     skos:closeMatch <http://purl.org/spar/fabio/Work>,
         <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> .
 
 triple:Profile a owl:Class ;
-    rdfs:label "profile"@en ;
+    rdfs:label "profile"@en,
+        "Profil"@fr,
+        "Profil"@pl,
+        "Perfil"@pt ;
     rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onClass datacite:Identifier ;
@@ -303,17 +312,13 @@ triple:Profile a owl:Class ;
     skos:exactMatch foaf:Agent .
 
 triple:SemanticArtefact a owl:Class ;
-    rdfs:label "Semantic Artefact",
-        "Semantic Artefact"@en ;
+    rdfs:label "Semantic Artefact"@en,
+        "Artefact Sémantique"@fr,
+        "Artefakt Semantyczny"@pl,
+        "Artefacto Semântico"@pt ;
     rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en,
         "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:CreativeWork ;
-            owl:onProperty dcterms:isReferencedBy ],
-        [ a owl:Restriction ;
             owl:onProperty schema:headline ;
             owl:someValuesFrom [ a rdfs:Datatype ;
                     owl:unionOf ( rdf:langString xsd:string ) ] ],
@@ -394,6 +399,12 @@ triple:SemanticArtefact a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom triple:ContentType ;
             owl:onProperty triple:hasContentType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:CreativeWork ;
+            owl:onProperty dcterms:isReferencedBy ],
         schema:CreativeWork,
         mod:SemanticArtefact ;
     skos:closeMatch <http://purl.org/spar/fabio/Work>,
@@ -753,35 +764,14 @@ triple:Discipline a owl:Class ;
 
 triple:Document a owl:Class ;
     rdfs:label "Document"@en,
-        "Document (Triple)"@en ;
+        "Document (Triple)"@en,
+        "Document"@fr,
+        "Dokument"@pl,
+        "Documento"@pt ;
     rdfs:comment "A document in the GoTriple platform, representing scholarly publications and research outputs."@en,
         "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts."@en,
         "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom triple:Discipline ;
-            owl:onProperty sioc:topic ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:License ;
-            owl:onProperty triple:hasLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:AccessCondition ;
-            owl:onProperty triple:hasAccessCondition ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:ContentType ;
-            owl:onProperty triple:hasContentType ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:mentions ;
-            owl:someValuesFrom oa:Annotation ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:keywords ;
-            owl:someValuesFrom schema:DefinedTerm ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:spatialCoverage ;
-            owl:someValuesFrom schema:Place ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:temporalCoverage ;
-            owl:someValuesFrom xsd:string ],
-        [ a owl:Restriction ;
             owl:onProperty datacite:hasIdentifier ;
             owl:someValuesFrom triple:OriginalIdentifier ],
         [ a owl:Restriction ;
@@ -811,6 +801,18 @@ triple:Document a owl:Class ;
             owl:onProperty datacite:hasIdentifier ;
             owl:someValuesFrom triple:PID ],
         [ a owl:Restriction ;
+            owl:onProperty schema:mentions ;
+            owl:someValuesFrom oa:Annotation ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:keywords ;
+            owl:someValuesFrom schema:DefinedTerm ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:spatialCoverage ;
+            owl:someValuesFrom schema:Place ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:temporalCoverage ;
+            owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:author ],
         [ a owl:Restriction ;
@@ -829,16 +831,28 @@ triple:Document a owl:Class ;
             owl:allValuesFrom schema:ContactPoint ;
             owl:onProperty schema:contactPoint ],
         [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
-        [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Class ;
                     owl:unionOf ( datacite:Identifier triple:DOI triple:Handle triple:ISSN triple:ISBN ) ] ;
             owl:onProperty datacite:hasIdentifier ],
         [ a owl:Restriction ;
+            owl:allValuesFrom triple:Discipline ;
+            owl:onProperty sioc:topic ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:License ;
+            owl:onProperty triple:hasLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:AccessCondition ;
+            owl:onProperty triple:hasAccessCondition ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:ContentType ;
+            owl:onProperty triple:hasContentType ],
+        [ a owl:Restriction ;
             owl:onClass triple:Cluster ;
             owl:onProperty triple:inCluster ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
         foaf:Document,
         schema:CreativeWork ;
     skos:exactMatch <http://purl.org/spar/fabio/ScholarlyWork>,
@@ -980,7 +994,10 @@ triple:PID a owl:Class ;
 
 triple:Project a owl:Class ;
     rdfs:label "Project"@en,
-        "Project (Triple)"@en ;
+        "Project (Triple)"@en,
+        "Projet"@fr,
+        "Projekt"@pl,
+        "Projeto"@pt ;
     rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform."@en,
         "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
     rdfs:subClassOf [ a owl:Restriction ;

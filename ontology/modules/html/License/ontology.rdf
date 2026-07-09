@@ -1,16 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:datacite="http://purl.org/spar/datacite/"
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:datacite="http://purl.org/spar/datacite/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:vann="http://purl.org/vocab/vann/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:triple="https://gotriple.eu/ontology/triple/"
 >
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/open_data">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:label xml:lang="en">Open Data</rdfs:label>
+    <rdfs:label xml:lang="pt">Dados Abertos</rdfs:label>
+    <rdfs:label xml:lang="pl">Otwarte dane</rdfs:label>
+    <rdfs:label xml:lang="fr">Données ouvertes</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_open-data">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">An open data license.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/microsoft_public_licence">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:label xml:lang="en">Microsoft Public Licence</rdfs:label>
+    <rdfs:label xml:lang="pt">Licença Pública Microsoft</rdfs:label>
+    <rdfs:label xml:lang="pl">Microsoft Public Licence (Ms-PL)</rdfs:label>
+    <rdfs:label xml:lang="fr">Licence Publique Microsoft</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_ms-pl">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">Microsoft Public License (MS-PL).</rdfs:comment>
+  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/microsoft_reciprocal_licence">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
     <rdfs:label xml:lang="en">Microsoft Reciprocal Licence</rdfs:label>
+    <rdfs:label xml:lang="pt">Licença Recíproca Microsoft</rdfs:label>
+    <rdfs:label xml:lang="pl">Microsoft Reciprocal License (Ms-RL)</rdfs:label>
+    <rdfs:label xml:lang="fr">Licence Réciproque Microsoft</rdfs:label>
     <datacite:hasIdentifier>
       <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_ms-rl">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -18,19 +47,38 @@
     </datacite:hasIdentifier>
     <rdfs:comment xml:lang="en">Microsoft Reciprocal License (MS-RL).</rdfs:comment>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/open_source">
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/creative_commons">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">Open source</rdfs:label>
+    <rdfs:label xml:lang="en">Creative Commons</rdfs:label>
+    <rdfs:label xml:lang="pt">Creative Commons</rdfs:label>
+    <rdfs:label xml:lang="pl">Creative Commons</rdfs:label>
+    <rdfs:label xml:lang="fr">Creative Commons</rdfs:label>
     <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_open-source">
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_creative-commons">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
       </datacite:Identifier>
     </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">An open source software license.</rdfs:comment>
+    <rdfs:comment xml:lang="en">A Creative Commons license.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/elra_licences">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:label xml:lang="en">ELRA licences</rdfs:label>
+    <rdfs:label xml:lang="pt">Licenças ELRA</rdfs:label>
+    <rdfs:label xml:lang="pl">Licencje ELRA</rdfs:label>
+    <rdfs:label xml:lang="fr">Licences ELRA</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_elra">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">License by ELRA.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/clarin_pub">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
     <rdfs:label xml:lang="en">Clarin Pub</rdfs:label>
+    <rdfs:label xml:lang="pt">Clarin Pub</rdfs:label>
+    <rdfs:label xml:lang="pl">CLARIN PUB</rdfs:label>
+    <rdfs:label xml:lang="fr">Clarin Pub</rdfs:label>
     <datacite:hasIdentifier>
       <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_clarin-pub">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -38,9 +86,64 @@
     </datacite:hasIdentifier>
     <rdfs:comment xml:lang="en">License for CLARIN Public endpoints.</rdfs:comment>
   </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/clarin-aca">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:label xml:lang="en">CLARIN-ACA</rdfs:label>
+    <rdfs:label xml:lang="pt">CLARIN-ACA</rdfs:label>
+    <rdfs:label xml:lang="pl">CLARIN ACA</rdfs:label>
+    <rdfs:label xml:lang="fr">CLARIN-ACA</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_clarin-aca">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">License for CLARIN Academic endpoints.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/open_source">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:label xml:lang="en">Open source</rdfs:label>
+    <rdfs:label xml:lang="pt">Código Aberto</rdfs:label>
+    <rdfs:label xml:lang="pl">Otwarty kod źródłowy</rdfs:label>
+    <rdfs:label xml:lang="fr">Open Source</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_open-source">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">An open source software license.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/other">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:label xml:lang="en">Other</rdfs:label>
+    <rdfs:label xml:lang="pt">Outros</rdfs:label>
+    <rdfs:label xml:lang="pl">Inne</rdfs:label>
+    <rdfs:label xml:lang="fr">Autre</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_other">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">Other license not listed in the vocabulary.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/clarin-res">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:label xml:lang="en">CLARIN-RES</rdfs:label>
+    <rdfs:label xml:lang="pt">CLARIN-RES</rdfs:label>
+    <rdfs:label xml:lang="pl">CLARIN RES</rdfs:label>
+    <rdfs:label xml:lang="fr">CLARIN-RES</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_clarin-res">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">License for CLARIN Restricted endpoints.</rdfs:comment>
+  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/meta-share">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
     <rdfs:label xml:lang="en">Meta-Share</rdfs:label>
+    <rdfs:label xml:lang="pt">Meta-Share</rdfs:label>
+    <rdfs:label xml:lang="pl">Meta-Share</rdfs:label>
+    <rdfs:label xml:lang="fr">Meta-Share</rdfs:label>
     <datacite:hasIdentifier>
       <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_meta-share">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -51,82 +154,15 @@
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/undefined">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
     <rdfs:label xml:lang="en">Undefined</rdfs:label>
+    <rdfs:label xml:lang="pt">Indefinido</rdfs:label>
+    <rdfs:label xml:lang="pl">Nieokreślone</rdfs:label>
+    <rdfs:label xml:lang="fr">Non défini</rdfs:label>
     <datacite:hasIdentifier>
       <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_undefined">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
       </datacite:Identifier>
     </datacite:hasIdentifier>
     <rdfs:comment xml:lang="en">License is undefined or unknown.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/creative_commons">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">Creative Commons</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_creative-commons">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">A Creative Commons license.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/microsoft_public_licence">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">Microsoft Public Licence</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_ms-pl">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">Microsoft Public License (MS-PL).</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/clarin-res">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">CLARIN-RES</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_clarin-res">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">License for CLARIN Restricted endpoints.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/open_data">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">Open Data</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_open-data">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">An open data license.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/elra_licences">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">ELRA licences</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_elra">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">License by ELRA.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/other">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">Other</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_other">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">Other license not listed in the vocabulary.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/License/clarin-aca">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:label xml:lang="en">CLARIN-ACA</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/License/lic_clarin-aca">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">License for CLARIN Academic endpoints.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:Ontology rdf:about="https://gotriple.eu/ontology/triple/License">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>

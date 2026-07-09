@@ -1,49 +1,30 @@
 [
   {
-    "@id": "http://xmlns.com/foaf/0.1/Organization",
+    "@id": "https://schema.org/Person",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An organization."
-      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "foaf:Organization"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:nf9e3d379fa0343b595aff067fdc44599b8"
-      },
-      {
-        "@id": "https://schema.org/Thing"
+        "@value": "Person"
       }
     ]
   },
   {
-    "@id": "_:nf9e3d379fa0343b595aff067fdc44599b8",
+    "@id": "http://purl.org/spar/datacite/hasIdentifier",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
+    "http://www.w3.org/2000/01/rdf-schema#label": [
       {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
+        "@language": "en",
+        "@value": "datacite:hasIdentifier"
       }
     ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
+    "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://schema.org/name"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
+        "@id": "http://purl.org/spar/datacite/Identifier"
       }
     ]
   },
@@ -61,18 +42,6 @@
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Person",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Person"
       }
     ]
   },
@@ -95,6 +64,45 @@
     ]
   },
   {
+    "@id": "http://xmlns.com/foaf/0.1/OnlineAccount",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:OnlineAccount"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b9"
+      }
+    ]
+  },
+  {
+    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b9",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onClass": [
+      {
+        "@id": "http://purl.org/spar/datacite/Identifier"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://purl.org/spar/datacite/hasIdentifier"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
     "@id": "http://xmlns.com/foaf/0.1/Agent",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -113,101 +121,14 @@
     ]
   },
   {
-    "@id": "http://purl.org/spar/literal/hasLiteralValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "litre:hasLiteralValue"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/Person",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A person."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:Person"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:nf9e3d379fa0343b595aff067fdc44599b7"
-      },
-      {
-        "@id": "https://schema.org/Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "https://schema.org/Person"
-      }
-    ]
-  },
-  {
-    "@id": "_:nf9e3d379fa0343b595aff067fdc44599b7",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/name"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Thing",
+    "@id": "http://purl.org/spar/datacite/Identifier",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:Thing"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/hasIdentifier",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:hasIdentifier"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://purl.org/spar/datacite/Identifier"
+        "@value": "datacite:Identifier"
       }
     ]
   },
@@ -272,20 +193,32 @@
       {
         "@language": "en",
         "@value": "profile"
+      },
+      {
+        "@language": "pt",
+        "@value": "Perfil"
+      },
+      {
+        "@language": "pl",
+        "@value": "Profil"
+      },
+      {
+        "@language": "fr",
+        "@value": "Profil"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:nf9e3d379fa0343b595aff067fdc44599b1"
+        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b1"
       },
       {
-        "@id": "_:nf9e3d379fa0343b595aff067fdc44599b2"
+        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b2"
       },
       {
-        "@id": "_:nf9e3d379fa0343b595aff067fdc44599b3"
+        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b3"
       },
       {
-        "@id": "_:nf9e3d379fa0343b595aff067fdc44599b4"
+        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b4"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
@@ -305,7 +238,7 @@
     ]
   },
   {
-    "@id": "_:nf9e3d379fa0343b595aff067fdc44599b1",
+    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b1",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -327,7 +260,7 @@
     ]
   },
   {
-    "@id": "_:nf9e3d379fa0343b595aff067fdc44599b2",
+    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b2",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -349,7 +282,7 @@
     ]
   },
   {
-    "@id": "_:nf9e3d379fa0343b595aff067fdc44599b3",
+    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -371,7 +304,7 @@
     ]
   },
   {
-    "@id": "_:nf9e3d379fa0343b595aff067fdc44599b4",
+    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b4",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -386,35 +319,44 @@
     ]
   },
   {
-    "@id": "http://xmlns.com/foaf/0.1/OnlineAccount",
+    "@id": "http://xmlns.com/foaf/0.1/Organization",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An organization."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "foaf:OnlineAccount"
+        "@value": "foaf:Organization"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:nf9e3d379fa0343b595aff067fdc44599b9"
+        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b8"
+      },
+      {
+        "@id": "https://schema.org/Thing"
       }
     ]
   },
   {
-    "@id": "_:nf9e3d379fa0343b595aff067fdc44599b9",
+    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b8",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
-    "http://www.w3.org/2002/07/owl#onClass": [
+    "http://www.w3.org/2002/07/owl#onDataRange": [
       {
-        "@id": "http://purl.org/spar/datacite/Identifier"
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://purl.org/spar/datacite/hasIdentifier"
+        "@id": "https://schema.org/name"
       }
     ],
     "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
@@ -425,14 +367,84 @@
     ]
   },
   {
-    "@id": "http://purl.org/spar/datacite/Identifier",
+    "@id": "http://purl.org/spar/literal/hasLiteralValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "litre:hasLiteralValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Thing",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "datacite:Identifier"
+        "@value": "schema:Thing"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Person",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A person."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:Person"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b7"
+      },
+      {
+        "@id": "https://schema.org/Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "https://schema.org/Person"
+      }
+    ]
+  },
+  {
+    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b7",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/name"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
       }
     ]
   },
