@@ -15,6 +15,15 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Fix: Broken fragment anchors in the module HTML documentation (issue #32)
+
+**Type**: Documentation
+
+**Description**:
+The generated module documentation pages used raw entity URIs as fragment anchors (`href="#<URI>"`). For external terms whose URI itself contains a `#` (e.g. `skos/core#Concept`, `oa#Annotation`, `rdf-syntax-ns#langString`), the resulting link contained a second unencoded `#`, which is invalid and breaks in-page navigation. Percent-encoded the inner `#` as `%23` in 196 anchors across the 11 module `index.html` pages (element `id`s stay raw: browsers percent-decode the fragment before ID matching). Closes [#32](https://github.com/atrium-research/triple-ontology/issues/32).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Modification: Completed COAR access_rights mapping of the Access Condition vocabulary (issue #31)
 
 **Type**: Modification
