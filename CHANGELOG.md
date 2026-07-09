@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Modification: Relaxed range of schema:headline and schema:abstract (issue #43)
+
+**Type**: Modification
+
+**Iterations**: 01, 10, 11, 12
+
+**Description**:
+Relaxed every `rdf:langString` constraint on `schema:headline` and `schema:abstract` to the union datatype `owl:unionOf (rdf:langString xsd:string)`, so that titles and abstracts arriving from providers without language metadata remain valid without fabricating language tags. Changed both the global `rdfs:range` axioms and the class restrictions (`owl:someValuesFrom` on `triple:Document` and `triple:SemanticArtefact`, `owl:allValuesFrom` on `triple:Dataset` and `triple:MediaObject`). The issue text mentions the Document module, but `rdfs:range` is a global axiom and the same constraint was declared in the Dataset, MediaObject and SemanticArtefact iterations/modules, so all occurrences were updated for coherence. Existing `rdf:langString` data remains valid; document-level language stays available via `schema:inLanguage`. Updated the four module serializations and regenerated `ontology/triple.ttl`. Closes [#43](https://github.com/atrium-research/triple-ontology/issues/43).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: datacite:ark admitted as identifier scheme (issue #40)
 
 **Type**: Addition

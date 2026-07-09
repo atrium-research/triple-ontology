@@ -161,11 +161,15 @@ triple:Document rdf:type owl:Class ;
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty schema:headline ;
-                                  owl:someValuesFrom rdf:langString
+                                  owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                       owl:unionOf ( rdf:langString xsd:string )
+                                                     ]
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty schema:abstract ;
-                                  owl:someValuesFrom rdf:langString
+                                  owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                       owl:unionOf ( rdf:langString xsd:string )
+                                                     ]
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty schema:encodingFormat ;

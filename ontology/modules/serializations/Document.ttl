@@ -66,10 +66,12 @@ triple:Document a owl:Class ;
             owl:someValuesFrom schema:Language ],
         [ a owl:Restriction ;
             owl:onProperty schema:headline ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:onProperty schema:abstract ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:onProperty schema:encodingFormat ;
             owl:someValuesFrom xsd:string ],
@@ -178,11 +180,13 @@ schema:inLanguage a owl:ObjectProperty ;
 
 schema:headline a owl:DatatypeProperty ;
     rdfs:label "schema:headline"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:encodingFormat a owl:DatatypeProperty ;
     rdfs:label "schema:encodingFormat"@en ;

@@ -96,13 +96,15 @@ schema:name rdf:type owl:DatatypeProperty ;
 schema:headline rdf:type owl:DatatypeProperty ;
                 rdfs:label "schema:headline"@en ;
                 rdfs:comment "Headline of the article."@en ;
-                rdfs:range rdf:langString .
+                rdfs:range [ rdf:type rdfs:Datatype ;
+                             owl:unionOf ( rdf:langString xsd:string ) ] .
 
 ###  https://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
                 rdfs:label "schema:abstract"@en ;
                 rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en ;
-                rdfs:range rdf:langString .
+                rdfs:range [ rdf:type rdfs:Datatype ;
+                             owl:unionOf ( rdf:langString xsd:string ) ] .
 
 ###  https://schema.org/dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
@@ -205,10 +207,12 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:allValuesFrom schema:DefinedTerm ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:headline ;
-                                     owl:allValuesFrom rdf:langString ] ,
+                                     owl:allValuesFrom [ rdf:type rdfs:Datatype ;
+                                                         owl:unionOf ( rdf:langString xsd:string ) ] ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:abstract ;
-                                     owl:allValuesFrom rdf:langString ] ,
+                                     owl:allValuesFrom [ rdf:type rdfs:Datatype ;
+                                                         owl:unionOf ( rdf:langString xsd:string ) ] ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:dateCreated ;
                                      owl:allValuesFrom xsd:date ] ,

@@ -100,13 +100,15 @@ schema:name rdf:type owl:DatatypeProperty ;
 schema:abstract rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:abstract" ;
                rdfs:comment "An abstract is a short description that summarizes a CreativeWork"@en ;
-               rdfs:range rdf:langString .
+               rdfs:range [ rdf:type rdfs:Datatype ;
+                            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 ###  https://schema.org/headline
 schema:headline rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:headline" ;
                rdfs:comment "Headline of the article"@en ;
-               rdfs:range rdf:langString .
+               rdfs:range [ rdf:type rdfs:Datatype ;
+                            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 ###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
@@ -287,11 +289,13 @@ triple:SemanticArtefact rdf:type owl:Class ;
                        rdfs:subClassOf mod:SemanticArtefact ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:headline ;
-                                        owl:someValuesFrom rdf:langString
+                                        owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                             owl:unionOf ( rdf:langString xsd:string ) ]
                                       ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:abstract ;
-                                        owl:someValuesFrom rdf:langString
+                                        owl:someValuesFrom [ rdf:type rdfs:Datatype ;
+                                                             owl:unionOf ( rdf:langString xsd:string ) ]
                                       ] ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:contributor ;

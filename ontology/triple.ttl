@@ -61,14 +61,8 @@ triple:Dataset a owl:Class ;
     rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en,
         "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:CreativeWork ;
-            owl:onProperty dcterms:isReferencedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:Place ;
-            owl:onProperty schema:spatialCoverage ],
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:contributor ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:publisher ],
@@ -78,9 +72,6 @@ triple:Dataset a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
             owl:onProperty schema:funding ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:ContactPoint ;
-            owl:onProperty schema:contactPoint ],
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
             owl:onProperty schema:mentions ],
@@ -110,13 +101,12 @@ triple:Dataset a owl:Class ;
                     owl:unionOf ( datacite:Identifier triple:ID triple:PID triple:OriginalIdentifier triple:DOI triple:Handle ) ] ;
             owl:onProperty datacite:hasIdentifier ],
         [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:author ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:headline ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:abstract ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
@@ -173,8 +163,20 @@ triple:Dataset a owl:Class ;
             owl:allValuesFrom triple:ContentType ;
             owl:onProperty triple:hasContentType ],
         [ a owl:Restriction ;
+            owl:allValuesFrom schema:Place ;
+            owl:onProperty schema:spatialCoverage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:ContactPoint ;
+            owl:onProperty schema:contactPoint ],
+        [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:contributor ],
+            owl:onProperty schema:author ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:CreativeWork ;
+            owl:onProperty dcterms:isReferencedBy ],
         dcat:Dataset,
         schema:Dataset ;
     skos:exactMatch <http://purl.org/spar/fabio/Dataset>,
@@ -193,6 +195,9 @@ triple:MediaObject a owl:Class ;
             owl:onProperty dcterms:isReferencedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:contributor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:publisher ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
@@ -201,13 +206,12 @@ triple:MediaObject a owl:Class ;
             owl:allValuesFrom schema:DefinedTerm ;
             owl:onProperty schema:keywords ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:Place ;
-            owl:onProperty schema:spatialCoverage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:headline ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:abstract ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
@@ -233,9 +237,6 @@ triple:MediaObject a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:duration ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:author ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:size ],
@@ -274,8 +275,11 @@ triple:MediaObject a owl:Class ;
             owl:allValuesFrom schema:ContactPoint ;
             owl:onProperty schema:contactPoint ],
         [ a owl:Restriction ;
+            owl:allValuesFrom schema:Place ;
+            owl:onProperty schema:spatialCoverage ],
+        [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:contributor ],
+            owl:onProperty schema:author ],
         schema:MediaObject ;
     skos:closeMatch <http://purl.org/spar/fabio/Work>,
         <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> .
@@ -311,10 +315,12 @@ triple:SemanticArtefact a owl:Class ;
             owl:onProperty dcterms:isReferencedBy ],
         [ a owl:Restriction ;
             owl:onProperty schema:headline ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:onProperty schema:abstract ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
@@ -764,13 +770,6 @@ triple:Document a owl:Class ;
             owl:allValuesFrom triple:ContentType ;
             owl:onProperty triple:hasContentType ],
         [ a owl:Restriction ;
-            owl:onClass triple:Cluster ;
-            owl:onProperty triple:inCluster ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
-        [ a owl:Restriction ;
             owl:onProperty schema:mentions ;
             owl:someValuesFrom oa:Annotation ],
         [ a owl:Restriction ;
@@ -790,10 +789,12 @@ triple:Document a owl:Class ;
             owl:someValuesFrom schema:Language ],
         [ a owl:Restriction ;
             owl:onProperty schema:headline ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:onProperty schema:abstract ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:onProperty schema:encodingFormat ;
             owl:someValuesFrom xsd:string ],
@@ -828,9 +829,16 @@ triple:Document a owl:Class ;
             owl:allValuesFrom schema:ContactPoint ;
             owl:onProperty schema:contactPoint ],
         [ a owl:Restriction ;
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
+        [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Class ;
                     owl:unionOf ( datacite:Identifier triple:DOI triple:Handle triple:ISSN triple:ISBN ) ] ;
             owl:onProperty datacite:hasIdentifier ],
+        [ a owl:Restriction ;
+            owl:onClass triple:Cluster ;
+            owl:onProperty triple:inCluster ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         foaf:Document,
         schema:CreativeWork ;
     skos:exactMatch <http://purl.org/spar/fabio/ScholarlyWork>,
@@ -869,7 +877,12 @@ schema:abstract a owl:DatatypeProperty ;
         "schema:abstract"@en ;
     rdfs:comment "An abstract is a short description that summarizes a CreativeWork"@en,
         "An abstract is a short description that summarizes a CreativeWork."@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ],
+        [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ],
+        [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:author a owl:ObjectProperty ;
     rdfs:label "schema:author"@en ;
@@ -892,7 +905,12 @@ schema:headline a owl:DatatypeProperty ;
         "schema:headline"@en ;
     rdfs:comment "Headline of the article"@en,
         "Headline of the article."@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ],
+        [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ],
+        [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:publisher a owl:ObjectProperty ;
     rdfs:label "schema:publisher"@en ;

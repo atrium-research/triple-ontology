@@ -47,10 +47,12 @@ triple:MediaObject a owl:Class ;
             owl:allValuesFrom schema:Place ;
             owl:onProperty schema:spatialCoverage ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:headline ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:abstract ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
@@ -154,11 +156,13 @@ schema:size a owl:DatatypeProperty ;
 
 schema:headline a owl:DatatypeProperty ;
     rdfs:label "schema:headline"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:dateCreated a owl:DatatypeProperty ;
     rdfs:label "schema:dateCreated"@en ;

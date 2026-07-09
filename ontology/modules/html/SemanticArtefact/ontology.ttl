@@ -37,10 +37,12 @@ triple:SemanticArtefact a owl:Class ;
             owl:onProperty dcterms:isReferencedBy ],
         [ a owl:Restriction ;
             owl:onProperty schema:headline ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:onProperty schema:abstract ;
-            owl:someValuesFrom rdf:langString ],
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
@@ -128,11 +130,13 @@ schema:CreativeWork a owl:Class ;
 # Properties
 schema:headline a owl:DatatypeProperty ;
     rdfs:label "schema:headline"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:dateCreated a owl:DatatypeProperty ;
     rdfs:label "schema:dateCreated"@en ;

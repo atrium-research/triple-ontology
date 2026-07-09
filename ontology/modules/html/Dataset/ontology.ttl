@@ -76,10 +76,12 @@ triple:Dataset a owl:Class ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:author ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:headline ],
         [ a owl:Restriction ;
-            owl:allValuesFrom rdf:langString ;
+            owl:allValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:abstract ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
@@ -187,11 +189,13 @@ schema:funding a owl:ObjectProperty ;
 
 schema:headline a owl:DatatypeProperty ;
     rdfs:label "schema:headline"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
-    rdfs:range rdf:langString .
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:comment a owl:DatatypeProperty ;
     rdfs:label "schema:comment"@en .
