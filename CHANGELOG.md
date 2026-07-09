@@ -15,6 +15,15 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: "Semantic artefact" concept in the Content Type vocabulary (issue #35)
+
+**Type**: Addition
+
+**Description**:
+Added `ct:semantic_artefact` ("Semantic artefact") to the Content Type controlled vocabulary (`vocabularies/serializations/ttl/ContentType.ttl`) with `skos:closeMatch` to the COAR Resource Type `semantic artefact` (GSZA-Y7V7), plus its `ct:typ_semantic-artefact` identifier individual, following the existing vocabulary pattern. Rebuilt with `build.py` and refreshed the ContentType module serializations (TTL, RDF/XML, JSON-LD). The module `index.html` still lists the previous concepts and will be regenerated with issue #34. Closes [#35](https://github.com/atrium-research/triple-ontology/issues/35).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Fix: datacite:hasIdentifer/usesIdentiferScheme typos in iteration 01 test data
 
 **Type**: Modification

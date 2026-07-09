@@ -26,7 +26,7 @@
     vann:preferredNamespacePrefix "contenttype" ;
     vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/ContentType/" ;
     dcterms:created "2021-12-01"^^xsd:date ;
-    dcterms:modified "2025-12-24"^^xsd:date .
+    dcterms:modified "2026-07-10"^^xsd:date .
 
 
 triple:ContentType a owl:Class ;
@@ -138,6 +138,13 @@ ct:review a owl:NamedIndividual,
     rdfs:comment "A critical evaluation of a book, article, or other work."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_efa0> .
 
+ct:semantic_artefact a owl:NamedIndividual,
+        triple:ContentType ;
+    rdfs:label "Semantic artefact"@en ;
+    datacite:hasIdentifier ct:typ_semantic-artefact ;
+    rdfs:comment "A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema."@en ;
+    skos:closeMatch <https://vocabularies.coar-repositories.org/resource_types/GSZA-Y7V7> .
+
 ct:software a owl:NamedIndividual,
         triple:ContentType ;
     rdfs:label "Software"@en ;
@@ -225,6 +232,9 @@ ct:typ_report a datacite:Identifier,
         owl:NamedIndividual .
 
 ct:typ_review a datacite:Identifier,
+        owl:NamedIndividual .
+
+ct:typ_semantic-artefact a datacite:Identifier,
         owl:NamedIndividual .
 
 ct:typ_software a datacite:Identifier,
