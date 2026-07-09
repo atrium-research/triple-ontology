@@ -15,6 +15,15 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Modification: Completed COAR access_rights mapping of the Access Condition vocabulary (issue #31)
+
+**Type**: Modification
+
+**Description**:
+Completed the alignment of `triple:conditions_of_access` with the COAR Access Rights vocabulary. All four COAR concepts were already mapped via `skos:exactMatch` (`open_access` → c_abf2, `restricted_access_or_use` → c_16ec, `embargoed_access` → c_f1cf, `metadata_only_access` → c_14cb); added `skos:closeMatch` for the remaining access-flavored local concepts: `closed_access` → c_14cb (following the OpenAIRE closedAccess ↔ COAR metadata-only convention) and `free_access` → c_abf2 (gratis vs libre distinction, hence closeMatch). `all_rights_reserved`, `public_domain`, `other` and `undefined` are rights/licensing statements with no COAR access-rights counterpart and remain unmapped. Rebuilt and refreshed the AccessCondition module serializations. Closes [#31](https://github.com/atrium-research/triple-ontology/issues/31).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: "Semantic artefact" concept in the Content Type vocabulary (issue #35)
 
 **Type**: Addition
