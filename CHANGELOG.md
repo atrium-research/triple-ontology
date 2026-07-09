@@ -15,6 +15,15 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Documentation: Removed redundant "Vocabulary" from vocabulary titles (issue #36)
+
+**Type**: Documentation
+
+**Description**:
+The documentation link tree listed the controlled vocabularies with a redundant "Vocabulary" suffix in their titles ("Content Type Vocabulary", "Discipline Vocabulary", "License Vocabulary", "Project Type Vocabulary" — Access Condition had already been normalized). Removed the suffix from `dcterms:title` in the vocabulary metadata sidecars, rebuilt with `build.py`, refreshed the module serializations (TTL, RDF/XML, JSON-LD) and patched `<title>`/`<h1>` in the corresponding `index.html` pages. Closes [#36](https://github.com/atrium-research/triple-ontology/issues/36).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Fix: Broken fragment anchors in the module HTML documentation (issue #32)
 
 **Type**: Documentation
