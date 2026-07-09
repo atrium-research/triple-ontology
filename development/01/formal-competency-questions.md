@@ -22,7 +22,7 @@ PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?ids WHERE {
-  triple:document_1 datacite:hasIdentifer ?ids .
+  triple:document_1 datacite:hasIdentifier ?ids .
 }
 ```
 
@@ -133,8 +133,8 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?url WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
-  ?identifier datacite:usesIdentiferScheme triple:landing_page_url_schema ;
+  triple:document_1 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme triple:landing_page_url_schema ;
               litre:hasLiteralValue ?url .
 }
 ```
@@ -149,8 +149,8 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?identifier ?scheme ?url WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
-  ?identifier datacite:usesIdentiferScheme ?scheme ;
+  triple:document_1 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme ?scheme ;
               litre:hasLiteralValue ?url .
   FILTER (?scheme IN (triple:landing_page_url_schema, triple:full_text_url_schema, triple:source_url_schema))
 }
@@ -166,8 +166,8 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?internal_id WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
-  ?identifier datacite:usesIdentiferScheme triple:internal_id_schema ;
+  triple:document_1 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme triple:internal_id_schema ;
               litre:hasLiteralValue ?internal_id .
 }
 ```
@@ -182,7 +182,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?internal_id WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
+  triple:document_1 datacite:hasIdentifier ?identifier .
   ?identifier a triple:ID ;
               litre:hasLiteralValue ?internal_id .
 }
@@ -198,8 +198,8 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?pid WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
-  ?identifier datacite:usesIdentiferScheme triple:pid_schema ;
+  triple:document_1 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme triple:pid_schema ;
               litre:hasLiteralValue ?pid .
 }
 ```
@@ -214,7 +214,7 @@ PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?pid WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
+  triple:document_1 datacite:hasIdentifier ?identifier .
   ?identifier a triple:PID ;
               litre:hasLiteralValue ?pid .
 }
@@ -230,8 +230,8 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?identifier ?scheme ?value WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
-  ?identifier datacite:usesIdentiferScheme ?scheme ;
+  triple:document_1 datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme ?scheme ;
               litre:hasLiteralValue ?value .
   FILTER (?scheme IN (triple:internal_id_schema, triple:pid_schema, triple:original_id_schema))
 }
@@ -247,7 +247,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://purl.org/spar/literal/>
 
 SELECT ?identifier ?type ?value WHERE {
-  triple:document_1 datacite:hasIdentifer ?identifier .
+  triple:document_1 datacite:hasIdentifier ?identifier .
   ?identifier a ?type ;
               litre:hasLiteralValue ?value .
   FILTER (?type IN (triple:ID, triple:PID, triple:OriginalIdentifier))
@@ -265,7 +265,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?document WHERE {
   ?document rdf:type triple:Document ;
-            datacite:hasIdentifer ?identifier .
+            datacite:hasIdentifier ?identifier .
   ?identifier a triple:ID .
 }
 ```

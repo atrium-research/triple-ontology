@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Fix: datacite:hasIdentifer/usesIdentiferScheme typos in iteration 01 test data
+
+**Type**: Modification
+
+**Iterations**: 01 (and 02 diagram)
+
+**Description**:
+Fixed the misspelled predicates `datacite:hasIdentifer` (in `development/01/ABOX.ttl`, `development/01/formal-competency-questions.md`, `sparql/01.md`, and the modelet diagrams of iterations 01 and 02) and `datacite:usesIdentiferScheme` (in the iteration 01 formal CQs): the ABox data did not satisfy the TBox restrictions and the queries only worked because they shared the same typo. Also repaired the scrambled `triple:document_45` block in the ABox, which used `hasIdentifer` for its `dc:type` concept and `usesIdentifierScheme` for its identifiers; it now reads `dc:type triple:type_7` and `datacite:hasIdentifier triple:identifier_67, triple:identifier_678`. PNG diagram exports still show the old label and will be regenerated with issue #34.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Modification: Relaxed range of schema:headline and schema:abstract (issue #43)
 
 **Type**: Modification
