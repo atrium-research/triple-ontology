@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: datacite:ark admitted as identifier scheme (issue #40)
+
+**Type**: Addition
+
+**Iteration**: 08
+
+**Description**:
+Added `datacite:ark` (Archival Resource Key, defined by the SPAR DataCite ontology) as an `owl:NamedIndividual` of `datacite:IdentifierScheme` in `development/08/TBOX.ttl`, alongside `datacite:doi`, `datacite:issn`, `datacite:isbn` and `datacite:handle`. Updated the iteration 08 glossary, the Document module serializations, and regenerated `ontology/triple.ttl`. Identifiers can now use ARK via `datacite:usesIdentifierScheme datacite:ark`. Closes [#40](https://github.com/atrium-research/triple-ontology/issues/40).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Modification: Removed schema:funder from triple:Document (issue #42)
 
 **Type**: Modification
