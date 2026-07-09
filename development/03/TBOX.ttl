@@ -48,7 +48,7 @@ schema:provider rdf:type owl:ObjectProperty ;
 
 
 ###  https://gotriple.eu/ontology/triple/aggregator
-:aggregator rdf:type owl:ObjectProperty ;
+triple:aggregator rdf:type owl:ObjectProperty ;
             rdfs:label "aggregator"@en ;
             rdfs:comment "An aggregator that collates resources from different sources"@en ;
             rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
@@ -134,7 +134,7 @@ triple:Document rdf:type owl:Class ;
 
           # Optional aggregator (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty :aggregator ;
+                            owl:onProperty triple:aggregator ;
                             owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                           ] ;
 

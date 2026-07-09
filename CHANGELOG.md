@@ -15,6 +15,15 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Fix: Unbound default prefix broke merge of iterations 03 and 04
+
+**Type**: Modification
+
+**Description**:
+Fixed leftover bare `:` prefix usages from the 2.1.0 namespace migration (`:aggregator` in `development/03/TBOX.ttl`, `:Document` in `development/04/TBOX.ttl`, several individuals in `development/01/ABOX.ttl`). The undeclared prefix made `rdflib` fail to parse those files, and `merge_iterations.py` silently skipped them (errors are only logged): the consolidated `ontology/triple.ttl` was missing all axioms from iterations 03 and 04 (Document actor restrictions such as `schema:author`, `schema:publisher`, `triple:aggregator`, and the keywords/spatial/temporal coverage restrictions). Replaced bare `:` with the `triple:` prefix and regenerated `ontology/triple.ttl` (1303 → 1432 triples).
+
+**Author**: Alessandro Bertozzi
+
 ## [2.1.0] - 2025-12-24
 
 ### 2025-12-24 - Refactoring: Global Terms Namespace Standardization
