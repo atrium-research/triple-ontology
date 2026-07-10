@@ -13,6 +13,19 @@ Each entry follows this structure:
 
 ---
 
+## [Unreleased]
+
+### 2026-07-10 - Refactoring: sparql/ folder rebuilt as a mirror of the iteration competency questions
+
+**Type**: Refactoring
+
+**Iteration**: 16 (CQ fix); sparql/ folder
+
+**Description**:
+The `sparql/` folder (7 files covering iterations 01-07) had drifted from the model: legacy `triple#` namespace, queries using the dropped SPAR PRO role pattern (`pro:isDocumentContextFor`) and the removed `triple:alsoKnownAs` property, wrong iteration headers. Rebuilt it as a complete mirror of the current `development/NN/formal-competency-questions.md` for all 18 iterations, with a README stating the sync rule (edit the iteration file, then re-copy). Also fixed the malformed CQ_16.5 in iteration 16 (`?tripleClass (?p) fabio:Work` is invalid SPARQL — a variable cannot appear in a property path). All 153 queries verified executable with rdflib against their iteration's TBox+ABox (153/153 pass).
+
+**Author**: Alessandro Bertozzi
+
 ## [2.2.0] - 2026-07-10
 
 ### 2026-07-10 - Release 2.2.0
