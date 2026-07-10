@@ -40,6 +40,14 @@ datacite:usesIdentifierScheme rdf:type owl:ObjectProperty .
 litre:hasLiteralValue rdf:type owl:DatatypeProperty .
 
 
+###  https://schema.org/datePublished
+<https://schema.org/datePublished> rdf:type owl:DatatypeProperty .
+
+
+###  https://schema.org/dateModified
+<https://schema.org/dateModified> rdf:type owl:DatatypeProperty .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -111,7 +119,9 @@ triple:document_1 rdf:type owl:NamedIndividual ,
             <https://schema.org/abstract> "Cet article examine le rôle transformateur des humanités numériques dans la recherche en sciences humaines et sociales."@fr ;
             <https://schema.org/abstract> "Cet article examine le rôle transformateur des humanités numériques dans la recherche en sciences humaines et sociales."@fr ;
             dcterms:source triple:document_journal ;
-            <https://schema.org/encodingFormat> "application/pdf" .
+            <https://schema.org/encodingFormat> "application/pdf" ;
+            <https://schema.org/datePublished> "2021-05-03"^^xsd:date ;
+            <https://schema.org/dateModified> "2023-11-15"^^xsd:date .
 
 
 ###  triple:document_31
@@ -123,7 +133,8 @@ triple:document_31 rdf:type owl:NamedIndividual ,
              <https://schema.org/inLanguage> triple:language_10 ;
              <https://schema.org/headline> "Migration Patterns in 20th Century Europe"@en ;
              <https://schema.org/abstract> "An analysis of migration flows across European countries during the twentieth century."@en ;
-             <https://schema.org/encodingFormat> "text/html" .
+             <https://schema.org/encodingFormat> "text/html" ;
+             <https://schema.org/datePublished> "2019-09-20"^^xsd:date .
 
 
 ###  triple:document_45

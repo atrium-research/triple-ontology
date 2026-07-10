@@ -80,6 +80,18 @@ triple:Document a owl:Class ;
             owl:onProperty schema:encodingFormat ;
             owl:someValuesFrom xsd:string ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:datePublished ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:datePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:date ;
+            owl:onProperty schema:dateModified ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty schema:dateModified ],
+        [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty triple:originalType ],
         [ a owl:Restriction ;
@@ -219,6 +231,16 @@ schema:abstract a owl:DatatypeProperty ;
 schema:encodingFormat a owl:DatatypeProperty ;
     rdfs:label "schema:encodingFormat"@en ;
     rdfs:range xsd:string .
+
+schema:datePublished a owl:DatatypeProperty ;
+    rdfs:label "schema:datePublished"@en ;
+    rdfs:comment "Date of first publication of the document, normalized to ISO 8601 (yyyy-mm-dd)."@en ;
+    rdfs:range xsd:date .
+
+schema:dateModified a owl:DatatypeProperty ;
+    rdfs:label "schema:dateModified"@en ;
+    rdfs:comment "Date on which the document record was most recently modified in the GoTriple index."@en ;
+    rdfs:range xsd:date .
 
 sioc:topic a owl:ObjectProperty ;
     rdfs:label "sioc:topic"@en ;

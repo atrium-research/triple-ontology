@@ -282,3 +282,21 @@ SELECT ?source WHERE {
   triple:document_1 dcterms:source ?source .
 }
 ```
+
+## CQ_1.20
+
+Return the publication date and the last modification date of `triple:document_1`.
+
+```
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+PREFIX schema: <https://schema.org/>
+
+SELECT ?datePublished ?dateModified WHERE {
+  triple:document_1 schema:datePublished ?datePublished .
+  OPTIONAL { triple:document_1 schema:dateModified ?dateModified . }
+}
+```
+
+**Expected result:**
+- `datePublished` → "2021-05-03"^^xsd:date
+- `dateModified` → "2023-11-15"^^xsd:date

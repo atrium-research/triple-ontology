@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: datePublished and dateModified restrictions on Document (issue #39)
+
+**Type**: Addition
+
+**Iteration**: 01
+
+**Description**:
+The gap analysis against the LUMEN ADR 005 "GoTriple Data Model revision" (issue [#39](https://github.com/atrium-research/triple-ontology/issues/39)) confirmed that `triple:Document` had no publication/modification date modeling: `schema:datePublished` was declared (iteration 03) but carried no restriction on Document, while Dataset, MediaObject and SemanticArtefact already follow the date pattern. Added `schema:datePublished` (`date_published` field) and `schema:dateModified` (`last_modified_timestamp` field) to iteration 01 ("TRIPLE Document - Core Metadata Model") with the standard date-pattern restrictions (`owl:allValuesFrom xsd:date` + `owl:maxCardinality 1`, both optional); dates exemplified in the ABox and covered by the new competency question CQ_1.20. Merged into `ontology/triple.ttl`; Document module serializations updated. Note: `date_created` is intentionally not added to Document — the ADR defines it only for Dataset, SemanticArtefact and MediaObject, which already have it.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: Iteration 18 — Enrichment metadata (issue #38, part 2)
 
 **Type**: Addition

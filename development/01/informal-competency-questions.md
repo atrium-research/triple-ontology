@@ -220,3 +220,21 @@ The source entity (or string).
 
 ### Based on
 Example 1
+
+## Question 16
+
+### Identifier
+CQ_1.20
+
+### Question
+Return the publication date and the last modification date of `document_1`.
+
+### Expected Outcome
+The publication date and, if present, the last modification date of the document, as ISO 8601 dates.
+
+### Result
+* `2021-05-03` → publication date
+* `2023-11-15` → last modification date
+
+### Based on
+Example 1
