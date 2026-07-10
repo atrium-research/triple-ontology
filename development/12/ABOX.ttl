@@ -10,6 +10,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix litre: <http://purl.org/spar/literal/> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
 
 #################################################################
 #    Individuals
@@ -43,6 +44,7 @@ triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
                                            triple:identifier-thesaurus-uri ;
                     triple:hasLicense triple:cc_by_4_0 ;
                     triple:hasAccessCondition triple:open_access ;
+                    adms:representationTechnique <http://purl.org/adms/representationtechnique/SKOS> ;
                     dcterms:isReferencedBy triple:document-dh-methodology .
 
 ###  Example 2: SKOS Art History Vocabulary
@@ -337,6 +339,12 @@ triple:document-dh-methodology rdf:type triple:Document ;
 triple:document-carolingian rdf:type triple:Document ;
                            schema:headline "Carolingian Renaissance Research Article"@en ;
                            schema:abstract "Analysis of cultural and educational reforms during the Carolingian period"@en .
+
+###  Representation Techniques (ADMS controlled vocabulary)
+<http://purl.org/adms/representationtechnique/SKOS> rdf:type owl:NamedIndividual ,
+                                                             skos:Concept ;
+                    rdfs:label "SKOS"@en ;
+                    rdfs:comment "Representation technique from the ADMS controlled vocabulary: the artefact is expressed in the Simple Knowledge Organization System."@en .
 
 ###  Licenses
 triple:cc_by_4_0 rdf:type owl:NamedIndividual ,

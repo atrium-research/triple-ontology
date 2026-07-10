@@ -99,6 +99,13 @@ datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
                               rdfs:comment "The reference identifier scheme used to identify the entity."@en ;
                               rdfs:range datacite:IdentifierScheme .
 
+###  http://www.w3.org/ns/dcat#theme
+dcat:theme rdf:type owl:ObjectProperty ;
+           rdfs:label "dcat:theme"@en ;
+           rdfs:comment "A main category of the dataset, as originally assigned by the source provider (e.g. a concept from the provider's thematic vocabulary). Distinct from sioc:topic, which carries the automatically assigned TRIPLE disciplines."@en ;
+           rdfs:subPropertyOf dcterms:subject ;
+           rdfs:range skos:Concept .
+
 ###  http://www.w3.org/ns/dcat#bbox
 dcat:bbox rdf:type owl:DatatypeProperty ;
           rdfs:label "dcat:bbox"@en ;
@@ -257,6 +264,9 @@ triple:Dataset rdf:type owl:Class ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty dcterms:isReferencedBy ;
                                owl:allValuesFrom owl:Thing ] ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                               owl:onProperty dcat:theme ;
+                               owl:allValuesFrom skos:Concept ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:temporalCoverage ;
                                owl:allValuesFrom xsd:string ] ;

@@ -121,6 +121,9 @@ triple:Dataset a owl:Class ;
             owl:allValuesFrom triple:Document ;
             owl:onProperty dcterms:isReferencedBy ],
         [ a owl:Restriction ;
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty dcat:theme ],
+        [ a owl:Restriction ;
             owl:allValuesFrom schema:URL ;
             owl:onProperty schema:mainEntityOfPage ],
         [ a owl:Restriction ;
@@ -183,6 +186,12 @@ schema:CreativeWork a owl:Class ;
     rdfs:label "schema:CreativeWork"@en .
 
 # Properties
+dcat:theme a owl:ObjectProperty ;
+    rdfs:label "dcat:theme"@en ;
+    rdfs:comment "A main category of the dataset, as originally assigned by the source provider. Distinct from sioc:topic, which carries the automatically assigned TRIPLE disciplines."@en ;
+    rdfs:subPropertyOf dcterms:subject ;
+    rdfs:range skos:Concept .
+
 dcat:bbox a owl:DatatypeProperty ;
     rdfs:label "dcat:bbox"@en ;
     rdfs:comment "The bounding box of the dataset, expressed as a literal (e.g., WKT)."@en ;

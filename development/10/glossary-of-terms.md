@@ -46,3 +46,4 @@
 | `triple:AccessCondition`       | Bridge class for access rights, subclass of skos:Concept and dcterms:RightsStatement.                                                               |
 | `triple:hasLicense`            | Property connecting a dataset to its license.                                                                                                       |
 | `triple:hasAccessCondition`    | Property connecting a dataset to its access conditions.                                                                                             |
+| `dcat:theme`                   | DCAT property for the main category of the dataset as originally assigned by the source provider (a `skos:Concept`); distinct from `sioc:topic`, which carries the automatically assigned TRIPLE disciplines. Sub-property of `dcterms:subject`. |

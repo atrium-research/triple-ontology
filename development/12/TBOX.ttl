@@ -13,6 +13,7 @@
 @prefix litre: <http://purl.org/spar/literal/> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix mod: <https://w3id.org/mod#> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
 #################################################################
 #    Object Properties
 #################################################################
@@ -58,6 +59,17 @@ schema:keywords rdf:type owl:ObjectProperty ;
 dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
                       rdfs:label "dcterms:isReferencedBy"@en ;
                       rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en .
+
+###  http://www.w3.org/ns/adms#representationTechnique
+adms:representationTechnique rdf:type owl:ObjectProperty ;
+                             rdfs:label "adms:representationTechnique"@en ;
+                             rdfs:comment "More information about the format in which the semantic artefact is released. This is different from the file format: for example, a ZIP file (file format) could contain an XML schema (representation technique)."@en ;
+                             rdfs:range skos:Concept .
+
+###  https://schema.org/mentions
+schema:mentions rdf:type owl:ObjectProperty ;
+                rdfs:label "schema:mentions"@en ;
+                rdfs:comment "Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity."@en .
 
 ###  https://schema.org/contactPoint
 schema:contactPoint rdf:type owl:ObjectProperty ;
@@ -402,6 +414,14 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty triple:hasContentType ;
                                         owl:allValuesFrom triple:ContentType
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty adms:representationTechnique ;
+                                        owl:allValuesFrom skos:Concept
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:mentions ;
+                                        owl:allValuesFrom owl:Thing
                                       ] .
 
 

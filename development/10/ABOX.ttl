@@ -49,6 +49,7 @@ triple:dataset-001 rdf:type triple:Dataset ;
                    schema:contactPoint triple:contact-heritage-institute ;
                    schema:funding triple:project-heritage-mapping ;
                    sioc:topic triple:topic-archaeology ;
+                   dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
                    dcat:distribution triple:distribution-heritage-001 ;
                    triple:hasLicense triple:cc_by_nc_nd_4_0 ;
                    triple:hasAccessCondition triple:open_access ;
@@ -194,6 +195,11 @@ triple:project-heritage-mapping rdf:type schema:Project ;
 triple:project-social-cohesion rdf:type schema:Project ;
                                schema:name "Social Cohesion Research Program" ;
                                datacite:hasIdentifier triple:identifier-project-002 .
+
+###  Themes (originally assigned by the provider)
+<http://publications.europa.eu/resource/authority/data-theme/SOCI> rdf:type owl:NamedIndividual ,
+                                                                            skos:Concept ;
+                         rdfs:label "Population and society"@en .
 
 ###  Topics
 triple:topic-archaeology rdf:type triple:Discipline ;

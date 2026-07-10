@@ -1,3 +1,4 @@
+@prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -137,6 +138,12 @@ triple:SemanticArtefact a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom triple:ContentType ;
             owl:onProperty triple:hasContentType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty adms:representationTechnique ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom owl:Thing ;
+            owl:onProperty schema:mentions ],
         schema:CreativeWork,
         mod:SemanticArtefact ;
     skos:closeMatch <http://purl.org/spar/fabio/Work>,
@@ -411,3 +418,12 @@ triple:originalSource a owl:DatatypeProperty ;
     rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
     rdfs:subPropertyOf dc:source ;
     rdfs:range xsd:string .
+
+adms:representationTechnique a owl:ObjectProperty ;
+    rdfs:label "adms:representationTechnique"@en ;
+    rdfs:comment "More information about the format in which the semantic artefact is released. This is different from the file format: for example, a ZIP file (file format) could contain an XML schema (representation technique)."@en ;
+    rdfs:range skos:Concept .
+
+schema:mentions a owl:ObjectProperty ;
+    rdfs:label "schema:mentions"@en ;
+    rdfs:comment "Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity."@en .

@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: dcat:theme on Dataset; adms:representationTechnique and schema:mentions on SemanticArtefact (issue #39)
+
+**Type**: Addition
+
+**Iteration**: 10, 12
+
+**Description**:
+Remaining minor gaps from the issue [#39](https://github.com/atrium-research/triple-ontology/issues/39) analysis against the LUMEN ADR 005 tables. Iteration 10: added `dcat:theme` (`rdfs:subPropertyOf dcterms:subject`, range `skos:Concept`) on `triple:Dataset` for the provider-assigned classification, distinct from `sioc:topic` which carries the automatically assigned TRIPLE disciplines. Iteration 12: added `adms:representationTechnique` (range `skos:Concept`, new `adms:` prefix, e.g. the ADMS representation-technique concept for SKOS) and the missing `schema:mentions` restriction on `triple:SemanticArtefact`, aligning it with the other content classes. ABoxes exemplify both (EU data-theme SOCI; ADMS SKOS representation technique). Merged into `ontology/triple.ttl`; Dataset and SemanticArtefact module serializations updated.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: originalSource and original_* restrictions on all content classes (issue #39)
 
 **Type**: Addition

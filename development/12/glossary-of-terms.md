@@ -33,3 +33,5 @@
 | `triple:AccessCondition` | Bridge class for access rights, subclass of skos:Concept and dcterms:RightsStatement. |
 | `triple:hasLicense` | Property connecting a semantic artifact to its license. |
 | `triple:hasAccessCondition` | Property connecting a semantic artifact to its access conditions. |
+| `adms:representationTechnique` | ADMS property giving more information about the format in which the semantic artefact is released (e.g. SKOS, OWL), distinct from the file format. Range `skos:Concept`. |
+| `schema:mentions` | Schema.org property indicating that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity. |
