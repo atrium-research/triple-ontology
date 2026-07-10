@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: Iteration 17 — Original provider values (issue #38, part 1)
+
+**Type**: Addition
+
+**Iteration**: 17 (new)
+
+**Description**:
+New SAMOD iteration `development/17` ("Original Provider Values - Provenance of Harvested Metadata") covering the `original_*` checklist item of issue #38. Introduces five optional datatype properties on `triple:Document` that preserve the metadata values exactly as received from source providers, before SCRE normalization: `triple:originalType`, `triple:originalLanguage`, `triple:originalDatePublished`, `triple:originalLicense`, `triple:originalConditionsOfAccess` (all `xsd:string`). Each is declared `rdfs:subPropertyOf` the corresponding Dublin Core Elements 1.1 term (`dc:type`, `dc:language`, `dc:date`, `dc:rights`) — the hybrid reuse-by-subsumption pattern already used for `triple:hasLicense`/`triple:hasContentType` — so generic Dublin Core consumers see the raw values through standard `dc:` terms while the license/access-condition distinction is preserved internally. Normalized counterparts remain on `triple:hasContentType`, `schema:inLanguage`, `schema:datePublished`, `triple:hasLicense`, `triple:hasAccessCondition`. All four formal competency questions pass; merged into `ontology/triple.ttl` and added to the Document module serializations. The `modelet.graphml` is generated from the TBox; the PNG export will be produced with yEd in the issue #34 pass. Addresses the second and (already satisfied) fifth checklist items of [#38](https://github.com/atrium-research/triple-ontology/issues/38).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: Multilingual labels from the Hackathon spreadsheet (issue #41)
 
 **Type**: Addition

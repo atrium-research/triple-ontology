@@ -1,0 +1,61 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix ct: <https://gotriple.eu/ontology/triple/ContentType/> .
+@prefix acc: <https://gotriple.eu/ontology/triple/AccessCondition/> .
+@prefix lic: <https://gotriple.eu/ontology/triple/License/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  Example 1: document with the full set of original provider values
+triple:document_it17_1 rdf:type owl:NamedIndividual ,
+                                triple:Document ;
+        # original values as received from the provider
+        triple:originalType "journalArticle" ;
+        triple:originalLanguage "eng" ;
+        triple:originalDatePublished "03/05/2021" ;
+        triple:originalLicense "CC BY 4.0" ;
+        triple:originalConditionsOfAccess "info:eu-repo/semantics/openAccess" ;
+        # normalized counterparts
+        triple:hasContentType ct:article ;
+        schema:inLanguage triple:language_en_it17 ;
+        schema:datePublished "2021-05-03"^^xsd:date ;
+        triple:hasLicense lic:creative_commons ;
+        triple:hasAccessCondition acc:open_access ;
+        schema:headline "Auditing Metadata Normalization in Aggregation Pipelines"@en .
+
+
+###  Example 2: document with only some original provider values
+triple:document_it17_2 rdf:type owl:NamedIndividual ,
+                                triple:Document ;
+        triple:originalType "COAR text" ;
+        triple:originalConditionsOfAccess "restricted" ;
+        triple:hasContentType ct:text ;
+        triple:hasAccessCondition acc:restricted_access_or_use ;
+        schema:headline "Working Notes on Provider Heterogeneity"@en .
+
+
+###  Referenced normalized entities
+triple:language_en_it17 rdf:type owl:NamedIndividual ,
+                                 schema:Language ;
+        schema:name "English" .
+
+ct:article rdf:type owl:NamedIndividual ,
+                    triple:ContentType .
+
+ct:text rdf:type owl:NamedIndividual ,
+                 triple:ContentType .
+
+acc:open_access rdf:type owl:NamedIndividual ,
+                         triple:AccessCondition .
+
+acc:restricted_access_or_use rdf:type owl:NamedIndividual ,
+                                      triple:AccessCondition .
+
+lic:creative_commons rdf:type owl:NamedIndividual ,
+                              triple:License .

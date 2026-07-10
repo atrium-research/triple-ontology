@@ -1,0 +1,113 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/type
+dc:type rdf:type owl:DatatypeProperty ;
+        rdfs:label "dc:type"@en ;
+        rdfs:comment "The nature or genre of the resource (Dublin Core Elements 1.1)."@en .
+
+
+###  http://purl.org/dc/elements/1.1/language
+dc:language rdf:type owl:DatatypeProperty ;
+            rdfs:label "dc:language"@en ;
+            rdfs:comment "A language of the resource (Dublin Core Elements 1.1)."@en .
+
+
+###  http://purl.org/dc/elements/1.1/date
+dc:date rdf:type owl:DatatypeProperty ;
+        rdfs:label "dc:date"@en ;
+        rdfs:comment "A point or period of time associated with an event in the lifecycle of the resource (Dublin Core Elements 1.1)."@en .
+
+
+###  http://purl.org/dc/elements/1.1/rights
+dc:rights rdf:type owl:DatatypeProperty ;
+          rdfs:label "dc:rights"@en ;
+          rdfs:comment "Information about rights held in and over the resource (Dublin Core Elements 1.1)."@en .
+
+
+###  https://gotriple.eu/ontology/triple/originalType
+triple:originalType rdf:type owl:DatatypeProperty ;
+                    rdfs:label "original type"@en ;
+                    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. 'journalArticle'). The normalized value is expressed via triple:hasContentType."@en ;
+                    rdfs:subPropertyOf dc:type ;
+                    rdfs:range xsd:string .
+
+
+###  https://gotriple.eu/ontology/triple/originalLanguage
+triple:originalLanguage rdf:type owl:DatatypeProperty ;
+                        rdfs:label "original language"@en ;
+                        rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. 'eng', 'English', 'fr-FR'). The normalized value is expressed via schema:inLanguage."@en ;
+                        rdfs:subPropertyOf dc:language ;
+                        rdfs:range xsd:string .
+
+
+###  https://gotriple.eu/ontology/triple/originalDatePublished
+triple:originalDatePublished rdf:type owl:DatatypeProperty ;
+                             rdfs:label "original date published"@en ;
+                             rdfs:comment "The publication date string exactly as received from the source provider, in whatever format the provider used (e.g. '03/05/2021', 'May 2021'), before conversion to ISO 8601. The normalized value is expressed via schema:datePublished."@en ;
+                             rdfs:subPropertyOf dc:date ;
+                             rdfs:range xsd:string .
+
+
+###  https://gotriple.eu/ontology/triple/originalLicense
+triple:originalLicense rdf:type owl:DatatypeProperty ;
+                       rdfs:label "original license"@en ;
+                       rdfs:comment "The license statement exactly as received from the source provider (e.g. 'CC BY 4.0', a URL, free text), before normalization to the License controlled vocabulary. The normalized value is expressed via triple:hasLicense."@en ;
+                       rdfs:subPropertyOf dc:rights ;
+                       rdfs:range xsd:string .
+
+
+###  https://gotriple.eu/ontology/triple/originalConditionsOfAccess
+triple:originalConditionsOfAccess rdf:type owl:DatatypeProperty ;
+                                  rdfs:label "original conditions of access"@en ;
+                                  rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition."@en ;
+                                  rdfs:subPropertyOf dc:rights ;
+                                  rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://gotriple.eu/ontology/triple/Document
+triple:Document rdf:type owl:Class ;
+          rdfs:label "Document (Triple)"@en ;
+          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+
+          # Optional original type (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalType ;
+                            owl:allValuesFrom xsd:string
+                          ] ;
+
+          # Optional original language (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLanguage ;
+                            owl:allValuesFrom xsd:string
+                          ] ;
+
+          # Optional original date published (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalDatePublished ;
+                            owl:allValuesFrom xsd:string
+                          ] ;
+
+          # Optional original license (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLicense ;
+                            owl:allValuesFrom xsd:string
+                          ] ;
+
+          # Optional original conditions of access (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:allValuesFrom xsd:string
+                          ] .
