@@ -3,6 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <https://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 
 # Temporal Coverage Pattern
 # This pattern demonstrates how temporal coverage is handled in the TRIPLE ontology
@@ -14,7 +15,7 @@ schema:temporalCoverage rdf:type owl:DatatypeProperty ;
                         rdfs:range xsd:string .
 
 # Usage Pattern in Classes
-schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+triple:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:temporalCoverage ;
                                owl:allValuesFrom xsd:string ] .
 

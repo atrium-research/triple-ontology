@@ -3,6 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <https://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 
 # Spatial Coverage Pattern
 # This pattern demonstrates how spatial coverage should be standardized in the TRIPLE ontology
@@ -23,7 +24,7 @@ schema:Place rdf:type owl:Class ;
                               owl:someValuesFrom xsd:string ] .
 
 # Usage Pattern in Classes
-schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+triple:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:spatialCoverage ;
                                owl:allValuesFrom schema:Place ] .
 
@@ -34,17 +35,17 @@ schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 # Example ABOX Structure:
 # Place instances with names:
-:place-europe rdf:type schema:Place ;
+triple:place-europe rdf:type schema:Place ;
               schema:name "Europe" .
 
-:place-italy rdf:type schema:Place ;
+triple:place-italy rdf:type schema:Place ;
              schema:name "Italy" .
 
-:place-florence rdf:type schema:Place ;
+triple:place-florence rdf:type schema:Place ;
                 schema:name "Florence, Italy" .
 
 # Dataset usage:
-triple:dataset-example schema:spatialCoverage :place-italy .
+triple:dataset-example schema:spatialCoverage triple:place-italy .
 
 # Pattern Notes:
 # - Structured geographical modeling with optional coordinate precision

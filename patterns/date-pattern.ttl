@@ -3,6 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <https://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 
 # Date Pattern
 # This pattern demonstrates how dates are handled in the TRIPLE ontology
@@ -28,7 +29,7 @@ schema:dateModified rdf:type owl:DatatypeProperty ;
                     rdfs:range xsd:date .
 
 # Usage Pattern in Classes - BOTH type and cardinality restrictions required
-schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+triple:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:dateCreated ;
                                owl:allValuesFrom xsd:date ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -56,6 +57,10 @@ schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
 # - Cardinality restriction: ensures uniqueness (max 1 value per property)
 # - Consistent across all SAMOD iterations and classes
 # - Common date properties: dateCreated, datePublished, dateModified
+# - triple:Document carries datePublished and dateModified only (no dateCreated,
+#   which the LUMEN ADR 005 defines for Dataset, MediaObject and SemanticArtefact);
+#   the raw provider date string is preserved separately in triple:originalDatePublished
+#   (see original-values-pattern.ttl)
 
 # Example ABOX usage:
 # triple:dataset-example schema:dateCreated "2023-01-15"^^xsd:date ;

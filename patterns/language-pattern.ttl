@@ -2,6 +2,7 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 
 # Language Pattern
 # This pattern demonstrates how language is handled in the TRIPLE ontology
@@ -19,7 +20,7 @@ schema:Language rdf:type owl:Class ;
 # Usage Pattern in Classes
 
 # Example: Dataset class with language restriction  
-schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+triple:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:inLanguage ;
                                owl:someValuesFrom schema:Language ] .
 

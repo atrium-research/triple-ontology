@@ -10,7 +10,7 @@ JSON-LD (JSON for Linking Data) is a JSON-based format for representing RDF data
 ```json
 "@context": {
   "foaf": "http://xmlns.com/foaf/0.1/",
-  "schema": "http://schema.org/"
+  "schema": "https://schema.org/"
 }
 ```
 
@@ -21,7 +21,7 @@ JSON-LD (JSON for Linking Data) is a JSON-based format for representing RDF data
 
 **`@type`**: The RDF type (class) of a resource
 ```json
-"@type": "foaf:Document"
+"@type": "triple:Document"
 ```
 
 **`@value`**: Literal value (especially for typed/language-tagged literals)
@@ -42,8 +42,8 @@ JSON-LD (JSON for Linking Data) is a JSON-based format for representing RDF data
 ```json
 {
   "@id": "https://gotriple.eu/document/12345",
-  "@type": "foaf:Document",
-  "dcterms:title": {
+  "@type": "triple:Document",
+  "schema:headline": {
     "@language": "en",
     "@value": "Digital Humanities in the Age of AI"
   }
@@ -52,8 +52,8 @@ JSON-LD (JSON for Linking Data) is a JSON-based format for representing RDF data
 
 **Translation to RDF:**
 ```turtle
-<https://gotriple.eu/document/12345> a foaf:Document ;
-    dcterms:title "Digital Humanities in the Age of AI"@en .
+<https://gotriple.eu/document/12345> a triple:Document ;
+    schema:headline "Digital Humanities in the Age of AI"@en .
 ```
 
 ### Nested Objects
@@ -95,4 +95,4 @@ jsonld validate document-complete-example.jsonld
 
 ## Files
 
-- **document-complete-example.jsonld**: Comprehensive document example using all ontology features
+- **document-complete-example.jsonld**: Comprehensive document example using the current ontology features (bridge-class vocabularies, typed identifiers, original provider values, enrichment annotations with confidence, structured keywords, cluster)

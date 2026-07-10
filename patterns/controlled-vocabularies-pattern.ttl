@@ -3,7 +3,9 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix ct: <https://gotriple.eu/ontology/triple/ContentType/> .
+@prefix acc: <https://gotriple.eu/ontology/triple/AccessCondition/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 # Controlled Vocabularies Pattern - Bridge Classes
@@ -54,11 +56,11 @@ triple:hasContentType rdf:type owl:ObjectProperty ;
                       rdfs:range triple:ContentType ;
                       rdfs:subPropertyOf dcterms:type .
 
-# Individuals
-triple:typ_journal-article rdf:type owl:NamedIndividual ,
-                                   triple:ContentType ;
-                          rdfs:label "Journal Article"@en ;
-                          skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6501/> .
+# Individuals (concept URIs live under the per-vocabulary namespace, e.g. .../ContentType/)
+ct:article rdf:type owl:NamedIndividual ,
+                    triple:ContentType ;
+           rdfs:label "Article"@en ;
+           skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6501> .
 
 # Example: Access Conditions
 
@@ -75,10 +77,10 @@ triple:hasAccessCondition rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf dcterms:accessRights .
 
 # Individuals
-triple:acc_open-access rdf:type owl:NamedIndividual ,
-                              triple:AccessCondition ;
-                     rdfs:label "Open Access"@en ;
-                     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> .
+acc:open_access rdf:type owl:NamedIndividual ,
+                         triple:AccessCondition ;
+                rdfs:label "Open Access"@en ;
+                skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> .
 
 # Usage Pattern in Classes (e.g., Document)
 
@@ -90,9 +92,9 @@ triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
                                 owl:allValuesFrom triple:AccessCondition ] .
 
 # ABOX Usage
-:example_document rdf:type triple:Document ;
-                  triple:hasContentType triple:typ_journal-article ;
-                  triple:hasAccessCondition triple:acc_open-access .
+triple:example_document rdf:type triple:Document ;
+                  triple:hasContentType ct:article ;
+                  triple:hasAccessCondition acc:open_access .
 
 # Standard Requirements:
 # - Define a local Bridge Class for the vocabulary (e.g., triple:ContentType)
@@ -100,5 +102,8 @@ triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
 # - Define a specialized property with range set to the Bridge Class
 # - Individuals are instances of the Bridge Class (NOT just skos:Concept)
 # - No skos:ConceptScheme or skos:inScheme required
+# - Concept URIs live under the per-vocabulary namespace
+#   (ContentType/, AccessCondition/, License/, Discipline/, ProjectType/)
+# - Current Bridge Classes: ContentType, AccessCondition, License, Discipline, ProjectType
 # - Use skos:exactMatch/closeMatch for external alignment
 # - Use owl:allValuesFrom [BridgeClass] in class restrictions

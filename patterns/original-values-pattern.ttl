@@ -1,0 +1,77 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+
+# Original Provider Values Pattern (iteration 17)
+# Preserves metadata values exactly as received from the source provider,
+# before SCRE normalization. Raw and normalized values coexist on the entity.
+
+# Hybrid sub-property pattern: each triple:original* property is declared
+# rdfs:subPropertyOf the corresponding Dublin Core *Elements 1.1* term
+# (which has no domain/range constraints), so generic DC consumers see the
+# raw values through standard dc: terms by inference.
+
+triple:originalType rdf:type owl:DatatypeProperty ;
+                    rdfs:label "original type"@en ;
+                    rdfs:subPropertyOf dc:type ;
+                    rdfs:range xsd:string .
+
+triple:originalLanguage rdf:type owl:DatatypeProperty ;
+                        rdfs:label "original language"@en ;
+                        rdfs:subPropertyOf dc:language ;
+                        rdfs:range xsd:string .
+
+triple:originalDatePublished rdf:type owl:DatatypeProperty ;
+                             rdfs:label "original date published"@en ;
+                             rdfs:subPropertyOf dc:date ;
+                             rdfs:range xsd:string .
+
+triple:originalLicense rdf:type owl:DatatypeProperty ;
+                       rdfs:label "original license"@en ;
+                       rdfs:subPropertyOf dc:rights ;
+                       rdfs:range xsd:string .
+
+triple:originalConditionsOfAccess rdf:type owl:DatatypeProperty ;
+                                  rdfs:label "original conditions of access"@en ;
+                                  rdfs:subPropertyOf dc:rights ;
+                                  rdfs:range xsd:string .
+
+triple:originalSource rdf:type owl:DatatypeProperty ;
+                      rdfs:label "original source"@en ;
+                      rdfs:subPropertyOf dc:source ;
+                      rdfs:range xsd:string .
+
+# Usage Pattern in Classes (optional, 0 or more)
+triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                owl:onProperty triple:originalType ;
+                                owl:allValuesFrom xsd:string ] .
+# Same restrictions on triple:Dataset, triple:MediaObject, triple:SemanticArtefact
+# (originalSource is NOT defined for Dataset, per the LUMEN ADR 005 tables).
+
+# Example ABOX usage — raw value next to its normalized counterpart:
+# triple:document-example
+#     triple:originalType "journalArticle" ;             # raw
+#     triple:hasContentType ct:article ;                 # normalized
+#     triple:originalLanguage "eng" ;                    # raw
+#     schema:inLanguage triple:language-en ;             # normalized
+#     triple:originalDatePublished "03/05/2021" ;        # raw
+#     schema:datePublished "2021-05-03"^^xsd:date ;      # normalized
+#     triple:originalLicense "CC BY 4.0" ;               # raw
+#     triple:hasLicense lic:creative_commons ;           # normalized
+#     triple:originalConditionsOfAccess "info:eu-repo/semantics/openAccess" ;
+#     triple:hasAccessCondition acc:open_access ;
+#     triple:originalSource "Journal of Digital Humanities, 12(3), 2021" .
+
+# Standard Requirements:
+# - All original* properties are owl:DatatypeProperty with range xsd:string (verbatim values)
+# - Each is rdfs:subPropertyOf the matching dc: (Elements 1.1) term:
+#   type→dc:type, language→dc:language, datePublished→dc:date,
+#   license→dc:rights, conditionsOfAccess→dc:rights, source→dc:source
+# - originalLicense and originalConditionsOfAccess both refine dc:rights
+#   (DC does not distinguish the two notions; TRIPLE preserves the distinction)
+# - Raw values NEVER replace the normalized properties — they document provenance,
+#   allow the normalization to be audited/re-run, and expose mapping errors

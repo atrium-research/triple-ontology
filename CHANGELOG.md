@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Refactoring: patterns/ and examples/ aligned with the current model
+
+**Type**: Refactoring
+
+**Iteration**: patterns/ and examples/ folders
+
+**Description**:
+Brought the design-pattern catalog and the JSON-LD examples up to date with the 2.2.0 model. **Patterns**: fixed the legacy `triple#` namespace and undeclared prefixes (several files did not parse); usage examples now target the platform classes (`triple:Dataset` instead of `schema:Dataset`); the identifier pattern now shows the typed identifier subclasses (`triple:ID`/`PID`/`DOI`/...), the current scheme individuals and the URL-based schemes; the controlled-vocabularies pattern uses the per-vocabulary concept namespaces (`ct:article`, `acc:open_access`); the person-organization pattern documents the #42 decision (funder/sponsor on `schema:Grant`, never on documents); the date pattern notes the Document date properties from #39. Added two new patterns: `original-values-pattern.ttl` (iteration 17 hybrid dc: sub-property pattern) and `enrichment-annotation-pattern.ttl` (iteration 18 Web Annotation provenance with confidence). All 10 pattern files parse with rdflib. **Examples**: rewrote `examples/jsonld/document-complete-example.jsonld` on the current model (it still used the hash namespace, http schema.org, the dropped SPAR PRO role pattern, dcterms:title instead of schema:headline and pre-2.1.0 vocabulary URIs), now showcasing bridge-class vocabulary links, typed identifiers, original provider values, dates, structured keywords, topic/keyword annotations with confidence, cluster and project links; the JSON-LD parses to 128 triples. jsonld README snippets updated accordingly.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Refactoring: sparql/ folder rebuilt as a mirror of the iteration competency questions
 
 **Type**: Refactoring

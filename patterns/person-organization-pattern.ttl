@@ -3,7 +3,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix triple: <https://gotriple.eu/ontology/triple#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 
 # Person/Organization Pattern
 # This pattern demonstrates how Person and Organization roles are handled in the TRIPLE ontology
@@ -40,10 +40,13 @@ schema:publisher rdf:type owl:ObjectProperty ;
 
 
 
-###  schema:funder
+###  schema:funder (used on schema:Grant only)
+# Note: schema:funder is NOT used on content classes (removed from triple:Document, issue #42).
+# Content classes link to projects via frapo:isOutputOf; projects link to grants via
+# schema:funding, and the grant carries schema:funder / schema:sponsor.
 schema:funder rdf:type owl:ObjectProperty ;
               rdfs:label "schema:funder"@en ;
-              rdfs:comment "A person or organization that supports through funding"@en ;
+              rdfs:comment "A person or organization that supports through funding. In TRIPLE it is asserted on schema:Grant, never directly on documents."@en ;
               rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 ###  schema:provider
@@ -62,7 +65,7 @@ triple:aggregator rdf:type owl:ObjectProperty ;
 
 
 # Usage Pattern in Classes - Example with Dataset
-schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+triple:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:author ;
                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ] ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -85,7 +88,7 @@ schema:mentions rdf:type owl:ObjectProperty ;
                 rdfs:range owl:Thing .
 
 # Usage Pattern in Classes - Example with Dataset
-schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+triple:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:mentions ;
                                owl:allValuesFrom owl:Thing ] .
 

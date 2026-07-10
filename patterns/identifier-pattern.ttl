@@ -5,6 +5,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix litre: <http://purl.org/spar/literal/> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
 
 # Identifier Pattern
 # This pattern demonstrates how identifiers are handled in the TRIPLE ontology
@@ -31,7 +32,7 @@ datacite:Identifier rdf:type owl:Class ;
                    rdfs:comment "An identifier that uniquely identifies an entity according to some identification scheme."@en .
 
 # Usage Pattern in Classes
-schema:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
+triple:Dataset rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty datacite:hasIdentifier ;
                                owl:allValuesFrom datacite:Identifier ] .
 
@@ -45,16 +46,34 @@ triple:SemanticArtefact rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 # Example ABOX Structure:
 
-# Identifier schemes (named individuals)
-triple:internal_id rdf:type datacite:IdentifierScheme ;
-                   rdfs:label "TRIPLE Internal ID" .
+# Typed identifier subclasses (preferred over bare datacite:Identifier)
+triple:ID rdf:type owl:Class ;
+          rdfs:label "Internal ID"@en ;
+          rdfs:subClassOf datacite:Identifier .
+triple:PID rdf:type owl:Class ;
+           rdfs:label "Persistent ID"@en ;
+           rdfs:subClassOf datacite:Identifier .
+triple:OriginalIdentifier rdf:type owl:Class ;
+           rdfs:label "Original Identifier"@en ;
+           rdfs:subClassOf datacite:Identifier .
+triple:DOI rdf:type owl:Class ;
+           rdfs:label "DOI"@en ;
+           rdfs:subClassOf datacite:Identifier .
+# (also triple:Handle, triple:ISBN, triple:ISSN, triple:URI)
 
-triple:doi rdf:type datacite:IdentifierScheme ;
-           rdfs:label "DOI" .
+# Identifier schemes (named individuals; URL-based access uses dedicated schemes)
+triple:internal_id_schema rdf:type datacite:IdentifierScheme ;
+                   rdfs:label "TRIPLE Internal ID"@en .
+
+datacite:doi rdf:type datacite:IdentifierScheme ;
+           rdfs:label "datacite:doi"@en .
+
+# triple:landing_page_url_schema / triple:full_text_url_schema / triple:source_url_schema
+# carry the landing page, full text and source URLs of a resource.
 
 # Identifier instances
-triple:identifier-example rdf:type datacite:Identifier ;
-                         datacite:usesIdentifierScheme triple:internal_id ;
+triple:identifier-example rdf:type triple:ID ;
+                         datacite:usesIdentifierScheme triple:internal_id_schema ;
                          litre:hasLiteralValue "TRIPLE_DOC_001" .
 
 # Usage on entities
@@ -65,6 +84,8 @@ triple:example datacite:hasIdentifier triple:identifier-example .
 # - Structured identifier management with schemes
 # - Uses datacite:usesIdentifierScheme to link identifier to scheme
 # - Uses litre:hasLiteralValue for the actual identifier string
-# - Supports multiple identifier types (DOI, internal, PID, etc.)
+# - Type identifiers with the project subclasses (triple:ID, triple:PID,
+#   triple:OriginalIdentifier, triple:DOI, triple:Handle, triple:ISBN, triple:ISSN, triple:URI)
+# - URLs (landing page, full text, source) are identifiers with dedicated URL schemes
 # - Consistent across all main classes (Dataset, MediaObject, SemanticArtefact)
 # - Better semantic modeling than simple string identifiers

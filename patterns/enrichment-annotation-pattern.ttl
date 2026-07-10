@@ -1,0 +1,58 @@
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix schema: <https://schema.org/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+
+# Enrichment Annotation Pattern (iteration 18)
+# Provenance and confidence for automatically assigned enrichments (topics,
+# keywords, NER mentions) via the W3C Web Annotation model. Two levels:
+# the DIRECT triple stays asserted (simple queries keep working), and an
+# oa:Annotation carries the provenance layer for the same assignment.
+
+# Confidence score of an automatic enrichment (= SKG-IF "trust")
+triple:confidence rdf:type owl:DatatypeProperty ;
+                  rdfs:label "confidence"@en ;
+                  rdfs:comment "The confidence score of an automatically produced annotation."@en ;
+                  rdfs:domain oa:Annotation ;
+                  rdfs:range xsd:decimal .
+
+# Structured keywords: minted because schema:knowsAbout is declared only for
+# Person/Organization; triple:knowsAbout refines schema:about (in-domain for
+# CreativeWork) with schema:DefinedTerm values.
+triple:knowsAbout rdf:type owl:ObjectProperty ;
+                  rdfs:label "knows about"@en ;
+                  rdfs:subPropertyOf schema:about ;
+                  rdfs:range schema:DefinedTerm .
+
+# Example ABOX usage — topic assignment with confidence:
+# triple:document-example sioc:topic disc:methods_and_statistics .   # direct triple
+#
+# triple:annotation-example rdf:type oa:Annotation ;                 # provenance layer
+#     oa:hasTarget triple:document-example ;
+#     oa:hasBody disc:methods_and_statistics ;
+#     oa:motivatedBy oa:classifying ;                # oa:tagging for keywords
+#     triple:confidence "0.87"^^xsd:decimal ;
+#     dcterms:creator triple:gotriple_pipeline .     # = SKG-IF "associated_with"
+#
+# Structured keyword with language-tagged labels and external URI:
+# triple:kw-example rdf:type schema:DefinedTerm ;
+#     schema:name "digital humanities"@en, "humanités numériques"@fr ;
+#     schema:sameAs <http://www.wikidata.org/entity/Q1026962> .
+# triple:document-example triple:knowsAbout triple:kw-example .
+
+# Standard Requirements:
+# - Keep the direct triple (sioc:topic / triple:knowsAbout) AND the oa:Annotation
+# - oa:motivatedBy oa:classifying for topic/discipline assignments,
+#   oa:tagging for keyword assignments (official W3C motivations)
+# - triple:confidence on the annotation, xsd:decimal in [0,1]
+# - dcterms:creator on the annotation identifies the producing pipeline/service
+# - External keyword URIs use schema:sameAs, NOT skos:exactMatch (whose
+#   super-property chain would type external entities as skos:Concept)
+# - Same pattern used for NER mentions (iteration 15): all enrichments share it
+# - Rationale and rejected alternatives (RDF-star, reification, bespoke
+#   qualified relation, PROV-O) documented in development/18/motivating-scenario.md
