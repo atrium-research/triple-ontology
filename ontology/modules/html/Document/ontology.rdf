@@ -1,81 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:schema="https://schema.org/"
-  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:oa="http://www.w3.org/ns/oa#"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:schema="https://schema.org/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
   xmlns:datacite="http://purl.org/spar/datacite/"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
-  <oa:Motivation rdf:about="http://www.w3.org/ns/oa#tagging">
+  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/oa#hasTarget">
+    <rdfs:label xml:lang="en">oa:hasTarget</rdfs:label>
+  </owl:ObjectProperty>
+  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/ark">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">oa:tagging</rdfs:label>
-    <rdfs:comment xml:lang="en">The W3C motivation used for GoTriple keyword assignments.</rdfs:comment>
-  </oa:Motivation>
-  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/doi">
+    <rdfs:label xml:lang="en">datacite:ark</rdfs:label>
+  </datacite:IdentifierScheme>
+  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/oa#motivatedBy">
+    <rdfs:label xml:lang="en">oa:motivatedBy</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/ns/oa#Motivation"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://schema.org/sameAs">
+    <rdfs:label xml:lang="en">schema:sameAs</rdfs:label>
+    <rdfs:comment xml:lang="en">URL of a reference page that unambiguously indicates the item's identity (e.g. a Wikidata entity).</rdfs:comment>
+  </owl:ObjectProperty>
+  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/isbn">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">datacite:doi</rdfs:label>
+    <rdfs:label xml:lang="en">datacite:isbn</rdfs:label>
   </datacite:IdentifierScheme>
   <owl:ObjectProperty rdf:about="http://purl.org/spar/datacite/usesIdentifierScheme">
     <rdfs:label xml:lang="en">datacite:usesIdentifierScheme</rdfs:label>
     <rdfs:domain rdf:resource="http://purl.org/spar/datacite/Identifier"/>
     <rdfs:range rdf:resource="http://purl.org/spar/datacite/IdentifierScheme"/>
   </owl:ObjectProperty>
+  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/handle">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">datacite:handle</rdfs:label>
+  </datacite:IdentifierScheme>
+  <oa:Motivation rdf:about="http://www.w3.org/ns/oa#tagging">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">oa:tagging</rdfs:label>
+    <rdfs:comment xml:lang="en">The W3C motivation used for GoTriple keyword assignments.</rdfs:comment>
+  </oa:Motivation>
   <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/confidence">
     <rdfs:label xml:lang="en">confidence</rdfs:label>
     <rdfs:comment xml:lang="en">The trust score of an automatic enrichment, between 0 and 1, asserted on the oa:Annotation recording the enrichment.</rdfs:comment>
     <rdfs:domain rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#decimal"/>
   </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/oa#hasBody">
-    <rdfs:label xml:lang="en">oa:hasBody</rdfs:label>
-  </owl:ObjectProperty>
-  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/issn">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">datacite:issn</rdfs:label>
-  </datacite:IdentifierScheme>
-  <owl:ObjectProperty rdf:about="https://schema.org/sameAs">
-    <rdfs:label xml:lang="en">schema:sameAs</rdfs:label>
-    <rdfs:comment xml:lang="en">URL of a reference page that unambiguously indicates the item's identity (e.g. a Wikidata entity).</rdfs:comment>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/oa#hasTarget">
-    <rdfs:label xml:lang="en">oa:hasTarget</rdfs:label>
-  </owl:ObjectProperty>
-  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/local-resource-identifier-scheme">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">datacite:local-resource-identifier-scheme</rdfs:label>
-  </datacite:IdentifierScheme>
-  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/handle">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">datacite:handle</rdfs:label>
-  </datacite:IdentifierScheme>
-  <owl:DatatypeProperty rdf:about="http://purl.org/spar/literal/hasLiteralValue">
-    <rdfs:label xml:lang="en">litre:hasLiteralValue</rdfs:label>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/oa#motivatedBy">
-    <rdfs:label xml:lang="en">oa:motivatedBy</rdfs:label>
-    <rdfs:range rdf:resource="http://www.w3.org/ns/oa#Motivation"/>
-  </owl:ObjectProperty>
   <oa:Motivation rdf:about="http://www.w3.org/ns/oa#classifying">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdfs:label xml:lang="en">oa:classifying</rdfs:label>
     <rdfs:comment xml:lang="en">The W3C motivation used for GoTriple discipline assignments.</rdfs:comment>
   </oa:Motivation>
-  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/isbn">
+  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/issn">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">datacite:isbn</rdfs:label>
+    <rdfs:label xml:lang="en">datacite:issn</rdfs:label>
   </datacite:IdentifierScheme>
-  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/ark">
+  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/doi">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdfs:label xml:lang="en">datacite:ark</rdfs:label>
+    <rdfs:label xml:lang="en">datacite:doi</rdfs:label>
   </datacite:IdentifierScheme>
-  <owl:ObjectProperty rdf:about="http://purl.org/cerif/frapo/isOutputOf">
-    <rdfs:label xml:lang="en">frapo:isOutputOf</rdfs:label>
-    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/Project"/>
+  <datacite:IdentifierScheme rdf:about="http://purl.org/spar/datacite/local-resource-identifier-scheme">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdfs:label xml:lang="en">datacite:local-resource-identifier-scheme</rdfs:label>
+  </datacite:IdentifierScheme>
+  <owl:ObjectProperty rdf:about="http://www.w3.org/ns/oa#hasBody">
+    <rdfs:label xml:lang="en">oa:hasBody</rdfs:label>
   </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="http://purl.org/spar/literal/hasLiteralValue">
+    <rdfs:label xml:lang="en">litre:hasLiteralValue</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/PID">
+    <rdfs:label xml:lang="en">Persistent ID</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+  </owl:Class>
   <owl:Ontology rdf:about="https://gotriple.eu/ontology/triple/Document">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
     <rdfs:label xml:lang="en">Document</rdfs:label>
@@ -87,31 +87,31 @@
     <dcterms:abstract xml:lang="en">The Document module of the TRIPLE Ontology, defining the core Document class and shared definitions.</dcterms:abstract>
     <dcterms:description xml:lang="en">The Document module serves as the core of the TRIPLE Ontology. It defines the `triple:Document` class, representing scholarly publications and research outputs. Crucially, it also acts as the central hub for shared definitions used across the entire ontology, including Identifiers (DataCite), Licenses, Disciplines, and common schema.org properties.</dcterms:description>
     <dcterms:created>2021-12-01</dcterms:created>
-    <dcterms:modified>2025-12-22</dcterms:modified>
+    <dcterms:modified>2026-07-10</dcterms:modified>
     <dcterms:creator>Alessandro Bertozzi</dcterms:creator>
     <dcterms:contributor>Luca De Santis</dcterms:contributor>
     <dcterms:contributor>Silvio Peroni</dcterms:contributor>
-    <owl:versionInfo>2.1.0</owl:versionInfo>
+    <owl:versionInfo>2.2.0</owl:versionInfo>
     <schema:creativeWorkStatus>Ontology Module</schema:creativeWorkStatus>
     <rdfs:comment xml:lang="en">A document in the GoTriple platform, representing scholarly publications and research outputs.</rdfs:comment>
     <rdfs:comment xml:lang="en">A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts.</rdfs:comment>
     <rdfs:comment xml:lang="en">A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document.</rdfs:comment>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb1">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb1">
         <owl:onProperty rdf:resource="https://schema.org/mentions"/>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/ns/oa#Annotation"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb2">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb2">
         <owl:allValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/Project"/>
         <owl:onProperty rdf:resource="http://purl.org/cerif/frapo/isOutputOf"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb3">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb3">
         <owl:allValuesFrom>
-          <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb4">
+          <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb4">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
@@ -122,9 +122,9 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb7">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb7">
         <owl:allValuesFrom>
-          <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb8">
+          <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb8">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
@@ -135,9 +135,9 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb11">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb11">
         <owl:allValuesFrom>
-          <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb12">
+          <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb12">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
@@ -148,9 +148,9 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb15">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb15">
         <owl:allValuesFrom>
-          <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb16">
+          <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb16">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
@@ -161,9 +161,9 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb19">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb19">
         <owl:allValuesFrom>
-          <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb20">
+          <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb20">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
               <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
@@ -174,15 +174,15 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb23">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb23">
         <owl:allValuesFrom rdf:resource="https://schema.org/ContactPoint"/>
         <owl:onProperty rdf:resource="https://schema.org/contactPoint"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb24">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb24">
         <owl:allValuesFrom>
-          <owl:Class rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb25">
+          <owl:Class rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb25">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://purl.org/spar/datacite/Identifier"/>
               <rdf:Description rdf:about="https://gotriple.eu/ontology/triple/DOI"/>
@@ -196,22 +196,22 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb31">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb31">
         <owl:onProperty rdf:resource="http://purl.org/spar/datacite/hasIdentifier"/>
         <owl:someValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/OriginalIdentifier"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb32">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb32">
         <owl:onProperty rdf:resource="https://schema.org/inLanguage"/>
         <owl:someValuesFrom rdf:resource="https://schema.org/Language"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb33">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb33">
         <owl:onProperty rdf:resource="https://schema.org/headline"/>
         <owl:someValuesFrom>
-          <rdfs:Datatype rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb34">
+          <rdfs:Datatype rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb34">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
               <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
@@ -221,10 +221,10 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb37">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb37">
         <owl:onProperty rdf:resource="https://schema.org/abstract"/>
         <owl:someValuesFrom>
-          <rdfs:Datatype rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb38">
+          <rdfs:Datatype rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb38">
             <owl:unionOf rdf:parseType="Collection">
               <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
               <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
@@ -234,157 +234,157 @@
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb41">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb41">
         <owl:onProperty rdf:resource="https://schema.org/encodingFormat"/>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb42">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb42">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
         <owl:onProperty rdf:resource="https://schema.org/datePublished"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb43">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb43">
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
         <owl:onProperty rdf:resource="https://schema.org/datePublished"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb44">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb44">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
         <owl:onProperty rdf:resource="https://schema.org/dateModified"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb45">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb45">
         <owl:maxCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:maxCardinality>
         <owl:onProperty rdf:resource="https://schema.org/dateModified"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb46">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb46">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/originalType"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb47">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb47">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/originalLanguage"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb48">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb48">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/originalDatePublished"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb49">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb49">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/originalLicense"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb50">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb50">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/originalConditionsOfAccess"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb51">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb51">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/originalSource"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb52">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb52">
         <owl:allValuesFrom rdf:resource="https://schema.org/DefinedTerm"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/knowsAbout"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb53">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb53">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/detectedLanguage"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb54">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb54">
         <owl:allValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/machineTranslatedLanguage"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb55">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb55">
         <owl:onProperty rdf:resource="http://rdfs.org/sioc/ns#topic"/>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb56">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb56">
         <owl:onProperty rdf:resource="http://purl.org/dc/terms/source"/>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb57">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb57">
         <owl:onProperty rdf:resource="http://purl.org/spar/datacite/hasIdentifier"/>
         <owl:someValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/ID"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb58">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb58">
         <owl:onProperty rdf:resource="http://purl.org/spar/datacite/hasIdentifier"/>
         <owl:someValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/PID"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb59">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb59">
         <owl:onProperty rdf:resource="https://schema.org/keywords"/>
         <owl:someValuesFrom rdf:resource="https://schema.org/DefinedTerm"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb60">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb60">
         <owl:onProperty rdf:resource="https://schema.org/spatialCoverage"/>
         <owl:someValuesFrom rdf:resource="https://schema.org/Place"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb61">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb61">
         <owl:onProperty rdf:resource="https://schema.org/temporalCoverage"/>
         <owl:someValuesFrom rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb62">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb62">
         <owl:allValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/Discipline"/>
         <owl:onProperty rdf:resource="http://rdfs.org/sioc/ns#topic"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb63">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb63">
         <owl:allValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/License"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/hasLicense"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb64">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb64">
         <owl:allValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/hasAccessCondition"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb65">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb65">
         <owl:allValuesFrom rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/hasContentType"/>
       </owl:Restriction>
     </rdfs:subClassOf>
     <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb66">
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb66">
         <owl:onClass rdf:resource="https://gotriple.eu/ontology/triple/Cluster"/>
         <owl:onProperty rdf:resource="https://gotriple.eu/ontology/triple/inCluster"/>
         <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
@@ -396,158 +396,15 @@
     <skos:exactMatch rdf:resource="http://www.cidoc-crm.org/cidoc-crm/E31_Document"/>
     <skos:exactMatch rdf:resource="https://sshoc.eu/ontology/SHE8_Publication"/>
   </owl:Ontology>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/PID">
-    <rdfs:label xml:lang="en">Persistent ID</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.w3.org/ns/oa#Motivation">
-    <rdfs:label xml:lang="en">oa:Motivation</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://schema.org/Language">
-    <rdfs:label xml:lang="en">schema:Language</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
-    <rdfs:label xml:lang="en">foaf:Person</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.cidoc-crm.org/cidoc-crm/E31_Document">
-    <rdfs:label xml:lang="en">E31 Document</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://schema.org/publisher">
-    <rdfs:label xml:lang="en">schema:publisher</rdfs:label>
-    <rdfs:range>
-      <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb74">
-        <owl:unionOf rdf:parseType="Collection">
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
-        </owl:unionOf>
-      </rdf:Description>
-    </rdfs:range>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/inCluster">
-    <rdfs:label xml:lang="en">in cluster</rdfs:label>
-    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/Cluster"/>
-    <rdfs:domain rdf:resource="https://gotriple.eu/ontology/triple/Document"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/source"/>
-  <owl:DatatypeProperty rdf:about="https://schema.org/temporalCoverage">
-    <rdfs:label xml:lang="en">schema:temporalCoverage</rdfs:label>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Cluster">
-    <rdfs:label xml:lang="en">Cluster</rdfs:label>
-    <rdfs:comment xml:lang="en">A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication.</rdfs:comment>
-    <rdfs:subClassOf>
-      <owl:Restriction rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb67">
-        <owl:onClass rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-        <owl:onProperty rdf:resource="http://purl.org/spar/datacite/hasIdentifier"/>
-        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
-      </owl:Restriction>
-    </rdfs:subClassOf>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalSource">
-    <rdfs:label xml:lang="en">original source</rdfs:label>
-    <rdfs:comment xml:lang="en">The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers.</rdfs:comment>
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/source">
-        <rdfs:label xml:lang="en">dc:source</rdfs:label>
-      </owl:DatatypeProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://schema.org/inLanguage">
-    <rdfs:label xml:lang="en">schema:inLanguage</rdfs:label>
-    <rdfs:range rdf:resource="https://schema.org/Language"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://schema.org/about">
-    <rdfs:label xml:lang="en">schema:about</rdfs:label>
-  </owl:ObjectProperty>
   <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/machineTranslatedLanguage">
     <rdfs:label xml:lang="en">machine translated language</rdfs:label>
     <rdfs:comment xml:lang="en">A language tag whose title and abstract versions were produced by the GoTriple machine-translation service.</rdfs:comment>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/hasLicense">
-    <rdfs:label xml:lang="en">has license</rdfs:label>
-    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/License"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/license"/>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalLicense">
-    <rdfs:label xml:lang="en">original license</rdfs:label>
-    <rdfs:comment xml:lang="en">The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary.</rdfs:comment>
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/rights">
-        <rdfs:label xml:lang="en">dc:rights</rdfs:label>
-      </owl:DatatypeProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/detectedLanguage">
-    <rdfs:label xml:lang="en">detected language</rdfs:label>
-    <rdfs:comment xml:lang="en">The language tag identified by the GoTriple language-detection service for the resource's text.</rdfs:comment>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/OriginalIdentifier">
-    <rdfs:label xml:lang="en">Original Identifier</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-  </owl:Class>
-  <owl:Class rdf:about="https://schema.org/CreativeWork">
-    <rdfs:label xml:lang="en">schema:CreativeWork</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalConditionsOfAccess">
-    <rdfs:label xml:lang="en">original conditions of access</rdfs:label>
-    <rdfs:comment xml:lang="en">The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary.</rdfs:comment>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/rights"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/knowsAbout">
-    <rdfs:label xml:lang="en">knows about</rdfs:label>
-    <rdfs:comment xml:lang="en">Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm.</rdfs:comment>
-    <rdfs:subPropertyOf rdf:resource="https://schema.org/about"/>
-    <rdfs:range rdf:resource="https://schema.org/DefinedTerm"/>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalType">
-    <rdfs:label xml:lang="en">original type</rdfs:label>
-    <rdfs:comment xml:lang="en">The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary.</rdfs:comment>
-    <rdfs:subPropertyOf>
-      <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/type">
-        <rdfs:label xml:lang="en">dc:type</rdfs:label>
-      </owl:DatatypeProperty>
-    </rdfs:subPropertyOf>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/ISBN">
-    <rdfs:label xml:lang="en">ISBN</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/aggregator">
-    <rdfs:label xml:lang="en">aggregator</rdfs:label>
+  <owl:DatatypeProperty rdf:about="https://schema.org/abstract">
+    <rdfs:label xml:lang="en">schema:abstract</rdfs:label>
     <rdfs:range>
-      <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb80">
-        <owl:unionOf rdf:parseType="Collection">
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
-        </owl:unionOf>
-      </rdf:Description>
-    </rdfs:range>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://schema.org/provider">
-    <rdfs:label xml:lang="en">schema:provider</rdfs:label>
-    <rdfs:range>
-      <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb77">
-        <owl:unionOf rdf:parseType="Collection">
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
-        </owl:unionOf>
-      </rdf:Description>
-    </rdfs:range>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/language">
-    <rdfs:label xml:lang="en">dc:language</rdfs:label>
-  </owl:DatatypeProperty>
-  <owl:DatatypeProperty rdf:about="https://schema.org/headline">
-    <rdfs:label xml:lang="en">schema:headline</rdfs:label>
-    <rdfs:range>
-      <rdfs:Datatype rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb83">
+      <rdfs:Datatype rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb86">
         <owl:unionOf rdf:parseType="Collection">
           <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
           <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
@@ -555,52 +412,6 @@
       </rdfs:Datatype>
     </rdfs:range>
   </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Handle">
-    <rdfs:label xml:lang="en">Handle</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
-    <rdfs:label xml:lang="en">Concept</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/AccessCondition">
-    <rdfs:label xml:lang="en">Access Condition</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
-    <rdfs:label xml:lang="en">schema:Thing</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Project">
-    <rdfs:label xml:lang="en">Project</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://schema.org/contributor">
-    <rdfs:label xml:lang="en">schema:contributor</rdfs:label>
-    <rdfs:range>
-      <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb71">
-        <owl:unionOf rdf:parseType="Collection">
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
-          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
-        </owl:unionOf>
-      </rdf:Description>
-    </rdfs:range>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://schema.org/dateModified">
-    <rdfs:label xml:lang="en">schema:dateModified</rdfs:label>
-    <rdfs:comment xml:lang="en">Date on which the document record was most recently modified in the GoTriple index.</rdfs:comment>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/License">
-    <rdfs:label xml:lang="en">License</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </owl:Class>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/DOI">
-    <rdfs:label xml:lang="en">DOI</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/hasContentType">
-    <rdfs:label xml:lang="en">has content type</rdfs:label>
-    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/type"/>
-  </owl:ObjectProperty>
   <owl:ObjectProperty rdf:about="https://schema.org/spatialCoverage">
     <rdfs:label xml:lang="en">schema:spatialCoverage</rdfs:label>
     <rdfs:range rdf:resource="https://schema.org/Place"/>
@@ -615,24 +426,253 @@
     </rdfs:subPropertyOf>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
   </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/hasAccessCondition">
-    <rdfs:label xml:lang="en">has access condition</rdfs:label>
-    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/accessRights"/>
+  <owl:Class rdf:about="http://www.w3.org/ns/oa#Motivation">
+    <rdfs:label xml:lang="en">oa:Motivation</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.w3.org/ns/oa#Annotation">
+    <rdfs:label xml:lang="en">Annotation</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/hasContentType">
+    <rdfs:label xml:lang="en">has content type</rdfs:label>
+    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/type"/>
   </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalSource">
+    <rdfs:label xml:lang="en">original source</rdfs:label>
+    <rdfs:comment xml:lang="en">The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/source">
+        <rdfs:label xml:lang="en">dc:source</rdfs:label>
+      </owl:DatatypeProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://schema.org/CreativeWork">
+    <rdfs:label xml:lang="en">schema:CreativeWork</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://schema.org/dateModified">
+    <rdfs:label xml:lang="en">schema:dateModified</rdfs:label>
+    <rdfs:comment xml:lang="en">Date on which the document record was most recently modified in the GoTriple index.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://schema.org/headline">
+    <rdfs:label xml:lang="en">schema:headline</rdfs:label>
+    <rdfs:range>
+      <rdfs:Datatype rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb83">
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
+          <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
+        </owl:unionOf>
+      </rdfs:Datatype>
+    </rdfs:range>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/License">
+    <rdfs:label xml:lang="en">License</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
   <owl:ObjectProperty rdf:about="http://rdfs.org/sioc/ns#topic">
     <rdfs:label xml:lang="en">sioc:topic</rdfs:label>
     <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/subject"/>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://sshoc.eu/ontology/SHE8_Publication">
-    <rdfs:label xml:lang="en">SHE8 Publication</rdfs:label>
+  <owl:Class rdf:about="https://schema.org/Language">
+    <rdfs:label xml:lang="en">schema:Language</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://schema.org/keywords">
+    <rdfs:label xml:lang="en">schema:keywords</rdfs:label>
+    <rdfs:range rdf:resource="https://schema.org/DefinedTerm"/>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalLicense">
+    <rdfs:label xml:lang="en">original license</rdfs:label>
+    <rdfs:comment xml:lang="en">The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/rights">
+        <rdfs:label xml:lang="en">dc:rights</rdfs:label>
+      </owl:DatatypeProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="http://purl.org/spar/datacite/IdentifierScheme">
+    <rdfs:label xml:lang="en">datacite:IdentifierScheme</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="https://gotriple.eu/ontology/triple/ISSN">
     <rdfs:label xml:lang="en">ISSN</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
   </owl:Class>
+  <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization">
+    <rdfs:label xml:lang="en">foaf:Organization</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://schema.org/DefinedTerm">
+    <rdfs:label xml:lang="en">schema:DefinedTerm</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://schema.org/encodingFormat">
+    <rdfs:label xml:lang="en">schema:encodingFormat</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="https://sshoc.eu/ontology/SHE8_Publication">
+    <rdfs:label xml:lang="en">SHE8 Publication</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Cluster">
+    <rdfs:label xml:lang="en">Cluster</rdfs:label>
+    <rdfs:comment xml:lang="en">A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication.</rdfs:comment>
+    <rdfs:subClassOf>
+      <owl:Restriction rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb67">
+        <owl:onClass rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+        <owl:onProperty rdf:resource="http://purl.org/spar/datacite/hasIdentifier"/>
+        <owl:qualifiedCardinality rdf:datatype="http://www.w3.org/2001/XMLSchema#nonNegativeInteger">1</owl:qualifiedCardinality>
+      </owl:Restriction>
+    </rdfs:subClassOf>
+  </owl:Class>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/OriginalIdentifier">
+    <rdfs:label xml:lang="en">Original Identifier</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+  </owl:Class>
+  <owl:Class rdf:about="http://www.cidoc-crm.org/cidoc-crm/E31_Document">
+    <rdfs:label xml:lang="en">E31 Document</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/DOI">
+    <rdfs:label xml:lang="en">DOI</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalLanguage">
+    <rdfs:label xml:lang="en">original language</rdfs:label>
+    <rdfs:comment xml:lang="en">The language value exactly as received from the source provider, before normalization to a schema:Language entity.</rdfs:comment>
+    <rdfs:subPropertyOf>
+      <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/language">
+        <rdfs:label xml:lang="en">dc:language</rdfs:label>
+      </owl:DatatypeProperty>
+    </rdfs:subPropertyOf>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/detectedLanguage">
+    <rdfs:label xml:lang="en">detected language</rdfs:label>
+    <rdfs:comment xml:lang="en">The language tag identified by the GoTriple language-detection service for the resource's text.</rdfs:comment>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:Class rdf:about="http://purl.org/spar/fabio/ScholarlyWork">
+    <rdfs:label xml:lang="en">fabio:ScholarlyWork</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/ContentType">
+    <rdfs:label xml:lang="en">Content Type</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="http://purl.org/dc/elements/1.1/type">
+    <rdfs:label xml:lang="en">dc:type</rdfs:label>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/hasAccessCondition">
+    <rdfs:label xml:lang="en">has access condition</rdfs:label>
+    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/accessRights"/>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="http://www.w3.org/2002/07/owl#Thing">
+    <rdfs:label xml:lang="en">schema:Thing</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalType">
+    <rdfs:label xml:lang="en">original type</rdfs:label>
+    <rdfs:comment xml:lang="en">The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/type"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://schema.org/contributor">
+    <rdfs:label xml:lang="en">schema:contributor</rdfs:label>
+    <rdfs:range>
+      <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb71">
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+        </owl:unionOf>
+      </rdf:Description>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Discipline">
+    <rdfs:label xml:lang="en">Discipline</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </owl:Class>
+  <owl:Class rdf:about="https://schema.org/ContactPoint">
+    <rdfs:label xml:lang="en">schema:ContactPoint</rdfs:label>
+  </owl:Class>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/ISBN">
+    <rdfs:label xml:lang="en">ISBN</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://schema.org/about">
+    <rdfs:label xml:lang="en">schema:about</rdfs:label>
+  </owl:ObjectProperty>
+  <owl:DatatypeProperty rdf:about="https://schema.org/temporalCoverage">
+    <rdfs:label xml:lang="en">schema:temporalCoverage</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
+  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/aggregator">
+    <rdfs:label xml:lang="en">aggregator</rdfs:label>
+    <rdfs:range>
+      <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb80">
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+        </owl:unionOf>
+      </rdf:Description>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://schema.org/provider">
+    <rdfs:label xml:lang="en">schema:provider</rdfs:label>
+    <rdfs:range>
+      <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb77">
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+        </owl:unionOf>
+      </rdf:Description>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://schema.org/Place">
+    <rdfs:label xml:lang="en">Place</rdfs:label>
+  </owl:Class>
+  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalConditionsOfAccess">
+    <rdfs:label xml:lang="en">original conditions of access</rdfs:label>
+    <rdfs:comment xml:lang="en">The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/rights"/>
+    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+  </owl:DatatypeProperty>
   <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Document">
     <rdfs:label xml:lang="en">foaf:Document</rdfs:label>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/inCluster">
+    <rdfs:label xml:lang="en">in cluster</rdfs:label>
+    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/Cluster"/>
+    <rdfs:domain rdf:resource="https://gotriple.eu/ontology/triple/Document"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://schema.org/inLanguage">
+    <rdfs:label xml:lang="en">schema:inLanguage</rdfs:label>
+    <rdfs:range rdf:resource="https://schema.org/Language"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/knowsAbout">
+    <rdfs:label xml:lang="en">knows about</rdfs:label>
+    <rdfs:comment xml:lang="en">Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm.</rdfs:comment>
+    <rdfs:subPropertyOf rdf:resource="https://schema.org/about"/>
+    <rdfs:range rdf:resource="https://schema.org/DefinedTerm"/>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Handle">
+    <rdfs:label xml:lang="en">Handle</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/source"/>
+  <owl:ObjectProperty rdf:about="https://schema.org/publisher">
+    <rdfs:label xml:lang="en">schema:publisher</rdfs:label>
+    <rdfs:range>
+      <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb74">
+        <owl:unionOf rdf:parseType="Collection">
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
+          <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
+        </owl:unionOf>
+      </rdf:Description>
+    </rdfs:range>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://gotriple.eu/ontology/triple/hasLicense">
+    <rdfs:label xml:lang="en">has license</rdfs:label>
+    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/License"/>
+    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/terms/license"/>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="http://www.w3.org/2004/02/skos/core#Concept">
+    <rdfs:label xml:lang="en">Concept</rdfs:label>
   </owl:Class>
   <owl:Class rdf:about="https://gotriple.eu/ontology/triple/ID">
     <rdfs:label xml:lang="en">Internal ID</rdfs:label>
@@ -643,56 +683,17 @@
     <rdfs:comment xml:lang="en">Date of first publication of the document, normalized to ISO 8601 (yyyy-mm-dd).</rdfs:comment>
     <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#date"/>
   </owl:DatatypeProperty>
-  <owl:ObjectProperty rdf:about="https://schema.org/mentions">
-    <rdfs:label xml:lang="en">mentions</rdfs:label>
-    <rdfs:label xml:lang="en">schema:mentions</rdfs:label>
-    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
-  </owl:ObjectProperty>
-  <owl:ObjectProperty rdf:about="https://schema.org/contactPoint">
-    <rdfs:label xml:lang="en">schema:contactPoint</rdfs:label>
-    <rdfs:range rdf:resource="https://schema.org/ContactPoint"/>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="http://purl.org/spar/datacite/IdentifierScheme">
-    <rdfs:label xml:lang="en">datacite:IdentifierScheme</rdfs:label>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Project">
+    <rdfs:label xml:lang="en">Project</rdfs:label>
   </owl:Class>
-  <owl:ObjectProperty rdf:about="https://schema.org/keywords">
-    <rdfs:label xml:lang="en">schema:keywords</rdfs:label>
-    <rdfs:range rdf:resource="https://schema.org/DefinedTerm"/>
-  </owl:ObjectProperty>
-  <owl:DatatypeProperty rdf:about="https://gotriple.eu/ontology/triple/originalLanguage">
-    <rdfs:label xml:lang="en">original language</rdfs:label>
-    <rdfs:comment xml:lang="en">The language value exactly as received from the source provider, before normalization to a schema:Language entity.</rdfs:comment>
-    <rdfs:subPropertyOf rdf:resource="http://purl.org/dc/elements/1.1/language"/>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/Discipline">
-    <rdfs:label xml:lang="en">Discipline</rdfs:label>
+  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/AccessCondition">
+    <rdfs:label xml:lang="en">Access Condition</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Organization">
-    <rdfs:label xml:lang="en">foaf:Organization</rdfs:label>
-  </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://schema.org/encodingFormat">
-    <rdfs:label xml:lang="en">schema:encodingFormat</rdfs:label>
-    <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://schema.org/Place">
-    <rdfs:label xml:lang="en">Place</rdfs:label>
-  </owl:Class>
-  <owl:Class rdf:about="https://schema.org/DefinedTerm">
-    <rdfs:label xml:lang="en">schema:DefinedTerm</rdfs:label>
-  </owl:Class>
-  <owl:ObjectProperty rdf:about="http://purl.org/spar/datacite/hasIdentifier">
-    <rdfs:label xml:lang="en">datacite:hasIdentifier</rdfs:label>
-    <rdfs:range rdf:resource="http://purl.org/spar/datacite/Identifier"/>
-  </owl:ObjectProperty>
-  <owl:Class rdf:about="http://purl.org/spar/fabio/ScholarlyWork">
-    <rdfs:label xml:lang="en">fabio:ScholarlyWork</rdfs:label>
   </owl:Class>
   <owl:ObjectProperty rdf:about="https://schema.org/author">
     <rdfs:label xml:lang="en">schema:author</rdfs:label>
     <rdfs:range>
-      <rdf:Description rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb68">
+      <rdf:Description rdf:nodeID="n45c9f469d0de4a1fa153766a6ec1619fb68">
         <owl:unionOf rdf:parseType="Collection">
           <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Person"/>
           <rdf:Description rdf:about="http://xmlns.com/foaf/0.1/Organization"/>
@@ -700,27 +701,26 @@
       </rdf:Description>
     </rdfs:range>
   </owl:ObjectProperty>
-  <owl:Class rdf:about="https://schema.org/ContactPoint">
-    <rdfs:label xml:lang="en">schema:ContactPoint</rdfs:label>
+  <owl:ObjectProperty rdf:about="https://schema.org/contactPoint">
+    <rdfs:label xml:lang="en">schema:contactPoint</rdfs:label>
+    <rdfs:range rdf:resource="https://schema.org/ContactPoint"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="http://purl.org/cerif/frapo/isOutputOf">
+    <rdfs:label xml:lang="en">frapo:isOutputOf</rdfs:label>
+    <rdfs:range rdf:resource="https://gotriple.eu/ontology/triple/Project"/>
+  </owl:ObjectProperty>
+  <owl:Class rdf:about="http://xmlns.com/foaf/0.1/Person">
+    <rdfs:label xml:lang="en">foaf:Person</rdfs:label>
   </owl:Class>
-  <owl:DatatypeProperty rdf:about="https://schema.org/abstract">
-    <rdfs:label xml:lang="en">schema:abstract</rdfs:label>
-    <rdfs:range>
-      <rdfs:Datatype rdf:nodeID="n6a13a3b3b7d84d1091d2173b53acda1fb86">
-        <owl:unionOf rdf:parseType="Collection">
-          <rdf:Description rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"/>
-          <rdf:Description rdf:about="http://www.w3.org/2001/XMLSchema#string"/>
-        </owl:unionOf>
-      </rdfs:Datatype>
-    </rdfs:range>
-  </owl:DatatypeProperty>
-  <owl:Class rdf:about="https://gotriple.eu/ontology/triple/ContentType">
-    <rdfs:label xml:lang="en">Content Type</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
-  </owl:Class>
-  <owl:Class rdf:about="http://www.w3.org/ns/oa#Annotation">
-    <rdfs:label xml:lang="en">Annotation</rdfs:label>
-  </owl:Class>
+  <owl:ObjectProperty rdf:about="http://purl.org/spar/datacite/hasIdentifier">
+    <rdfs:label xml:lang="en">datacite:hasIdentifier</rdfs:label>
+    <rdfs:range rdf:resource="http://purl.org/spar/datacite/Identifier"/>
+  </owl:ObjectProperty>
+  <owl:ObjectProperty rdf:about="https://schema.org/mentions">
+    <rdfs:label xml:lang="en">mentions</rdfs:label>
+    <rdfs:label xml:lang="en">schema:mentions</rdfs:label>
+    <rdfs:range rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+  </owl:ObjectProperty>
   <owl:Class rdf:about="http://purl.org/spar/datacite/Identifier">
     <rdfs:label xml:lang="en">datacite:Identifier</rdfs:label>
   </owl:Class>

@@ -1,13 +1,19 @@
 [
   {
-    "@id": "https://schema.org/Person",
+    "@id": "http://xmlns.com/foaf/0.1/Agent",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An agent (person or organization)."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Person"
+        "@value": "foaf:Agent"
       }
     ]
   },
@@ -46,20 +52,168 @@
     ]
   },
   {
-    "@id": "http://xmlns.com/foaf/0.1/account",
+    "@id": "http://purl.org/spar/datacite/IdentifierScheme",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:IdentifierScheme"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/literal/hasLiteralValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "litre:hasLiteralValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Person",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Person"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/Identifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:Identifier"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Organization",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "Indicates an account held by this agent"
+        "@value": "An organization."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "foaf:account"
+        "@value": "foaf:Organization"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb8"
+      },
+      {
+        "@id": "https://schema.org/Thing"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb8",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/name"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Thing",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:Thing"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Person",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A person."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:Person"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb7"
+      },
+      {
+        "@id": "https://schema.org/Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#equivalentClass": [
+      {
+        "@id": "https://schema.org/Person"
+      }
+    ]
+  },
+  {
+    "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb7",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onDataRange": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/name"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
+        "@value": "1"
       }
     ]
   },
@@ -76,12 +230,12 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b9"
+        "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb9"
       }
     ]
   },
   {
-    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b9",
+    "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb9",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -103,32 +257,20 @@
     ]
   },
   {
-    "@id": "http://xmlns.com/foaf/0.1/Agent",
+    "@id": "http://xmlns.com/foaf/0.1/account",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "An agent (person or organization)."
+        "@value": "Indicates an account held by this agent"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "foaf:Agent"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/Identifier",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:Identifier"
+        "@value": "foaf:account"
       }
     ]
   },
@@ -170,7 +312,7 @@
     ],
     "http://purl.org/dc/terms/modified": [
       {
-        "@value": "2025-12-22"
+        "@value": "2026-07-10"
       }
     ],
     "http://purl.org/dc/terms/title": [
@@ -209,21 +351,21 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b1"
+        "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb1"
       },
       {
-        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b2"
+        "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb2"
       },
       {
-        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b3"
+        "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb3"
       },
       {
-        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b4"
+        "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb4"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
-        "@value": "2.1.0"
+        "@value": "2.2.0"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#exactMatch": [
@@ -238,7 +380,7 @@
     ]
   },
   {
-    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b1",
+    "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb1",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -260,7 +402,7 @@
     ]
   },
   {
-    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b2",
+    "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb2",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -282,7 +424,7 @@
     ]
   },
   {
-    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b3",
+    "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -304,7 +446,7 @@
     ]
   },
   {
-    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b4",
+    "@id": "_:n7e702a3c53ee4e6e9c828254a7d04f2eb4",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -315,148 +457,6 @@
             "@id": "http://xmlns.com/foaf/0.1/Organization"
           }
         ]
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/Organization",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An organization."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:Organization"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b8"
-      },
-      {
-        "@id": "https://schema.org/Thing"
-      }
-    ]
-  },
-  {
-    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b8",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/name"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/literal/hasLiteralValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "litre:hasLiteralValue"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Thing",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:Thing"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/Person",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A person."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:Person"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b7"
-      },
-      {
-        "@id": "https://schema.org/Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#equivalentClass": [
-      {
-        "@id": "https://schema.org/Person"
-      }
-    ]
-  },
-  {
-    "@id": "_:n32fae05c2b5f4ff9abc395b324acf4d0b7",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onDataRange": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/name"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#qualifiedCardinality": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
-        "@value": "1"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/IdentifierScheme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:IdentifierScheme"
       }
     ]
   }

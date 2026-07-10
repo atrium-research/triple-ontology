@@ -13,7 +13,16 @@ Each entry follows this structure:
 
 ---
 
-## [Unreleased]
+## [2.2.0] - 2026-07-10
+
+### 2026-07-10 - Release 2.2.0
+
+**Type**: Refactoring / Documentation
+
+**Description**:
+Minor release collecting the issue-closure work of 2026-07-10 (issues #31, #32, #35, #36, #38, #39, #40, #41, #42, #43 — see the entries below): SAMOD iterations 17 (original provider values) and 18 (enrichment metadata), the #39 gap closure against the LUMEN ADR 005, vocabulary alignments and multilingual labels, and the HTML documentation fixes. Release chores: bumped `owl:versionInfo` to 2.2.0 and `dcterms:modified` in `ontology/metadata.ttl` (adding `owl:priorVersion` 2.1.0) and in all module serializations; fixed the stale hash-based `vann:preferredNamespaceUri` in `ontology/metadata.ttl` to the canonical slash form; `scripts/merge_iterations.py` now reads the ontology metadata from `ontology/metadata.ttl` (single source of truth, shared with `build.py`) instead of a hardcoded 1.0.0 block, so `ontology/triple.ttl` carries the full, current metadata; vocabularies rebuilt and all module serializations (ttl/rdf/jsonld) and HTML documentation pages regenerated at 2.2.0.
+
+**Author**: Alessandro Bertozzi
 
 ### 2026-07-10 - Documentation: module HTML pages regenerated
 

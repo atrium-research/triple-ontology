@@ -220,25 +220,34 @@ def merge_graphs(ttl_files):
 
 
 def add_metadata(graph):
-    """Add ontology metadata to the merged graph."""
-    logger.info("Adding ontology metadata...")
+    """Add ontology metadata to the merged graph.
 
-    TRIPLE_ONT = Namespace("https://gotriple.eu/ontology/triple")
+    The shared metadata (title, version, dates, authors, VANN) is read from
+    ontology/metadata.ttl — the single source of truth also consumed by
+    build.py — and copied onto the ontology node. The owl:versionIRI is
+    derived from owl:versionInfo.
+    """
+    logger.info("Adding ontology metadata from ontology/metadata.ttl...")
 
-    # Add ontology declaration
-    graph.add((TRIPLE_ONT[""], RDF.type, OWL.Ontology))
-    graph.add((TRIPLE_ONT[""], OWL.versionIRI,
-              URIRef("https://gotriple.eu/ontology/triple/1.0.0")))
-    graph.add((TRIPLE_ONT[""], RDFS.label,
+    ontology_iri = URIRef("https://gotriple.eu/ontology/triple")
+    metadata_path = Path(__file__).parent.parent / 'ontology' / 'metadata.ttl'
+
+    metadata_graph = Graph()
+    metadata_graph.parse(metadata_path, format='turtle')
+
+    for _, predicate, obj in metadata_graph.triples((ontology_iri, None, None)):
+        graph.add((ontology_iri, predicate, obj))
+
+    graph.add((ontology_iri, RDF.type, OWL.Ontology))
+    graph.add((ontology_iri, RDFS.label,
               Literal("TRIPLE Ontology", lang="en")))
-    graph.add((TRIPLE_ONT[""], RDFS.comment,
+    graph.add((ontology_iri, RDFS.comment,
               Literal("Comprehensive semantic representation of the GoTriple discovery platform's data model for Social Sciences and Humanities (SSH) research artifacts.", lang="en")))
-    graph.add((TRIPLE_ONT[""], OWL.versionInfo,
-              Literal("1.0.0")))
-    graph.add((TRIPLE_ONT[""], DCTERMS.created,
-              Literal("2025-10-06")))
-    graph.add((TRIPLE_ONT[""], DCTERMS.modified,
-              Literal("2025-10-06")))
+
+    version = metadata_graph.value(ontology_iri, OWL.versionInfo)
+    if version is not None:
+        graph.add((ontology_iri, OWL.versionIRI,
+                  URIRef(f"https://gotriple.eu/ontology/triple/{version}")))
 
     return graph
 

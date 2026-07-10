@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
-  xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
-  xmlns:triple="https://gotriple.eu/ontology/triple/"
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
   xmlns:vann="http://purl.org/vocab/vann/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:triple="https://gotriple.eu/ontology/triple/"
+  xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
 >
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/funded">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Funded</rdfs:label>
+    <rdfs:comment xml:lang="en">A research project financed by a formal funding programme, such as a European or national grant.</rdfs:comment>
+  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
     <rdfs:label xml:lang="en">Project Type</rdfs:label>
@@ -16,16 +21,6 @@
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
     <rdfs:label xml:lang="en">Citizen Science</rdfs:label>
     <rdfs:comment xml:lang="en">A research project conducted with the active participation of the general public.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/community_based">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Community-based</rdfs:label>
-    <rdfs:comment xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/legacy">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Legacy</rdfs:label>
-    <rdfs:comment xml:lang="en">A completed or historical research project included for archival and reference purposes.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/institutional">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
@@ -37,15 +32,20 @@
     <rdfs:label xml:lang="en">Non-funded</rdfs:label>
     <rdfs:comment xml:lang="en">A research project carried out without dedicated external funding.</rdfs:comment>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/funded">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Funded</rdfs:label>
-    <rdfs:comment xml:lang="en">A research project financed by a formal funding programme, such as a European or national grant.</rdfs:comment>
-  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/crowdfunded">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
     <rdfs:label xml:lang="en">Crowdfunded</rdfs:label>
     <rdfs:comment xml:lang="en">A research project financed through collective contributions, typically via a crowdfunding platform.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/community_based">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Community-based</rdfs:label>
+    <rdfs:comment xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ProjectType/legacy">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Legacy</rdfs:label>
+    <rdfs:comment xml:lang="en">A completed or historical research project included for archival and reference purposes.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:Ontology rdf:about="https://gotriple.eu/ontology/triple/ProjectType">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
@@ -55,7 +55,7 @@
     <dcterms:creator>Alessandro Bertozzi</dcterms:creator>
     <dcterms:contributor>Luca De Santis</dcterms:contributor>
     <dcterms:contributor>Silvio Peroni</dcterms:contributor>
-    <owl:versionInfo>2.1.0</owl:versionInfo>
+    <owl:versionInfo>2.2.0</owl:versionInfo>
     <vann:preferredNamespacePrefix>projecttype</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri>https://gotriple.eu/ontology/triple/ProjectType/</vann:preferredNamespaceUri>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-12-01</dcterms:created>
