@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: Project Type vocabulary concepts (issue #39)
+
+**Type**: Addition
+
+**Iteration**: Controlled vocabularies
+
+**Description**:
+The Project Type vocabulary (`vocabularies/serializations/ttl/ProjectType.ttl`) contained only the concept scheme with no concepts, while the LUMEN ADR 005 prescribes a controlled vocabulary for the `additional_type` field of Projects. Added the seven concepts listed in the ADR: `pt:funded`, `pt:non_funded`, `pt:crowdfunded`, `pt:citizen_science`, `pt:community_based`, `pt:legacy`, `pt:institutional`, each with an English label and definition, following the existing vocabulary pattern. Compiled output regenerated with `build.py`; ProjectType module serializations (ttl/rdf/jsonld) updated. Part of the issue [#39](https://github.com/atrium-research/triple-ontology/issues/39) gap closure.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: dcat:theme on Dataset; adms:representationTechnique and schema:mentions on SemanticArtefact (issue #39)
 
 **Type**: Addition
