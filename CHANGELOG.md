@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Documentation: module HTML pages regenerated
+
+**Type**: Documentation
+
+**Iteration**: All modules
+
+**Description**:
+Regenerated the `index.html` documentation pages of all 11 modules (Document, Dataset, MediaObject, SemanticArtefact, Project, Profile, ContentType, AccessCondition, License, Discipline, ProjectType) with the customized pyLODE pipeline, so they reflect the current module serializations: iterations 17-18 (original provider values, enrichment metadata), the issue #39 gap closure (dates on Document, `triple:originalSource`, `dcat:theme`, `adms:representationTechnique`, the populated ProjectType vocabulary), the `semantic_artefact` concept (#35), the COAR closeMatch additions (#31) and the multilingual labels (#41). The inner-`#` percent-encoding of anchor fragments (issue #32) was re-applied after regeneration, and all internal anchors were verified to resolve (the only unresolved targets are external datatypes such as `xsd:date`, a pre-existing generator behavior unchanged from the previous pages).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: Project Type vocabulary concepts (issue #39)
 
 **Type**: Addition
