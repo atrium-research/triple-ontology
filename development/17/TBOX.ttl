@@ -33,6 +33,12 @@ dc:rights rdf:type owl:DatatypeProperty ;
           rdfs:comment "Information about rights held in and over the resource (Dublin Core Elements 1.1)."@en .
 
 
+###  http://purl.org/dc/elements/1.1/source
+dc:source rdf:type owl:DatatypeProperty ;
+          rdfs:label "dc:source"@en ;
+          rdfs:comment "A related resource from which the described resource is derived (Dublin Core Elements 1.1)."@en .
+
+
 ###  https://gotriple.eu/ontology/triple/originalType
 triple:originalType rdf:type owl:DatatypeProperty ;
                     rdfs:label "original type"@en ;
@@ -73,6 +79,14 @@ triple:originalConditionsOfAccess rdf:type owl:DatatypeProperty ;
                                   rdfs:range xsd:string .
 
 
+###  https://gotriple.eu/ontology/triple/originalSource
+triple:originalSource rdf:type owl:DatatypeProperty ;
+                      rdfs:label "original source"@en ;
+                      rdfs:comment "The source statement exactly as received from the source provider (e.g. a journal issue string or a repository reference), before processing into the normalized source (dcterms:source) or the URL-based identifiers. The value is kept verbatim."@en ;
+                      rdfs:subPropertyOf dc:source ;
+                      rdfs:range xsd:string .
+
+
 #################################################################
 #    Classes
 #################################################################
@@ -109,5 +123,99 @@ triple:Document rdf:type owl:Class ;
           # Optional original conditions of access (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
                             owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:allValuesFrom xsd:string
+                          ] ;
+
+          # Optional original source (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalSource ;
+                            owl:allValuesFrom xsd:string
+                          ] .
+
+
+###  https://gotriple.eu/ontology/triple/Dataset
+###  Per the LUMEN ADR 005 tables the original provider values also apply to the
+###  other content classes (original_source is not defined for Dataset).
+triple:Dataset rdf:type owl:Class ;
+          rdfs:label "Dataset"@en ;
+          rdfs:comment "A dataset in the GoTriple platform. Original provider values are preserved before normalization."@en ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalType ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLanguage ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalDatePublished ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLicense ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:allValuesFrom xsd:string
+                          ] .
+
+
+###  https://gotriple.eu/ontology/triple/MediaObject
+triple:MediaObject rdf:type owl:Class ;
+          rdfs:label "Media Object"@en ;
+          rdfs:comment "A multimedia object in the GoTriple platform. Original provider values are preserved before normalization."@en ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalType ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLanguage ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalDatePublished ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLicense ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalSource ;
+                            owl:allValuesFrom xsd:string
+                          ] .
+
+
+###  https://gotriple.eu/ontology/triple/SemanticArtefact
+triple:SemanticArtefact rdf:type owl:Class ;
+          rdfs:label "Semantic Artefact"@en ;
+          rdfs:comment "A semantic artefact in the GoTriple platform. Original provider values are preserved before normalization."@en ;
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalType ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLanguage ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalDatePublished ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalLicense ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:allValuesFrom xsd:string
+                          ] ,
+                          [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:originalSource ;
                             owl:allValuesFrom xsd:string
                           ] .

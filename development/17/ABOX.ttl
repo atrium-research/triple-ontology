@@ -21,6 +21,7 @@ triple:document_it17_1 rdf:type owl:NamedIndividual ,
         triple:originalDatePublished "03/05/2021" ;
         triple:originalLicense "CC BY 4.0" ;
         triple:originalConditionsOfAccess "info:eu-repo/semantics/openAccess" ;
+        triple:originalSource "Journal of Digital Humanities, 12(3), 2021" ;
         # normalized counterparts
         triple:hasContentType ct:article ;
         schema:inLanguage triple:language_en_it17 ;
@@ -38,6 +39,15 @@ triple:document_it17_2 rdf:type owl:NamedIndividual ,
         triple:hasContentType ct:text ;
         triple:hasAccessCondition acc:restricted_access_or_use ;
         schema:headline "Working Notes on Provider Heterogeneity"@en .
+
+
+###  Example 3: dataset with original provider values (no original source, per ADR 005)
+triple:dataset_it17_1 rdf:type owl:NamedIndividual ,
+                               triple:Dataset ;
+        triple:originalType "Dataset/csv" ;
+        triple:originalLanguage "French" ;
+        triple:originalLicense "https://spdx.org/licenses/CC-BY-4.0.html" ;
+        schema:headline "Enquête sociale européenne - vague 10 (données France)"@fr .
 
 
 ###  Referenced normalized entities

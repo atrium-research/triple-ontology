@@ -84,13 +84,29 @@ triple:Dataset a owl:Class ;
         "Zbiór Danych"@pl,
         "Base de Dados"@pt ;
     rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en,
-        "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
+        "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en,
+        "A dataset in the GoTriple platform. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty frapo:isOutputOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom schema:CreativeWork ;
             owl:onProperty dcterms:isReferencedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
@@ -214,13 +230,32 @@ triple:MediaObject a owl:Class ;
         "Multimedia"@pl,
         "Multimédia"@pt ;
     rdfs:comment "A media object such as an image, video, audio, or other multimedia content used in SSH research."@en,
-        "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en ;
+        "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en,
+        "A multimedia object in the GoTriple platform. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty frapo:isOutputOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom schema:CreativeWork ;
             owl:onProperty dcterms:isReferencedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
@@ -338,7 +373,8 @@ triple:SemanticArtefact a owl:Class ;
         "Artefact Sémantique"@fr,
         "Artefakt Semantyczny"@pl,
         "Artefacto Semântico"@pt ;
-    rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en,
+    rdfs:comment "A semantic artefact in the GoTriple platform. Original provider values are preserved before normalization."@en,
+        "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en,
         "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
@@ -346,6 +382,24 @@ triple:SemanticArtefact a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom schema:CreativeWork ;
             owl:onProperty dcterms:isReferencedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
         [ a owl:Restriction ;
             owl:onProperty schema:headline ;
             owl:someValuesFrom [ a rdfs:Datatype ;
@@ -478,6 +532,10 @@ dc:language a owl:DatatypeProperty ;
     rdfs:label "dc:language"@en ;
     rdfs:comment "A language of the resource (Dublin Core Elements 1.1)."@en .
 
+dc:source a owl:DatatypeProperty ;
+    rdfs:label "dc:source"@en ;
+    rdfs:comment "A related resource from which the described resource is derived (Dublin Core Elements 1.1)."@en .
+
 dc:type a owl:DatatypeProperty ;
     rdfs:label "dc:type"@en ;
     rdfs:comment "The nature or genre of the resource (Dublin Core Elements 1.1)."@en .
@@ -607,36 +665,6 @@ triple:machineTranslatedLanguage a owl:DatatypeProperty ;
     rdfs:label "machine translated language"@en ;
     rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service. Title/abstract literals carrying this language tag are machine translations; the remaining language versions are as provided by the source."@en ;
     rdfs:range xsd:string .
-
-triple:originalConditionsOfAccess a owl:DatatypeProperty ;
-    rdfs:label "original conditions of access"@en ;
-    rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition."@en ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf dc:rights .
-
-triple:originalDatePublished a owl:DatatypeProperty ;
-    rdfs:label "original date published"@en ;
-    rdfs:comment "The publication date string exactly as received from the source provider, in whatever format the provider used (e.g. '03/05/2021', 'May 2021'), before conversion to ISO 8601. The normalized value is expressed via schema:datePublished."@en ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf dc:date .
-
-triple:originalLanguage a owl:DatatypeProperty ;
-    rdfs:label "original language"@en ;
-    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. 'eng', 'English', 'fr-FR'). The normalized value is expressed via schema:inLanguage."@en ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf dc:language .
-
-triple:originalLicense a owl:DatatypeProperty ;
-    rdfs:label "original license"@en ;
-    rdfs:comment "The license statement exactly as received from the source provider (e.g. 'CC BY 4.0', a URL, free text), before normalization to the License controlled vocabulary. The normalized value is expressed via triple:hasLicense."@en ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf dc:rights .
-
-triple:originalType a owl:DatatypeProperty ;
-    rdfs:label "original type"@en ;
-    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. 'journalArticle'). The normalized value is expressed via triple:hasContentType."@en ;
-    rdfs:range xsd:string ;
-    rdfs:subPropertyOf dc:type .
 
 schema:Grant a owl:Class ;
     rdfs:label "schema:Grant"@en ;
@@ -810,6 +838,12 @@ triple:knowsAbout a owl:ObjectProperty ;
     rdfs:range schema:DefinedTerm ;
     rdfs:subPropertyOf schema:about .
 
+triple:originalSource a owl:DatatypeProperty ;
+    rdfs:label "original source"@en ;
+    rdfs:comment "The source statement exactly as received from the source provider (e.g. a journal issue string or a repository reference), before processing into the normalized source (dcterms:source) or the URL-based identifiers. The value is kept verbatim."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:source .
+
 schema:URL a rdfs:Datatype ;
     rdfs:label "schema:URL"@en ;
     rdfs:comment "Data type: URL."@en .
@@ -868,22 +902,6 @@ triple:Document a owl:Class ;
         "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts."@en,
         "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:detectedLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:machineTranslatedLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
-        [ a owl:Restriction ;
-            owl:onClass triple:Cluster ;
-            owl:onProperty triple:inCluster ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        [ a owl:Restriction ;
             owl:allValuesFrom triple:Discipline ;
             owl:onProperty sioc:topic ],
         [ a owl:Restriction ;
@@ -896,9 +914,33 @@ triple:Document a owl:Class ;
             owl:allValuesFrom triple:ContentType ;
             owl:onProperty triple:hasContentType ],
         [ a owl:Restriction ;
+            owl:allValuesFrom schema:DefinedTerm ;
+            owl:onProperty triple:knowsAbout ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:detectedLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:machineTranslatedLanguage ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:keywords ;
+            owl:someValuesFrom schema:DefinedTerm ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:spatialCoverage ;
+            owl:someValuesFrom schema:Place ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:temporalCoverage ;
+            owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ;
             owl:allValuesFrom [ a owl:Class ;
                     owl:unionOf ( datacite:Identifier triple:DOI triple:Handle triple:ISSN triple:ISBN ) ] ;
             owl:onProperty datacite:hasIdentifier ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:mentions ;
+            owl:someValuesFrom oa:Annotation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty triple:originalType ],
@@ -915,14 +957,30 @@ triple:Document a owl:Class ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty triple:originalConditionsOfAccess ],
         [ a owl:Restriction ;
-            owl:onProperty schema:keywords ;
-            owl:someValuesFrom schema:DefinedTerm ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
         [ a owl:Restriction ;
-            owl:onProperty schema:spatialCoverage ;
-            owl:someValuesFrom schema:Place ],
+            owl:onClass triple:Cluster ;
+            owl:onProperty triple:inCluster ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
-            owl:onProperty schema:temporalCoverage ;
-            owl:someValuesFrom xsd:string ],
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:author ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:contributor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:publisher ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:provider ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty triple:aggregator ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:ContactPoint ;
+            owl:onProperty schema:contactPoint ],
         [ a owl:Restriction ;
             owl:onProperty datacite:hasIdentifier ;
             owl:someValuesFrom triple:OriginalIdentifier ],
@@ -964,27 +1022,6 @@ triple:Document a owl:Class ;
         [ a owl:Restriction ;
             owl:onProperty datacite:hasIdentifier ;
             owl:someValuesFrom triple:PID ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:author ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:contributor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:publisher ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:provider ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty triple:aggregator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:ContactPoint ;
-            owl:onProperty schema:contactPoint ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:mentions ;
-            owl:someValuesFrom oa:Annotation ],
         foaf:Document,
         schema:CreativeWork ;
     skos:exactMatch <http://purl.org/spar/fabio/ScholarlyWork>,
@@ -1017,6 +1054,36 @@ triple:hasLicense a owl:ObjectProperty ;
     rdfs:label "has license"@en ;
     rdfs:range triple:License ;
     rdfs:subPropertyOf dcterms:license .
+
+triple:originalConditionsOfAccess a owl:DatatypeProperty ;
+    rdfs:label "original conditions of access"@en ;
+    rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:rights .
+
+triple:originalDatePublished a owl:DatatypeProperty ;
+    rdfs:label "original date published"@en ;
+    rdfs:comment "The publication date string exactly as received from the source provider, in whatever format the provider used (e.g. '03/05/2021', 'May 2021'), before conversion to ISO 8601. The normalized value is expressed via schema:datePublished."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:date .
+
+triple:originalLanguage a owl:DatatypeProperty ;
+    rdfs:label "original language"@en ;
+    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. 'eng', 'English', 'fr-FR'). The normalized value is expressed via schema:inLanguage."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:language .
+
+triple:originalLicense a owl:DatatypeProperty ;
+    rdfs:label "original license"@en ;
+    rdfs:comment "The license statement exactly as received from the source provider (e.g. 'CC BY 4.0', a URL, free text), before normalization to the License controlled vocabulary. The normalized value is expressed via triple:hasLicense."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:rights .
+
+triple:originalType a owl:DatatypeProperty ;
+    rdfs:label "original type"@en ;
+    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. 'journalArticle'). The normalized value is expressed via triple:hasContentType."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:type .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract",

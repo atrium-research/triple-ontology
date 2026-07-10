@@ -80,3 +80,24 @@ SELECT ?property ?value WHERE {
 **Expected result:**
 - `triple:originalLicense` → "CC BY 4.0"
 - `triple:originalConditionsOfAccess` → "info:eu-repo/semantics/openAccess"
+
+## CQ_17.5
+
+Return the raw source statement of `triple:document_it17_1` and all original provider values of `triple:dataset_it17_1`.
+
+```sparql
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+
+SELECT ?documentSource ?datasetProperty ?datasetValue WHERE {
+  triple:document_it17_1 triple:originalSource ?documentSource .
+  triple:dataset_it17_1 ?datasetProperty ?datasetValue .
+  FILTER(STRSTARTS(STR(?datasetProperty), STR(triple:original)))
+}
+```
+
+**Expected result:**
+- `documentSource` → "Journal of Digital Humanities, 12(3), 2021"
+- `triple:originalType` → "Dataset/csv"
+- `triple:originalLanguage` → "French"
+- `triple:originalLicense` → "https://spdx.org/licenses/CC-BY-4.0.html"

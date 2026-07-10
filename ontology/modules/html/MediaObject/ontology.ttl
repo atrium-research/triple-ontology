@@ -1,4 +1,5 @@
 @prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix litre: <http://purl.org/spar/literal/> .
@@ -96,6 +97,24 @@ triple:MediaObject a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom triple:AccessCondition ;
             owl:onProperty triple:hasAccessCondition ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:temporalCoverage ],
@@ -369,3 +388,55 @@ datacite:local-resource-identifier-scheme a datacite:IdentifierScheme, owl:Named
 
 <http://purl.org/spar/fabio/Work> a owl:Class ;
     rdfs:label "fabio:Work"@en .
+
+# Original provider values (raw, pre-normalization; iteration 17)
+dc:type a owl:DatatypeProperty ;
+    rdfs:label "dc:type"@en .
+
+dc:language a owl:DatatypeProperty ;
+    rdfs:label "dc:language"@en .
+
+dc:date a owl:DatatypeProperty ;
+    rdfs:label "dc:date"@en .
+
+dc:rights a owl:DatatypeProperty ;
+    rdfs:label "dc:rights"@en .
+
+triple:originalType a owl:DatatypeProperty ;
+    rdfs:label "original type"@en ;
+    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary."@en ;
+    rdfs:subPropertyOf dc:type ;
+    rdfs:range xsd:string .
+
+triple:originalLanguage a owl:DatatypeProperty ;
+    rdfs:label "original language"@en ;
+    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity."@en ;
+    rdfs:subPropertyOf dc:language ;
+    rdfs:range xsd:string .
+
+triple:originalDatePublished a owl:DatatypeProperty ;
+    rdfs:label "original date published"@en ;
+    rdfs:comment "The publication date string exactly as received from the source provider, before conversion to ISO 8601."@en ;
+    rdfs:subPropertyOf dc:date ;
+    rdfs:range xsd:string .
+
+triple:originalLicense a owl:DatatypeProperty ;
+    rdfs:label "original license"@en ;
+    rdfs:comment "The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary."@en ;
+    rdfs:subPropertyOf dc:rights ;
+    rdfs:range xsd:string .
+
+triple:originalConditionsOfAccess a owl:DatatypeProperty ;
+    rdfs:label "original conditions of access"@en ;
+    rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
+    rdfs:subPropertyOf dc:rights ;
+    rdfs:range xsd:string .
+
+dc:source a owl:DatatypeProperty ;
+    rdfs:label "dc:source"@en .
+
+triple:originalSource a owl:DatatypeProperty ;
+    rdfs:label "original source"@en ;
+    rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
+    rdfs:subPropertyOf dc:source ;
+    rdfs:range xsd:string .

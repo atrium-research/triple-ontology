@@ -107,6 +107,9 @@ triple:Document a owl:Class ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty triple:originalConditionsOfAccess ],
         [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
+        [ a owl:Restriction ;
             owl:allValuesFrom schema:DefinedTerm ;
             owl:onProperty triple:knowsAbout ],
         [ a owl:Restriction ;
@@ -301,6 +304,15 @@ triple:originalConditionsOfAccess a owl:DatatypeProperty ;
     rdfs:label "original conditions of access"@en ;
     rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
     rdfs:subPropertyOf dc:rights ;
+    rdfs:range xsd:string .
+
+dc:source a owl:DatatypeProperty ;
+    rdfs:label "dc:source"@en .
+
+triple:originalSource a owl:DatatypeProperty ;
+    rdfs:label "original source"@en ;
+    rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
+    rdfs:subPropertyOf dc:source ;
     rdfs:range xsd:string .
 
 # Enrichment metadata (topic confidence, keywords, language detection)

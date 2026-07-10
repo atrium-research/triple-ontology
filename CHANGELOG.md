@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: originalSource and original_* restrictions on all content classes (issue #39)
+
+**Type**: Addition
+
+**Iteration**: 17
+
+**Description**:
+Extension of iteration 17 ("Original Provider Values") following the gap analysis of issue [#39](https://github.com/atrium-research/triple-ontology/issues/39) against the LUMEN ADR 005 tables. Added `triple:originalSource` (`rdfs:subPropertyOf dc:source`, `xsd:string`), preserving the source statement exactly as received from the provider (e.g. a journal issue string) before processing into the normalized `dcterms:source` or the URL-based identifiers — the same hybrid sub-property pattern of the other five original properties. The `original_*` restrictions, previously declared only on `triple:Document`, are now declared on `triple:Dataset`, `triple:MediaObject` and `triple:SemanticArtefact` as prescribed by the ADR tables (`original_source` is not defined for Dataset in the ADR, so Dataset carries only the other five). New competency question CQ_17.5 and a dataset example in the ABox. Merged into `ontology/triple.ttl`; Document, Dataset, MediaObject and SemanticArtefact module serializations updated.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: datePublished and dateModified restrictions on Document (issue #39)
 
 **Type**: Addition

@@ -73,3 +73,21 @@ All values of properties that refine `dc:rights` (i.e. both `originalLicense` an
 
 ### Based on
 Example 1
+
+## Question 5
+
+### Identifier
+CQ_17.5
+
+### Question
+What is the raw source statement received from the provider for a given document, and which original provider values were received for a dataset?
+
+### Expected Outcome
+The verbatim source string of the document and the raw type/language/license strings preserved on the dataset.
+
+### Result
+* `document_it17_1` → "Journal of Digital Humanities, 12(3), 2021"
+* `dataset_it17_1` → "Dataset/csv", "French", "https://spdx.org/licenses/CC-BY-4.0.html"
+
+### Based on
+Example 1 and Example 3
