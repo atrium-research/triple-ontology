@@ -100,8 +100,8 @@ triple:MediaObject a owl:Class ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:temporalCoverage ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty schema:knowsAbout ],
+            owl:allValuesFrom schema:DefinedTerm ;
+            owl:onProperty triple:knowsAbout ],
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
             owl:onProperty schema:mentions ],
@@ -183,9 +183,14 @@ schema:temporalCoverage a owl:DatatypeProperty ;
     rdfs:label "schema:temporalCoverage"@en ;
     rdfs:range xsd:string .
 
-schema:knowsAbout a owl:DatatypeProperty ;
-    rdfs:label "schema:knowsAbout"@en ;
-    rdfs:range xsd:string .
+schema:about a owl:ObjectProperty ;
+    rdfs:label "schema:about"@en .
+
+triple:knowsAbout a owl:ObjectProperty ;
+    rdfs:label "knows about"@en ;
+    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm."@en ;
+    rdfs:subPropertyOf schema:about ;
+    rdfs:range schema:DefinedTerm .
 
 schema:mentions a owl:ObjectProperty ;
     rdfs:label "schema:mentions"@en ;

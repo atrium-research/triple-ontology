@@ -31,7 +31,7 @@ triple:multimedia-001 rdf:type triple:MediaObject ;
                       triple:hasLicense triple:cc_by_nc_nd_4_0 ;
                       schema:keywords triple:keyword-histoire-medievale, triple:keyword-renaissance-carolingienne, triple:keyword-charlemagne ;
 
-                      schema:knowsAbout "medieval history", "Carolingian period" ;
+                      triple:knowsAbout triple:kw-medieval-history, triple:kw-carolingian-period ;
                       schema:inLanguage schema:language-fr ;
                       schema:spatialCoverage triple:place-europe-occidentale ;
                       schema:temporalCoverage "750-900 CE" ;
@@ -69,7 +69,7 @@ triple:multimedia-002 rdf:type triple:MediaObject ;
                       triple:hasLicense triple:cc_by_sa_4_0 ;
                       schema:keywords triple:keyword-oral-history, triple:keyword-world-war-ii, triple:keyword-italian-resistance, triple:keyword-memory-studies ;
 
-                      schema:knowsAbout "European history", "resistance movements", "oral testimony" ;
+                      triple:knowsAbout triple:kw-european-history, triple:kw-resistance-movements, triple:kw-oral-testimony ;
                       schema:inLanguage schema:language-it, schema:language-en ;
                       schema:spatialCoverage triple:place-italy ;
                       schema:temporalCoverage "1943-1945" ;
@@ -102,7 +102,7 @@ triple:multimedia-003 rdf:type triple:MediaObject ;
                       triple:hasLicense triple:cc_by_nc_4_0 ;
                       schema:keywords triple:keyword-renaissance-art, triple:keyword-botticelli, triple:keyword-digital-humanities, triple:keyword-cultural-heritage ;
 
-                      schema:knowsAbout "Renaissance painting", "Italian art", "digital preservation" ;
+                      triple:knowsAbout triple:kw-renaissance-painting, triple:kw-italian-art, triple:kw-digital-preservation ;
                       schema:inLanguage schema:language-en, schema:language-it ;
                       schema:spatialCoverage triple:place-florence-italy ;
                       schema:temporalCoverage "1480-1490" ;
@@ -381,3 +381,36 @@ triple:identifier-project-002 rdf:type triple:ID ;
 
 triple:identifier-project-003 rdf:type triple:ID ;
                               litre:hasLiteralValue "UDHA-2023-012" .
+
+###  Extracted keywords (knows_about)
+triple:kw-medieval-history rdf:type owl:NamedIndividual ,
+                                    schema:DefinedTerm ;
+                           schema:name "medieval history"@en .
+
+triple:kw-carolingian-period rdf:type owl:NamedIndividual ,
+                                      schema:DefinedTerm ;
+                             schema:name "Carolingian period"@en .
+
+triple:kw-european-history rdf:type owl:NamedIndividual ,
+                                    schema:DefinedTerm ;
+                           schema:name "European history"@en .
+
+triple:kw-resistance-movements rdf:type owl:NamedIndividual ,
+                                        schema:DefinedTerm ;
+                               schema:name "resistance movements"@en .
+
+triple:kw-oral-testimony rdf:type owl:NamedIndividual ,
+                                  schema:DefinedTerm ;
+                         schema:name "oral testimony"@en .
+
+triple:kw-renaissance-painting rdf:type owl:NamedIndividual ,
+                                        schema:DefinedTerm ;
+                               schema:name "Renaissance painting"@en .
+
+triple:kw-italian-art rdf:type owl:NamedIndividual ,
+                               schema:DefinedTerm ;
+                      schema:name "Italian art"@en .
+
+triple:kw-digital-preservation rdf:type owl:NamedIndividual ,
+                                        schema:DefinedTerm ;
+                               schema:name "digital preservation"@en .

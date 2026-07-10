@@ -95,6 +95,15 @@ triple:Document a owl:Class ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty triple:originalConditionsOfAccess ],
         [ a owl:Restriction ;
+            owl:allValuesFrom schema:DefinedTerm ;
+            owl:onProperty triple:knowsAbout ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:detectedLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:machineTranslatedLanguage ],
+        [ a owl:Restriction ;
             owl:onProperty sioc:topic ;
             owl:someValuesFrom skos:Concept ],
         [ a owl:Restriction ;
@@ -271,6 +280,57 @@ triple:originalConditionsOfAccess a owl:DatatypeProperty ;
     rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
     rdfs:subPropertyOf dc:rights ;
     rdfs:range xsd:string .
+
+# Enrichment metadata (topic confidence, keywords, language detection)
+schema:about a owl:ObjectProperty ;
+    rdfs:label "schema:about"@en .
+
+triple:knowsAbout a owl:ObjectProperty ;
+    rdfs:label "knows about"@en ;
+    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm."@en ;
+    rdfs:subPropertyOf schema:about ;
+    rdfs:range schema:DefinedTerm .
+
+schema:sameAs a owl:ObjectProperty ;
+    rdfs:label "schema:sameAs"@en ;
+    rdfs:comment "URL of a reference page that unambiguously indicates the item's identity (e.g. a Wikidata entity)."@en .
+
+triple:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence"@en ;
+    rdfs:comment "The trust score of an automatic enrichment, between 0 and 1, asserted on the oa:Annotation recording the enrichment."@en ;
+    rdfs:domain oa:Annotation ;
+    rdfs:range xsd:decimal .
+
+triple:detectedLanguage a owl:DatatypeProperty ;
+    rdfs:label "detected language"@en ;
+    rdfs:comment "The language tag identified by the GoTriple language-detection service for the resource's text."@en ;
+    rdfs:range xsd:string .
+
+triple:machineTranslatedLanguage a owl:DatatypeProperty ;
+    rdfs:label "machine translated language"@en ;
+    rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service."@en ;
+    rdfs:range xsd:string .
+
+oa:hasTarget a owl:ObjectProperty ;
+    rdfs:label "oa:hasTarget"@en .
+
+oa:hasBody a owl:ObjectProperty ;
+    rdfs:label "oa:hasBody"@en .
+
+oa:motivatedBy a owl:ObjectProperty ;
+    rdfs:label "oa:motivatedBy"@en ;
+    rdfs:range oa:Motivation .
+
+oa:Motivation a owl:Class ;
+    rdfs:label "oa:Motivation"@en .
+
+oa:classifying a oa:Motivation, owl:NamedIndividual ;
+    rdfs:label "oa:classifying"@en ;
+    rdfs:comment "The W3C motivation used for GoTriple discipline assignments."@en .
+
+oa:tagging a oa:Motivation, owl:NamedIndividual ;
+    rdfs:label "oa:tagging"@en ;
+    rdfs:comment "The W3C motivation used for GoTriple keyword assignments."@en .
 
 # Referenced Classes
 schema:ContactPoint a owl:Class ;

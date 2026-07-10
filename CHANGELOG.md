@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-10 - Addition: Iteration 18 — Enrichment metadata (issue #38, part 2)
+
+**Type**: Addition
+
+**Iteration**: 18 (new); 10, 11 (knowsAbout migration)
+
+**Description**:
+New SAMOD iteration `development/18` ("Enrichment Metadata") covering the remaining checklist items of issue #38. **Topic confidence**: discipline assignments keep the direct `sioc:topic` triple and gain an `oa:Annotation` provenance layer (`oa:hasTarget`, `oa:hasBody`, `oa:motivatedBy oa:classifying`, `dcterms:creator`) carrying the new `triple:confidence` (`xsd:decimal`, the SKG-IF `trust`); keyword annotations use `oa:motivatedBy oa:tagging` — the same Web Annotation pattern already used for NER mentions in iteration 15, with the design rationale and rejected alternatives (RDF-star, plain reification, bespoke qualified relation, PROV-O) documented in the motivating scenario. **Structured keywords**: new `triple:knowsAbout rdfs:subPropertyOf schema:about` (range `schema:DefinedTerm`, with language-tagged `schema:name` labels and optional `schema:sameAs` URI); introduced because `schema:knowsAbout` is declared only for Person/Organization — its pre-existing off-label use on `triple:Dataset` (iteration 10) and `triple:MediaObject` (iteration 11) was migrated, converting the string values in their ABoxes to `schema:DefinedTerm` individuals. **Language detection/translation**: new `triple:detectedLanguage` and `triple:machineTranslatedLanguage` (`xsd:string`) on `triple:Document`. All external usages verified against the official OA, SKOS, schema.org, SIOC vocabularies. All five formal competency questions pass; merged into `ontology/triple.ttl`; Document, Dataset and MediaObject module serializations updated. Together with iteration 17 this completes issue [#38](https://github.com/atrium-research/triple-ontology/issues/38).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Addition: Iteration 17 — Original provider values (issue #38, part 1)
 
 **Type**: Addition

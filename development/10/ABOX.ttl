@@ -72,7 +72,9 @@ triple:dataset-002 rdf:type triple:Dataset ;
                    dcat:bbox "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"^^rdfs:Literal ;
                    schema:keywords triple:keyword-social-attitudes, triple:keyword-survey, triple:keyword-politics, triple:keyword-demographics ;
 
-                   schema:knowsAbout "political science", "sociology", "public opinion" ;
+                   triple:knowsAbout triple:kw-political-science ,
+                                     triple:kw-sociology ,
+                                     triple:kw-public-opinion ;
                    schema:inLanguage "en", "de", "fr", "it" ;
                    dcterms:provenance triple:provenance-social-002 ;
                    schema:spatialCoverage triple:place-european-union ;
@@ -289,3 +291,16 @@ triple:restricted_access rdf:type owl:NamedIndividual ,
                                   triple:AccessCondition ;
                          rdfs:label "Restricted Access"@en ;
                          rdfs:comment "Access to the resource is restricted."@en .
+
+###  Extracted keywords (knows_about)
+triple:kw-political-science rdf:type owl:NamedIndividual ,
+                                     schema:DefinedTerm ;
+                            schema:name "political science"@en .
+
+triple:kw-sociology rdf:type owl:NamedIndividual ,
+                             schema:DefinedTerm ;
+                    schema:name "sociology"@en .
+
+triple:kw-public-opinion rdf:type owl:NamedIndividual ,
+                                  schema:DefinedTerm ;
+                         schema:name "public opinion"@en .

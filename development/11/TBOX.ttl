@@ -145,11 +145,17 @@ schema:temporalCoverage rdf:type owl:DatatypeProperty ;
 
 
 
-###  https://schema.org/knowsAbout
-schema:knowsAbout rdf:type owl:DatatypeProperty ;
-                  rdfs:label "schema:knowsAbout"@en ;
-                  rdfs:comment "Of a Person, and less typically of an Organization, to indicate a topic that is known about."@en ;
-                  rdfs:range xsd:string .
+###  https://schema.org/about
+schema:about rdf:type owl:ObjectProperty ;
+             rdfs:label "schema:about"@en ;
+             rdfs:comment "The subject matter of the content."@en .
+
+###  https://gotriple.eu/ontology/triple/knowsAbout
+triple:knowsAbout rdf:type owl:ObjectProperty ;
+                  rdfs:label "knows about"@en ;
+                  rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm. Sub-property of schema:about (schema:knowsAbout is declared only for Person and Organization)."@en ;
+                  rdfs:subPropertyOf schema:about ;
+                  rdfs:range schema:DefinedTerm .
 
 
 ###  https://schema.org/mentions
@@ -257,8 +263,8 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:allValuesFrom xsd:string ] ,
 
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty schema:knowsAbout ;
-                                     owl:allValuesFrom xsd:string ] ,
+                                     owl:onProperty triple:knowsAbout ;
+                                     owl:allValuesFrom schema:DefinedTerm ] ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:mentions ;
                                      owl:allValuesFrom owl:Thing ] ,

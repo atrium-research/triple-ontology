@@ -1,0 +1,150 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://www.w3.org/ns/oa#hasTarget
+oa:hasTarget rdf:type owl:ObjectProperty ;
+             rdfs:label "oa:hasTarget"@en ;
+             rdfs:comment "The relationship between an Annotation and its Target."@en .
+
+
+###  http://www.w3.org/ns/oa#hasBody
+oa:hasBody rdf:type owl:ObjectProperty ;
+           rdfs:label "oa:hasBody"@en ;
+           rdfs:comment "The object of the Annotation: for enrichment annotations, the concept or term assigned to the target."@en .
+
+
+###  http://www.w3.org/ns/oa#motivatedBy
+oa:motivatedBy rdf:type owl:ObjectProperty ;
+               rdfs:label "oa:motivatedBy"@en ;
+               rdfs:comment "The reason why the Annotation was created; oa:classifying for discipline assignments, oa:tagging for keyword assignments."@en ;
+               rdfs:range oa:Motivation .
+
+
+###  http://purl.org/dc/terms/creator
+dcterms:creator rdf:type owl:ObjectProperty ;
+                rdfs:label "dcterms:creator"@en ;
+                rdfs:comment "The agent responsible for the annotation; for GoTriple enrichments, the GoTriple pipeline (SKG-IF associated_with)."@en .
+
+
+###  https://schema.org/about
+schema:about rdf:type owl:ObjectProperty ;
+             rdfs:label "schema:about"@en ;
+             rdfs:comment "The subject matter of the content."@en .
+
+
+###  https://gotriple.eu/ontology/triple/knowsAbout
+triple:knowsAbout rdf:type owl:ObjectProperty ;
+                  rdfs:label "knows about"@en ;
+                  rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
+                  rdfs:subPropertyOf schema:about ;
+                  rdfs:range schema:DefinedTerm .
+
+
+###  https://schema.org/sameAs
+schema:sameAs rdf:type owl:ObjectProperty ;
+              rdfs:label "schema:sameAs"@en ;
+              rdfs:comment "URL of a reference page that unambiguously indicates the item's identity (e.g. a Wikidata entity)."@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://schema.org/name
+schema:name rdf:type owl:DatatypeProperty ;
+            rdfs:label "schema:name"@en .
+
+
+###  https://gotriple.eu/ontology/triple/confidence
+triple:confidence rdf:type owl:DatatypeProperty ;
+                  rdfs:label "confidence"@en ;
+                  rdfs:comment "The trust score of an automatic enrichment, between 0 and 1, as produced by the GoTriple pipeline (SKG-IF 'trust')."@en ;
+                  rdfs:domain oa:Annotation ;
+                  rdfs:range xsd:decimal .
+
+
+###  https://gotriple.eu/ontology/triple/detectedLanguage
+triple:detectedLanguage rdf:type owl:DatatypeProperty ;
+                        rdfs:label "detected language"@en ;
+                        rdfs:comment "The language tag identified by the GoTriple language-detection service for the resource's text, which may differ from the language declared by the provider (triple:originalLanguage) and from the normalized language (schema:inLanguage)."@en ;
+                        rdfs:range xsd:string .
+
+
+###  https://gotriple.eu/ontology/triple/machineTranslatedLanguage
+triple:machineTranslatedLanguage rdf:type owl:DatatypeProperty ;
+                                 rdfs:label "machine translated language"@en ;
+                                 rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service. Title/abstract literals carrying this language tag are machine translations; the remaining language versions are as provided by the source."@en ;
+                                 rdfs:range xsd:string .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/oa#Annotation
+oa:Annotation rdf:type owl:Class ;
+              rdfs:label "oa:Annotation"@en ;
+              rdfs:comment "A Web Annotation; used by GoTriple to record enrichment provenance (classification and tagging) with its confidence."@en .
+
+
+###  http://www.w3.org/ns/oa#Motivation
+oa:Motivation rdf:type owl:Class ;
+              rdfs:label "oa:Motivation"@en .
+
+
+###  https://schema.org/DefinedTerm
+schema:DefinedTerm rdf:type owl:Class ;
+                   rdfs:label "schema:DefinedTerm"@en ;
+                   rdfs:comment "A word, name, acronym or phrase defined in a controlled context; used for GoTriple keywords."@en .
+
+
+###  https://gotriple.eu/ontology/triple/Document
+triple:Document rdf:type owl:Class ;
+          rdfs:label "Document (Triple)"@en ;
+          rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+
+          # Optional extracted keywords (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:knowsAbout ;
+                            owl:allValuesFrom schema:DefinedTerm
+                          ] ;
+
+          # Optional detected language (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:detectedLanguage ;
+                            owl:allValuesFrom xsd:string
+                          ] ;
+
+          # Optional machine-translated language versions (0 or more)
+          rdfs:subClassOf [ rdf:type owl:Restriction ;
+                            owl:onProperty triple:machineTranslatedLanguage ;
+                            owl:allValuesFrom xsd:string
+                          ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://www.w3.org/ns/oa#classifying
+oa:classifying rdf:type owl:NamedIndividual ,
+                        oa:Motivation ;
+               rdfs:label "oa:classifying"@en ;
+               rdfs:comment "The motivation for when the user intends to classify the Target as something; used for GoTriple discipline assignments."@en .
+
+
+###  http://www.w3.org/ns/oa#tagging
+oa:tagging rdf:type owl:NamedIndividual ,
+                    oa:Motivation ;
+           rdfs:label "oa:tagging"@en ;
+           rdfs:comment "The motivation for when the user intends to associate a tag with the Target; used for GoTriple keyword assignments."@en .

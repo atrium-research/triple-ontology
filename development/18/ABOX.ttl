@@ -1,0 +1,101 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix disc: <https://gotriple.eu/ontology/triple/Discipline/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  Example 1: French article, machine-translated, classified with high confidence
+triple:document_it18_1 rdf:type owl:NamedIndividual ,
+                                triple:Document ;
+        schema:headline "Les méthodes numériques et la recherche en SHS"@fr ,
+                        "Digital methods and SSH research"@en ,
+                        "Métodos digitais e a pesquisa em CSH"@pt ;
+        schema:abstract "Une étude des méthodes numériques appliquées aux sciences humaines et sociales."@fr ,
+                        "A study of digital methods applied to the social sciences and humanities."@en ;
+        schema:inLanguage triple:language_fr_it18 ;
+        triple:detectedLanguage "fr" ;
+        triple:machineTranslatedLanguage "en" , "pt" ;
+        triple:originalLanguage "fre" ;
+        sioc:topic disc:methods_and_statistics ;
+        triple:knowsAbout triple:kw_text-mining_it18 .
+
+
+###  Example 2: English report, no translations, low-confidence classification
+triple:document_it18_2 rdf:type owl:NamedIndividual ,
+                                triple:Document ;
+        schema:headline "European Public Opinion Survey Report"@en ;
+        schema:inLanguage triple:language_en_it18 ;
+        triple:detectedLanguage "en" ;
+        triple:originalLanguage "und" ;
+        sioc:topic disc:political_science ;
+        triple:knowsAbout triple:kw_public-opinion_it18 .
+
+
+###  Classification annotations (topic provenance)
+triple:ann_it18_topic_1 rdf:type owl:NamedIndividual ,
+                                 oa:Annotation ;
+        oa:hasTarget triple:document_it18_1 ;
+        oa:hasBody disc:methods_and_statistics ;
+        oa:motivatedBy oa:classifying ;
+        triple:confidence "0.87"^^xsd:decimal ;
+        dcterms:creator triple:gotriple_pipeline .
+
+triple:ann_it18_topic_2 rdf:type owl:NamedIndividual ,
+                                 oa:Annotation ;
+        oa:hasTarget triple:document_it18_2 ;
+        oa:hasBody disc:political_science ;
+        oa:motivatedBy oa:classifying ;
+        triple:confidence "0.55"^^xsd:decimal ;
+        dcterms:creator triple:gotriple_pipeline .
+
+
+###  Tagging annotation (keyword provenance)
+triple:ann_it18_kw_1 rdf:type owl:NamedIndividual ,
+                              oa:Annotation ;
+        oa:hasTarget triple:document_it18_1 ;
+        oa:hasBody triple:kw_text-mining_it18 ;
+        oa:motivatedBy oa:tagging ;
+        triple:confidence "0.58"^^xsd:decimal ;
+        dcterms:creator triple:gotriple_pipeline .
+
+
+###  Structured keywords (knows_about)
+triple:kw_text-mining_it18 rdf:type owl:NamedIndividual ,
+                                    schema:DefinedTerm ;
+        schema:name "Text mining"@en ,
+                    "Fouille de textes"@fr ;
+        schema:sameAs <http://www.wikidata.org/entity/Q676880> .
+
+triple:kw_public-opinion_it18 rdf:type owl:NamedIndividual ,
+                                       schema:DefinedTerm ;
+        schema:name "Public opinion"@en .
+
+
+###  Referenced entities
+triple:language_fr_it18 rdf:type owl:NamedIndividual ,
+                                 schema:Language ;
+        schema:name "French" .
+
+triple:language_en_it18 rdf:type owl:NamedIndividual ,
+                                 schema:Language ;
+        schema:name "English" .
+
+disc:methods_and_statistics rdf:type owl:NamedIndividual ,
+                                     triple:Discipline .
+
+disc:political_science rdf:type owl:NamedIndividual ,
+                                triple:Discipline .
+
+triple:gotriple_pipeline rdf:type owl:NamedIndividual ,
+                                  foaf:Agent ;
+        schema:name "GoTriple" .
