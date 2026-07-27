@@ -1,0 +1,361 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix schema: <https://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://purl.org/spar/literal/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  http://purl.org/spar/datacite/hasIdentifier
+datacite:hasIdentifier rdf:type owl:ObjectProperty ;
+                       rdfs:label "datacite:hasIdentifier"@en .
+
+
+###  http://purl.org/spar/datacite/usesIdentifierScheme
+datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
+                              rdfs:label "datacite:usesIdentifierScheme"@en .
+
+
+###  http://xmlns.com/foaf/0.1/topic_interest
+foaf:topic_interest rdf:type owl:ObjectProperty ;
+                    rdfs:label "foaf:topic_interest"@en ;
+                    rdfs:comment "A thing of interest to this person. Used in GoTriple to link a profile to the disciplines the user chose or that were automatically detected from the author's publications."@en .
+
+
+###  https://schema.org/knowsAbout
+schema:knowsAbout rdf:type owl:ObjectProperty ;
+                  rdfs:label "schema:knowsAbout"@en ;
+                  rdfs:comment "A topic the agent knows about. Natively declared by Schema.org for Person and Organization; used in GoTriple to link a profile to structured thesaurus keywords."@en .
+
+
+###  https://schema.org/knowsLanguage
+schema:knowsLanguage rdf:type owl:ObjectProperty ;
+                     rdfs:label "schema:knowsLanguage"@en ;
+                     rdfs:comment "A language the agent knows."@en .
+
+
+###  https://schema.org/affiliation
+schema:affiliation rdf:type owl:ObjectProperty ;
+                   rdfs:label "schema:affiliation"@en ;
+                   rdfs:comment "An organization the agent is affiliated with. Used in GoTriple for the current organization specified by the user in the Experience tab."@en .
+
+
+###  https://schema.org/image
+schema:image rdf:type owl:ObjectProperty ;
+             rdfs:label "schema:image"@en ;
+             rdfs:comment "An image of the entity. Used in GoTriple for the URL of the personal picture chosen by the user."@en .
+
+
+###  https://schema.org/url
+schema:url rdf:type owl:ObjectProperty ;
+           rdfs:label "schema:url"@en ;
+           rdfs:comment "The URL of the entity. Used in GoTriple for the personal web pages of the profile."@en .
+
+
+###  https://schema.org/author
+schema:author rdf:type owl:ObjectProperty ;
+              rdfs:label "schema:author"@en ;
+              rdfs:comment "The author of this content. The documents a profile is author of (author_of) are retrieved as the inverse of this property."@en .
+
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  http://purl.org/spar/literal/hasLiteralValue
+litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
+                      rdfs:label "litre:hasLiteralValue"@en .
+
+
+###  http://xmlns.com/foaf/0.1/givenName
+foaf:givenName rdf:type owl:DatatypeProperty ;
+               rdfs:label "foaf:givenName"@en ;
+               rdfs:comment "The given name (first name) of a person."@en .
+
+
+###  http://xmlns.com/foaf/0.1/familyName
+foaf:familyName rdf:type owl:DatatypeProperty ;
+                rdfs:label "foaf:familyName"@en ;
+                rdfs:comment "The family name (last name) of a person."@en .
+
+
+###  https://schema.org/name
+schema:name rdf:type owl:DatatypeProperty ;
+            rdfs:label "schema:name"@en .
+
+
+###  https://schema.org/headline
+schema:headline rdf:type owl:DatatypeProperty ;
+                rdfs:label "schema:headline"@en .
+
+
+###  https://schema.org/description
+schema:description rdf:type owl:DatatypeProperty ;
+                   rdfs:label "schema:description"@en ;
+                   rdfs:comment "A description of the entity. Used in GoTriple for the self-description of the profile."@en .
+
+
+###  https://schema.org/dateModified
+schema:dateModified rdf:type owl:DatatypeProperty ;
+                    rdfs:label "schema:dateModified"@en ;
+                    rdfs:comment "The date on which the entity was most recently modified. Used on profiles for the last GoTriple update."@en .
+
+
+###  https://gotriple.eu/ontology/triple/pronouns
+triple:pronouns rdf:type owl:DatatypeProperty ;
+                rdfs:label "pronouns"@en ;
+                rdfs:comment "The personal pronouns chosen by the user for their GoTriple profile (e.g. \"she/her\")."@en ;
+                rdfs:range xsd:string .
+
+
+###  https://gotriple.eu/ontology/triple/registeredUser
+triple:registeredUser rdf:type owl:DatatypeProperty ;
+                      rdfs:label "registered user"@en ;
+                      rdfs:comment "Whether the profile belongs to a registered GoTriple user (true) or was automatically created for an author extracted from harvested document metadata (false)."@en ;
+                      rdfs:range xsd:boolean .
+
+
+###  https://gotriple.eu/ontology/triple/openToCollaboration
+triple:openToCollaboration rdf:type owl:DatatypeProperty ;
+                           rdfs:label "open to collaboration"@en ;
+                           rdfs:comment "Whether the registered user declared to be open to collaboration with other GoTriple users."@en ;
+                           rdfs:range xsd:boolean .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://purl.org/spar/datacite/Identifier
+datacite:Identifier rdf:type owl:Class ;
+                    rdfs:label "datacite:Identifier"@en .
+
+
+###  http://purl.org/spar/datacite/IdentifierScheme
+datacite:IdentifierScheme rdf:type owl:Class ;
+                          rdfs:label "datacite:IdentifierScheme"@en .
+
+
+###  https://gotriple.eu/ontology/triple/ID
+triple:ID rdf:type owl:Class ;
+          rdfs:label "Internal ID"@en .
+
+
+###  https://gotriple.eu/ontology/triple/PID
+triple:PID rdf:type owl:Class ;
+           rdfs:label "Persistent ID"@en .
+
+
+###  https://gotriple.eu/ontology/triple/Discipline
+triple:Discipline rdf:type owl:Class ;
+                  rdfs:subClassOf skos:Concept ;
+                  rdfs:label "Discipline"@en .
+
+
+###  https://gotriple.eu/ontology/triple/Document
+triple:Document rdf:type owl:Class ;
+                rdfs:label "Document (Triple)"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Person
+foaf:Person rdf:type owl:Class ;
+            rdfs:label "foaf:Person"@en .
+
+
+###  http://xmlns.com/foaf/0.1/Organization
+foaf:Organization rdf:type owl:Class ;
+                  rdfs:label "foaf:Organization"@en .
+
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:label "skos:Concept"@en .
+
+
+###  https://schema.org/DefinedTerm
+schema:DefinedTerm rdf:type owl:Class ;
+                   rdfs:label "schema:DefinedTerm"@en .
+
+
+###  https://schema.org/Language
+schema:Language rdf:type owl:Class ;
+                rdfs:label "schema:Language"@en .
+
+
+###  https://schema.org/URL
+schema:URL rdf:type owl:Class ;
+           rdfs:label "schema:URL"@en .
+
+
+###  https://gotriple.eu/ontology/triple/Profile
+triple:Profile rdf:type owl:Class ;
+               rdfs:label "profile"@en ;
+               rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
+
+               # At least one identifier: the internal id, plus optional person PIDs (ORCID, IdRef, ISNI, GoTriple id)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty datacite:hasIdentifier ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:onClass datacite:Identifier
+                               ] ,
+
+               # Optional given name (0 or 1)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty foaf:givenName ;
+                                 owl:allValuesFrom xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty foaf:givenName ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+
+               # Optional family name (0 or 1)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty foaf:familyName ;
+                                 owl:allValuesFrom xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty foaf:familyName ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+
+               # Optional self-description (0 or more, plain or language-tagged, cf. issue #43)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:description ;
+                                 owl:allValuesFrom [ rdf:type rdfs:Datatype ;
+                                                     owl:unionOf ( rdf:langString xsd:string )
+                                                   ]
+                               ] ,
+
+               # Optional pronouns (0 or 1)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty triple:pronouns ;
+                                 owl:allValuesFrom xsd:string
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty triple:pronouns ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+
+               # Optional profile photo (0 or 1)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:image ;
+                                 owl:allValuesFrom schema:URL
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:image ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+
+               # Optional personal web pages (0 or more)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:url ;
+                                 owl:allValuesFrom schema:URL
+                               ] ,
+
+               # Optional disciplines of interest (0 or more)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty foaf:topic_interest ;
+                                 owl:allValuesFrom triple:Discipline
+                               ] ,
+
+               # Optional thesaurus keywords (0 or more)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:knowsAbout ;
+                                 owl:allValuesFrom schema:DefinedTerm
+                               ] ,
+
+               # Optional known languages (0 or more)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:knowsLanguage ;
+                                 owl:allValuesFrom schema:Language
+                               ] ,
+
+               # Optional affiliation (0 or more)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:affiliation ;
+                                 owl:allValuesFrom foaf:Organization
+                               ] ,
+
+               # Optional registered-user flag (0 or 1)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty triple:registeredUser ;
+                                 owl:allValuesFrom xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty triple:registeredUser ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+
+               # Optional open-to-collaboration flag (0 or 1)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty triple:openToCollaboration ;
+                                 owl:allValuesFrom xsd:boolean
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty triple:openToCollaboration ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] ,
+
+               # Optional last GoTriple update (0 or 1, date pattern)
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:dateModified ;
+                                 owl:allValuesFrom xsd:date
+                               ] ,
+                               [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:dateModified ;
+                                 owl:maxCardinality "1"^^xsd:nonNegativeInteger
+                               ] .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  http://purl.org/spar/datacite/orcid
+datacite:orcid rdf:type owl:NamedIndividual ,
+                        datacite:IdentifierScheme ;
+               rdfs:label "datacite:orcid"@en ;
+               rdfs:comment "Open Researcher and Contributor ID - a persistent identifier for researchers, maintained by ORCID Inc."@en .
+
+
+###  http://purl.org/spar/datacite/isni
+datacite:isni rdf:type owl:NamedIndividual ,
+                       datacite:IdentifierScheme ;
+              rdfs:label "datacite:isni"@en ;
+              rdfs:comment "International Standard Name Identifier - an ISO standard identifier for the public identities of contributors to media content."@en .
+
+
+###  http://purl.org/spar/datacite/researcherid
+datacite:researcherid rdf:type owl:NamedIndividual ,
+                               datacite:IdentifierScheme ;
+                      rdfs:label "datacite:researcherid"@en ;
+                      rdfs:comment "ResearcherID - an identifier system for scientific authors, owned by Clarivate (formerly Thomson Reuters)."@en .
+
+
+###  http://purl.org/spar/datacite/local-resource-identifier-scheme
+datacite:local-resource-identifier-scheme rdf:type owl:NamedIndividual ,
+                                                   datacite:IdentifierScheme ;
+                                          rdfs:label "datacite:local-resource-identifier-scheme"@en ;
+                                          rdfs:comment "Local resource identifier scheme, used for the internal Elasticsearch id of the profile."@en .
+
+
+###  https://gotriple.eu/ontology/triple/idref_schema
+triple:idref_schema rdf:type owl:NamedIndividual ,
+                             datacite:IdentifierScheme ;
+                    rdfs:label "IdRef"@en ;
+                    rdfs:comment "IdRef (Identifiants et Referentiels pour l'enseignement superieur et la recherche) - the French authority file for higher education and research, maintained by ABES. Declared in the TRIPLE namespace because the DataCite ontology has no scheme for it."@en .
+
+
+###  https://gotriple.eu/ontology/triple/gotriple_id_schema
+triple:gotriple_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "GoTriple ID"@en ;
+                          rdfs:comment "The OPERAS/GoTriple identifier assigned to a profile (the goTripleId field)."@en .

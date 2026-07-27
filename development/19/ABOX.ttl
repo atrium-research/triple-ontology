@@ -1,0 +1,120 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix disc: <https://gotriple.eu/ontology/triple/Discipline/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix schema: <https://schema.org/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://purl.org/spar/literal/> .
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  Example 1: registered user with a complete profile
+triple:profile_it19_1 rdf:type owl:NamedIndividual ,
+                               triple:Profile ,
+                               foaf:Person ;
+        schema:name "Sofia Rossi" ;
+        foaf:givenName "Sofia" ;
+        foaf:familyName "Rossi" ;
+        schema:description "Digital historian working on computational analysis of cultural heritage collections."@en ;
+        triple:pronouns "she/her" ;
+        schema:image <https://gotriple.eu/media/profile/sofia-rossi.jpg> ;
+        schema:url <https://sofia-rossi.example.org> ;
+        foaf:topic_interest disc:cultural_heritage_and_museology ,
+                            disc:methods_and_statistics ;
+        schema:knowsAbout triple:kw_distant-reading_it19 ;
+        schema:knowsLanguage triple:language_it_it19 ,
+                             triple:language_en_it19 ;
+        schema:affiliation triple:organization_it19_1 ;
+        triple:registeredUser "true"^^xsd:boolean ;
+        triple:openToCollaboration "true"^^xsd:boolean ;
+        schema:dateModified "2026-06-15"^^xsd:date ;
+        datacite:hasIdentifier triple:identifier_internal_it19_1 ,
+                               triple:identifier_pid_it19_1 ,
+                               triple:identifier_orcid_it19_1 ,
+                               triple:identifier_gotriple_it19_1 ,
+                               triple:identifier_idref_it19_1 .
+
+###  Internal Elasticsearch id (the "id" field)
+triple:identifier_internal_it19_1 rdf:type owl:NamedIndividual ,
+                                           triple:ID ;
+        datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
+        litre:hasLiteralValue "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I" .
+
+###  Persistent identifier minted by GoTriple (the "pid" field)
+triple:identifier_pid_it19_1 rdf:type owl:NamedIndividual ,
+                                      triple:PID ;
+        litre:hasLiteralValue "ark:/12345/profile-sofia-rossi" .
+
+###  External person PIDs and the OPERAS/GoTriple id (the "user_identifier" and "goTripleId" fields)
+triple:identifier_orcid_it19_1 rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+        datacite:usesIdentifierScheme datacite:orcid ;
+        litre:hasLiteralValue "0000-0002-1825-0097" .
+
+triple:identifier_gotriple_it19_1 rdf:type owl:NamedIndividual ,
+                                           datacite:Identifier ;
+        datacite:usesIdentifierScheme triple:gotriple_id_schema ;
+        litre:hasLiteralValue "sofia_rossi_operas_0001" .
+
+triple:identifier_idref_it19_1 rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+        datacite:usesIdentifierScheme triple:idref_schema ;
+        litre:hasLiteralValue "123456789" .
+
+
+###  Example 2: author profile from harvested metadata, not registered
+triple:profile_it19_2 rdf:type owl:NamedIndividual ,
+                               triple:Profile ,
+                               foaf:Person ;
+        schema:name "João Almeida" ;
+        triple:registeredUser "false"^^xsd:boolean ;
+        datacite:hasIdentifier triple:identifier_internal_it19_2 ,
+                               triple:identifier_isni_it19_2 .
+
+triple:identifier_internal_it19_2 rdf:type owl:NamedIndividual ,
+                                           triple:ID ;
+        datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
+        litre:hasLiteralValue "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K" .
+
+triple:identifier_isni_it19_2 rdf:type owl:NamedIndividual ,
+                                       datacite:Identifier ;
+        datacite:usesIdentifierScheme datacite:isni ;
+        litre:hasLiteralValue "0000000121032683" .
+
+
+###  Example 3: document authored by both profiles (author_of via inverse of schema:author)
+triple:document_it19_1 rdf:type owl:NamedIndividual ,
+                                triple:Document ;
+        schema:headline "Mapping early modern correspondence networks with distant reading methods"@en ;
+        schema:author triple:profile_it19_1 ,
+                      triple:profile_it19_2 .
+
+
+###  Referenced entities
+triple:organization_it19_1 rdf:type owl:NamedIndividual ,
+                                    foaf:Organization ;
+        schema:name "University of Bologna" .
+
+triple:kw_distant-reading_it19 rdf:type owl:NamedIndividual ,
+                                        schema:DefinedTerm ;
+        schema:name "Distant reading"@en ,
+                    "Lettura distante"@it .
+
+triple:language_it_it19 rdf:type owl:NamedIndividual ,
+                                 schema:Language ;
+        schema:name "Italian" .
+
+triple:language_en_it19 rdf:type owl:NamedIndividual ,
+                                 schema:Language ;
+        schema:name "English" .
+
+disc:cultural_heritage_and_museology rdf:type owl:NamedIndividual ,
+                                              triple:Discipline .
+
+disc:methods_and_statistics rdf:type owl:NamedIndividual ,
+                                     triple:Discipline .
