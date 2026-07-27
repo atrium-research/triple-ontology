@@ -88,8 +88,8 @@
                 <li><a href="#dataproperties">4. Datatype
                         Properties</a></li>
                 
-                
-                <li><a href="#namespacedeclarations">5. Namespaces</a></li>
+                <li><a href="#namedindividuals">5. Named Individuals</a></li>
+                <li><a href="#namespacedeclarations">6. Namespaces</a></li>
             </ul>
         </div>
 
@@ -98,7 +98,7 @@
         
         <div id="introduction">
             <h2>1. Introduction</h2>
-            <div class="markdown">The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity.</div>
+            <div class="markdown">The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity. Since iteration 19 the profile also carries personal names, self-description, pronouns, photo, personal web pages, disciplines of interest, thesaurus keywords, known languages, affiliation, registration and collaboration flags, the date of the last GoTriple update, and several identifiers kept apart by their scheme: the internal Elasticsearch id (`triple:ID`), the persistent identifier minted by GoTriple (`triple:PID`), the OPERAS/GoTriple id and the external person PIDs (ORCID, IdRef, ISNI, ResearcherID).</div>
         </div>
         
 
@@ -107,6 +107,12 @@
         <div id="classes">
             <h2>2. Classes</h2>
             <ul class="hlist">
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/ID" title="https://gotriple.eu/ontology/triple/ID">Internal ID</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/PID" title="https://gotriple.eu/ontology/triple/PID">Persistent ID</a></li>
                 
                 <li><a href="#https://schema.org/Person" title="https://schema.org/Person">Person</a></li>
                 
@@ -124,9 +130,157 @@
                 
                 <li><a href="#http://xmlns.com/foaf/0.1/Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a></li>
                 
+                <li><a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm">schema:DefinedTerm</a></li>
+                
+                <li><a href="#https://schema.org/Language" title="https://schema.org/Language">schema:Language</a></li>
+                
                 <li><a href="#https://schema.org/Thing" title="https://schema.org/Thing">schema:Thing</a></li>
                 
+                <li><a href="#https://schema.org/URL" title="https://schema.org/URL">schema:URL</a></li>
+                
+                <li><a href="#http://www.w3.org/2004/02/skos/core%23Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></li>
+                
             </ul>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/Discipline">
+                <h3>Discipline
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/Discipline</p>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#http://www.w3.org/2004/02/skos/core%23Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/ID">
+                <h3>Internal ID
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ID</p>
+                
+                <div class="comment">
+                    <p>Internal identifier used within the GoTriple platform for resource management. On profiles it carries the Elasticsearch id.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier">datacite:Identifier</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/PID">
+                <h3>Persistent ID
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/PID</p>
+                
+                <div class="comment">
+                    <p>Persistent identifier generated and exposed externally by the GoTriple platform. On profiles it carries the pid field, distinct from the OPERAS/GoTriple id.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier">datacite:Identifier</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
             
             <div class="entity" id="https://schema.org/Person">
                 <h3>Person
@@ -206,7 +360,7 @@
                                 <sup class="type-op"
                                     title="op">op</sup>
 
-                                <span class="literal">exactly</span>
+                                <span class="literal">min</span>
 
                                 
                                 <span class="literal">1</span>
@@ -237,6 +391,440 @@
                                 <a href="#http://xmlns.com/foaf/0.1/account" title="http://xmlns.com/foaf/0.1/account">foaf:account</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/familyName" title="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/familyName" title="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/description" title="https://schema.org/description">schema:description</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns%23langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">rdf:langString</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://gotriple.eu/ontology/triple/pronouns" title="https://gotriple.eu/ontology/triple/pronouns">pronouns</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://gotriple.eu/ontology/triple/pronouns" title="https://gotriple.eu/ontology/triple/pronouns">pronouns</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/image" title="https://schema.org/image">schema:image</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/URL" title="https://schema.org/URL">schema:URL</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/image" title="https://schema.org/image">schema:image</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/url" title="https://schema.org/url">schema:url</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/URL" title="https://schema.org/URL">schema:URL</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/topic_interest" title="http://xmlns.com/foaf/0.1/topic_interest">foaf:topic_interest</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://gotriple.eu/ontology/triple/Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/knowsAbout" title="https://schema.org/knowsAbout">schema:knowsAbout</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm">schema:DefinedTerm</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/knowsLanguage" title="https://schema.org/knowsLanguage">schema:knowsLanguage</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#https://schema.org/Language" title="https://schema.org/Language">schema:Language</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/affiliation" title="https://schema.org/affiliation">schema:affiliation</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://xmlns.com/foaf/0.1/Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://gotriple.eu/ontology/triple/registeredUser" title="https://gotriple.eu/ontology/triple/registeredUser">registered user</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23boolean" title="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://gotriple.eu/ontology/triple/registeredUser" title="https://gotriple.eu/ontology/triple/registeredUser">registered user</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://gotriple.eu/ontology/triple/openToCollaboration" title="https://gotriple.eu/ontology/triple/openToCollaboration">open to collaboration</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23boolean" title="http://www.w3.org/2001/XMLSchema#boolean">xsd:boolean</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://gotriple.eu/ontology/triple/openToCollaboration" title="https://gotriple.eu/ontology/triple/openToCollaboration">open to collaboration</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">schema:dateModified</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23date" title="http://www.w3.org/2001/XMLSchema#date">xsd:date</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">schema:dateModified</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
 
                                 <span class="literal">max</span>
 
@@ -289,6 +877,19 @@
                     
 
                     
+                    <dt>has sub-classes</dt>
+                    <dd>
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/ID" title="https://gotriple.eu/ontology/triple/ID">Internal ID</a>
+                        <sup class="type-c" title="c">c</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/PID" title="https://gotriple.eu/ontology/triple/PID">Persistent ID</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
 
                     
 
@@ -326,6 +927,51 @@
 
                 
 
+                
+                <dl class="description">
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <dt>has members</dt>
+                    <dd>
+                        
+                        <a href="#http://purl.org/spar/datacite/orcid" title="http://purl.org/spar/datacite/orcid">datacite:orcid</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#http://purl.org/spar/datacite/isni" title="http://purl.org/spar/datacite/isni">datacite:isni</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#http://purl.org/spar/datacite/researcherid" title="http://purl.org/spar/datacite/researcherid">datacite:researcherid</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#http://purl.org/spar/datacite/local-resource-identifier-scheme" title="http://purl.org/spar/datacite/local-resource-identifier-scheme">datacite:local-resource-identifier-scheme</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/idref_schema" title="https://gotriple.eu/ontology/triple/idref_schema">IdRef</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/gotriple_id_schema" title="https://gotriple.eu/ontology/triple/gotriple_id_schema">GoTriple ID</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+                </dl>
                 
             </div>
             
@@ -552,6 +1198,48 @@
                 
             </div>
             
+            <div class="entity" id="https://schema.org/DefinedTerm">
+                <h3>schema:DefinedTerm
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://schema.org/DefinedTerm</p>
+                
+                <div class="comment">
+                    <p>A word, name, acronym or phrase defined in a controlled vocabulary. Used for structured thesaurus keywords.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+            </div>
+            
+            <div class="entity" id="https://schema.org/Language">
+                <h3>schema:Language
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://schema.org/Language</p>
+                
+
+                
+
+                
+
+                
+            </div>
+            
             <div class="entity" id="https://schema.org/Thing">
                 <h3>schema:Thing
                     <sup class="type-c" title="c">
@@ -600,6 +1288,69 @@
                 
             </div>
             
+            <div class="entity" id="https://schema.org/URL">
+                <h3>schema:URL
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://schema.org/URL</p>
+                
+
+                
+
+                
+
+                
+            </div>
+            
+            <div class="entity" id="http://www.w3.org/2004/02/skos/core#Concept">
+                <h3>skos:Concept
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#Concept</p>
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+
+                    
+
+                    
+                    <dt>has sub-classes</dt>
+                    <dd>
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
         </div>
 
         
@@ -609,7 +1360,21 @@
                 
                 <li><a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a></li>
                 
+                <li><a href="#http://purl.org/spar/datacite/usesIdentifierScheme" title="http://purl.org/spar/datacite/usesIdentifierScheme">datacite:usesIdentifierScheme</a></li>
+                
                 <li><a href="#http://xmlns.com/foaf/0.1/account" title="http://xmlns.com/foaf/0.1/account">foaf:account</a></li>
+                
+                <li><a href="#http://xmlns.com/foaf/0.1/topic_interest" title="http://xmlns.com/foaf/0.1/topic_interest">foaf:topic_interest</a></li>
+                
+                <li><a href="#https://schema.org/affiliation" title="https://schema.org/affiliation">schema:affiliation</a></li>
+                
+                <li><a href="#https://schema.org/image" title="https://schema.org/image">schema:image</a></li>
+                
+                <li><a href="#https://schema.org/knowsAbout" title="https://schema.org/knowsAbout">schema:knowsAbout</a></li>
+                
+                <li><a href="#https://schema.org/knowsLanguage" title="https://schema.org/knowsLanguage">schema:knowsLanguage</a></li>
+                
+                <li><a href="#https://schema.org/url" title="https://schema.org/url">schema:url</a></li>
                 
             </ul>
             
@@ -651,6 +1416,22 @@
     
 </div>
             
+            <div class="entity" id="http://purl.org/spar/datacite/usesIdentifierScheme">
+    <h3>datacite:usesIdentifierScheme
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://purl.org/spar/datacite/usesIdentifierScheme</p>
+    
+    
+    
+    
+</div>
+            
             <div class="entity" id="http://xmlns.com/foaf/0.1/account">
     <h3>foaf:account
         <sup class="type-op" title="op">
@@ -671,6 +1452,126 @@
     
 </div>
             
+            <div class="entity" id="http://xmlns.com/foaf/0.1/topic_interest">
+    <h3>foaf:topic_interest
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/topic_interest</p>
+    
+    <div class="comment">
+        <p>A thing of interest to this person. Used in GoTriple to link a profile to the disciplines the user chose or that were automatically detected from the author&#39;s publications.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/affiliation">
+    <h3>schema:affiliation
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/affiliation</p>
+    
+    <div class="comment">
+        <p>An organization the agent is affiliated with. Used in GoTriple for the current organization specified by the user in the Experience tab.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/image">
+    <h3>schema:image
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/image</p>
+    
+    <div class="comment">
+        <p>An image of the entity. Used in GoTriple for the URL of the personal picture chosen by the user.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/knowsAbout">
+    <h3>schema:knowsAbout
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/knowsAbout</p>
+    
+    <div class="comment">
+        <p>A topic the agent knows about. Natively declared by Schema.org for Person and Organization; used in GoTriple to link a profile to structured thesaurus keywords.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/knowsLanguage">
+    <h3>schema:knowsLanguage
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/knowsLanguage</p>
+    
+    <div class="comment">
+        <p>A language the agent knows.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/url">
+    <h3>schema:url
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/url</p>
+    
+    <div class="comment">
+        <p>The URL of the entity. Used in GoTriple for the personal web pages of the profile.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
         </div>
         
 
@@ -679,11 +1580,65 @@
             <h2>4. Datatype Properties</h2>
             <ul class="hlist">
                 
+                <li><a href="#http://xmlns.com/foaf/0.1/familyName" title="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a></li>
+                
+                <li><a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a></li>
+                
                 <li><a href="#http://purl.org/spar/literal/hasLiteralValue" title="http://purl.org/spar/literal/hasLiteralValue">litre:hasLiteralValue</a></li>
                 
                 <li><a href="#https://schema.org/name" title="https://schema.org/name">name</a></li>
                 
+                <li><a href="#https://gotriple.eu/ontology/triple/openToCollaboration" title="https://gotriple.eu/ontology/triple/openToCollaboration">open to collaboration</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/pronouns" title="https://gotriple.eu/ontology/triple/pronouns">pronouns</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/registeredUser" title="https://gotriple.eu/ontology/triple/registeredUser">registered user</a></li>
+                
+                <li><a href="#https://schema.org/dateModified" title="https://schema.org/dateModified">schema:dateModified</a></li>
+                
+                <li><a href="#https://schema.org/description" title="https://schema.org/description">schema:description</a></li>
+                
             </ul>
+            
+            <div class="entity" id="http://xmlns.com/foaf/0.1/familyName">
+    <h3>foaf:familyName
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/familyName</p>
+    
+    <div class="comment">
+        <p>The family name (last name) of a person.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
+            <div class="entity" id="http://xmlns.com/foaf/0.1/givenName">
+    <h3>foaf:givenName
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://xmlns.com/foaf/0.1/givenName</p>
+    
+    <div class="comment">
+        <p>The given name (first name) of a person.</p>
+    </div>
+    
+    
+    
+    
+</div>
             
             <div class="entity" id="http://purl.org/spar/literal/hasLiteralValue">
     <h3>litre:hasLiteralValue
@@ -761,15 +1716,423 @@
     
 </div>
             
+            <div class="entity" id="https://gotriple.eu/ontology/triple/openToCollaboration">
+    <h3>open to collaboration
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/openToCollaboration</p>
+    
+    <div class="comment">
+        <p>Whether the registered user declared to be open to collaboration with other GoTriple users.</p>
+    </div>
+    
+    
+    
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="http://www.w3.org/2001/XMLSchema#boolean" title="http://www.w3.org/2001/XMLSchema#boolean"
+                target="_blank">xsd:boolean</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/pronouns">
+    <h3>pronouns
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/pronouns</p>
+    
+    <div class="comment">
+        <p>The personal pronouns chosen by the user for their GoTriple profile (e.g. &#34;she/her&#34;).</p>
+    </div>
+    
+    
+    
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="http://www.w3.org/2001/XMLSchema#string" title="http://www.w3.org/2001/XMLSchema#string"
+                target="_blank">xsd:string</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/registeredUser">
+    <h3>registered user
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/registeredUser</p>
+    
+    <div class="comment">
+        <p>Whether the profile belongs to a registered GoTriple user (true) or was automatically created for an author extracted from harvested document metadata (false).</p>
+    </div>
+    
+    
+    
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="http://www.w3.org/2001/XMLSchema#boolean" title="http://www.w3.org/2001/XMLSchema#boolean"
+                target="_blank">xsd:boolean</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/dateModified">
+    <h3>schema:dateModified
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/dateModified</p>
+    
+    <div class="comment">
+        <p>The date on which the entity was most recently modified. Used on profiles for the last GoTriple update.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
+            <div class="entity" id="https://schema.org/description">
+    <h3>schema:description
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/description</p>
+    
+    <div class="comment">
+        <p>A description of the entity. Used in GoTriple for the self-description of the profile.</p>
+    </div>
+    
+    
+    
+    
+</div>
+            
         </div>
         
 
         
 
         
+        <div id="namedindividuals">
+            <h2>5. Named Individuals</h2>
+            <ul class="hlist">
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/gotriple_id_schema" title="https://gotriple.eu/ontology/triple/gotriple_id_schema">GoTriple ID</a></li>
+                
+                <li><a href="#https://gotriple.eu/ontology/triple/idref_schema" title="https://gotriple.eu/ontology/triple/idref_schema">IdRef</a></li>
+                
+                <li><a href="#http://purl.org/spar/datacite/isni" title="http://purl.org/spar/datacite/isni">datacite:isni</a></li>
+                
+                <li><a href="#http://purl.org/spar/datacite/local-resource-identifier-scheme" title="http://purl.org/spar/datacite/local-resource-identifier-scheme">datacite:local-resource-identifier-scheme</a></li>
+                
+                <li><a href="#http://purl.org/spar/datacite/orcid" title="http://purl.org/spar/datacite/orcid">datacite:orcid</a></li>
+                
+                <li><a href="#http://purl.org/spar/datacite/researcherid" title="http://purl.org/spar/datacite/researcherid">datacite:researcherid</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/gotriple_id_schema">
+    <h3>GoTriple ID
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/gotriple_id_schema</p>
+    
+    <div class="comment">
+        <p>The OPERAS/GoTriple identifier assigned to a profile (the goTripleId field).</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
+                target="_self">datacite:IdentifierScheme</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="https://gotriple.eu/ontology/triple/idref_schema">
+    <h3>IdRef
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/idref_schema</p>
+    
+    <div class="comment">
+        <p>IdRef (Identifiants et Referentiels pour l&#39;enseignement superieur et la recherche) - the French authority file for higher education and research, maintained by ABES. Declared in the TRIPLE namespace because the DataCite ontology has no scheme for it.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
+                target="_self">datacite:IdentifierScheme</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="http://purl.org/spar/datacite/isni">
+    <h3>datacite:isni
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://purl.org/spar/datacite/isni</p>
+    
+    <div class="comment">
+        <p>International Standard Name Identifier - an ISO standard identifier for the public identities of contributors to media content.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
+                target="_self">datacite:IdentifierScheme</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="http://purl.org/spar/datacite/local-resource-identifier-scheme">
+    <h3>datacite:local-resource-identifier-scheme
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://purl.org/spar/datacite/local-resource-identifier-scheme</p>
+    
+    <div class="comment">
+        <p>Local resource identifier scheme, used for the internal Elasticsearch id of the profile.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
+                target="_self">datacite:IdentifierScheme</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="http://purl.org/spar/datacite/orcid">
+    <h3>datacite:orcid
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://purl.org/spar/datacite/orcid</p>
+    
+    <div class="comment">
+        <p>Open Researcher and Contributor ID - a persistent identifier for researchers, maintained by ORCID Inc.</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
+                target="_self">datacite:IdentifierScheme</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="http://purl.org/spar/datacite/researcherid">
+    <h3>datacite:researcherid
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://purl.org/spar/datacite/researcherid</p>
+    
+    <div class="comment">
+        <p>ResearcherID - an identifier system for scientific authors, owned by Clarivate (formerly Thomson Reuters).</p>
+    </div>
+    
+    
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
+                target="_self">datacite:IdentifierScheme</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+    </dl>
+    
+    
+</div>
+            
+        </div>
+        
 
         <div id="namespacedeclarations">
-            <h2>5. Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <h2>6. Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
             <table class="table table-bordered table-hover">
                 <thead>
                     <tr>

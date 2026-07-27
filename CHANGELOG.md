@@ -26,6 +26,17 @@ Each entry follows this structure:
 
 **Author**: Alessandro Bertozzi
 
+### 2026-07-27 - Addition: iteration 19 — Profile enrichment (issues #44, #46)
+
+**Type**: Addition
+
+**Iteration**: 19 (new); 06 (identifier cardinality relaxed)
+
+**Description**:
+New SAMOD iteration 19 implementing the Profile data model of the updated ADR 005 "GoTriple Data Model revision" (LUMEN WP4/T4.2, Table 3), tracked by issue #44. `triple:Profile` now carries: `foaf:givenName`/`foaf:familyName` (0..1 each), `schema:description` (union `rdf:langString`/`xsd:string`, cf. #43), the new `triple:pronouns` (`xsd:string`, 0..1), `schema:image` (profile photo URL, 0..1), `schema:url` (personal web pages), `foaf:topic_interest` with `triple:Discipline` values (chosen or auto-detected disciplines), `schema:knowsAbout` with `schema:DefinedTerm` values (thesaurus keywords — the Schema.org property is natively in-domain for Person/Organization, so no TRIPLE sub-property is needed here, unlike the creative-work case of iteration 18), `schema:knowsLanguage` with `schema:Language` values, `schema:affiliation` with `foaf:Organization` values, the new flags `triple:registeredUser` and `triple:openToCollaboration` (`xsd:boolean`, 0..1 each), and `schema:dateModified` for the last GoTriple update (date pattern). Identifiers (issue #46) reuse the existing DataCite pattern, keeping the four identifier fields of Table 3 apart by scheme: the internal Elasticsearch `id` as `triple:ID`, the GoTriple-minted `pid` as `triple:PID`, the `goTripleId` with the new `triple:gotriple_id_schema`, and the external person PIDs of `user_identifier` (ORCID, IdRef, ISNI) as plain `datacite:Identifier` instances, with the schemes `datacite:orcid`, `datacite:isni`, `datacite:researcherid` reused from the DataCite ontology plus the new `triple:idref_schema`. No dedicated identifier subclass is minted for person PIDs: in this model a subclass earns its place only when several kinds of identifier collide on one scheme (as `triple:ID` and `triple:OriginalIdentifier` do), whereas each of these schemes already identifies its kind one-to-one; the ADR's `PID_Type` is therefore satisfied by the scheme individuals rather than by a separate SKOS vocabulary. The identifier restriction on `triple:Profile` (iteration 06) is relaxed from exactly one to **at least one** identifier. `author_of` is intentionally not materialized (inverse of `schema:author`); `hasOccupation` is deferred until its controlled vocabulary is defined; `numberOfDocuments` and cluster counters stay out of scope (platform-computed). Consolidated `ontology/triple.ttl` re-merged (1914 triples), Profile module serializations and HTML documentation regenerated, `sparql/19.md` added (138 queries total, all executable).
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Refactoring: patterns/ and examples/ aligned with the current model
 
 **Type**: Refactoring
