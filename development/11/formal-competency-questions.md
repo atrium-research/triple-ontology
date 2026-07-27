@@ -297,5 +297,5 @@ SELECT ?multimedia ?title ?identifierType ?value WHERE {
 
 **Expected result:**
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:ID` → "TRIPLE_MEDIA_VIDEO_001"
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:PID` → "gotriple:media:video-medieval-carolingian"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:PID` → "ark:/12345/media-video-medieval-carolingian"
 - `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:ID` → "TRIPLE_MEDIA_AUDIO_002"

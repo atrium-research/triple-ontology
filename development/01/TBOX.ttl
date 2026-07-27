@@ -108,7 +108,7 @@ triple:PID rdf:type owl:Class ;
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue datacite:local-resource-identifier-scheme
+                             owl:hasValue datacite:ark
                            ] .
 
 
@@ -246,3 +246,10 @@ datacite:local-resource-identifier-scheme rdf:type owl:NamedIndividual ,
                                                  datacite:IdentifierScheme ;
                                         rdfs:label "datacite:local-resource-identifier-scheme"@en ;
                                         rdfs:comment "Local resource identifier scheme for platform-specific identifiers as defined by DataCite."@en .
+
+
+###  http://purl.org/spar/datacite/ark
+datacite:ark rdf:type owl:NamedIndividual ,
+                      datacite:IdentifierScheme ;
+             rdfs:label "datacite:ark"@en ;
+             rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .

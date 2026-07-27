@@ -245,7 +245,7 @@ Return all multimedia content with platform identifiers by type.
 A list of multimedia objects with their internal platform identifiers categorized by type.
 
 ### Result
-* `multimedia-001` → Internal ID: TRIPLE_MEDIA_VIDEO_001, PID: gotriple:media:video-medieval-carolingian
+* `multimedia-001` → Internal ID: TRIPLE_MEDIA_VIDEO_001, PID: ark:/12345/media-video-medieval-carolingian
 * `multimedia-002` → Internal ID: TRIPLE_MEDIA_AUDIO_002
 * `multimedia-003` → Internal ID: TRIPLE_MEDIA_IMAGE_003
 

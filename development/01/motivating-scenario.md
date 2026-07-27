@@ -111,7 +111,7 @@ A scholarly article in English and French with multiple identifiers including UR
 - **Document Type**: `type_5` (a `skos:Concept` representing "Article")
 - **Platform Identifiers** (class-based):
   - `identifier_internal_1` (`triple:ID`): "TRIPLE_DOC_001" - Internal platform identifier
-  - `identifier_pid_1` (`triple:PID`): "gotriple:doc:12345-abcd-6789" - External persistent identifier  
+  - `identifier_pid_1` (`triple:PID`): "ark:/12345/doc-12345-abcd-6789" - External persistent identifier  
   - `identifier_original_1` (`triple:OriginalIdentifier`): "hal-12345" - Source system identifier
 - **Additional Identifiers** (schema-based):
   - `identifier_landing_1` (Landing Page URL: "https://hal.archives-ouvertes.fr/hal-12345")

@@ -428,7 +428,7 @@ triple:PID rdf:type owl:Class ;
                            ] ,
                            [ rdf:type owl:Restriction ;
                              owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue datacite:local-resource-identifier-scheme
+                             owl:hasValue datacite:ark
                            ] .
 
 ###  https://gotriple.eu/ontology/triple/OriginalIdentifier
@@ -565,3 +565,10 @@ datacite:isbn rdf:type owl:NamedIndividual ,
                        datacite:IdentifierScheme ;
               rdfs:label "datacite:isbn"@en ;
               rdfs:comment "International Standard Book Number - a numeric identifier for books and book-like products."@en .
+
+
+###  http://purl.org/spar/datacite/ark
+datacite:ark rdf:type owl:NamedIndividual ,
+                      datacite:IdentifierScheme ;
+             rdfs:label "datacite:ark"@en ;
+             rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .

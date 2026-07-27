@@ -203,7 +203,7 @@ A list of datasets with their internal platform identifiers by type.
 
 ### Result
 * `dataset-001` → Internal ID: TRIPLE_DATASET_HERITAGE_001
-* `dataset-001` → PID: gotriple:dataset:heritage-archaeological-sites
+* `dataset-001` → PID: ark:/12345/dataset-heritage-archaeological-sites
 * `dataset-002` → Internal ID: TRIPLE_DATASET_SOCIAL_002
 
 ### Based on

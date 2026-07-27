@@ -130,7 +130,7 @@ SELECT ?dataset ?title ?identifier ?identifierType ?value WHERE {
 
 **Expected result:**
 - `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-internal` → `triple:ID` → "TRIPLE_DATASET_HERITAGE_001"
-- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `triple:PID` → "gotriple:dataset:heritage-archaeological-sites"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `triple:PID` → "ark:/12345/dataset-heritage-archaeological-sites"
 - `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-internal` → `triple:ID` → "TRIPLE_DATASET_SOCIAL_002"
 
 

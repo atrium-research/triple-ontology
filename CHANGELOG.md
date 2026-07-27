@@ -15,6 +15,17 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-07-27 - Modification: triple:PID is an ARK, not a local resource identifier
+
+**Type**: Modification
+
+**Iteration**: 01, 07, 10, 11, 12
+
+**Description**:
+`triple:PID` — the persistent identifier minted and exposed by GoTriple — pinned its scheme to `datacite:local-resource-identifier-scheme` via `owl:hasValue`, the same scheme as `triple:ID` and `triple:OriginalIdentifier`. The identifier GoTriple mints is technically an ARK, so the restriction now pins `datacite:ark`, which also gives a purpose to the scheme individual added by #40 (until now it was declared but never wired to anything). `datacite:ark` is declared in iterations 01, 10, 11 and 12 alongside the PID class, and the ABOX exemplar values move from the `gotriple:<type>:<slug>` form to ARK form (`ark:/12345/...`, with a placeholder NAAN to be replaced by the real GoTriple one). Fixed at the same time two identifiers in iteration 07 that were typed `triple:PID` while carrying grant-programme schemes (`triple:h2020_scheme`, `triple:erc_scheme`) with values `H2020-863420` and `ERC-ADG-101052789`: those are funding-programme identifiers, not GoTriple-minted PIDs, and under the `hasValue` restriction they would have been entailed to use the wrong scheme; they are now plain `datacite:Identifier` instances distinguished by their own scheme.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-10 - Refactoring: patterns/ and examples/ aligned with the current model
 
 **Type**: Refactoring
