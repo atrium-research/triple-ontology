@@ -140,9 +140,11 @@ triple:Profile rdf:type owl:Class ;
                           "Profil"@pl,
                           "Profil"@fr ;
                rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
+               # Relaxed from qualifiedCardinality 1 in iteration 19: a profile carries
+               # the internal id plus optional person PIDs (ORCID, IdRef, ISNI, GoTriple id)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty datacite:hasIdentifier ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
+                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onClass datacite:Identifier
                                ] ,
                                [ rdf:type owl:Restriction ;
