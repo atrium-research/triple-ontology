@@ -1,0 +1,69 @@
+@prefix sh:       <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd:      <http://www.w3.org/2001/XMLSchema#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre:    <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix triple:   <https://gotriple.eu/ontology/triple/> .
+@prefix tsh:      <https://gotriple.eu/ontology/triple/shapes/> .
+
+# ---------------------------------------------------------------------------
+# The identifier node
+# ---------------------------------------------------------------------------
+# datacite:Identifier requires exactly one scheme and exactly one literal value.
+# Those are axioms of the SPAR ontologies; here they become verifiable.
+
+tsh:IdentifierShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass datacite:Identifier ;
+    sh:closed false ;
+    sh:name "Identifier"@en ;
+    sh:description "An identifier is a node of its own, never a bare string: it carries exactly one scheme and exactly one value."@en ;
+
+    sh:property [
+        sh:path datacite:usesIdentifierScheme ;
+        sh:name "scheme"@en ;
+        sh:description "The scheme that qualifies the identifier. It is the only thing that tells one kind of identifier from another."@en ;
+        sh:class datacite:IdentifierScheme ;
+        sh:nodeKind sh:IRI ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Every datacite:Identifier must carry exactly one datacite:usesIdentifierScheme, whose value is an individual of datacite:IdentifierScheme."@en ] ;
+
+    sh:property [
+        sh:path litre:hasLiteralValue ;
+        sh:name "value"@en ;
+        sh:description "The identifier value in its canonical form, without a resolver prefix (e.g. \"10.4000/dh.1234\", not \"https://doi.org/10.4000/dh.1234\")."@en ;
+        sh:datatype xsd:string ;
+        sh:minCount 1 ; sh:maxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Every datacite:Identifier must carry exactly one litre:hasLiteralValue of type xsd:string."@en ] .
+
+# Conditional value shapes — "if the scheme is X, the value must look like X".
+# Expressed as sh:or ( not-the-condition , the-constraint ), which is core SHACL:
+# sh:condition belongs to SHACL-AF rules and is silently ignored in validation.
+
+tsh:ArkValueShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass datacite:Identifier ;
+    sh:name "ARK value"@en ;
+    sh:or (
+        [ sh:not [ sh:property [ sh:path datacite:usesIdentifierScheme ;
+                                 sh:hasValue datacite:ark ; sh:minCount 1 ] ] ]
+        [ sh:property [ sh:path litre:hasLiteralValue ;
+                        sh:pattern "^ark:/[0-9]{5,9}/[a-zA-Z0-9._/-]+$" ] ]
+    ) ;
+    sh:severity sh:Violation ;
+    sh:message "A GoTriple PID must be an ARK in the form ark:/NAAN/name, without a resolver prefix."@en .
+
+tsh:DoiValueShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass datacite:Identifier ;
+    sh:name "DOI value"@en ;
+    sh:or (
+        [ sh:not [ sh:property [ sh:path datacite:usesIdentifierScheme ;
+                                 sh:hasValue datacite:doi ; sh:minCount 1 ] ] ]
+        [ sh:property [ sh:path litre:hasLiteralValue ;
+                        sh:pattern "^10\\.[0-9]{4,9}/[-._;()/:a-zA-Z0-9]+$" ] ]
+    ) ;
+    sh:severity sh:Violation ;
+    sh:message "A DOI value must be of the form 10.NNNN/suffix, without the https://doi.org/ prefix."@en .

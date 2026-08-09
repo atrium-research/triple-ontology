@@ -1,0 +1,25 @@
+@prefix sh:      <http://www.w3.org/ns/shacl#> .
+@prefix owl:     <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs:    <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix tsh:     <https://gotriple.eu/ontology/triple/shapes/> .
+
+<https://gotriple.eu/ontology/triple/shapes>
+    a sh:ShapesGraph ;
+    dcterms:title "TRIPLE Shapes — conformance profile"@en ;
+    dcterms:description """Conformance constraints for data that declares dcterms:conformsTo this profile.
+
+The OWL ontology defines what the terms mean; this graph defines which data is
+acceptable. The split is deliberate: OWL restrictions describe inferences rather
+than constraints — under open-world semantics a missing value is inferred to
+exist, not reported — so mandatoriness cannot be expressed there. It lives here,
+where it is verifiable.
+
+Severity: sh:Violation = mandatory, sh:Warning = recommended, sh:Info = expected
+but optional."""@en ;
+    owl:versionInfo "3.0.0" ;
+    owl:imports <https://gotriple.eu/ontology/triple> ;
+    dcterms:license <https://creativecommons.org/licenses/by/4.0/> ;
+    rdfs:member tsh:IdentifierShape , tsh:ArkValueShape , tsh:DoiValueShape ,
+                tsh:ContentIdentifiersShape , tsh:ProfileIdentifiersShape ,
+                tsh:PlatformEntityIdentifiersShape , tsh:ExpectedSchemesShape .

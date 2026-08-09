@@ -1,0 +1,103 @@
+@prefix sh:       <http://www.w3.org/ns/shacl#> .
+@prefix rdfs:     <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf:     <http://xmlns.com/foaf/0.1/> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix triple:   <https://gotriple.eu/ontology/triple/> .
+@prefix tsh:      <https://gotriple.eu/ontology/triple/shapes/> .
+
+# ---------------------------------------------------------------------------
+# Mandatory identifiers per entity
+# ---------------------------------------------------------------------------
+# The kind of identifier is named by its SCHEME, not by a class: these shapes
+# are what replaced the triple:ID / triple:PID / triple:OriginalIdentifier
+# classes, which existed only to be nameable inside OWL axioms.
+#
+# Severity: Violation = mandatory, Warning = recommended, Info = expected.
+
+tsh:InternalIdShape a sh:NodeShape ;
+    sh:property [ sh:path datacite:usesIdentifierScheme ; sh:hasValue triple:internal_id_schema ] .
+
+tsh:PidShape a sh:NodeShape ;
+    sh:property [ sh:path datacite:usesIdentifierScheme ; sh:hasValue datacite:ark ] .
+
+tsh:OriginalIdShape a sh:NodeShape ;
+    sh:property [ sh:path datacite:usesIdentifierScheme ; sh:hasValue triple:original_id_schema ] .
+
+# --- the five content classes: internal id, PID, and at least one source id ---
+tsh:ContentIdentifiersShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass triple:Document , triple:Dataset , triple:MediaObject ,
+                   triple:SemanticArtefact , triple:Project ;
+    sh:name "mandatory identifiers"@en ;
+
+    sh:property [
+        sh:path datacite:hasIdentifier ;
+        sh:name "internal id"@en ;
+        sh:description "The internal identifier assigned by the GoTriple platform."@en ;
+        sh:qualifiedValueShape tsh:InternalIdShape ;
+        sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Exactly one identifier with scheme triple:internal_id_schema is required."@en ] ;
+
+    sh:property [
+        sh:path datacite:hasIdentifier ;
+        sh:name "PID"@en ;
+        sh:description "The persistent identifier minted by GoTriple, an ARK. Cf. FAIR F1."@en ;
+        sh:qualifiedValueShape tsh:PidShape ;
+        sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Exactly one identifier with scheme datacite:ark is required."@en ] ;
+
+    sh:property [
+        sh:path datacite:hasIdentifier ;
+        sh:name "original identifier"@en ;
+        sh:description "The identifier the resource carried in the system it was harvested from. A list: the same resource can come from several sources."@en ;
+        sh:qualifiedValueShape tsh:OriginalIdShape ;
+        sh:qualifiedMinCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "At least one identifier from the source system is required."@en ] .
+
+# --- Profile: no original identifier, a registered user is born inside GoTriple ---
+tsh:ProfileIdentifiersShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass triple:Profile ;
+    sh:name "mandatory identifiers"@en ;
+    sh:property [
+        sh:path datacite:hasIdentifier ;
+        sh:qualifiedValueShape tsh:InternalIdShape ;
+        sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Exactly one identifier with scheme triple:internal_id_schema is required."@en ] ;
+    sh:property [
+        sh:path datacite:hasIdentifier ;
+        sh:qualifiedValueShape tsh:PidShape ;
+        sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Exactly one identifier with scheme datacite:ark is required."@en ] .
+
+# --- platform-created entities: internal id only ---
+tsh:PlatformEntityIdentifiersShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass triple:Cluster , foaf:OnlineAccount ;
+    sh:name "mandatory identifier"@en ;
+    sh:property [
+        sh:path datacite:hasIdentifier ;
+        sh:qualifiedValueShape tsh:InternalIdShape ;
+        sh:qualifiedMinCount 1 ; sh:qualifiedMaxCount 1 ;
+        sh:severity sh:Violation ;
+        sh:message "Computed or platform-created entities carry exactly one internal identifier."@en ] .
+
+# --- expected schemes, informative: an unlisted scheme is legal but reported ---
+tsh:ExpectedSchemesShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass triple:Document ;
+    sh:property [
+        sh:path ( datacite:hasIdentifier datacite:usesIdentifierScheme ) ;
+        sh:name "expected schemes"@en ;
+        sh:description "Identifier schemes expected on a document. The list is not closed: a scheme outside it is legal but usually signals a mapping error."@en ;
+        sh:in ( triple:internal_id_schema datacite:ark triple:original_id_schema
+                datacite:doi datacite:handle datacite:issn datacite:isbn
+                triple:landing_page_url_schema triple:full_text_url_schema
+                triple:source_url_schema ) ;
+        sh:severity sh:Info ;
+        sh:message "Scheme not expected on a triple:Document — check the mapping; if the scheme is right, add it to the profile."@en ] .
