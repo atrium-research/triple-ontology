@@ -219,9 +219,9 @@ ORDER BY ?project ?schemeLabel
 ```
 
 **Expected Results:**
-- project_1: Horizon 2020 → H2020-863420
-- project_2: PRIN → PRIN-2018ABCD123
-- project_3: FWF → FWF-P-34567, Getty → GETTY-KIM-2021-15
+- project_1: Original Identifier → H2020-863420
+- project_2: Original Identifier → PRIN-2018ABCD123
+- project_3: Original Identifier → FWF-P-34567, Original Identifier → GETTY-KIM-2021-15
 - project_4: ERC → ERC-ADG-101052789
 
 

@@ -3,59 +3,70 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://gotriple.eu/ontology/triple/SemanticArtefact> a owl:Ontology ;
-    rdfs:label "Semantic Artefact"@en ;
-    dcterms:title "Semantic Artefact"@en ;
-    dcterms:abstract "The Semantic Artefact module of the TRIPLE Ontology, defining Ontologies, Vocabularies, and Thesauri."@en ;
-    dcterms:description "The Semantic Artefact module is dedicated to describing the semantic assets used or indexed by the GoTriple platform, such as ontologies, taxonomies, and thesauri. It extends the MOD (Metadata for Ontology Description) ontology to provide rich metadata about these knowledge organization systems, including their versioning, format, and status."@en ;
-    dcterms:created "2021-12-01" ;
-    dcterms:modified "2026-07-10" ;
-    dcterms:creator "Alessandro Bertozzi" ;
-    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
-    owl:versionInfo "2.2.0" ;
-    schema:creativeWorkStatus "Ontology Module" .
+datacite:doi a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:doi"@en .
 
-triple:SemanticArtefact a owl:Class ;
+datacite:handle a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:handle"@en .
+
+datacite:hasIdentifier a owl:ObjectProperty ;
+    rdfs:label "datacite:hasIdentifier"@en ;
+    rdfs:range datacite:Identifier .
+
+datacite:local-resource-identifier-scheme a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:local-resource-identifier-scheme"@en .
+
+datacite:uri a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:uri"@en .
+
+datacite:usesIdentifierScheme a owl:ObjectProperty ;
+    rdfs:label "datacite:usesIdentifierScheme"@en ;
+    rdfs:domain datacite:Identifier ;
+    rdfs:range datacite:IdentifierScheme .
+
+<http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue> a owl:DatatypeProperty ;
+    rdfs:label "litre:hasLiteralValue"@en ;
+    rdfs:range xsd:string .
+
+triple:SemanticArtefact a owl:Class,
+        owl:Ontology ;
     rdfs:label "Semantic Artefact"@en,
-        "Artefacto Semântico"@pt,
+        "Artefact Sémantique"@fr,
         "Artefakt Semantyczny"@pl,
-        "Artefact Sémantique"@fr ;
+        "Artefacto Semântico"@pt ;
+    dcterms:abstract "The Semantic Artefact module of the TRIPLE Ontology, defining Ontologies, Vocabularies, and Thesauri."@en ;
+    dcterms:contributor "Luca De Santis",
+        "Silvio Peroni" ;
+    dcterms:created "2021-12-01" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:description "The Semantic Artefact module is dedicated to describing the semantic assets used or indexed by the GoTriple platform, such as ontologies, taxonomies, and thesauri. It extends the MOD (Metadata for Ontology Description) ontology to provide rich metadata about these knowledge organization systems, including their versioning, format, and status."@en ;
+    dcterms:modified "2026-07-10" ;
+    dcterms:title "Semantic Artefact"@en ;
     rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en,
         "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty <http://purl.org/cerif/frapo/isOutputOf> ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:CreativeWork ;
-            owl:onProperty dcterms:isReferencedBy ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:headline ;
-            owl:someValuesFrom [ a rdfs:Datatype ;
-                    owl:unionOf ( rdf:langString xsd:string ) ] ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:abstract ;
-            owl:someValuesFrom [ a rdfs:Datatype ;
-                    owl:unionOf ( rdf:langString xsd:string ) ] ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:contributor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:author ],
-        [ a owl:Restriction ;
             owl:onProperty schema:inLanguage ;
             owl:someValuesFrom schema:Language ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:CreativeWork ;
+            owl:onProperty dcterms:isReferencedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:date ;
             owl:onProperty schema:dateCreated ],
@@ -82,6 +93,13 @@ triple:SemanticArtefact a owl:Class ;
             owl:onProperty schema:publisher ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:contributor ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:headline ;
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty triple:aggregator ],
         [ a owl:Restriction ;
             owl:onProperty schema:fileFormat ;
@@ -101,10 +119,6 @@ triple:SemanticArtefact a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom triple:Document ;
             owl:onProperty dcterms:isReferencedBy ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Class ;
-                    owl:unionOf ( datacite:Identifier triple:ID triple:PID triple:OriginalIdentifier triple:DOI triple:Handle triple:URI ) ] ;
-            owl:onProperty datacite:hasIdentifier ],
         [ a owl:Restriction ;
             owl:allValuesFrom schema:Place ;
             owl:onProperty schema:spatialCoverage ],
@@ -144,71 +158,146 @@ triple:SemanticArtefact a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
             owl:onProperty schema:mentions ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:abstract ;
+            owl:someValuesFrom [ a rdfs:Datatype ;
+                    owl:unionOf ( rdf:langString xsd:string ) ] ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:author ],
         schema:CreativeWork,
         mod:SemanticArtefact ;
+    owl:versionInfo "2.2.0" ;
     skos:closeMatch <http://purl.org/spar/fabio/Work>,
-        <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> .
+        <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> ;
+    schema:creativeWorkStatus "Ontology Module" .
 
-mod:SemanticArtefact a owl:Class ;
-    rdfs:label "mod:SemanticArtefact"@en .
+<http://purl.org/cerif/frapo/isOutputOf> a owl:ObjectProperty ;
+    rdfs:label "frapo:isOutputOf"@en ;
+    rdfs:range triple:Project .
 
-schema:CreativeWork a owl:Class ;
-    rdfs:label "schema:CreativeWork"@en .
+dc:date a owl:DatatypeProperty ;
+    rdfs:label "dc:date"@en .
 
-# Properties
-schema:headline a owl:DatatypeProperty ;
-    rdfs:label "schema:headline"@en ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( rdf:langString xsd:string ) ] .
+dc:language a owl:DatatypeProperty ;
+    rdfs:label "dc:language"@en .
+
+dc:source a owl:DatatypeProperty ;
+    rdfs:label "dc:source"@en .
+
+dc:type a owl:DatatypeProperty ;
+    rdfs:label "dc:type"@en .
+
+<http://purl.org/spar/fabio/Work> a owl:Class ;
+    rdfs:label "fabio:Work"@en .
+
+sioc:topic a owl:ObjectProperty ;
+    rdfs:label "sioc:topic"@en ;
+    rdfs:subPropertyOf dcterms:subject .
+
+<http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> a owl:Class ;
+    rdfs:label "E90 Symbolic Object"@en .
+
+adms:representationTechnique a owl:ObjectProperty ;
+    rdfs:label "adms:representationTechnique"@en ;
+    rdfs:comment "More information about the format in which the semantic artefact is released. This is different from the file format: for example, a ZIP file (file format) could contain an XML schema (representation technique)."@en ;
+    rdfs:range skos:Concept .
+
+triple:Discipline a owl:Class ;
+    rdfs:label "Discipline"@en ;
+    rdfs:subClassOf skos:Concept .
+
+triple:Document a owl:Class ;
+    rdfs:label "Document"@en .
+
+triple:aggregator a owl:ObjectProperty ;
+    rdfs:label "aggregator"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
+triple:hasAccessCondition a owl:ObjectProperty ;
+    rdfs:label "has access condition"@en ;
+    rdfs:range triple:AccessCondition ;
+    rdfs:subPropertyOf dcterms:accessRights .
+
+triple:hasContentType a owl:ObjectProperty ;
+    rdfs:label "has content type"@en ;
+    rdfs:range triple:ContentType ;
+    rdfs:subPropertyOf dcterms:type .
+
+triple:hasLicense a owl:ObjectProperty ;
+    rdfs:label "has license"@en ;
+    rdfs:range triple:License ;
+    rdfs:subPropertyOf dcterms:license .
+
+triple:originalConditionsOfAccess a owl:DatatypeProperty ;
+    rdfs:label "original conditions of access"@en ;
+    rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:rights .
+
+triple:originalDatePublished a owl:DatatypeProperty ;
+    rdfs:label "original date published"@en ;
+    rdfs:comment "The publication date string exactly as received from the source provider, before conversion to ISO 8601."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:date .
+
+triple:originalLanguage a owl:DatatypeProperty ;
+    rdfs:label "original language"@en ;
+    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:language .
+
+triple:originalLicense a owl:DatatypeProperty ;
+    rdfs:label "original license"@en ;
+    rdfs:comment "The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:rights .
+
+triple:originalSource a owl:DatatypeProperty ;
+    rdfs:label "original source"@en ;
+    rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:source .
+
+triple:originalType a owl:DatatypeProperty ;
+    rdfs:label "original type"@en ;
+    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:type .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
     rdfs:range [ a rdfs:Datatype ;
             owl:unionOf ( rdf:langString xsd:string ) ] .
 
-schema:dateCreated a owl:DatatypeProperty ;
-    rdfs:label "schema:dateCreated"@en ;
-    rdfs:range xsd:date .
+schema:author a owl:ObjectProperty ;
+    rdfs:label "schema:author"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
-schema:datePublished a owl:DatatypeProperty ;
-    rdfs:label "schema:datePublished"@en ;
-    rdfs:range xsd:date .
+schema:contactPoint a owl:ObjectProperty ;
+    rdfs:label "schema:contactPoint"@en ;
+    rdfs:range schema:ContactPoint .
 
-schema:dateModified a owl:DatatypeProperty ;
-    rdfs:label "schema:dateModified"@en ;
-    rdfs:range xsd:date .
+schema:contributor a owl:ObjectProperty ;
+    rdfs:label "schema:contributor"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
-schema:version a owl:DatatypeProperty ;
-    rdfs:label "schema:version" ;
-    rdfs:range xsd:string .
-
-schema:fileFormat a owl:DatatypeProperty ;
-    rdfs:label "schema:fileFormat" ;
+schema:creativeWorkStatus a owl:DatatypeProperty ;
+    rdfs:label "schema:creativeWorkStatus"@en ;
     rdfs:range xsd:string .
 
 schema:encodingFormat a owl:DatatypeProperty ;
     rdfs:label "schema:encodingFormat"@en ;
     rdfs:range xsd:string .
 
-schema:creativeWorkStatus a owl:DatatypeProperty ;
-    rdfs:label "schema:creativeWorkStatus"@en ;
+schema:fileFormat a owl:DatatypeProperty ;
+    rdfs:label "schema:fileFormat" ;
     rdfs:range xsd:string .
 
-schema:author a owl:ObjectProperty ;
-    rdfs:label "schema:author"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-
-schema:publisher a owl:ObjectProperty ;
-    rdfs:label "schema:publisher"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-
-schema:contributor a owl:ObjectProperty ;
-    rdfs:label "schema:contributor"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-
-triple:aggregator a owl:ObjectProperty ;
-    rdfs:label "aggregator"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+schema:headline a owl:DatatypeProperty ;
+    rdfs:label "schema:headline"@en ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
 schema:inLanguage a owl:ObjectProperty ;
     rdfs:label "schema:inLanguage"@en ;
@@ -218,26 +307,62 @@ schema:keywords a owl:ObjectProperty ;
     rdfs:label "schema:keywords"@en ;
     rdfs:range schema:DefinedTerm .
 
+schema:mentions a owl:ObjectProperty ;
+    rdfs:label "schema:mentions"@en ;
+    rdfs:comment "Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity."@en .
+
+schema:name a owl:DatatypeProperty ;
+    rdfs:label "name"@en ;
+    rdfs:range xsd:string .
+
+schema:publisher a owl:ObjectProperty ;
+    rdfs:label "schema:publisher"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
 schema:spatialCoverage a owl:ObjectProperty ;
     rdfs:label "schema:spatialCoverage"@en ;
     rdfs:range schema:Place .
 
-schema:contactPoint a owl:ObjectProperty ;
-    rdfs:label "schema:contactPoint"@en ;
-    rdfs:range schema:ContactPoint .
+schema:version a owl:DatatypeProperty ;
+    rdfs:label "schema:version" ;
+    rdfs:range xsd:string .
+
+mod:SemanticArtefact a owl:Class ;
+    rdfs:label "mod:SemanticArtefact"@en .
+
+dc:rights a owl:DatatypeProperty ;
+    rdfs:label "dc:rights"@en .
 
 dcterms:isReferencedBy a owl:ObjectProperty ;
     rdfs:label "dcterms:isReferencedBy"@en .
 
-<http://purl.org/cerif/frapo/isOutputOf> a owl:ObjectProperty ;
-    rdfs:label "frapo:isOutputOf"@en ;
-    rdfs:range triple:Project .
+datacite:Identifier a owl:Class ;
+    rdfs:label "datacite:Identifier"@en .
 
-sioc:topic a owl:ObjectProperty ;
-    rdfs:label "sioc:topic"@en ;
-    rdfs:subPropertyOf dcterms:subject .
+triple:AccessCondition a owl:Class ;
+    rdfs:label "Access Condition"@en ;
+    rdfs:subClassOf skos:Concept .
 
-# Referenced Classes
+triple:ContentType a owl:Class ;
+    rdfs:label "Content Type"@en ;
+    rdfs:subClassOf skos:Concept .
+
+triple:License a owl:Class ;
+    rdfs:label "License"@en ;
+    rdfs:subClassOf skos:Concept .
+
+triple:Project a owl:Class ;
+    rdfs:label "Project"@en .
+
+schema:ContactPoint a owl:Class ;
+    rdfs:label "schema:ContactPoint"@en .
+
+schema:CreativeWork a owl:Class ;
+    rdfs:label "schema:CreativeWork"@en .
+
+schema:DefinedTerm a owl:Class ;
+    rdfs:label "schema:DefinedTerm"@en .
+
 schema:Language a owl:Class ;
     rdfs:label "schema:Language"@en .
 
@@ -247,183 +372,27 @@ schema:Place a owl:Class ;
             owl:onProperty schema:name ;
             owl:someValuesFrom xsd:string ] .
 
-schema:name a owl:DatatypeProperty ;
-    rdfs:label "name"@en ;
-    rdfs:range xsd:string .
+schema:dateCreated a owl:DatatypeProperty ;
+    rdfs:label "schema:dateCreated"@en ;
+    rdfs:range xsd:date .
 
-schema:DefinedTerm a owl:Class ;
-    rdfs:label "schema:DefinedTerm"@en .
+schema:dateModified a owl:DatatypeProperty ;
+    rdfs:label "schema:dateModified"@en ;
+    rdfs:range xsd:date .
 
-schema:ContactPoint a owl:Class ;
-    rdfs:label "schema:ContactPoint"@en .
-
-foaf:Person a owl:Class ;
-    rdfs:label "foaf:Person"@en .
-
-foaf:Organization a owl:Class ;
-    rdfs:label "foaf:Organization"@en .
-
-triple:Project a owl:Class ;
-    rdfs:label "Project"@en .
-
-triple:Document a owl:Class ;
-    rdfs:label "Document"@en .
-
-# Bridge Classes
-skos:Concept a owl:Class ;
-    rdfs:label "Concept"@en .
-
-triple:License a owl:Class ;
-    rdfs:label "License"@en ;
-    rdfs:subClassOf skos:Concept .
-
-triple:hasLicense a owl:ObjectProperty ;
-    rdfs:label "has license"@en ;
-    rdfs:range triple:License ;
-    rdfs:subPropertyOf dcterms:license .
-
-triple:AccessCondition a owl:Class ;
-    rdfs:label "Access Condition"@en ;
-    rdfs:subClassOf skos:Concept .
-
-triple:hasAccessCondition a owl:ObjectProperty ;
-    rdfs:label "has access condition"@en ;
-    rdfs:range triple:AccessCondition ;
-    rdfs:subPropertyOf dcterms:accessRights .
-
-triple:ContentType a owl:Class ;
-    rdfs:label "Content Type"@en ;
-    rdfs:subClassOf skos:Concept .
-
-triple:hasContentType a owl:ObjectProperty ;
-    rdfs:label "has content type"@en ;
-    rdfs:range triple:ContentType ;
-    rdfs:subPropertyOf dcterms:type .
-
-triple:Discipline a owl:Class ;
-    rdfs:label "Discipline"@en ;
-    rdfs:subClassOf skos:Concept .
-
-# Identifiers
-datacite:Identifier a owl:Class ;
-    rdfs:label "datacite:Identifier"@en .
+schema:datePublished a owl:DatatypeProperty ;
+    rdfs:label "schema:datePublished"@en ;
+    rdfs:range xsd:date .
 
 datacite:IdentifierScheme a owl:Class ;
     rdfs:label "datacite:IdentifierScheme"@en .
 
-datacite:hasIdentifier a owl:ObjectProperty ;
-    rdfs:label "datacite:hasIdentifier"@en ;
-    rdfs:range datacite:Identifier .
+skos:Concept a owl:Class ;
+    rdfs:label "Concept"@en .
 
-datacite:usesIdentifierScheme a owl:ObjectProperty ;
-    rdfs:label "datacite:usesIdentifierScheme"@en ;
-    rdfs:domain datacite:Identifier ;
-    rdfs:range datacite:IdentifierScheme .
+foaf:Organization a owl:Class ;
+    rdfs:label "foaf:Organization"@en .
 
-litre:hasLiteralValue a owl:DatatypeProperty ;
-    rdfs:label "litre:hasLiteralValue"@en ;
-    rdfs:range xsd:string .
+foaf:Person a owl:Class ;
+    rdfs:label "foaf:Person"@en .
 
-triple:ID a owl:Class ;
-    rdfs:label "Internal ID"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:PID a owl:Class ;
-    rdfs:label "Persistent ID"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:OriginalIdentifier a owl:Class ;
-    rdfs:label "Original Identifier"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:DOI a owl:Class ;
-    rdfs:label "DOI"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:Handle a owl:Class ;
-    rdfs:label "Handle"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:URI a owl:Class ;
-    rdfs:label "URI"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-datacite:doi a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:doi"@en .
-
-datacite:handle a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:handle"@en .
-
-datacite:uri a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:uri"@en .
-
-datacite:local-resource-identifier-scheme a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:local-resource-identifier-scheme"@en .
-
-# Matches
-<http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> a owl:Class ;
-    rdfs:label "E90 Symbolic Object"@en .
-
-<http://purl.org/spar/fabio/Work> a owl:Class ;
-    rdfs:label "fabio:Work"@en .
-
-# Original provider values (raw, pre-normalization; iteration 17)
-dc:type a owl:DatatypeProperty ;
-    rdfs:label "dc:type"@en .
-
-dc:language a owl:DatatypeProperty ;
-    rdfs:label "dc:language"@en .
-
-dc:date a owl:DatatypeProperty ;
-    rdfs:label "dc:date"@en .
-
-dc:rights a owl:DatatypeProperty ;
-    rdfs:label "dc:rights"@en .
-
-triple:originalType a owl:DatatypeProperty ;
-    rdfs:label "original type"@en ;
-    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary."@en ;
-    rdfs:subPropertyOf dc:type ;
-    rdfs:range xsd:string .
-
-triple:originalLanguage a owl:DatatypeProperty ;
-    rdfs:label "original language"@en ;
-    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity."@en ;
-    rdfs:subPropertyOf dc:language ;
-    rdfs:range xsd:string .
-
-triple:originalDatePublished a owl:DatatypeProperty ;
-    rdfs:label "original date published"@en ;
-    rdfs:comment "The publication date string exactly as received from the source provider, before conversion to ISO 8601."@en ;
-    rdfs:subPropertyOf dc:date ;
-    rdfs:range xsd:string .
-
-triple:originalLicense a owl:DatatypeProperty ;
-    rdfs:label "original license"@en ;
-    rdfs:comment "The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary."@en ;
-    rdfs:subPropertyOf dc:rights ;
-    rdfs:range xsd:string .
-
-triple:originalConditionsOfAccess a owl:DatatypeProperty ;
-    rdfs:label "original conditions of access"@en ;
-    rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
-    rdfs:subPropertyOf dc:rights ;
-    rdfs:range xsd:string .
-
-dc:source a owl:DatatypeProperty ;
-    rdfs:label "dc:source"@en .
-
-triple:originalSource a owl:DatatypeProperty ;
-    rdfs:label "original source"@en ;
-    rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
-    rdfs:subPropertyOf dc:source ;
-    rdfs:range xsd:string .
-
-adms:representationTechnique a owl:ObjectProperty ;
-    rdfs:label "adms:representationTechnique"@en ;
-    rdfs:comment "More information about the format in which the semantic artefact is released. This is different from the file format: for example, a ZIP file (file format) could contain an XML schema (representation technique)."@en ;
-    rdfs:range skos:Concept .
-
-schema:mentions a owl:ObjectProperty ;
-    rdfs:label "schema:mentions"@en ;
-    rdfs:comment "Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity."@en .

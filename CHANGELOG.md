@@ -15,6 +15,60 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Breaking: identifiers move to pure DataCite, mandatoriness moves to SHACL
+
+**Type**: Refactoring (breaking — release as 3.0.0)
+
+**Iteration**: 01, 04, 05, 06, 07, 08, 10, 11, 12, 19; all entity modules; new `shapes/`
+
+**Description**:
+Three changes that belong together, because each one only makes sense once the others are done.
+
+**The value carrier was pointing at nothing.** Every TTL declared `@prefix litre: <http://purl.org/spar/literal/>`, but `hasLiteralValue` is defined in `http://www.essepuntato.it/2010/06/literalreification/`. `http://purl.org/spar/literal` is only the *ontology IRI* — the target of `owl:imports` in the DataCite ontology — and we had turned it into a term namespace by appending a slash. Four independent sources agree on the correct one: the Literal Reification ontology itself, the DataCite ontology's own examples (84 uses), the SKG-IF SHACL shapes and JSON-LD context, and the OpenCitations core diagram, whose prefix legend spells it out. Nothing had caught it because a wrong prefix binding is not a syntax error: every file parsed and every competency question passed, since they all made the same mistake consistently. The breakage was only visible from outside — which is exactly where interoperability lives. Fixed in 56 files, 103 occurrences. Closes #47.
+
+**All identifier subclasses are retired.** `triple:ID`, `triple:PID`, `triple:OriginalIdentifier`, `triple:DOI`, `triple:Handle`, `triple:ISBN`, `triple:ISSN` and `triple:URI` no longer exist. `datacite:Identifier` already requires exactly one `datacite:usesIdentifierScheme`, so the scheme is always present and always sufficient to say what kind of identifier something is; a class pinned to a single scheme with `owl:hasValue` only duplicates it. This is the same choice OpenCitations makes with this pattern — verified against its ontology, which declares no subclass of `datacite:Identifier` and eight scheme individuals. Adding a new kind of identifier now costs one individual, not a scheme plus a class. 79 exemplar instances were converted to assert their scheme explicitly, since it is no longer entailed by a class.
+
+**Mandatoriness moves out of OWL and into SHACL.** The presence axioms went with the classes, and are replaced by a shapes graph in `shapes/`. The reason is not tidiness: OWL restrictions describe inferences, not constraints. Under open-world semantics a missing identifier is inferred to exist rather than reported, and `owl:qualifiedCardinality 1` over two distinct nodes concludes they are the same node instead of flagging an error — with no `owl:AllDifferent` on the scheme individuals, that could have collapsed `datacite:doi` and `datacite:handle`. The shapes state the same requirements in a form that is actually checked, with graded severity (`sh:Violation` mandatory, `sh:Warning` recommended, `sh:Info` expected), natural-language messages, and value patterns for ARK and DOI that OWL cannot express at all. `scripts/validate.py` runs them with `pyshacl`.
+
+**Scope of the exemplar data**: the validator targets the iterations whose motivating scenario is about identifiers (01, 04, 05, 06, 07, 08, 10, 11, 12, 19), all of which now pass. The other iterations use documents as vehicles for teaching something else and carry deliberately partial instances; validating them against a publication profile would be a category error.
+
+Also in this release: five identifier schemes that existed only in exemplar data (`h2020`, `erc`, `prin`, `fwf`, `getty`) were removed — the ADR mentions H2020 once, as an example of `funding_type` mapped to `schema:fundingScheme`, not as an identifier scheme; twelve `OriginalIdentifier` instances carried no scheme at all, violating an axiom of the SPAR ontology itself; and two identifiers in iteration 12 were declared twice with different values, violating the single-value axiom inherited from `litre:Literal`.
+
+Consolidated ontology down from 1902 to 1704 triples. 138 competency questions run with 0 errors; all ten in-scope ABOXes conform to the shapes.
+
+**Author**: Alessandro Bertozzi
+
+
+### 2026-07-28 - Documentation: module pages now show what the identifier requirements are about
+
+**Type**: Documentation
+
+**Iteration**: all module HTML pages
+
+**Description**:
+The generated documentation was not communicating the identifier model at all. The customized pyLODE that produces `ontology/modules/html/<M>/index.html` never read `owl:onClass`, so the four qualified cardinality restrictions on `triple:Document` all rendered as a bare `datacite:hasIdentifier op exactly 1` — four identical lines, with `triple:ID`, `triple:PID` and `triple:OriginalIdentifier` dropped. Patched the generator (see `PATCHES.md` in the pyLODE fork, which is not under version control): qualified restrictions now carry the class they are qualified on, `owl:hasValue` IRI targets are rendered as links instead of quoted strings, and `skos:example` and `skos:scopeNote`/`skos:note` get their own "Example" and "Usage" sections on classes, properties and named individuals — previously no SKOS annotation on a property or an individual was collected at all, and those on classes ended up under the "External Alignment" heading. All 11 module pages regenerated: the 6 entity modules now show requirements such as `hasIdentifier exactly 1 Internal ID`, while the 5 vocabulary modules show no non-whitespace difference, confirming no regression. Dangling-anchor count unchanged.
+
+This unblocks the term-level documentation of the identifier pattern: `rdfs:comment` for the definition, `skos:scopeNote` for the usage rule, `skos:example` for the Turtle snippet.
+
+**Author**: Alessandro Bertozzi
+
+### 2026-07-27 - Refactoring: one rule for identifiers — the scheme is the kind, the classes are the mandatory kinds
+
+**Type**: Refactoring
+
+**Iteration**: 01, 05, 06, 07, 08, 10, 11, 12, 19; all entity modules
+
+**Description**:
+The identifier pattern carried two overlapping typing layers grown at different times. `datacite:Identifier` already requires exactly one `datacite:usesIdentifierScheme`, so the scheme is always present and always sufficient to say what kind of identifier something is; a `triple:*` identifier class is therefore justified only where the model needs to name that kind inside a class-level axiom. That rule is now stated in `patterns/identifier-pattern.ttl` and applied throughout.
+
+**Schemes**: `triple:ID` and `triple:OriginalIdentifier` both pinned `datacite:local-resource-identifier-scheme`, which cannot tell an identifier local to GoTriple from one local to the source system — the collision was the only reason those classes were load-bearing. `triple:ID` now pins the new `triple:internal_id_schema` and `datacite:local-resource-identifier-scheme` is dropped. `triple:OriginalIdentifier` deliberately pins **no** scheme: an original identifier can come from any source system and its scheme names that system (`triple:h2020_scheme`, `triple:prin_scheme`, `triple:fwf_scheme`, with the new `triple:original_id_schema` as generic fallback) — the previous pin conflicted with the source-specific schemes already used in iteration 07. This makes real the schemes the documentation had claimed since iteration 01; only `triple:pid_schema` remains retired, superseded by `datacite:ark`.
+
+**Restrictions on entities**: the five `owl:allValuesFrom` unions on `datacite:hasIdentifier` (Document, Dataset, MediaObject, SemanticArtefact, Project) were logically vacuous — each listed `datacite:Identifier` alongside its own subclasses, so it constrained nothing beyond the property's `rdfs:range`, while reading like a closed list of admitted types. Worse, closing them naively would have made `triple:Document` unsatisfiable, since it separately required an ID, a PID and an OriginalIdentifier that the union did not list. All five are removed and replaced by presence axioms only: exactly one `triple:ID`, exactly one `triple:PID` and at least one `triple:OriginalIdentifier` (original identifiers are a list) on the four content classes and Project; `triple:ID` and `triple:PID` only on `triple:Profile`, which has no source system because registered users are created inside GoTriple; `triple:ID` alone on `triple:Cluster` and `foaf:OnlineAccount`, both platform-created. The optional identifier kinds an entity typically carries are documented in its `rdfs:comment` rather than constrained. `rdfs:range datacite:Identifier` is now declared in iteration 01 as the single global statement that every identifier goes through the DataCite relation and classes.
+
+**Exemplar data**: the ABOXes of the iterations that model identifiers were brought into conformance (01, 05, 06, 07, 08, 10, 11, 12, 19); iterations that merely use documents as vehicles for another concern keep minimal instances, as SAMOD's data test is about the iteration's own modelet. This also fixed pre-existing defects: identifiers with no `litre:hasLiteralValue` at all (violating the `datacite:Identifier` axiom) in iterations 01, 05 and 06, two anonymous schemes `triple:identifier_schema_1`/`_2` and two bespoke `triple:agent_identifier_scheme`/`triple:account_identifier_scheme` now replaced by `triple:internal_id_schema`, and identifiers whose intended meaning was described in the motivating scenario but never modelled. Consolidated ontology re-merged, all six entity module serializations and HTML pages regenerated, `sparql/` mirror resynced; 138 competency questions run with 0 errors.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-07-27 - Modification: triple:PID is an ARK, not a local resource identifier
 
 **Type**: Modification

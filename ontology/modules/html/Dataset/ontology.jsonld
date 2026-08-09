@@ -1,13 +1,75 @@
 [
   {
-    "@id": "http://purl.org/dc/elements/1.1/type",
+    "@id": "https://schema.org/provider",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:provider"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb74"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb74",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Person"
+          },
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/handle",
+    "@type": [
+      "http://purl.org/spar/datacite/IdentifierScheme",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:handle"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/name",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "dc:type"
+        "@value": "name"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/isReferencedBy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dcterms:isReferencedBy"
       }
     ]
   },
@@ -24,48 +86,183 @@
     ]
   },
   {
-    "@id": "https://schema.org/URL",
+    "@id": "http://www.w3.org/ns/dcat#bbox",
     "@type": [
-      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The bounding box of the dataset, expressed as a literal (e.g., WKT)."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:URL"
+        "@value": "dcat:bbox"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
       }
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/PID",
+    "@id": "https://schema.org/dateCreated",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:dateCreated"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/fabio/Dataset",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Persistent ID"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.org/spar/datacite/Identifier"
+        "@value": "fabio:Dataset"
       }
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/OriginalIdentifier",
+    "@id": "https://gotriple.eu/ontology/triple/originalLanguage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The language value exactly as received from the source provider, before normalization to a schema:Language entity."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "original language"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/dc/elements/1.1/language"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Place",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Original Identifier"
+        "@value": "Place"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "http://purl.org/spar/datacite/Identifier"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb80"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb80",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/name"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#someValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Person",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:Person"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/hasContentType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has content type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://gotriple.eu/ontology/triple/ContentType"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/dc/terms/type"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/hasAccessCondition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has access condition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://gotriple.eu/ontology/triple/AccessCondition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/dc/terms/accessRights"
       }
     ]
   },
@@ -79,6 +276,19 @@
       {
         "@language": "en",
         "@value": "datacite:doi"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/local-resource-identifier-scheme",
+    "@type": [
+      "http://purl.org/spar/datacite/IdentifierScheme",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:local-resource-identifier-scheme"
       }
     ]
   },
@@ -111,26 +321,20 @@
     ]
   },
   {
-    "@id": "https://schema.org/Language",
+    "@id": "http://www.w3.org/ns/dcat#Dataset",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "schema:Language"
+        "@value": "A collection of data, published or curated by a single agent, and available for access or download in one or more representations."
       }
-    ]
-  },
-  {
-    "@id": "https://schema.org/DefinedTerm",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:DefinedTerm"
+        "@value": "dcat:Dataset"
       }
     ]
   },
@@ -152,119 +356,55 @@
     ]
   },
   {
-    "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+    "@id": "https://gotriple.eu/ontology/triple/License",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Concept"
+        "@value": "License"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ]
   },
   {
-    "@id": "http://www.w3.org/ns/dcat#Distribution",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dcat:Distribution"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/author",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:author"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb76"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb76",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/provider",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:provider"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb82"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb82",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/provenance",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dcterms:provenance"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://purl.org/dc/terms/ProvenanceStatement"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/name",
+    "@id": "http://purl.org/dc/elements/1.1/language",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "name"
+        "@value": "dc:language"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/rights",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dc:rights"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/creativeWorkStatus",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:creativeWorkStatus"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -274,31 +414,93 @@
     ]
   },
   {
-    "@id": "http://purl.org/spar/datacite/hasIdentifier",
+    "@id": "https://gotriple.eu/ontology/triple/Project",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "datacite:hasIdentifier"
+        "@value": "Project"
       }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/usesIdentifierScheme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
+    "http://www.w3.org/2000/01/rdf-schema#domain": [
       {
         "@id": "http://purl.org/spar/datacite/Identifier"
       }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:usesIdentifierScheme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://purl.org/spar/datacite/IdentifierScheme"
+      }
     ]
   },
   {
-    "@id": "https://schema.org/size",
+    "@id": "https://schema.org/inLanguage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:inLanguage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://schema.org/Language"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/originalDatePublished",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The publication date string exactly as received from the source provider, before conversion to ISO 8601."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "original date published"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/dc/elements/1.1/date"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/temporalCoverage",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:size"
+        "@value": "schema:temporalCoverage"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -308,19 +510,14 @@
     ]
   },
   {
-    "@id": "https://schema.org/keywords",
+    "@id": "https://schema.org/comment",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:keywords"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://schema.org/DefinedTerm"
+        "@value": "schema:comment"
       }
     ]
   },
@@ -342,10 +539,323 @@
     ]
   },
   {
+    "@id": "https://schema.org/spatialCoverage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:spatialCoverage"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://schema.org/Place"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/CreativeWork",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:CreativeWork"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/size",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:size"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/dcat#theme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A main category of the dataset, as originally assigned by the source provider. Distinct from sioc:topic, which carries the automatically assigned TRIPLE disciplines."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dcat:theme"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/dc/terms/subject"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/ProvenanceStatement",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dcterms:ProvenanceStatement"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/funding",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:funding"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "litre:hasLiteralValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/ContentType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Content Type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/Identifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:Identifier"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/contributor",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:contributor"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb68"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb68",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Person"
+          },
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/date",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dc:date"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Language",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:Language"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/Discipline",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Discipline"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/hasLicense",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has license"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://gotriple.eu/ontology/triple/License"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/dc/terms/license"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/dcat#distribution",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dcat:distribution"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/ns/dcat#Distribution"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/headline",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:headline"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb71"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb71",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+          },
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/AccessCondition",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Access Condition"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
     "@id": "https://gotriple.eu/ontology/triple/Dataset",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Ontology",
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#Class",
+      "http://www.w3.org/2002/07/owl#Ontology"
     ],
     "http://purl.org/dc/terms/abstract": [
       {
@@ -408,156 +918,153 @@
         "@value": "Dataset (Triple)"
       },
       {
-        "@language": "pt",
-        "@value": "Base de Dados"
+        "@language": "fr",
+        "@value": "Jeu de Données"
       },
       {
         "@language": "pl",
         "@value": "Zbiór Danych"
       },
       {
-        "@language": "fr",
-        "@value": "Jeu de Données"
+        "@language": "pt",
+        "@value": "Base de Dados"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb1"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb1"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb2"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb2"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb6"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb3"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb10"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb4"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb11"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb8"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb12"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb12"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb13"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb13"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb14"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb17"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb15"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb21"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb16"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb22"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb17"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb23"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb18"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb24"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb19"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb25"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb20"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb26"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb28"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb27"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb32"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb28"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb36"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb29"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb40"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb30"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb41"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb31"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb42"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb32"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb43"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb33"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb44"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb34"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb45"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb35"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb46"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb36"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb47"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb37"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb48"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb38"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb49"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb39"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb50"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb40"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb51"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb41"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb52"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb42"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb53"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb43"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb54"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb47"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb55"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb48"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb56"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb49"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb57"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb50"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb58"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb51"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb59"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb52"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb60"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb56"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb61"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb57"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb62"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb58"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb63"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb59"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb64"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb60"
       },
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb68"
-      },
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb69"
-      },
-      {
-        "@id": "https://schema.org/Dataset"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb61"
       },
       {
         "@id": "http://www.w3.org/ns/dcat#Dataset"
+      },
+      {
+        "@id": "https://schema.org/Dataset"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
@@ -580,7 +1087,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb1",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb1",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -596,197 +1103,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb2",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb3"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/publisher"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb3",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb6",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb7"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/provider"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb7",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb10",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/funding"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb11",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "https://schema.org/ContactPoint"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/contactPoint"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb12",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/mentions"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb13",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "https://schema.org/DefinedTerm"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/keywords"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb14",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://rdfs.org/sioc/ns#topic"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb15",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "http://purl.org/dc/terms/isReferencedBy"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb16",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/temporalCoverage"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb17",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/encodingFormat"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb18",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb2",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -802,7 +1119,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb19",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -818,69 +1135,23 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb20",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb4",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#allValuesFrom": [
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb21"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb5"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "http://purl.org/spar/datacite/hasIdentifier"
+        "@id": "https://schema.org/publisher"
       }
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb21",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://purl.org/spar/datacite/Identifier"
-          },
-          {
-            "@id": "https://gotriple.eu/ontology/triple/ID"
-          },
-          {
-            "@id": "https://gotriple.eu/ontology/triple/PID"
-          },
-          {
-            "@id": "https://gotriple.eu/ontology/triple/OriginalIdentifier"
-          },
-          {
-            "@id": "https://gotriple.eu/ontology/triple/DOI"
-          },
-          {
-            "@id": "https://gotriple.eu/ontology/triple/Handle"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb28",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb29"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/author"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb29",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb5",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -895,13 +1166,60 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb32",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb8",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#allValuesFrom": [
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb33"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb9"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/author"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb9",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Person"
+          },
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb12",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/funding"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb13",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb14"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
@@ -911,7 +1229,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb33",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb14",
     "@type": [
       "http://www.w3.org/2000/01/rdf-schema#Datatype"
     ],
@@ -929,13 +1247,13 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb36",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb17",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#allValuesFrom": [
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb37"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb18"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
@@ -945,7 +1263,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb37",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb18",
     "@type": [
       "http://www.w3.org/2000/01/rdf-schema#Datatype"
     ],
@@ -963,7 +1281,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb40",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb21",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -979,7 +1297,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb41",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb22",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -995,7 +1313,23 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb42",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb23",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "https://schema.org/ContactPoint"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/contactPoint"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb24",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1011,7 +1345,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb43",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb25",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1027,7 +1361,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb44",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb26",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1043,7 +1377,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb45",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb27",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1060,7 +1394,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb46",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb28",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1077,7 +1411,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb47",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb29",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1094,7 +1428,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb48",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb30",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1110,7 +1444,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb49",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb31",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1126,7 +1460,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb50",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb32",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1142,7 +1476,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb51",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb33",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1158,7 +1492,23 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb52",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb34",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/mentions"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb35",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1174,7 +1524,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb53",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb36",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1190,7 +1540,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb54",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb37",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1206,7 +1556,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb55",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb38",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1222,7 +1572,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb56",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb39",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1238,7 +1588,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb57",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb40",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1254,7 +1604,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb58",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb41",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1270,7 +1620,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb59",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb42",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1286,7 +1636,54 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb60",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb43",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb44"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/provider"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb44",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Person"
+          },
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb47",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "https://schema.org/DefinedTerm"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/keywords"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb48",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1302,7 +1699,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb61",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb49",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1318,7 +1715,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb62",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb50",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1334,7 +1731,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb63",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb51",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1350,13 +1747,13 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb64",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb52",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#allValuesFrom": [
       {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb65"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb53"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
@@ -1366,7 +1763,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb65",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb53",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -1381,7 +1778,23 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb68",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb56",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "http://rdfs.org/sioc/ns#topic"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb57",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1397,7 +1810,7 @@
     ]
   },
   {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb69",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb58",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -1413,53 +1826,304 @@
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/hasAccessCondition",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb59",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Restriction"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
       {
-        "@language": "en",
-        "@value": "has access condition"
+        "@id": "http://www.w3.org/2002/07/owl#Thing"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
+    "http://www.w3.org/2002/07/owl#onProperty": [
       {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/dc/terms/accessRights"
+        "@id": "http://purl.org/dc/terms/isReferencedBy"
       }
     ]
   },
   {
-    "@id": "http://purl.org/spar/datacite/Identifier",
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb60",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/temporalCoverage"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb61",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/encodingFormat"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/abstract",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:abstract"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb62"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb62",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+          },
+          {
+            "@id": "http://www.w3.org/2001/XMLSchema#string"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/ContactPoint",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "datacite:Identifier"
+        "@value": "schema:ContactPoint"
       }
     ]
   },
   {
-    "@id": "https://schema.org/contactPoint",
+    "@id": "https://schema.org/Thing",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:Thing"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/datePublished",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:datePublished"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/keywords",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:contactPoint"
+        "@value": "schema:keywords"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://schema.org/ContactPoint"
+        "@id": "https://schema.org/DefinedTerm"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/about",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:about"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/URL",
+    "@type": [
+      "http://www.w3.org/2000/01/rdf-schema#Datatype"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:URL"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/ns/dcat#Distribution",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dcat:Distribution"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Dataset",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A body of structured information describing some topic(s) of interest."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:Dataset"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/dateModified",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:dateModified"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/author",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:author"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb65"
+      }
+    ]
+  },
+  {
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb65",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Person"
+          },
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/encodingFormat",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:encodingFormat"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/elements/1.1/type",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dc:type"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/DefinedTerm",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:DefinedTerm"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/dc/terms/provenance",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "dcterms:provenance"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://purl.org/dc/terms/ProvenanceStatement"
       }
     ]
   },
@@ -1481,132 +2145,46 @@
     ]
   },
   {
-    "@id": "https://schema.org/creativeWorkStatus",
+    "@id": "https://schema.org/publisher",
     "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:creativeWorkStatus"
+        "@value": "schema:publisher"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
+        "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb77"
       }
     ]
   },
   {
-    "@id": "http://purl.org/spar/datacite/handle",
-    "@type": [
-      "http://purl.org/spar/datacite/IdentifierScheme",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:handle"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/headline",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:headline"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb70"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb70",
-    "@type": [
-      "http://www.w3.org/2000/01/rdf-schema#Datatype"
-    ],
+    "@id": "_:ncfff282ad45c4d5d9b953479aef0b6bfb77",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
           {
-            "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+            "@id": "http://xmlns.com/foaf/0.1/Person"
           },
           {
-            "@id": "http://www.w3.org/2001/XMLSchema#string"
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
           }
         ]
       }
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/originalConditionsOfAccess",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "original conditions of access"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/dc/elements/1.1/rights"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/local-resource-identifier-scheme",
-    "@type": [
-      "http://purl.org/spar/datacite/IdentifierScheme",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:local-resource-identifier-scheme"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/CreativeWork",
+    "@id": "http://xmlns.com/foaf/0.1/Organization",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:CreativeWork"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/Project",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Project"
+        "@value": "foaf:Organization"
       }
     ]
   },
@@ -1628,104 +2206,48 @@
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/hasContentType",
+    "@id": "http://purl.org/spar/datacite/hasIdentifier",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "has content type"
+        "@value": "datacite:hasIdentifier"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://gotriple.eu/ontology/triple/ContentType"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/dc/terms/type"
+        "@id": "http://purl.org/spar/datacite/Identifier"
       }
     ]
   },
   {
-    "@id": "http://purl.org/dc/terms/isReferencedBy",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dcterms:isReferencedBy"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/License",
+    "@id": "http://purl.org/spar/datacite/IdentifierScheme",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "License"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+        "@value": "datacite:IdentifierScheme"
       }
     ]
   },
   {
-    "@id": "https://schema.org/dateCreated",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:dateCreated"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#date"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/inLanguage",
+    "@id": "https://schema.org/contactPoint",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:inLanguage"
+        "@value": "schema:contactPoint"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@id": "https://schema.org/Language"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "litre:hasLiteralValue"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
+        "@id": "https://schema.org/ContactPoint"
       }
     ]
   },
@@ -1758,55 +2280,6 @@
     ]
   },
   {
-    "@id": "https://schema.org/contributor",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:contributor"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb85"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb85",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/dcat#distribution",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dcat:distribution"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/ns/dcat#Distribution"
-      }
-    ]
-  },
-  {
     "@id": "https://gotriple.eu/ontology/triple/knowsAbout",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
@@ -1835,382 +2308,20 @@
     ]
   },
   {
-    "@id": "http://xmlns.com/foaf/0.1/Person",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:Person"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/hasLicense",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has license"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/License"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/dc/terms/license"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/datePublished",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:datePublished"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#date"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/temporalCoverage",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:temporalCoverage"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/terms/ProvenanceStatement",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dcterms:ProvenanceStatement"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/funding",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:funding"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2002/07/owl#Thing"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/date",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dc:date"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Access Condition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/language",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dc:language"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/dcat#Dataset",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A collection of data, published or curated by a single agent, and available for access or download in one or more representations."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dcat:Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/dcat#theme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A main category of the dataset, as originally assigned by the source provider. Distinct from sioc:topic, which carries the automatically assigned TRIPLE disciplines."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dcat:theme"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/dc/terms/subject"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/dc/elements/1.1/rights",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "dc:rights"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Place",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Place"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb88"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb88",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/name"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#someValuesFrom": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/dateModified",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:dateModified"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#date"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/abstract",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:abstract"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb73"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb73",
-    "@type": [
-      "http://www.w3.org/2000/01/rdf-schema#Datatype"
-    ],
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-          },
-          {
-            "@id": "http://www.w3.org/2001/XMLSchema#string"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/usesIdentifierScheme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#domain": [
-      {
-        "@id": "http://purl.org/spar/datacite/Identifier"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:usesIdentifierScheme"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://purl.org/spar/datacite/IdentifierScheme"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/fabio/Dataset",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "fabio:Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/IdentifierScheme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:IdentifierScheme"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/ns/dcat#bbox",
+    "@id": "https://gotriple.eu/ontology/triple/originalConditionsOfAccess",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "The bounding box of the dataset, expressed as a literal (e.g., WKT)."
+        "@value": "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "dcat:bbox"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2000/01/rdf-schema#Literal"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/Organization",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:Organization"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/originalLanguage",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The language value exactly as received from the source provider, before normalization to a schema:Language entity."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "original language"
+        "@value": "original conditions of access"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
@@ -2220,188 +2331,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
       {
-        "@id": "http://purl.org/dc/elements/1.1/language"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/Discipline",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Discipline"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/publisher",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:publisher"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb79"
-      }
-    ]
-  },
-  {
-    "@id": "_:nc68c5f4b114f4ac18a6e40f0312a0b1fb79",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/ContactPoint",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:ContactPoint"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/Handle",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Handle"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.org/spar/datacite/Identifier"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/originalDatePublished",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The publication date string exactly as received from the source provider, before conversion to ISO 8601."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "original date published"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/dc/elements/1.1/date"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/comment",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:comment"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/about",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:about"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/encodingFormat",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:encodingFormat"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/ID",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Internal ID"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.org/spar/datacite/Identifier"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/ContentType",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Content Type"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+        "@id": "http://purl.org/dc/elements/1.1/rights"
       }
     ]
   },
@@ -2414,70 +2344,6 @@
       {
         "@language": "en",
         "@value": "SHE1 Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/spatialCoverage",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:spatialCoverage"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://schema.org/Place"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Dataset",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A body of structured information describing some topic(s) of interest."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:Dataset"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/DOI",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "DOI"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.org/spar/datacite/Identifier"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Thing",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:Thing"
       }
     ]
   }

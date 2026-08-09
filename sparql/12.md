@@ -127,7 +127,7 @@ SELECT ?artifact ?title ?identifierValue WHERE {
   ?artifact a triple:SemanticArtefact ;
             schema:headline ?title ;
             datacite:hasIdentifier ?identifier .
-  ?identifier a triple:DOI ;
+  ?identifier datacite:usesIdentifierScheme datacite:doi ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
@@ -152,7 +152,7 @@ SELECT ?artifact ?title ?identifierValue WHERE {
   ?artifact a triple:SemanticArtefact ;
             schema:headline ?title ;
             datacite:hasIdentifier ?identifier .
-  ?identifier a triple:URI ;
+  ?identifier datacite:usesIdentifierScheme datacite:uri ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
@@ -172,22 +172,28 @@ PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
-SELECT ?artifact ?title ?identifierType ?value WHERE {
+SELECT ?artifact ?title ?scheme ?value WHERE {
   ?artifact a triple:SemanticArtefact ;
             schema:headline ?title ;
             datacite:hasIdentifier ?identifier .
-  ?identifier a ?identifierType ;
-              litre:hasLiteralValue ?value .
-  FILTER (?identifierType IN (triple:DOI, triple:Handle, triple:URI, triple:ID, triple:PID))
+  ?identifier litre:hasLiteralValue ?value .
+  OPTIONAL { ?identifier datacite:usesIdentifierScheme ?asserted }
+  OPTIONAL { ?identifier a ?c . ?c rdfs:subClassOf ?r .
+             ?r owl:onProperty datacite:usesIdentifierScheme ; owl:hasValue ?pinned }
+  BIND(COALESCE(?asserted, ?pinned) AS ?scheme)
+  FILTER (?scheme IN (datacite:doi, datacite:handle, datacite:uri,
+                      triple:internal_id_schema, datacite:ark))
 }
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:DOI` → "10.5281/zenodo.thesaurus.ssh.v2"
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:URI` → "https://gotriple.eu/thesaurus/ssh#"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → `triple:DOI` → "10.5281/zenodo.vocab.arthistory.v1"
-- `triple:ontology-medieval` → "Medieval Studies Ontology" → `triple:URI` → "https://ontology.medieval.unibo.it/owl#"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `datacite:doi` → "10.5281/zenodo.thesaurus.ssh.v2"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `datacite:uri` → "https://gotriple.eu/thesaurus/ssh#"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → `datacite:doi` → "10.5281/zenodo.vocab.arthistory.v1"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → `datacite:uri` → "https://ontology.medieval.unibo.it/owl#"
 
 
 ## CQ_12.9

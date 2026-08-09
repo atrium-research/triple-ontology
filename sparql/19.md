@@ -101,7 +101,7 @@ SELECT ?profile ?organization ?organizationName WHERE {
 
 ## CQ_19.6
 
-Retrieve the persistent identifiers of the persons behind GoTriple profiles, with their scheme and value, excluding the internal Elasticsearch id (whose scheme is the local resource one).
+Retrieve the persistent identifiers of the persons behind GoTriple profiles, with their scheme and value, excluding the internal Elasticsearch id.
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -113,7 +113,7 @@ SELECT ?profile ?scheme ?value WHERE {
            datacite:hasIdentifier ?identifier .
   ?identifier datacite:usesIdentifierScheme ?scheme ;
               litre:hasLiteralValue ?value .
-  FILTER (?scheme != datacite:local-resource-identifier-scheme)
+  FILTER (?scheme != triple:internal_id_schema)
 }
 ORDER BY ?profile ?scheme
 ```
@@ -123,33 +123,6 @@ ORDER BY ?profile ?scheme
 - `triple:profile_it19_1` → `triple:gotriple_id_schema` → "sofia_rossi_operas_0001"
 - `triple:profile_it19_1` → `triple:idref_schema` → "123456789"
 - `triple:profile_it19_2` → `datacite:isni` → "0000000121032683"
-
-## CQ_19.10
-
-Retrieve the internal id and the GoTriple persistent identifier (the `id` and `pid` fields) of a profile.
-
-```sparql
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
-
-SELECT ?profile ?internalId ?pid WHERE {
-  ?profile a triple:Profile ;
-           datacite:hasIdentifier ?internalIdentifier .
-  ?internalIdentifier a triple:ID ;
-                      litre:hasLiteralValue ?internalId .
-  OPTIONAL {
-    ?profile datacite:hasIdentifier ?pidIdentifier .
-    ?pidIdentifier a triple:PID ;
-                   litre:hasLiteralValue ?pid .
-  }
-}
-ORDER BY ?profile
-```
-
-**Expected result:**
-- `triple:profile_it19_1` → "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I", "ark:/12345/profile-sofia-rossi"
-- `triple:profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K", (no pid in this example)
 
 ## CQ_19.7
 
@@ -209,3 +182,30 @@ ORDER BY ?profile
 **Expected result:**
 - `triple:profile_it19_1` → `triple:document_it19_1`
 - `triple:profile_it19_2` → `triple:document_it19_1`
+
+## CQ_19.10
+
+Retrieve the internal id and the GoTriple persistent identifier (the `id` and `pid` fields) of a profile.
+
+```sparql
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
+
+SELECT ?profile ?internalId ?pid WHERE {
+  ?profile a triple:Profile ;
+           datacite:hasIdentifier ?internalIdentifier .
+  ?internalIdentifier datacite:usesIdentifierScheme triple:internal_id_schema ;
+                      litre:hasLiteralValue ?internalId .
+  OPTIONAL {
+    ?profile datacite:hasIdentifier ?pidIdentifier .
+    ?pidIdentifier datacite:usesIdentifierScheme datacite:ark ;
+                   litre:hasLiteralValue ?pid .
+  }
+}
+ORDER BY ?profile
+```
+
+**Expected result:**
+- `triple:profile_it19_1` → "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I", "ark:/12345/profile-sofia-rossi"
+- `triple:profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K", (no pid in this example)

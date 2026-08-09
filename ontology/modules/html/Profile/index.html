@@ -98,7 +98,7 @@
         
         <div id="introduction">
             <h2>1. Introduction</h2>
-            <div class="markdown">The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity. Since iteration 19 the profile also carries personal names, self-description, pronouns, photo, personal web pages, disciplines of interest, thesaurus keywords, known languages, affiliation, registration and collaboration flags, the date of the last GoTriple update, and several identifiers kept apart by their scheme: the internal Elasticsearch id (`triple:ID`), the persistent identifier minted by GoTriple (`triple:PID`), the OPERAS/GoTriple id and the external person PIDs (ORCID, IdRef, ISNI, ResearcherID).</div>
+            <div class="markdown">The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity. Since iteration 19 the profile also carries personal names, self-description, pronouns, photo, personal web pages, disciplines of interest, thesaurus keywords, known languages, affiliation, registration and collaboration flags, the date of the last GoTriple update, and several identifiers kept apart by their scheme: the internal Elasticsearch id, the ARK minted by GoTriple, the OPERAS/GoTriple id and the external person PIDs (ORCID, IdRef, ISNI, ResearcherID). Which of these are mandatory is expressed in the SHACL shapes, not in OWL.</div>
         </div>
         
 
@@ -109,10 +109,6 @@
             <ul class="hlist">
                 
                 <li><a href="#https://gotriple.eu/ontology/triple/Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a></li>
-                
-                <li><a href="#https://gotriple.eu/ontology/triple/ID" title="https://gotriple.eu/ontology/triple/ID">Internal ID</a></li>
-                
-                <li><a href="#https://gotriple.eu/ontology/triple/PID" title="https://gotriple.eu/ontology/triple/PID">Persistent ID</a></li>
                 
                 <li><a href="#https://schema.org/Person" title="https://schema.org/Person">Person</a></li>
                 
@@ -159,108 +155,16 @@
                 
 
                 
+
+                
+
+                
                 <dl class="description">
                     
                     <dt>has super-classes</dt>
                     <dd>
                         
                         <a href="#http://www.w3.org/2004/02/skos/core%23Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
-                        <sup class="type-c" title="c">c</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
-            
-            <div class="entity" id="https://gotriple.eu/ontology/triple/ID">
-                <h3>Internal ID
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ID</p>
-                
-                <div class="comment">
-                    <p>Internal identifier used within the GoTriple platform for resource management. On profiles it carries the Elasticsearch id.</p>
-                </div>
-                
-
-                
-
-                
-
-                
-                <dl class="description">
-                    
-                    <dt>has super-classes</dt>
-                    <dd>
-                        
-                        <a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier">datacite:Identifier</a>
-                        <sup class="type-c" title="c">c</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
-            
-            <div class="entity" id="https://gotriple.eu/ontology/triple/PID">
-                <h3>Persistent ID
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/PID</p>
-                
-                <div class="comment">
-                    <p>Persistent identifier generated and exposed externally by the GoTriple platform. On profiles it carries the pid field, distinct from the OPERAS/GoTriple id.</p>
-                </div>
-                
-
-                
-
-                
-
-                
-                <dl class="description">
-                    
-                    <dt>has super-classes</dt>
-                    <dd>
-                        
-                        <a href="#http://purl.org/spar/datacite/Identifier" title="http://purl.org/spar/datacite/Identifier">datacite:Identifier</a>
                         <sup class="type-c" title="c">c</sup>
                         
                         
@@ -299,6 +203,10 @@
                 
 
                 
+
+                
+
+                
             </div>
             
             <div class="entity" id="https://gotriple.eu/ontology/triple/Profile">
@@ -324,14 +232,18 @@
                         
                         <li>profile @en</li>
                         
-                        <li>Perfil @pt</li>
+                        <li>Profil @fr</li>
                         
                         <li>Profil @pl</li>
                         
-                        <li>Profil @fr</li>
+                        <li>Perfil @pt</li>
                         
                     </ul>
                 </div>
+                
+
+                
+
                 
 
                 
@@ -354,168 +266,6 @@
                     <dt>has restrictions</dt>
                     <dd>
                         <ul class="restrictions">
-                            
-                            <li>
-                                <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">min</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#https://schema.org/name" title="https://schema.org/name">name</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">exactly</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#http://xmlns.com/foaf/0.1/account" title="http://xmlns.com/foaf/0.1/account">foaf:account</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">max</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">max</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#http://xmlns.com/foaf/0.1/familyName" title="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#http://xmlns.com/foaf/0.1/familyName" title="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">max</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#https://schema.org/description" title="https://schema.org/description">schema:description</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-                                <span class="literal">(</span>
-                                
-
-                                
-                                <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns%23langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">rdf:langString</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                <span class="literal"> or </span>
-                                
-                                
-                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                <span class="literal">)</span>
-                                
-                                
-                            </li>
                             
                             <li>
                                 <a href="#https://gotriple.eu/ontology/triple/pronouns" title="https://gotriple.eu/ontology/triple/pronouns">pronouns</a>
@@ -694,6 +444,32 @@
                             </li>
                             
                             <li>
+                                <a href="#https://schema.org/name" title="https://schema.org/name">name</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">exactly</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
                                 <a href="#https://schema.org/affiliation" title="https://schema.org/affiliation">schema:affiliation</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
@@ -837,6 +613,146 @@
                                 
                             </li>
                             
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/account" title="http://xmlns.com/foaf/0.1/account">foaf:account</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://xmlns.com/foaf/0.1/OnlineAccount" title="http://xmlns.com/foaf/0.1/OnlineAccount">foaf:OnlineAccount</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/familyName" title="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#http://xmlns.com/foaf/0.1/familyName" title="http://xmlns.com/foaf/0.1/familyName">foaf:familyName</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/description" title="https://schema.org/description">schema:description</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#http://www.w3.org/1999/02/22-rdf-syntax-ns%23langString" title="http://www.w3.org/1999/02/22-rdf-syntax-ns#langString">rdf:langString</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
                         </ul>
                     </dd>
                     
@@ -871,24 +787,15 @@
                 
 
                 
+
+                
+
+                
                 <dl class="description">
                     
 
                     
 
-                    
-                    <dt>has sub-classes</dt>
-                    <dd>
-                        
-                        <a href="#https://gotriple.eu/ontology/triple/ID" title="https://gotriple.eu/ontology/triple/ID">Internal ID</a>
-                        <sup class="type-c" title="c">c</sup>
-                        , 
-                        
-                        <a href="#https://gotriple.eu/ontology/triple/PID" title="https://gotriple.eu/ontology/triple/PID">Persistent ID</a>
-                        <sup class="type-c" title="c">c</sup>
-                        
-                        
-                    </dd>
                     
 
                     
@@ -928,6 +835,10 @@
                 
 
                 
+
+                
+
+                
                 <dl class="description">
                     
 
@@ -943,15 +854,7 @@
                     <dt>has members</dt>
                     <dd>
                         
-                        <a href="#http://purl.org/spar/datacite/orcid" title="http://purl.org/spar/datacite/orcid">datacite:orcid</a>
-                        <sup class="type-ni" title="ni">ni</sup>
-                        , 
-                        
                         <a href="#http://purl.org/spar/datacite/isni" title="http://purl.org/spar/datacite/isni">datacite:isni</a>
-                        <sup class="type-ni" title="ni">ni</sup>
-                        , 
-                        
-                        <a href="#http://purl.org/spar/datacite/researcherid" title="http://purl.org/spar/datacite/researcherid">datacite:researcherid</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
@@ -959,11 +862,19 @@
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
-                        <a href="#https://gotriple.eu/ontology/triple/idref_schema" title="https://gotriple.eu/ontology/triple/idref_schema">IdRef</a>
+                        <a href="#http://purl.org/spar/datacite/orcid" title="http://purl.org/spar/datacite/orcid">datacite:orcid</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#http://purl.org/spar/datacite/researcherid" title="http://purl.org/spar/datacite/researcherid">datacite:researcherid</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         , 
                         
                         <a href="#https://gotriple.eu/ontology/triple/gotriple_id_schema" title="https://gotriple.eu/ontology/triple/gotriple_id_schema">GoTriple ID</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#https://gotriple.eu/ontology/triple/idref_schema" title="https://gotriple.eu/ontology/triple/idref_schema">IdRef</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         
                         
@@ -996,6 +907,10 @@
                 
 
                 
+
+                
+
+                
             </div>
             
             <div class="entity" id="http://xmlns.com/foaf/0.1/OnlineAccount">
@@ -1015,44 +930,9 @@
                 
 
                 
-                <dl class="description">
-                    
 
-                    
-                    <dt>has restrictions</dt>
-                    <dd>
-                        <ul class="restrictions">
-                            
-                            <li>
-                                <a href="#http://purl.org/spar/datacite/hasIdentifier" title="http://purl.org/spar/datacite/hasIdentifier">datacite:hasIdentifier</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
+                
 
-                                <span class="literal">exactly</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                            </li>
-                            
-                        </ul>
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </dl>
                 
             </div>
             
@@ -1070,6 +950,10 @@
                 <div class="comment">
                     <p>An organization.</p>
                 </div>
+                
+
+                
+
                 
 
                 
@@ -1107,6 +991,16 @@
 
                                 
 
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
                                 
                             </li>
                             
@@ -1148,6 +1042,10 @@
                 
 
                 
+
+                
+
+                
                 <dl class="description">
                     
                     <dt>has super-classes</dt>
@@ -1178,6 +1076,16 @@
 
                                 
 
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2001/XMLSchema%23string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
                                 
                             </li>
                             
@@ -1219,6 +1127,10 @@
                 
 
                 
+
+                
+
+                
             </div>
             
             <div class="entity" id="https://schema.org/Language">
@@ -1238,6 +1150,10 @@
                 
 
                 
+
+                
+
+                
             </div>
             
             <div class="entity" id="https://schema.org/Thing">
@@ -1250,6 +1166,10 @@
                     </span>
                 </h3>
                 <p><strong>IRI:</strong> https://schema.org/Thing</p>
+                
+
+                
+
                 
 
                 
@@ -1305,6 +1225,10 @@
                 
 
                 
+
+                
+
+                
             </div>
             
             <div class="entity" id="http://www.w3.org/2004/02/skos/core#Concept">
@@ -1317,6 +1241,10 @@
                     </span>
                 </h3>
                 <p><strong>IRI:</strong> http://www.w3.org/2004/02/skos/core#Concept</p>
+                
+
+                
+
                 
 
                 
@@ -1391,6 +1319,12 @@
     
     
     
+
+    
+
+    
+
+    
     
     <dl class="description">
         
@@ -1429,6 +1363,12 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
@@ -1448,6 +1388,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     
 </div>
@@ -1469,6 +1415,12 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
@@ -1488,6 +1440,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     
 </div>
@@ -1509,6 +1467,12 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
@@ -1528,6 +1492,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     
 </div>
@@ -1549,6 +1519,12 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
@@ -1569,6 +1545,12 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
@@ -1584,7 +1566,7 @@
                 
                 <li><a href="#http://xmlns.com/foaf/0.1/givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a></li>
                 
-                <li><a href="#http://purl.org/spar/literal/hasLiteralValue" title="http://purl.org/spar/literal/hasLiteralValue">litre:hasLiteralValue</a></li>
+                <li><a href="#http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue" title="http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue">litre:hasLiteralValue</a></li>
                 
                 <li><a href="#https://schema.org/name" title="https://schema.org/name">name</a></li>
                 
@@ -1617,6 +1599,12 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
@@ -1637,10 +1625,16 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
-            <div class="entity" id="http://purl.org/spar/literal/hasLiteralValue">
+            <div class="entity" id="http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue">
     <h3>litre:hasLiteralValue
         <sup class="type-dp" title="dp">
             dp
@@ -1649,9 +1643,15 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> http://purl.org/spar/literal/hasLiteralValue</p>
+    <p><strong>IRI:</strong> http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue</p>
     
     
+    
+
+    
+
+    
+
     
     
     <dl class="description">
@@ -1690,6 +1690,12 @@
     <p><strong>IRI:</strong> https://schema.org/name</p>
     
     
+    
+
+    
+
+    
+
     
     
     <dl class="description">
@@ -1733,6 +1739,12 @@
     
     
     
+
+    
+
+    
+
+    
     
     <dl class="description">
         
@@ -1774,6 +1786,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     
     <dl class="description">
@@ -1817,6 +1835,12 @@
     
     
     
+
+    
+
+    
+
+    
     
     <dl class="description">
         
@@ -1859,6 +1883,12 @@
     
     
     
+
+    
+
+    
+
+    
     
 </div>
             
@@ -1878,6 +1908,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     
 </div>
@@ -1923,6 +1959,12 @@
     
     
     
+
+    
+
+    
+
+    
     <dl class="description">
         
         <dt>belongs to</dt>
@@ -1959,6 +2001,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     <dl class="description">
         
@@ -1997,6 +2045,12 @@
     
     
     
+
+    
+
+    
+
+    
     <dl class="description">
         
         <dt>belongs to</dt>
@@ -2033,6 +2087,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     <dl class="description">
         
@@ -2071,6 +2131,12 @@
     
     
     
+
+    
+
+    
+
+    
     <dl class="description">
         
         <dt>belongs to</dt>
@@ -2107,6 +2173,12 @@
     </div>
     
     
+    
+
+    
+
+    
+
     
     <dl class="description">
         
@@ -2195,11 +2267,6 @@
                     <tr>
                         <td>geo</td>
                         <td>http://www.opengis.net/ont/geosparql#</td>
-                    </tr>
-                    
-                    <tr>
-                        <td>litre</td>
-                        <td>http://purl.org/spar/literal/</td>
                     </tr>
                     
                     <tr>

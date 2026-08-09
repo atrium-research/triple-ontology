@@ -239,7 +239,7 @@ SELECT ?multimedia ?title ?identifierValue WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               datacite:hasIdentifier ?identifier .
-  ?identifier a triple:DOI ;
+  ?identifier datacite:usesIdentifierScheme datacite:doi ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
@@ -264,7 +264,7 @@ SELECT ?multimedia ?title ?identifierValue WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               datacite:hasIdentifier ?identifier .
-  ?identifier a triple:Handle ;
+  ?identifier datacite:usesIdentifierScheme datacite:handle ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
@@ -289,13 +289,13 @@ SELECT ?multimedia ?title ?identifierType ?value WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               datacite:hasIdentifier ?identifier .
-  ?identifier a ?identifierType ;
+  ?identifier datacite:usesIdentifierScheme ?identifierType ;
               litre:hasLiteralValue ?value .
-  FILTER (?identifierType IN (triple:ID, triple:PID, triple:OriginalIdentifier))
+  FILTER (?identifierType IN (triple:internal_id_schema, datacite:ark, triple:original_id_schema))
 }
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:ID` → "TRIPLE_MEDIA_VIDEO_001"
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:PID` → "ark:/12345/media-video-medieval-carolingian"
-- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:ID` → "TRIPLE_MEDIA_AUDIO_002"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:internal_id_schema` → "TRIPLE_MEDIA_VIDEO_001"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `datacite:ark` → "ark:/12345/media-video-medieval-carolingian"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:internal_id_schema` → "TRIPLE_MEDIA_AUDIO_002"

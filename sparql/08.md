@@ -124,7 +124,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 SELECT ?document WHERE {
   ?document a triple:Document ;
             datacite:hasIdentifier ?identifier .
-  ?identifier a triple:DOI .
+  ?identifier datacite:usesIdentifierScheme datacite:doi .
 }
 ```
 
@@ -162,7 +162,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 SELECT ?document WHERE {
   ?document a triple:Document ;
             datacite:hasIdentifier ?identifier .
-  ?identifier a triple:ISSN .
+  ?identifier datacite:usesIdentifierScheme datacite:issn .
 }
 ```
 
@@ -178,21 +178,21 @@ PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
-SELECT ?type ?value WHERE {
+SELECT ?scheme ?value WHERE {
   ?document a triple:Document ;
             datacite:hasIdentifier ?identifier .
-  ?identifier a ?type ;
+  ?identifier datacite:usesIdentifierScheme ?scheme ;
               litre:hasLiteralValue ?value .
-  FILTER (?type IN (triple:DOI, triple:Handle, triple:ISSN, triple:ISBN))
+  FILTER (?scheme IN (datacite:doi, datacite:handle, datacite:issn, datacite:isbn))
 }
 ```
 
 **Expected result:**
-- `triple:DOI` → "10.1234/example.2024.001"
-- `triple:DOI` → "10.5678/journal.2024.045"
-- `triple:ISSN` → "1234-5678"
-- `triple:Handle` → "11234/5678-abcd-efgh"
-- `triple:ISBN` → "978-3-16-148410-0"
+- `datacite:doi` → "10.1234/example.2024.001"
+- `datacite:doi` → "10.5678/journal.2024.045"
+- `datacite:issn` → "1234-5678"
+- `datacite:handle` → "11234/5678-abcd-efgh"
+- `datacite:isbn` → "978-3-16-148410-0"
 
 
 ## CQ_8.8

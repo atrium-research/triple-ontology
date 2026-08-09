@@ -2,7 +2,6 @@
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -13,24 +12,119 @@
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<https://gotriple.eu/ontology/triple/Document> a owl:Ontology ;
-    rdfs:label "Document"@en ;
-    dcterms:title "Document"@en ;
-    dcterms:abstract "The Document module of the TRIPLE Ontology, defining the core Document class and shared definitions."@en ;
-    dcterms:description "The Document module serves as the core of the TRIPLE Ontology. It defines the `triple:Document` class, representing scholarly publications and research outputs. Crucially, it also acts as the central hub for shared definitions used across the entire ontology, including Identifiers (DataCite), Licenses, Disciplines, and common schema.org properties."@en ;
-    dcterms:created "2021-12-01" ;
-    dcterms:modified "2026-07-10" ;
-    dcterms:creator "Alessandro Bertozzi" ;
-    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
-    owl:versionInfo "2.2.0" ;
-    schema:creativeWorkStatus "Ontology Module" .
+datacite:ark a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:ark"@en .
 
-triple:Document a owl:Class ;
+datacite:doi a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:doi"@en .
+
+datacite:handle a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:handle"@en .
+
+datacite:hasIdentifier a owl:ObjectProperty ;
+    rdfs:label "datacite:hasIdentifier"@en ;
+    rdfs:range datacite:Identifier .
+
+datacite:isbn a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:isbn"@en .
+
+datacite:issn a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:issn"@en .
+
+datacite:local-resource-identifier-scheme a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:local-resource-identifier-scheme"@en .
+
+datacite:usesIdentifierScheme a owl:ObjectProperty ;
+    rdfs:label "datacite:usesIdentifierScheme"@en ;
+    rdfs:domain datacite:Identifier ;
+    rdfs:range datacite:IdentifierScheme .
+
+<http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue> a owl:DatatypeProperty ;
+    rdfs:label "litre:hasLiteralValue"@en ;
+    rdfs:range xsd:string .
+
+oa:classifying a owl:NamedIndividual,
+        oa:Motivation ;
+    rdfs:label "oa:classifying"@en ;
+    rdfs:comment "The W3C motivation used for GoTriple discipline assignments."@en .
+
+oa:hasBody a owl:ObjectProperty ;
+    rdfs:label "oa:hasBody"@en .
+
+oa:hasTarget a owl:ObjectProperty ;
+    rdfs:label "oa:hasTarget"@en .
+
+oa:motivatedBy a owl:ObjectProperty ;
+    rdfs:label "oa:motivatedBy"@en ;
+    rdfs:range oa:Motivation .
+
+oa:tagging a owl:NamedIndividual,
+        oa:Motivation ;
+    rdfs:label "oa:tagging"@en ;
+    rdfs:comment "The W3C motivation used for GoTriple keyword assignments."@en .
+
+triple:confidence a owl:DatatypeProperty ;
+    rdfs:label "confidence"@en ;
+    rdfs:comment "The trust score of an automatic enrichment, between 0 and 1, asserted on the oa:Annotation recording the enrichment."@en ;
+    rdfs:domain oa:Annotation ;
+    rdfs:range xsd:decimal .
+
+schema:sameAs a owl:ObjectProperty ;
+    rdfs:label "schema:sameAs"@en ;
+    rdfs:comment "URL of a reference page that unambiguously indicates the item's identity (e.g. a Wikidata entity)."@en .
+
+<http://purl.org/cerif/frapo/isOutputOf> a owl:ObjectProperty ;
+    rdfs:label "frapo:isOutputOf"@en ;
+    rdfs:range triple:Project .
+
+dc:date a owl:DatatypeProperty ;
+    rdfs:label "dc:date"@en .
+
+dc:language a owl:DatatypeProperty ;
+    rdfs:label "dc:language"@en .
+
+dc:source a owl:DatatypeProperty ;
+    rdfs:label "dc:source"@en .
+
+dc:type a owl:DatatypeProperty ;
+    rdfs:label "dc:type"@en .
+
+dcterms:source a owl:ObjectProperty .
+
+<http://purl.org/spar/fabio/ScholarlyWork> a owl:Class ;
+    rdfs:label "fabio:ScholarlyWork"@en .
+
+<http://www.cidoc-crm.org/cidoc-crm/E31_Document> a owl:Class ;
+    rdfs:label "E31 Document"@en .
+
+foaf:Document a owl:Class ;
+    rdfs:label "foaf:Document"@en .
+
+triple:Discipline a owl:Class ;
+    rdfs:label "Discipline"@en ;
+    rdfs:subClassOf skos:Concept .
+
+triple:Document a owl:Class,
+        owl:Ontology ;
     rdfs:label "Document"@en,
         "Document (Triple)"@en,
-        "Documento"@pt,
+        "Document"@fr,
         "Dokument"@pl,
-        "Document"@fr ;
+        "Documento"@pt ;
+    dcterms:abstract "The Document module of the TRIPLE Ontology, defining the core Document class and shared definitions."@en ;
+    dcterms:contributor "Luca De Santis",
+        "Silvio Peroni" ;
+    dcterms:created "2021-12-01" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:description "The Document module serves as the core of the TRIPLE Ontology. It defines the `triple:Document` class, representing scholarly publications and research outputs. Crucially, it also acts as the central hub for shared definitions used across the entire ontology, including Identifiers (DataCite), Licenses, Disciplines, and common schema.org properties."@en ;
+    dcterms:modified "2026-07-10" ;
+    dcterms:title "Document"@en ;
     rdfs:comment "A document in the GoTriple platform, representing scholarly publications and research outputs."@en,
         "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts."@en,
         "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
@@ -38,33 +132,20 @@ triple:Document a owl:Class ;
             owl:onProperty schema:mentions ;
             owl:someValuesFrom oa:Annotation ],
         [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty triple:aggregator ],
+        [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty <http://purl.org/cerif/frapo/isOutputOf> ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:ContactPoint ;
+            owl:onProperty schema:contactPoint ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:author ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:contributor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:publisher ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:provider ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty triple:aggregator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:ContactPoint ;
-            owl:onProperty schema:contactPoint ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ a owl:Class ;
-                    owl:unionOf ( datacite:Identifier triple:DOI triple:Handle triple:ISSN triple:ISBN ) ] ;
-            owl:onProperty datacite:hasIdentifier ],
-        [ a owl:Restriction ;
-            owl:onProperty datacite:hasIdentifier ;
-            owl:someValuesFrom triple:OriginalIdentifier ],
         [ a owl:Restriction ;
             owl:onProperty schema:inLanguage ;
             owl:someValuesFrom schema:Language ],
@@ -125,12 +206,6 @@ triple:Document a owl:Class ;
             owl:onProperty dcterms:source ;
             owl:someValuesFrom owl:Thing ],
         [ a owl:Restriction ;
-            owl:onProperty datacite:hasIdentifier ;
-            owl:someValuesFrom triple:ID ],
-        [ a owl:Restriction ;
-            owl:onProperty datacite:hasIdentifier ;
-            owl:someValuesFrom triple:PID ],
-        [ a owl:Restriction ;
             owl:onProperty schema:keywords ;
             owl:someValuesFrom schema:DefinedTerm ],
         [ a owl:Restriction ;
@@ -155,105 +230,148 @@ triple:Document a owl:Class ;
             owl:onClass triple:Cluster ;
             owl:onProperty triple:inCluster ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        schema:CreativeWork,
-        foaf:Document ;
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:contributor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:provider ],
+        foaf:Document,
+        schema:CreativeWork ;
+    owl:versionInfo "2.2.0" ;
     skos:exactMatch <http://purl.org/spar/fabio/ScholarlyWork>,
         <http://www.cidoc-crm.org/cidoc-crm/E31_Document>,
-        <https://sshoc.eu/ontology/SHE8_Publication> .
-
-
-schema:CreativeWork a owl:Class ;
-    rdfs:label "schema:CreativeWork"@en .
-
-foaf:Document a owl:Class ;
-    rdfs:label "foaf:Document"@en .
-
-triple:Cluster a owl:Class ;
-    rdfs:label "Cluster"@en ;
-    rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onClass datacite:Identifier ;
-            owl:onProperty datacite:hasIdentifier ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
-
-triple:inCluster a owl:ObjectProperty ;
-    rdfs:label "in cluster"@en ;
-    rdfs:range triple:Cluster ;
-    rdfs:domain triple:Document .
-
-# Properties
-schema:mentions a owl:ObjectProperty ;
-    rdfs:label "mentions"@en, "schema:mentions"@en ;
-    rdfs:range owl:Thing .
-
-oa:Annotation a owl:Class ;
-    rdfs:label "Annotation"@en .
-
-<http://purl.org/cerif/frapo/isOutputOf> a owl:ObjectProperty ;
-    rdfs:label "frapo:isOutputOf"@en ;
-    rdfs:range triple:Project .
-
-schema:author a owl:ObjectProperty ;
-    rdfs:label "schema:author"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-
-schema:contributor a owl:ObjectProperty ;
-    rdfs:label "schema:contributor"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-
-schema:publisher a owl:ObjectProperty ;
-    rdfs:label "schema:publisher"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-
-schema:provider a owl:ObjectProperty ;
-    rdfs:label "schema:provider"@en ;
-    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+        <https://sshoc.eu/ontology/SHE8_Publication> ;
+    schema:creativeWorkStatus "Ontology Module" .
 
 triple:aggregator a owl:ObjectProperty ;
     rdfs:label "aggregator"@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
-schema:contactPoint a owl:ObjectProperty ;
-    rdfs:label "schema:contactPoint"@en ;
-    rdfs:range schema:ContactPoint .
+triple:detectedLanguage a owl:DatatypeProperty ;
+    rdfs:label "detected language"@en ;
+    rdfs:comment "The language tag identified by the GoTriple language-detection service for the resource's text."@en ;
+    rdfs:range xsd:string .
 
-schema:inLanguage a owl:ObjectProperty ;
-    rdfs:label "schema:inLanguage"@en ;
-    rdfs:range schema:Language .
+triple:hasAccessCondition a owl:ObjectProperty ;
+    rdfs:label "has access condition"@en ;
+    rdfs:range triple:AccessCondition ;
+    rdfs:subPropertyOf dcterms:accessRights .
 
-schema:headline a owl:DatatypeProperty ;
-    rdfs:label "schema:headline"@en ;
-    rdfs:range [ a rdfs:Datatype ;
-            owl:unionOf ( rdf:langString xsd:string ) ] .
+triple:hasContentType a owl:ObjectProperty ;
+    rdfs:label "has content type"@en ;
+    rdfs:range triple:ContentType ;
+    rdfs:subPropertyOf dcterms:type .
+
+triple:hasLicense a owl:ObjectProperty ;
+    rdfs:label "has license"@en ;
+    rdfs:range triple:License ;
+    rdfs:subPropertyOf dcterms:license .
+
+triple:inCluster a owl:ObjectProperty ;
+    rdfs:label "in cluster"@en ;
+    rdfs:domain triple:Document ;
+    rdfs:range triple:Cluster .
+
+triple:knowsAbout a owl:ObjectProperty ;
+    rdfs:label "knows about"@en ;
+    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm."@en ;
+    rdfs:range schema:DefinedTerm ;
+    rdfs:subPropertyOf schema:about .
+
+triple:machineTranslatedLanguage a owl:DatatypeProperty ;
+    rdfs:label "machine translated language"@en ;
+    rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service."@en ;
+    rdfs:range xsd:string .
+
+triple:originalConditionsOfAccess a owl:DatatypeProperty ;
+    rdfs:label "original conditions of access"@en ;
+    rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:rights .
+
+triple:originalDatePublished a owl:DatatypeProperty ;
+    rdfs:label "original date published"@en ;
+    rdfs:comment "The publication date string exactly as received from the source provider, before conversion to ISO 8601."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:date .
+
+triple:originalLanguage a owl:DatatypeProperty ;
+    rdfs:label "original language"@en ;
+    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:language .
+
+triple:originalLicense a owl:DatatypeProperty ;
+    rdfs:label "original license"@en ;
+    rdfs:comment "The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:rights .
+
+triple:originalSource a owl:DatatypeProperty ;
+    rdfs:label "original source"@en ;
+    rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:source .
+
+triple:originalType a owl:DatatypeProperty ;
+    rdfs:label "original type"@en ;
+    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary."@en ;
+    rdfs:range xsd:string ;
+    rdfs:subPropertyOf dc:type .
+
+schema:CreativeWork a owl:Class ;
+    rdfs:label "schema:CreativeWork"@en .
+
+schema:about a owl:ObjectProperty ;
+    rdfs:label "schema:about"@en .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
     rdfs:range [ a rdfs:Datatype ;
             owl:unionOf ( rdf:langString xsd:string ) ] .
 
+schema:author a owl:ObjectProperty ;
+    rdfs:label "schema:author"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
+schema:contactPoint a owl:ObjectProperty ;
+    rdfs:label "schema:contactPoint"@en ;
+    rdfs:range schema:ContactPoint .
+
+schema:contributor a owl:ObjectProperty ;
+    rdfs:label "schema:contributor"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
 schema:encodingFormat a owl:DatatypeProperty ;
     rdfs:label "schema:encodingFormat"@en ;
     rdfs:range xsd:string .
 
-schema:datePublished a owl:DatatypeProperty ;
-    rdfs:label "schema:datePublished"@en ;
-    rdfs:comment "Date of first publication of the document, normalized to ISO 8601 (yyyy-mm-dd)."@en ;
-    rdfs:range xsd:date .
+schema:headline a owl:DatatypeProperty ;
+    rdfs:label "schema:headline"@en ;
+    rdfs:range [ a rdfs:Datatype ;
+            owl:unionOf ( rdf:langString xsd:string ) ] .
 
-schema:dateModified a owl:DatatypeProperty ;
-    rdfs:label "schema:dateModified"@en ;
-    rdfs:comment "Date on which the document record was most recently modified in the GoTriple index."@en ;
-    rdfs:range xsd:date .
-
-sioc:topic a owl:ObjectProperty ;
-    rdfs:label "sioc:topic"@en ;
-    rdfs:subPropertyOf dcterms:subject .
-
-dcterms:source a owl:ObjectProperty .
+schema:inLanguage a owl:ObjectProperty ;
+    rdfs:label "schema:inLanguage"@en ;
+    rdfs:range schema:Language .
 
 schema:keywords a owl:ObjectProperty ;
     rdfs:label "schema:keywords"@en ;
     rdfs:range schema:DefinedTerm .
+
+schema:mentions a owl:ObjectProperty ;
+    rdfs:label "mentions"@en,
+        "schema:mentions"@en ;
+    rdfs:range owl:Thing .
+
+schema:provider a owl:ObjectProperty ;
+    rdfs:label "schema:provider"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+
+schema:publisher a owl:ObjectProperty ;
+    rdfs:label "schema:publisher"@en ;
+    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 schema:spatialCoverage a owl:ObjectProperty ;
     rdfs:label "schema:spatialCoverage"@en ;
@@ -263,241 +381,78 @@ schema:temporalCoverage a owl:DatatypeProperty ;
     rdfs:label "schema:temporalCoverage"@en ;
     rdfs:range xsd:string .
 
-# Original provider values (raw, pre-normalization)
-dc:type a owl:DatatypeProperty ;
-    rdfs:label "dc:type"@en .
-
-dc:language a owl:DatatypeProperty ;
-    rdfs:label "dc:language"@en .
-
-dc:date a owl:DatatypeProperty ;
-    rdfs:label "dc:date"@en .
+<https://sshoc.eu/ontology/SHE8_Publication> a owl:Class ;
+    rdfs:label "SHE8 Publication"@en .
 
 dc:rights a owl:DatatypeProperty ;
     rdfs:label "dc:rights"@en .
 
-triple:originalType a owl:DatatypeProperty ;
-    rdfs:label "original type"@en ;
-    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary."@en ;
-    rdfs:subPropertyOf dc:type ;
-    rdfs:range xsd:string .
+datacite:Identifier a owl:Class ;
+    rdfs:label "datacite:Identifier"@en .
 
-triple:originalLanguage a owl:DatatypeProperty ;
-    rdfs:label "original language"@en ;
-    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity."@en ;
-    rdfs:subPropertyOf dc:language ;
-    rdfs:range xsd:string .
-
-triple:originalDatePublished a owl:DatatypeProperty ;
-    rdfs:label "original date published"@en ;
-    rdfs:comment "The publication date string exactly as received from the source provider, before conversion to ISO 8601."@en ;
-    rdfs:subPropertyOf dc:date ;
-    rdfs:range xsd:string .
-
-triple:originalLicense a owl:DatatypeProperty ;
-    rdfs:label "original license"@en ;
-    rdfs:comment "The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary."@en ;
-    rdfs:subPropertyOf dc:rights ;
-    rdfs:range xsd:string .
-
-triple:originalConditionsOfAccess a owl:DatatypeProperty ;
-    rdfs:label "original conditions of access"@en ;
-    rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
-    rdfs:subPropertyOf dc:rights ;
-    rdfs:range xsd:string .
-
-dc:source a owl:DatatypeProperty ;
-    rdfs:label "dc:source"@en .
-
-triple:originalSource a owl:DatatypeProperty ;
-    rdfs:label "original source"@en ;
-    rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
-    rdfs:subPropertyOf dc:source ;
-    rdfs:range xsd:string .
-
-# Enrichment metadata (topic confidence, keywords, language detection)
-schema:about a owl:ObjectProperty ;
-    rdfs:label "schema:about"@en .
-
-triple:knowsAbout a owl:ObjectProperty ;
-    rdfs:label "knows about"@en ;
-    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm."@en ;
-    rdfs:subPropertyOf schema:about ;
-    rdfs:range schema:DefinedTerm .
-
-schema:sameAs a owl:ObjectProperty ;
-    rdfs:label "schema:sameAs"@en ;
-    rdfs:comment "URL of a reference page that unambiguously indicates the item's identity (e.g. a Wikidata entity)."@en .
-
-triple:confidence a owl:DatatypeProperty ;
-    rdfs:label "confidence"@en ;
-    rdfs:comment "The trust score of an automatic enrichment, between 0 and 1, asserted on the oa:Annotation recording the enrichment."@en ;
-    rdfs:domain oa:Annotation ;
-    rdfs:range xsd:decimal .
-
-triple:detectedLanguage a owl:DatatypeProperty ;
-    rdfs:label "detected language"@en ;
-    rdfs:comment "The language tag identified by the GoTriple language-detection service for the resource's text."@en ;
-    rdfs:range xsd:string .
-
-triple:machineTranslatedLanguage a owl:DatatypeProperty ;
-    rdfs:label "machine translated language"@en ;
-    rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service."@en ;
-    rdfs:range xsd:string .
-
-oa:hasTarget a owl:ObjectProperty ;
-    rdfs:label "oa:hasTarget"@en .
-
-oa:hasBody a owl:ObjectProperty ;
-    rdfs:label "oa:hasBody"@en .
-
-oa:motivatedBy a owl:ObjectProperty ;
-    rdfs:label "oa:motivatedBy"@en ;
-    rdfs:range oa:Motivation .
-
-oa:Motivation a owl:Class ;
-    rdfs:label "oa:Motivation"@en .
-
-oa:classifying a oa:Motivation, owl:NamedIndividual ;
-    rdfs:label "oa:classifying"@en ;
-    rdfs:comment "The W3C motivation used for GoTriple discipline assignments."@en .
-
-oa:tagging a oa:Motivation, owl:NamedIndividual ;
-    rdfs:label "oa:tagging"@en ;
-    rdfs:comment "The W3C motivation used for GoTriple keyword assignments."@en .
-
-# Referenced Classes
-schema:ContactPoint a owl:Class ;
-    rdfs:label "schema:ContactPoint"@en .
-
-schema:Language a owl:Class ;
-    rdfs:label "schema:Language"@en .
-
-skos:Concept a owl:Class ;
-    rdfs:label "Concept"@en .
+sioc:topic a owl:ObjectProperty ;
+    rdfs:label "sioc:topic"@en ;
+    rdfs:subPropertyOf dcterms:subject .
 
 owl:Thing a owl:Class ;
     rdfs:label "schema:Thing"@en .
 
-schema:DefinedTerm a owl:Class ;
-    rdfs:label "schema:DefinedTerm"@en .
+oa:Annotation a owl:Class ;
+    rdfs:label "Annotation"@en .
 
-schema:Place a owl:Class ;
-    rdfs:label "Place"@en .
+triple:AccessCondition a owl:Class ;
+    rdfs:label "Access Condition"@en ;
+    rdfs:subClassOf skos:Concept .
 
-foaf:Person a owl:Class ;
-    rdfs:label "foaf:Person"@en .
+triple:Cluster a owl:Class ;
+    rdfs:label "Cluster"@en ;
+    rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en .
 
-foaf:Organization a owl:Class ;
-    rdfs:label "foaf:Organization"@en .
-
-triple:Project a owl:Class ;
-    rdfs:label "Project"@en .
-
-# Bridge Classes
-triple:Discipline a owl:Class ;
-    rdfs:label "Discipline"@en ;
+triple:ContentType a owl:Class ;
+    rdfs:label "Content Type"@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:License a owl:Class ;
     rdfs:label "License"@en ;
     rdfs:subClassOf skos:Concept .
 
-triple:hasLicense a owl:ObjectProperty ;
-    rdfs:label "has license"@en ;
-    rdfs:range triple:License ;
-    rdfs:subPropertyOf dcterms:license .
+triple:Project a owl:Class ;
+    rdfs:label "Project"@en .
 
-triple:AccessCondition a owl:Class ;
-    rdfs:label "Access Condition"@en ;
-    rdfs:subClassOf skos:Concept .
+schema:ContactPoint a owl:Class ;
+    rdfs:label "schema:ContactPoint"@en .
 
-triple:hasAccessCondition a owl:ObjectProperty ;
-    rdfs:label "has access condition"@en ;
-    rdfs:range triple:AccessCondition ;
-    rdfs:subPropertyOf dcterms:accessRights .
+schema:Language a owl:Class ;
+    rdfs:label "schema:Language"@en .
 
-triple:ContentType a owl:Class ;
-    rdfs:label "Content Type"@en ;
-    rdfs:subClassOf skos:Concept .
+schema:Place a owl:Class ;
+    rdfs:label "Place"@en .
 
-triple:hasContentType a owl:ObjectProperty ;
-    rdfs:label "has content type"@en ;
-    rdfs:range triple:ContentType ;
-    rdfs:subPropertyOf dcterms:type .
+schema:dateModified a owl:DatatypeProperty ;
+    rdfs:label "schema:dateModified"@en ;
+    rdfs:comment "Date on which the document record was most recently modified in the GoTriple index."@en ;
+    rdfs:range xsd:date .
 
-# Identifiers
-datacite:Identifier a owl:Class ;
-    rdfs:label "datacite:Identifier"@en .
+schema:datePublished a owl:DatatypeProperty ;
+    rdfs:label "schema:datePublished"@en ;
+    rdfs:comment "Date of first publication of the document, normalized to ISO 8601 (yyyy-mm-dd)."@en ;
+    rdfs:range xsd:date .
+
+oa:Motivation a owl:Class ;
+    rdfs:label "oa:Motivation"@en .
+
+schema:DefinedTerm a owl:Class ;
+    rdfs:label "schema:DefinedTerm"@en .
+
+skos:Concept a owl:Class ;
+    rdfs:label "Concept"@en .
 
 datacite:IdentifierScheme a owl:Class ;
     rdfs:label "datacite:IdentifierScheme"@en .
 
-datacite:hasIdentifier a owl:ObjectProperty ;
-    rdfs:label "datacite:hasIdentifier"@en ;
-    rdfs:range datacite:Identifier .
+foaf:Organization a owl:Class ;
+    rdfs:label "foaf:Organization"@en .
 
-datacite:usesIdentifierScheme a owl:ObjectProperty ;
-    rdfs:label "datacite:usesIdentifierScheme"@en ;
-    rdfs:domain datacite:Identifier ;
-    rdfs:range datacite:IdentifierScheme .
+foaf:Person a owl:Class ;
+    rdfs:label "foaf:Person"@en .
 
-litre:hasLiteralValue a owl:DatatypeProperty ;
-    rdfs:label "litre:hasLiteralValue"@en ;
-    rdfs:range xsd:string .
-
-triple:ID a owl:Class ;
-    rdfs:label "Internal ID"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:PID a owl:Class ;
-    rdfs:label "Persistent ID"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:OriginalIdentifier a owl:Class ;
-    rdfs:label "Original Identifier"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:DOI a owl:Class ;
-    rdfs:label "DOI"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:Handle a owl:Class ;
-    rdfs:label "Handle"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:ISSN a owl:Class ;
-    rdfs:label "ISSN"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-triple:ISBN a owl:Class ;
-    rdfs:label "ISBN"@en ;
-    rdfs:subClassOf datacite:Identifier .
-
-datacite:doi a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:doi"@en .
-
-datacite:handle a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:handle"@en .
-
-datacite:ark a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:ark"@en .
-
-datacite:issn a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:issn"@en .
-
-datacite:isbn a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:isbn"@en .
-
-datacite:local-resource-identifier-scheme a datacite:IdentifierScheme, owl:NamedIndividual ;
-    rdfs:label "datacite:local-resource-identifier-scheme"@en .
-
-# Matches
-<http://purl.org/spar/fabio/ScholarlyWork> a owl:Class ;
-    rdfs:label "fabio:ScholarlyWork"@en .
-
-<http://www.cidoc-crm.org/cidoc-crm/E31_Document> a owl:Class ;
-    rdfs:label "E31 Document"@en .
-
-<https://sshoc.eu/ontology/SHE8_Publication> a owl:Class ;
-    rdfs:label "SHE8 Publication"@en .
