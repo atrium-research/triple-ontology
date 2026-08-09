@@ -18,7 +18,9 @@
 
 ###  Project
 triple:project_1 rdf:type triple:Project ;
-                 datacite:hasIdentifier triple:identifier_1 ;
+                 datacite:hasIdentifier triple:identifier_internal_p1 ,
+                                        triple:identifier_pid_p1 ,
+                                        triple:identifier_1 ;
                  schema:startDate "2019-01-01"^^xsd:date ;
                  schema:endDate "2022-12-31"^^xsd:date ;
                  schema:dateCreated "2018-12-01"^^xsd:date ;
@@ -40,11 +42,8 @@ triple:contact_1 rdf:type schema:ContactPoint ;
 
 ###  Identifiers
 triple:identifier_1 rdf:type datacite:Identifier ;
-                    datacite:usesIdentifierScheme triple:h2020_scheme ;
+                    datacite:usesIdentifierScheme triple:original_id_schema ;
                     litre:hasLiteralValue "H2020-863420" .
-
-triple:h2020_scheme rdf:type datacite:IdentifierScheme ;
-                    rdfs:label "Horizon 2020 Grant Agreement Number"@en .
 
 ###  Organizations
 triple:organization_1 rdf:type foaf:Organization ;
@@ -81,7 +80,9 @@ triple:keyword_3 rdf:type schema:DefinedTerm ;
 
 ###  Project
 triple:project_2 rdf:type triple:Project ;
-                 datacite:hasIdentifier triple:identifier_2 ;
+                 datacite:hasIdentifier triple:identifier_internal_p2 ,
+                                        triple:identifier_pid_p2 ,
+                                        triple:identifier_2 ;
                  schema:startDate "2020-03-01"^^xsd:date ;
                  schema:endDate "2022-02-28"^^xsd:date ;
                  schema:dateCreated "2020-02-01"^^xsd:date ;
@@ -98,13 +99,9 @@ triple:project_2 rdf:type triple:Project ;
                  schema:funding triple:grant_2 .
 
 ###  Identifiers
-triple:identifier_2 rdf:type triple:OriginalIdentifier ;
-                    datacite:usesIdentifierScheme triple:prin_scheme ;
+triple:identifier_2 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:original_id_schema ;
                     litre:hasLiteralValue "PRIN-2018ABCD123" .
-
-triple:prin_scheme rdf:type datacite:IdentifierScheme ;
-                   rdfs:label "PRIN Project Code"@en ;
-                   rdfs:comment "Projects of Relevant National Interest scheme identifier"@en .
 
 ###  Organizations
 triple:organization_4 rdf:type foaf:Organization ;
@@ -143,7 +140,9 @@ triple:keyword_7 rdf:type schema:DefinedTerm ;
 
 ###  Project
 triple:project_3 rdf:type triple:Project ;
-                 datacite:hasIdentifier triple:identifier_3 , triple:identifier_4 ;
+                 datacite:hasIdentifier triple:identifier_internal_p3 ,
+                                        triple:identifier_pid_p3 ,
+                                        triple:identifier_3 , triple:identifier_4 ;
                  schema:startDate "2021-06-01"^^xsd:date ;
                  schema:endDate "2024-05-31"^^xsd:date ;
                  schema:dateModified "2021-12-01"^^xsd:date ;
@@ -158,20 +157,13 @@ triple:project_3 rdf:type triple:Project ;
                  schema:funding triple:grant_3 , triple:grant_4 .
 
 ###  Identifiers
-triple:identifier_3 rdf:type triple:OriginalIdentifier ;
-                    datacite:usesIdentifierScheme triple:fwf_scheme ;
+triple:identifier_3 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:original_id_schema ;
                     litre:hasLiteralValue "FWF-P-34567" .
 
-triple:identifier_4 rdf:type triple:OriginalIdentifier ;
-                    datacite:usesIdentifierScheme triple:getty_scheme ;
+triple:identifier_4 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:original_id_schema ;
                     litre:hasLiteralValue "GETTY-KIM-2021-15" .
-
-triple:fwf_scheme rdf:type datacite:IdentifierScheme ;
-                  rdfs:label "FWF Project Number"@en ;
-                  rdfs:comment "Austrian Science Fund project identifier"@en .
-
-triple:getty_scheme rdf:type datacite:IdentifierScheme ;
-                    rdfs:label "Getty Foundation Grant Number"@en .
 
 ###  Organizations
 triple:organization_6 rdf:type foaf:Organization ;
@@ -220,7 +212,9 @@ triple:keyword_11 rdf:type schema:DefinedTerm ;
 
 ###  Project
 triple:project_4 rdf:type triple:Project ;
-                 datacite:hasIdentifier triple:identifier_5 ;
+                 datacite:hasIdentifier triple:identifier_internal_p4 ,
+                                        triple:identifier_pid_p4 ,
+                                        triple:identifier_5 ;
                  schema:startDate "2022-09-01"^^xsd:date ;
                  schema:endDate "2027-08-31"^^xsd:date ;
                  schema:inLanguage "en" ;
@@ -235,12 +229,8 @@ triple:project_4 rdf:type triple:Project ;
 
 ###  Identifiers
 triple:identifier_5 rdf:type datacite:Identifier ;
-                    datacite:usesIdentifierScheme triple:erc_scheme ;
+                    datacite:usesIdentifierScheme triple:original_id_schema ;
                     litre:hasLiteralValue "ERC-ADG-101052789" .
-
-triple:erc_scheme rdf:type datacite:IdentifierScheme ;
-                  rdfs:label "ERC Grant Number"@en ;
-                  rdfs:comment "European Research Council grant identifier"@en .
 
 ###  Organizations
 triple:organization_9 rdf:type foaf:Organization ;
@@ -273,3 +263,37 @@ triple:keyword_14 rdf:type schema:DefinedTerm ;
 
 triple:keyword_15 rdf:type schema:DefinedTerm ;
                   schema:name "Stoicism"@en .
+
+###  Mandatory GoTriple identifiers of the projects
+triple:identifier_internal_p1 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:internal_id_schema ;
+                    litre:hasLiteralValue "TRIPLE_PROJ_001" .
+
+triple:identifier_pid_p1 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/project-triple-ssh" .
+
+triple:identifier_internal_p2 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:internal_id_schema ;
+                    litre:hasLiteralValue "TRIPLE_PROJ_002" .
+
+triple:identifier_pid_p2 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/project-miguris" .
+
+triple:identifier_internal_p3 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:internal_id_schema ;
+                    litre:hasLiteralValue "TRIPLE_PROJ_003" .
+
+triple:identifier_pid_p3 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/project-balkan-heritage" .
+
+triple:identifier_internal_p4 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme triple:internal_id_schema ;
+                    litre:hasLiteralValue "TRIPLE_PROJ_004" .
+
+triple:identifier_pid_p4 rdf:type datacite:Identifier ;
+                    datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/project-hellenistic-justice" .
+

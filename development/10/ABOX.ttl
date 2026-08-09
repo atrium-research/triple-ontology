@@ -134,46 +134,56 @@ triple:identifier-social-landing rdf:type owl:NamedIndividual ,
 
 ###  Heritage Dataset Platform Identifiers
 triple:identifier-heritage-internal rdf:type owl:NamedIndividual ,
-                                             triple:ID ;
+                                             datacite:Identifier ;
+                                             datacite:usesIdentifierScheme triple:internal_id_schema ;
                                     litre:hasLiteralValue "TRIPLE_DATASET_HERITAGE_001" .
 
 triple:identifier-heritage-pid rdf:type owl:NamedIndividual ,
-                                        triple:PID ;
+                                        datacite:Identifier ;
+                                        datacite:usesIdentifierScheme datacite:ark ;
                                litre:hasLiteralValue "ark:/12345/dataset-heritage-archaeological-sites" .
 
 triple:identifier-heritage-original rdf:type owl:NamedIndividual ,
-                                             triple:OriginalIdentifier ;
+                                             datacite:Identifier ;
+                                    datacite:usesIdentifierScheme triple:original_id_schema ;
                                     litre:hasLiteralValue "heritage_inst_arch_sites_2023" .
 
 ###  Social Dataset Platform Identifiers
 triple:identifier-social-internal rdf:type owl:NamedIndividual ,
-                                           triple:ID ;
+                                           datacite:Identifier ;
+                                           datacite:usesIdentifierScheme triple:internal_id_schema ;
                                   litre:hasLiteralValue "TRIPLE_DATASET_SOCIAL_002" .
 
 triple:identifier-social-pid rdf:type owl:NamedIndividual ,
-                                      triple:PID ;
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme datacite:ark ;
                              litre:hasLiteralValue "ark:/12345/dataset-social-attitudes-survey-2023" .
 
 triple:identifier-social-original rdf:type owl:NamedIndividual ,
-                                           triple:OriginalIdentifier ;
+                                           datacite:Identifier ;
+                                  datacite:usesIdentifierScheme triple:original_id_schema ;
                                   litre:hasLiteralValue "social_obs_attitudes_2023" .
 
 ###  Heritage Dataset Standard Identifiers
 triple:identifier-heritage-doi rdf:type owl:NamedIndividual ,
-                                        triple:DOI ;
+                                        datacite:Identifier ;
+                                        datacite:usesIdentifierScheme datacite:doi ;
                                litre:hasLiteralValue "10.5281/zenodo.heritage.arch.2023" .
 
 triple:identifier-heritage-handle rdf:type owl:NamedIndividual ,
-                                           triple:Handle ;
+                                           datacite:Identifier ;
+                                           datacite:usesIdentifierScheme datacite:handle ;
                                   litre:hasLiteralValue "21.11130/00-HERITAGE-ARCH-2023" .
 
 ###  Social Dataset Standard Identifiers
 triple:identifier-social-doi rdf:type owl:NamedIndividual ,
-                                      triple:DOI ;
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme datacite:doi ;
                              litre:hasLiteralValue "10.5281/zenodo.social.attitudes.2023" .
 
 triple:identifier-social-handle rdf:type owl:NamedIndividual ,
-                                         triple:Handle ;
+                                         datacite:Identifier ;
+                                         datacite:usesIdentifierScheme datacite:handle ;
                                 litre:hasLiteralValue "21.11130/00-SOCIAL-ATTITUDES-2023" .
 
 ###  Supporting Individuals
@@ -259,16 +269,20 @@ datacite:handle rdf:type datacite:IdentifierScheme ;
 
 
 ###  Identifiers
-triple:identifier-dataset-001 rdf:type triple:DOI ;
+triple:identifier-dataset-001 rdf:type datacite:Identifier ;
+                              datacite:usesIdentifierScheme datacite:doi ;
                               litre:hasLiteralValue "10.1234/example.dataset.001" .
 
-triple:identifier-dataset-002 rdf:type triple:Handle ;
+triple:identifier-dataset-002 rdf:type datacite:Identifier ;
+                              datacite:usesIdentifierScheme datacite:handle ;
                               litre:hasLiteralValue "hdl:1234.5/survey2023" .
 
-triple:identifier-project-001 rdf:type triple:ID ;
+triple:identifier-project-001 rdf:type datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:internal_id_schema ;
                               litre:hasLiteralValue "EHDMI-2022-001" .
 
-triple:identifier-project-002 rdf:type triple:ID ;
+triple:identifier-project-002 rdf:type datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:internal_id_schema ;
                               litre:hasLiteralValue "SCRP-2023-045" .
 
 ###  Referenced Document

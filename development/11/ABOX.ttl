@@ -221,68 +221,83 @@ triple:identifier-image-landing rdf:type owl:NamedIndividual ,
 
 ###  Video Platform Identifiers
 triple:identifier-video-internal rdf:type owl:NamedIndividual ,
-                                          triple:ID ;
+                                          datacite:Identifier ;
+                                          datacite:usesIdentifierScheme triple:internal_id_schema ;
                                  litre:hasLiteralValue "TRIPLE_MEDIA_VIDEO_001" .
 
 triple:identifier-video-pid rdf:type owl:NamedIndividual ,
-                                     triple:PID ;
+                                     datacite:Identifier ;
+                                     datacite:usesIdentifierScheme datacite:ark ;
                             litre:hasLiteralValue "ark:/12345/media-video-medieval-carolingian" .
 
 triple:identifier-video-original rdf:type owl:NamedIndividual ,
-                                          triple:OriginalIdentifier ;
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "canal_u_video_12345" .
 
 ###  Audio Platform Identifiers
 triple:identifier-audio-internal rdf:type owl:NamedIndividual ,
-                                          triple:ID ;
+                                          datacite:Identifier ;
+                                          datacite:usesIdentifierScheme triple:internal_id_schema ;
                                  litre:hasLiteralValue "TRIPLE_MEDIA_AUDIO_002" .
 
 triple:identifier-audio-pid rdf:type owl:NamedIndividual ,
-                                     triple:PID ;
+                                     datacite:Identifier ;
+                                     datacite:usesIdentifierScheme datacite:ark ;
                             litre:hasLiteralValue "ark:/12345/media-audio-resistance-interview" .
 
 triple:identifier-audio-original rdf:type owl:NamedIndividual ,
-                                          triple:OriginalIdentifier ;
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "memory_inst_audio_789" .
 
 ###  Image Platform Identifiers
 triple:identifier-image-internal rdf:type owl:NamedIndividual ,
-                                          triple:ID ;
+                                          datacite:Identifier ;
+                                          datacite:usesIdentifierScheme triple:internal_id_schema ;
                                  litre:hasLiteralValue "TRIPLE_MEDIA_IMAGE_003" .
 
 triple:identifier-image-pid rdf:type owl:NamedIndividual ,
-                                     triple:PID ;
+                                     datacite:Identifier ;
+                                     datacite:usesIdentifierScheme datacite:ark ;
                             litre:hasLiteralValue "ark:/12345/media-image-birth-venus-hd" .
 
 triple:identifier-image-original rdf:type owl:NamedIndividual ,
-                                          triple:OriginalIdentifier ;
+                                          datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "uffizi_digital_venus_hd" .
 
 ###  Video Standard Identifiers
 triple:identifier-video-doi rdf:type owl:NamedIndividual ,
-                                     triple:DOI ;
+                                     datacite:Identifier ;
+                                     datacite:usesIdentifierScheme datacite:doi ;
                             litre:hasLiteralValue "10.5281/zenodo.video.medieval.carolingian" .
 
 triple:identifier-video-handle rdf:type owl:NamedIndividual ,
-                                        triple:Handle ;
+                                        datacite:Identifier ;
+                                        datacite:usesIdentifierScheme datacite:handle ;
                                litre:hasLiteralValue "21.11130/00-VIDEO-MEDIEVAL-CAROLINGIAN" .
 
 ###  Audio Standard Identifiers
 triple:identifier-audio-doi rdf:type owl:NamedIndividual ,
-                                     triple:DOI ;
+                                     datacite:Identifier ;
+                                     datacite:usesIdentifierScheme datacite:doi ;
                             litre:hasLiteralValue "10.5281/zenodo.audio.resistance.interview" .
 
 triple:identifier-audio-handle rdf:type owl:NamedIndividual ,
-                                        triple:Handle ;
+                                        datacite:Identifier ;
+                                        datacite:usesIdentifierScheme datacite:handle ;
                                litre:hasLiteralValue "21.11130/00-AUDIO-RESISTANCE-INTERVIEW" .
 
 ###  Image Standard Identifiers
 triple:identifier-image-doi rdf:type owl:NamedIndividual ,
-                                     triple:DOI ;
+                                     datacite:Identifier ;
+                                     datacite:usesIdentifierScheme datacite:doi ;
                             litre:hasLiteralValue "10.5281/zenodo.image.birth.venus.hd" .
 
 triple:identifier-image-handle rdf:type owl:NamedIndividual ,
-                                        triple:Handle ;
+                                        datacite:Identifier ;
+                                        datacite:usesIdentifierScheme datacite:handle ;
                                litre:hasLiteralValue "21.11130/00-IMAGE-BIRTH-VENUS-HD" .
 
 ###  Keywords (DefinedTerms)
@@ -362,24 +377,27 @@ datacite:handle rdf:type datacite:IdentifierScheme ;
 
 ###  Identifiers
 triple:identifier-multimedia-001 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "canalu:video/12345" .
 
 triple:identifier-multimedia-002 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "oral-history:interview/789" .
 
 triple:identifier-multimedia-003 rdf:type datacite:Identifier ;
-                                 datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
+                                 datacite:usesIdentifierScheme triple:original_id_schema ;
                                  litre:hasLiteralValue "art-digital:img/renaissance/456" .
 
-triple:identifier-project-001 rdf:type triple:ID ;
+triple:identifier-project-001 rdf:type datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:internal_id_schema ;
                               litre:hasLiteralValue "DMSI-2023-001" .
 
-triple:identifier-project-002 rdf:type triple:ID ;
+triple:identifier-project-002 rdf:type datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:internal_id_schema ;
                               litre:hasLiteralValue "EMIP-2022-078" .
 
-triple:identifier-project-003 rdf:type triple:ID ;
+triple:identifier-project-003 rdf:type datacite:Identifier ;
+                              datacite:usesIdentifierScheme triple:internal_id_schema ;
                               litre:hasLiteralValue "UDHA-2023-012" .
 
 ###  Extracted keywords (knows_about)

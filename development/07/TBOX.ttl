@@ -143,7 +143,7 @@ schema:URL rdf:type rdfs:Datatype ;
 
 ###  https://gotriple.eu/ontology/triple/ProjectType
 triple:ProjectType rdf:type owl:Class ;
-                   rdfs:subClassOf skos:Concept ;
+               rdfs:subClassOf skos:Concept ;
                    rdfs:label "Project Type"@en .
 
 
@@ -153,13 +153,13 @@ schema:Grant rdf:type owl:Class ;
              rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en ;
 
              # Optional funder (0 or more)
-             rdfs:subClassOf [ rdf:type owl:Restriction ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:funder ;
                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                              ] ;
 
              # Optional sponsor (0 or more)
-             rdfs:subClassOf [ rdf:type owl:Restriction ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:sponsor ;
                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                              ] .
@@ -174,6 +174,7 @@ triple:Project rdf:type owl:Class ;
                rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
                rdfs:subClassOf schema:Project ;
 
+
                # Required name (1 or more, multilingual)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:name ;
@@ -181,11 +182,7 @@ triple:Project rdf:type owl:Class ;
                                ] ;
 
                # Optional identifier (0 or more)
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty datacite:hasIdentifier ;
-                                 owl:allValuesFrom [ rdf:type owl:Class ;
-                                                     owl:unionOf ( datacite:Identifier triple:ID triple:PID triple:OriginalIdentifier ) ]
-                               ] ;
+              
 
                # Optional start date (0 or 1)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -291,3 +288,10 @@ triple:Project rdf:type owl:Class ;
                                  owl:allValuesFrom triple:ProjectType
                                ] .
                                
+
+
+###  https://gotriple.eu/ontology/triple/original_id_schema
+triple:original_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "Original Identifier"@en ;
+                          rdfs:comment "Generic scheme for the identifier a resource carried in the system it was harvested from. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .

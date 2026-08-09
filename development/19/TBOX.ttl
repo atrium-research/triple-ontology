@@ -143,16 +143,6 @@ datacite:IdentifierScheme rdf:type owl:Class ;
                           rdfs:label "datacite:IdentifierScheme"@en .
 
 
-###  https://gotriple.eu/ontology/triple/ID
-triple:ID rdf:type owl:Class ;
-          rdfs:label "Internal ID"@en .
-
-
-###  https://gotriple.eu/ontology/triple/PID
-triple:PID rdf:type owl:Class ;
-           rdfs:label "Persistent ID"@en .
-
-
 ###  https://gotriple.eu/ontology/triple/Discipline
 triple:Discipline rdf:type owl:Class ;
                   rdfs:subClassOf skos:Concept ;
@@ -199,13 +189,7 @@ triple:Profile rdf:type owl:Class ;
                rdfs:label "profile"@en ;
                rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
 
-               # At least one identifier: the internal id, plus optional person PIDs (ORCID, IdRef, ISNI, GoTriple id)
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty datacite:hasIdentifier ;
-                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass datacite:Identifier
-                               ] ,
-
+               rdfs:subClassOf
                # Optional given name (0 or 1)
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty foaf:givenName ;
@@ -340,11 +324,11 @@ datacite:researcherid rdf:type owl:NamedIndividual ,
                       rdfs:comment "ResearcherID - an identifier system for scientific authors, owned by Clarivate (formerly Thomson Reuters)."@en .
 
 
-###  http://purl.org/spar/datacite/local-resource-identifier-scheme
-datacite:local-resource-identifier-scheme rdf:type owl:NamedIndividual ,
-                                                   datacite:IdentifierScheme ;
-                                          rdfs:label "datacite:local-resource-identifier-scheme"@en ;
-                                          rdfs:comment "Local resource identifier scheme, used for the internal Elasticsearch id of the profile."@en .
+###  https://gotriple.eu/ontology/triple/internal_id_schema
+triple:internal_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "TRIPLE Internal ID"@en ;
+                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. On profiles it carries the Elasticsearch id."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/idref_schema
@@ -359,3 +343,10 @@ triple:gotriple_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "GoTriple ID"@en ;
                           rdfs:comment "The OPERAS/GoTriple identifier assigned to a profile (the goTripleId field)."@en .
+
+
+###  https://gotriple.eu/ontology/triple/original_id_schema
+triple:original_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "Original Identifier"@en ;
+                          rdfs:comment "Generic scheme for the identifier a resource carried in the system it was harvested from, used when that source system has no named scheme of its own."@en .

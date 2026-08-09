@@ -90,11 +90,7 @@ triple:Document rdf:type owl:Class ;
 ###  http://xmlns.com/foaf/0.1/OnlineAccount
 foaf:OnlineAccount rdf:type owl:Class ;
                    rdfs:label "foaf:OnlineAccount"@en ;
-                   rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                     owl:onProperty datacite:hasIdentifier ;
-                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                     owl:onClass datacite:Identifier
-                                   ] .
+                   rdfs:comment "An online account held by a GoTriple user. Created inside the platform, so it carries only its internal identifier."@en  .
 
 
 ###  http://xmlns.com/foaf/0.1/Organization
@@ -140,13 +136,9 @@ triple:Profile rdf:type owl:Class ;
                           "Profil"@pl,
                           "Profil"@fr ;
                rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
-               # Relaxed from qualifiedCardinality 1 in iteration 19: a profile carries
-               # the internal id plus optional person PIDs (ORCID, IdRef, ISNI, GoTriple id)
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty datacite:hasIdentifier ;
-                                 owl:minQualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass datacite:Identifier
-                               ] ,
+               # Exactly one internal id. Iteration 19 adds the GoTriple PID and the
+               # optional person PIDs (ORCID, IdRef, ISNI, GoTriple id).
+               rdfs:subClassOf
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:name ;
                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
@@ -158,4 +150,3 @@ triple:Profile rdf:type owl:Class ;
                                  owl:onClass foaf:OnlineAccount
                                ] ,
                                [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
-

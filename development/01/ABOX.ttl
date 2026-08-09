@@ -129,7 +129,10 @@ triple:document_31 rdf:type owl:NamedIndividual ,
                       triple:Document ;
              <http://purl.org/dc/elements/1.1/type> triple:type_5 ;
              datacite:hasIdentifier triple:identifier_645 ,
-                                   triple:identifier_78 ;
+                                   triple:identifier_78 ,
+                                   triple:identifier_internal_31 ,
+                                   triple:identifier_pid_31 ,
+                                   triple:identifier_original_31 ;
              <https://schema.org/inLanguage> triple:language_10 ;
              <https://schema.org/headline> "Migration Patterns in 20th Century Europe"@en ;
              <https://schema.org/abstract> "An analysis of migration flows across European countries during the twentieth century."@en ;
@@ -142,13 +145,18 @@ triple:document_45 rdf:type owl:NamedIndividual ,
                       triple:Document ;
              <http://purl.org/dc/elements/1.1/type> triple:type_7 ;
              datacite:hasIdentifier triple:identifier_67 ,
-                                    triple:identifier_678 ;
+                                    triple:identifier_678 ,
+                                    triple:identifier_internal_45 ,
+                                    triple:identifier_pid_45 ;
              <https://schema.org/inLanguage> triple:language_2 .
 
 
 ###  triple:document_journal
 triple:document_journal rdf:type owl:NamedIndividual ,
                            triple:Document ;
+                  datacite:hasIdentifier triple:identifier_internal_journal ,
+                                        triple:identifier_pid_journal ,
+                                        triple:identifier_original_journal ;
                   <https://schema.org/headline> "Journal of Digital Humanities"@en ;
                   <http://purl.org/dc/elements/1.1/type> triple:type_journal .
 
@@ -156,47 +164,46 @@ triple:document_journal rdf:type owl:NamedIndividual ,
 ###  triple:identifier_2
 triple:identifier_2 rdf:type owl:NamedIndividual ,
                        datacite:Identifier ;
-              datacite:usesIdentifierScheme triple:identifier_schema_1 .
+                       datacite:usesIdentifierScheme datacite:doi ;
+              litre:hasLiteralValue "10.4000/dh.1234" .
 
 
 ###  triple:identifier_4
 triple:identifier_4 rdf:type owl:NamedIndividual ,
                        datacite:Identifier ;
-              datacite:usesIdentifierScheme triple:identifier_schema_1 .
+                       datacite:usesIdentifierScheme datacite:issn ;
+              litre:hasLiteralValue "2109-9404" .
 
 
 ###  triple:identifier_645
 triple:identifier_645 rdf:type owl:NamedIndividual ,
                          datacite:Identifier ;
-                datacite:usesIdentifierScheme triple:identifier_schema_1 .
+                datacite:usesIdentifierScheme triple:source_url_schema ;
+                litre:hasLiteralValue "https://journals.openedition.org/migrations/31" .
 
 
 ###  triple:identifier_67
 triple:identifier_67 rdf:type owl:NamedIndividual ,
                         datacite:Identifier ;
-               datacite:usesIdentifierScheme triple:identifier_schema_1 .
+               datacite:usesIdentifierScheme triple:original_id_schema ;
+               litre:hasLiteralValue "nakala-45678" .
 
 
 ###  triple:identifier_678
 triple:identifier_678 rdf:type owl:NamedIndividual ,
                          datacite:Identifier ;
-                datacite:usesIdentifierScheme triple:identifier_schema_2 .
+                         datacite:usesIdentifierScheme datacite:handle ;
+                litre:hasLiteralValue "hdl:11280/45678" .
 
 
 ###  triple:identifier_78
 triple:identifier_78 rdf:type owl:NamedIndividual ,
                         datacite:Identifier ;
-               datacite:usesIdentifierScheme triple:identifier_schema_1 .
+                        datacite:usesIdentifierScheme datacite:doi ;
+               litre:hasLiteralValue "10.4000/migrations.31" .
 
 
-###  triple:identifier_schema_1
-triple:identifier_schema_1 rdf:type owl:NamedIndividual ,
-                              datacite:IdentifierScheme .
 
-
-###  triple:identifier_schema_2
-triple:identifier_schema_2 rdf:type owl:NamedIndividual ,
-                              datacite:IdentifierScheme .
 
 
 
@@ -224,19 +231,22 @@ triple:identifier_source_1 rdf:type owl:NamedIndividual ,
 
 ###  triple:identifier_internal_1
 triple:identifier_internal_1 rdf:type owl:NamedIndividual ,
-                                triple:ID ;
+                                datacite:Identifier ;
+                                datacite:usesIdentifierScheme triple:internal_id_schema ;
                        litre:hasLiteralValue "TRIPLE_DOC_001" .
 
 
 ###  triple:identifier_pid_1
 triple:identifier_pid_1 rdf:type owl:NamedIndividual ,
-                           triple:PID ;
+                           datacite:Identifier ;
+                           datacite:usesIdentifierScheme datacite:ark ;
                   litre:hasLiteralValue "ark:/12345/doc-12345-abcd-6789" .
 
 
 ###  triple:identifier_original_1
 triple:identifier_original_1 rdf:type owl:NamedIndividual ,
-                                triple:OriginalIdentifier ;
+                                datacite:Identifier ;
+                       datacite:usesIdentifierScheme triple:original_id_schema ;
                        litre:hasLiteralValue "hal-12345" .
 
 
@@ -258,3 +268,49 @@ triple:type_5 rdf:type owl:NamedIndividual ,
 ###  triple:type_7
 triple:type_7 rdf:type owl:NamedIndividual ,
                  <http://www.w3.org/2004/02/skos/core#Concept> .
+
+
+###  Mandatory identifiers of document_31
+triple:identifier_internal_31 rdf:type owl:NamedIndividual ,
+                                 datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:internal_id_schema ;
+                        litre:hasLiteralValue "TRIPLE_DOC_031" .
+
+triple:identifier_pid_31 rdf:type owl:NamedIndividual ,
+                            datacite:Identifier ;
+                            datacite:usesIdentifierScheme datacite:ark ;
+                   litre:hasLiteralValue "ark:/12345/doc-031" .
+
+triple:identifier_original_31 rdf:type owl:NamedIndividual ,
+                                 datacite:Identifier ;
+                        datacite:usesIdentifierScheme triple:original_id_schema ;
+                        litre:hasLiteralValue "migrations-31" .
+
+
+###  Mandatory identifiers of document_45 (identifier_67 is its original identifier)
+triple:identifier_internal_45 rdf:type owl:NamedIndividual ,
+                                 datacite:Identifier ;
+                                 datacite:usesIdentifierScheme triple:internal_id_schema ;
+                        litre:hasLiteralValue "TRIPLE_DOC_045" .
+
+triple:identifier_pid_45 rdf:type owl:NamedIndividual ,
+                            datacite:Identifier ;
+                            datacite:usesIdentifierScheme datacite:ark ;
+                   litre:hasLiteralValue "ark:/12345/doc-045" .
+
+
+###  Mandatory identifiers of document_journal
+triple:identifier_internal_journal rdf:type owl:NamedIndividual ,
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "TRIPLE_DOC_JOURNAL" .
+
+triple:identifier_pid_journal rdf:type owl:NamedIndividual ,
+                                 datacite:Identifier ;
+                                 datacite:usesIdentifierScheme datacite:ark ;
+                        litre:hasLiteralValue "ark:/12345/doc-journal" .
+
+triple:identifier_original_journal rdf:type owl:NamedIndividual ,
+                                      datacite:Identifier ;
+                             datacite:usesIdentifierScheme triple:original_id_schema ;
+                             litre:hasLiteralValue "openedition-dh-journal" .

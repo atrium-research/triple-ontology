@@ -77,9 +77,4 @@ triple:Document rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/Cluster
 triple:Cluster rdf:type owl:Class ;
                rdfs:label "Cluster"@en ;
-               rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en ;
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty datacite:hasIdentifier ;
-                                 owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                 owl:onClass datacite:Identifier
-                               ] .
+               rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication. A cluster is computed by GoTriple, so it carries only its internal identifier: it has no source system it was harvested from."@en  .

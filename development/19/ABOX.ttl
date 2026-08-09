@@ -41,13 +41,15 @@ triple:profile_it19_1 rdf:type owl:NamedIndividual ,
 
 ###  Internal Elasticsearch id (the "id" field)
 triple:identifier_internal_it19_1 rdf:type owl:NamedIndividual ,
-                                           triple:ID ;
-        datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
+                                           datacite:Identifier ;
+                                           datacite:usesIdentifierScheme triple:internal_id_schema ;
+        datacite:usesIdentifierScheme triple:internal_id_schema ;
         litre:hasLiteralValue "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I" .
 
 ###  Persistent identifier minted by GoTriple (the "pid" field)
 triple:identifier_pid_it19_1 rdf:type owl:NamedIndividual ,
-                                      triple:PID ;
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme datacite:ark ;
         litre:hasLiteralValue "ark:/12345/profile-sofia-rossi" .
 
 ###  External person PIDs and the OPERAS/GoTriple id (the "user_identifier" and "goTripleId" fields)
@@ -74,12 +76,19 @@ triple:profile_it19_2 rdf:type owl:NamedIndividual ,
         schema:name "João Almeida" ;
         triple:registeredUser "false"^^xsd:boolean ;
         datacite:hasIdentifier triple:identifier_internal_it19_2 ,
+                               triple:identifier_pid_it19_2 ,
                                triple:identifier_isni_it19_2 .
 
 triple:identifier_internal_it19_2 rdf:type owl:NamedIndividual ,
-                                           triple:ID ;
-        datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
+                                           datacite:Identifier ;
+                                           datacite:usesIdentifierScheme triple:internal_id_schema ;
+        datacite:usesIdentifierScheme triple:internal_id_schema ;
         litre:hasLiteralValue "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K" .
+
+triple:identifier_pid_it19_2 rdf:type owl:NamedIndividual ,
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme datacite:ark ;
+        litre:hasLiteralValue "ark:/12345/profile-joao-almeida" .
 
 triple:identifier_isni_it19_2 rdf:type owl:NamedIndividual ,
                                        datacite:Identifier ;
@@ -92,7 +101,25 @@ triple:document_it19_1 rdf:type owl:NamedIndividual ,
                                 triple:Document ;
         schema:headline "Mapping early modern correspondence networks with distant reading methods"@en ;
         schema:author triple:profile_it19_1 ,
-                      triple:profile_it19_2 .
+                      triple:profile_it19_2 ;
+        datacite:hasIdentifier triple:identifier_internal_doc_it19 ,
+                               triple:identifier_pid_doc_it19 ,
+                               triple:identifier_original_doc_it19 .
+
+triple:identifier_internal_doc_it19 rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+                                             datacite:usesIdentifierScheme triple:internal_id_schema ;
+        litre:hasLiteralValue "TRIPLE_DOC_IT19_001" .
+
+triple:identifier_pid_doc_it19 rdf:type owl:NamedIndividual ,
+                                        datacite:Identifier ;
+                                        datacite:usesIdentifierScheme datacite:ark ;
+        litre:hasLiteralValue "ark:/12345/doc-correspondence-networks" .
+
+triple:identifier_original_doc_it19 rdf:type owl:NamedIndividual ,
+                                             datacite:Identifier ;
+        datacite:usesIdentifierScheme triple:original_id_schema ;
+        litre:hasLiteralValue "hal-04123456" .
 
 
 ###  Referenced entities

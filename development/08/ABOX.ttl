@@ -81,53 +81,120 @@ datacite:handle rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
                            triple:Document ;
-                  datacite:hasIdentifier triple:identifier_1 .
+                  datacite:hasIdentifier triple:identifier_internal_1 ,
+                                          triple:identifier_pid_1 ,
+                                          triple:identifier_original_1 ,
+                                          triple:identifier_1 .
 
 
 ###  https://gotriple.eu/ontology/triple/document_45
 triple:document_45 rdf:type owl:NamedIndividual ,
                             triple:Document ;
-                   datacite:hasIdentifier triple:identifier_23 ,
+                   datacite:hasIdentifier triple:identifier_internal_45 ,
+                                          triple:identifier_pid_45 ,
+                                          triple:identifier_original_45 ,
+                                          triple:identifier_23 ,
                                           triple:identifier_24 .
 
 
 ###  https://gotriple.eu/ontology/triple/document_78
 triple:document_78 rdf:type owl:NamedIndividual ,
                             triple:Document ;
-                   datacite:hasIdentifier triple:identifier_90 .
+                   datacite:hasIdentifier triple:identifier_internal_78 ,
+                                          triple:identifier_pid_78 ,
+                                          triple:identifier_original_78 ,
+                                          triple:identifier_90 .
 
 
 ###  https://gotriple.eu/ontology/triple/document_99
 triple:document_99 rdf:type owl:NamedIndividual ,
                             triple:Document ;
-                   datacite:hasIdentifier triple:identifier_110 .
+                   datacite:hasIdentifier triple:identifier_internal_99 ,
+                                          triple:identifier_pid_99 ,
+                                          triple:identifier_original_99 ,
+                                          triple:identifier_110 .
 
 
 ###  https://gotriple.eu/ontology/triple/identifier_1
 triple:identifier_1 rdf:type owl:NamedIndividual ,
-                             triple:DOI ;
+                             datacite:Identifier ;
+                             datacite:usesIdentifierScheme datacite:doi ;
                     litre:hasLiteralValue "10.1234/example.2024.001" .
 
 
 ###  https://gotriple.eu/ontology/triple/identifier_23
 triple:identifier_23 rdf:type owl:NamedIndividual ,
-                              triple:ISSN ;
+                              datacite:Identifier ;
+                              datacite:usesIdentifierScheme datacite:issn ;
                      litre:hasLiteralValue "1234-5678" .
 
 
 ###  https://gotriple.eu/ontology/triple/identifier_24
 triple:identifier_24 rdf:type owl:NamedIndividual ,
-                              triple:DOI ;
+                              datacite:Identifier ;
+                              datacite:usesIdentifierScheme datacite:doi ;
                      litre:hasLiteralValue "10.5678/journal.2024.045" .
 
 
 ###  https://gotriple.eu/ontology/triple/identifier_90
 triple:identifier_90 rdf:type owl:NamedIndividual ,
-                              triple:Handle ;
+                              datacite:Identifier ;
+                              datacite:usesIdentifierScheme datacite:handle ;
                      litre:hasLiteralValue "11234/5678-abcd-efgh" .
 
 
 ###  https://gotriple.eu/ontology/triple/identifier_110
 triple:identifier_110 rdf:type owl:NamedIndividual ,
-                               triple:ISBN ;
+                               datacite:Identifier ;
+                               datacite:usesIdentifierScheme datacite:isbn ;
                       litre:hasLiteralValue "978-3-16-148410-0" .
+
+###  Mandatory GoTriple identifiers of the documents
+triple:identifier_internal_1 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:internal_id_schema ;
+                         litre:hasLiteralValue "TRIPLE_DOC_001" .
+
+triple:identifier_pid_1 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/doc-001" .
+
+triple:identifier_original_1 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:original_id_schema ;
+                         litre:hasLiteralValue "hal-00001" .
+
+triple:identifier_internal_45 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:internal_id_schema ;
+                         litre:hasLiteralValue "TRIPLE_DOC_045" .
+
+triple:identifier_pid_45 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/doc-045" .
+
+triple:identifier_original_45 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:original_id_schema ;
+                         litre:hasLiteralValue "openedition-045" .
+
+triple:identifier_internal_78 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:internal_id_schema ;
+                         litre:hasLiteralValue "TRIPLE_DOC_078" .
+
+triple:identifier_pid_78 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/doc-078" .
+
+triple:identifier_original_78 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:original_id_schema ;
+                         litre:hasLiteralValue "nakala-078" .
+
+triple:identifier_internal_99 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:internal_id_schema ;
+                         litre:hasLiteralValue "TRIPLE_DOC_099" .
+
+triple:identifier_pid_99 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme datacite:ark ;
+                    litre:hasLiteralValue "ark:/12345/doc-099" .
+
+triple:identifier_original_99 rdf:type owl:NamedIndividual , datacite:Identifier ;
+                         datacite:usesIdentifierScheme triple:original_id_schema ;
+                         litre:hasLiteralValue "persee-099" .
+

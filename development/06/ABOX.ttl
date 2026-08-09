@@ -6,6 +6,7 @@
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <https://schema.org/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 
 #################################################################
 #    Object Properties
@@ -84,6 +85,7 @@ triple:Profile rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/document_1
 triple:document_1 rdf:type owl:NamedIndividual ,
                            triple:Document ;
+                   datacite:hasIdentifier triple:id_document_1 , triple:pid_document_1 , triple:orig_document_1 ;
                   schema:author triple:profile_1 ;
                   rdfs:comment "Document with author profile_1 (associated with account_1)"@en .
 
@@ -91,7 +93,8 @@ triple:document_1 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/profile_1
 triple:profile_1 rdf:type owl:NamedIndividual ,
                           triple:Profile ;
-                 datacite:hasIdentifier triple:agent_identifier_2345678998765 ;
+                 datacite:hasIdentifier triple:identifier_pid_profile_1 ,
+                                        triple:agent_identifier_2345678998765 ;
                  foaf:account triple:account_1 ;
                  schema:name "John Smith" ;
                  rdfs:comment "Profile associated with account_1"@en .
@@ -100,7 +103,8 @@ triple:profile_1 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/profile_2
 triple:profile_2 rdf:type owl:NamedIndividual ,
                           triple:Profile ;
-                 datacite:hasIdentifier triple:agent_identifier_23456789efefert5 ;
+                 datacite:hasIdentifier triple:identifier_pid_profile_2 ,
+                                        triple:agent_identifier_23456789efefert5 ;
                  foaf:account triple:account_1 ;
                  schema:name "J. Smith" ;
                  rdfs:comment "Profile associated with account_1"@en .
@@ -120,6 +124,7 @@ triple:account_1 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/document_56
 triple:document_56 rdf:type owl:NamedIndividual ,
                             triple:Document ;
+                   datacite:hasIdentifier triple:id_document_56 , triple:pid_document_56 , triple:orig_document_56 ;
                    schema:author triple:profile_56 ,
                                 triple:profile_09 ,
                                 triple:profile_123 ,
@@ -130,7 +135,8 @@ triple:document_56 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/profile_56
 triple:profile_56 rdf:type owl:NamedIndividual ,
                            triple:Profile ;
-                  datacite:hasIdentifier triple:agent_identifier_4563678 ;
+                  datacite:hasIdentifier triple:identifier_pid_profile_56 ,
+                                         triple:agent_identifier_4563678 ;
                   foaf:account triple:account_109 ;
                   schema:name "Maria Rossi" ;
                   rdfs:comment "Profile associated with account_109"@en .
@@ -139,7 +145,8 @@ triple:profile_56 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/profile_09
 triple:profile_09 rdf:type owl:NamedIndividual ,
                            triple:Profile ;
-                  datacite:hasIdentifier triple:agent_identifier_rfkgjnerfojgnel48567 ;
+                  datacite:hasIdentifier triple:identifier_pid_profile_09 ,
+                                         triple:agent_identifier_rfkgjnerfojgnel48567 ;
                   foaf:account triple:account_109 ;
                   schema:name "M. Rossi" ;
                   rdfs:comment "Profile associated with account_109"@en .
@@ -148,7 +155,8 @@ triple:profile_09 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/profile_123
 triple:profile_123 rdf:type owl:NamedIndividual ,
                             triple:Profile ;
-                   datacite:hasIdentifier triple:agent_identifier_peormcv ;
+                   datacite:hasIdentifier triple:identifier_pid_profile_123 ,
+                                          triple:agent_identifier_peormcv ;
                    foaf:account triple:account_109 ;
                    schema:name "Maria R. Rossi" ;
                    rdfs:comment "Profile associated with account_109"@en .
@@ -157,7 +165,8 @@ triple:profile_123 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/profile_23
 triple:profile_23 rdf:type owl:NamedIndividual ,
                            triple:Profile ;
-                  datacite:hasIdentifier triple:agent_identifier_ethterhjry764576 ;
+                  datacite:hasIdentifier triple:identifier_pid_profile_23 ,
+                                         triple:agent_identifier_ethterhjry764576 ;
                   schema:name "Pierre Dupont" ;
                   rdfs:comment "Unassociated profile (no account)"@en .
 
@@ -176,18 +185,21 @@ triple:account_109 rdf:type owl:NamedIndividual ,
 ###  https://gotriple.eu/ontology/triple/document_67
 triple:document_67 rdf:type owl:NamedIndividual ,
                             triple:Document ;
+                   datacite:hasIdentifier triple:id_document_67 , triple:pid_document_67 , triple:orig_document_67 ;
                    schema:author triple:profile_56 .
 
 
 ###  https://gotriple.eu/ontology/triple/document_98
 triple:document_98 rdf:type owl:NamedIndividual ,
                             triple:Document ;
+                   datacite:hasIdentifier triple:id_document_98 , triple:pid_document_98 , triple:orig_document_98 ;
                    schema:author triple:profile_09 .
 
 
 ###  https://gotriple.eu/ontology/triple/document_42
 triple:document_42 rdf:type owl:NamedIndividual ,
                             triple:Document ;
+                   datacite:hasIdentifier triple:id_document_42 , triple:pid_document_42 , triple:orig_document_42 ;
                    schema:author triple:profile_123 ,
                                 triple:profile_23 .
 
@@ -198,52 +210,136 @@ triple:document_42 rdf:type owl:NamedIndividual ,
 
 ###  Account identifiers
 triple:account_identifier_1223rfgwe rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:account_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "1223rfgwe" .
 
 
 triple:account_identifier_124543twrfg34tfwredwe rdf:type owl:NamedIndividual ,
-                                                         datacite:Identifier ;
-                                                datacite:usesIdentifierScheme triple:account_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "124543twrfg34tfwredwe" .
 
 
 ###  Agent/Profile identifiers
 triple:agent_identifier_2345678998765 rdf:type owl:NamedIndividual ,
-                                               datacite:Identifier ;
-                                      datacite:usesIdentifierScheme triple:agent_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "2345678998765" .
 
 
 triple:agent_identifier_23456789efefert5 rdf:type owl:NamedIndividual ,
-                                                  datacite:Identifier ;
-                                         datacite:usesIdentifierScheme triple:agent_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "23456789efefert5" .
 
 
 triple:agent_identifier_4563678 rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:agent_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "4563678" .
 
 
 triple:agent_identifier_rfkgjnerfojgnel48567 rdf:type owl:NamedIndividual ,
-                                                      datacite:Identifier ;
-                                             datacite:usesIdentifierScheme triple:agent_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "rfkgjnerfojgnel48567" .
 
 
 triple:agent_identifier_peormcv rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:agent_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "peormcv" .
 
 
 triple:agent_identifier_ethterhjry764576 rdf:type owl:NamedIndividual ,
-                                                  datacite:Identifier ;
-                                         datacite:usesIdentifierScheme triple:agent_identifier_scheme .
+                                      datacite:Identifier ;
+                                      datacite:usesIdentifierScheme triple:internal_id_schema ;
+                             litre:hasLiteralValue "ethterhjry764576" .
 
+###  GoTriple persistent identifiers of the profiles
+triple:identifier_pid_profile_1 rdf:type datacite:Identifier ;
+         datacite:usesIdentifierScheme datacite:ark ;
+         litre:hasLiteralValue "ark:/12345/profile-1" .
 
-###  Identifier schemes
-triple:account_identifier_scheme rdf:type owl:NamedIndividual ,
-                                          datacite:IdentifierScheme ;
-                                 rdfs:label "Account Identifier Scheme"@en .
+triple:identifier_pid_profile_2 rdf:type datacite:Identifier ;
+         datacite:usesIdentifierScheme datacite:ark ;
+         litre:hasLiteralValue "ark:/12345/profile-2" .
 
+triple:identifier_pid_profile_56 rdf:type datacite:Identifier ;
+         datacite:usesIdentifierScheme datacite:ark ;
+         litre:hasLiteralValue "ark:/12345/profile-56" .
 
-triple:agent_identifier_scheme rdf:type owl:NamedIndividual ,
-                                        datacite:IdentifierScheme ;
-                               rdfs:label "Agent Identifier Scheme"@en .
+triple:identifier_pid_profile_09 rdf:type datacite:Identifier ;
+         datacite:usesIdentifierScheme datacite:ark ;
+         litre:hasLiteralValue "ark:/12345/profile-09" .
+
+triple:identifier_pid_profile_123 rdf:type datacite:Identifier ;
+         datacite:usesIdentifierScheme datacite:ark ;
+         litre:hasLiteralValue "ark:/12345/profile-123" .
+
+triple:identifier_pid_profile_23 rdf:type datacite:Identifier ;
+         datacite:usesIdentifierScheme datacite:ark ;
+         litre:hasLiteralValue "ark:/12345/profile-23" .
+
+###  Mandatory identifiers
+triple:id_document_1 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DOC_001" .
+
+triple:pid_document_1 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-001" .
+
+triple:orig_document_1 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "hal-00001" .
+
+triple:id_document_42 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DOC_042" .
+
+triple:pid_document_42 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-042" .
+
+triple:orig_document_42 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "hal-00042" .
+
+triple:id_document_56 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DOC_056" .
+
+triple:pid_document_56 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-056" .
+
+triple:orig_document_56 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "hal-00056" .
+
+triple:id_document_67 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DOC_067" .
+
+triple:pid_document_67 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-067" .
+
+triple:orig_document_67 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "hal-00067" .
+
+triple:id_document_98 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DOC_098" .
+
+triple:pid_document_98 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-098" .
+
+triple:orig_document_98 rdf:type datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "hal-00098" .
+

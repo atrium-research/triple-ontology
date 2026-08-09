@@ -183,7 +183,7 @@ PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?internal_id WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier a triple:ID ;
+  ?identifier datacite:usesIdentifierScheme triple:internal_id_schema ;
               litre:hasLiteralValue ?internal_id .
 }
 ```
@@ -199,7 +199,7 @@ PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?pid WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme triple:pid_schema ;
+  ?identifier datacite:usesIdentifierScheme datacite:ark ;
               litre:hasLiteralValue ?pid .
 }
 ```
@@ -215,7 +215,7 @@ PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?pid WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier a triple:PID ;
+  ?identifier datacite:usesIdentifierScheme datacite:ark ;
               litre:hasLiteralValue ?pid .
 }
 ```
@@ -233,7 +233,7 @@ SELECT ?identifier ?scheme ?value WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
   ?identifier datacite:usesIdentifierScheme ?scheme ;
               litre:hasLiteralValue ?value .
-  FILTER (?scheme IN (triple:internal_id_schema, triple:pid_schema, triple:original_id_schema))
+  FILTER (?scheme IN (triple:internal_id_schema, datacite:ark, triple:original_id_schema))
 }
 ```
 
@@ -248,9 +248,9 @@ PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?identifier ?type ?value WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier a ?type ;
+  ?identifier datacite:usesIdentifierScheme ?type ;
               litre:hasLiteralValue ?value .
-  FILTER (?type IN (triple:ID, triple:PID, triple:OriginalIdentifier))
+  FILTER (?type IN (triple:internal_id_schema, datacite:ark, triple:original_id_schema))
 }
 ```
 
@@ -266,7 +266,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 SELECT ?document WHERE {
   ?document rdf:type triple:Document ;
             datacite:hasIdentifier ?identifier .
-  ?identifier a triple:ID .
+  ?identifier datacite:usesIdentifierScheme triple:internal_id_schema .
 }
 ```
 

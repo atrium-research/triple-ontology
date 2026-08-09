@@ -203,97 +203,6 @@ datacite:Identifier rdf:type owl:Class ;
                                       owl:onDataRange xsd:string
                                     ] .
 
-
-###  https://gotriple.eu/ontology/triple/ID
-triple:ID rdf:type owl:Class ;
-          rdfs:label "ID"@en ;
-          rdfs:comment "Internal identifier used within the GoTriple platform for resource management."@en ;
-          rdfs:subClassOf datacite:Identifier ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty litre:hasLiteralValue ;
-                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                            owl:onDataRange xsd:string
-                          ] ,
-                          [ rdf:type owl:Restriction ;
-                            owl:onProperty datacite:usesIdentifierScheme ;
-                            owl:hasValue datacite:local-resource-identifier-scheme
-                          ] .
-
-###  https://gotriple.eu/ontology/triple/PID
-triple:PID rdf:type owl:Class ;
-           rdfs:label "PID"@en ;
-           rdfs:comment "Persistent identifier generated and exposed externally by the GoTriple platform."@en ;
-           rdfs:subClassOf datacite:Identifier ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty litre:hasLiteralValue ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:string
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue datacite:ark
-                           ] .
-
-###  https://gotriple.eu/ontology/triple/OriginalIdentifier
-triple:OriginalIdentifier rdf:type owl:Class ;
-                          rdfs:label "OriginalIdentifier"@en ;
-                          rdfs:comment "Original identifier from the source system where the resource was harvested."@en ;
-                          rdfs:subClassOf datacite:Identifier ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty litre:hasLiteralValue ;
-                                            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                            owl:onDataRange xsd:string
-                                          ] ,
-                                          [ rdf:type owl:Restriction ;
-                                            owl:onProperty datacite:usesIdentifierScheme ;
-                                            owl:hasValue datacite:local-resource-identifier-scheme
-                                          ] .
-
-###  https://gotriple.eu/ontology/triple/DOI
-triple:DOI rdf:type owl:Class ;
-           rdfs:label "DOI"@en ;
-           rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en ;
-           rdfs:subClassOf datacite:Identifier ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty litre:hasLiteralValue ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:string
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue datacite:doi
-                           ] .
-
-###  https://gotriple.eu/ontology/triple/Handle
-triple:Handle rdf:type owl:Class ;
-              rdfs:label "Handle"@en ;
-              rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en ;
-              rdfs:subClassOf datacite:Identifier ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty litre:hasLiteralValue ;
-                                owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                                owl:onDataRange xsd:string
-                              ] ,
-                              [ rdf:type owl:Restriction ;
-                                owl:onProperty datacite:usesIdentifierScheme ;
-                                owl:hasValue datacite:handle
-                              ] .
-
-###  https://gotriple.eu/ontology/triple/URI
-triple:URI rdf:type owl:Class ;
-           rdfs:label "URI"@en ;
-           rdfs:comment "Uniform Resource Identifier - a string of characters that unambiguously identifies a particular resource."@en ;
-           rdfs:subClassOf datacite:Identifier ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty litre:hasLiteralValue ;
-                             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
-                             owl:onDataRange xsd:string
-                           ] ,
-                           [ rdf:type owl:Restriction ;
-                             owl:onProperty datacite:usesIdentifierScheme ;
-                             owl:hasValue datacite:uri
-                           ] .
-
 ###  https://gotriple.eu/ontology/triple/SemanticArtefact
 triple:SemanticArtefact rdf:type owl:Class ;
                        rdfs:label "Semantic Artefact"@en,
@@ -383,18 +292,7 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty dcterms:isReferencedBy ;
                                         owl:allValuesFrom triple:Document
-                                      ] ,
-                                      [ rdf:type owl:Restriction ;
-                                        owl:onProperty datacite:hasIdentifier ;
-                                        owl:allValuesFrom [ rdf:type owl:Class ;
-                                                           owl:unionOf ( datacite:Identifier
-                                                                        triple:ID
-                                                                        triple:PID
-                                                                        triple:OriginalIdentifier
-                                                                        triple:DOI
-                                                                        triple:Handle
-                                                                        triple:URI ) ]
-                                      ] ,
+                                      ]  ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:spatialCoverage ;
                                         owl:allValuesFrom schema:Place
@@ -471,3 +369,17 @@ datacite:ark rdf:type owl:NamedIndividual ,
                       datacite:IdentifierScheme ;
              rdfs:label "datacite:ark"@en ;
              rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .
+
+
+###  https://gotriple.eu/ontology/triple/internal_id_schema
+triple:internal_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "TRIPLE Internal ID"@en ;
+                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system."@en .
+
+
+###  https://gotriple.eu/ontology/triple/original_id_schema
+triple:original_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "Original Identifier"@en ;
+                          rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple."@en .

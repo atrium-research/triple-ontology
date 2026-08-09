@@ -74,7 +74,7 @@ SELECT ?dataset ?title ?identifierValue WHERE {
   ?dataset a triple:Dataset ;
            schema:headline ?title ;
            datacite:hasIdentifier ?identifier .
-  ?identifier a triple:DOI ;
+  ?identifier datacite:usesIdentifierScheme datacite:doi ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
@@ -98,7 +98,7 @@ SELECT ?dataset ?title ?identifierValue WHERE {
   ?dataset a triple:Dataset ;
            schema:headline ?title ;
            datacite:hasIdentifier ?identifier .
-  ?identifier a triple:Handle ;
+  ?identifier datacite:usesIdentifierScheme datacite:handle ;
               litre:hasLiteralValue ?identifierValue .
 }
 ```
@@ -122,16 +122,16 @@ SELECT ?dataset ?title ?identifier ?identifierType ?value WHERE {
   ?dataset a triple:Dataset ;
            schema:headline ?title ;
            datacite:hasIdentifier ?identifier .
-  ?identifier a ?identifierType ;
+  ?identifier datacite:usesIdentifierScheme ?identifierType ;
               litre:hasLiteralValue ?value .
-  FILTER (?identifierType IN (triple:ID, triple:PID, triple:OriginalIdentifier))
+  FILTER (?identifierType IN (triple:internal_id_schema, datacite:ark, triple:original_id_schema))
 }
 ```
 
 **Expected result:**
-- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-internal` → `triple:ID` → "TRIPLE_DATASET_HERITAGE_001"
-- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `triple:PID` → "ark:/12345/dataset-heritage-archaeological-sites"
-- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-internal` → `triple:ID` → "TRIPLE_DATASET_SOCIAL_002"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-internal` → `triple:internal_id_schema` → "TRIPLE_DATASET_HERITAGE_001"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `datacite:ark` → "ark:/12345/dataset-heritage-archaeological-sites"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-internal` → `triple:internal_id_schema` → "TRIPLE_DATASET_SOCIAL_002"
 
 
 ## CQ_10.5
