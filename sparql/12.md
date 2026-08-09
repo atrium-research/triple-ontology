@@ -33,7 +33,7 @@ Find semantic artifacts with DOI or Handle persistent identifiers
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?artifact ?title ?identifierValue ?schemeLabel WHERE {
   ?artifact a triple:SemanticArtefact ;
@@ -121,7 +121,7 @@ Return all semantic artifacts that have DOI identifiers using class-based approa
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?artifact ?title ?identifierValue WHERE {
   ?artifact a triple:SemanticArtefact ;
@@ -146,7 +146,7 @@ Return all semantic artifacts that have URI identifiers using class-based approa
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?artifact ?title ?identifierValue WHERE {
   ?artifact a triple:SemanticArtefact ;
@@ -171,7 +171,7 @@ Return all semantic artifacts with their identifier types and values.
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?artifact ?title ?identifierType ?value WHERE {
   ?artifact a triple:SemanticArtefact ;

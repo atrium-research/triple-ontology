@@ -106,7 +106,7 @@ Retrieve the persistent identifiers of the persons behind GoTriple profiles, wit
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?profile ?scheme ?value WHERE {
   ?profile a triple:Profile ;
@@ -131,7 +131,7 @@ Retrieve the internal id and the GoTriple persistent identifier (the `id` and `p
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?profile ?internalId ?pid WHERE {
   ?profile a triple:Profile ;

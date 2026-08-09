@@ -233,7 +233,7 @@ Return all multimedia content that have DOI identifiers using class-based approa
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?multimedia ?title ?identifierValue WHERE {
   ?multimedia a triple:MediaObject ;
@@ -258,7 +258,7 @@ Return all multimedia content that have Handle identifiers using class-based app
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?multimedia ?title ?identifierValue WHERE {
   ?multimedia a triple:MediaObject ;
@@ -283,7 +283,7 @@ Return all multimedia content with platform identifiers by type.
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?multimedia ?title ?identifierType ?value WHERE {
   ?multimedia a triple:MediaObject ;

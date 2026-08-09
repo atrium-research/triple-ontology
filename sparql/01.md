@@ -130,7 +130,7 @@ Return the landing page URL of `triple:document_1`.
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?url WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -146,7 +146,7 @@ Return all URL-based identifiers (landing page, full text, source) for `triple:d
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?identifier ?scheme ?url WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -163,7 +163,7 @@ Return the internal ID for `triple:document_1`.
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?internal_id WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -179,7 +179,7 @@ Return the internal ID for `triple:document_1` using class-based approach.
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?internal_id WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -195,7 +195,7 @@ Return the PID (persistent identifier) for `triple:document_1`.
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?pid WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -211,7 +211,7 @@ Return the PID (persistent identifier) for `triple:document_1` using class-based
 ```
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?pid WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -227,7 +227,7 @@ Return all platform identifiers (internal, PID, original) for `triple:document_1
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?identifier ?scheme ?value WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .
@@ -244,7 +244,7 @@ Return all platform identifiers (internal, PID, original) for `triple:document_1
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?identifier ?type ?value WHERE {
   triple:document_1 datacite:hasIdentifier ?identifier .

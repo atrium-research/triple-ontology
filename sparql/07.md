@@ -7,7 +7,7 @@ What are all the metadata properties and values associated with a specific proje
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -198,7 +198,7 @@ What are all the identifier schemes used for projects and their corresponding id
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 

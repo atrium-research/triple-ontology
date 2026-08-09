@@ -100,7 +100,7 @@ Return the literal value of the DOI identifier for `document_1`.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?value WHERE {
@@ -175,7 +175,7 @@ Return all identifier values by type using class-based approach.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?type ?value WHERE {
@@ -219,7 +219,7 @@ Return all identifiers with their schemes and literal values.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?identifier ?scheme ?value WHERE {
   ?identifier a datacite:Identifier ;

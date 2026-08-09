@@ -68,7 +68,7 @@ Return all datasets that have DOI identifiers.
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?dataset ?title ?identifierValue WHERE {
   ?dataset a triple:Dataset ;
@@ -92,7 +92,7 @@ Return all datasets that have Handle identifiers using class-based approach.
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?dataset ?title ?identifierValue WHERE {
   ?dataset a triple:Dataset ;
@@ -116,7 +116,7 @@ Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier)
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://purl.org/spar/literal/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?dataset ?title ?identifier ?identifierType ?value WHERE {
   ?dataset a triple:Dataset ;
