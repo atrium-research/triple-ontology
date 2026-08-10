@@ -2,7 +2,6 @@
 # License: CC BY 4.0
 # Website: https://gotriple.eu/ontology/triple
 
-
 @prefix ct: <https://gotriple.eu/ontology/triple/ContentType/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -25,226 +24,286 @@ ct:other a owl:NamedIndividual,
 
 ct:typ_article a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Article"@en,
+    rdfs:label "Wissenschaftlicher Artikel"@de,
+        "Article"@en,
         "Article"@fr,
+        "articolo in rivista"@it,
         "Artykuł"@pl,
         "Artigo"@pt ;
     rdfs:comment "A scholarly work that describes research results, published in a journal or other publication series."@en ;
     skos:definition "A scholarly work that describes research results, published in a journal or other publication series."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6501> ;
     skos:notation "typ_article" ;
-    skos:prefLabel "Article"@en,
+    skos:prefLabel "Wissenschaftlicher Artikel"@de,
+        "Article"@en,
         "Article"@fr,
+        "articolo in rivista"@it,
         "Artykuł"@pl,
         "Artigo"@pt .
 
 ct:typ_bibliography a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Bibliography"@en,
+    rdfs:label "Bibliografie"@de,
+        "Bibliography"@en,
         "Bibliographie"@fr,
+        "bibliografia"@it,
         "Bibliografia"@pl,
         "Bibliografia"@pt ;
     rdfs:comment "A systematic list of resources (books, articles, etc.) sharing specific characteristics."@en ;
     skos:definition "A systematic list of resources (books, articles, etc.) sharing specific characteristics."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_86bc> ;
     skos:notation "typ_bibliography" ;
-    skos:prefLabel "Bibliography"@en,
+    skos:prefLabel "Bibliografie"@de,
+        "Bibliography"@en,
         "Bibliographie"@fr,
+        "bibliografia"@it,
         "Bibliografia"@pl,
         "Bibliografia"@pt .
 
 ct:typ_blog-post a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Blog post"@en,
+    rdfs:label "Blogbeitrag"@de,
+        "Blog post"@en,
         "Article de blog"@fr,
+        "articolo di blog"@it,
         "Artykuł na blogu"@pl,
         "Post de Blogue"@pt ;
     rdfs:comment "A discrete entry or post in a blog."@en ;
     skos:definition "A discrete entry or post in a blog."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6947> ;
     skos:notation "typ_blog-post" ;
-    skos:prefLabel "Blog post"@en,
+    skos:prefLabel "Blogbeitrag"@de,
+        "Blog post"@en,
         "Article de blog"@fr,
+        "articolo di blog"@it,
         "Artykuł na blogu"@pl,
         "Post de Blogue"@pt .
 
 ct:typ_book a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Book"@en,
+    rdfs:label "Buch"@de,
+        "Book"@en,
         "Livre"@fr,
+        "libro"@it,
         "Książka"@pl,
         "Livro"@pt ;
     rdfs:comment "A non-serial publication that is complete in one volume or a finite number of volumes."@en ;
     skos:definition "A non-serial publication that is complete in one volume or a finite number of volumes."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_2f33> ;
     skos:notation "typ_book" ;
-    skos:prefLabel "Book"@en,
+    skos:prefLabel "Buch"@de,
+        "Book"@en,
         "Livre"@fr,
+        "libro"@it,
         "Książka"@pl,
         "Livro"@pt .
 
 ct:typ_book-part a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Book Part"@en,
+    rdfs:label "Teil oder Kapitel eines Buches"@de,
+        "Book Part"@en,
         "Extrait de livre"@fr,
+        "capitolo di libro"@it,
         "Materiał w książce"@pl,
         "Parte de Livro"@pt ;
     rdfs:comment "A defined chapter or section of a book, usually with a separate title or number."@en ;
     skos:definition "A defined chapter or section of a book, usually with a separate title or number."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_3248> ;
     skos:notation "typ_book-part" ;
-    skos:prefLabel "Book Part"@en,
+    skos:prefLabel "Teil oder Kapitel eines Buches"@de,
+        "Book Part"@en,
         "Extrait de livre"@fr,
+        "capitolo di libro"@it,
         "Materiał w książce"@pl,
         "Parte de Livro"@pt .
 
 ct:typ_conference a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Conference"@en,
+    rdfs:label "Konferenzveröffentlichung"@de,
+        "Conference"@en,
         "Conférence"@fr,
+        "contributo a congresso"@it,
         "Materiał konferencyjny"@pl,
         "Conferência"@pt ;
     rdfs:comment "Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters)."@en ;
     skos:definition "Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters)."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_c94f> ;
     skos:notation "typ_conference" ;
-    skos:prefLabel "Conference"@en,
+    skos:prefLabel "Konferenzveröffentlichung"@de,
+        "Conference"@en,
         "Conférence"@fr,
+        "contributo a congresso"@it,
         "Materiał konferencyjny"@pl,
         "Conferência"@pt .
 
 ct:typ_dataset a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Dataset"@en,
+    rdfs:label "Datensatz"@de,
+        "Dataset"@en,
         "Jeu de données"@fr,
+        "dataset"@it,
         "Zbiór danych"@pl,
         "Conjunto de Dados"@pt ;
     rdfs:comment "A collection of data, published or curated for a single agent or community."@en ;
     skos:definition "A collection of data, published or curated for a single agent or community."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_ddb1> ;
     skos:notation "typ_dataset" ;
-    skos:prefLabel "Dataset"@en,
+    skos:prefLabel "Datensatz"@de,
+        "Dataset"@en,
         "Jeu de données"@fr,
+        "dataset"@it,
         "Zbiór danych"@pl,
         "Conjunto de Dados"@pt .
 
 ct:typ_image a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Image"@en,
+    rdfs:label "Bild"@de,
+        "Image"@en,
         "Image"@fr,
+        "immagine"@it,
         "Materiał wizualny"@pl,
         "Imagem"@pt ;
     rdfs:comment "A visual representation other than text, such as a photograph or diagram."@en ;
     skos:definition "A visual representation other than text, such as a photograph or diagram."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_c513> ;
     skos:notation "typ_image" ;
-    skos:prefLabel "Image"@en,
+    skos:prefLabel "Bild"@de,
+        "Image"@en,
         "Image"@fr,
+        "immagine"@it,
         "Materiał wizualny"@pl,
         "Imagem"@pt .
 
 ct:typ_learning-object a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Learning object"@en,
+    rdfs:label "Lernobjekt"@de,
+        "Learning object"@en,
         "Objet d'apprentissage"@fr,
+        "oggetto didattico"@it,
         "Materiał dydaktyczny"@pl,
         "Objeto de Aprendizagem"@pt ;
     rdfs:comment "A resource designed to be used for learning or teaching."@en ;
     skos:definition "A resource designed to be used for learning or teaching."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_e059> ;
     skos:notation "typ_learning-object" ;
-    skos:prefLabel "Learning object"@en,
+    skos:prefLabel "Lernobjekt"@de,
+        "Learning object"@en,
         "Objet d'apprentissage"@fr,
+        "oggetto didattico"@it,
         "Materiał dydaktyczny"@pl,
         "Objeto de Aprendizagem"@pt .
 
 ct:typ_manuscript a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Manuscript"@en,
+    rdfs:label "Manuskript"@de,
+        "Manuscript"@en,
         "Manuscrit"@fr,
+        "manoscritto"@it,
         "Rękopis"@pl,
         "Manuscrito"@pt ;
     rdfs:comment "A document written by hand or typewritten, as opposed to printed."@en ;
     skos:definition "A document written by hand or typewritten, as opposed to printed."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_0040> ;
     skos:notation "typ_manuscript" ;
-    skos:prefLabel "Manuscript"@en,
+    skos:prefLabel "Manuskript"@de,
+        "Manuscript"@en,
         "Manuscrit"@fr,
+        "manoscritto"@it,
         "Rękopis"@pl,
         "Manuscrito"@pt .
 
 ct:typ_map a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Map"@en,
+    rdfs:label "Karte"@de,
+        "Map"@en,
         "Carte"@fr,
+        "mappa"@it,
         "Mapa"@pl,
         "Mapa"@pt ;
     rdfs:comment "A visual representation of an area."@en ;
     skos:definition "A visual representation of an area."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_12cd> ;
     skos:notation "typ_map" ;
-    skos:prefLabel "Map"@en,
+    skos:prefLabel "Karte"@de,
+        "Map"@en,
         "Carte"@fr,
+        "mappa"@it,
         "Mapa"@pl,
         "Mapa"@pt .
 
 ct:typ_periodical a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Periodical"@en,
+    rdfs:label "anderes Periodikum"@de,
+        "Periodical"@en,
         "Périodique"@fr,
+        "altro periodico"@it,
         "Czasopismo"@pl,
         "Periódico"@pt ;
     rdfs:comment "A publication that appears at regular intervals, such as a journal, magazine, or newspaper."@en ;
     skos:definition "A publication that appears at regular intervals, such as a journal, magazine, or newspaper."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31> ;
     skos:notation "typ_periodical" ;
-    skos:prefLabel "Periodical"@en,
+    skos:prefLabel "anderes Periodikum"@de,
+        "Periodical"@en,
         "Périodique"@fr,
+        "altro periodico"@it,
         "Czasopismo"@pl,
         "Periódico"@pt .
 
 ct:typ_preprint a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Preprint"@en,
+    rdfs:label "Preprint"@de,
+        "Preprint"@en,
         "Prépublication"@fr,
+        "articolo preliminare"@it,
         "Preprint"@pl,
         "Preprint"@pt ;
     rdfs:comment "A version of a scholarly paper that precedes formal peer review and publication."@en ;
     skos:definition "A version of a scholarly paper that precedes formal peer review and publication."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_816b> ;
     skos:notation "typ_preprint" ;
-    skos:prefLabel "Preprint"@en,
+    skos:prefLabel "Preprint"@de,
+        "Preprint"@en,
         "Prépublication"@fr,
+        "articolo preliminare"@it,
         "Preprint"@pl,
         "Preprint"@pt .
 
 ct:typ_report a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Report"@en,
+    rdfs:label "Bericht"@de,
+        "Report"@en,
         "Rapport"@fr,
+        "rapporto"@it,
         "Raport"@pl,
         "Relatório"@pt ;
     rdfs:comment "A document that presents information in an organized format for a specific audience and purpose."@en ;
     skos:definition "A document that presents information in an organized format for a specific audience and purpose."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_93fc> ;
     skos:notation "typ_report" ;
-    skos:prefLabel "Report"@en,
+    skos:prefLabel "Bericht"@de,
+        "Report"@en,
         "Rapport"@fr,
+        "rapporto"@it,
         "Raport"@pl,
         "Relatório"@pt .
 
 ct:typ_review a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Review"@en,
+    rdfs:label "Rezension"@de,
+        "Review"@en,
         "Revue"@fr,
+        "recensione"@it,
         "Recenzia"@pl,
         "Revisão"@pt ;
     rdfs:comment "A critical evaluation of a book, article, or other work."@en ;
     skos:definition "A critical evaluation of a book, article, or other work."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_efa0> ;
     skos:notation "typ_review" ;
-    skos:prefLabel "Review"@en,
+    skos:prefLabel "Rezension"@de,
+        "Review"@en,
         "Revue"@fr,
+        "recensione"@it,
         "Recenzia"@pl,
         "Revisão"@pt .
 
@@ -259,66 +318,94 @@ ct:typ_semantic-artefact a owl:NamedIndividual,
 
 ct:typ_software a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Software"@en,
+    rdfs:label "Software"@de,
+        "Software"@en,
         "Logiciel"@fr,
+        "software"@it,
         "Oprogramowanie"@pl,
         "Software"@pt ;
     rdfs:comment "A set of instructions/programs used to operate computers and execute specific tasks."@en ;
     skos:definition "A set of instructions/programs used to operate computers and execute specific tasks."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_5ce6> ;
     skos:notation "typ_software" ;
-    skos:prefLabel "Software"@en,
+    skos:prefLabel "Software"@de,
+        "Software"@en,
         "Logiciel"@fr,
+        "software"@it,
         "Oprogramowanie"@pl,
         "Software"@pt .
 
 ct:typ_sound a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Sound"@en ;
+    rdfs:label "Ton"@de,
+        "Sound"@en,
+        "son"@fr,
+        "suono"@it,
+        "som"@pt ;
     rdfs:comment "An audio recording."@en ;
     skos:definition "An audio recording."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_18cc> ;
     skos:notation "typ_sound" ;
-    skos:prefLabel "Sound"@en .
+    skos:prefLabel "Ton"@de,
+        "Sound"@en,
+        "son"@fr,
+        "suono"@it,
+        "som"@pt .
 
 ct:typ_text a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Text"@en,
+    rdfs:label "Text"@de,
+        "Text"@en,
         "Texte"@fr,
+        "testo"@it,
         "Tekst"@pl,
         "Texto"@pt ;
     rdfs:comment "A written work or content consisting primarily of text."@en ;
     skos:definition "A written work or content consisting primarily of text."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_18cf> ;
     skos:notation "typ_text" ;
-    skos:prefLabel "Text"@en,
+    skos:prefLabel "Text"@de,
+        "Text"@en,
         "Texte"@fr,
+        "testo"@it,
         "Tekst"@pl,
         "Texto"@pt .
 
 ct:typ_thesis a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Thesis"@en,
+    rdfs:label "schriftliche Abschlussarbeit"@de,
+        "Thesis"@en,
         "Mémoire ou thèse"@fr,
+        "tesi"@it,
         "Praca dyplomowa"@pl,
         "Tese"@pt ;
     rdfs:comment "A document submitted in support of candidature for an academic degree or professional qualification."@en ;
     skos:definition "A document submitted in support of candidature for an academic degree or professional qualification."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_46ec> ;
     skos:notation "typ_thesis" ;
-    skos:prefLabel "Thesis"@en,
+    skos:prefLabel "schriftliche Abschlussarbeit"@de,
+        "Thesis"@en,
         "Mémoire ou thèse"@fr,
+        "tesi"@it,
         "Praca dyplomowa"@pl,
         "Tese"@pt .
 
 ct:typ_video a owl:NamedIndividual,
         triple:ContentType ;
-    rdfs:label "Video"@en ;
+    rdfs:label "Video"@de,
+        "Video"@en,
+        "vidéo"@fr,
+        "video"@it,
+        "vídeo"@pt ;
     rdfs:comment "A recording of moving visual images."@en ;
     skos:definition "A recording of moving visual images."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_12ce> ;
     skos:notation "typ_video" ;
-    skos:prefLabel "Video"@en .
+    skos:prefLabel "Video"@de,
+        "Video"@en,
+        "vidéo"@fr,
+        "video"@it,
+        "vídeo"@pt .
 
 ct:undefined a owl:NamedIndividual,
         triple:ContentType ;
