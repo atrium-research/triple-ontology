@@ -62,7 +62,7 @@ foaf:Document rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/Document
 triple:Document rdf:type owl:Class ;
                 rdfs:label "Document (Triple)"@en ;
-                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the mandatory internal id, persistent identifier and original identifier, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en .
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the internal id, the GoTriple PID and the identifier from the source system, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en .
 
 
 #################################################################
@@ -73,14 +73,14 @@ triple:Document rdf:type owl:Class ;
 datacite:doi rdf:type owl:NamedIndividual ,
                       datacite:IdentifierScheme ;
              rdfs:label "datacite:doi"@en ;
-             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects, standardised as ISO 26324 and governed by the International DOI Foundation."@en .
 
 
 ###  http://purl.org/spar/datacite/issn
 datacite:issn rdf:type owl:NamedIndividual ,
                        datacite:IdentifierScheme ;
               rdfs:label "datacite:issn"@en ;
-              rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en .
+              rdfs:comment "International Standard Serial Number - the identifier of a serial publication, standardised as ISO 3297."@en .
 
 
 ###  http://purl.org/spar/datacite/isbn
@@ -94,18 +94,25 @@ datacite:isbn rdf:type owl:NamedIndividual ,
 datacite:handle rdf:type owl:NamedIndividual ,
                          datacite:IdentifierScheme ;
                 rdfs:label "datacite:handle"@en ;
-                rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+                rdfs:comment "Handle System identifier - a persistent identifier managed by the DONA Foundation, on top of which the DOI system is built."@en .
 
 
 ###  http://purl.org/spar/datacite/ark
 datacite:ark rdf:type owl:NamedIndividual ,
                       datacite:IdentifierScheme ;
              rdfs:label "datacite:ark"@en ;
-             rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library."@en .
+             rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/original_id_schema
 triple:original_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "Original Identifier"@en ;
-                          rdfs:comment "Generic scheme for the identifier a resource carried in the system it was harvested from, used when that source system has no named scheme of its own."@en .
+                          rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
+
+
+###  https://gotriple.eu/ontology/triple/internal_id_schema
+triple:internal_id_schema rdf:type owl:NamedIndividual ,
+                                   datacite:IdentifierScheme ;
+                          rdfs:label "TRIPLE Internal ID"@en ;
+                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .

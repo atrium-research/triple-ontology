@@ -18,13 +18,15 @@
 triple:hasLicense rdf:type owl:ObjectProperty ;
                   rdfs:subPropertyOf dcterms:license ;
                   rdfs:range triple:License ;
-                  rdfs:label "has license"@en .
+                  rdfs:label "has license"@en ;
+                  rdfs:comment "Links a resource to its licence."@en .
 
 ###  https://gotriple.eu/ontology/triple/hasAccessCondition
 triple:hasAccessCondition rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf dcterms:accessRights ;
                           rdfs:range triple:AccessCondition ;
-                          rdfs:label "has access condition"@en .
+                          rdfs:label "has access condition"@en ;
+                          rdfs:comment "Links a resource to its access condition."@en .
 
 ###  http://rdfs.org/sioc/ns#topic
 sioc:topic rdf:type owl:ObjectProperty ;
@@ -38,8 +40,8 @@ sioc:topic rdf:type owl:ObjectProperty ;
 triple:hasContentType rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf dcterms:type ;
                       rdfs:range triple:ContentType ;
-                      rdfs:label "has content type"@en .
-
+                      rdfs:label "has content type"@en ;
+                      rdfs:comment "Links a resource to its content type."@en .
 
 ###  http://www.w3.org/2004/02/skos/core#closeMatch
 skos:closeMatch rdf:type owl:ObjectProperty ;
@@ -79,7 +81,7 @@ foaf:Document rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/Document
 triple:Document rdf:type owl:Class ;
                 rdfs:label "Document (Triple)"@en ;
-                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts."@en ;
+                rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the internal id, the GoTriple PID and the identifier from the source system, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en ;
                 rdfs:subClassOf schema:CreativeWork ,
                                 foaf:Document ,
                                 [ rdf:type owl:Restriction ;
@@ -109,25 +111,27 @@ skos:Concept rdf:type owl:Class ;
 triple:License rdf:type owl:Class ;
                rdfs:subClassOf skos:Concept ,
                                dcterms:LicenseDocument ;
-               rdfs:label "License"@en .
+               rdfs:label "License"@en ;
+               rdfs:comment "The licence under which a resource is made available, drawn from the License controlled vocabulary and aligned with Creative Commons and SPDX."@en .
 
 ###  https://gotriple.eu/ontology/triple/AccessCondition
 triple:AccessCondition rdf:type owl:Class ;
                        rdfs:subClassOf skos:Concept ,
                                        dcterms:RightsStatement ;
-                       rdfs:label "Access Condition"@en .
+                       rdfs:label "Access Condition"@en ;
+                       rdfs:comment "The access condition of a resource — how and to whom it is available — drawn from the Access Condition controlled vocabulary and aligned with COAR access rights."@en .
 
 ###  https://gotriple.eu/ontology/triple/Discipline
 triple:Discipline rdf:type owl:Class ;
                   rdfs:subClassOf skos:Concept ;
-                  rdfs:label "Discipline"@en .
+                  rdfs:label "Discipline"@en ;
+                  rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en .
 
 ###  https://gotriple.eu/ontology/triple/ContentType
 triple:ContentType rdf:type owl:Class ;
                    rdfs:subClassOf skos:Concept ;
-                   rdfs:label "Content Type"@en .
-
-
+                   rdfs:label "Content Type"@en ;
+                   rdfs:comment "The kind of content a resource is (journal article, dataset, software, ...), drawn from the Content Type controlled vocabulary and aligned with COAR resource types."@en .
 #################################################################
 #    Individuals
 #################################################################

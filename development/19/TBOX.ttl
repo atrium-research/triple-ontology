@@ -328,7 +328,7 @@ datacite:researcherid rdf:type owl:NamedIndividual ,
 triple:internal_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "TRIPLE Internal ID"@en ;
-                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. On profiles it carries the Elasticsearch id."@en .
+                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/idref_schema
@@ -349,4 +349,11 @@ triple:gotriple_id_schema rdf:type owl:NamedIndividual ,
 triple:original_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "Original Identifier"@en ;
-                          rdfs:comment "Generic scheme for the identifier a resource carried in the system it was harvested from, used when that source system has no named scheme of its own."@en .
+                          rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
+
+
+###  http://purl.org/spar/datacite/ark
+datacite:ark rdf:type owl:NamedIndividual ,
+                      datacite:IdentifierScheme ;
+             rdfs:label "datacite:ark"@en ;
+             rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .

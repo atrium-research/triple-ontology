@@ -66,13 +66,13 @@ schema:inLanguage rdf:type owl:ObjectProperty ;
 ###  http://purl.org/spar/datacite/hasIdentifier
 datacite:hasIdentifier rdf:type owl:ObjectProperty ;
                        rdfs:label "datacite:hasIdentifier"@en ;
-                       rdfs:comment "Links entities to their identifiers"@en ;
+                       rdfs:comment "Links an entity to one of its identifiers. Every identifier in the TRIPLE ontology is reached through this property and is a datacite:Identifier: there is no other way of attaching an identifier to an entity."@en ;
                        rdfs:range datacite:Identifier .
 
 ###  http://purl.org/spar/datacite/usesIdentifierScheme
 datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
                               rdfs:label "datacite:usesIdentifierScheme"@en ;
-                              rdfs:comment "Links an identifier to its scheme"@en ;
+                              rdfs:comment "Links an identifier to the scheme it belongs to. The scheme is what tells one kind of identifier from another."@en ;
                               rdfs:domain datacite:Identifier .
 
 
@@ -153,7 +153,7 @@ schema:about rdf:type owl:ObjectProperty ;
 ###  https://gotriple.eu/ontology/triple/knowsAbout
 triple:knowsAbout rdf:type owl:ObjectProperty ;
                   rdfs:label "knows about"@en ;
-                  rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm. Sub-property of schema:about (schema:knowsAbout is declared only for Person and Organization)."@en ;
+                  rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
                   rdfs:subPropertyOf schema:about ;
                   rdfs:range schema:DefinedTerm .
 
@@ -354,21 +354,21 @@ triple:source_url_schema rdf:type owl:NamedIndividual ,
 datacite:doi rdf:type owl:NamedIndividual ,
                       datacite:IdentifierScheme ;
              rdfs:label "datacite:doi"@en ;
-             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects, standardised as ISO 26324 and governed by the International DOI Foundation."@en .
 
 
 ###  http://purl.org/spar/datacite/handle
 datacite:handle rdf:type owl:NamedIndividual ,
                          datacite:IdentifierScheme ;
                 rdfs:label "datacite:handle"@en ;
-                rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+                rdfs:comment "Handle System identifier - a persistent identifier managed by the DONA Foundation, on top of which the DOI system is built."@en .
 
 
 ###  http://purl.org/spar/datacite/issn
 datacite:issn rdf:type owl:NamedIndividual ,
                        datacite:IdentifierScheme ;
               rdfs:label "datacite:issn"@en ;
-              rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en .
+              rdfs:comment "International Standard Serial Number - the identifier of a serial publication, standardised as ISO 3297."@en .
 
 
 ###  http://purl.org/spar/datacite/isbn
@@ -389,11 +389,11 @@ datacite:ark rdf:type owl:NamedIndividual ,
 triple:internal_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "TRIPLE Internal ID"@en ;
-                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system."@en .
+                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/original_id_schema
 triple:original_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "Original Identifier"@en ;
-                          rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple."@en .
+                          rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .

@@ -46,7 +46,7 @@ schema:publisher rdf:type owl:ObjectProperty ;
 ###  https://schema.org/creativeWorkStatus
 schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
                          rdfs:label "schema:creativeWorkStatus" ;
-                         rdfs:comment "The status of a creative work in terms of its stage in a lifecycle"@en ;
+                         rdfs:comment "The status of a creative work in terms of its stage in a lifecycle."@en ;
                          rdfs:range xsd:string .
 
 ###  https://schema.org/keywords
@@ -80,13 +80,13 @@ schema:contactPoint rdf:type owl:ObjectProperty ;
 ###  http://purl.org/spar/datacite/hasIdentifier
 datacite:hasIdentifier rdf:type owl:ObjectProperty ;
                        rdfs:label "datacite:hasIdentifier" ;
-                       rdfs:comment "Links entities to their identifiers"@en ;
+                       rdfs:comment "Links an entity to one of its identifiers. Every identifier in the TRIPLE ontology is reached through this property and is a datacite:Identifier: there is no other way of attaching an identifier to an entity."@en ;
                        rdfs:range datacite:Identifier .
 
 ###  http://purl.org/spar/datacite/usesIdentifierScheme
 datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
                               rdfs:label "datacite:usesIdentifierScheme"@en ;
-                              rdfs:comment "Links an identifier to its scheme"@en ;
+                              rdfs:comment "Links an identifier to the scheme it belongs to. The scheme is what tells one kind of identifier from another."@en ;
                               rdfs:domain datacite:Identifier .
 
 ###  http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue
@@ -111,14 +111,14 @@ schema:name rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:abstract" ;
-               rdfs:comment "An abstract is a short description that summarizes a CreativeWork"@en ;
+               rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en ;
                rdfs:range [ rdf:type rdfs:Datatype ;
                             owl:unionOf ( rdf:langString xsd:string ) ] .
 
 ###  https://schema.org/headline
 schema:headline rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:headline" ;
-               rdfs:comment "Headline of the article"@en ;
+               rdfs:comment "Headline of the article."@en ;
                rdfs:range [ rdf:type rdfs:Datatype ;
                             owl:unionOf ( rdf:langString xsd:string ) ] .
 
@@ -155,7 +155,7 @@ schema:fileFormat rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/encodingFormat
 schema:encodingFormat rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:encodingFormat" ;
-                     rdfs:comment "Media type typically expressed using a MIME format"@en ;
+                     rdfs:comment "Media type typically expressed using a MIME format."@en ;
                      rdfs:range xsd:string .
 
 
@@ -176,7 +176,7 @@ schema:Place rdf:type owl:Class ;
 ###  https://schema.org/ContactPoint
 schema:ContactPoint rdf:type owl:Class ;
                    rdfs:label "schema:ContactPoint" ;
-                   rdfs:comment "A contact point for a person or organization"@en .
+                   rdfs:comment "A contact point for a person or organization."@en .
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class ;
@@ -331,13 +331,13 @@ triple:SemanticArtefact rdf:type owl:Class ;
 datacite:doi rdf:type owl:NamedIndividual ,
                       datacite:IdentifierScheme ;
              rdfs:label "datacite:doi"@en ;
-             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+             rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects, standardised as ISO 26324 and governed by the International DOI Foundation."@en .
 
 ###  http://purl.org/spar/datacite/handle
 datacite:handle rdf:type owl:NamedIndividual ,
                          datacite:IdentifierScheme ;
                 rdfs:label "datacite:handle"@en ;
-                rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+                rdfs:comment "Handle System identifier - a persistent identifier managed by the DONA Foundation, on top of which the DOI system is built."@en .
 
 ###  http://purl.org/spar/datacite/uri
 datacite:uri rdf:type owl:NamedIndividual ,
@@ -375,11 +375,11 @@ datacite:ark rdf:type owl:NamedIndividual ,
 triple:internal_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "TRIPLE Internal ID"@en ;
-                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system."@en .
+                          rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/original_id_schema
 triple:original_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "Original Identifier"@en ;
-                          rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple."@en .
+                          rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
