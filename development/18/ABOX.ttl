@@ -1,4 +1,5 @@
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix disc: <https://gotriple.eu/ontology/triple/Discipline/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -27,7 +28,7 @@ triple:document_it18_1 rdf:type owl:NamedIndividual ,
         triple:machineTranslatedLanguage "en" , "pt" ;
         triple:originalLanguage "fre" ;
         sioc:topic disc:methods_and_statistics ;
-        triple:knowsAbout triple:kw_text-mining_it18 .
+        schema:about <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> .
 
 
 ###  Example 2: English report, no translations, low-confidence classification
@@ -38,7 +39,7 @@ triple:document_it18_2 rdf:type owl:NamedIndividual ,
         triple:detectedLanguage "en" ;
         triple:originalLanguage "und" ;
         sioc:topic disc:political_science ;
-        triple:knowsAbout triple:kw_public-opinion_it18 .
+        schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85009407> .
 
 
 ###  Classification annotations (topic provenance)
@@ -63,22 +64,11 @@ triple:ann_it18_topic_2 rdf:type owl:NamedIndividual ,
 triple:ann_it18_kw_1 rdf:type owl:NamedIndividual ,
                               oa:Annotation ;
         oa:hasTarget triple:document_it18_1 ;
-        oa:hasBody triple:kw_text-mining_it18 ;
+        oa:hasBody <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> ;
         oa:motivatedBy oa:tagging ;
-        triple:confidence "0.58"^^xsd:decimal ;
         dcterms:creator triple:gotriple_pipeline .
 
 
-###  Structured keywords (knows_about)
-triple:kw_text-mining_it18 rdf:type owl:NamedIndividual ,
-                                    schema:DefinedTerm ;
-        schema:name "Text mining"@en ,
-                    "Fouille de textes"@fr ;
-        schema:sameAs <http://www.wikidata.org/entity/Q676880> .
-
-triple:kw_public-opinion_it18 rdf:type owl:NamedIndividual ,
-                                       schema:DefinedTerm ;
-        schema:name "Public opinion"@en .
 
 
 ###  Referenced entities
@@ -99,3 +89,22 @@ disc:political_science rdf:type owl:NamedIndividual ,
 triple:gotriple_pipeline rdf:type owl:NamedIndividual ,
                                   foaf:Agent ;
         schema:name "GoTriple" .
+
+
+###  Concepts of the TRIPLE Vocabulary (SSH-LCSH)
+#    http://semantics.gr/authorities/vocabularies/SSH-LCSH — maintained by the TRIPLE consortium,
+#    published on semantics.gr by the National Documentation Centre (EKT). The values of schema:about
+#    are these concepts themselves, identified by their own URI: GoTriple does not mint local copies.
+#    The labels below are a snapshot of the authoritative ones; the vocabulary carries up to 12 languages.
+
+<http://semantics.gr/authorities/SSH-LCSH/sh2008122106> rdf:type skos:Concept ;
+    skos:prefLabel "Digital humanities"@en ,
+                    "Informatica umanistica"@it ,
+                    "Humanités numériques"@fr ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh2008122106> .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85009407> rdf:type skos:Concept ;
+    skos:prefLabel "Attitude (Psychology)"@en ,
+                    "Atteggiamento"@it ,
+                    "Attitude (psychologie)"@fr ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85009407> .

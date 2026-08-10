@@ -17,8 +17,8 @@ SELECT ?document ?discipline ?confidence WHERE {
 ```
 
 **Expected result:**
-- `document_it18_1` → `Discipline/methods_and_statistics` → 0.87
-- `document_it18_2` → `Discipline/political_science` → 0.55
+- `triple:document_it18_1` → `disc:methods_and_statistics` → "0.87"
+- `triple:document_it18_2` → `disc:political_science` → "0.55"
 
 ## CQ_18.2
 
@@ -37,27 +37,32 @@ SELECT ?document WHERE {
 ```
 
 **Expected result:**
-- `document_it18_1`
+- `triple:document_it18_1`
 
 ## CQ_18.3
 
-Return the keywords (knows_about) of each document, with their labels and, when available, their external URI.
+Return the TRIPLE thesaurus concepts (knows_about) of each document, with their labels and the LCSH heading they correspond to.
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?document ?keyword ?label ?uri WHERE {
-  ?document triple:knowsAbout ?keyword .
-  ?keyword schema:name ?label .
-  OPTIONAL { ?keyword schema:sameAs ?uri }
+SELECT ?document ?concept ?label ?lcsh WHERE {
+  ?document schema:about ?concept .
+  ?concept a skos:Concept ;
+           skos:prefLabel ?label .
+  OPTIONAL { ?concept skos:exactMatch ?lcsh }
 }
 ```
 
 **Expected result:**
-- `document_it18_1` → `kw_text-mining_it18` → "Text mining"@en → `wikidata:Q676880`
-- `document_it18_1` → `kw_text-mining_it18` → "Fouille de textes"@fr → `wikidata:Q676880`
-- `document_it18_2` → `kw_public-opinion_it18` → "Public opinion"@en → (unbound)
+- `triple:document_it18_1` → <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> → "Digital humanities" → <http://id.loc.gov/authorities/subjects/sh2008122106>
+- `triple:document_it18_1` → <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> → "Informatica umanistica" → <http://id.loc.gov/authorities/subjects/sh2008122106>
+- `triple:document_it18_1` → <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> → "Humanités numériques" → <http://id.loc.gov/authorities/subjects/sh2008122106>
+- `triple:document_it18_2` → <http://semantics.gr/authorities/SSH-LCSH/sh85009407> → "Attitude (Psychology)" → <http://id.loc.gov/authorities/subjects/sh85009407>
+- `triple:document_it18_2` → <http://semantics.gr/authorities/SSH-LCSH/sh85009407> → "Atteggiamento" → <http://id.loc.gov/authorities/subjects/sh85009407>
+- `triple:document_it18_2` → <http://semantics.gr/authorities/SSH-LCSH/sh85009407> → "Attitude (psychologie)" → <http://id.loc.gov/authorities/subjects/sh85009407>
 
 ## CQ_18.4
 
@@ -75,8 +80,8 @@ SELECT ?headline WHERE {
 ```
 
 **Expected result:**
-- "Digital methods and SSH research"@en
-- "Métodos digitais e a pesquisa em CSH"@pt
+- "Digital methods and SSH research"
+- "Métodos digitais e a pesquisa em CSH"
 
 ## CQ_18.5
 
@@ -93,5 +98,5 @@ SELECT ?document ?detected ?original WHERE {
 ```
 
 **Expected result:**
-- `document_it18_2` → "en" / "und"
-- `document_it18_1` → "fr" / "fre" (the provider used an ISO 639-2 code; the detector emits ISO 639-1)
+- `triple:document_it18_1` → "fr" → "fre"
+- `triple:document_it18_2` → "en" → "und"

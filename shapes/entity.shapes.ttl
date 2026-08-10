@@ -3,6 +3,9 @@
 @prefix foaf:     <http://xmlns.com/foaf/0.1/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix triple:   <https://gotriple.eu/ontology/triple/> .
+@prefix schema:      <https://schema.org/> .
+@prefix skos:      <http://www.w3.org/2004/02/skos/core#> .
+@prefix sioc:      <http://rdfs.org/sioc/ns#> .
 @prefix tsh:      <https://gotriple.eu/ontology/triple/shapes/> .
 
 # ---------------------------------------------------------------------------
@@ -101,3 +104,42 @@ tsh:ExpectedSchemesShape a sh:NodeShape ;
                 triple:source_url_schema ) ;
         sh:severity sh:Info ;
         sh:message "Scheme not expected on a triple:Document — check the mapping; if the scheme is right, add it to the profile."@en ] .
+
+# ---------------------------------------------------------------------------
+# Subject terms: which vocabulary each property draws from
+# ---------------------------------------------------------------------------
+# The classes carry owl:allValuesFrom restrictions on these properties, but an
+# allValuesFrom is an inference rule, not a check: it would type whatever it
+# finds as a skos:Concept instead of reporting it. The check lives here.
+
+tsh:ThesaurusConceptShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass triple:Document , triple:Dataset , triple:MediaObject ,
+                   triple:SemanticArtefact , triple:Project ;
+    sh:name "thesaurus concepts"@en ;
+    sh:property [
+        sh:path schema:about ;
+        sh:name "TRIPLE thesaurus concept"@en ;
+        sh:description "The concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline. The value is the concept itself, identified by its semantics.gr URI: GoTriple does not mint a local copy of it."@en ;
+        sh:class skos:Concept ;
+        sh:nodeKind sh:IRI ;
+        sh:severity sh:Violation ;
+        sh:message "The value of schema:about must be a skos:Concept identified by its own IRI, not a locally minted term."@en ] ;
+    sh:property [
+        sh:path schema:about ;
+        sh:pattern "^http://semantics\\.gr/authorities/SSH-LCSH/" ;
+        sh:severity sh:Info ;
+        sh:message "Concept outside the TRIPLE Vocabulary (SSH-LCSH) — legal, but usually a mapping error."@en ] .
+
+tsh:DisciplineShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass triple:Document , triple:Dataset , triple:MediaObject ,
+                   triple:SemanticArtefact , triple:Project ;
+    sh:name "disciplines"@en ;
+    sh:property [
+        sh:path sioc:topic ;
+        sh:name "discipline"@en ;
+        sh:description "The discipline the resource is classified under, from the GoTriple SSH taxonomy."@en ;
+        sh:class triple:Discipline ;
+        sh:severity sh:Warning ;
+        sh:message "The value of sioc:topic should be a triple:Discipline of the GoTriple classification."@en ] .

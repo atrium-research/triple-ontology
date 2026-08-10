@@ -28,13 +28,13 @@ schema:spatialCoverage rdf:type owl:ObjectProperty ;
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
-              rdfs:comment "The author of this content."@en ;
+              rdfs:comment "The author of this content or rating. The documents a profile is author of (the author_of field) are retrieved as the inverse of this property."@en ;
               rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 ###  https://schema.org/contributor
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contributor"@en ;
-                   rdfs:comment "A secondary contributor to the CreativeWork."@en ;
+                   rdfs:comment "A secondary contributor to the CreativeWork or Event."@en ;
                    rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 ###  https://schema.org/publisher
@@ -52,8 +52,7 @@ schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/keywords
 schema:keywords rdf:type owl:ObjectProperty ;
                rdfs:label "schema:keywords" ;
-               rdfs:comment "Keywords or tags used to describe content"@en ;
-               rdfs:range schema:DefinedTerm .
+               rdfs:comment "Keywords or tags used to describe this content. In GoTriple these are the producer's own keywords, free text with no URI; the concepts detected by the enrichment pipeline are carried by schema:about instead."@en .
 
 ###  http://purl.org/dc/terms/isReferencedBy
 dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
@@ -69,7 +68,7 @@ adms:representationTechnique rdf:type owl:ObjectProperty ;
 ###  https://schema.org/mentions
 schema:mentions rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:mentions"@en ;
-                rdfs:comment "Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity."@en .
+                rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing."@en .
 
 ###  https://schema.org/contactPoint
 schema:contactPoint rdf:type owl:ObjectProperty ;
@@ -125,19 +124,19 @@ schema:headline rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:datePublished" ;
-                    rdfs:comment "Date of first publication"@en ;
+                    rdfs:comment "Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd)."@en ;
                     rdfs:range xsd:date .
 
 ###  https://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateModified" ;
-                   rdfs:comment "The date on which the CreativeWork was most recently modified"@en ;
+                   rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en ;
                    rdfs:range xsd:date .
 
 ###  https://schema.org/dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateCreated" ;
-                   rdfs:comment "The date on which the CreativeWork was created"@en ;
+                   rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
                    rdfs:range xsd:date .
 
 ###  https://schema.org/version
@@ -209,7 +208,7 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                   "Artefacto Semântico"@pt,
                                   "Artefakt Semantyczny"@pl,
                                   "Artefact Sémantique"@fr ;
-                       rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en ;
+                       rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. Original provider values are preserved before normalization."@en ;
                        rdfs:subClassOf mod:SemanticArtefact ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:headline ;
@@ -302,6 +301,10 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                         owl:allValuesFrom triple:Discipline
                                       ] ,
                                       [ rdf:type owl:Restriction ;
+                                        owl:onProperty schema:about ;
+                                        owl:allValuesFrom skos:Concept
+                                      ] ,
+                                      [ rdf:type owl:Restriction ;
                                         owl:onProperty triple:hasLicense ;
                                         owl:allValuesFrom triple:License
                                       ] ,
@@ -383,3 +386,8 @@ triple:original_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "Original Identifier"@en ;
                           rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
+
+###  https://schema.org/about
+schema:about rdf:type owl:ObjectProperty ;
+             rdfs:label "schema:about"@en ;
+             rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .

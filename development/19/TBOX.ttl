@@ -32,7 +32,7 @@ foaf:topic_interest rdf:type owl:ObjectProperty ;
 ###  https://schema.org/knowsAbout
 schema:knowsAbout rdf:type owl:ObjectProperty ;
                   rdfs:label "schema:knowsAbout"@en ;
-                  rdfs:comment "A topic the agent knows about. Natively declared by Schema.org for Person and Organization; used in GoTriple to link a profile to structured thesaurus keywords."@en .
+                  rdfs:comment "A topic the agent knows about. Schema.org declares it for Person and Organization, so it is in domain here: every triple:Profile is a person or an organization. It carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) the user declares to know about. The data model revision leaves this field unmapped: the choice of this property is the ontology own."@en .
 
 
 ###  https://schema.org/knowsLanguage
@@ -62,7 +62,7 @@ schema:url rdf:type owl:ObjectProperty ;
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
-              rdfs:comment "The author of this content. The documents a profile is author of (author_of) are retrieved as the inverse of this property."@en .
+              rdfs:comment "The author of this content or rating. The documents a profile is author of (the author_of field) are retrieved as the inverse of this property."@en .
 
 
 #################################################################
@@ -99,13 +99,13 @@ schema:headline rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/description
 schema:description rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:description"@en ;
-                   rdfs:comment "A description of the entity. Used in GoTriple for the self-description of the profile."@en .
+                   rdfs:comment "A description of the item. Used in GoTriple for the self-description of a profile."@en .
 
 
 ###  https://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:dateModified"@en ;
-                    rdfs:comment "The date on which the entity was most recently modified. Used on profiles for the last GoTriple update."@en .
+                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/pronouns
@@ -253,7 +253,7 @@ triple:Profile rdf:type owl:Class ;
                # Optional thesaurus keywords (0 or more)
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:knowsAbout ;
-                                 owl:allValuesFrom schema:DefinedTerm
+                                 owl:allValuesFrom skos:Concept
                                ] ,
 
                # Optional known languages (0 or more)

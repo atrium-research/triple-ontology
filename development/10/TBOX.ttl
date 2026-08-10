@@ -37,7 +37,7 @@ schema:contactPoint rdf:type owl:ObjectProperty ;
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
-              rdfs:comment "The author of this content or rating."@en .
+              rdfs:comment "The author of this content or rating. The documents a profile is author of (the author_of field) are retrieved as the inverse of this property."@en .
 
 ###  https://schema.org/contributor
 schema:contributor rdf:type owl:ObjectProperty ;
@@ -68,7 +68,7 @@ schema:mentions rdf:type owl:ObjectProperty ;
 ###  http://rdfs.org/sioc/ns#topic
 sioc:topic rdf:type owl:ObjectProperty ;
            rdfs:label "sioc:topic"@en ;
-           rdfs:comment "A topic of interest, linking to the concept URI."@en .
+           rdfs:comment "The discipline a resource is classified under, from the GoTriple 27-discipline SSH taxonomy (triple:Discipline). Distinct from schema:about, which carries the concepts of the TRIPLE thesaurus."@en .
 
 ###  http://purl.org/dc/terms/isReferencedBy
 dcterms:isReferencedBy rdf:type owl:ObjectProperty ;
@@ -84,8 +84,7 @@ dcterms:provenance rdf:type owl:ObjectProperty ;
 ###  https://schema.org/keywords
 schema:keywords rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:keywords"@en ;
-                rdfs:comment "Keywords or tags used to describe this content."@en ;
-                rdfs:range schema:DefinedTerm .
+                rdfs:comment "Keywords or tags used to describe this content. In GoTriple these are the producer's own keywords, free text with no URI; the concepts detected by the enrichment pipeline are carried by schema:about instead."@en .
 
 ###  http://purl.org/spar/datacite/hasIdentifier
 datacite:hasIdentifier rdf:type owl:ObjectProperty ;
@@ -135,7 +134,7 @@ schema:encodingFormat rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/size
 schema:size rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:size"@en ;
-            rdfs:comment "A standardized size of a product or creative work."@en .
+            rdfs:comment "A standardized size of a product or creative work, specified either through a simple textual string or a QuantitativeValue."@en .
 
 
 ###  https://schema.org/creativeWorkStatus
@@ -164,14 +163,7 @@ schema:abstract rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/about
 schema:about rdf:type owl:ObjectProperty ;
              rdfs:label "schema:about"@en ;
-             rdfs:comment "The subject matter of the content."@en .
-
-###  https://gotriple.eu/ontology/triple/knowsAbout
-triple:knowsAbout rdf:type owl:ObjectProperty ;
-                  rdfs:label "knows about"@en ;
-                  rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
-                  rdfs:subPropertyOf schema:about ;
-                  rdfs:range schema:DefinedTerm .
+             rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .
 
 ###  https://schema.org/URL
 schema:URL rdf:type rdfs:Datatype ;
@@ -197,12 +189,12 @@ schema:dateCreated rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:datePublished"@en ;
-                     rdfs:comment "Date of first broadcast/publication."@en .
+                     rdfs:comment "Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd)."@en .
 
 ###  https://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:dateModified"@en ;
-                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en .
+                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en .
 
 
 
@@ -229,7 +221,7 @@ triple:Dataset rdf:type owl:Class ;
                           "Base de Dados"@pt,
                           "Zbiór Danych"@pl,
                           "Jeu de Données"@fr ;
-               rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
+               rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset. Original provider values are preserved before normalization."@en ;
                rdfs:subClassOf dcat:Dataset ;
                # Which identifiers a Dataset must carry is expressed in
                # shapes/entity.shapes.ttl, not as OWL axioms here.
@@ -290,8 +282,8 @@ triple:Dataset rdf:type owl:Class ;
                                owl:allValuesFrom [ rdf:type rdfs:Datatype ;
                                                    owl:unionOf ( rdf:langString xsd:string ) ] ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                               owl:onProperty triple:knowsAbout ;
-                               owl:allValuesFrom schema:DefinedTerm ] ;
+                               owl:onProperty schema:about ;
+                               owl:allValuesFrom skos:Concept ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:inLanguage ;
                                owl:someValuesFrom schema:Language ] ;
@@ -348,7 +340,7 @@ triple:Dataset rdf:type owl:Class ;
 ###  https://schema.org/DefinedTerm
 schema:DefinedTerm rdf:type owl:Class ;
                    rdfs:label "schema:DefinedTerm"@en ;
-                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition"@en .
+                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition. In GoTriple it types the producer's own keywords, which are free text and carry no URI."@en .
 
 ###  http://xmlns.com/foaf/0.1/Person
 foaf:Person rdf:type owl:Class ;
@@ -468,3 +460,8 @@ triple:original_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "Original Identifier"@en ;
                           rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:label "skos:Concept"@en ;
+             rdfs:comment "A concept of a knowledge organization system, from SKOS. Values of schema:about are the concepts of the TRIPLE Vocabulary (SSH-LCSH), maintained by the TRIPLE consortium and published on semantics.gr."@en .

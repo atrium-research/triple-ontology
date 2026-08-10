@@ -29,7 +29,7 @@
 | `schema:contributor`           | Schema.org property indicating a secondary contributor to the dataset.                                                                              |
 | `schema:dateModified`          | Schema.org property indicating the date on which the dataset was most recently modified.                                                            |
 | `schema:provider`              | Schema.org property indicating the aggregator or service provider of the dataset.                                                                   |
-| `schema:knowsAbout`            | Schema.org property indicating topics that the dataset is about, often automatically detected from controlled vocabularies.                        |
+| `schema:about` | The subject matter of the content, from Schema.org. Carries the concepts of the TRIPLE thesaurus (SSH-LCSH) automatically detected in the dataset. Range `skos:Concept`. |
 | `schema:funding`               | Schema.org property linking the dataset to research projects that funded its creation.                                                              |
 | `schema:mentions`              | Schema.org property indicating references or mentions of other datasets or entities within the dataset's metadata.                                 |
 | `schema:comment`               | Schema.org property used for lineage information - free-text descriptions of the dataset's processing history.                                     |

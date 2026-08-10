@@ -44,7 +44,7 @@ CQ_18.3
 What are the keywords (knows_about) of a given document, with their labels and, when available, their external URI?
 
 ### Expected Outcome
-The DefinedTerm entities linked to the document, with multilingual names and optional sameAs link.
+The thesaurus concepts linked to the document, with their multilingual labels and the LCSH heading they correspond to.
 
 ### Result
 * `document_it18_1` → "Text mining"@en / "Fouille de textes"@fr → `wikidata:Q676880`

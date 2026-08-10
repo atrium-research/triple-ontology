@@ -20,6 +20,7 @@
 
 ###  Example 1: TRIPLE SSH Thesaurus
 triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
+                    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85066150> ;
                     schema:headline "TRIPLE SSH Thesaurus"@en ;
                     schema:abstract "Controlled vocabulary for Social Sciences and Humanities research classification used in the GoTriple discovery platform. Provides standardized terminology for SSH domains."@en ;
                     schema:contributor triple:organization-gotriple ;
@@ -49,6 +50,7 @@ triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
 
 ###  Example 2: SKOS Art History Vocabulary
 triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
+                    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85007960> ;
                        schema:headline "SKOS Art History Vocabulary"@en ;
                        schema:abstract "Comprehensive vocabulary for art historical concepts and terminology. Covers periods, movements, techniques, and cultural contexts in art history research."@en ;
                        schema:contributor triple:person-maria-rossi, triple:organization-dhi ;
@@ -76,6 +78,7 @@ triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
 
 ###  Example 3: Medieval Studies Ontology
 triple:ontology-medieval rdf:type triple:SemanticArtefact ;
+                    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85085001> ;
                         schema:headline "Medieval Studies Ontology"@en ;
                         schema:abstract "Formal ontology for medieval studies research domain. Provides semantic modeling of medieval historical periods, events, places, and scholarly concepts."@en ;
                         schema:contributor triple:person-giovanni-bianchi, triple:person-pierre-martin ;
@@ -411,3 +414,27 @@ triple:orig_document-dh-methodology rdf:type datacite:Identifier ;
     datacite:usesIdentifierScheme triple:original_id_schema ;
     litre:hasLiteralValue "hal-dh-methodology" .
 
+
+###  Concepts of the TRIPLE Vocabulary (SSH-LCSH)
+#    http://semantics.gr/authorities/vocabularies/SSH-LCSH — maintained by the TRIPLE consortium,
+#    published on semantics.gr by the National Documentation Centre (EKT). The values of schema:about
+#    are these concepts themselves, identified by their own URI: GoTriple does not mint local copies.
+#    The labels below are a snapshot of the authoritative ones; the vocabulary carries up to 12 languages.
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85066150> rdf:type skos:Concept ;
+    skos:prefLabel "Information science"@en ,
+                    "Scienze dell'informazione"@it ,
+                    "Sciences de l'information"@fr ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85066150> .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85007960> rdf:type skos:Concept ;
+    skos:prefLabel "Art and history"@en ,
+                    "Arte e storia"@it ,
+                    "Art et histoire"@fr ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85007960> .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85085001> rdf:type skos:Concept ;
+    skos:prefLabel "Middle Ages"@en ,
+                    "Medioevo"@it ,
+                    "Moyen-âge"@fr ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85085001> .

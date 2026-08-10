@@ -5,6 +5,7 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix schema: <https://schema.org/> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 
 #################################################################
@@ -39,15 +40,8 @@ dcterms:creator rdf:type owl:ObjectProperty ;
 ###  https://schema.org/about
 schema:about rdf:type owl:ObjectProperty ;
              rdfs:label "schema:about"@en ;
-             rdfs:comment "The subject matter of the content."@en .
+             rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .
 
-
-###  https://gotriple.eu/ontology/triple/knowsAbout
-triple:knowsAbout rdf:type owl:ObjectProperty ;
-                  rdfs:label "knows about"@en ;
-                  rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
-                  rdfs:subPropertyOf schema:about ;
-                  rdfs:range schema:DefinedTerm .
 
 
 ###  https://schema.org/sameAs
@@ -105,7 +99,7 @@ oa:Motivation rdf:type owl:Class ;
 ###  https://schema.org/DefinedTerm
 schema:DefinedTerm rdf:type owl:Class ;
                    rdfs:label "schema:DefinedTerm"@en ;
-                   rdfs:comment "A word, name, acronym or phrase defined in a controlled context; used for GoTriple keywords."@en .
+                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition. In GoTriple it types the producer's own keywords, which are free text and carry no URI."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/Document
@@ -115,8 +109,8 @@ triple:Document rdf:type owl:Class ;
 
           # Optional extracted keywords (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:knowsAbout ;
-                            owl:allValuesFrom schema:DefinedTerm
+                            owl:onProperty schema:about ;
+                            owl:allValuesFrom skos:Concept
                           ] ;
 
           # Optional detected language (0 or more)
@@ -148,3 +142,8 @@ oa:tagging rdf:type owl:NamedIndividual ,
                     oa:Motivation ;
            rdfs:label "oa:tagging"@en ;
            rdfs:comment "The motivation for when the user intends to associate a tag with the Target; used for GoTriple keyword assignments."@en .
+
+###  http://www.w3.org/2004/02/skos/core#Concept
+skos:Concept rdf:type owl:Class ;
+             rdfs:label "skos:Concept"@en ;
+             rdfs:comment "A concept of a knowledge organization system, from SKOS. Values of schema:about are the concepts of the TRIPLE Vocabulary (SSH-LCSH), maintained by the TRIPLE consortium and published on semantics.gr."@en .
