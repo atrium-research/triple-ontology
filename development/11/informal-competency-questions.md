@@ -52,7 +52,7 @@ A list of multimedia objects with storage and access information.
 ### Result
 * `multimedia-001` → 1.2 GB, Open Access
 * `multimedia-002` → 198 MB, Open Access
-* `multimedia-003` → 850 MB, Educational and Research Use
+* `multimedia-003` → 850 MB, Restricted access or use
 
 ### Based on
 Example 1, Example 2, and Example 3
@@ -64,7 +64,7 @@ Example 1, Example 2, and Example 3
 CQ_11.4
 
 ### Question
-Return all multimedia content that covers medieval history topics.
+Return all multimedia content classified under History.
 
 ### Expected Outcome
 A list of multimedia objects related to medieval studies.

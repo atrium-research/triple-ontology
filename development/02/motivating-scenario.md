@@ -71,17 +71,17 @@ Every term in the vocabulary has the following capabilities:
 
 ## Example 2: Document with Access Conditions
 
-`document_2` is a research paper that is freely available. The document is linked via `triple:hasAccessCondition` to the term `open_access` (a `triple:AccessCondition`).
+`document_2` is a research paper that is freely available. The document is linked via `triple:hasAccessCondition` to the vocabulary concept `acc:acr_open-access` (a `triple:AccessCondition`).
 
 - Document: `document_2`
 - Property: `triple:hasAccessCondition`
-- Access term: `open_access`
+- Access term: `acc:acr_open-access`
 - Class: `triple:AccessCondition`
 - External match: Close match to COAR's "Open Access" concept
 
 ## Example 3: Document with Type
 
-`document_3` is a scholarly article. The document is linked via `triple:hasContentType` to the term `article` (a `triple:ContentType`).
+`document_3` is a scholarly article. The document is linked via `triple:hasContentType` to the vocabulary concept `ct:typ_article` (a `triple:ContentType`).
 
 - Document: `document_3`
 - Property: `triple:hasContentType`
@@ -91,10 +91,10 @@ Every term in the vocabulary has the following capabilities:
 
 ## Example 4: Document with Multiple Disciplines
 
-`document_4` is an interdisciplinary study covering both Digital Humanities and Linguistics. The document is linked via `sioc:topic` to two terms (instances of `triple:Discipline`): `digital_humanities` and `linguistics`.
+`document_4` is an interdisciplinary digital humanities study of language. The 27-discipline taxonomy has no digital-humanities concept, so such works are classified by their component disciplines — the platform's classifier files them under History, Philosophy and Sociology of Sciences and Linguistics. The document is linked via `sioc:topic` to two vocabulary concepts (instances of `triple:Discipline`): `disc:hisphilso` and `disc:lang`.
 
 - Document: `document_4`
 - Property: `sioc:topic`
-- Discipline terms: `digital_humanities`, `linguistics`
+- Discipline terms: `disc:hisphilso`, `disc:lang`
 - Class: `triple:Discipline`
 - External matches: Close matches to UNESCO Thesaurus and Library of Congress Subject Headings

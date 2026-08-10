@@ -30,7 +30,7 @@ What are the access conditions for `document_2`?
 The access conditions term from the Access Conditions Vocabulary.
 
 ### Result
-* `open_access`
+* `acc:acr_open-access`
 
 ### Based on
 Example 2
@@ -48,7 +48,7 @@ What type of document is `document_3`?
 The content type term from the Content Type Vocabulary.
 
 ### Result
-* `article`
+* `ct:typ_article`
 
 ### Based on
 Example 3
@@ -66,8 +66,8 @@ What disciplines is `document_4` associated with?
 A list of discipline terms from the Discipline Vocabulary.
 
 ### Result
-* `digital_humanities`
-* `linguistics`
+* `disc:hisphilso`
+* `disc:lang`
 
 ### Based on
 Example 4
@@ -97,13 +97,13 @@ Example 1
 CQ_2.6
 
 ### Question
-What external entities does the access term `open_access` closely match?
+What external entity does the access term `acr_open-access` match exactly?
 
 ### Expected Outcome
 External URIs that are close matches.
 
 ### Result
-* `http://purl.org/coar/access_right/c_abf2` (COAR Open Access)
+* `https://vocabularies.coar-repositories.org/access_rights/c_abf2/` (COAR Open Access)
 
 ### Based on
 Example 2

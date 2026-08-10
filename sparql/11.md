@@ -56,36 +56,38 @@ SELECT ?multimedia ?title ?size ?access WHERE {
               schema:size ?size ;
               triple:hasAccessCondition ?accessCond .
   ?accessCond rdfs:label ?access .
+  FILTER(LANG(?access) = "en")
 }
 ```
 
 **Expected result:**
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "1.2 GB" → "Open Access"
 - `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "198 MB" → "Open Access"
-- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "850 MB" → "Educational and Research Use"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "850 MB" → "Restricted access or use"
 
 
 ## CQ_11.4
 
-Return all multimedia content that covers medieval history topics.
+Return all multimedia content classified under History.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX sioc: <http://rdfs.org/sioc/ns#>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX disc: <https://gotriple.eu/ontology/discipline/>
 
 SELECT ?multimedia ?title ?topic WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
-              sioc:topic ?topic_uri .
-  ?topic_uri skos:prefLabel ?topic .
-  FILTER(CONTAINS(LCASE(?topic), "medieval"))
+              sioc:topic disc:hist .
+  disc:hist skos:prefLabel ?topic .
+  FILTER(LANG(?topic) = "en")
 }
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "Medieval History"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "History"
 
 
 ## CQ_11.5
@@ -174,13 +176,14 @@ SELECT ?multimedia ?title ?spatial ?topic WHERE {
               schema:spatialCoverage ?spatial ;
               sioc:topic ?topic_uri .
   ?topic_uri skos:prefLabel ?topic .
+  FILTER(LANG(?topic) = "en")
 }
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:place-europe-occidentale` → "Medieval History"
-- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:place-italy` → "European History"
-- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:place-florence-italy` → "Art History"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:place-europe-occidentale` → "History"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:place-italy` → "Social Anthropology and Ethnology"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:place-florence-italy` → "Art and Art History"
 
 
 ## CQ_11.9

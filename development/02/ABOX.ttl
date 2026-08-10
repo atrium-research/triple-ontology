@@ -29,6 +29,9 @@
 ###  https://gotriple.eu/ontology/triple/linguistics
 ###  https://gotriple.eu/ontology/triple/document_4
 
+@prefix acc: <https://gotriple.eu/ontology/access-condition/> .
+@prefix ct: <https://gotriple.eu/ontology/content-type/> .
+@prefix disc: <https://gotriple.eu/ontology/discipline/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix lic: <https://gotriple.eu/ontology/license/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -37,6 +40,22 @@
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
+
+<http://id.loc.gov/authorities/subjects/sh2008102419> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "lcsh:digital-humanities"@en .
+
+<http://id.loc.gov/authorities/subjects/sh85077222> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "lcsh:linguistics"@en .
+
+<http://purl.org/coar/access_right/c_abf2> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "coar:open-access"@en .
+
+<http://purl.org/coar/resource_type/c_6501> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "coar:article"@en .
 
 sioc:topic a owl:ObjectProperty .
 
@@ -56,62 +75,22 @@ triple:document_2 a owl:NamedIndividual,
         triple:Document ;
     rdfs:label "Example Document with Open Access"@en ;
     rdfs:comment "A research paper that is freely available to anyone"@en ;
-    triple:hasAccessCondition triple:open_access .
+    triple:hasAccessCondition acc:acr_open-access .
 
 triple:document_3 a owl:NamedIndividual,
         triple:Document ;
     rdfs:label "Example Scholarly Article"@en ;
     rdfs:comment "A scholarly article demonstrating document type classification"@en ;
-    triple:hasContentType triple:article .
+    triple:hasContentType ct:typ_article .
 
 triple:document_4 a owl:NamedIndividual,
         triple:Document ;
     rdfs:label "Example Interdisciplinary Study"@en ;
-    sioc:topic triple:digital_humanities,
-        triple:linguistics ;
+    sioc:topic disc:hisphilso,
+        disc:lang ;
     rdfs:comment "An interdisciplinary study covering both Digital Humanities and Linguistics"@en .
 
-<http://id.loc.gov/authorities/subjects/sh2008102419> a owl:NamedIndividual,
-        skos:Concept ;
-    rdfs:label "lcsh:digital-humanities"@en .
-
-<http://id.loc.gov/authorities/subjects/sh85077222> a owl:NamedIndividual,
-        skos:Concept ;
-    rdfs:label "lcsh:linguistics"@en .
-
-<http://purl.org/coar/access_right/c_abf2> a owl:NamedIndividual,
-        skos:Concept ;
-    rdfs:label "coar:open-access"@en .
-
-<http://purl.org/coar/resource_type/c_6501> a owl:NamedIndividual,
-        skos:Concept ;
-    rdfs:label "coar:article"@en .
-
 foaf:Document a owl:Class .
-
-triple:article a owl:NamedIndividual,
-        triple:ContentType ;
-    rdfs:label "Article"@en ;
-    skos:definition "A scholarly article published in a journal or similar publication"@en ;
-    skos:exactMatch <http://purl.org/coar/resource_type/c_6501> .
-
-triple:digital_humanities a owl:NamedIndividual,
-        triple:Discipline ;
-    rdfs:label "Digital Humanities"@en ;
-    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh2008102419> ;
-    skos:definition "The interdisciplinary field combining computing and humanities disciplines"@en .
-
-triple:linguistics a owl:NamedIndividual,
-        triple:Discipline ;
-    rdfs:label "Linguistics"@en ;
-    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85077222> ;
-    skos:definition "The scientific study of language and its structure"@en .
-
-triple:open_access a owl:NamedIndividual,
-        triple:AccessCondition ;
-    rdfs:label "Open Access"@en ;
-    skos:closeMatch <http://purl.org/coar/access_right/c_abf2> ;
-    skos:definition "The document is freely available to anyone without restrictions"@en .
 
 schema:CreativeWork a owl:Class .
 

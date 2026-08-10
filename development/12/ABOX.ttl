@@ -33,6 +33,7 @@
 #    are these concepts themselves, identified by their own URI: GoTriple does not mint local copies.
 #    The labels below are a snapshot of the authoritative ones; the vocabulary carries up to 12 languages.
 
+@prefix acc: <https://gotriple.eu/ontology/access-condition/> .
 @prefix adms: <http://www.w3.org/ns/adms#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -56,7 +57,7 @@ triple:ontology-medieval a triple:SemanticArtefact ;
         triple:identifier-medieval-original,
         triple:identifier-medieval-pid,
         triple:identifier-medieval-uri ;
-    triple:hasAccessCondition triple:restricted_access ;
+    triple:hasAccessCondition acc:acr_restricted-access-or-use ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85085001> ;
     schema:abstract "Formal ontology for medieval studies research domain. Provides semantic modeling of medieval historical periods, events, places, and scholarly concepts."@en ;
@@ -98,7 +99,7 @@ triple:thesaurus-ssh a triple:SemanticArtefact ;
         triple:identifier-thesaurus-uri ;
     adms:representationTechnique <http://purl.org/adms/representationtechnique/SKOS> ;
     triple:aggregator triple:organization-isidore ;
-    triple:hasAccessCondition triple:open_access ;
+    triple:hasAccessCondition acc:acr_open-access ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85066150> ;
     schema:abstract "Controlled vocabulary for Social Sciences and Humanities research classification used in the GoTriple discovery platform. Provides standardized terminology for SSH domains."@en ;
@@ -127,7 +128,7 @@ triple:vocab-arthistory a triple:SemanticArtefact ;
         triple:identifier-vocab-pid,
         triple:identifier-vocab-source,
         triple:identifier-vocab-uri ;
-    triple:hasAccessCondition triple:open_access ;
+    triple:hasAccessCondition acc:acr_open-access ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85007960> ;
     schema:abstract "Comprehensive vocabulary for art historical concepts and terminology. Covers periods, movements, techniques, and cultural contexts in art history research."@en ;
@@ -396,11 +397,6 @@ triple:pid_document-dh-methodology a datacite:Identifier ;
     datacite:usesIdentifierScheme datacite:ark ;
     litre:hasLiteralValue "ark:/12345/doc-dh-methodology" .
 
-triple:restricted_access a owl:NamedIndividual,
-        triple:AccessCondition ;
-    rdfs:label "Restricted Access"@en ;
-    rdfs:comment "Access to the resource is restricted."@en .
-
 triple:status-draft a skos:Concept ;
     skos:definition "The semantic artifact is in draft stage and under development"@en ;
     skos:prefLabel "Draft"@en .
@@ -411,11 +407,6 @@ schema:language-it a schema:Language ;
 triple:keyword-vocabulary a schema:DefinedTerm ;
     schema:description "Set of terms used in a particular domain"@en ;
     schema:name "vocabulary" .
-
-triple:open_access a owl:NamedIndividual,
-        triple:AccessCondition ;
-    rdfs:label "Open Access"@en ;
-    rdfs:comment "The resource is freely available for access."@en .
 
 triple:organization-dhi a foaf:Organization ;
     schema:description "Research institute specializing in digital methods for humanities"@en ;
