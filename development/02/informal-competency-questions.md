@@ -12,7 +12,7 @@ What license is associated with `document_1`?
 The license term from the License Vocabulary.
 
 ### Result
-* `cc_by_4_0` (Creative Commons Attribution 4.0)
+* `lic:lic_creative-commons` (Creative Commons)
 
 ### Based on
 Example 1
@@ -82,10 +82,10 @@ CQ_2.5
 What external entity does the license term `lic_creative-commons` closely match?
 
 ### Expected Outcome
-The external URI that is an exact match.
+The external URI that is a close match.
 
 ### Result
-* `https://creativecommons.org/licenses/by/4.0/`
+* `https://www.wikidata.org/entity/Q284742`
 
 ### Based on
 Example 1
@@ -115,13 +115,13 @@ Example 2
 CQ_2.7
 
 ### Question
-Return all documents that are licensed under Creative Commons licenses (any CC license).
+Return all documents that are licensed under Creative Commons licenses.
 
 ### Expected Outcome
 A list of documents with CC licenses.
 
 ### Result
-* `document_1` (has `cc_by_4_0`)
+* `document_1` (has `lic:lic_creative-commons`)
 
 ### Based on
 Example 1

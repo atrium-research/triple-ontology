@@ -61,13 +61,13 @@ Every term in the vocabulary has the following capabilities:
 
 ## Example 1: Document with License
 
-`document_1` is an open access article published under a Creative Commons Attribution 4.0 license. The document is linked via `triple:hasLicense` to the term `cc_by_4_0` (a `triple:License`).
+`document_1` is an open access article published under a Creative Commons licence. The document is linked via `triple:hasLicense` to the term `lic:lic_creative-commons` (a `triple:License`) — the vocabulary models the platform's blanket concept, not the individual CC licences.
 
 - Document: `document_1`
 - Property: `triple:hasLicense`
-- License term: `cc_by_4_0`
+- License term: `lic:lic_creative-commons`
 - Class: `triple:License`
-- External match: Exact match to `https://creativecommons.org/licenses/by/4.0/`
+- External match: Close match to `https://www.wikidata.org/entity/Q284742` (Creative Commons license, the family)
 
 ## Example 2: Document with Access Conditions
 

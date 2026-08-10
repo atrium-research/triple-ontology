@@ -126,9 +126,9 @@ Return all multimedia content with Creative Commons licenses.
 A list of multimedia objects with CC licensing information.
 
 ### Result
-* `multimedia-001` → CC BY-NC-ND 4.0
-* `multimedia-002` → CC BY-SA 4.0
-* `multimedia-003` → CC BY-NC 4.0
+* `multimedia-001` → Creative Commons
+* `multimedia-002` → Creative Commons
+* `multimedia-003` → Creative Commons
 
 ### Based on
 Example 1, Example 2, and Example 3
