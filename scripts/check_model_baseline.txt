@@ -1,0 +1,45 @@
+# Global axioms on terms outside the triple: namespace, accepted as they were on
+# 2026-08-10. Some restate what the source ontology already says (datacite, oa,
+# dcat:theme, sioc:topic); others narrow a foreign property (schema:temporalCoverage,
+# the xsd:date and xsd:string ranges on schema.org properties) and should become a
+# per-class restriction. Anything not listed here fails scripts/check_model.py.
+# Shrink this file; do not grow it.
+http://purl.org/cerif/frapo/isOutputOf rdfs:range triple:Project
+http://purl.org/dc/terms/provenance rdfs:range http://purl.org/dc/terms/ProvenanceStatement
+http://purl.org/spar/datacite/hasIdentifier rdfs:range http://purl.org/spar/datacite/Identifier
+http://purl.org/spar/datacite/usesIdentifierScheme rdfs:domain http://purl.org/spar/datacite/Identifier
+http://purl.org/spar/datacite/usesIdentifierScheme rdfs:range http://purl.org/spar/datacite/IdentifierScheme
+http://rdfs.org/sioc/ns#topic rdfs:subPropertyOf http://purl.org/dc/terms/subject
+http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue rdfs:range http://www.w3.org/2001/XMLSchema#string
+http://www.w3.org/ns/adms#representationTechnique rdfs:range http://www.w3.org/2004/02/skos/core#Concept
+http://www.w3.org/ns/dcat#bbox rdfs:range http://www.w3.org/2000/01/rdf-schema#Literal
+http://www.w3.org/ns/dcat#theme rdfs:range http://www.w3.org/2004/02/skos/core#Concept
+http://www.w3.org/ns/dcat#theme rdfs:subPropertyOf http://purl.org/dc/terms/subject
+http://www.w3.org/ns/oa#motivatedBy rdfs:range http://www.w3.org/ns/oa#Motivation
+https://schema.org/abstract rdfs:range _:anon
+https://schema.org/alternateName rdfs:range http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
+https://schema.org/author rdfs:range _:anon
+https://schema.org/author rdfs:subPropertyOf https://schema.org/creator
+https://schema.org/contactPoint rdfs:range https://schema.org/ContactPoint
+https://schema.org/contributor rdfs:range _:anon
+https://schema.org/creativeWorkStatus rdfs:range http://www.w3.org/2001/XMLSchema#string
+https://schema.org/dateCreated rdfs:range http://www.w3.org/2001/XMLSchema#date
+https://schema.org/dateModified rdfs:range http://www.w3.org/2001/XMLSchema#date
+https://schema.org/datePublished rdfs:range http://www.w3.org/2001/XMLSchema#date
+https://schema.org/description rdfs:range http://www.w3.org/1999/02/22-rdf-syntax-ns#langString
+https://schema.org/email rdfs:range http://www.w3.org/2001/XMLSchema#string
+https://schema.org/encodingFormat rdfs:range http://www.w3.org/2001/XMLSchema#string
+https://schema.org/endDate rdfs:range http://www.w3.org/2001/XMLSchema#date
+https://schema.org/fileFormat rdfs:range http://www.w3.org/2001/XMLSchema#string
+https://schema.org/headline rdfs:range _:anon
+https://schema.org/inLanguage rdfs:range https://schema.org/Language
+https://schema.org/mainEntityOfPage rdfs:range https://schema.org/URL
+https://schema.org/mentions rdfs:range http://www.w3.org/2002/07/owl#Thing
+https://schema.org/name rdfs:range http://www.w3.org/2001/XMLSchema#string
+https://schema.org/organizer rdfs:range https://schema.org/Organization
+https://schema.org/provider rdfs:range _:anon
+https://schema.org/publisher rdfs:range _:anon
+https://schema.org/spatialCoverage rdfs:range https://schema.org/Place
+https://schema.org/startDate rdfs:range http://www.w3.org/2001/XMLSchema#date
+https://schema.org/temporalCoverage rdfs:range http://www.w3.org/2001/XMLSchema#string
+https://schema.org/version rdfs:range http://www.w3.org/2001/XMLSchema#string

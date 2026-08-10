@@ -43,6 +43,34 @@ SAMOD (Peroni, 2016) is the iterative methodology used to build the TRIPLE ontol
 - **Self-explanatory IRIs.** Local names readable without `rdfs:label`.
 - **Reuse patterns.** Check `patterns/` first (identifier, date, language, spatial/temporal coverage, person-organization, status).
 
+### One home per term
+
+The same term is declared in many iterations — `triple:Document` in fifteen of them, the identifier
+schemes in nine — because every iteration must run its own three tests on `TBOX.ttl + ABOX.ttl` alone,
+with no imports. That duplication is deliberate and stays. What must **not** be duplicated is the
+*annotation*, because `merge_iterations.py` unions the iterations and two different `rdfs:comment` on
+the same term become two comments in the consolidated model, and the documentation generator renders
+both.
+
+The rule:
+
+- **The annotation of a term — `rdfs:label`, `rdfs:comment` — is written in exactly one iteration:
+  the one that introduces it.** Never re-annotate a term an earlier iteration already documents; if the
+  definition needs to change, change it *there* and leave the other iterations alone.
+- Every other iteration that uses the term declares **only what its own tests need**: the type, and the
+  local axioms it introduces (a restriction on its own class, a `rdfs:range` on a property it mints).
+  A bare `foaf:Person rdf:type owl:Class .` is the normal, correct form.
+- **Never assert `rdfs:domain`, `rdfs:range` or `rdfs:subPropertyOf` on a term outside the `triple:`
+  namespace.** Those are global statements about somebody else's property: `schema:knowsAbout` was given
+  `rdfs:range skos:Concept`, which contradicts Schema.org's own `rangeIncludes Text, Thing, URL` and typed
+  every value of that property, everywhere, as a SKOS concept. Constrain the value **per class**, with an
+  `owl:allValuesFrom` restriction, or — better, when it must actually be checked — in `shapes/`.
+- Vocabulary individuals an ABox uses (disciplines, project types, identifier schemes) **must be declared
+  in that iteration's own TBox or ABox**, with their label, or the iteration's competency questions
+  return nothing: the vocabulary files are not part of the iteration graph.
+
+`scripts/check_model.py` enforces the first three; run it after every merge.
+
 ### The three tests (run at the end of Phase 1, then again in Phases 2 and 3)
 
 | Test       | Formal requirement                          | Rhetorical requirement                      |
@@ -106,7 +134,14 @@ Goal: integrate modelet_N into the current consolidated model and keep the whole
    ```
    The default path is legacy (`triple-ontology.ttl`) — always pass `--output` explicitly.
 4. Re-run **formal** tests (model / data / query) on every T_i in `development/`. If any T_i fails because entity names changed, refactor that T_i's ABox / SPARQL to the new names (Phase 2 *allows* changing older test cases; Phase 1 does not).
-5. If per-module serializations in `ontology/modules/serializations/` are maintained by hand for the new module, update them too.
+5. Regenerate the per-module serializations and check the invariants:
+   ```bash
+   python scripts/check_model.py      # one comment per term, triple: terms documented, no range on foreign properties
+   python scripts/build_modules.py    # ontology/modules/serializations/*.ttl are generated, never hand-edited
+   ```
+   A module's only hand-written part is its sidecar `ontology/modules/serializations/<M>.metadata.ttl`:
+   the module's own title/description/abstract, plus the terms it must carry that are not reachable
+   from the class through the model and the shapes.
 6. Commit: `samod(NN): phase 2 — merge into consolidated model`.
 
 ## 5. Phase 3 — Refactor
