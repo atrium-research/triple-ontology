@@ -6,7 +6,7 @@
 CQ_5.1
 
 ### Question
-Return the documents inside `cluster_45`.
+Return all records of the same scholarly work as `document_7`.
 
 ### Expected Outcome
 A list of documents.

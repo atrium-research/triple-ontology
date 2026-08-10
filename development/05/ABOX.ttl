@@ -13,8 +13,8 @@
 #    Object Properties
 #################################################################
 
-###  https://gotriple.eu/ontology/triple/inCluster
-triple:inCluster rdf:type owl:ObjectProperty .
+###  https://gotriple.eu/ontology/triple/isDuplicateOf
+triple:isDuplicateOf rdf:type owl:ObjectProperty .
 
 
 #################################################################
@@ -57,46 +57,25 @@ triple:Document rdf:type owl:Class ;
                                 foaf:Document .
 
 
-###  https://gotriple.eu/ontology/triple/Cluster
-triple:Cluster rdf:type owl:Class ;
-               rdfs:label "Cluster"@en ;
-               rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en .
-
-
 #################################################################
 #    Individuals
 #################################################################
 
 ###  Example 1: Two documents in the same cluster (deduplication)
 
-###  https://gotriple.eu/ontology/triple/cluster_45
-triple:cluster_45 rdf:type owl:NamedIndividual ,
-                           triple:Cluster ;
-                  datacite:hasIdentifier triple:identifier_45 ;
-                  rdfs:comment "Cluster grouping duplicate documents document_7 and document_89"@en .
-
-
-###  https://gotriple.eu/ontology/triple/identifier_45
-triple:identifier_45 rdf:type owl:NamedIndividual ,
-                              datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:internal_id_schema ;
-                     litre:hasLiteralValue "TRIPLE_CLUSTER_045" .
-
-
 ###  https://gotriple.eu/ontology/triple/document_7
 triple:document_7 rdf:type owl:NamedIndividual ,
                            triple:Document ;
                    datacite:hasIdentifier triple:id_document_7 , triple:pid_document_7 , triple:orig_document_7 ;
-                  triple:inCluster triple:cluster_45 ;
-                  rdfs:comment "First instance of the same document (from one source)"@en .
+                  rdfs:comment "First instance of the same document (from one source): elected representative, no dedup assertion."@en .
 
 
 ###  https://gotriple.eu/ontology/triple/document_89
 triple:document_89 rdf:type owl:NamedIndividual ,
                             triple:Document ;
                    datacite:hasIdentifier triple:id_document_89 , triple:pid_document_89 , triple:orig_document_89 ;
-                   triple:inCluster triple:cluster_45 ;
-                   rdfs:comment "Second instance of the same document (from another source)"@en .
+                   triple:isDuplicateOf triple:document_7 ;
+                   rdfs:comment "Second instance of the same document (from another source): duplicate pointing at the representative."@en .
 
 
 ###  Example 2: Document with discarded author

@@ -3,10 +3,9 @@
 | Term                        | Definition                                                                                                                                                   |
 |-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `triple:Document`           | A document in the GoTriple platform: scholarly publications, research datasets and other SSH research artefacts. Subclass of `schema:CreativeWork` and `foaf:Document`. |
-| `triple:Cluster`            | A group of documents coming from different sources that represent the same scholarly work, used for deduplication. A cluster is computed by GoTriple, so it carries only its internal identifier. |
-| `triple:inCluster`          | Associates a document with the cluster it belongs to. A document belongs to exactly one cluster.                                                              |
+| `triple:isDuplicateOf`      | Links a duplicate record to the representative record of the same scholarly work (defined in iteration 20).                                                  |
 | `triple:isDiscarded`        | Boolean flag stating whether an author or a keyword has been marked as discarded and must not be used for search and filtering.                               |
-| `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform, the only identifier a cluster carries.                                        |
+| `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform.                                        |
 | `triple:original_id_schema` | Identifier scheme of the identifier a document carried in the system it was harvested from.                                                                  |
 | `datacite:ark`              | Identifier scheme of the persistent identifier minted by GoTriple: an ARK.                                                                                   |
 | `datacite:Identifier`       | An identifier of an entity, from the DataCite ontology. It carries exactly one scheme and one literal value.                                                  |

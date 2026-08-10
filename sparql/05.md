@@ -2,13 +2,15 @@
 
 ## CQ_5.1
 
-Return the documents inside `cluster_45`.
+Return all records of the same scholarly work as `document_7`.
 
 ```
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?documents WHERE {
-	?documents triple:inCluster triple:cluster_45 .
+  { ?documents triple:isDuplicateOf triple:document_7 }
+  UNION
+  { BIND(triple:document_7 AS ?documents) }
 }
 ```
 

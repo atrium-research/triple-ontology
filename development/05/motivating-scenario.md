@@ -10,10 +10,11 @@ One of the most frequent problems when harvesting and ingesting data from third-
 the duplication of documents. Indeed, the external sources taken by the GoTriple platform to aggregate 
 resources may contain overlapping data. One difficulty is recognising when two documents 
 from different external sources are the same document. In the event that two or more similar documents 
-are found to be the same, the concept of a cluster has been defined in GoTriple. 
-The cluster is trivially a set of documents, to which an identifier corresponds, 
-within which it is possible to retrieve documents with different identifiers but 
-which can be traced back to the same document.
+are found to be the same, GoTriple elects one of them as the representative record, 
+whose consolidated values are surfaced to users. Deduplication is recorded as a single 
+directed link: each duplicate record points at the representative with 
+`triple:isDuplicateOf` (defined in iteration 20, which replaced the `triple:Cluster` 
+node of the original version of this iteration).
 
 Another problem in GoTriple, again attributable to the number and diversity of external sources used, 
 is the unusability of certain data. In particular, we refer to two entities: keywords and author. 
@@ -29,7 +30,7 @@ In this way, the data is preserved, but not made operational on the interface wi
 
 ## Example 1
 
-`document_7` and `document_89` are the same document. For this reason both belong to a single cluster `cluster_45`
+`document_7` and `document_89` are the same document. `document_7` is the representative; `document_89` points at it with `triple:isDuplicateOf`
 
 ## Example 2
 
