@@ -12,15 +12,15 @@ What are all the metadata properties and values associated with a specific proje
 A complete list of all metadata for the project including identifiers, temporal information, names, descriptions, topics, keywords, and funding.
 
 ### Result
-* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "discovery platform" → `triple:grant_1`
-* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "semantic web" → `triple:grant_1`
-* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "SSH research" → `triple:grant_1`
-* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "discovery platform" → `triple:grant_1`
-* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "semantic web" → `triple:grant_1`
-* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "SSH research" → `triple:grant_1`
-* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "discovery platform" → `triple:grant_1`
-* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "semantic web" → `triple:grant_1`
-* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "SSH research" → `triple:grant_1`
+* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "discovery platform" → `triple:grant_1`
+* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "semantic web" → `triple:grant_1`
+* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "SSH research" → `triple:grant_1`
+* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "discovery platform" → `triple:grant_1`
+* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "semantic web" → `triple:grant_1`
+* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "SSH research" → `triple:grant_1`
+* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "discovery platform" → `triple:grant_1`
+* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "semantic web" → `triple:grant_1`
+* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "SSH research" → `triple:grant_1`
 
 ### Based on
 Example 1
@@ -73,13 +73,13 @@ Example 3
 CQ_7.4
 
 ### Question
-What projects are associated with a specific discipline or topic (e.g., Digital Humanities)?
+What projects are classified under a given discipline (e.g. Methods and Statistics)?
 
 ### Expected Outcome
 A list of projects whose subject matter includes the specified discipline.
 
 ### Result
-For topic "Digital Humanities":
+For the discipline "Methods and Statistics":
 * `project_1` (TRIPLE)
 * `project_3` (BALKAN-HERITAGE)
 

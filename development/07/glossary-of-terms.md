@@ -23,7 +23,8 @@
 | `description`             | A description or abstract of the project (multilingual). Represented as `schema:description` with range `rdf:langString`.                                                                                                      |
 | `alternate name`          | An alias for the project, typically the project acronym (multilingual). Represented as `schema:alternateName` with range `rdf:langString`.                                                                                     |
 | `organizer`               | The organization who organizes the event or project. Represented as `schema:organizer` with range `schema:Organization`.                                                                                                       |
-| `knows about`             | A topic that is known about, suggesting areas of expertise. Represented as `schema:knowsAbout` with range `skos:Concept`.                                                                                                      |
+| `schema:about` | The subject matter of the content, from Schema.org. On a project it carries the concepts of the TRIPLE thesaurus (SSH-LCSH) detected by the enrichment pipeline. |
+| `sioc:topic` | The discipline a project is classified under, from the GoTriple SSH taxonomy. Sub-property of `dcterms:subject`. |
 | `main entity of page`     | Indicates a page/URL for which this project is the main entity. Represented as `schema:mainEntityOfPage` with range `schema:URL`.                                                                                              |
 | `in language`             | The language of the content. Represented as `schema:inLanguage` with range `schema:Language`.                                                                                                                                  |
 | `date created`            | The creation date of the project record. Represented as `schema:dateCreated` with range `xsd:date`.                                                                                                                            |
@@ -34,3 +35,4 @@
 | `triple:hasProjectType`      | Property linking a project to its type, subProperty of dcterms:type.                                                                                |
 | `datacite:ark` | Identifier scheme of the persistent identifier minted by GoTriple: an ARK. |
 | `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform. |
+| `triple:Discipline` | An academic discipline of the GoTriple SSH classification, subclass of `skos:Concept`. The values of `sioc:topic` come from the Discipline controlled vocabulary. |

@@ -1,4 +1,5 @@
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -15,7 +16,14 @@
 ###  https://schema.org/about
 schema:about rdf:type owl:ObjectProperty ;
              rdfs:label "schema:about"@en ;
-             rdfs:comment "The subject matter of the content."@en .
+             rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .
+
+
+###  http://rdfs.org/sioc/ns#topic
+sioc:topic rdf:type owl:ObjectProperty ;
+           rdfs:subPropertyOf dcterms:subject ;
+           rdfs:label "sioc:topic"@en ;
+           rdfs:comment "The discipline a resource is classified under, from the GoTriple 27-discipline SSH taxonomy (triple:Discipline). Distinct from schema:about, which carries the concepts of the TRIPLE thesaurus."@en .
 
 
 ###  https://schema.org/funder
@@ -27,13 +35,13 @@ schema:funder rdf:type owl:ObjectProperty ;
 ###  https://schema.org/funding
 schema:funding rdf:type owl:ObjectProperty ;
                rdfs:label "schema:funding"@en ;
-               rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en .
+               rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en .
 
 
 ###  https://schema.org/keywords
 schema:keywords rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:keywords"@en ;
-                rdfs:comment "Keywords or tags used to describe this content"@en .
+                rdfs:comment "Keywords or tags used to describe this content. In GoTriple these are the producer's own keywords, free text with no URI; the concepts detected by the enrichment pipeline are carried by schema:about instead."@en .
 
 
 ###  https://schema.org/sponsor
@@ -49,11 +57,6 @@ schema:organizer rdf:type owl:ObjectProperty ;
                  rdfs:range schema:Organization .
 
 
-###  https://schema.org/knowsAbout
-schema:knowsAbout rdf:type owl:ObjectProperty ;
-                  rdfs:label "schema:knowsAbout"@en ;
-                  rdfs:comment "Of a Person, and less typically of an Organization, to indicate a topic that is known about - suggested for areas of expertise."@en ;
-                  rdfs:range skos:Concept .
 
 
 
@@ -84,7 +87,7 @@ schema:dateCreated rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:dateModified"@en ;
-                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en ;
+                    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en ;
                     rdfs:range xsd:date .
 
 ###  https://schema.org/alternateName
@@ -97,7 +100,7 @@ schema:alternateName rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/description
 schema:description rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:description"@en ;
-                   rdfs:comment "A description of the item"@en ;
+                   rdfs:comment "A description of the item. Used in GoTriple for the self-description of a profile."@en ;
                    rdfs:range rdf:langString .
 
 
@@ -131,7 +134,7 @@ schema:Language rdf:type owl:Class ;
 ###  https://schema.org/DefinedTerm
 schema:DefinedTerm rdf:type owl:Class ;
                    rdfs:label "schema:DefinedTerm"@en ;
-                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition"@en .
+                   rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition. In GoTriple it types the producer's own keywords, which are free text and carry no URI."@en .
 
 
 
@@ -149,7 +152,7 @@ triple:ProjectType rdf:type owl:Class ;
 ###  https://schema.org/Grant
 schema:Grant rdf:type owl:Class ;
              rdfs:label "schema:Grant"@en ;
-             rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en ;
+             rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en ;
 
              # Optional funder (0 or more)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
@@ -211,7 +214,13 @@ triple:Project rdf:type owl:Class ;
                                  owl:allValuesFrom schema:Grant
                                ] ;
 
-               # Optional topic/discipline (0 or more)
+               # Optional discipline (0 or more)
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty sioc:topic ;
+                                 owl:allValuesFrom triple:Discipline
+                               ] ;
+
+               # Optional TRIPLE thesaurus concepts (0 or more)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:about ;
                                  owl:allValuesFrom skos:Concept
@@ -239,12 +248,6 @@ triple:Project rdf:type owl:Class ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty schema:organizer ;
                                  owl:allValuesFrom schema:Organization
-                               ] ;
-
-               # Optional knowsAbout (0 or more)
-               rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty schema:knowsAbout ;
-                                 owl:allValuesFrom skos:Concept
                                ] ;
 
                # Optional mainEntityOfPage (0 or more)
@@ -308,3 +311,10 @@ triple:internal_id_schema rdf:type owl:NamedIndividual ,
                                    datacite:IdentifierScheme ;
                           rdfs:label "TRIPLE Internal ID"@en ;
                           rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
+
+
+###  https://gotriple.eu/ontology/triple/Discipline
+triple:Discipline rdf:type owl:Class ;
+                  rdfs:subClassOf skos:Concept ;
+                  rdfs:label "Discipline"@en ;
+                  rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en .

@@ -51,7 +51,8 @@ Projects in GoTriple are modeled as instances of `triple:Project` (subclass of s
 - `schema:alternateName`: Project acronym or alternative names
 - `schema:description`: Project abstract/description (multilingual)
 - `schema:organizer`: Managing organization of the project (`schema:Organization`)
-- `schema:knowsAbout`: Areas of expertise (`skos:Concept`)
+- `schema:about`: concepts of the TRIPLE thesaurus (SSH-LCSH) detected in the project description (`skos:Concept`)
+- `sioc:topic`: the discipline the project is classified under (`skos:Concept`)
 - `schema:mainEntityOfPage`: Main web page of the project (`schema:URL`)
 - `schema:inLanguage`: Language of the project content (`schema:Language`)
 - `schema:dateCreated`: Creation date of the record (`xsd:date`)
@@ -75,7 +76,7 @@ The TRIPLE project ("Transforming Research through Innovative Practices for Link
 - Main Entity of Page: https://triple.eu/projects/1
 - Date Created: 2018-12-01
 - Date Modified: 2023-01-15
-- Topic: Digital Humanities (discipline)
+- Discipline: Methods and Statistics (`disc:methods_and_statistics`)
 - Project Type: Funded (`prtype:funded`)
 - Keywords: discovery platform, semantic web, SSH research
 - Name: Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration
@@ -98,7 +99,7 @@ A 2-year research project (2020-2022) on contemporary migration patterns in Sout
 - Language: it
 - Main Entity of Page: https://miguris.project.it
 - Date Created: 2020-02-01
-- Topic: Sociology, Migration Studies (disciplines)
+- Disciplines: Sociology (`disc:sociology`), Demography (`disc:demography`)
 - Project Type: Funded (`prtype:funded`)
 - Keywords: migration, integration, urban studies, Southern Europe
 - Name: Socio-Economic Integration of Migrants in Italian Urban Contexts
@@ -120,7 +121,7 @@ A digital humanities project (2021-2024) focused on documenting endangered cultu
 - Sponsors: Austrian Science Fund (FWF), The Getty Foundation
 - Language: en
 - Date Modified: 2021-12-01
-- Topics: Cultural Heritage, Digital Humanities, History (disciplines)
+- Disciplines: Cultural Heritage and Museology (`disc:cultural_heritage_and_museology`), Methods and Statistics (`disc:methods_and_statistics`), History (`disc:history`)
 - Keywords: heritage documentation, Balkans, digital preservation, cultural memory
 - Name: Digital Documentation of Endangered Cultural Heritage in the Balkans
 - Alternate name: BALKAN-HERITAGE
@@ -141,7 +142,7 @@ A 5-year individual research project (2022-2027) examining the concept of justic
 - Sponsor: European Research Council (ERC)
 - Language: en
 - Main Entity of Page: https://erc.europa.eu/projects/hellenistic
-- Topics: Philosophy, Ancient History (disciplines)
+- Disciplines: Philosophy (`disc:philosophy`), Classical Studies (`disc:classical_studies`)
 - Keywords: Hellenistic philosophy, justice, ancient ethics, Stoicism
 - Name: Conceptions of Justice in Hellenistic Philosophy
 - Alternate name: HELLENISTIC-JUSTICE
