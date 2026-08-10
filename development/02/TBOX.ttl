@@ -135,3 +135,39 @@ triple:ContentType rdf:type owl:Class ;
 #################################################################
 #    Individuals
 #################################################################
+
+
+###  http://purl.org/dc/terms/LicenseDocument
+dcterms:LicenseDocument rdf:type owl:Class ;
+                        rdfs:label "dcterms:LicenseDocument"@en ;
+                        rdfs:comment "A legal document giving official permission to do something with a resource (DCMI Metadata Terms). Superclass of triple:License."@en .
+
+
+###  http://purl.org/dc/terms/RightsStatement
+dcterms:RightsStatement rdf:type owl:Class ;
+                        rdfs:label "dcterms:RightsStatement"@en ;
+                        rdfs:comment "A statement about the intellectual property rights held in or over a resource (DCMI Metadata Terms). Superclass of triple:AccessCondition."@en .
+
+
+###  http://purl.org/dc/terms/accessRights
+dcterms:accessRights rdf:type owl:ObjectProperty ;
+                     rdfs:label "dcterms:accessRights"@en ;
+                     rdfs:comment "Information about who access the resource or an indication of its security status (DCMI Metadata Terms). Super-property of triple:hasAccessCondition."@en .
+
+
+###  http://purl.org/dc/terms/license
+dcterms:license rdf:type owl:ObjectProperty ;
+                rdfs:label "dcterms:license"@en ;
+                rdfs:comment "A legal document giving official permission to do something with the resource (DCMI Metadata Terms). Super-property of triple:hasLicense."@en .
+
+
+###  http://purl.org/dc/terms/subject
+dcterms:subject rdf:type owl:ObjectProperty ;
+                rdfs:label "dcterms:subject"@en ;
+                rdfs:comment "A topic of the resource (DCMI Metadata Terms). Super-property of sioc:topic and dcat:theme."@en .
+
+
+###  http://purl.org/dc/terms/type
+dcterms:type rdf:type owl:ObjectProperty ;
+             rdfs:label "dcterms:type"@en ;
+             rdfs:comment "The nature or genre of the resource (DCMI Metadata Terms). Super-property of triple:hasContentType and triple:hasProjectType."@en .

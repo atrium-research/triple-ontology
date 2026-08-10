@@ -465,3 +465,27 @@ triple:original_id_schema rdf:type owl:NamedIndividual ,
 skos:Concept rdf:type owl:Class ;
              rdfs:label "skos:Concept"@en ;
              rdfs:comment "A concept of a knowledge organization system, from SKOS. Values of schema:about are the concepts of the TRIPLE Vocabulary (SSH-LCSH), maintained by the TRIPLE consortium and published on semantics.gr."@en .
+
+
+###  http://www.w3.org/ns/dcat#Dataset
+dcat:Dataset rdf:type owl:Class ;
+             rdfs:label "dcat:Dataset"@en ;
+             rdfs:comment "A collection of data, published or curated by a single agent, and available for access or download in one or more representations (DCAT). Superclass of triple:Dataset."@en .
+
+
+###  http://www.w3.org/ns/dcat#Distribution
+dcat:Distribution rdf:type owl:Class ;
+                  rdfs:label "dcat:Distribution"@en ;
+                  rdfs:comment "A specific representation of a dataset: a downloadable file, an API or a feed (DCAT)."@en .
+
+
+###  http://www.w3.org/ns/dcat#distribution
+dcat:distribution rdf:type owl:ObjectProperty ;
+                  rdfs:label "dcat:distribution"@en ;
+                  rdfs:comment "An available distribution of the dataset (DCAT)."@en .
+
+
+###  https://schema.org/Dataset
+schema:Dataset rdf:type owl:Class ;
+               rdfs:label "schema:Dataset"@en ;
+               rdfs:comment "A body of structured information describing some topic of one or more collections of data (Schema.org)."@en .
