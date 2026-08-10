@@ -1,0 +1,130 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix ct: <https://gotriple.eu/ontology/content-type/> .
+@prefix disc: <https://gotriple.eu/ontology/discipline/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix schema: <https://schema.org/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
+
+#################################################################
+#    Individuals — Example 1: the work harvested twice
+#################################################################
+
+###  https://gotriple.eu/ontology/triple/document_it20_rep
+###  The HAL/Isidore record, elected representative: carries the consolidated
+###  values (real metadata of the GoTriple record ----TPqLFewX-3jBN_nY7).
+triple:document_it20_rep rdf:type owl:NamedIndividual ,
+                                  triple:Document ;
+                         datacite:hasIdentifier triple:id_it20_rep ,
+                                                triple:pid_it20_rep ,
+                                                triple:orig_it20_rep ;
+                         schema:headline "De l'esthétique au présent"@fr ;
+                         triple:hasContentType ct:typ_book ;
+                         sioc:topic disc:phil , disc:socio ;
+                         schema:inLanguage "fr" ;
+                         schema:provider triple:provider_it20_hal ;
+                         rdfs:comment "Representative record of the work: no dedup assertion — its role is being the target of isDuplicateOf."@en .
+
+###  https://gotriple.eu/ontology/triple/document_it20_dup
+###  The BASE record of the same work.
+triple:document_it20_dup rdf:type owl:NamedIndividual ,
+                                  triple:Document ;
+                         datacite:hasIdentifier triple:id_it20_dup ,
+                                                triple:pid_it20_dup ,
+                                                triple:orig_it20_dup ;
+                         schema:headline "De l'esthétique au présent"@fr ;
+                         triple:isDuplicateOf triple:document_it20_rep ;
+                         schema:provider triple:provider_it20_base ;
+                         rdfs:comment "Duplicate record: the single directed link is the whole deduplication assertion."@en .
+
+#################################################################
+#    Individuals — Example 2: a singleton record
+#################################################################
+
+###  https://gotriple.eu/ontology/triple/document_it20_single
+triple:document_it20_single rdf:type owl:NamedIndividual ,
+                                     triple:Document ;
+                         datacite:hasIdentifier triple:id_it20_single ,
+                                                triple:pid_it20_single ,
+                                                triple:orig_it20_single ;
+                            schema:headline "Revendication. Obligation de revendiquer, Application, Biens confisqués"@fr ;
+                            schema:provider triple:provider_it20_hal ;
+                            rdfs:comment "Harvested once: no dedup link in either direction."@en .
+
+#################################################################
+#    Individuals — providers
+#################################################################
+
+###  https://gotriple.eu/ontology/triple/provider_it20_hal
+triple:provider_it20_hal rdf:type owl:NamedIndividual ,
+                                  foaf:Organization ;
+                         schema:name "HAL" .
+
+###  https://gotriple.eu/ontology/triple/provider_it20_base
+triple:provider_it20_base rdf:type owl:NamedIndividual ,
+                                   foaf:Organization ;
+                          schema:name "BASE" .
+
+#################################################################
+#    Declarations the standalone tests need
+#################################################################
+
+triple:Document rdf:type owl:Class .
+triple:isDuplicateOf rdf:type owl:ObjectProperty .
+triple:hasContentType rdf:type owl:ObjectProperty .
+sioc:topic rdf:type owl:ObjectProperty .
+schema:provider rdf:type owl:ObjectProperty .
+schema:name rdf:type owl:DatatypeProperty .
+schema:headline rdf:type owl:DatatypeProperty .
+schema:inLanguage rdf:type owl:DatatypeProperty .
+foaf:Organization rdf:type owl:Class .
+ct:typ_book rdf:type owl:NamedIndividual .
+disc:phil rdf:type owl:NamedIndividual .
+disc:socio rdf:type owl:NamedIndividual .
+
+###  identifiers of document_it20_rep
+triple:id_it20_rep rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "----TPqLFewX-3jBN_nY7" .
+triple:pid_it20_rep rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-esthetique-1998" .
+triple:orig_it20_rep rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "oai:HAL:halshs-esthetique-1998" .
+
+###  identifiers of document_it20_dup
+triple:id_it20_dup rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "d2c300e259f3fa23274d" .
+triple:pid_it20_dup rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-esthetique-base" .
+triple:orig_it20_dup rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "base-ftunivbourgogne:oai:esthetique" .
+
+###  identifiers of document_it20_single
+triple:id_it20_single rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "---eMAdEpYb0wTy_F4FGA" .
+triple:pid_it20_single rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-revendication" .
+triple:orig_it20_single rdf:type owl:NamedIndividual , datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "oai:HAL:halshs-revendication" .
+
+###  declarations for the identifier pattern
+datacite:Identifier rdf:type owl:Class .
+datacite:hasIdentifier rdf:type owl:ObjectProperty .
+datacite:usesIdentifierScheme rdf:type owl:ObjectProperty .
+litre:hasLiteralValue rdf:type owl:DatatypeProperty .
+triple:internal_id_schema rdf:type owl:NamedIndividual .
+triple:original_id_schema rdf:type owl:NamedIndividual .
+datacite:ark rdf:type owl:NamedIndividual .

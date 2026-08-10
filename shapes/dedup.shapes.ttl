@@ -1,0 +1,29 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix tsh: <https://gotriple.eu/ontology/triple/shapes/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+
+# Deduplication is one directed link: duplicate -> representative (iteration 20).
+# The rules OWL cannot state as checks live here.
+
+tsh:DuplicateShape a sh:NodeShape ;
+    rdfs:label "Duplicate record"@en ;
+    sh:targetSubjectsOf triple:isDuplicateOf ;
+    sh:property [
+        sh:path triple:isDuplicateOf ;
+        sh:maxCount 1 ;
+        sh:nodeKind sh:IRI ;
+        sh:message "A record has at most one representative."@en ;
+    ] ;
+    sh:property [
+        sh:path ( triple:isDuplicateOf triple:isDuplicateOf ) ;
+        sh:maxCount 0 ;
+        sh:message "A representative is never itself a duplicate: chains of isDuplicateOf are ill-formed."@en ;
+    ] ;
+    sh:sparql [
+        sh:message "A record never declares itself as its own representative."@en ;
+        sh:select """
+            PREFIX triple: <https://gotriple.eu/ontology/triple/>
+            SELECT $this WHERE { $this triple:isDuplicateOf $this }
+        """ ;
+    ] .

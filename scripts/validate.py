@@ -34,7 +34,7 @@ def ontology_graph() -> Graph:
 # as vehicles for teaching something else (disciplines, licences, coverage,
 # clustering) and carry deliberately partial instances: validating them against a
 # publication profile would be a category error, so they are out of scope here.
-IDENTIFIER_ITERATIONS = ("01", "04", "05", "06", "07", "08", "10", "11", "12", "19")
+IDENTIFIER_ITERATIONS = ("01", "04", "05", "06", "07", "08", "10", "11", "12", "19", "20")
 
 
 def targets(argv: list[str]) -> list[Path]:
