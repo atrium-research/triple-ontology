@@ -15,6 +15,52 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Documentation: scenarios, glossaries and expected results realigned with the identifier model
+
+**Type**: Documentation
+
+**Iteration**: 01, 02, 05, 06, 07, 08, 10, 11, 12, 19; all module serializations and HTML pages
+
+**Description**:
+A review pass over everything the refactor left behind in prose. The motivating scenarios of iterations 01, 08 and 19 still described a "class-based approach" with "automatic schema inference through OWL restrictions" — none of which exists any more; they now state the single rule (every identifier is a `datacite:Identifier`, the scheme is the kind) and say where mandatoriness lives. Five glossaries listed retired classes instead of schemes. Iteration 05's glossary defined `Keywords` as "a place connected with the spatial topic" and has been rewritten in full, in the `prefix:LocalName` form the other iterations use.
+
+**Scheme individuals that were used but never declared**: iterations 01, 05, 06, 07, 08 and 19 asserted schemes (`datacite:ark`, `datacite:doi`, `datacite:handle`, `datacite:issn`, `triple:internal_id_schema`, `triple:original_id_schema`) that their own TBOX did not declare, so the identifiers were dangling within the iteration and any query joining on a scheme label silently dropped rows. All are now declared with label and comment, and appear in the corresponding glossaries.
+
+**Expected results were stale**, in some cases from long before this release: the query test is only worth running if its oracle is right. Every entity now carries three mandatory identifiers, which multiplies the rows of any query that joins on `datacite:hasIdentifier` — recomputed for iterations 07, 08, 10, 11 and 12. Iteration 10 also referenced individuals under the wrong name throughout (`dataset_001` for `dataset-001`).
+
+**Defects found while checking, and fixed**:
+- Eight competency questions (CQ_12.3–CQ_12.10) had been truncated out of iteration 12's file during the refactor; restored. CQ_12.8 still resolved the scheme through the retired class-pinning pattern (`owl:hasValue` on the identifier class) and is now a plain scheme join.
+- Iteration 05's exemplar data never linked `document_56` to its authors nor `document_67` to its keywords, so CQ_5.2 and CQ_5.3 returned nothing; the informal questions expected individuals (`author_5`, `author_567`) that do not exist. Links added, names aligned.
+- Iteration 07 used `prtype:network` and `prtype:research`, neither of which is a concept of the Project Type vocabulary; all four projects are grant-funded and now carry `prtype:funded`, declared locally as the other iterations declare the vocabulary concepts they use.
+- Iteration 06's formal questions numbered two different queries `CQ_6.4`; the second is now `CQ_6.6` and has its informal counterpart.
+- Iteration 02's CQ_2.10 asked for `owl:imports` that the model has never declared — the vocabularies are separate modules compiled by `scripts/build.py`. It now asks which vocabulary classes the metadata draws its values from.
+- Iteration 11 carried two "original" identifiers per media object, one from the pre-refactor `datacite:local-resource-identifier-scheme` and one added during the conversion, both naming the same source; the redundant three are removed.
+- Headers naming the wrong iteration (05 informal questions, 11 glossary).
+- `scripts/merge_iterations.py` still bound `litre:` to `http://purl.org/spar/literal/` — the one place #47 had missed — so the consolidated model wrote `hasLiteralValue` as a full IRI with no prefix; it also bound `schema:` to the `http` form. Both corrected and the model re-merged.
+- `datacite:local-resource-identifier-scheme` was still declared in five module serializations without a single use, with a comment claiming it carried the profile's internal id; removed.
+- The `samod` skill still taught the retired model in its reference files: the ABOX template minted `a triple:ID`, and the identifier section of `gaps.md` described the three subclasses as current. Both rewritten around schemes and shapes.
+
+**A second review pass, driven by two verification agents, turned up more prose that had never matched the model** — most of it older than this release:
+- Iteration 03's glossary described a reified role/time pattern (`Role`, `Role in time`, `has role in documents`, `is held by`, `Agent`, `Producer`, `Primary Producer`, `Funder`) that has never existed: the model uses direct properties (`schema:author`, `schema:contributor`, `schema:publisher`, `schema:provider`, `triple:aggregator`, `schema:contactPoint`). Glossary rewritten, technical specification rewritten to say what is modelled and to record *why* there is no temporal collocation and no producer/funder role, example aligned to the ABOX, and the informal questions — three of which shared the identifier `CQ_3.1` and named agents that do not exist — rewritten against the real results. `CQ_3.7` became `CQ_3.6` (there was no `CQ_3.6`) and stopped selecting an unbound variable.
+- Iteration 01's technical specification still promised "class-based identifiers", "`owl:someValuesFrom`" cardinality and "automatic schema inference", fifteen lines below the corrected explanation in the same file — and no such OWL restriction exists in the TBOX.
+- Iteration 02's scenario described four hash-namespace vocabulary modules pulled in with `owl:imports`, a mechanism the model has never used.
+- Iteration 04's example named a `temporal_topic_3` that does not exist (temporal coverage is a literal) and the informal questions answered `place_45` for `place_67`.
+- Iteration 05's scenario named the authors of `document_56` `author_5` and `author_567`; the individuals are `person_456` and `person_78`.
+- Iteration 06's glossary had the subsumption backwards, calling `triple:Profile` the superclass of `foaf:Person` and `foaf:Organization` when the axiom says the opposite.
+- Iteration 09's glossary listed `Citation`, `Reference` and `Mention network`, none of which is a term of the model; iterations 12 and 14 were missing rows for terms that are.
+- Iteration 12's glossary defined `schema:encodingFormat` as the representation technique, which is what `adms:representationTechnique` is for.
+- Iteration 15's scenario called the new entity "John Smith" while the data said "New Author Name"; the data now says John Smith.
+- Iteration 18 claimed the off-label `schema:knowsAbout` usage had been migrated everywhere; it had not on `triple:Project` in iteration 07, and the reason it stays is now written down.
+- Informal competency questions systematically answered "all identifiers" with the DOI or the ISSN alone, dropping the mandatory triad the ABOXes now carry: regenerated from the actual query results in iterations 01, 03, 04, 06, 07, 08, 10, 11 and 12. Iteration 10 also referenced every dataset by the wrong IRI (`dataset_001` for `dataset-001`) and was missing the informal counterpart of `CQ_10.14`.
+- Iteration 16's alignment table linked to hash-separated IRIs, the pre-2.1.0 form.
+
+**Comments harmonised**: the same term annotated differently by different iterations produced two to four `rdfs:comment` values in the consolidated model, all of which the documentation generator renders. All identifier-related terms (`triple:Document`, `triple:internal_id_schema`, `triple:original_id_schema`, `datacite:ark`, `doi`, `handle`, `issn`, `hasIdentifier`, `usesIdentifierScheme`) now carry one canonical text across every iteration, and seven duplicates that differed only by a trailing full stop were normalised. The module serializations had drifted from the model on 38 comments — the six `original*` properties in every module that references them, `triple:knowsAbout`, the enrichment properties of `Document.ttl`, `dcat:theme`, `schema:MediaObject`, `schema:DefinedTerm`, `schema:funder` and the two `oa:` motivations — all realigned; `triple:aggregator` and `triple:inCluster` had no comment at all in `Document.ttl`, the module that is meant to document them. Twenty terms of external vocabularies still carry divergent wording between iterations (`schema:author`, `schema:datePublished`, `schema:contributor`, …); that is pre-existing drift and deserves its own pass.
+
+The nine bridge terms documented in the previous entry (`triple:AccessCondition`, `triple:ContentType`, `triple:Discipline`, `triple:License`, `triple:ProjectType` and their four properties) had their comments only in the iteration TBOXes: propagated to all six module serializations and regenerated the eleven HTML pages with the patched pyLODE, plus the `ontology.ttl`/`.rdf`/`.jsonld` data files, which still carried version 2.2.0. Consolidated model re-merged (1695 triples, down from 1716 as the duplicate comment literals collapsed); `sparql/` mirror resynced. 155 competency questions run with 0 errors — 2 return the empty set by design — and the ten in-scope ABOXes still conform to the shapes.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Breaking: identifiers move to pure DataCite, mandatoriness moves to SHACL
 
 **Type**: Refactoring (breaking — release as 3.0.0)
@@ -34,7 +80,7 @@ Three changes that belong together, because each one only makes sense once the o
 
 Also in this release: five identifier schemes that existed only in exemplar data (`h2020`, `erc`, `prin`, `fwf`, `getty`) were removed — the ADR mentions H2020 once, as an example of `funding_type` mapped to `schema:fundingScheme`, not as an identifier scheme; twelve `OriginalIdentifier` instances carried no scheme at all, violating an axiom of the SPAR ontology itself; and two identifiers in iteration 12 were declared twice with different values, violating the single-value axiom inherited from `litre:Literal`.
 
-Consolidated ontology down from 1902 to 1704 triples. 138 competency questions run with 0 errors; all ten in-scope ABOXes conform to the shapes.
+Consolidated ontology down from 1902 to 1704 triples. 155 competency questions run with 0 errors; all ten in-scope ABOXes conform to the shapes.
 
 **Author**: Alessandro Bertozzi
 
