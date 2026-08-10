@@ -12,8 +12,7 @@
 
 frapo:isOutputOf a owl:ObjectProperty ;
     rdfs:label "frapo:isOutputOf"@en ;
-    rdfs:comment "Indicates that a research output is the result of a particular project."@en ;
-    rdfs:range triple:Project .
+    rdfs:comment "Indicates that a research output is the result of a particular project."@en .
 
 datacite:ark a datacite:IdentifierScheme,
         owl:NamedIndividual ;
@@ -31,41 +30,6 @@ datacite:usesIdentifierScheme a owl:ObjectProperty ;
     rdfs:comment "Links an identifier to the scheme it belongs to. The scheme is what tells one kind of identifier from another."@en ;
     rdfs:domain datacite:Identifier ;
     rdfs:range datacite:IdentifierScheme .
-
-triple:internal_id_schema a datacite:IdentifierScheme,
-        owl:NamedIndividual ;
-    rdfs:label "TRIPLE Internal ID"@en ;
-    rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
-
-triple:original_id_schema a datacite:IdentifierScheme,
-        owl:NamedIndividual ;
-    rdfs:label "Original Identifier"@en ;
-    rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
-
-schema:funder a owl:ObjectProperty ;
-    rdfs:label "schema:funder"@en ;
-    rdfs:comment "A person or organization that supports something through some kind of financial contribution"@en .
-
-schema:sponsor a owl:ObjectProperty ;
-    rdfs:label "schema:sponsor"@en ;
-    rdfs:comment "A person or organization that supports a thing through a pledge, promise, or financial contribution"@en .
-
-frapo:Grant a owl:Class ;
-    rdfs:label "frapo:Grant"@en ;
-    rdfs:comment "A funding grant."@en .
-
-sioc:topic a owl:ObjectProperty ;
-    rdfs:label "sioc:topic"@en ;
-    rdfs:comment "The discipline a resource is classified under, from the GoTriple 27-discipline SSH taxonomy (triple:Discipline). Distinct from schema:about, which carries the concepts of the TRIPLE thesaurus."@en ;
-    rdfs:subPropertyOf dcterms:subject .
-
-<http://www.cidoc-crm.org/cidoc-crm/E7_Activity> a owl:Class ;
-    rdfs:label "E7 Activity"@en .
-
-triple:Discipline a owl:Class ;
-    rdfs:label "Discipline"@en ;
-    rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
-    rdfs:subClassOf skos:Concept .
 
 triple:Project a owl:Class,
         owl:Ontology ;
@@ -150,6 +114,41 @@ triple:Project a owl:Class,
     skos:exactMatch <https://sshoc.eu/ontology/SHE3_SSH_Project> ;
     schema:creativeWorkStatus "Ontology Module" .
 
+triple:internal_id_schema a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "TRIPLE Internal ID"@en ;
+    rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
+
+triple:original_id_schema a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "Original Identifier"@en ;
+    rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
+
+schema:funder a owl:ObjectProperty ;
+    rdfs:label "schema:funder"@en ;
+    rdfs:comment "A person or organization that supports something through some kind of financial contribution"@en .
+
+schema:sponsor a owl:ObjectProperty ;
+    rdfs:label "schema:sponsor"@en ;
+    rdfs:comment "A person or organization that supports a thing through a pledge, promise, or financial contribution"@en .
+
+frapo:Grant a owl:Class ;
+    rdfs:label "frapo:Grant"@en ;
+    rdfs:comment "A funding grant."@en .
+
+sioc:topic a owl:ObjectProperty ;
+    rdfs:label "sioc:topic"@en ;
+    rdfs:comment "The discipline a resource is classified under, from the GoTriple 27-discipline SSH taxonomy (triple:Discipline). Distinct from schema:about, which carries the concepts of the TRIPLE thesaurus."@en ;
+    rdfs:subPropertyOf dcterms:subject .
+
+<http://www.cidoc-crm.org/cidoc-crm/E7_Activity> a owl:Class ;
+    rdfs:label "E7 Activity"@en .
+
+triple:Discipline a owl:Class ;
+    rdfs:label "Discipline"@en ;
+    rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
+    rdfs:subClassOf skos:Concept .
+
 triple:hasProjectType a owl:ObjectProperty ;
     rdfs:label "has project type"@en ;
     rdfs:comment "Links a project to its project type."@en ;
@@ -164,9 +163,21 @@ schema:Grant a owl:Class ;
     rdfs:label "schema:Grant"@en ;
     rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en .
 
+schema:Language a owl:Class ;
+    rdfs:label "schema:Language"@en ;
+    rdfs:comment "Natural language such as Spanish, Tamil, or English."@en .
+
+schema:Organization a owl:Class ;
+    rdfs:label "schema:Organization"@en .
+
 schema:Project a owl:Class ;
     rdfs:label "schema:Project"@en ;
     rdfs:comment "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim."@en .
+
+schema:URL a rdfs:Datatype,
+        owl:Class ;
+    rdfs:label "schema:URL"@en ;
+    rdfs:comment "Data type: URL."@en .
 
 schema:about a owl:ObjectProperty ;
     rdfs:label "schema:about"@en ;
@@ -174,8 +185,7 @@ schema:about a owl:ObjectProperty ;
 
 schema:alternateName a owl:DatatypeProperty ;
     rdfs:label "schema:alternateName"@en ;
-    rdfs:comment "An alias for the item"@en ;
-    rdfs:range rdf:langString .
+    rdfs:comment "An alias for the item"@en .
 
 schema:contactPoint a owl:ObjectProperty ;
     rdfs:label "schema:contactPoint"@en ;
@@ -184,8 +194,7 @@ schema:contactPoint a owl:ObjectProperty ;
 
 schema:description a owl:DatatypeProperty ;
     rdfs:label "schema:description"@en ;
-    rdfs:comment "A description of the item. Used in GoTriple for the self-description of a profile."@en ;
-    rdfs:range rdf:langString .
+    rdfs:comment "A description of the item. Used in GoTriple for the self-description of a profile."@en .
 
 schema:funding a owl:ObjectProperty ;
     rdfs:label "schema:funding"@en ;
@@ -193,8 +202,7 @@ schema:funding a owl:ObjectProperty ;
 
 schema:inLanguage a owl:ObjectProperty ;
     rdfs:label "schema:inLanguage"@en ;
-    rdfs:comment "The language of the content or performance or used in an action."@en ;
-    rdfs:range schema:Language .
+    rdfs:comment "The language of the content or performance or used in an action."@en .
 
 schema:keywords a owl:ObjectProperty ;
     rdfs:label "schema:keywords",
@@ -203,20 +211,17 @@ schema:keywords a owl:ObjectProperty ;
 
 schema:mainEntityOfPage a owl:DatatypeProperty ;
     rdfs:label "schema:mainEntityOfPage"@en ;
-    rdfs:comment "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."@en ;
-    rdfs:range schema:URL .
+    rdfs:comment "Indicates a page (or other CreativeWork) for which this thing is the main entity being described."@en .
 
 schema:name a owl:DatatypeProperty ;
     rdfs:label "schema:name",
         "name"@en,
         "schema:name"@en ;
-    rdfs:comment "The name of the item."@en ;
-    rdfs:range xsd:string .
+    rdfs:comment "The name of the item."@en .
 
 schema:organizer a owl:ObjectProperty ;
     rdfs:label "schema:organizer"@en ;
-    rdfs:comment "The organization who organizes the event or project."@en ;
-    rdfs:range schema:Organization .
+    rdfs:comment "The organization who organizes the event or project."@en .
 
 <https://sshoc.eu/ontology/SHE3_SSH_Project> a owl:Class ;
     rdfs:label "SHE3 SSH Project"@en .
@@ -231,39 +236,23 @@ schema:ContactPoint a owl:Class ;
         "schema:ContactPoint"@en ;
     rdfs:comment "A contact point for a person or organization."@en .
 
-schema:Language a owl:Class ;
-    rdfs:label "schema:Language"@en ;
-    rdfs:comment "Natural language such as Spanish, Tamil, or English."@en .
-
-schema:Organization a owl:Class ;
-    rdfs:label "schema:Organization"@en .
-
-schema:URL a rdfs:Datatype,
-        owl:Class ;
-    rdfs:label "schema:URL"@en ;
-    rdfs:comment "Data type: URL."@en .
-
 schema:dateCreated a owl:DatatypeProperty ;
     rdfs:label "schema:dateCreated",
         "schema:dateCreated"@en ;
-    rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
-    rdfs:range xsd:date .
+    rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en .
 
 schema:dateModified a owl:DatatypeProperty ;
     rdfs:label "schema:dateModified",
         "schema:dateModified"@en ;
-    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en ;
-    rdfs:range xsd:date .
+    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en .
 
 schema:endDate a owl:DatatypeProperty ;
     rdfs:label "schema:endDate"@en ;
-    rdfs:comment "The end date and time of the item"@en ;
-    rdfs:range xsd:date .
+    rdfs:comment "The end date and time of the item"@en .
 
 schema:startDate a owl:DatatypeProperty ;
     rdfs:label "schema:startDate"@en ;
-    rdfs:comment "The start date and time of the item"@en ;
-    rdfs:range xsd:date .
+    rdfs:comment "The start date and time of the item"@en .
 
 skos:Concept a owl:Class ;
     rdfs:label "Concept"@en,

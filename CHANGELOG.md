@@ -15,6 +15,24 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Fix: stop narrowing other people's properties
+
+**Type**: Refactoring
+
+**Iteration**: 01, 03, 04, 06, 07, 10, 11, 12, 14; all entity modules
+
+**Description**:
+`scripts/check_model.py` was introduced with 39 pre-existing violations of its own third rule — never assert `rdfs:domain`, `rdfs:range` or `rdfs:subPropertyOf` on a term outside the `triple:` namespace — parked in a baseline file, because telling a harmless restatement of the source vocabulary from a real narrowing needs the source vocabularies. So they were fetched: schema.org, DCMI Terms, DCAT, ADMS, SIOC, OA, DataCite, the literal reification ontology and FRAPO, and every one of the 39 was compared against what its own vocabulary declares.
+
+**Twenty-eight were narrowings and are gone.** Schema.org states its ranges as a *disjunction* — `rangeIncludes` — so pinning one value excludes the others: `schema:datePublished rdfs:range xsd:date` cut out DateTime, `schema:temporalCoverage rdfs:range xsd:string` cut out DateTime and URL, `schema:inLanguage rdfs:range schema:Language` cut out Text, `schema:organizer rdfs:range schema:Organization` cut out Person. `litre:hasLiteralValue` was pinned to `xsd:string` where the SPAR ontology says `rdfs:Literal`; `schema:mentions` was given `owl:Thing` where Schema.org says `schema:Thing` — a different IRI; and two axioms were pure invention, `frapo:isOutputOf rdfs:range triple:Project` and `schema:author rdfs:subPropertyOf schema:creator`, neither of which appears in FRAPO or Schema.org. Every one of these properties already carries an `owl:allValuesFrom` restriction on the classes that use it, which is where a value constraint belongs; the only exception was `schema:email`, which now has one on `schema:ContactPoint`.
+
+**Eleven were restatements and stay**, each verified against its source: the three DataCite axioms on `hasIdentifier` and `usesIdentifierScheme`, `oa:motivatedBy`, `adms:representationTechnique`, `dcat:bbox`, `dcat:theme` and `sioc:topic` under `dcterms:subject`, `dcterms:provenance`, and the two Schema.org properties whose `rangeIncludes` holds a single value, `contactPoint` and `spatialCoverage`. Repeating what the source says adds nothing to the world and keeps each iteration readable on its own. The baseline file is now that verified list, not a list of debt.
+
+Consolidated model down from 1698 to 1596 triples. 155 competency questions run with 0 errors; the ten in-scope ABOXes conform to the shapes; the model satisfies its four invariants; modules and documentation regenerated with no broken anchor.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Toolchain: the modules become generated, and the model gets its invariants
 
 **Type**: Refactoring / Documentation
