@@ -59,8 +59,7 @@ schema:keywords rdf:type owl:ObjectProperty ;
 ###  https://schema.org/inLanguage
 schema:inLanguage rdf:type owl:ObjectProperty ;
                   rdfs:label "schema:inLanguage"@en ;
-                  rdfs:comment "The language of the content or performance or used in an action."@en ;
-                  rdfs:range schema:Language .
+                  rdfs:comment "The language of the content or performance or used in an action."@en .
 
 ###  http://purl.org/spar/datacite/hasIdentifier
 datacite:hasIdentifier rdf:type owl:ObjectProperty ;
@@ -78,8 +77,7 @@ datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
 ###  http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue
 litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
                       rdfs:label "litre:hasLiteralValue"@en ;
-                      rdfs:comment "Associates an entity with a literal value representing its textual content."@en ;
-                      rdfs:range xsd:string .
+                      rdfs:comment "Associates an entity with a literal value representing its textual content."@en .
 
 #################################################################
 #    Data Properties
@@ -88,22 +86,17 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/name
 schema:name rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:name"@en ;
-            rdfs:comment "The name of the item."@en ;
-            rdfs:range xsd:string .
+            rdfs:comment "The name of the item."@en .
 
 ###  https://schema.org/headline
 schema:headline rdf:type owl:DatatypeProperty ;
                 rdfs:label "schema:headline"@en ;
-                rdfs:comment "Headline of the article."@en ;
-                rdfs:range [ rdf:type rdfs:Datatype ;
-                             owl:unionOf ( rdf:langString xsd:string ) ] .
+                rdfs:comment "Headline of the article."@en .
 
 ###  https://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
                 rdfs:label "schema:abstract"@en ;
-                rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en ;
-                rdfs:range [ rdf:type rdfs:Datatype ;
-                             owl:unionOf ( rdf:langString xsd:string ) ] .
+                rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en .
 
 ###  https://schema.org/dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
@@ -138,8 +131,7 @@ schema:size rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/temporalCoverage
 schema:temporalCoverage rdf:type owl:DatatypeProperty ;
                         rdfs:label "schema:temporalCoverage"@en ;
-                        rdfs:comment "The temporalCoverage of a CreativeWork indicates the period that the content applies to."@en ;
-                        rdfs:range xsd:string .
+                        rdfs:comment "The temporalCoverage of a CreativeWork indicates the period that the content applies to."@en .
 
 
 
@@ -153,8 +145,7 @@ schema:about rdf:type owl:ObjectProperty ;
 ###  https://schema.org/mentions
 schema:mentions rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:mentions"@en ;
-                rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing."@en ;
-                rdfs:range owl:Thing .
+                rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing."@en .
 
 ###  http://purl.org/dc/terms/isReferencedBy
 dcterms:isReferencedBy rdf:type owl:ObjectProperty ;

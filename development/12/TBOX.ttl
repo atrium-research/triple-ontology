@@ -28,26 +28,22 @@ schema:spatialCoverage rdf:type owl:ObjectProperty ;
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
-              rdfs:comment "The author of this content or rating. The documents a profile is author of (the author_of field) are retrieved as the inverse of this property."@en ;
-              rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+              rdfs:comment "The author of this content or rating. The documents a profile is author of (the author_of field) are retrieved as the inverse of this property."@en .
 
 ###  https://schema.org/contributor
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contributor"@en ;
-                   rdfs:comment "A secondary contributor to the CreativeWork or Event."@en ;
-                   rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+                   rdfs:comment "A secondary contributor to the CreativeWork or Event."@en .
 
 ###  https://schema.org/publisher
 schema:publisher rdf:type owl:ObjectProperty ;
                  rdfs:label "schema:publisher"@en ;
-                 rdfs:comment "The publisher of the creative work."@en ;
-                 rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
+                 rdfs:comment "The publisher of the creative work."@en .
 
 ###  https://schema.org/creativeWorkStatus
 schema:creativeWorkStatus rdf:type owl:DatatypeProperty ;
                          rdfs:label "schema:creativeWorkStatus" ;
-                         rdfs:comment "The status of a creative work in terms of its stage in a lifecycle."@en ;
-                         rdfs:range xsd:string .
+                         rdfs:comment "The status of a creative work in terms of its stage in a lifecycle."@en .
 
 ###  https://schema.org/keywords
 schema:keywords rdf:type owl:ObjectProperty ;
@@ -91,8 +87,7 @@ datacite:usesIdentifierScheme rdf:type owl:ObjectProperty ;
 ###  http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue
 litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
                       rdfs:label "litre:hasLiteralValue"@en ;
-                      rdfs:comment "Associates an entity with a literal value representing its textual content."@en ;
-                      rdfs:range xsd:string .
+                      rdfs:comment "Associates an entity with a literal value representing its textual content."@en .
 
 
 
@@ -104,58 +99,47 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/name
 schema:name rdf:type owl:DatatypeProperty ;
             rdfs:label "schema:name"@en ;
-            rdfs:comment "The name of the item."@en ;
-            rdfs:range xsd:string .
+            rdfs:comment "The name of the item."@en .
 
 ###  https://schema.org/abstract
 schema:abstract rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:abstract" ;
-               rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en ;
-               rdfs:range [ rdf:type rdfs:Datatype ;
-                            owl:unionOf ( rdf:langString xsd:string ) ] .
+               rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en .
 
 ###  https://schema.org/headline
 schema:headline rdf:type owl:DatatypeProperty ;
                rdfs:label "schema:headline" ;
-               rdfs:comment "Headline of the article."@en ;
-               rdfs:range [ rdf:type rdfs:Datatype ;
-                            owl:unionOf ( rdf:langString xsd:string ) ] .
+               rdfs:comment "Headline of the article."@en .
 
 ###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                     rdfs:label "schema:datePublished" ;
-                    rdfs:comment "Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd)."@en ;
-                    rdfs:range xsd:date .
+                    rdfs:comment "Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd)."@en .
 
 ###  https://schema.org/dateModified
 schema:dateModified rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateModified" ;
-                   rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en ;
-                   rdfs:range xsd:date .
+                   rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en .
 
 ###  https://schema.org/dateCreated
 schema:dateCreated rdf:type owl:DatatypeProperty ;
                    rdfs:label "schema:dateCreated" ;
-                   rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
-                   rdfs:range xsd:date .
+                   rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en .
 
 ###  https://schema.org/version
 schema:version rdf:type owl:DatatypeProperty ;
               rdfs:label "schema:version" ;
-              rdfs:comment "The version of the CreativeWork"@en ;
-              rdfs:range xsd:string .
+              rdfs:comment "The version of the CreativeWork"@en .
 
 ###  https://schema.org/fileFormat
 schema:fileFormat rdf:type owl:DatatypeProperty ;
                  rdfs:label "schema:fileFormat" ;
-                 rdfs:comment "Media type, typically MIME format"@en ;
-                 rdfs:range xsd:string .
+                 rdfs:comment "Media type, typically MIME format"@en .
 
 ###  https://schema.org/encodingFormat
 schema:encodingFormat rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:encodingFormat" ;
-                     rdfs:comment "Media type typically expressed using a MIME format."@en ;
-                     rdfs:range xsd:string .
+                     rdfs:comment "Media type typically expressed using a MIME format."@en .
 
 
 

@@ -72,7 +72,8 @@ def foreign_axioms(g: Graph) -> list[str]:
 
 
 def check_no_new_axioms_on_foreign_terms(g: Graph) -> list[str]:
-    """Never constrain a property we do not own; the pre-existing ones are baselined."""
+    """Never narrow a property we do not own. The baseline lists the axioms that
+    only restate what the source vocabulary declares, verified against it."""
     path = Path(__file__).resolve().parent / BASELINE
     known = set()
     if path.exists():
