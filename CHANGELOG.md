@@ -15,6 +15,30 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Vocabularies: counted over the whole corpus, not sampled — typ_audio, and licences stay coarse
+
+**Type**: Modification
+
+**Iteration**: none; `vocabularies/`, ABOXes and competency questions of iterations 02, 10, 11, 12
+
+**Description**:
+The GoTriple API exposes an `aggs` parameter. Every earlier statement in this changelog about what production emits rested on samples of a few thousand documents; the aggregation counts over all **28,336,973**. Three of the four vocabularies were re-checked against it.
+
+**`ct:typ_sound` is renamed to `ct:typ_audio`.** Production emits `typ_audio` for 4,494 documents and `typ_sound` for none. An entry above had concluded the opposite from two documents in a sample, and reasoned that `typ_sound` was right because it aligns to COAR `c_18cc` "Sound" — a claim about the correct name, where the rule this release adopted is that the IRI is the production key. That entry is corrected in place. The COAR alignment, the labels and the definition are unchanged: only the key moves.
+
+**Licence granularity stays coarse, by decision.** The raw provider field carries ten distinct Creative Commons variants — BY-NC-ND 4.0 (82 in a 4,000-document sample), BY-NC-SA 4.0, BY 4.0, BY-SA 4.0, CC0 and others — which the platform collapses into the single `lic:lic_creative-commons`. The vocabulary describes what GoTriple emits, not what providers send, so the blanket concept stands and no specific CC licence is added.
+
+**The consequence is that the exemplar data had to come down to it.** Iterations 02, 10, 11 and 12 minted seven licence individuals of their own — `triple:cc_by_4_0`, `triple:cc_by_nc_nd_4_0`, `triple:cc_by_nc_4_0`, `triple:cc_by_sa_4_0`, `triple:cc0_1_0` — in the term namespace, present neither in the vocabulary nor in production. Their declarations are removed and every reference now points at `lic:lic_creative-commons`.
+
+**Two competency questions asked the fine granularity and were rewritten.** `CQ_2.7` selected documents whose licence carries a `skos:exactMatch` to a `creativecommons.org` URI; `CQ_11.7` filtered licence labels containing the string "CC". Both worked only because the exemplar minted specific licences. The questions they ask — which documents, which multimedia are under Creative Commons — are unchanged; they now match the concept directly. `CQ_2.5` asked which external entity the licence term matches exactly, and no concept in the License vocabulary had any external alignment at all: `lic:lic_creative-commons` now carries `skos:closeMatch` to Wikidata `Q284742` "Creative Commons license", the family of licences, and the question asks for a close match. Close and not exact, by the same rule applied to the disciplines: our label is "Creative Commons" and Wikidata's is "Creative Commons license".
+
+**Full coverage, measured**: License has 9 values in production against 13 concepts (`lic_elra`, `lic_meta-share`, `lic_ms-pl`, `lic_ms-rl` never emitted); AccessCondition 9 against 10 (`acr_metadata-only-access` never emitted); ContentType 22 against 23 after the rename (`typ_semantic-artefact` never emitted). None of the six is referenced anywhere in the repository. They are kept rather than removed: the tail is real — `lic_clarin-res` has 3 documents and `lic_clarin-aca` 15 — so "not observed" is not "invalid".
+
+**Still minted in the exemplar data**: seventeen individuals of `triple:AccessCondition`, `triple:ContentType` and `triple:Discipline` in iterations 02, 10, 11 and 12 (`triple:open_access`, `triple:article`, `triple:digital_humanities`, `triple:topic-medieval-history` and others) that exist in no vocabulary. Bringing them down needs a judgement per term — "Digital Humanities" and "social science" are not concepts of the 27-discipline taxonomy, and no access condition corresponds to "Educational and Research Use" — so they are left for a pass of their own.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Vocabularies: exactMatch demoted to closeMatch where it asserted a false identity
 
 **Type**: Modification
@@ -204,7 +228,7 @@ Every value the GoTriple API emits for `conditions_of_access`, `license` and `ad
 
 **`lic_cairn` was missing** — 82 occurrences, from Isidore (59), HAL and Isidore (10) and BASE and Isidore (3), always normalised from an original value of `"Cairn"`. Added as `lic:lic_cairn`: the terms of use of the Cairn.info platform, which are the publisher's own conditions rather than a standard open licence, so no external alignment. With it, `conditions_of_access` and `license` are fully covered: every value in production has a concept.
 
-**`typ_audio` is a normalisation bug, not a missing concept.** Two documents, both from Canal-U, both with `original_document_types: ["Sound"]` — and the vocabulary already has `ct:typ_sound`, identifier `typ_sound`, aligned to COAR `c_18cc` (Sound). Adding `typ_audio` would mint a duplicate of a concept that exists. It belongs in the normalisation pipeline, not here.
+**`typ_audio` was judged a normalisation bug here, and that judgement was wrong** — see the entry of the same date on the corpus-wide aggregation. It rested on two documents in a sample; over all 28,336,973 documents `typ_audio` has 4,494 and `typ_sound` has none. The production key is `typ_audio`.
 
 **Two identifier conventions coexist in production, and this is the one to watch.** For every concept the API emits the concept's *identifier* — `acr_open-access`, `lic_creative-commons`, `typ_article` — except for `other` and `undefined`, where it emits the *local name*, while their identifiers would be `acr_other`, `acr_undefined`, `lic_other`, and so on. It is not rare: across the sample, `other` and `undefined` account for 4,901 and 3,458 values on access conditions, 524 and 9,433 on licences, 2,097 and 68 on types. Any mapping that resolves values by identifier alone will silently drop them. Recorded here because it is a fact about the data that the ontology cannot fix on its own.
 
