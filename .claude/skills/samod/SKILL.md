@@ -73,7 +73,7 @@ SAMOD is silent on tooling — this repo has already decided. Do *not* re-open t
 | Documentation output           | Per-module HTML under `ontology/modules/html/<Module>/`                                         |
 | Ontology metadata              | The exhaustive block (`dcterms:*`, `vann:*`, `schema:citation`, `owl:versionInfo`, `owl:priorVersion`) documented in `CLAUDE.md` → *Ontology Metadata and Serialization Guidelines* |
 | Identifier value carrier       | **`litre:hasLiteralValue`** (from `http://www.essepuntato.it/2010/06/literalreification/`) — *not* `datacite:hasIdentifierValue`. |
-| Identifier typing              | Only three subclasses exist — `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` — because they are the three named in class-level axioms. Every other kind is a plain `datacite:Identifier` told apart by its `datacite:usesIdentifierScheme`. |
+| Identifier typing              | **No identifier subclasses.** Every identifier is a plain `datacite:Identifier` told apart by its `datacite:usesIdentifierScheme`. Adding a new kind of identifier means adding one scheme individual, declared in the consolidated ontology — never a class. |
 | Duplicate-document clustering  | Class **`triple:Cluster`**, property **`triple:inCluster`** (exactly 1 per Document). There is *no* `DocumentCluster` / `belongsToDocumentCluster`. |
 
 ## 3. Phase 1 — Define a new test case
@@ -149,7 +149,7 @@ Detailed validation commands and a parse-loop for running every iteration's SPAR
 - **Wrong merge target.** `merge_iterations.py` with no arguments writes to `triple-ontology.ttl`, *not* the canonical `triple.ttl`. Always pass `--output`.
 - **`schema:` version confusion.** The current ontology declares `@prefix schema: <https://schema.org/>` (HTTPS). Match that exactly when writing ABox.
 - **Stringy fillers for typed properties.** `schema:publisher`, `schema:provider`, `schema:spatialCoverage`, `schema:inLanguage`, `schema:keywords` all have *class* ranges (`foaf:Person`/`Organization`, `schema:Place`, `schema:Language`, `schema:DefinedTerm`). Never use a literal where an instance is required.
-- **Identifier modeling.** Type only the three mandatory kinds (`triple:ID`, `triple:PID`, `triple:OriginalIdentifier`); everything else is `datacite:Identifier` plus an explicit scheme. The value carrier is `litre:hasLiteralValue` — `datacite:hasIdentifierValue` does not exist in the DataCite ontology.
+- **Identifier modeling.** Never mint an identifier subclass: `triple:ID`, `triple:PID`, `triple:OriginalIdentifier`, `triple:DOI` and the others were retired in 3.0.0. Write `[ a datacite:Identifier ; datacite:usesIdentifierScheme <scheme> ; litre:hasLiteralValue "…" ]`, always asserting the scheme. The value carrier is `litre:hasLiteralValue` from `http://www.essepuntato.it/2010/06/literalreification/` — `datacite:hasIdentifierValue` does not exist in the DataCite ontology.
 - **Cluster naming.** `triple:Cluster` + `triple:inCluster`. No `DocumentCluster` / `belongsToDocumentCluster`.
 - **Labels for external references.** Always `prefix:LocalName` — never humanized strings like "Creative Work (Schema.org)".
 

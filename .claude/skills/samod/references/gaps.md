@@ -64,10 +64,11 @@ For each gap we list: **SAMOD says** → **TRIPLE does** → **Why**.
 
 - **SAMOD says:** nothing domain-specific.
 - **TRIPLE does:**
-  - Subclasses of `datacite:Identifier`: only `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` — the three kinds named in class-level axioms. All other kinds are plain `datacite:Identifier` distinguished by their scheme.
-  - Value carrier: `litre:hasLiteralValue` (from `http://www.essepuntato.it/2010/06/literalreification/`).
-  - Scheme named individuals: `datacite:doi`, `datacite:handle`, `datacite:isbn`, `datacite:issn`, `datacite:uri`, `datacite:local-resource-identifier-scheme`, plus project-specific `triple:full_text_url_schema`, `triple:landing_page_url_schema`, `triple:source_url_schema`, `triple:h2020_scheme`.
-- **Why:** GoTriple aggregates heterogeneous sources. Typed subclasses let restrictions on `triple:Document` require *at least one* `triple:ID` and *at least one* `triple:PID`; `litre:hasLiteralValue` is the SPAR-standard carrier.
+  - **No subclasses of `datacite:Identifier`.** Every identifier is a plain `datacite:Identifier`; the `datacite:usesIdentifierScheme` individual is what says which kind it is. Retired in 3.0.0: `triple:ID`, `triple:PID`, `triple:OriginalIdentifier`, `triple:DOI`, `triple:Handle`, `triple:ISBN`, `triple:ISSN`, `triple:URI`.
+  - Value carrier: `litre:hasLiteralValue` (from `http://www.essepuntato.it/2010/06/literalreification/` — **not** `http://purl.org/spar/literal/`, which is only the ontology IRI).
+  - Scheme named individuals: `triple:internal_id_schema` (GoTriple's own id), `datacite:ark` (the PID GoTriple mints), `triple:original_id_schema` (the id in the source system), plus `datacite:doi`, `datacite:handle`, `datacite:isbn`, `datacite:issn`, `datacite:uri`, `datacite:orcid`, `datacite:isni`, `datacite:researcherid`, `triple:idref_schema`, `triple:gotriple_id_schema`, `triple:landing_page_url_schema`, `triple:full_text_url_schema`, `triple:source_url_schema`. An iteration must declare, in its own TBOX, every scheme its ABOX uses.
+  - Which identifiers an entity **must** carry is stated in `shapes/entity.shapes.ttl` and checked with `scripts/validate.py` (pyshacl), never as an OWL restriction: OWL is open-world and would infer the missing identifier instead of reporting it.
+- **Why:** GoTriple aggregates heterogeneous sources, and adding a new kind of identifier must cost one individual, not a class plus a scheme. `litre:hasLiteralValue` is the SPAR-standard carrier.
 
 ## 11. Duplicate-document clusters
 

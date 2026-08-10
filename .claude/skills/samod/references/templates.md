@@ -147,9 +147,15 @@ triple:example_1 a triple:MyClass ;
     rdfs:label "Example 1"@en ;
     triple:myRelation triple:referenced_work_1 ;
     datacite:hasIdentifier [
-        a triple:ID ;
-        datacite:usesIdentifierScheme datacite:local-resource-identifier-scheme ;
-        litre:hasLiteralValue "example_1" ] .
+        a datacite:Identifier ;
+        datacite:usesIdentifierScheme triple:internal_id_schema ;
+        litre:hasLiteralValue "example_1" ] ,
+      [ a datacite:Identifier ;
+        datacite:usesIdentifierScheme datacite:ark ;
+        litre:hasLiteralValue "ark:/12345/example-1" ] ,
+      [ a datacite:Identifier ;
+        datacite:usesIdentifierScheme triple:original_id_schema ;
+        litre:hasLiteralValue "source-system-0001" ] .
 
 triple:referenced_work_1 a schema:CreativeWork ;
     schema:name "Referenced Work 1"@en .
@@ -158,7 +164,9 @@ triple:referenced_work_1 a schema:CreativeWork ;
 Rules:
 - One named individual per MS Example.
 - Every individual typed (`a <Class>`).
-- Identifier values go in `litre:hasLiteralValue`.
+- Identifiers are plain `datacite:Identifier` nodes: never an identifier subclass, always exactly one `datacite:usesIdentifierScheme` and one `litre:hasLiteralValue`.
+- Content entities (Document, Dataset, MediaObject, SemanticArtefact, Project) need all three mandatory identifiers — internal id, ARK PID, source id — or `scripts/validate.py` fails.
+- Declare in the TBOX every scheme individual the ABOX uses.
 - Properties with class ranges (`schema:publisher`, `schema:spatialCoverage`, `schema:keywords`, `schema:inLanguage`, …) take instance URIs, never bare literals.
 
 ---
