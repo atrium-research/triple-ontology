@@ -1,339 +1,333 @@
-@prefix triple: <https://gotriple.eu/ontology/triple/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix schema: <https://schema.org/> .
-@prefix dcat: <http://www.w3.org/ns/dcat#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix sioc: <http://rdfs.org/sioc/ns#> .
-
 #################################################################
 #    Individuals
 #################################################################
-
 ###  Dataset Example 1: Geospatial Research Dataset
-triple:dataset-001 rdf:type triple:Dataset ;
-                   datacite:hasIdentifier triple:identifier-dataset-001 ;
-                   schema:headline "European Archaeological Sites Database"@en ;
-                   schema:abstract "A comprehensive dataset containing archaeological site information across Europe, including spatial coordinates, dating, and cultural attributions."@en ;
-                   schema:author "Jane Smith", "Mario Rossi" ;
-                   schema:contributor "Dr. Anna Fischer" ;
-                   schema:dateCreated "2023-01-15"^^xsd:date ;
-                   dcterms:provenance triple:provenance-heritage-001 ;
-                   schema:datePublished "2023-03-01"^^xsd:date ;
-                   schema:dateModified "2023-05-20"^^xsd:date ;
-                   schema:publisher "European Heritage Institute" ;
-                   schema:provider "ISIDORE" ;
-                   dcat:bbox "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"^^rdfs:Literal ;
-                   schema:keywords triple:keyword-archaeology, triple:keyword-europe, triple:keyword-heritage, triple:keyword-spatial-data ;
-
-                   schema:inLanguage "en" ;
-                   schema:spatialCoverage triple:place-europe ;
-                   schema:temporalCoverage "2000 BCE - 1500 CE" ;
-                   schema:encodingFormat "text/csv", "application/json" ;
-                   schema:size "15.2 MB" ;
-                   datacite:hasIdentifier triple:identifier-heritage-download ,
-                                          triple:identifier-heritage-landing ,
-                                          triple:identifier-heritage-internal ,
-                                          triple:identifier-heritage-pid ,
-                                          triple:identifier-heritage-original ,
-                                          triple:identifier-heritage-doi ,
-                                          triple:identifier-heritage-handle ;
-                   schema:creativeWorkStatus "Published" ;
-                   schema:contactPoint triple:contact-heritage-institute ;
-                   schema:funding triple:project-heritage-mapping ;
-                   sioc:topic triple:topic-archaeology ;
-                   dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
-                   dcat:distribution triple:distribution-heritage-001 ;
-                   triple:hasLicense triple:cc_by_nc_nd_4_0 ;
-                   triple:hasAccessCondition triple:open_access ;
-                   schema:comment "Dataset created through systematic archaeological surveys across 15 European countries with standardized recording protocols."@en .
-
-triple:distribution-heritage-001 rdf:type dcat:Distribution ;
-                                 dcat:accessURL "https://data.heritage.eu/download/sites.csv" .
-
 ###  Dataset Example 2: Social Science Survey Data  
-triple:dataset-002 rdf:type triple:Dataset ;
-                   datacite:hasIdentifier triple:identifier-dataset-002 ;
-                   schema:headline "European Social Attitudes Survey 2023"@en ;
-                   schema:abstract "Annual survey data on social attitudes, political opinions, and demographic information from EU member states."@en ;
-                   schema:author "Social Research Institute" ;
-                   schema:contributor "Prof. Elena Rodriguez", "Dr. Klaus Mueller" ;
-                   schema:dateCreated "2023-06-01"^^xsd:date ;
-                   schema:datePublished "2023-09-15"^^xsd:date ;
-                   schema:dateModified "2023-10-02"^^xsd:date ;
-                   schema:publisher "EU Social Observatory" ;
-                   schema:provider "OpenAIRE" ;
-                   dcat:bbox "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"^^rdfs:Literal ;
-                   schema:keywords triple:keyword-social-attitudes, triple:keyword-survey, triple:keyword-politics, triple:keyword-demographics ;
-
-                   schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85104440> ,
-                                <http://semantics.gr/authorities/SSH-LCSH/sh85124200> ,
-                                <http://semantics.gr/authorities/SSH-LCSH/sh85009407> ;
-                   schema:inLanguage "en", "de", "fr", "it" ;
-                   dcterms:provenance triple:provenance-social-002 ;
-                   schema:spatialCoverage triple:place-european-union ;
-                   schema:temporalCoverage "2023" ;
-                   schema:encodingFormat "application/x-spss", "text/csv" ;
-                   schema:size "245 MB" ;
-                   datacite:hasIdentifier triple:identifier-social-download ,
-                                          triple:identifier-social-landing ,
-                                          triple:identifier-social-internal ,
-                                          triple:identifier-social-pid ,
-                                          triple:identifier-social-original ,
-                                          triple:identifier-social-doi ,
-                                          triple:identifier-social-handle ;
-                   schema:creativeWorkStatus "Published" ;
-                   schema:contactPoint triple:contact-social-observatory ;
-                   schema:funding triple:project-social-cohesion ;
-                   sioc:topic triple:topic-social-science ;
-                   schema:mentions triple:dataset-001 ;
-                   schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
-                   triple:hasLicense triple:cc_by_4_0 ;
-                   triple:hasAccessCondition triple:restricted_access ;
-                   dcterms:isReferencedBy triple:document-social-report-2023 .
-
 ###  Provenance Statements
-triple:provenance-heritage-001 rdf:type dcterms:ProvenanceStatement ;
-                               rdfs:label "Provenance for Heritage Dataset 001"@en ;
-                               rdfs:comment "Data aggregated from 15 national museums and normalized to CIDOC-CRM before conversion to CSV."@en .
-
-triple:provenance-social-002 rdf:type dcterms:ProvenanceStatement ;
-                             rdfs:label "Provenance for Social Dataset 002"@en ;
-                             rdfs:comment "Survey results merged from 27 EU member state polls, anonymized, and weighted for demographic representativeness."@en .
-
 ###  Dataset Identifiers
-
 ###  Heritage Dataset Identifiers
-triple:identifier-heritage-download rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                                    litre:hasLiteralValue "https://data.heritage.eu/datasets/archaeological-sites" .
-
-triple:identifier-heritage-landing rdf:type owl:NamedIndividual ,
-                                            datacite:Identifier ;
-                                   datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                   litre:hasLiteralValue "https://heritage.eu/landing/archaeological-sites" .
-
 ###  Social Dataset Identifiers  
-triple:identifier-social-download rdf:type owl:NamedIndividual ,
-                                           datacite:Identifier ;
-                                  datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                                  litre:hasLiteralValue "https://data.social-eu.org/datasets/attitudes-2023" .
-
-triple:identifier-social-landing rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                 litre:hasLiteralValue "https://social-eu.org/landing/attitudes-survey" .
-
 ###  Heritage Dataset Platform Identifiers
-triple:identifier-heritage-internal rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                             datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                    litre:hasLiteralValue "TRIPLE_DATASET_HERITAGE_001" .
-
-triple:identifier-heritage-pid rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:ark ;
-                               litre:hasLiteralValue "ark:/12345/dataset-heritage-archaeological-sites" .
-
-triple:identifier-heritage-original rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:original_id_schema ;
-                                    litre:hasLiteralValue "heritage_inst_arch_sites_2023" .
-
 ###  Social Dataset Platform Identifiers
-triple:identifier-social-internal rdf:type owl:NamedIndividual ,
-                                           datacite:Identifier ;
-                                           datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                  litre:hasLiteralValue "TRIPLE_DATASET_SOCIAL_002" .
-
-triple:identifier-social-pid rdf:type owl:NamedIndividual ,
-                                      datacite:Identifier ;
-                                      datacite:usesIdentifierScheme datacite:ark ;
-                             litre:hasLiteralValue "ark:/12345/dataset-social-attitudes-survey-2023" .
-
-triple:identifier-social-original rdf:type owl:NamedIndividual ,
-                                           datacite:Identifier ;
-                                  datacite:usesIdentifierScheme triple:original_id_schema ;
-                                  litre:hasLiteralValue "social_obs_attitudes_2023" .
-
 ###  Heritage Dataset Standard Identifiers
-triple:identifier-heritage-doi rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:doi ;
-                               litre:hasLiteralValue "10.5281/zenodo.heritage.arch.2023" .
-
-triple:identifier-heritage-handle rdf:type owl:NamedIndividual ,
-                                           datacite:Identifier ;
-                                           datacite:usesIdentifierScheme datacite:handle ;
-                                  litre:hasLiteralValue "21.11130/00-HERITAGE-ARCH-2023" .
-
 ###  Social Dataset Standard Identifiers
-triple:identifier-social-doi rdf:type owl:NamedIndividual ,
-                                      datacite:Identifier ;
-                                      datacite:usesIdentifierScheme datacite:doi ;
-                             litre:hasLiteralValue "10.5281/zenodo.social.attitudes.2023" .
-
-triple:identifier-social-handle rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                         datacite:usesIdentifierScheme datacite:handle ;
-                                litre:hasLiteralValue "21.11130/00-SOCIAL-ATTITUDES-2023" .
-
 ###  Supporting Individuals
-
 ###  Contact Points
-triple:contact-heritage-institute rdf:type schema:ContactPoint ;
-                                  schema:name "European Heritage Institute Data Team" ;
-                                  schema:email "data@heritage.eu" .
-
-triple:contact-social-observatory rdf:type schema:ContactPoint ;
-                                  schema:name "EU Social Observatory Research Support" ;
-                                  schema:email "support@social-eu.org" .
-
 ###  Projects  
-triple:project-heritage-mapping rdf:type schema:Project ;
-                                schema:name "European Heritage Digital Mapping Initiative" ;
-                                datacite:hasIdentifier triple:identifier-project-001 .
-
-triple:project-social-cohesion rdf:type schema:Project ;
-                               schema:name "Social Cohesion Research Program" ;
-                               datacite:hasIdentifier triple:identifier-project-002 .
-
 ###  Themes (originally assigned by the provider)
-<http://publications.europa.eu/resource/authority/data-theme/SOCI> rdf:type owl:NamedIndividual ,
-                                                                            skos:Concept ;
-                         rdfs:label "Population and society"@en .
-
 ###  Topics
-triple:topic-archaeology rdf:type triple:Discipline ;
-                         skos:prefLabel "Archaeology"@en ;
-                         skos:definition "The study of human activity through the recovery and analysis of material culture."@en .
-
-triple:topic-social-science rdf:type triple:Discipline ;
-                            skos:prefLabel "Social Science"@en ;
-                            skos:definition "Academic disciplines concerned with society and the relationships among individuals within a society."@en .
-
 ###  Keywords (DefinedTerms)
-triple:keyword-archaeology rdf:type schema:DefinedTerm ;
-                          schema:name "archaeology"@en ;
-                          schema:description "The study of human activity through material culture recovery and analysis"@en .
-
-triple:keyword-europe rdf:type schema:DefinedTerm ;
-                      schema:name "Europe"@en ;
-                      schema:description "The European continent and its geographical regions"@en .
-
-triple:keyword-heritage rdf:type schema:DefinedTerm ;
-                        schema:name "heritage"@en ;
-                        schema:description "Cultural and natural heritage of human societies"@en .
-
-triple:keyword-spatial-data rdf:type schema:DefinedTerm ;
-                            schema:name "spatial data"@en ;
-                            schema:description "Data with geographical coordinates and spatial relationships"@en .
-
-triple:keyword-social-attitudes rdf:type schema:DefinedTerm ;
-                                schema:name "social attitudes"@en ;
-                                schema:description "Individual and collective opinions on social issues"@en .
-
-triple:keyword-survey rdf:type schema:DefinedTerm ;
-                      schema:name "survey"@en ;
-                      schema:description "Research methodology using questionnaires to collect data"@en .
-
-triple:keyword-politics rdf:type schema:DefinedTerm ;
-                        schema:name "politics"@en ;
-                        schema:description "Activities related to governance and public affairs"@en .
-
-triple:keyword-demographics rdf:type schema:DefinedTerm ;
-                            schema:name "demographics"@en ;
-                            schema:description "Statistical characteristics of populations"@en .
-
 ###  Places
-triple:place-europe rdf:type schema:Place ;
-                     schema:name "Europe" .
-
-triple:place-european-union rdf:type schema:Place ;
-                            schema:name "European Union" .
-
 ###  Identifier Schemes
-datacite:doi rdf:type datacite:IdentifierScheme ;
-             rdfs:label "datacite:doi" .
-
-datacite:handle rdf:type datacite:IdentifierScheme ;
-                rdfs:label "datacite:handle" .
-
-
 ###  Identifiers
-triple:identifier-dataset-001 rdf:type datacite:Identifier ;
-                              datacite:usesIdentifierScheme datacite:doi ;
-                              litre:hasLiteralValue "10.1234/example.dataset.001" .
-
-triple:identifier-dataset-002 rdf:type datacite:Identifier ;
-                              datacite:usesIdentifierScheme datacite:handle ;
-                              litre:hasLiteralValue "hdl:1234.5/survey2023" .
-
-triple:identifier-project-001 rdf:type datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:internal_id_schema ;
-                              litre:hasLiteralValue "EHDMI-2022-001" .
-
-triple:identifier-project-002 rdf:type datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:internal_id_schema ;
-                              litre:hasLiteralValue "SCRP-2023-045" .
-
 ###  Referenced Document
-triple:document-social-report-2023 rdf:type schema:CreativeWork ;
-                                   schema:headline "European Social Cohesion Report 2023"@en ;
-                                   schema:datePublished "2023-11-15"^^xsd:date .
-
 ###  Licenses
-triple:cc_by_nc_nd_4_0 rdf:type owl:NamedIndividual ,
-                                triple:License ;
-                       rdfs:label "CC BY-NC-ND 4.0"@en ;
-                       rdfs:comment "Creative Commons Attribution-NonCommercial-NoDerivatives 4.0 International License"@en .
-
-triple:cc_by_4_0 rdf:type owl:NamedIndividual ,
-                          triple:License ;
-                 rdfs:label "CC BY 4.0"@en ;
-                 rdfs:comment "Creative Commons Attribution 4.0 International License"@en .
-
 ###  Access Conditions
-triple:open_access rdf:type owl:NamedIndividual ,
-                            triple:AccessCondition ;
-                   rdfs:label "Open Access"@en ;
-                   rdfs:comment "The resource is freely available for access."@en .
-
-triple:restricted_access rdf:type owl:NamedIndividual ,
-                                  triple:AccessCondition ;
-                         rdfs:label "Restricted Access"@en ;
-                         rdfs:comment "Access to the resource is restricted."@en .
-
 ###  Extracted keywords (knows_about)
-
-
 ###  Concepts of the TRIPLE Vocabulary (SSH-LCSH)
 #    http://semantics.gr/authorities/vocabularies/SSH-LCSH — maintained by the TRIPLE consortium,
 #    published on semantics.gr by the National Documentation Centre (EKT). The values of schema:about
 #    are these concepts themselves, identified by their own URI: GoTriple does not mint local copies.
 #    The labels below are a snapshot of the authoritative ones; the vocabulary carries up to 12 languages.
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85104440> rdf:type skos:Concept ;
-    skos:prefLabel "Political science"@en ,
-                    "Scienza Politica"@it ,
-                    "Science politique"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85104440> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lic: <https://gotriple.eu/ontology/triple/License/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85124200> rdf:type skos:Concept ;
-    skos:prefLabel "Sociology"@en ,
-                    "Sociologia"@it ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85124200> .
+triple:dataset-002 a triple:Dataset ;
+    dcterms:isReferencedBy triple:document-social-report-2023 ;
+    dcterms:provenance triple:provenance-social-002 ;
+    datacite:hasIdentifier triple:identifier-dataset-002,
+        triple:identifier-social-doi,
+        triple:identifier-social-download,
+        triple:identifier-social-handle,
+        triple:identifier-social-internal,
+        triple:identifier-social-landing,
+        triple:identifier-social-original,
+        triple:identifier-social-pid ;
+    sioc:topic triple:topic-social-science ;
+    dcat:bbox "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"^^rdfs:Literal ;
+    triple:hasAccessCondition triple:restricted_access ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85009407>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85104440>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85124200> ;
+    schema:abstract "Annual survey data on social attitudes, political opinions, and demographic information from EU member states."@en ;
+    schema:author "Social Research Institute" ;
+    schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
+    schema:contactPoint triple:contact-social-observatory ;
+    schema:contributor "Dr. Klaus Mueller",
+        "Prof. Elena Rodriguez" ;
+    schema:creativeWorkStatus "Published" ;
+    schema:dateCreated "2023-06-01"^^xsd:date ;
+    schema:dateModified "2023-10-02"^^xsd:date ;
+    schema:datePublished "2023-09-15"^^xsd:date ;
+    schema:encodingFormat "application/x-spss",
+        "text/csv" ;
+    schema:funding triple:project-social-cohesion ;
+    schema:headline "European Social Attitudes Survey 2023"@en ;
+    schema:inLanguage "de",
+        "en",
+        "fr",
+        "it" ;
+    schema:keywords triple:keyword-demographics,
+        triple:keyword-politics,
+        triple:keyword-social-attitudes,
+        triple:keyword-survey ;
+    schema:mentions triple:dataset-001 ;
+    schema:provider "OpenAIRE" ;
+    schema:publisher "EU Social Observatory" ;
+    schema:size "245 MB" ;
+    schema:spatialCoverage triple:place-european-union ;
+    schema:temporalCoverage "2023" .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85009407> rdf:type skos:Concept ;
-    skos:prefLabel "Attitude (Psychology)"@en ,
-                    "Atteggiamento"@it ,
-                    "Attitude (psychologie)"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85009407> .
+<http://publications.europa.eu/resource/authority/data-theme/SOCI> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "Population and society"@en .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85009407> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85009407> ;
+    skos:prefLabel "Attitude (Psychology)"@en,
+        "Attitude (psychologie)"@fr,
+        "Atteggiamento"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85104440> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85104440> ;
+    skos:prefLabel "Political science"@en,
+        "Science politique"@fr,
+        "Scienza Politica"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85124200> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85124200> ;
+    skos:prefLabel "Sociology"@en,
+        "Sociologia"@it .
+
+triple:contact-heritage-institute a schema:ContactPoint ;
+    schema:email "data@heritage.eu" ;
+    schema:name "European Heritage Institute Data Team" .
+
+triple:contact-social-observatory a schema:ContactPoint ;
+    schema:email "support@social-eu.org" ;
+    schema:name "EU Social Observatory Research Support" .
+
+triple:dataset-001 a triple:Dataset ;
+    dcterms:provenance triple:provenance-heritage-001 ;
+    datacite:hasIdentifier triple:identifier-dataset-001,
+        triple:identifier-heritage-doi,
+        triple:identifier-heritage-download,
+        triple:identifier-heritage-handle,
+        triple:identifier-heritage-internal,
+        triple:identifier-heritage-landing,
+        triple:identifier-heritage-original,
+        triple:identifier-heritage-pid ;
+    sioc:topic triple:topic-archaeology ;
+    dcat:bbox "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"^^rdfs:Literal ;
+    dcat:distribution triple:distribution-heritage-001 ;
+    dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
+    triple:hasAccessCondition triple:open_access ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:abstract "A comprehensive dataset containing archaeological site information across Europe, including spatial coordinates, dating, and cultural attributions."@en ;
+    schema:author "Jane Smith",
+        "Mario Rossi" ;
+    schema:comment "Dataset created through systematic archaeological surveys across 15 European countries with standardized recording protocols."@en ;
+    schema:contactPoint triple:contact-heritage-institute ;
+    schema:contributor "Dr. Anna Fischer" ;
+    schema:creativeWorkStatus "Published" ;
+    schema:dateCreated "2023-01-15"^^xsd:date ;
+    schema:dateModified "2023-05-20"^^xsd:date ;
+    schema:datePublished "2023-03-01"^^xsd:date ;
+    schema:encodingFormat "application/json",
+        "text/csv" ;
+    schema:funding triple:project-heritage-mapping ;
+    schema:headline "European Archaeological Sites Database"@en ;
+    schema:inLanguage "en" ;
+    schema:keywords triple:keyword-archaeology,
+        triple:keyword-europe,
+        triple:keyword-heritage,
+        triple:keyword-spatial-data ;
+    schema:provider "ISIDORE" ;
+    schema:publisher "European Heritage Institute" ;
+    schema:size "15.2 MB" ;
+    schema:spatialCoverage triple:place-europe ;
+    schema:temporalCoverage "2000 BCE - 1500 CE" .
+
+triple:distribution-heritage-001 a dcat:Distribution ;
+    dcat:accessURL "https://data.heritage.eu/download/sites.csv" .
+
+triple:document-social-report-2023 a schema:CreativeWork ;
+    schema:datePublished "2023-11-15"^^xsd:date ;
+    schema:headline "European Social Cohesion Report 2023"@en .
+
+triple:identifier-dataset-001 a datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.1234/example.dataset.001" .
+
+triple:identifier-dataset-002 a datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "hdl:1234.5/survey2023" .
+
+triple:identifier-heritage-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.heritage.arch.2023" .
+
+triple:identifier-heritage-download a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://data.heritage.eu/datasets/archaeological-sites" .
+
+triple:identifier-heritage-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-HERITAGE-ARCH-2023" .
+
+triple:identifier-heritage-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DATASET_HERITAGE_001" .
+
+triple:identifier-heritage-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://heritage.eu/landing/archaeological-sites" .
+
+triple:identifier-heritage-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "heritage_inst_arch_sites_2023" .
+
+triple:identifier-heritage-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/dataset-heritage-archaeological-sites" .
+
+triple:identifier-project-001 a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "EHDMI-2022-001" .
+
+triple:identifier-project-002 a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "SCRP-2023-045" .
+
+triple:identifier-social-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.social.attitudes.2023" .
+
+triple:identifier-social-download a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://data.social-eu.org/datasets/attitudes-2023" .
+
+triple:identifier-social-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-SOCIAL-ATTITUDES-2023" .
+
+triple:identifier-social-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DATASET_SOCIAL_002" .
+
+triple:identifier-social-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://social-eu.org/landing/attitudes-survey" .
+
+triple:identifier-social-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "social_obs_attitudes_2023" .
+
+triple:identifier-social-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/dataset-social-attitudes-survey-2023" .
+
+triple:keyword-archaeology a schema:DefinedTerm ;
+    schema:description "The study of human activity through material culture recovery and analysis"@en ;
+    schema:name "archaeology"@en .
+
+triple:keyword-demographics a schema:DefinedTerm ;
+    schema:description "Statistical characteristics of populations"@en ;
+    schema:name "demographics"@en .
+
+triple:keyword-europe a schema:DefinedTerm ;
+    schema:description "The European continent and its geographical regions"@en ;
+    schema:name "Europe"@en .
+
+triple:keyword-heritage a schema:DefinedTerm ;
+    schema:description "Cultural and natural heritage of human societies"@en ;
+    schema:name "heritage"@en .
+
+triple:keyword-politics a schema:DefinedTerm ;
+    schema:description "Activities related to governance and public affairs"@en ;
+    schema:name "politics"@en .
+
+triple:keyword-social-attitudes a schema:DefinedTerm ;
+    schema:description "Individual and collective opinions on social issues"@en ;
+    schema:name "social attitudes"@en .
+
+triple:keyword-spatial-data a schema:DefinedTerm ;
+    schema:description "Data with geographical coordinates and spatial relationships"@en ;
+    schema:name "spatial data"@en .
+
+triple:keyword-survey a schema:DefinedTerm ;
+    schema:description "Research methodology using questionnaires to collect data"@en ;
+    schema:name "survey"@en .
+
+triple:open_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Open Access"@en ;
+    rdfs:comment "The resource is freely available for access."@en .
+
+triple:place-europe a schema:Place ;
+    schema:name "Europe" .
+
+triple:place-european-union a schema:Place ;
+    schema:name "European Union" .
+
+triple:project-heritage-mapping a schema:Project ;
+    datacite:hasIdentifier triple:identifier-project-001 ;
+    schema:name "European Heritage Digital Mapping Initiative" .
+
+triple:project-social-cohesion a schema:Project ;
+    datacite:hasIdentifier triple:identifier-project-002 ;
+    schema:name "Social Cohesion Research Program" .
+
+triple:provenance-heritage-001 a dcterms:ProvenanceStatement ;
+    rdfs:label "Provenance for Heritage Dataset 001"@en ;
+    rdfs:comment "Data aggregated from 15 national museums and normalized to CIDOC-CRM before conversion to CSV."@en .
+
+triple:provenance-social-002 a dcterms:ProvenanceStatement ;
+    rdfs:label "Provenance for Social Dataset 002"@en ;
+    rdfs:comment "Survey results merged from 27 EU member state polls, anonymized, and weighted for demographic representativeness."@en .
+
+triple:restricted_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Restricted Access"@en ;
+    rdfs:comment "Access to the resource is restricted."@en .
+
+triple:topic-archaeology a triple:Discipline ;
+    skos:definition "The study of human activity through the recovery and analysis of material culture."@en ;
+    skos:prefLabel "Archaeology"@en .
+
+triple:topic-social-science a triple:Discipline ;
+    skos:definition "Academic disciplines concerned with society and the relationships among individuals within a society."@en ;
+    skos:prefLabel "Social Science"@en .
+
+datacite:doi a datacite:IdentifierScheme ;
+    rdfs:label "datacite:doi" .
+
+datacite:handle a datacite:IdentifierScheme ;
+    rdfs:label "datacite:handle" .
+

@@ -1,440 +1,434 @@
-@prefix triple: <https://gotriple.eu/ontology/triple/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix schema: <https://schema.org/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
-@prefix adms: <http://www.w3.org/ns/adms#> .
-
 #################################################################
 #    Individuals
 #################################################################
-
 ###  Semantic Artifacts Examples
-
 ###  Example 1: TRIPLE SSH Thesaurus
-triple:thesaurus-ssh rdf:type triple:SemanticArtefact ;
-                    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85066150> ;
-                    schema:headline "TRIPLE SSH Thesaurus"@en ;
-                    schema:abstract "Controlled vocabulary for Social Sciences and Humanities research classification used in the GoTriple discovery platform. Provides standardized terminology for SSH domains."@en ;
-                    schema:contributor triple:organization-gotriple ;
-                    schema:inLanguage schema:language-en ;
-                    schema:datePublished "2023-03-15"^^xsd:date ;
-                    schema:dateModified "2023-10-20"^^xsd:date ;
-                    schema:version "2.1.0" ;
-                    schema:publisher triple:organization-gotriple ;
-                    triple:aggregator triple:organization-isidore ;
-                    schema:fileFormat "application/rdf+xml" ;
-                    schema:encodingFormat "SKOS vocabulary" ;
-                    schema:contactPoint triple:contact-gotriple ;
-                    schema:creativeWorkStatus triple:status-published ;
-                    schema:keywords triple:keyword-thesaurus, triple:keyword-ssh, triple:keyword-vocabulary ;
-                    datacite:hasIdentifier triple:identifier-thesaurus-download ,
-                                           triple:identifier-thesaurus-landing ,
-                                           triple:identifier-thesaurus-internal ,
-                                           triple:identifier-thesaurus-pid ,
-                                           triple:identifier-thesaurus-original ,
-                                           triple:identifier-thesaurus-doi ,
-                                           triple:identifier-thesaurus-handle ,
-                                           triple:identifier-thesaurus-uri ;
-                    triple:hasLicense triple:cc_by_4_0 ;
-                    triple:hasAccessCondition triple:open_access ;
-                    adms:representationTechnique <http://purl.org/adms/representationtechnique/SKOS> ;
-                    dcterms:isReferencedBy triple:document-dh-methodology .
-
 ###  Example 2: SKOS Art History Vocabulary
-triple:vocab-arthistory rdf:type triple:SemanticArtefact ;
-                    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85007960> ;
-                       schema:headline "SKOS Art History Vocabulary"@en ;
-                       schema:abstract "Comprehensive vocabulary for art historical concepts and terminology. Covers periods, movements, techniques, and cultural contexts in art history research."@en ;
-                       schema:contributor triple:person-maria-rossi, triple:organization-dhi ;
-                       schema:inLanguage schema:language-en ;
-                       schema:datePublished "2023-05-10"^^xsd:date ;
-                       schema:dateModified "2023-09-12"^^xsd:date ;
-                       schema:version "1.3.2" ;
-                       schema:publisher triple:organization-dhi ;
-                       schema:fileFormat "text/turtle" ;
-                       schema:encodingFormat "SKOS vocabulary" ;
-                       schema:contactPoint triple:contact-dhi ;
-                       schema:creativeWorkStatus triple:status-published ;
-                       schema:keywords triple:keyword-arthistory, triple:keyword-vocabulary, triple:keyword-cultural-heritage ;
-                       datacite:hasIdentifier triple:identifier-vocab-download ,
-                                              triple:identifier-vocab-landing ,
-                                              triple:identifier-vocab-source ,
-                                              triple:identifier-vocab-internal ,
-                                              triple:identifier-vocab-pid ,
-                                              triple:identifier-vocab-original ,
-                                              triple:identifier-vocab-doi ,
-                                              triple:identifier-vocab-handle ,
-                                              triple:identifier-vocab-uri ;
-                       triple:hasLicense triple:cc0_1_0 ;
-                       triple:hasAccessCondition triple:open_access .
-
 ###  Example 3: Medieval Studies Ontology
-triple:ontology-medieval rdf:type triple:SemanticArtefact ;
-                    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85085001> ;
-                        schema:headline "Medieval Studies Ontology"@en ;
-                        schema:abstract "Formal ontology for medieval studies research domain. Provides semantic modeling of medieval historical periods, events, places, and scholarly concepts."@en ;
-                        schema:contributor triple:person-giovanni-bianchi, triple:person-pierre-martin ;
-                        schema:inLanguage schema:language-en, schema:language-it ;
-                        schema:datePublished "2023-01-20"^^xsd:date ;
-                        schema:dateModified "2023-08-05"^^xsd:date ;
-                        schema:version "0.9.1" ;
-                        schema:publisher triple:organization-unibo ;
-                        schema:fileFormat "application/owl+xml" ;
-                        schema:encodingFormat "OWL ontology" ;
-                        schema:contactPoint triple:contact-unibo-medieval ;
-                        schema:creativeWorkStatus triple:status-draft ;
-                        schema:keywords triple:keyword-medieval, triple:keyword-ontology, triple:keyword-history ;
-                        datacite:hasIdentifier triple:identifier-medieval-download ,
-                                               triple:identifier-medieval-landing ,
-                                               triple:identifier-medieval-internal ,
-                                               triple:identifier-medieval-pid ,
-                                               triple:identifier-medieval-original ,
-                                               triple:identifier-medieval-doi ,
-                                               triple:identifier-medieval-handle ,
-                                               triple:identifier-medieval-uri ;
-                        triple:hasLicense triple:cc_by_nc_4_0 ;
-                        triple:hasAccessCondition triple:restricted_access ;
-                        dcterms:isReferencedBy triple:document-carolingian .
-
 ###  Supporting Organizations
-triple:organization-gotriple rdf:type foaf:Organization ;
-                             schema:name "GoTriple Consortium" ;
-                             schema:description "European consortium for Social Sciences and Humanities research discovery"@en .
-
-triple:organization-dhi rdf:type foaf:Organization ;
-                       schema:name "Digital Humanities Institute" ;
-                       schema:description "Research institute specializing in digital methods for humanities"@en .
-
-triple:organization-unibo rdf:type foaf:Organization ;
-                         schema:name "University of Bologna" ;
-                         schema:description "Public research university in Bologna, Italy"@en .
-
-triple:organization-isidore rdf:type foaf:Organization ;
-                           schema:name "Isidore" ;
-                           schema:description "Search engine for Social Sciences and Humanities"@en .
-
 ###  Supporting Persons
-triple:person-maria-rossi rdf:type foaf:Person ;
-                         schema:name "Maria Rossi" ;
-                         schema:givenName "Maria" ;
-                         schema:familyName "Rossi" .
-
-triple:person-giovanni-bianchi rdf:type foaf:Person ;
-                              schema:name "Giovanni Bianchi" ;
-                              schema:givenName "Giovanni" ;
-                              schema:familyName "Bianchi" .
-
-triple:person-pierre-martin rdf:type foaf:Person ;
-                           schema:name "Pierre Martin" ;
-                           schema:givenName "Pierre" ;
-                           schema:familyName "Martin" .
-
 ###  Contact Points
-triple:contact-gotriple rdf:type schema:ContactPoint ;
-                       schema:email "contact@gotriple.eu" ;
-                       schema:name "GoTriple Support Team" .
-
-triple:contact-dhi rdf:type schema:ContactPoint ;
-                  schema:email "vocab@arthistory.eu" ;
-                  schema:name "DHI Vocabulary Team" .
-
-triple:contact-unibo-medieval rdf:type schema:ContactPoint ;
-                             schema:email "medieval@unibo.it" ;
-                             schema:name "Medieval Studies Research Group" .
-
 ###  Status Values
-triple:status-published rdf:type skos:Concept ;
-                       skos:prefLabel "Published"@en ;
-                       skos:definition "The semantic artifact has been officially published and is available for use"@en .
-
-triple:status-draft rdf:type skos:Concept ;
-                   skos:prefLabel "Draft"@en ;
-                   skos:definition "The semantic artifact is in draft stage and under development"@en .
-
 ###  Keywords
-triple:keyword-thesaurus rdf:type schema:DefinedTerm ;
-                        schema:name "thesaurus" ;
-                        schema:description "Controlled vocabulary with hierarchical relationships"@en .
-
-triple:keyword-ssh rdf:type schema:DefinedTerm ;
-                  schema:name "Social Sciences and Humanities" ;
-                  schema:description "Academic disciplines studying human society and culture"@en .
-
-triple:keyword-vocabulary rdf:type schema:DefinedTerm ;
-                         schema:name "vocabulary" ;
-                         schema:description "Set of terms used in a particular domain"@en .
-
-triple:keyword-arthistory rdf:type schema:DefinedTerm ;
-                         schema:name "art history" ;
-                         schema:description "Academic study of art objects in their historical context"@en .
-
-triple:keyword-cultural-heritage rdf:type schema:DefinedTerm ;
-                                schema:name "cultural heritage" ;
-                                schema:description "Legacy of physical artifacts and cultural traditions"@en .
-
-triple:keyword-medieval rdf:type schema:DefinedTerm ;
-                       schema:name "medieval studies" ;
-                       schema:description "Academic field studying the Middle Ages period"@en .
-
-triple:keyword-ontology rdf:type schema:DefinedTerm ;
-                       schema:name "ontology" ;
-                       schema:description "Formal specification of conceptualization in a domain"@en .
-
-triple:keyword-history rdf:type schema:DefinedTerm ;
-                      schema:name "history" ;
-                      schema:description "Study of past events and human activities"@en .
-
 ###  Languages
-schema:language-en rdf:type schema:Language ;
-                  rdfs:label "en"@en .
-
-schema:language-it rdf:type schema:Language ;
-                  rdfs:label "it"@en .
-
 ###  Landing Pages
-triple:page-thesaurus-landing rdf:type foaf:Document ;
-                             schema:headline "TRIPLE SSH Thesaurus - Landing Page"@en .
-
-triple:page-vocab-arthistory rdf:type foaf:Document ;
-                            schema:headline "Art History Vocabulary - Landing Page"@en .
-
-triple:page-medieval-landing rdf:type foaf:Document ;
-                            schema:headline "Medieval Studies Ontology - Landing Page"@en .
-
 ###  Semantic Artifact Identifiers
-
 ###  Thesaurus Identifiers
-triple:identifier-thesaurus-download rdf:type owl:NamedIndividual ,
-                                              datacite:Identifier ;
-                                     datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                                     litre:hasLiteralValue "https://thesaurus.gotriple.eu/download/rdf" .
-
-triple:identifier-thesaurus-landing rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                    litre:hasLiteralValue "https://thesaurus.gotriple.eu/landing" .
-
 ###  Vocabulary Identifiers  
-triple:identifier-vocab-download rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                                 litre:hasLiteralValue "https://vocab.arthistory.eu/skos.ttl" .
-
-triple:identifier-vocab-landing rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                litre:hasLiteralValue "https://vocab.arthistory.eu/landing" .
-
-triple:identifier-vocab-source rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                               datacite:usesIdentifierScheme triple:source_url_schema ;
-                               litre:hasLiteralValue "https://getty.edu/research/tools/vocabularies/aat/" .
-
 ###  Medieval Ontology Identifiers
-triple:identifier-medieval-download rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                                    litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl" .
-
-triple:identifier-medieval-landing rdf:type owl:NamedIndividual ,
-                                            datacite:Identifier ;
-                                   datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                   litre:hasLiteralValue "https://ontology.medieval.unibo.it/landing" .
-
 ###  Thesaurus Platform Identifiers
-triple:identifier-thesaurus-internal rdf:type owl:NamedIndividual ,
-                                              datacite:Identifier ;
-                                              datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                     litre:hasLiteralValue "gotriple:thesaurus:ssh:v2.1" .
-
-triple:identifier-thesaurus-pid rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                         datacite:usesIdentifierScheme datacite:ark ;
-                                litre:hasLiteralValue "ark:/12345/semantic-thesaurus-ssh-v2" .
-
-triple:identifier-thesaurus-original rdf:type owl:NamedIndividual ,
-                                              datacite:Identifier ;
-                                     datacite:usesIdentifierScheme triple:original_id_schema ;
-                                     litre:hasLiteralValue "gotriple_thesaurus_ssh_v21" .
-
 ###  Vocabulary Platform Identifiers
-triple:identifier-vocab-internal rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                          datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                 litre:hasLiteralValue "dhi:vocab:arthistory:v1.3" .
-
-triple:identifier-vocab-pid rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:ark ;
-                            litre:hasLiteralValue "ark:/12345/semantic-vocab-arthistory-v1" .
-
-triple:identifier-vocab-original rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id_schema ;
-                                 litre:hasLiteralValue "dhi_vocab_arthistory_v13" .
-
 ###  Medieval Ontology Platform Identifiers
-triple:identifier-medieval-internal rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                             datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                    litre:hasLiteralValue "unibo:ontology:medieval:v0.9" .
-
-triple:identifier-medieval-pid rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:ark ;
-                               litre:hasLiteralValue "ark:/12345/semantic-ontology-medieval-studies" .
-
-triple:identifier-medieval-original rdf:type owl:NamedIndividual ,
-                                             datacite:Identifier ;
-                                    datacite:usesIdentifierScheme triple:original_id_schema ;
-                                    litre:hasLiteralValue "unibo_ontology_medieval_v09" .
-
 ###  Thesaurus Standard Identifiers
-triple:identifier-thesaurus-doi rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                         datacite:usesIdentifierScheme datacite:doi ;
-                                litre:hasLiteralValue "10.5281/zenodo.thesaurus.ssh.v2" .
-
-triple:identifier-thesaurus-handle rdf:type owl:NamedIndividual ,
-                                            datacite:Identifier ;
-                                            datacite:usesIdentifierScheme datacite:handle ;
-                                   litre:hasLiteralValue "21.11130/00-THESAURUS-SSH-V2" .
-
-triple:identifier-thesaurus-uri rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                         datacite:usesIdentifierScheme datacite:uri ;
-                                litre:hasLiteralValue "https://gotriple.eu/thesaurus/ssh#" .
-
 ###  Vocabulary Standard Identifiers
-triple:identifier-vocab-doi rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:doi ;
-                            litre:hasLiteralValue "10.5281/zenodo.vocab.arthistory.v1" .
-
-triple:identifier-vocab-handle rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:handle ;
-                               litre:hasLiteralValue "21.11130/00-VOCAB-ARTHISTORY-V1" .
-
-triple:identifier-vocab-uri rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:uri ;
-                            litre:hasLiteralValue "https://vocab.arthistory.eu/skos#" .
-
 ###  Medieval Ontology Standard Identifiers
-triple:identifier-medieval-doi rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:doi ;
-                               litre:hasLiteralValue "10.5281/zenodo.ontology.medieval.v09" .
-
-triple:identifier-medieval-handle rdf:type owl:NamedIndividual ,
-                                           datacite:Identifier ;
-                                           datacite:usesIdentifierScheme datacite:handle ;
-                                  litre:hasLiteralValue "21.11130/00-ONTOLOGY-MEDIEVAL-V09" .
-
-triple:identifier-medieval-uri rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:uri ;
-                               litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl#" .
-
 ###  Referenced Documents (for competency questions)
-triple:document-dh-methodology rdf:type triple:Document ;
-                   datacite:hasIdentifier triple:id_document-dh-methodology , triple:pid_document-dh-methodology , triple:orig_document-dh-methodology ;
-                              schema:headline "Digital Humanities Methodology Paper"@en ;
-                              schema:abstract "Comprehensive review of methodological approaches in digital humanities research"@en .
-
-triple:document-carolingian rdf:type triple:Document ;
-                   datacite:hasIdentifier triple:id_document-carolingian , triple:pid_document-carolingian , triple:orig_document-carolingian ;
-                           schema:headline "Carolingian Renaissance Research Article"@en ;
-                           schema:abstract "Analysis of cultural and educational reforms during the Carolingian period"@en .
-
 ###  Representation Techniques (ADMS controlled vocabulary)
-<http://purl.org/adms/representationtechnique/SKOS> rdf:type owl:NamedIndividual ,
-                                                             skos:Concept ;
-                    rdfs:label "SKOS"@en ;
-                    rdfs:comment "Representation technique from the ADMS controlled vocabulary: the artefact is expressed in the Simple Knowledge Organization System."@en .
-
 ###  Licenses
-triple:cc_by_4_0 rdf:type owl:NamedIndividual ,
-                          triple:License ;
-                 rdfs:label "CC BY 4.0"@en ;
-                 rdfs:comment "Creative Commons Attribution 4.0 International License"@en .
-
-triple:cc0_1_0 rdf:type owl:NamedIndividual ,
-                        triple:License ;
-               rdfs:label "CC0 1.0"@en ;
-               rdfs:comment "Creative Commons Zero v1.0 Universal"@en .
-
-triple:cc_by_nc_4_0 rdf:type owl:NamedIndividual ,
-                             triple:License ;
-                    rdfs:label "CC BY-NC 4.0"@en ;
-                    rdfs:comment "Creative Commons Attribution-NonCommercial 4.0 International License"@en .
-
 ###  Access Conditions
-triple:open_access rdf:type owl:NamedIndividual ,
-                            triple:AccessCondition ;
-                   rdfs:label "Open Access"@en ;
-                   rdfs:comment "The resource is freely available for access."@en .
-
-triple:restricted_access rdf:type owl:NamedIndividual ,
-                                  triple:AccessCondition ;
-                         rdfs:label "Restricted Access"@en ;
-                         rdfs:comment "Access to the resource is restricted."@en .
-
 ###  Mandatory identifiers
-triple:id_document-carolingian rdf:type datacite:Identifier ;
-    datacite:usesIdentifierScheme triple:internal_id_schema ;
-    litre:hasLiteralValue "TRIPLE_DOC_CAROLINGIAN" .
-
-triple:pid_document-carolingian rdf:type datacite:Identifier ;
-    datacite:usesIdentifierScheme datacite:ark ;
-    litre:hasLiteralValue "ark:/12345/doc-carolingian" .
-
-triple:orig_document-carolingian rdf:type datacite:Identifier ;
-    datacite:usesIdentifierScheme triple:original_id_schema ;
-    litre:hasLiteralValue "hal-carolingian" .
-
-triple:id_document-dh-methodology rdf:type datacite:Identifier ;
-    datacite:usesIdentifierScheme triple:internal_id_schema ;
-    litre:hasLiteralValue "TRIPLE_DOC_DH_METHOD" .
-
-triple:pid_document-dh-methodology rdf:type datacite:Identifier ;
-    datacite:usesIdentifierScheme datacite:ark ;
-    litre:hasLiteralValue "ark:/12345/doc-dh-methodology" .
-
-triple:orig_document-dh-methodology rdf:type datacite:Identifier ;
-    datacite:usesIdentifierScheme triple:original_id_schema ;
-    litre:hasLiteralValue "hal-dh-methodology" .
-
-
 ###  Concepts of the TRIPLE Vocabulary (SSH-LCSH)
 #    http://semantics.gr/authorities/vocabularies/SSH-LCSH — maintained by the TRIPLE consortium,
 #    published on semantics.gr by the National Documentation Centre (EKT). The values of schema:about
 #    are these concepts themselves, identified by their own URI: GoTriple does not mint local copies.
 #    The labels below are a snapshot of the authoritative ones; the vocabulary carries up to 12 languages.
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85066150> rdf:type skos:Concept ;
-    skos:prefLabel "Information science"@en ,
-                    "Scienze dell'informazione"@it ,
-                    "Sciences de l'information"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85066150> .
+@prefix adms: <http://www.w3.org/ns/adms#> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix lic: <https://gotriple.eu/ontology/triple/License/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85007960> rdf:type skos:Concept ;
-    skos:prefLabel "Art and history"@en ,
-                    "Arte e storia"@it ,
-                    "Art et histoire"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85007960> .
+triple:ontology-medieval a triple:SemanticArtefact ;
+    dcterms:isReferencedBy triple:document-carolingian ;
+    datacite:hasIdentifier triple:identifier-medieval-doi,
+        triple:identifier-medieval-download,
+        triple:identifier-medieval-handle,
+        triple:identifier-medieval-internal,
+        triple:identifier-medieval-landing,
+        triple:identifier-medieval-original,
+        triple:identifier-medieval-pid,
+        triple:identifier-medieval-uri ;
+    triple:hasAccessCondition triple:restricted_access ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85085001> ;
+    schema:abstract "Formal ontology for medieval studies research domain. Provides semantic modeling of medieval historical periods, events, places, and scholarly concepts."@en ;
+    schema:contactPoint triple:contact-unibo-medieval ;
+    schema:contributor triple:person-giovanni-bianchi,
+        triple:person-pierre-martin ;
+    schema:creativeWorkStatus triple:status-draft ;
+    schema:dateModified "2023-08-05"^^xsd:date ;
+    schema:datePublished "2023-01-20"^^xsd:date ;
+    schema:encodingFormat "OWL ontology" ;
+    schema:fileFormat "application/owl+xml" ;
+    schema:headline "Medieval Studies Ontology"@en ;
+    schema:inLanguage schema:language-en,
+        schema:language-it ;
+    schema:keywords triple:keyword-history,
+        triple:keyword-medieval,
+        triple:keyword-ontology ;
+    schema:publisher triple:organization-unibo ;
+    schema:version "0.9.1" .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85085001> rdf:type skos:Concept ;
-    skos:prefLabel "Middle Ages"@en ,
-                    "Medioevo"@it ,
-                    "Moyen-âge"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85085001> .
+triple:page-medieval-landing a foaf:Document ;
+    schema:headline "Medieval Studies Ontology - Landing Page"@en .
+
+triple:page-thesaurus-landing a foaf:Document ;
+    schema:headline "TRIPLE SSH Thesaurus - Landing Page"@en .
+
+triple:page-vocab-arthistory a foaf:Document ;
+    schema:headline "Art History Vocabulary - Landing Page"@en .
+
+triple:thesaurus-ssh a triple:SemanticArtefact ;
+    dcterms:isReferencedBy triple:document-dh-methodology ;
+    datacite:hasIdentifier triple:identifier-thesaurus-doi,
+        triple:identifier-thesaurus-download,
+        triple:identifier-thesaurus-handle,
+        triple:identifier-thesaurus-internal,
+        triple:identifier-thesaurus-landing,
+        triple:identifier-thesaurus-original,
+        triple:identifier-thesaurus-pid,
+        triple:identifier-thesaurus-uri ;
+    adms:representationTechnique <http://purl.org/adms/representationtechnique/SKOS> ;
+    triple:aggregator triple:organization-isidore ;
+    triple:hasAccessCondition triple:open_access ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85066150> ;
+    schema:abstract "Controlled vocabulary for Social Sciences and Humanities research classification used in the GoTriple discovery platform. Provides standardized terminology for SSH domains."@en ;
+    schema:contactPoint triple:contact-gotriple ;
+    schema:contributor triple:organization-gotriple ;
+    schema:creativeWorkStatus triple:status-published ;
+    schema:dateModified "2023-10-20"^^xsd:date ;
+    schema:datePublished "2023-03-15"^^xsd:date ;
+    schema:encodingFormat "SKOS vocabulary" ;
+    schema:fileFormat "application/rdf+xml" ;
+    schema:headline "TRIPLE SSH Thesaurus"@en ;
+    schema:inLanguage schema:language-en ;
+    schema:keywords triple:keyword-ssh,
+        triple:keyword-thesaurus,
+        triple:keyword-vocabulary ;
+    schema:publisher triple:organization-gotriple ;
+    schema:version "2.1.0" .
+
+triple:vocab-arthistory a triple:SemanticArtefact ;
+    datacite:hasIdentifier triple:identifier-vocab-doi,
+        triple:identifier-vocab-download,
+        triple:identifier-vocab-handle,
+        triple:identifier-vocab-internal,
+        triple:identifier-vocab-landing,
+        triple:identifier-vocab-original,
+        triple:identifier-vocab-pid,
+        triple:identifier-vocab-source,
+        triple:identifier-vocab-uri ;
+    triple:hasAccessCondition triple:open_access ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85007960> ;
+    schema:abstract "Comprehensive vocabulary for art historical concepts and terminology. Covers periods, movements, techniques, and cultural contexts in art history research."@en ;
+    schema:contactPoint triple:contact-dhi ;
+    schema:contributor triple:organization-dhi,
+        triple:person-maria-rossi ;
+    schema:creativeWorkStatus triple:status-published ;
+    schema:dateModified "2023-09-12"^^xsd:date ;
+    schema:datePublished "2023-05-10"^^xsd:date ;
+    schema:encodingFormat "SKOS vocabulary" ;
+    schema:fileFormat "text/turtle" ;
+    schema:headline "SKOS Art History Vocabulary"@en ;
+    schema:inLanguage schema:language-en ;
+    schema:keywords triple:keyword-arthistory,
+        triple:keyword-cultural-heritage,
+        triple:keyword-vocabulary ;
+    schema:publisher triple:organization-dhi ;
+    schema:version "1.3.2" .
+
+<http://purl.org/adms/representationtechnique/SKOS> a owl:NamedIndividual,
+        skos:Concept ;
+    rdfs:label "SKOS"@en ;
+    rdfs:comment "Representation technique from the ADMS controlled vocabulary: the artefact is expressed in the Simple Knowledge Organization System."@en .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85007960> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85007960> ;
+    skos:prefLabel "Art and history"@en,
+        "Art et histoire"@fr,
+        "Arte e storia"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85066150> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85066150> ;
+    skos:prefLabel "Information science"@en,
+        "Sciences de l'information"@fr,
+        "Scienze dell'informazione"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85085001> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85085001> ;
+    skos:prefLabel "Middle Ages"@en,
+        "Moyen-âge"@fr,
+        "Medioevo"@it .
+
+triple:contact-dhi a schema:ContactPoint ;
+    schema:email "vocab@arthistory.eu" ;
+    schema:name "DHI Vocabulary Team" .
+
+triple:contact-gotriple a schema:ContactPoint ;
+    schema:email "contact@gotriple.eu" ;
+    schema:name "GoTriple Support Team" .
+
+triple:contact-unibo-medieval a schema:ContactPoint ;
+    schema:email "medieval@unibo.it" ;
+    schema:name "Medieval Studies Research Group" .
+
+triple:document-carolingian a triple:Document ;
+    datacite:hasIdentifier triple:id_document-carolingian,
+        triple:orig_document-carolingian,
+        triple:pid_document-carolingian ;
+    schema:abstract "Analysis of cultural and educational reforms during the Carolingian period"@en ;
+    schema:headline "Carolingian Renaissance Research Article"@en .
+
+triple:document-dh-methodology a triple:Document ;
+    datacite:hasIdentifier triple:id_document-dh-methodology,
+        triple:orig_document-dh-methodology,
+        triple:pid_document-dh-methodology ;
+    schema:abstract "Comprehensive review of methodological approaches in digital humanities research"@en ;
+    schema:headline "Digital Humanities Methodology Paper"@en .
+
+triple:id_document-carolingian a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DOC_CAROLINGIAN" .
+
+triple:id_document-dh-methodology a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_DOC_DH_METHOD" .
+
+triple:identifier-medieval-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.ontology.medieval.v09" .
+
+triple:identifier-medieval-download a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl" .
+
+triple:identifier-medieval-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-ONTOLOGY-MEDIEVAL-V09" .
+
+triple:identifier-medieval-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "unibo:ontology:medieval:v0.9" .
+
+triple:identifier-medieval-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://ontology.medieval.unibo.it/landing" .
+
+triple:identifier-medieval-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "unibo_ontology_medieval_v09" .
+
+triple:identifier-medieval-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/semantic-ontology-medieval-studies" .
+
+triple:identifier-medieval-uri a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:uri ;
+    litre:hasLiteralValue "https://ontology.medieval.unibo.it/owl#" .
+
+triple:identifier-thesaurus-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.thesaurus.ssh.v2" .
+
+triple:identifier-thesaurus-download a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://thesaurus.gotriple.eu/download/rdf" .
+
+triple:identifier-thesaurus-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-THESAURUS-SSH-V2" .
+
+triple:identifier-thesaurus-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "gotriple:thesaurus:ssh:v2.1" .
+
+triple:identifier-thesaurus-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://thesaurus.gotriple.eu/landing" .
+
+triple:identifier-thesaurus-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "gotriple_thesaurus_ssh_v21" .
+
+triple:identifier-thesaurus-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/semantic-thesaurus-ssh-v2" .
+
+triple:identifier-thesaurus-uri a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:uri ;
+    litre:hasLiteralValue "https://gotriple.eu/thesaurus/ssh#" .
+
+triple:identifier-vocab-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.vocab.arthistory.v1" .
+
+triple:identifier-vocab-download a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://vocab.arthistory.eu/skos.ttl" .
+
+triple:identifier-vocab-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-VOCAB-ARTHISTORY-V1" .
+
+triple:identifier-vocab-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "dhi:vocab:arthistory:v1.3" .
+
+triple:identifier-vocab-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://vocab.arthistory.eu/landing" .
+
+triple:identifier-vocab-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "dhi_vocab_arthistory_v13" .
+
+triple:identifier-vocab-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/semantic-vocab-arthistory-v1" .
+
+triple:identifier-vocab-source a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:source_url_schema ;
+    litre:hasLiteralValue "https://getty.edu/research/tools/vocabularies/aat/" .
+
+triple:identifier-vocab-uri a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:uri ;
+    litre:hasLiteralValue "https://vocab.arthistory.eu/skos#" .
+
+triple:keyword-arthistory a schema:DefinedTerm ;
+    schema:description "Academic study of art objects in their historical context"@en ;
+    schema:name "art history" .
+
+triple:keyword-cultural-heritage a schema:DefinedTerm ;
+    schema:description "Legacy of physical artifacts and cultural traditions"@en ;
+    schema:name "cultural heritage" .
+
+triple:keyword-history a schema:DefinedTerm ;
+    schema:description "Study of past events and human activities"@en ;
+    schema:name "history" .
+
+triple:keyword-medieval a schema:DefinedTerm ;
+    schema:description "Academic field studying the Middle Ages period"@en ;
+    schema:name "medieval studies" .
+
+triple:keyword-ontology a schema:DefinedTerm ;
+    schema:description "Formal specification of conceptualization in a domain"@en ;
+    schema:name "ontology" .
+
+triple:keyword-ssh a schema:DefinedTerm ;
+    schema:description "Academic disciplines studying human society and culture"@en ;
+    schema:name "Social Sciences and Humanities" .
+
+triple:keyword-thesaurus a schema:DefinedTerm ;
+    schema:description "Controlled vocabulary with hierarchical relationships"@en ;
+    schema:name "thesaurus" .
+
+triple:organization-isidore a foaf:Organization ;
+    schema:description "Search engine for Social Sciences and Humanities"@en ;
+    schema:name "Isidore" .
+
+triple:organization-unibo a foaf:Organization ;
+    schema:description "Public research university in Bologna, Italy"@en ;
+    schema:name "University of Bologna" .
+
+triple:orig_document-carolingian a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "hal-carolingian" .
+
+triple:orig_document-dh-methodology a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "hal-dh-methodology" .
+
+triple:person-giovanni-bianchi a foaf:Person ;
+    schema:familyName "Bianchi" ;
+    schema:givenName "Giovanni" ;
+    schema:name "Giovanni Bianchi" .
+
+triple:person-maria-rossi a foaf:Person ;
+    schema:familyName "Rossi" ;
+    schema:givenName "Maria" ;
+    schema:name "Maria Rossi" .
+
+triple:person-pierre-martin a foaf:Person ;
+    schema:familyName "Martin" ;
+    schema:givenName "Pierre" ;
+    schema:name "Pierre Martin" .
+
+triple:pid_document-carolingian a datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-carolingian" .
+
+triple:pid_document-dh-methodology a datacite:Identifier ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/doc-dh-methodology" .
+
+triple:restricted_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Restricted Access"@en ;
+    rdfs:comment "Access to the resource is restricted."@en .
+
+triple:status-draft a skos:Concept ;
+    skos:definition "The semantic artifact is in draft stage and under development"@en ;
+    skos:prefLabel "Draft"@en .
+
+schema:language-it a schema:Language ;
+    rdfs:label "it"@en .
+
+triple:keyword-vocabulary a schema:DefinedTerm ;
+    schema:description "Set of terms used in a particular domain"@en ;
+    schema:name "vocabulary" .
+
+triple:open_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Open Access"@en ;
+    rdfs:comment "The resource is freely available for access."@en .
+
+triple:organization-dhi a foaf:Organization ;
+    schema:description "Research institute specializing in digital methods for humanities"@en ;
+    schema:name "Digital Humanities Institute" .
+
+triple:organization-gotriple a foaf:Organization ;
+    schema:description "European consortium for Social Sciences and Humanities research discovery"@en ;
+    schema:name "GoTriple Consortium" .
+
+triple:status-published a skos:Concept ;
+    skos:definition "The semantic artifact has been officially published and is available for use"@en ;
+    skos:prefLabel "Published"@en .
+
+schema:language-en a schema:Language ;
+    rdfs:label "en"@en .
+

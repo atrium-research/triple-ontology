@@ -14,7 +14,7 @@ SELECT ?license WHERE {
 ```
 
 **Expected Result:**
-- `triple:cc_by_4_0`
+- `lic:lic_creative-commons`
 
 
 ## CQ_2.2
@@ -70,19 +70,19 @@ SELECT ?discipline WHERE {
 
 ## CQ_2.5
 
-What external entity does the license term `cc_by_4_0` match exactly?
+What external entity does the license term `lic_creative-commons` closely match?
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
+PREFIX lic: <https://gotriple.eu/ontology/triple/License/>
 
 SELECT ?externalEntity WHERE {
-  triple:cc_by_4_0 skos:exactMatch ?externalEntity .
+  lic:lic_creative-commons skos:closeMatch ?externalEntity .
 }
 ```
 
 **Expected Result:**
-- `https://creativecommons.org/licenses/by/4.0/`
+- `https://www.wikidata.org/entity/Q284742`
 
 
 ## CQ_2.6
@@ -104,17 +104,14 @@ SELECT ?externalEntity WHERE {
 
 ## CQ_2.7
 
-Return all documents that are licensed under Creative Commons licenses (checking for exactMatch to Creative Commons URIs).
+Return all documents that are licensed under Creative Commons licenses.
 
 ```sparql
-PREFIX schema: <https://schema.org/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX lic: <https://gotriple.eu/ontology/triple/License/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {
-  ?document triple:hasLicense ?license .
-  ?license skos:exactMatch ?externalLicense .
-  FILTER(STRSTARTS(STR(?externalLicense), "https://creativecommons.org/"))
+  ?document triple:hasLicense lic:lic_creative-commons .
 }
 ```
 
@@ -157,7 +154,7 @@ SELECT ?license ?access ?type ?discipline WHERE {
 ```
 
 **Expected Result:**
-- `?license` = `triple:cc_by_4_0`
+- `?license` = `lic:lic_creative-commons`
 - `?access` = (none)
 - `?type` = (none)
 - `?discipline` = (none)

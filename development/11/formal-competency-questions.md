@@ -138,22 +138,24 @@ SELECT ?multimedia ?title ?provider WHERE {
 Return all multimedia content with Creative Commons licenses.
 
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <https://schema.org/>
+PREFIX lic: <https://gotriple.eu/ontology/triple/License/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?multimedia ?title ?license WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
-              triple:hasLicense ?lic .
-  ?lic rdfs:label ?license .
-  FILTER(CONTAINS(?license, "CC"))
+              triple:hasLicense lic:lic_creative-commons .
+  lic:lic_creative-commons rdfs:label ?license .
+  FILTER(LANG(?license) = "en")
 }
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "CC BY-NC-ND 4.0"
-- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "CC BY-SA 4.0"
-- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "CC BY-NC 4.0"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "Creative Commons"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "Creative Commons"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "Creative Commons"
 
 
 ## CQ_11.8

@@ -1,440 +1,442 @@
-@prefix triple: <https://gotriple.eu/ontology/triple/> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix xml: <http://www.w3.org/XML/1998/namespace> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix schema: <https://schema.org/> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-@prefix sioc: <http://rdfs.org/sioc/ns#> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
-@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
-@prefix foaf: <http://xmlns.com/foaf/0.1/> .
-
 #################################################################
 #    Individuals
 #################################################################
-
 ###  Multimedia Example 1: Canal-U Video Lecture
-triple:multimedia-001 rdf:type triple:MediaObject ;
-                      schema:headline "Introduction to Medieval History: The Carolingian Renaissance"@fr ;
-                      schema:abstract "Conférence magistrale sur la Renaissance carolingienne présentée dans le cadre du séminaire d'histoire médiévale de l'Université de Paris."@fr ;
-                      schema:author "Prof. Marie Dubois" ;
-                      schema:contributor "Dr. Jean Martin", "Université de Paris" ;
-                      schema:dateCreated "2023-10-15"^^xsd:date ;
-                      schema:datePublished "2023-11-01"^^xsd:date ;
-                      schema:dateModified "2023-11-02"^^xsd:date ;
-                      schema:publisher "Canal-U" ;
-                      schema:provider "Canal-U" ;
-                      triple:hasLicense triple:cc_by_nc_nd_4_0 ;
-                      schema:keywords triple:keyword-histoire-medievale, triple:keyword-renaissance-carolingienne, triple:keyword-charlemagne ;
-
-                      schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85085001>, <http://semantics.gr/authorities/SSH-LCSH/sh85061212> ;
-                      schema:inLanguage schema:language-fr ;
-                      schema:spatialCoverage triple:place-europe-occidentale ;
-                      schema:temporalCoverage "750-900 CE" ;
-                      schema:duration "PT1H25M30S" ;
-                      schema:encodingFormat "video/mp4" ;
-                      schema:size "1.2 GB" ;
-                      datacite:hasIdentifier triple:identifier-video-media ,
-                                             triple:identifier-video-landing ,
-                                             triple:identifier-video-internal ,
-                                             triple:identifier-video-pid ,
-                                             triple:identifier-video-original ,
-                                             triple:identifier-video-doi ,
-                                             triple:identifier-video-handle ;
-                      triple:hasAccessCondition triple:open_access ;
-                      schema:funding triple:project-medieval-studies ;
-                      sioc:topic triple:topic-medieval-history ;
-                      schema:mentions triple:keyword-charlemagne, triple:keyword-alcuin ;
-                      dcterms:isReferencedBy triple:document-medieval-anthology-2023 ;
-                      schema:contactPoint triple:contact-canal-u .
-
-triple:contact-canal-u rdf:type schema:ContactPoint ;
-                       schema:email "contact@canal-u.fr" .
-
 ###  Multimedia Example 2: Audio Interview Archive
-triple:multimedia-002 rdf:type triple:MediaObject ;
-                      schema:headline "Oral History: Resistance Movement in WWII Italy"@en ;
-                      schema:abstract "Audio recording of interview with Giovanni Rossi, former member of the Italian Resistance during World War II, conducted in 2023 as part of the European Memory Project."@en ;
-                      schema:author "Dr. Lisa Anderson", "European Memory Institute" ;
-                      schema:contributor "Prof. Marco Bianchi" ;
-                      schema:dateCreated "2023-05-20"^^xsd:date ;
-                      schema:datePublished "2023-08-10"^^xsd:date ;
-                      schema:publisher "European Memory Institute" ;
-                      schema:provider "ISIDORE" ;
-                      triple:hasLicense triple:cc_by_sa_4_0 ;
-                      schema:keywords triple:keyword-oral-history, triple:keyword-world-war-ii, triple:keyword-italian-resistance, triple:keyword-memory-studies ;
-
-                      schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85083497>, <http://semantics.gr/authorities/SSH-LCSH/sh85085207>, <http://semantics.gr/authorities/SSH-LCSH/sh85095225> ;
-                      schema:inLanguage schema:language-it, schema:language-en ;
-                      schema:spatialCoverage triple:place-italy ;
-                      schema:temporalCoverage "1943-1945" ;
-                      schema:duration "PT2H15M00S" ;
-                      schema:encodingFormat "audio/mp3" ;
-                      schema:size "198 MB" ;
-                      datacite:hasIdentifier triple:identifier-audio-media ,
-                                             triple:identifier-audio-landing ,
-                                             triple:identifier-audio-internal ,
-                                             triple:identifier-audio-pid ,
-                                             triple:identifier-audio-original ,
-                                             triple:identifier-audio-doi ,
-                                             triple:identifier-audio-handle ;
-                      triple:hasAccessCondition triple:open_access ;
-                      schema:funding triple:project-european-memory ;
-                      sioc:topic triple:topic-european-history ;
-                      schema:mentions triple:place-northern-italy .
-
 ###  Multimedia Example 3: Digital Art History Image Collection
-triple:multimedia-003 rdf:type triple:MediaObject ;
-                      schema:headline "High-Resolution Scan: Botticelli's Birth of Venus"@en ;
-                      schema:abstract "Ultra-high resolution digital scan of Sandro Botticelli's The Birth of Venus (c. 1484-1486) from the Uffizi Gallery collection, created for digital humanities research and education."@en ;
-                      schema:author "Uffizi Digital Archive Team" ;
-                      schema:contributor "Dr. Francesca Marini", "Digital Humanities Lab" ;
-                      schema:dateCreated "2023-07-12"^^xsd:date ;
-                      schema:datePublished "2023-09-05"^^xsd:date ;
-                      schema:publisher "Uffizi Gallery" ;
-                      schema:provider "Europeana" ;
-                      triple:hasLicense triple:cc_by_nc_4_0 ;
-                      schema:keywords triple:keyword-renaissance-art, triple:keyword-botticelli, triple:keyword-digital-humanities, triple:keyword-cultural-heritage ;
-
-                      schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85112806>, <http://semantics.gr/authorities/SSH-LCSH/sh85007461>, <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> ;
-                      schema:inLanguage schema:language-en, schema:language-it ;
-                      schema:spatialCoverage triple:place-florence-italy ;
-                      schema:temporalCoverage "1480-1490" ;
-                      schema:encodingFormat "image/tiff", "image/jpeg" ;
-                      schema:size "850 MB" ;
-                      datacite:hasIdentifier triple:identifier-image-media ,
-                                             triple:identifier-image-landing ,
-                                             triple:identifier-image-internal ,
-                                             triple:identifier-image-pid ,
-                                             triple:identifier-image-original ,
-                                             triple:identifier-image-doi ,
-                                             triple:identifier-image-handle ;
-                      triple:hasAccessCondition triple:educational_use ;
-                      schema:funding triple:project-digital-uffizi ;
-                      sioc:topic triple:topic-art-history ;
-                      dcterms:isReferencedBy triple:document-botticelli-analysis-2023 .
-
 ###  Supporting Individuals
-
 ###  Projects
-triple:project-medieval-studies rdf:type schema:Project ;
-                                schema:name "Digital Medieval Studies Initiative" ;
-                                datacite:hasIdentifier triple:identifier-project-001 .
-
-triple:project-european-memory rdf:type schema:Project ;
-                               schema:name "European Memory and Identity Project" ;
-                               datacite:hasIdentifier triple:identifier-project-002 .
-
-triple:project-digital-uffizi rdf:type schema:Project ;
-                               schema:name "Uffizi Digital Heritage Archive" ;
-                               datacite:hasIdentifier triple:identifier-project-003 .
-
 ###  Topics
-triple:topic-medieval-history rdf:type triple:Discipline ;
-                               skos:prefLabel "Medieval History"@en ;
-                               skos:definition "The study of European history from approximately 500 to 1500 CE."@en .
-
-triple:topic-european-history rdf:type triple:Discipline ;
-                               skos:prefLabel "European History"@en ;
-                               skos:definition "Historical studies focusing on European civilizations and societies."@en .
-
-triple:topic-art-history rdf:type triple:Discipline ;
-                         skos:prefLabel "Art History"@en ;
-                         skos:definition "The study of art objects in their historical development and stylistic contexts."@en .
-
 ###  Places
-triple:place-northern-italy rdf:type schema:Place ;
-                            schema:name "Northern Italy"@en ;
-                            schema:description "Geographic region covering the northern part of the Italian Peninsula."@en .
-
 ###  Licenses
-triple:cc_by_nc_nd_4_0 rdf:type owl:NamedIndividual , triple:License ;
-                       skos:exactMatch <https://creativecommons.org/licenses/by-nc-nd/4.0/> ;
-                       rdfs:label "CC BY-NC-ND 4.0"@en .
-
-triple:cc_by_sa_4_0 rdf:type owl:NamedIndividual , triple:License ;
-                    skos:exactMatch <https://creativecommons.org/licenses/by-sa/4.0/> ;
-                    rdfs:label "CC BY-SA 4.0"@en .
-
-triple:cc_by_nc_4_0 rdf:type owl:NamedIndividual , triple:License ;
-                    skos:exactMatch <https://creativecommons.org/licenses/by-nc/4.0/> ;
-                    rdfs:label "CC BY-NC 4.0"@en .
-
 ###  Access Conditions
-triple:open_access rdf:type owl:NamedIndividual , triple:AccessCondition ;
-                   skos:closeMatch <http://purl.org/coar/access_right/c_abf2> ;
-                   rdfs:label "Open Access"@en .
-
-triple:educational_use rdf:type owl:NamedIndividual , triple:AccessCondition ;
-                       rdfs:label "Educational and Research Use"@en ;
-                       rdfs:comment "Access restricted to educational and research purposes."@en .
-
 ###  Referenced Documents
-triple:document-medieval-anthology-2023 rdf:type schema:CreativeWork ;
-                                        schema:headline "Medieval Studies Anthology 2023"@en ;
-                                        schema:datePublished "2023-12-01"^^xsd:date .
-
-triple:document-botticelli-analysis-2023 rdf:type schema:CreativeWork ;
-                                          schema:headline "Digital Analysis of Botticelli's Techniques"@en ;
-                                          schema:datePublished "2023-10-15"^^xsd:date .
-
 ###  Multimedia Identifiers
-
 ###  Video Identifiers
-triple:identifier-video-media rdf:type owl:NamedIndividual ,
-                                       datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                              litre:hasLiteralValue "https://canal-u.fr/video/12345" .
-
-triple:identifier-video-landing rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                litre:hasLiteralValue "https://canal-u.fr/chaines/histoire-medieval/carolingien-renaissance" .
-
 ###  Audio Identifiers  
-triple:identifier-audio-media rdf:type owl:NamedIndividual ,
-                                       datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                              litre:hasLiteralValue "https://memory-institute.eu/audio/789" .
-
-triple:identifier-audio-landing rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                litre:hasLiteralValue "https://memory-institute.eu/collections/resistance-interviews" .
-
 ###  Image Identifiers
-triple:identifier-image-media rdf:type owl:NamedIndividual ,
-                                       datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:full_text_url_schema ;
-                              litre:hasLiteralValue "https://uffizi-digital.it/artworks/birth-of-venus-hd" .
-
-triple:identifier-image-landing rdf:type owl:NamedIndividual ,
-                                         datacite:Identifier ;
-                                datacite:usesIdentifierScheme triple:landing_page_url_schema ;
-                                litre:hasLiteralValue "https://uffizi.it/en/artworks/birth-of-venus" .
-
 ###  Video Platform Identifiers
-triple:identifier-video-internal rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                          datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                 litre:hasLiteralValue "TRIPLE_MEDIA_VIDEO_001" .
-
-triple:identifier-video-pid rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:ark ;
-                            litre:hasLiteralValue "ark:/12345/media-video-medieval-carolingian" .
-
-triple:identifier-video-original rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id_schema ;
-                                 litre:hasLiteralValue "canal_u_video_12345" .
-
 ###  Audio Platform Identifiers
-triple:identifier-audio-internal rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                          datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                 litre:hasLiteralValue "TRIPLE_MEDIA_AUDIO_002" .
-
-triple:identifier-audio-pid rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:ark ;
-                            litre:hasLiteralValue "ark:/12345/media-audio-resistance-interview" .
-
-triple:identifier-audio-original rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id_schema ;
-                                 litre:hasLiteralValue "memory_inst_audio_789" .
-
 ###  Image Platform Identifiers
-triple:identifier-image-internal rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                          datacite:usesIdentifierScheme triple:internal_id_schema ;
-                                 litre:hasLiteralValue "TRIPLE_MEDIA_IMAGE_003" .
-
-triple:identifier-image-pid rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:ark ;
-                            litre:hasLiteralValue "ark:/12345/media-image-birth-venus-hd" .
-
-triple:identifier-image-original rdf:type owl:NamedIndividual ,
-                                          datacite:Identifier ;
-                                 datacite:usesIdentifierScheme triple:original_id_schema ;
-                                 litre:hasLiteralValue "uffizi_digital_venus_hd" .
-
 ###  Video Standard Identifiers
-triple:identifier-video-doi rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:doi ;
-                            litre:hasLiteralValue "10.5281/zenodo.video.medieval.carolingian" .
-
-triple:identifier-video-handle rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:handle ;
-                               litre:hasLiteralValue "21.11130/00-VIDEO-MEDIEVAL-CAROLINGIAN" .
-
 ###  Audio Standard Identifiers
-triple:identifier-audio-doi rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:doi ;
-                            litre:hasLiteralValue "10.5281/zenodo.audio.resistance.interview" .
-
-triple:identifier-audio-handle rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:handle ;
-                               litre:hasLiteralValue "21.11130/00-AUDIO-RESISTANCE-INTERVIEW" .
-
 ###  Image Standard Identifiers
-triple:identifier-image-doi rdf:type owl:NamedIndividual ,
-                                     datacite:Identifier ;
-                                     datacite:usesIdentifierScheme datacite:doi ;
-                            litre:hasLiteralValue "10.5281/zenodo.image.birth.venus.hd" .
-
-triple:identifier-image-handle rdf:type owl:NamedIndividual ,
-                                        datacite:Identifier ;
-                                        datacite:usesIdentifierScheme datacite:handle ;
-                               litre:hasLiteralValue "21.11130/00-IMAGE-BIRTH-VENUS-HD" .
-
 ###  Keywords (DefinedTerms)
-triple:keyword-histoire-medievale rdf:type schema:DefinedTerm ;
-                                  schema:name "histoire médiévale"@fr ;
-                                  schema:description "L'étude académique de la période médiévale européenne"@fr .
-
-triple:keyword-renaissance-carolingienne rdf:type schema:DefinedTerm ;
-                                         schema:name "renaissance carolingienne"@fr ;
-                                         schema:description "Période de renouveau culturel et intellectuel sous l'empire carolingien"@fr .
-
-triple:keyword-charlemagne rdf:type schema:DefinedTerm ;
-                           schema:name "Charlemagne"@fr ;
-                           schema:description "Empereur carolingien et figure centrale du renouveau culturel médiéval"@fr .
-
-triple:keyword-alcuin rdf:type schema:DefinedTerm ;
-                      schema:name "Alcuin of York"@en ;
-                      schema:description "English scholar, educator, and theologian who served as advisor to Charlemagne during the Carolingian Renaissance"@en .
-
-triple:keyword-oral-history rdf:type schema:DefinedTerm ;
-                            schema:name "oral history"@en ;
-                            schema:description "Historical methodology using spoken testimonies and interviews"@en .
-
-triple:keyword-world-war-ii rdf:type schema:DefinedTerm ;
-                            schema:name "World War II"@en ;
-                            schema:description "Global conflict from 1939 to 1945"@en .
-
-triple:keyword-italian-resistance rdf:type schema:DefinedTerm ;
-                                  schema:name "Italian Resistance"@en ;
-                                  schema:description "Armed resistance movement against fascist occupation in Italy during WWII"@en .
-
-triple:keyword-memory-studies rdf:type schema:DefinedTerm ;
-                              schema:name "memory studies"@en ;
-                              schema:description "Interdisciplinary field studying collective and cultural memory"@en .
-
-triple:keyword-renaissance-art rdf:type schema:DefinedTerm ;
-                               schema:name "Renaissance art"@en ;
-                               schema:description "Artistic movement from 14th to 17th century Europe"@en .
-
-triple:keyword-botticelli rdf:type schema:DefinedTerm ;
-                          schema:name "Botticelli"@en ;
-                          schema:description "Sandro Botticelli, Italian Renaissance painter (1445-1510)"@en .
-
-triple:keyword-digital-humanities rdf:type schema:DefinedTerm ;
-                                  schema:name "digital humanities"@en ;
-                                  schema:description "Application of digital tools and methods to humanities research"@en .
-
-triple:keyword-cultural-heritage rdf:type schema:DefinedTerm ;
-                                 schema:name "cultural heritage"@en ;
-                                 schema:description "Legacy of physical artifacts and cultural traditions inherited from past generations"@en .
-
 ###  Places
-triple:place-europe-occidentale rdf:type schema:Place ;
-                                 schema:name "Europe occidentale" .
-
-triple:place-italy rdf:type schema:Place ;
-                   schema:name "Italy" .
-
-triple:place-florence-italy rdf:type schema:Place ;
-                             schema:name "Florence, Italy" .
-
 ###  Languages
-schema:language-fr rdf:type schema:Language ;
-                   rdfs:label "fr"@en .
-
-schema:language-it rdf:type schema:Language ;
-                   rdfs:label "it"@en .
-
-schema:language-en rdf:type schema:Language ;
-                   rdfs:label "en"@en .
-
 ###  Identifier Schemes
-datacite:doi rdf:type datacite:IdentifierScheme ;
-             rdfs:label "datacite:doi" .
-datacite:handle rdf:type datacite:IdentifierScheme ;
-                rdfs:label "datacite:handle" .
-
 ###  Identifiers
-triple:identifier-project-001 rdf:type datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:internal_id_schema ;
-                              litre:hasLiteralValue "DMSI-2023-001" .
-
-triple:identifier-project-002 rdf:type datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:internal_id_schema ;
-                              litre:hasLiteralValue "EMIP-2022-078" .
-
-triple:identifier-project-003 rdf:type datacite:Identifier ;
-                              datacite:usesIdentifierScheme triple:internal_id_schema ;
-                              litre:hasLiteralValue "UDHA-2023-012" .
-
 ###  Extracted keywords (knows_about)
-
-
 ###  Concepts of the TRIPLE Vocabulary (SSH-LCSH)
 #    http://semantics.gr/authorities/vocabularies/SSH-LCSH — maintained by the TRIPLE consortium,
 #    published on semantics.gr by the National Documentation Centre (EKT). The values of schema:about
 #    are these concepts themselves, identified by their own URI: GoTriple does not mint local copies.
 #    The labels below are a snapshot of the authoritative ones; the vocabulary carries up to 12 languages.
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85085001> rdf:type skos:Concept ;
-    skos:prefLabel "Middle Ages"@en ,
-                    "Medioevo"@it ,
-                    "Moyen-âge"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85085001> .
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lic: <https://gotriple.eu/ontology/triple/License/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix sioc: <http://rdfs.org/sioc/ns#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85061212> rdf:type skos:Concept ;
-    skos:prefLabel "History"@en ,
-                    "Storia"@it ,
-                    "Histoire"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85061212> .
+triple:multimedia-001 a triple:MediaObject ;
+    dcterms:isReferencedBy triple:document-medieval-anthology-2023 ;
+    datacite:hasIdentifier triple:identifier-video-doi,
+        triple:identifier-video-handle,
+        triple:identifier-video-internal,
+        triple:identifier-video-landing,
+        triple:identifier-video-media,
+        triple:identifier-video-original,
+        triple:identifier-video-pid ;
+    sioc:topic triple:topic-medieval-history ;
+    triple:hasAccessCondition triple:open_access ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85061212>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85085001> ;
+    schema:abstract "Conférence magistrale sur la Renaissance carolingienne présentée dans le cadre du séminaire d'histoire médiévale de l'Université de Paris."@fr ;
+    schema:author "Prof. Marie Dubois" ;
+    schema:contactPoint triple:contact-canal-u ;
+    schema:contributor "Dr. Jean Martin",
+        "Université de Paris" ;
+    schema:dateCreated "2023-10-15"^^xsd:date ;
+    schema:dateModified "2023-11-02"^^xsd:date ;
+    schema:datePublished "2023-11-01"^^xsd:date ;
+    schema:duration "PT1H25M30S" ;
+    schema:encodingFormat "video/mp4" ;
+    schema:funding triple:project-medieval-studies ;
+    schema:headline "Introduction to Medieval History: The Carolingian Renaissance"@fr ;
+    schema:inLanguage schema:language-fr ;
+    schema:keywords triple:keyword-charlemagne,
+        triple:keyword-histoire-medievale,
+        triple:keyword-renaissance-carolingienne ;
+    schema:mentions triple:keyword-alcuin,
+        triple:keyword-charlemagne ;
+    schema:provider "Canal-U" ;
+    schema:publisher "Canal-U" ;
+    schema:size "1.2 GB" ;
+    schema:spatialCoverage triple:place-europe-occidentale ;
+    schema:temporalCoverage "750-900 CE" .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85083497> rdf:type skos:Concept ;
-    skos:prefLabel "Memory"@en ,
-                    "Memoria"@it ,
-                    "Mémoire"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85083497> .
+triple:multimedia-002 a triple:MediaObject ;
+    datacite:hasIdentifier triple:identifier-audio-doi,
+        triple:identifier-audio-handle,
+        triple:identifier-audio-internal,
+        triple:identifier-audio-landing,
+        triple:identifier-audio-media,
+        triple:identifier-audio-original,
+        triple:identifier-audio-pid ;
+    sioc:topic triple:topic-european-history ;
+    triple:hasAccessCondition triple:open_access ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85083497>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85085207>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85095225> ;
+    schema:abstract "Audio recording of interview with Giovanni Rossi, former member of the Italian Resistance during World War II, conducted in 2023 as part of the European Memory Project."@en ;
+    schema:author "Dr. Lisa Anderson",
+        "European Memory Institute" ;
+    schema:contributor "Prof. Marco Bianchi" ;
+    schema:dateCreated "2023-05-20"^^xsd:date ;
+    schema:datePublished "2023-08-10"^^xsd:date ;
+    schema:duration "PT2H15M00S" ;
+    schema:encodingFormat "audio/mp3" ;
+    schema:funding triple:project-european-memory ;
+    schema:headline "Oral History: Resistance Movement in WWII Italy"@en ;
+    schema:inLanguage schema:language-en,
+        schema:language-it ;
+    schema:keywords triple:keyword-italian-resistance,
+        triple:keyword-memory-studies,
+        triple:keyword-oral-history,
+        triple:keyword-world-war-ii ;
+    schema:mentions triple:place-northern-italy ;
+    schema:provider "ISIDORE" ;
+    schema:publisher "European Memory Institute" ;
+    schema:size "198 MB" ;
+    schema:spatialCoverage triple:place-italy ;
+    schema:temporalCoverage "1943-1945" .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85085207> rdf:type skos:Concept ;
-    skos:prefLabel "Military history"@en ,
-                    "Storia militare"@it ,
-                    "Histoire militaire"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85085207> .
+triple:multimedia-003 a triple:MediaObject ;
+    dcterms:isReferencedBy triple:document-botticelli-analysis-2023 ;
+    datacite:hasIdentifier triple:identifier-image-doi,
+        triple:identifier-image-handle,
+        triple:identifier-image-internal,
+        triple:identifier-image-landing,
+        triple:identifier-image-media,
+        triple:identifier-image-original,
+        triple:identifier-image-pid ;
+    sioc:topic triple:topic-art-history ;
+    triple:hasAccessCondition triple:educational_use ;
+    triple:hasLicense lic:lic_creative-commons ;
+    schema:about <http://semantics.gr/authorities/SSH-LCSH/sh2008122106>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85007461>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85112806> ;
+    schema:abstract "Ultra-high resolution digital scan of Sandro Botticelli's The Birth of Venus (c. 1484-1486) from the Uffizi Gallery collection, created for digital humanities research and education."@en ;
+    schema:author "Uffizi Digital Archive Team" ;
+    schema:contributor "Digital Humanities Lab",
+        "Dr. Francesca Marini" ;
+    schema:dateCreated "2023-07-12"^^xsd:date ;
+    schema:datePublished "2023-09-05"^^xsd:date ;
+    schema:encodingFormat "image/jpeg",
+        "image/tiff" ;
+    schema:funding triple:project-digital-uffizi ;
+    schema:headline "High-Resolution Scan: Botticelli's Birth of Venus"@en ;
+    schema:inLanguage schema:language-en,
+        schema:language-it ;
+    schema:keywords triple:keyword-botticelli,
+        triple:keyword-cultural-heritage,
+        triple:keyword-digital-humanities,
+        triple:keyword-renaissance-art ;
+    schema:provider "Europeana" ;
+    schema:publisher "Uffizi Gallery" ;
+    schema:size "850 MB" ;
+    schema:spatialCoverage triple:place-florence-italy ;
+    schema:temporalCoverage "1480-1490" .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85095225> rdf:type skos:Concept ;
-    skos:prefLabel "Oral biography"@en ,
-                    "Biografia orale"@it ,
-                    "Biographie orale"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85095225> .
+<http://semantics.gr/authorities/SSH-LCSH/sh2008122106> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh2008122106> ;
+    skos:prefLabel "Digital humanities"@en,
+        "Humanités numériques"@fr,
+        "Informatica umanistica"@it .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85112806> rdf:type skos:Concept ;
-    skos:prefLabel "Renaissance"@en ,
-                    "Rinascimento"@it ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85112806> .
+<http://semantics.gr/authorities/SSH-LCSH/sh85007461> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85007461> ;
+    skos:prefLabel "Art"@en .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh85007461> rdf:type skos:Concept ;
-    skos:prefLabel "Art"@en ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85007461> .
+<http://semantics.gr/authorities/SSH-LCSH/sh85061212> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85061212> ;
+    skos:prefLabel "History"@en,
+        "Histoire"@fr,
+        "Storia"@it .
 
-<http://semantics.gr/authorities/SSH-LCSH/sh2008122106> rdf:type skos:Concept ;
-    skos:prefLabel "Digital humanities"@en ,
-                    "Informatica umanistica"@it ,
-                    "Humanités numériques"@fr ;
-    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh2008122106> .
+<http://semantics.gr/authorities/SSH-LCSH/sh85083497> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85083497> ;
+    skos:prefLabel "Memory"@en,
+        "Mémoire"@fr,
+        "Memoria"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85085001> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85085001> ;
+    skos:prefLabel "Middle Ages"@en,
+        "Moyen-âge"@fr,
+        "Medioevo"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85085207> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85085207> ;
+    skos:prefLabel "Military history"@en,
+        "Histoire militaire"@fr,
+        "Storia militare"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85095225> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85095225> ;
+    skos:prefLabel "Oral biography"@en,
+        "Biographie orale"@fr,
+        "Biografia orale"@it .
+
+<http://semantics.gr/authorities/SSH-LCSH/sh85112806> a skos:Concept ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85112806> ;
+    skos:prefLabel "Renaissance"@en,
+        "Rinascimento"@it .
+
+triple:contact-canal-u a schema:ContactPoint ;
+    schema:email "contact@canal-u.fr" .
+
+triple:document-botticelli-analysis-2023 a schema:CreativeWork ;
+    schema:datePublished "2023-10-15"^^xsd:date ;
+    schema:headline "Digital Analysis of Botticelli's Techniques"@en .
+
+triple:document-medieval-anthology-2023 a schema:CreativeWork ;
+    schema:datePublished "2023-12-01"^^xsd:date ;
+    schema:headline "Medieval Studies Anthology 2023"@en .
+
+triple:educational_use a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Educational and Research Use"@en ;
+    rdfs:comment "Access restricted to educational and research purposes."@en .
+
+triple:identifier-audio-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.audio.resistance.interview" .
+
+triple:identifier-audio-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-AUDIO-RESISTANCE-INTERVIEW" .
+
+triple:identifier-audio-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_MEDIA_AUDIO_002" .
+
+triple:identifier-audio-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://memory-institute.eu/collections/resistance-interviews" .
+
+triple:identifier-audio-media a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://memory-institute.eu/audio/789" .
+
+triple:identifier-audio-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "memory_inst_audio_789" .
+
+triple:identifier-audio-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/media-audio-resistance-interview" .
+
+triple:identifier-image-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.image.birth.venus.hd" .
+
+triple:identifier-image-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-IMAGE-BIRTH-VENUS-HD" .
+
+triple:identifier-image-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_MEDIA_IMAGE_003" .
+
+triple:identifier-image-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://uffizi.it/en/artworks/birth-of-venus" .
+
+triple:identifier-image-media a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://uffizi-digital.it/artworks/birth-of-venus-hd" .
+
+triple:identifier-image-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "uffizi_digital_venus_hd" .
+
+triple:identifier-image-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/media-image-birth-venus-hd" .
+
+triple:identifier-project-001 a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "DMSI-2023-001" .
+
+triple:identifier-project-002 a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "EMIP-2022-078" .
+
+triple:identifier-project-003 a datacite:Identifier ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "UDHA-2023-012" .
+
+triple:identifier-video-doi a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:doi ;
+    litre:hasLiteralValue "10.5281/zenodo.video.medieval.carolingian" .
+
+triple:identifier-video-handle a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:handle ;
+    litre:hasLiteralValue "21.11130/00-VIDEO-MEDIEVAL-CAROLINGIAN" .
+
+triple:identifier-video-internal a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:internal_id_schema ;
+    litre:hasLiteralValue "TRIPLE_MEDIA_VIDEO_001" .
+
+triple:identifier-video-landing a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:landing_page_url_schema ;
+    litre:hasLiteralValue "https://canal-u.fr/chaines/histoire-medieval/carolingien-renaissance" .
+
+triple:identifier-video-media a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:full_text_url_schema ;
+    litre:hasLiteralValue "https://canal-u.fr/video/12345" .
+
+triple:identifier-video-original a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme triple:original_id_schema ;
+    litre:hasLiteralValue "canal_u_video_12345" .
+
+triple:identifier-video-pid a datacite:Identifier,
+        owl:NamedIndividual ;
+    datacite:usesIdentifierScheme datacite:ark ;
+    litre:hasLiteralValue "ark:/12345/media-video-medieval-carolingian" .
+
+triple:keyword-alcuin a schema:DefinedTerm ;
+    schema:description "English scholar, educator, and theologian who served as advisor to Charlemagne during the Carolingian Renaissance"@en ;
+    schema:name "Alcuin of York"@en .
+
+triple:keyword-botticelli a schema:DefinedTerm ;
+    schema:description "Sandro Botticelli, Italian Renaissance painter (1445-1510)"@en ;
+    schema:name "Botticelli"@en .
+
+triple:keyword-cultural-heritage a schema:DefinedTerm ;
+    schema:description "Legacy of physical artifacts and cultural traditions inherited from past generations"@en ;
+    schema:name "cultural heritage"@en .
+
+triple:keyword-digital-humanities a schema:DefinedTerm ;
+    schema:description "Application of digital tools and methods to humanities research"@en ;
+    schema:name "digital humanities"@en .
+
+triple:keyword-histoire-medievale a schema:DefinedTerm ;
+    schema:description "L'étude académique de la période médiévale européenne"@fr ;
+    schema:name "histoire médiévale"@fr .
+
+triple:keyword-italian-resistance a schema:DefinedTerm ;
+    schema:description "Armed resistance movement against fascist occupation in Italy during WWII"@en ;
+    schema:name "Italian Resistance"@en .
+
+triple:keyword-memory-studies a schema:DefinedTerm ;
+    schema:description "Interdisciplinary field studying collective and cultural memory"@en ;
+    schema:name "memory studies"@en .
+
+triple:keyword-oral-history a schema:DefinedTerm ;
+    schema:description "Historical methodology using spoken testimonies and interviews"@en ;
+    schema:name "oral history"@en .
+
+triple:keyword-renaissance-art a schema:DefinedTerm ;
+    schema:description "Artistic movement from 14th to 17th century Europe"@en ;
+    schema:name "Renaissance art"@en .
+
+triple:keyword-renaissance-carolingienne a schema:DefinedTerm ;
+    schema:description "Période de renouveau culturel et intellectuel sous l'empire carolingien"@fr ;
+    schema:name "renaissance carolingienne"@fr .
+
+triple:keyword-world-war-ii a schema:DefinedTerm ;
+    schema:description "Global conflict from 1939 to 1945"@en ;
+    schema:name "World War II"@en .
+
+triple:place-europe-occidentale a schema:Place ;
+    schema:name "Europe occidentale" .
+
+triple:place-florence-italy a schema:Place ;
+    schema:name "Florence, Italy" .
+
+triple:place-italy a schema:Place ;
+    schema:name "Italy" .
+
+triple:place-northern-italy a schema:Place ;
+    schema:description "Geographic region covering the northern part of the Italian Peninsula."@en ;
+    schema:name "Northern Italy"@en .
+
+triple:project-digital-uffizi a schema:Project ;
+    datacite:hasIdentifier triple:identifier-project-003 ;
+    schema:name "Uffizi Digital Heritage Archive" .
+
+triple:project-european-memory a schema:Project ;
+    datacite:hasIdentifier triple:identifier-project-002 ;
+    schema:name "European Memory and Identity Project" .
+
+triple:project-medieval-studies a schema:Project ;
+    datacite:hasIdentifier triple:identifier-project-001 ;
+    schema:name "Digital Medieval Studies Initiative" .
+
+triple:topic-art-history a triple:Discipline ;
+    skos:definition "The study of art objects in their historical development and stylistic contexts."@en ;
+    skos:prefLabel "Art History"@en .
+
+triple:topic-european-history a triple:Discipline ;
+    skos:definition "Historical studies focusing on European civilizations and societies."@en ;
+    skos:prefLabel "European History"@en .
+
+triple:topic-medieval-history a triple:Discipline ;
+    skos:definition "The study of European history from approximately 500 to 1500 CE."@en ;
+    skos:prefLabel "Medieval History"@en .
+
+schema:language-fr a schema:Language ;
+    rdfs:label "fr"@en .
+
+triple:keyword-charlemagne a schema:DefinedTerm ;
+    schema:description "Empereur carolingien et figure centrale du renouveau culturel médiéval"@fr ;
+    schema:name "Charlemagne"@fr .
+
+triple:open_access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Open Access"@en ;
+    skos:closeMatch <http://purl.org/coar/access_right/c_abf2> .
+
+schema:language-en a schema:Language ;
+    rdfs:label "en"@en .
+
+schema:language-it a schema:Language ;
+    rdfs:label "it"@en .
+
+datacite:doi a datacite:IdentifierScheme ;
+    rdfs:label "datacite:doi" .
+
+datacite:handle a datacite:IdentifierScheme ;
+    rdfs:label "datacite:handle" .
+

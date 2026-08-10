@@ -79,7 +79,7 @@ Example 4
 CQ_2.5
 
 ### Question
-What external entity does the license term `cc_by_4_0` match exactly?
+What external entity does the license term `lic_creative-commons` closely match?
 
 ### Expected Outcome
 The external URI that is an exact match.
@@ -157,7 +157,7 @@ For a given document, return all its classification metadata (license, access co
 A consolidated view of all vocabulary terms linked to the document.
 
 ### Result
-* `document_1` → licence `triple:cc_by_4_0`; access condition, content type and discipline are not asserted on this document in the exemplar data
+* `document_1` → licence `lic:lic_creative-commons`; access condition, content type and discipline are not asserted on this document in the exemplar data
 
 ### Based on
 All Examples
