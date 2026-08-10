@@ -18,11 +18,6 @@ datacite:isni a datacite:IdentifierScheme,
     rdfs:label "datacite:isni"@en ;
     rdfs:comment "International Standard Name Identifier - an ISO standard identifier for the public identities of contributors to media content."@en .
 
-datacite:local-resource-identifier-scheme a datacite:IdentifierScheme,
-        owl:NamedIndividual ;
-    rdfs:label "datacite:local-resource-identifier-scheme"@en ;
-    rdfs:comment "Local resource identifier scheme, used for the internal Elasticsearch id of the profile."@en .
-
 datacite:orcid a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "datacite:orcid"@en ;
@@ -53,7 +48,7 @@ triple:Profile a owl:Class,
     dcterms:created "2021-12-01" ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:description "The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity. Since iteration 19 the profile also carries personal names, self-description, pronouns, photo, personal web pages, disciplines of interest, thesaurus keywords, known languages, affiliation, registration and collaboration flags, the date of the last GoTriple update, and several identifiers kept apart by their scheme: the internal Elasticsearch id, the ARK minted by GoTriple, the OPERAS/GoTriple id and the external person PIDs (ORCID, IdRef, ISNI, ResearcherID). Which of these are mandatory is expressed in the SHACL shapes, not in OWL."@en ;
-    dcterms:modified "2026-07-27" ;
+    dcterms:modified "2026-08-10" ;
     dcterms:title "Profile"@en ;
     rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
@@ -126,7 +121,7 @@ triple:Profile a owl:Class,
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:description ] ;
-    owl:versionInfo "2.2.0" ;
+    owl:versionInfo "3.0.0" ;
     skos:exactMatch foaf:Agent ;
     schema:creativeWorkStatus "Ontology Module" .
 
@@ -173,11 +168,12 @@ foaf:topic_interest a owl:ObjectProperty ;
 
 triple:Discipline a owl:Class ;
     rdfs:label "Discipline"@en ;
+    rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
     rdfs:subClassOf skos:Concept .
 
 schema:DefinedTerm a owl:Class ;
     rdfs:label "schema:DefinedTerm"@en ;
-    rdfs:comment "A word, name, acronym or phrase defined in a controlled vocabulary. Used for structured thesaurus keywords."@en .
+    rdfs:comment "A word, name, acronym or phrase defined in a controlled context; used for GoTriple keywords."@en .
 
 schema:Language a owl:Class ;
     rdfs:label "schema:Language"@en .

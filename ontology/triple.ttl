@@ -4,6 +4,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix frapo: <http://purl.org/cerif/frapo/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix mod: <https://w3id.org/mod#> .
 @prefix oa: <http://www.w3.org/ns/oa#> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -23,24 +24,22 @@ dcterms:creator a owl:ObjectProperty ;
 datacite:ark a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "datacite:ark"@en ;
-    rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library."@en,
-        "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .
+    rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .
 
 datacite:doi a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "datacite:doi"@en ;
-    rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects maintained by the International DOI Foundation."@en .
+    rdfs:comment "Digital Object Identifier - a persistent identifier for digital objects, standardised as ISO 26324 and governed by the International DOI Foundation."@en .
 
 datacite:handle a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "datacite:handle"@en ;
-    rdfs:comment "Handle System - a persistent identifier infrastructure for managing digital objects."@en .
+    rdfs:comment "Handle System identifier - a persistent identifier managed by the DONA Foundation, on top of which the DOI system is built."@en .
 
 datacite:hasIdentifier a owl:ObjectProperty ;
     rdfs:label "datacite:hasIdentifier",
         "datacite:hasIdentifier"@en ;
-    rdfs:comment "Links an entity to one of its identifiers. Every identifier in the TRIPLE ontology is reached through this property and is a datacite:Identifier: there is no other way of attaching an identifier to an entity."@en,
-        "Links entities to their identifiers"@en ;
+    rdfs:comment "Links an entity to one of its identifiers. Every identifier in the TRIPLE ontology is reached through this property and is a datacite:Identifier: there is no other way of attaching an identifier to an entity."@en ;
     rdfs:range datacite:Identifier .
 
 datacite:isbn a datacite:IdentifierScheme,
@@ -56,7 +55,7 @@ datacite:isni a datacite:IdentifierScheme,
 datacite:issn a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "datacite:issn"@en ;
-    rdfs:comment "International Standard Serial Number - an eight-digit identifier for serial publications."@en .
+    rdfs:comment "International Standard Serial Number - the identifier of a serial publication, standardised as ISO 3297."@en .
 
 datacite:orcid a datacite:IdentifierScheme,
         owl:NamedIndividual ;
@@ -125,14 +124,14 @@ oa:tagging a owl:NamedIndividual,
     dcterms:created "2021-12-01"^^xsd:date ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:description "GoTriple is an advanced multilingual discovery platform specifically designed for the Social Sciences and Humanities (SSH) sector. The platform aggregates, processes, and semantically enriches diverse SSH resources including scholarly publications, research datasets, project descriptions, and researcher profiles from various European language repositories. The TRIPLE ontology serves as the data model for this platform, facilitating cross-disciplinary and cross-linguistic discovery and reuse of resources."@en ;
-    dcterms:modified "2026-07-10"^^xsd:date ;
+    dcterms:modified "2026-08-10"^^xsd:date ;
     dcterms:title "TRIPLE Ontology"@en ;
     vann:preferredNamespacePrefix "triple" ;
     vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/" ;
     rdfs:comment "Comprehensive semantic representation of the GoTriple discovery platform's data model for Social Sciences and Humanities (SSH) research artifacts."@en ;
-    owl:priorVersion triple:2.1.0 ;
-    owl:versionIRI triple:2.2.0 ;
-    owl:versionInfo "2.2.0" .
+    owl:priorVersion triple:2.2.0 ;
+    owl:versionIRI triple:3.0.0 ;
+    owl:versionInfo "3.0.0" .
 
 triple:Dataset a owl:Class ;
     rdfs:label "Dataset"@en,
@@ -144,21 +143,6 @@ triple:Dataset a owl:Class ;
         "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en,
         "A dataset in the GoTriple platform. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalConditionsOfAccess ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalType ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalDatePublished ],
-        [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
         [ a owl:Restriction ;
@@ -274,6 +258,21 @@ triple:Dataset a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom schema:CreativeWork ;
             owl:onProperty dcterms:isReferencedBy ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
         dcat:Dataset,
         schema:Dataset ;
     skos:exactMatch <http://purl.org/spar/fabio/Dataset>,
@@ -289,23 +288,11 @@ triple:MediaObject a owl:Class ;
         "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en,
         "A multimedia object in the GoTriple platform. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalType ],
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalDatePublished ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalConditionsOfAccess ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalSource ],
+            owl:allValuesFrom schema:CreativeWork ;
+            owl:onProperty dcterms:isReferencedBy ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
@@ -390,11 +377,23 @@ triple:MediaObject a owl:Class ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:author ],
         [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:CreativeWork ;
-            owl:onProperty dcterms:isReferencedBy ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
         schema:MediaObject ;
     skos:closeMatch <http://purl.org/spar/fabio/Work>,
         <http://www.cidoc-crm.org/cidoc-crm/E90_Symbolic_Object> .
@@ -486,24 +485,6 @@ triple:SemanticArtefact a owl:Class ;
         "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en,
         "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalType ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalDatePublished ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalConditionsOfAccess ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalSource ],
-        [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty frapo:isOutputOf ],
         [ a owl:Restriction ;
@@ -592,6 +573,24 @@ triple:SemanticArtefact a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
             owl:onProperty schema:mentions ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
         schema:CreativeWork,
         mod:SemanticArtefact ;
     skos:closeMatch <http://purl.org/spar/fabio/Work>,
@@ -621,8 +620,7 @@ triple:idref_schema a datacite:IdentifierScheme,
 triple:internal_id_schema a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "TRIPLE Internal ID"@en ;
-    rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system."@en,
-        "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. On profiles it carries the Elasticsearch id."@en .
+    rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
 
 triple:isDiscarded a owl:DatatypeProperty ;
     rdfs:label "is discarded"@en ;
@@ -637,9 +635,7 @@ triple:landing_page_url_schema a datacite:IdentifierScheme,
 triple:original_id_schema a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "Original Identifier"@en ;
-    rdfs:comment "Generic scheme for the identifier a resource carried in the system it was harvested from, used when that source system has no named scheme of its own."@en,
-        "Generic scheme for the identifier a resource carried in the system it was harvested from. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en,
-        "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple."@en .
+    rdfs:comment "Identifier scheme of the identifier a resource carried in the system it was harvested from, i.e. local to the source system rather than to GoTriple; used when that system has no named scheme of its own. For projects it carries the code assigned by the funding programme (e.g. a Horizon 2020, PRIN or FWF grant number)."@en .
 
 triple:source_url_schema a datacite:IdentifierScheme,
         owl:NamedIndividual ;
@@ -683,9 +679,7 @@ dcterms:source a owl:ObjectProperty .
 
 datacite:usesIdentifierScheme a owl:ObjectProperty ;
     rdfs:label "datacite:usesIdentifierScheme"@en ;
-    rdfs:comment "Links an identifier to its scheme"@en,
-        "Links an identifier to the scheme it belongs to. The scheme is what tells one kind of identifier from another."@en,
-        "The reference identifier scheme used to identify the entity."@en ;
+    rdfs:comment "Links an identifier to the scheme it belongs to. The scheme is what tells one kind of identifier from another."@en ;
     rdfs:domain datacite:Identifier ;
     rdfs:range datacite:IdentifierScheme .
 
@@ -703,7 +697,7 @@ datacite:usesIdentifierScheme a owl:ObjectProperty ;
 <http://www.cidoc-crm.org/cidoc-crm/E7_Activity> a owl:Class ;
     rdfs:label "E7 Activity"@en .
 
-<http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue> a owl:DatatypeProperty ;
+litre:hasLiteralValue a owl:DatatypeProperty ;
     rdfs:label "litre:hasLiteralValue"@en ;
     rdfs:comment "Associates an entity with a literal value representing its textual content."@en ;
     rdfs:range xsd:string .
@@ -750,6 +744,7 @@ triple:detectedLanguage a owl:DatatypeProperty ;
 
 triple:hasProjectType a owl:ObjectProperty ;
     rdfs:label "has project type"@en ;
+    rdfs:comment "Links a project to its project type."@en ;
     rdfs:range triple:ProjectType ;
     rdfs:subPropertyOf dcterms:type .
 
@@ -862,7 +857,7 @@ datacite:Identifier a owl:Class ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
             owl:onDataRange xsd:string ;
-            owl:onProperty <http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue> ;
+            owl:onProperty litre:hasLiteralValue ;
             owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ] .
 
 <http://purl.org/spar/fabio/Work> a owl:Class ;
@@ -891,6 +886,7 @@ triple:Cluster a owl:Class ;
 
 triple:ProjectType a owl:Class ;
     rdfs:label "Project Type"@en ;
+    rdfs:comment "The kind of research project (funded, crowdfunded, citizen science, ...), drawn from the Project Type controlled vocabulary."@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:aggregator a owl:ObjectProperty ;
@@ -922,14 +918,12 @@ schema:Thing a owl:Class ;
 
 schema:about a owl:ObjectProperty ;
     rdfs:label "schema:about"@en ;
-    rdfs:comment "The subject matter of the content"@en,
-        "The subject matter of the content."@en .
+    rdfs:comment "The subject matter of the content."@en .
 
 schema:creativeWorkStatus a owl:DatatypeProperty ;
     rdfs:label "schema:creativeWorkStatus",
         "schema:creativeWorkStatus"@en ;
-    rdfs:comment "The status of a creative work in terms of its stage in a lifecycle"@en,
-        "The status of a creative work in terms of its stage in a lifecycle."@en ;
+    rdfs:comment "The status of a creative work in terms of its stage in a lifecycle."@en ;
     rdfs:range xsd:string .
 
 schema:description a owl:DatatypeProperty ;
@@ -975,8 +969,7 @@ schema:startDate a owl:DatatypeProperty ;
 
 triple:knowsAbout a owl:ObjectProperty ;
     rdfs:label "knows about"@en ;
-    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en,
-        "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm. Sub-property of schema:about (schema:knowsAbout is declared only for Person and Organization)."@en ;
+    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
     rdfs:range schema:DefinedTerm ;
     rdfs:subPropertyOf schema:about .
 
@@ -1014,28 +1007,19 @@ triple:Document a owl:Class ;
         "Document"@fr,
         "Dokument"@pl,
         "Documento"@pt ;
-    rdfs:comment "A document in the GoTriple platform, representing scholarly publications and research outputs."@en,
-        "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts."@en,
-        "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en,
-        "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the mandatory internal id, persistent identifier and original identifier, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en ;
+    rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the internal id, the GoTriple PID and the identifier from the source system, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalType ],
+            owl:allValuesFrom triple:Discipline ;
+            owl:onProperty sioc:topic ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLanguage ],
+            owl:allValuesFrom triple:License ;
+            owl:onProperty triple:hasLicense ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalDatePublished ],
+            owl:allValuesFrom triple:AccessCondition ;
+            owl:onProperty triple:hasAccessCondition ],
         [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalConditionsOfAccess ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalSource ],
+            owl:allValuesFrom triple:ContentType ;
+            owl:onProperty triple:hasContentType ],
         [ a owl:Restriction ;
             owl:onProperty dcterms:source ;
             owl:someValuesFrom owl:Thing ],
@@ -1069,14 +1053,9 @@ triple:Document a owl:Class ;
             owl:someValuesFrom [ a rdfs:Datatype ;
                     owl:unionOf ( rdf:langString xsd:string ) ] ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:detectedLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:machineTranslatedLanguage ],
+            owl:onClass triple:Cluster ;
+            owl:onProperty triple:inCluster ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
         [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:author ],
@@ -1099,24 +1078,14 @@ triple:Document a owl:Class ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty frapo:isOutputOf ],
         [ a owl:Restriction ;
-            owl:onProperty schema:mentions ;
-            owl:someValuesFrom oa:Annotation ],
+            owl:allValuesFrom schema:DefinedTerm ;
+            owl:onProperty triple:knowsAbout ],
         [ a owl:Restriction ;
-            owl:allValuesFrom triple:Discipline ;
-            owl:onProperty sioc:topic ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:detectedLanguage ],
         [ a owl:Restriction ;
-            owl:allValuesFrom triple:License ;
-            owl:onProperty triple:hasLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:AccessCondition ;
-            owl:onProperty triple:hasAccessCondition ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:ContentType ;
-            owl:onProperty triple:hasContentType ],
-        [ a owl:Restriction ;
-            owl:onClass triple:Cluster ;
-            owl:onProperty triple:inCluster ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:machineTranslatedLanguage ],
         [ a owl:Restriction ;
             owl:onProperty schema:keywords ;
             owl:someValuesFrom schema:DefinedTerm ],
@@ -1126,6 +1095,27 @@ triple:Document a owl:Class ;
         [ a owl:Restriction ;
             owl:onProperty schema:temporalCoverage ;
             owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:mentions ;
+            owl:someValuesFrom oa:Annotation ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
         foaf:Document,
         schema:CreativeWork ;
     skos:exactMatch <http://purl.org/spar/fabio/ScholarlyWork>,
@@ -1134,16 +1124,19 @@ triple:Document a owl:Class ;
 
 triple:hasAccessCondition a owl:ObjectProperty ;
     rdfs:label "has access condition"@en ;
+    rdfs:comment "Links a resource to its access condition."@en ;
     rdfs:range triple:AccessCondition ;
     rdfs:subPropertyOf dcterms:accessRights .
 
 triple:hasContentType a owl:ObjectProperty ;
     rdfs:label "has content type"@en ;
+    rdfs:comment "Links a resource to its content type."@en ;
     rdfs:range triple:ContentType ;
     rdfs:subPropertyOf dcterms:type .
 
 triple:hasLicense a owl:ObjectProperty ;
     rdfs:label "has license"@en ;
+    rdfs:comment "Links a resource to its licence."@en ;
     rdfs:range triple:License ;
     rdfs:subPropertyOf dcterms:license .
 
@@ -1180,8 +1173,7 @@ triple:originalType a owl:DatatypeProperty ;
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract",
         "schema:abstract"@en ;
-    rdfs:comment "An abstract is a short description that summarizes a CreativeWork"@en,
-        "An abstract is a short description that summarizes a CreativeWork."@en ;
+    rdfs:comment "An abstract is a short description that summarizes a CreativeWork."@en ;
     rdfs:range [ a rdfs:Datatype ;
             owl:unionOf ( rdf:langString xsd:string ) ],
         [ a rdfs:Datatype ;
@@ -1202,15 +1194,13 @@ schema:author a owl:ObjectProperty ;
 schema:encodingFormat a owl:DatatypeProperty ;
     rdfs:label "schema:encodingFormat",
         "schema:encodingFormat"@en ;
-    rdfs:comment "Media type typically expressed using a MIME format"@en,
-        "Media type typically expressed using a MIME format."@en ;
+    rdfs:comment "Media type typically expressed using a MIME format."@en ;
     rdfs:range xsd:string .
 
 schema:headline a owl:DatatypeProperty ;
     rdfs:label "schema:headline",
         "schema:headline"@en ;
-    rdfs:comment "Headline of the article"@en,
-        "Headline of the article."@en ;
+    rdfs:comment "Headline of the article."@en ;
     rdfs:range [ a rdfs:Datatype ;
             owl:unionOf ( rdf:langString xsd:string ) ],
         [ a rdfs:Datatype ;
@@ -1227,8 +1217,7 @@ schema:mentions a owl:ObjectProperty ;
 
 schema:publisher a owl:ObjectProperty ;
     rdfs:label "schema:publisher"@en ;
-    rdfs:comment "The publisher of the creative work"@en,
-        "The publisher of the creative work."@en ;
+    rdfs:comment "The publisher of the creative work."@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ],
         [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
@@ -1240,19 +1229,23 @@ schema:spatialCoverage a owl:ObjectProperty ;
 
 triple:AccessCondition a owl:Class ;
     rdfs:label "Access Condition"@en ;
+    rdfs:comment "The access condition of a resource — how and to whom it is available — drawn from the Access Condition controlled vocabulary and aligned with COAR access rights."@en ;
     rdfs:subClassOf dcterms:RightsStatement,
         skos:Concept .
 
 triple:ContentType a owl:Class ;
     rdfs:label "Content Type"@en ;
+    rdfs:comment "The kind of content a resource is (journal article, dataset, software, ...), drawn from the Content Type controlled vocabulary and aligned with COAR resource types."@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:Discipline a owl:Class ;
     rdfs:label "Discipline"@en ;
+    rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:License a owl:Class ;
     rdfs:label "License"@en ;
+    rdfs:comment "The licence under which a resource is made available, drawn from the License controlled vocabulary and aligned with Creative Commons and SPDX."@en ;
     rdfs:subClassOf dcterms:LicenseDocument,
         skos:Concept .
 
@@ -1381,8 +1374,7 @@ sioc:topic a owl:ObjectProperty ;
 schema:ContactPoint a owl:Class ;
     rdfs:label "schema:ContactPoint",
         "schema:ContactPoint"@en ;
-    rdfs:comment "A contact point for a person or organization"@en,
-        "A contact point for a person or organization."@en .
+    rdfs:comment "A contact point for a person or organization."@en .
 
 schema:name a owl:DatatypeProperty ;
     rdfs:label "schema:name",

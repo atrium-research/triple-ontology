@@ -31,11 +31,11 @@ datacite:Identifier rdf:type owl:Class ;
 # ---------------------------------------------------------------------------
 # datacite:Identifier requires exactly one datacite:usesIdentifierScheme, so the
 # scheme is always present and always sufficient to say what kind of identifier
-# this is. A triple:* identifier class therefore exists ONLY when the model needs
-# to name that kind inside a class-level axiom — which today means the three
-# mandatory kinds. Everything else is a plain datacite:Identifier told apart by
-# its scheme, and adding a new kind of identifier means adding one scheme, not a
-# scheme plus a class.
+# this is. No triple:* identifier class exists — not even for the three mandatory
+# kinds. Those are named in shapes/entity.shapes.ttl as tsh:InternalIdShape,
+# tsh:PidShape and tsh:OriginalIdShape, not as OWL classes. Every identifier is a
+# plain datacite:Identifier told apart by its scheme, and adding a new kind of
+# identifier means adding one scheme, not a scheme plus a class.
 
 # ---------------------------------------------------------------------------
 # No identifier subclasses
@@ -86,8 +86,9 @@ datacite:Identifier rdf:type owl:Class ;
 #   triple:idref_schema           IdRef, the French higher-education authority file
 #   triple:landing_page_url_schema / triple:full_text_url_schema /
 #   triple:source_url_schema      URLs, which are identifiers like any other
-# Source-specific schemes are minted as needed (e.g. triple:h2020_scheme,
-# triple:prin_scheme, triple:fwf_scheme for project identifiers).
+# A project identifier from a funding programme (a Horizon 2020, PRIN or FWF
+# grant number) goes through triple:original_id_schema, the generic source-system
+# scheme: there is no per-programme scheme, and the ADR does not define one.
 
 triple:internal_id_schema rdf:type owl:NamedIndividual , datacite:IdentifierScheme ;
                           rdfs:label "TRIPLE Internal ID"@en .

@@ -1,37 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:vann="http://purl.org/vocab/vann/"
+  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:vann="http://purl.org/vocab/vann/"
   xmlns:datacite="http://purl.org/spar/datacite/"
   xmlns:triple="https://gotriple.eu/ontology/triple/"
-  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
 >
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access">
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:label xml:lang="en">Metadata Only Access</rdfs:label>
+    <rdfs:label xml:lang="en">Embargoed Access</rdfs:label>
     <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access">
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
       </datacite:Identifier>
     </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">Only the metadata of the resource is accessible.</rdfs:comment>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_14cb/"/>
+    <rdfs:comment xml:lang="en">Access to the resource is embargoed until a specific date.</rdfs:comment>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_f1cf/"/>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/public_domain">
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/other">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:label xml:lang="en">Public Domain</rdfs:label>
-    <rdfs:label xml:lang="pt">Domínio Púlico</rdfs:label>
-    <rdfs:label xml:lang="pl">Domena publiczna</rdfs:label>
-    <rdfs:label xml:lang="fr">Domaine Public</rdfs:label>
+    <rdfs:label xml:lang="en">Other</rdfs:label>
+    <rdfs:label xml:lang="pt">Outros</rdfs:label>
+    <rdfs:label xml:lang="pl">Inne</rdfs:label>
+    <rdfs:label xml:lang="fr">Autre</rdfs:label>
     <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain">
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_other">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
       </datacite:Identifier>
     </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">The resource is in the public domain.</rdfs:comment>
+    <rdfs:comment xml:lang="en">Other access conditions not listed in the vocabulary.</rdfs:comment>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/undefined">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
@@ -45,48 +45,6 @@
       </datacite:Identifier>
     </datacite:hasIdentifier>
     <rdfs:comment xml:lang="en">Access condition is undefined or unknown.</rdfs:comment>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:label xml:lang="en">Restricted access or use</rdfs:label>
-    <rdfs:label xml:lang="pt">Acesso ou Uso Restrito</rdfs:label>
-    <rdfs:label xml:lang="pl">Ograniczony dostęp lub użycie</rdfs:label>
-    <rdfs:label xml:lang="fr">Accès ou Utilisation Restreints</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">Access or use of the resource is restricted.</rdfs:comment>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_16ec/"/>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/free_access">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:label xml:lang="en">Free Access</rdfs:label>
-    <rdfs:label xml:lang="pt">Acesso Livre</rdfs:label>
-    <rdfs:label xml:lang="pl">Bezpłatny dostęp</rdfs:label>
-    <rdfs:label xml:lang="fr">Accès Libre</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">Access to the resource is free of charge.</rdfs:comment>
-    <skos:closeMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_abf2/"/>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/open_access">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:label xml:lang="en">Open Access</rdfs:label>
-    <rdfs:label xml:lang="pt">Acesso Aberto</rdfs:label>
-    <rdfs:label xml:lang="pl">Otwarty dostęp</rdfs:label>
-    <rdfs:label xml:lang="fr">Accès Ouvert</rdfs:label>
-    <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access">
-        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-      </datacite:Identifier>
-    </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">The resource is available under an open license.</rdfs:comment>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_abf2/"/>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/closed_access">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
@@ -102,29 +60,71 @@
     <rdfs:comment xml:lang="en">Access to the resource is closed.</rdfs:comment>
     <skos:closeMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_14cb/"/>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/other">
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/open_access">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:label xml:lang="en">Other</rdfs:label>
-    <rdfs:label xml:lang="pt">Outros</rdfs:label>
-    <rdfs:label xml:lang="pl">Inne</rdfs:label>
-    <rdfs:label xml:lang="fr">Autre</rdfs:label>
+    <rdfs:label xml:lang="en">Open Access</rdfs:label>
+    <rdfs:label xml:lang="pt">Acesso Aberto</rdfs:label>
+    <rdfs:label xml:lang="pl">Otwarty dostęp</rdfs:label>
+    <rdfs:label xml:lang="fr">Accès Ouvert</rdfs:label>
     <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_other">
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
       </datacite:Identifier>
     </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">Other access conditions not listed in the vocabulary.</rdfs:comment>
+    <rdfs:comment xml:lang="en">The resource is available under an open license.</rdfs:comment>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_abf2/"/>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access">
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/public_domain">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
-    <rdfs:label xml:lang="en">Embargoed Access</rdfs:label>
+    <rdfs:label xml:lang="en">Public Domain</rdfs:label>
+    <rdfs:label xml:lang="pt">Domínio Púlico</rdfs:label>
+    <rdfs:label xml:lang="pl">Domena publiczna</rdfs:label>
+    <rdfs:label xml:lang="fr">Domaine Public</rdfs:label>
     <datacite:hasIdentifier>
-      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access">
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain">
         <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
       </datacite:Identifier>
     </datacite:hasIdentifier>
-    <rdfs:comment xml:lang="en">Access to the resource is embargoed until a specific date.</rdfs:comment>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_f1cf/"/>
+    <rdfs:comment xml:lang="en">The resource is in the public domain.</rdfs:comment>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
+    <rdfs:label xml:lang="en">Restricted access or use</rdfs:label>
+    <rdfs:label xml:lang="pt">Acesso ou Uso Restrito</rdfs:label>
+    <rdfs:label xml:lang="pl">Ograniczony dostęp lub użycie</rdfs:label>
+    <rdfs:label xml:lang="fr">Accès ou Utilisation Restreints</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">Access or use of the resource is restricted.</rdfs:comment>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_16ec/"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
+    <rdfs:label xml:lang="en">Metadata Only Access</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">Only the metadata of the resource is accessible.</rdfs:comment>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_14cb/"/>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/free_access">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
+    <rdfs:label xml:lang="en">Free Access</rdfs:label>
+    <rdfs:label xml:lang="pt">Acesso Livre</rdfs:label>
+    <rdfs:label xml:lang="pl">Bezpłatny dostęp</rdfs:label>
+    <rdfs:label xml:lang="fr">Accès Libre</rdfs:label>
+    <datacite:hasIdentifier>
+      <datacite:Identifier rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access">
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+      </datacite:Identifier>
+    </datacite:hasIdentifier>
+    <rdfs:comment xml:lang="en">Access to the resource is free of charge.</rdfs:comment>
+    <skos:closeMatch rdf:resource="https://vocabularies.coar-repositories.org/access_rights/c_abf2/"/>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/AccessCondition"/>
@@ -147,11 +147,11 @@
     <dcterms:creator>Alessandro Bertozzi</dcterms:creator>
     <dcterms:contributor>Luca De Santis</dcterms:contributor>
     <dcterms:contributor>Silvio Peroni</dcterms:contributor>
-    <owl:versionInfo>2.2.0</owl:versionInfo>
+    <owl:versionInfo>3.0.0</owl:versionInfo>
     <vann:preferredNamespacePrefix>accesscondition</vann:preferredNamespacePrefix>
     <vann:preferredNamespaceUri>https://gotriple.eu/ontology/triple/AccessCondition/</vann:preferredNamespaceUri>
     <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-12-01</dcterms:created>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-07-10</dcterms:modified>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-10</dcterms:modified>
     <rdfs:label xml:lang="en">Access Condition</rdfs:label>
     <rdfs:subClassOf rdf:resource="http://purl.org/dc/terms/RightsStatement"/>
     <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>

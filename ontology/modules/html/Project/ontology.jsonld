@@ -1,51 +1,48 @@
 [
   {
-    "@id": "https://schema.org/about",
+    "@id": "https://schema.org/Grant",
     "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "The subject matter of the content"
+        "@value": "A grant, typically financial or otherwise quantifiable, of resources"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:about"
+        "@value": "schema:Grant"
       }
-    ]
-  },
-  {
-    "@id": "https://schema.org/funder",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@language": "en",
-        "@value": "A person or organization that supports something through some kind of financial contribution"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb21"
       },
       {
-        "@language": "en",
-        "@value": "A person or organization that supports through funding"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:funder"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b29"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb25"
       }
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b29",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb21",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb22"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/funder"
+      }
+    ]
+  },
+  {
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb22",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -60,25 +57,137 @@
     ]
   },
   {
-    "@id": "https://schema.org/alternateName",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb25",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Restriction"
+    ],
+    "http://www.w3.org/2002/07/owl#allValuesFrom": [
+      {
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb26"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#onProperty": [
+      {
+        "@id": "https://schema.org/sponsor"
+      }
+    ]
+  },
+  {
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb26",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Person"
+          },
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/about",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The subject matter of the content."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:about"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/description",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "An alias for the item"
+        "@value": "A description of the item"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:alternateName"
+        "@value": "schema:description"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/hasProjectType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Links a project to its project type."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "has project type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://gotriple.eu/ontology/triple/ProjectType"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
+      {
+        "@id": "http://purl.org/dc/terms/type"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.cidoc-crm.org/cidoc-crm/E7_Activity",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "E7 Activity"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/ProjectType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The kind of research project (funded, crowdfunded, citizen science, ...), drawn from the Project Type controlled vocabulary."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Project Type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ]
   },
@@ -120,7 +229,7 @@
     ],
     "http://purl.org/dc/terms/modified": [
       {
-        "@value": "2026-07-10"
+        "@value": "2026-08-10"
       }
     ],
     "http://purl.org/dc/terms/title": [
@@ -163,64 +272,64 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b1"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb1"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b2"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb2"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b3"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb3"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b4"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb4"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b5"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb5"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b6"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb6"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b7"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb7"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b8"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb8"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b9"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb9"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b10"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb10"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b11"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb11"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b12"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb12"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b13"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb13"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b14"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb14"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b15"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb15"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b16"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb16"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b17"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb17"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b18"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb18"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b19"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb19"
       },
       {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b20"
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb20"
       },
       {
         "@id": "https://schema.org/Project"
@@ -228,7 +337,7 @@
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
       {
-        "@value": "2.2.0"
+        "@value": "3.0.0"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#closeMatch": [
@@ -251,7 +360,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b1",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb1",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -268,7 +377,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b2",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb2",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -284,7 +393,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b3",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -301,7 +410,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b4",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb4",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -317,7 +426,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b5",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb5",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -334,7 +443,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b6",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb6",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -350,7 +459,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b7",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb7",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -366,7 +475,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b8",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb8",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -382,7 +491,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b9",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb9",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -399,7 +508,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b10",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb10",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -416,7 +525,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b11",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb11",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -432,7 +541,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b12",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb12",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -448,7 +557,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b13",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb13",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -464,7 +573,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b14",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb14",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -480,7 +589,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b15",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb15",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -496,7 +605,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b16",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb16",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -512,7 +621,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b17",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb17",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -528,7 +637,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b18",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb18",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -544,7 +653,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b19",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb19",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -560,7 +669,7 @@
     ]
   },
   {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b20",
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb20",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -572,6 +681,99 @@
     "http://www.w3.org/2002/07/owl#onProperty": [
       {
         "@id": "https://schema.org/mainEntityOfPage"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/funding",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A Grant that directly or indirectly provide funding or sponsorship for this item."
+      },
+      {
+        "@language": "en",
+        "@value": "A grant, typically financial or otherwise quantifiable, of resources"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:funding"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Project",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:Project"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/cerif/frapo/isOutputOf",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates that a research output is the result of a particular project."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "frapo:isOutputOf"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "https://gotriple.eu/ontology/triple/Project"
+      }
+    ]
+  },
+  {
+    "@id": "https://sshoc.eu/ontology/SHE3_SSH_Project",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "SHE3 SSH Project"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/cerif/frapo/Grant",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A funding grant."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "frapo:Grant"
       }
     ]
   },
@@ -594,14 +796,63 @@
     ]
   },
   {
-    "@id": "https://sshoc.eu/ontology/SHE3_SSH_Project",
+    "@id": "https://schema.org/funder",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A person or organization that supports something through some kind of financial contribution"
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "SHE3 SSH Project"
+        "@value": "schema:funder"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb29"
+      }
+    ]
+  },
+  {
+    "@id": "_:n0fe687fd1f804a65a12d2e62d7b1c1ebb29",
+    "http://www.w3.org/2002/07/owl#unionOf": [
+      {
+        "@list": [
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Person"
+          },
+          {
+            "@id": "http://xmlns.com/foaf/0.1/Organization"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/startDate",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The start date and time of the item"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:startDate"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#date"
       }
     ]
   },
@@ -652,268 +903,25 @@
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/ProjectType",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Project Type"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Grant",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A grant, typically financial or otherwise quantifiable, of resources"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:Grant"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b21"
-      },
-      {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b25"
-      }
-    ]
-  },
-  {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b21",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b22"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/funder"
-      }
-    ]
-  },
-  {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b22",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b25",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Restriction"
-    ],
-    "http://www.w3.org/2002/07/owl#allValuesFrom": [
-      {
-        "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b26"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#onProperty": [
-      {
-        "@id": "https://schema.org/sponsor"
-      }
-    ]
-  },
-  {
-    "@id": "_:n3ed42a2985a648ab8f7b00a96e344e06b26",
-    "http://www.w3.org/2002/07/owl#unionOf": [
-      {
-        "@list": [
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Person"
-          },
-          {
-            "@id": "http://xmlns.com/foaf/0.1/Organization"
-          }
-        ]
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Project",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An enterprise (potentially individual but typically collaborative), planned to achieve a particular aim."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:Project"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/cerif/frapo/Grant",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A funding grant."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "frapo:Grant"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/description",
+    "@id": "https://schema.org/alternateName",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A description of the item"
+        "@value": "An alias for the item"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:description"
+        "@value": "schema:alternateName"
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#range": [
       {
         "@id": "http://www.w3.org/1999/02/22-rdf-syntax-ns#langString"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/startDate",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The start date and time of the item"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:startDate"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#date"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/hasProjectType",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "has project type"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/ProjectType"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subPropertyOf": [
-      {
-        "@id": "http://purl.org/dc/terms/type"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/cerif/frapo/isOutputOf",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates that a research output is the result of a particular project."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "frapo:isOutputOf"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/Project"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.cidoc-crm.org/cidoc-crm/E7_Activity",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "E7 Activity"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/funding",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A Grant that directly or indirectly provide funding or sponsorship for this item."
-      },
-      {
-        "@language": "en",
-        "@value": "A grant, typically financial or otherwise quantifiable, of resources"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:funding"
       }
     ]
   }

@@ -24,7 +24,7 @@
 
                 
                 <dt>Revision:</dt>
-                <dd>2.2.0</dd>
+                <dd>3.0.0</dd>
                 
 
                 
@@ -163,6 +163,10 @@
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition</p>
                 
+                <div class="comment">
+                    <p>The access condition of a resource — how and to whom it is available — drawn from the Access Condition controlled vocabulary and aligned with COAR access rights.</p>
+                </div>
+                
 
                 
 
@@ -280,6 +284,10 @@
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType</p>
                 
+                <div class="comment">
+                    <p>The kind of content a resource is (journal article, dataset, software, ...), drawn from the Content Type controlled vocabulary and aligned with COAR resource types.</p>
+                </div>
+                
 
                 
 
@@ -336,6 +344,10 @@
                     </span>
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/Discipline</p>
+                
+                <div class="comment">
+                    <p>An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification.</p>
+                </div>
                 
 
                 
@@ -430,6 +442,10 @@
                     </span>
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/License</p>
+                
+                <div class="comment">
+                    <p>The licence under which a resource is made available, drawn from the License controlled vocabulary and aligned with Creative Commons and SPDX.</p>
+                </div>
                 
 
                 
@@ -1725,10 +1741,6 @@ A multimedia object in the GoTriple platform, representing various types of medi
                         
                         <a href="#http://purl.org/spar/datacite/handle" title="http://purl.org/spar/datacite/handle">datacite:handle</a>
                         <sup class="type-ni" title="ni">ni</sup>
-                        , 
-                        
-                        <a href="#http://purl.org/spar/datacite/local-resource-identifier-scheme" title="http://purl.org/spar/datacite/local-resource-identifier-scheme">datacite:local-resource-identifier-scheme</a>
-                        <sup class="type-ni" title="ni">ni</sup>
                         
                         
                     </dd>
@@ -2022,7 +2034,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
                 <p><strong>IRI:</strong> https://schema.org/MediaObject</p>
                 
                 <div class="comment">
-                    <p>A media object, such as an image, video, or audio object embedded in a web page or a downloadable dataset.</p>
+                    <p>A media object, such as an image, video, or audio object embedded in a web page or a downloadable dataset. Note that a creative work may have many media objects associated with it on the same web page.</p>
                 </div>
                 
 
@@ -2307,6 +2319,10 @@ A multimedia object in the GoTriple platform, representing various types of medi
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasAccessCondition</p>
     
+    <div class="comment">
+        <p>Links a resource to its access condition.</p>
+    </div>
+    
     
     
 
@@ -2361,6 +2377,10 @@ A multimedia object in the GoTriple platform, representing various types of medi
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasContentType</p>
     
+    <div class="comment">
+        <p>Links a resource to its content type.</p>
+    </div>
+    
     
     
 
@@ -2414,6 +2434,10 @@ A multimedia object in the GoTriple platform, representing various types of medi
         </span>
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasLicense</p>
+    
+    <div class="comment">
+        <p>Links a resource to its licence.</p>
+    </div>
     
     
     
@@ -2470,7 +2494,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/knowsAbout</p>
     
     <div class="comment">
-        <p>Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm.</p>
+        <p>Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works.</p>
     </div>
     
     
@@ -3291,7 +3315,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalConditionsOfAccess</p>
     
     <div class="comment">
-        <p>The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary.</p>
+        <p>The access rights statement exactly as received from the source provider (e.g. &#39;info:eu-repo/semantics/openAccess&#39;), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition.</p>
     </div>
     
     
@@ -3349,7 +3373,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalDatePublished</p>
     
     <div class="comment">
-        <p>The publication date string exactly as received from the source provider, before conversion to ISO 8601.</p>
+        <p>The publication date string exactly as received from the source provider, in whatever format the provider used (e.g. &#39;03/05/2021&#39;, &#39;May 2021&#39;), before conversion to ISO 8601. The normalized value is expressed via schema:datePublished.</p>
     </div>
     
     
@@ -3407,7 +3431,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalLanguage</p>
     
     <div class="comment">
-        <p>The language value exactly as received from the source provider, before normalization to a schema:Language entity.</p>
+        <p>The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. &#39;eng&#39;, &#39;English&#39;, &#39;fr-FR&#39;). The normalized value is expressed via schema:inLanguage.</p>
     </div>
     
     
@@ -3465,7 +3489,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalLicense</p>
     
     <div class="comment">
-        <p>The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary.</p>
+        <p>The license statement exactly as received from the source provider (e.g. &#39;CC BY 4.0&#39;, a URL, free text), before normalization to the License controlled vocabulary. The normalized value is expressed via triple:hasLicense.</p>
     </div>
     
     
@@ -3523,7 +3547,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalSource</p>
     
     <div class="comment">
-        <p>The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers.</p>
+        <p>The source statement exactly as received from the source provider (e.g. a journal issue string or a repository reference), before processing into the normalized source (dcterms:source) or the URL-based identifiers. The value is kept verbatim.</p>
     </div>
     
     
@@ -3581,7 +3605,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalType</p>
     
     <div class="comment">
-        <p>The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary.</p>
+        <p>The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. &#39;journalArticle&#39;). The normalized value is expressed via triple:hasContentType.</p>
     </div>
     
     
@@ -3819,9 +3843,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://schema.org/encodingFormat</p>
     
     <div class="comment">
-        <p>Media type typically expressed using a MIME format
-
-Media type typically expressed using a MIME format. @en</p>
+        <p>Media type typically expressed using a MIME format.</p>
     </div>
     
     
@@ -3972,8 +3994,6 @@ Media type typically expressed using a MIME format. @en</p>
                 
                 <li><a href="#http://purl.org/spar/datacite/handle" title="http://purl.org/spar/datacite/handle">datacite:handle</a></li>
                 
-                <li><a href="#http://purl.org/spar/datacite/local-resource-identifier-scheme" title="http://purl.org/spar/datacite/local-resource-identifier-scheme">datacite:local-resource-identifier-scheme</a></li>
-                
             </ul>
             
             <div class="entity" id="http://purl.org/spar/datacite/doi">
@@ -4025,45 +4045,6 @@ Media type typically expressed using a MIME format. @en</p>
         </span>
     </h3>
     <p><strong>IRI:</strong> http://purl.org/spar/datacite/handle</p>
-    
-    
-    
-
-    
-
-    
-
-    
-    <dl class="description">
-        
-        <dt>belongs to</dt>
-        
-        <dd>
-            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
-                target="_self">datacite:IdentifierScheme</a>
-            <sup class="type-c" title="c">c</sup>
-        </dd>
-        
-        
-
-        
-
-        
-    </dl>
-    
-    
-</div>
-            
-            <div class="entity" id="http://purl.org/spar/datacite/local-resource-identifier-scheme">
-    <h3>datacite:local-resource-identifier-scheme
-        <sup class="type-ni" title="ni">
-            ni
-        </sup>
-        <span class="backlink">
-            back to <a href="#toc">ToC</a>
-        </span>
-    </h3>
-    <p><strong>IRI:</strong> http://purl.org/spar/datacite/local-resource-identifier-scheme</p>
     
     
     

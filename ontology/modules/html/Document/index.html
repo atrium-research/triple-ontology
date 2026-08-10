@@ -24,7 +24,7 @@
 
                 
                 <dt>Revision:</dt>
-                <dd>2.2.0</dd>
+                <dd>3.0.0</dd>
                 
 
                 
@@ -169,6 +169,10 @@
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition</p>
                 
+                <div class="comment">
+                    <p>The access condition of a resource — how and to whom it is available — drawn from the Access Condition controlled vocabulary and aligned with COAR access rights.</p>
+                </div>
+                
 
                 
 
@@ -275,7 +279,7 @@
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/Cluster</p>
                 
                 <div class="comment">
-                    <p>A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication.</p>
+                    <p>A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication. A cluster is computed by GoTriple, so it carries only its internal identifier: it has no source system it was harvested from.</p>
                 </div>
                 
 
@@ -386,6 +390,10 @@
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ContentType</p>
                 
+                <div class="comment">
+                    <p>The kind of content a resource is (journal article, dataset, software, ...), drawn from the Content Type controlled vocabulary and aligned with COAR resource types.</p>
+                </div>
+                
 
                 
 
@@ -443,6 +451,10 @@
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/Discipline</p>
                 
+                <div class="comment">
+                    <p>An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification.</p>
+                </div>
+                
 
                 
 
@@ -492,10 +504,7 @@
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/Document</p>
                 
                 <div class="comment">
-                    <p>A document in the GoTriple platform, representing scholarly publications and research outputs.
-
-A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. @en
-A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. @en</p>
+                    <p>A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the internal id, the GoTriple PID and the identifier from the source system, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme.</p>
                 </div>
                 
 
@@ -1516,6 +1525,10 @@ A document in the GoTriple platform, representing scholarly publications, resear
                 </h3>
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/License</p>
                 
+                <div class="comment">
+                    <p>The licence under which a resource is made available, drawn from the License controlled vocabulary and aligned with Creative Commons and SPDX.</p>
+                </div>
+                
 
                 
 
@@ -1800,10 +1813,6 @@ A document in the GoTriple platform, representing scholarly publications, resear
                         , 
                         
                         <a href="#http://purl.org/spar/datacite/issn" title="http://purl.org/spar/datacite/issn">datacite:issn</a>
-                        <sup class="type-ni" title="ni">ni</sup>
-                        , 
-                        
-                        <a href="#http://purl.org/spar/datacite/local-resource-identifier-scheme" title="http://purl.org/spar/datacite/local-resource-identifier-scheme">datacite:local-resource-identifier-scheme</a>
                         <sup class="type-ni" title="ni">ni</sup>
                         
                         
@@ -2307,6 +2316,10 @@ A document in the GoTriple platform, representing scholarly publications, resear
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/aggregator</p>
     
+    <div class="comment">
+        <p>An aggregator that collates resources from different sources</p>
+    </div>
+    
     
     
 
@@ -2493,6 +2506,10 @@ A document in the GoTriple platform, representing scholarly publications, resear
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasAccessCondition</p>
     
+    <div class="comment">
+        <p>Links a resource to its access condition.</p>
+    </div>
+    
     
     
 
@@ -2546,6 +2563,10 @@ A document in the GoTriple platform, representing scholarly publications, resear
         </span>
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasContentType</p>
+    
+    <div class="comment">
+        <p>Links a resource to its content type.</p>
+    </div>
     
     
     
@@ -2601,6 +2622,10 @@ A document in the GoTriple platform, representing scholarly publications, resear
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasLicense</p>
     
+    <div class="comment">
+        <p>Links a resource to its licence.</p>
+    </div>
+    
     
     
 
@@ -2654,6 +2679,10 @@ A document in the GoTriple platform, representing scholarly publications, resear
         </span>
     </h3>
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/inCluster</p>
+    
+    <div class="comment">
+        <p>Associates a document with its cluster (for deduplication purposes).</p>
+    </div>
     
     
     
@@ -2710,7 +2739,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/knowsAbout</p>
     
     <div class="comment">
-        <p>Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm.</p>
+        <p>Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works.</p>
     </div>
     
     
@@ -3339,7 +3368,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/confidence</p>
     
     <div class="comment">
-        <p>The trust score of an automatic enrichment, between 0 and 1, asserted on the oa:Annotation recording the enrichment.</p>
+        <p>The trust score of an automatic enrichment, between 0 and 1, as produced by the GoTriple pipeline (SKG-IF &#39;trust&#39;).</p>
     </div>
     
     
@@ -3622,7 +3651,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/detectedLanguage</p>
     
     <div class="comment">
-        <p>The language tag identified by the GoTriple language-detection service for the resource&#39;s text.</p>
+        <p>The language tag identified by the GoTriple language-detection service for the resource&#39;s text, which may differ from the language declared by the provider (triple:originalLanguage) and from the normalized language (schema:inLanguage).</p>
     </div>
     
     
@@ -3714,7 +3743,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/machineTranslatedLanguage</p>
     
     <div class="comment">
-        <p>A language tag whose title and abstract versions were produced by the GoTriple machine-translation service.</p>
+        <p>A language tag whose title and abstract versions were produced by the GoTriple machine-translation service. Title/abstract literals carrying this language tag are machine translations; the remaining language versions are as provided by the source.</p>
     </div>
     
     
@@ -3762,7 +3791,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalConditionsOfAccess</p>
     
     <div class="comment">
-        <p>The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary.</p>
+        <p>The access rights statement exactly as received from the source provider (e.g. &#39;info:eu-repo/semantics/openAccess&#39;), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition.</p>
     </div>
     
     
@@ -3820,7 +3849,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalDatePublished</p>
     
     <div class="comment">
-        <p>The publication date string exactly as received from the source provider, before conversion to ISO 8601.</p>
+        <p>The publication date string exactly as received from the source provider, in whatever format the provider used (e.g. &#39;03/05/2021&#39;, &#39;May 2021&#39;), before conversion to ISO 8601. The normalized value is expressed via schema:datePublished.</p>
     </div>
     
     
@@ -3878,7 +3907,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalLanguage</p>
     
     <div class="comment">
-        <p>The language value exactly as received from the source provider, before normalization to a schema:Language entity.</p>
+        <p>The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. &#39;eng&#39;, &#39;English&#39;, &#39;fr-FR&#39;). The normalized value is expressed via schema:inLanguage.</p>
     </div>
     
     
@@ -3936,7 +3965,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalLicense</p>
     
     <div class="comment">
-        <p>The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary.</p>
+        <p>The license statement exactly as received from the source provider (e.g. &#39;CC BY 4.0&#39;, a URL, free text), before normalization to the License controlled vocabulary. The normalized value is expressed via triple:hasLicense.</p>
     </div>
     
     
@@ -3994,7 +4023,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalSource</p>
     
     <div class="comment">
-        <p>The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers.</p>
+        <p>The source statement exactly as received from the source provider (e.g. a journal issue string or a repository reference), before processing into the normalized source (dcterms:source) or the URL-based identifiers. The value is kept verbatim.</p>
     </div>
     
     
@@ -4052,7 +4081,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalType</p>
     
     <div class="comment">
-        <p>The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary.</p>
+        <p>The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. &#39;journalArticle&#39;). The normalized value is expressed via triple:hasContentType.</p>
     </div>
     
     
@@ -4346,8 +4375,6 @@ A document in the GoTriple platform, representing scholarly publications, resear
                 
                 <li><a href="#http://purl.org/spar/datacite/issn" title="http://purl.org/spar/datacite/issn">datacite:issn</a></li>
                 
-                <li><a href="#http://purl.org/spar/datacite/local-resource-identifier-scheme" title="http://purl.org/spar/datacite/local-resource-identifier-scheme">datacite:local-resource-identifier-scheme</a></li>
-                
                 <li><a href="#http://www.w3.org/ns/oa%23classifying" title="http://www.w3.org/ns/oa#classifying">oa:classifying</a></li>
                 
                 <li><a href="#http://www.w3.org/ns/oa%23tagging" title="http://www.w3.org/ns/oa#tagging">oa:tagging</a></li>
@@ -4549,45 +4576,6 @@ A document in the GoTriple platform, representing scholarly publications, resear
     
 </div>
             
-            <div class="entity" id="http://purl.org/spar/datacite/local-resource-identifier-scheme">
-    <h3>datacite:local-resource-identifier-scheme
-        <sup class="type-ni" title="ni">
-            ni
-        </sup>
-        <span class="backlink">
-            back to <a href="#toc">ToC</a>
-        </span>
-    </h3>
-    <p><strong>IRI:</strong> http://purl.org/spar/datacite/local-resource-identifier-scheme</p>
-    
-    
-    
-
-    
-
-    
-
-    
-    <dl class="description">
-        
-        <dt>belongs to</dt>
-        
-        <dd>
-            <a href="#http://purl.org/spar/datacite/IdentifierScheme" title="http://purl.org/spar/datacite/IdentifierScheme"
-                target="_self">datacite:IdentifierScheme</a>
-            <sup class="type-c" title="c">c</sup>
-        </dd>
-        
-        
-
-        
-
-        
-    </dl>
-    
-    
-</div>
-            
             <div class="entity" id="http://www.w3.org/ns/oa#classifying">
     <h3>oa:classifying
         <sup class="type-ni" title="ni">
@@ -4600,7 +4588,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> http://www.w3.org/ns/oa#classifying</p>
     
     <div class="comment">
-        <p>The W3C motivation used for GoTriple discipline assignments.</p>
+        <p>The motivation for when the user intends to classify the Target as something; used for GoTriple discipline assignments.</p>
     </div>
     
     
@@ -4643,7 +4631,7 @@ A document in the GoTriple platform, representing scholarly publications, resear
     <p><strong>IRI:</strong> http://www.w3.org/ns/oa#tagging</p>
     
     <div class="comment">
-        <p>The W3C motivation used for GoTriple keyword assignments.</p>
+        <p>The motivation for when the user intends to associate a tag with the Target; used for GoTriple keyword assignments.</p>
     </div>
     
     

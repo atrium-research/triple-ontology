@@ -36,10 +36,6 @@ datacite:issn a datacite:IdentifierScheme,
         owl:NamedIndividual ;
     rdfs:label "datacite:issn"@en .
 
-datacite:local-resource-identifier-scheme a datacite:IdentifierScheme,
-        owl:NamedIndividual ;
-    rdfs:label "datacite:local-resource-identifier-scheme"@en .
-
 datacite:usesIdentifierScheme a owl:ObjectProperty ;
     rdfs:label "datacite:usesIdentifierScheme"@en ;
     rdfs:domain datacite:Identifier ;
@@ -52,7 +48,7 @@ datacite:usesIdentifierScheme a owl:ObjectProperty ;
 oa:classifying a owl:NamedIndividual,
         oa:Motivation ;
     rdfs:label "oa:classifying"@en ;
-    rdfs:comment "The W3C motivation used for GoTriple discipline assignments."@en .
+    rdfs:comment "The motivation for when the user intends to classify the Target as something; used for GoTriple discipline assignments."@en .
 
 oa:hasBody a owl:ObjectProperty ;
     rdfs:label "oa:hasBody"@en .
@@ -67,11 +63,11 @@ oa:motivatedBy a owl:ObjectProperty ;
 oa:tagging a owl:NamedIndividual,
         oa:Motivation ;
     rdfs:label "oa:tagging"@en ;
-    rdfs:comment "The W3C motivation used for GoTriple keyword assignments."@en .
+    rdfs:comment "The motivation for when the user intends to associate a tag with the Target; used for GoTriple keyword assignments."@en .
 
 triple:confidence a owl:DatatypeProperty ;
     rdfs:label "confidence"@en ;
-    rdfs:comment "The trust score of an automatic enrichment, between 0 and 1, asserted on the oa:Annotation recording the enrichment."@en ;
+    rdfs:comment "The trust score of an automatic enrichment, between 0 and 1, as produced by the GoTriple pipeline (SKG-IF 'trust')."@en ;
     rdfs:domain oa:Annotation ;
     rdfs:range xsd:decimal .
 
@@ -108,6 +104,7 @@ foaf:Document a owl:Class ;
 
 triple:Discipline a owl:Class ;
     rdfs:label "Discipline"@en ;
+    rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:Document a owl:Class,
@@ -123,11 +120,9 @@ triple:Document a owl:Class,
     dcterms:created "2021-12-01" ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:description "The Document module serves as the core of the TRIPLE Ontology. It defines the `triple:Document` class, representing scholarly publications and research outputs. Crucially, it also acts as the central hub for shared definitions used across the entire ontology, including Identifiers (DataCite), Licenses, Disciplines, and common schema.org properties."@en ;
-    dcterms:modified "2026-07-10" ;
+    dcterms:modified "2026-08-10" ;
     dcterms:title "Document"@en ;
-    rdfs:comment "A document in the GoTriple platform, representing scholarly publications and research outputs."@en,
-        "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts."@en,
-        "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document."@en ;
+    rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the internal id, the GoTriple PID and the identifier from the source system, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:onProperty schema:mentions ;
             owl:someValuesFrom oa:Annotation ],
@@ -238,7 +233,7 @@ triple:Document a owl:Class,
             owl:onProperty schema:provider ],
         foaf:Document,
         schema:CreativeWork ;
-    owl:versionInfo "2.2.0" ;
+    owl:versionInfo "3.0.0" ;
     skos:exactMatch <http://purl.org/spar/fabio/ScholarlyWork>,
         <http://www.cidoc-crm.org/cidoc-crm/E31_Document>,
         <https://sshoc.eu/ontology/SHE8_Publication> ;
@@ -246,77 +241,82 @@ triple:Document a owl:Class,
 
 triple:aggregator a owl:ObjectProperty ;
     rdfs:label "aggregator"@en ;
+    rdfs:comment "An aggregator that collates resources from different sources"@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 triple:detectedLanguage a owl:DatatypeProperty ;
     rdfs:label "detected language"@en ;
-    rdfs:comment "The language tag identified by the GoTriple language-detection service for the resource's text."@en ;
+    rdfs:comment "The language tag identified by the GoTriple language-detection service for the resource's text, which may differ from the language declared by the provider (triple:originalLanguage) and from the normalized language (schema:inLanguage)."@en ;
     rdfs:range xsd:string .
 
 triple:hasAccessCondition a owl:ObjectProperty ;
     rdfs:label "has access condition"@en ;
+    rdfs:comment "Links a resource to its access condition."@en ;
     rdfs:range triple:AccessCondition ;
     rdfs:subPropertyOf dcterms:accessRights .
 
 triple:hasContentType a owl:ObjectProperty ;
     rdfs:label "has content type"@en ;
+    rdfs:comment "Links a resource to its content type."@en ;
     rdfs:range triple:ContentType ;
     rdfs:subPropertyOf dcterms:type .
 
 triple:hasLicense a owl:ObjectProperty ;
     rdfs:label "has license"@en ;
+    rdfs:comment "Links a resource to its licence."@en ;
     rdfs:range triple:License ;
     rdfs:subPropertyOf dcterms:license .
 
 triple:inCluster a owl:ObjectProperty ;
     rdfs:label "in cluster"@en ;
+    rdfs:comment "Associates a document with its cluster (for deduplication purposes)."@en ;
     rdfs:domain triple:Document ;
     rdfs:range triple:Cluster .
 
 triple:knowsAbout a owl:ObjectProperty ;
     rdfs:label "knows about"@en ;
-    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm."@en ;
+    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
     rdfs:range schema:DefinedTerm ;
     rdfs:subPropertyOf schema:about .
 
 triple:machineTranslatedLanguage a owl:DatatypeProperty ;
     rdfs:label "machine translated language"@en ;
-    rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service."@en ;
+    rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service. Title/abstract literals carrying this language tag are machine translations; the remaining language versions are as provided by the source."@en ;
     rdfs:range xsd:string .
 
 triple:originalConditionsOfAccess a owl:DatatypeProperty ;
     rdfs:label "original conditions of access"@en ;
-    rdfs:comment "The access rights statement exactly as received from the source provider, before normalization to the Access Condition controlled vocabulary."@en ;
+    rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition."@en ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf dc:rights .
 
 triple:originalDatePublished a owl:DatatypeProperty ;
     rdfs:label "original date published"@en ;
-    rdfs:comment "The publication date string exactly as received from the source provider, before conversion to ISO 8601."@en ;
+    rdfs:comment "The publication date string exactly as received from the source provider, in whatever format the provider used (e.g. '03/05/2021', 'May 2021'), before conversion to ISO 8601. The normalized value is expressed via schema:datePublished."@en ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf dc:date .
 
 triple:originalLanguage a owl:DatatypeProperty ;
     rdfs:label "original language"@en ;
-    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity."@en ;
+    rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. 'eng', 'English', 'fr-FR'). The normalized value is expressed via schema:inLanguage."@en ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf dc:language .
 
 triple:originalLicense a owl:DatatypeProperty ;
     rdfs:label "original license"@en ;
-    rdfs:comment "The license statement exactly as received from the source provider, before normalization to the License controlled vocabulary."@en ;
+    rdfs:comment "The license statement exactly as received from the source provider (e.g. 'CC BY 4.0', a URL, free text), before normalization to the License controlled vocabulary. The normalized value is expressed via triple:hasLicense."@en ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf dc:rights .
 
 triple:originalSource a owl:DatatypeProperty ;
     rdfs:label "original source"@en ;
-    rdfs:comment "The source statement exactly as received from the source provider, before processing into the normalized source or the URL-based identifiers."@en ;
+    rdfs:comment "The source statement exactly as received from the source provider (e.g. a journal issue string or a repository reference), before processing into the normalized source (dcterms:source) or the URL-based identifiers. The value is kept verbatim."@en ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf dc:source .
 
 triple:originalType a owl:DatatypeProperty ;
     rdfs:label "original type"@en ;
-    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary."@en ;
+    rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. 'journalArticle'). The normalized value is expressed via triple:hasContentType."@en ;
     rdfs:range xsd:string ;
     rdfs:subPropertyOf dc:type .
 
@@ -402,18 +402,21 @@ oa:Annotation a owl:Class ;
 
 triple:AccessCondition a owl:Class ;
     rdfs:label "Access Condition"@en ;
+    rdfs:comment "The access condition of a resource — how and to whom it is available — drawn from the Access Condition controlled vocabulary and aligned with COAR access rights."@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:Cluster a owl:Class ;
     rdfs:label "Cluster"@en ;
-    rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication."@en .
+    rdfs:comment "A cluster groups multiple documents from different sources that represent the same scholarly work. Used for deduplication. A cluster is computed by GoTriple, so it carries only its internal identifier: it has no source system it was harvested from."@en .
 
 triple:ContentType a owl:Class ;
     rdfs:label "Content Type"@en ;
+    rdfs:comment "The kind of content a resource is (journal article, dataset, software, ...), drawn from the Content Type controlled vocabulary and aligned with COAR resource types."@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:License a owl:Class ;
     rdfs:label "License"@en ;
+    rdfs:comment "The licence under which a resource is made available, drawn from the License controlled vocabulary and aligned with Creative Commons and SPDX."@en ;
     rdfs:subClassOf skos:Concept .
 
 triple:Project a owl:Class ;

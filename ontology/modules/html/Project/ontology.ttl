@@ -33,7 +33,7 @@ triple:Project a owl:Class,
     dcterms:created "2021-12-01" ;
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:description "The Project module describes research projects and their funding structures. It defines the `triple:Project` class and links it to Grants (`schema:Grant`, `frapo:Grant`), Funding sources, and Organizations. It also includes the `triple:ProjectType` classification to categorize projects (e.g., EU-funded, National, Citizen Science)."@en ;
-    dcterms:modified "2026-07-10" ;
+    dcterms:modified "2026-08-10" ;
     dcterms:title "Project"@en ;
     rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform."@en,
         "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
@@ -98,7 +98,7 @@ triple:Project a owl:Class,
             owl:allValuesFrom schema:URL ;
             owl:onProperty schema:mainEntityOfPage ],
         schema:Project ;
-    owl:versionInfo "2.2.0" ;
+    owl:versionInfo "3.0.0" ;
     skos:closeMatch <http://purl.org/cerif/frapo/Grant>,
         <http://www.cidoc-crm.org/cidoc-crm/E7_Activity> ;
     skos:exactMatch <https://sshoc.eu/ontology/SHE3_SSH_Project> ;
@@ -106,6 +106,7 @@ triple:Project a owl:Class,
 
 triple:hasProjectType a owl:ObjectProperty ;
     rdfs:label "has project type"@en ;
+    rdfs:comment "Links a project to its project type."@en ;
     rdfs:range triple:ProjectType ;
     rdfs:subPropertyOf dcterms:type .
 
@@ -125,7 +126,7 @@ schema:Project a owl:Class ;
 
 schema:about a owl:ObjectProperty ;
     rdfs:label "schema:about"@en ;
-    rdfs:comment "The subject matter of the content"@en .
+    rdfs:comment "The subject matter of the content."@en .
 
 schema:alternateName a owl:DatatypeProperty ;
     rdfs:label "schema:alternateName"@en ;
@@ -140,7 +141,7 @@ schema:description a owl:DatatypeProperty ;
 schema:funder a owl:ObjectProperty ;
     rdfs:label "schema:funder"@en ;
     rdfs:comment "A person or organization that supports something through some kind of financial contribution"@en,
-        "A person or organization that supports through funding"@en ;
+        "A person or organization that supports something through some kind of financial contribution"@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 schema:funding a owl:ObjectProperty ;
@@ -162,6 +163,7 @@ schema:sponsor a owl:ObjectProperty ;
 
 triple:ProjectType a owl:Class ;
     rdfs:label "Project Type"@en ;
+    rdfs:comment "The kind of research project (funded, crowdfunded, citizen science, ...), drawn from the Project Type controlled vocabulary."@en ;
     rdfs:subClassOf skos:Concept .
 
 schema:endDate a owl:DatatypeProperty ;
