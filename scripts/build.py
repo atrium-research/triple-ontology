@@ -17,6 +17,12 @@ DCTERMS = Namespace("http://purl.org/dc/terms/")
 VANN = Namespace("http://purl.org/vocab/vann/")
 SKOS = Namespace("http://www.w3.org/2004/02/skos/core#")
 
+
+def vocab_iri(vocab_name):
+    """The vocabulary lives beside the ontology: /ontology/discipline, not /ontology/triple/Discipline."""
+    kebab = re.sub(r"(?<!^)(?=[A-Z])", "-", vocab_name).lower()
+    return f"https://gotriple.eu/ontology/{kebab}"
+
 def load_shared_metadata():
     """Loads shared metadata from the central metadata file."""
     g = Graph()
@@ -62,7 +68,7 @@ def get_or_create_local_metadata(vocab_path, vocab_name):
     if not os.path.exists(metadata_path):
         print(f"   ✨ Creating default metadata sidecar: {os.path.basename(metadata_path)}")
         
-        default_uri = f"{BASE_URI}/{vocab_name}"
+        default_uri = vocab_iri(vocab_name)
         default_title = f"TRIPLE Ontology - {vocab_name} Vocabulary"
         default_desc = f"Vocabulary defining {vocab_name} concepts for the TRIPLE platform."
         default_prefix = vocab_name.lower()
@@ -122,7 +128,7 @@ def validate_file(filepath):
 def generate_header_string(vocab_name, shared_metadata, local_metadata):
     """Generates the Turtle string for the owl:Ontology header."""
     
-    uri = f"{BASE_URI}/{vocab_name}"
+    uri = vocab_iri(vocab_name)
     
     # Start building string
     header = f"<{uri}> a owl:Ontology ;\n"

@@ -74,7 +74,7 @@ What external entity does the license term `lic_creative-commons` closely match?
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX lic: <https://gotriple.eu/ontology/triple/License/>
+PREFIX lic: <https://gotriple.eu/ontology/license/>
 
 SELECT ?externalEntity WHERE {
   lic:lic_creative-commons skos:closeMatch ?externalEntity .
@@ -107,7 +107,7 @@ SELECT ?externalEntity WHERE {
 Return all documents that are licensed under Creative Commons licenses.
 
 ```sparql
-PREFIX lic: <https://gotriple.eu/ontology/triple/License/>
+PREFIX lic: <https://gotriple.eu/ontology/license/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document WHERE {

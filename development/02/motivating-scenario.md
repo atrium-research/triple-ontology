@@ -31,10 +31,10 @@ For defining the common base structure of each controlled vocabulary, the follow
 
 Each controlled vocabulary lives in its own module under `vocabularies/serializations/ttl/`, with a `.metadata.ttl` sidecar, and is compiled into a stand-alone ontology by `scripts/build.py`:
 
-- **Content Type**: `<https://gotriple.eu/ontology/triple/ContentType/>`
-- **Access Condition**: `<https://gotriple.eu/ontology/triple/AccessCondition/>`
-- **License**: `<https://gotriple.eu/ontology/triple/License/>`
-- **Discipline**: `<https://gotriple.eu/ontology/triple/Discipline/>`
+- **Content Type**: `<https://gotriple.eu/ontology/content-type/>`
+- **Access Condition**: `<https://gotriple.eu/ontology/access-condition/>`
+- **License**: `<https://gotriple.eu/ontology/license/>`
+- **Discipline**: `<https://gotriple.eu/ontology/discipline/>`
 
 The model does not `owl:imports` them: what the iteration TBOX declares is the class each vocabulary's concepts instantiate (`triple:ContentType`, `triple:AccessCondition`, `triple:License`, `triple:Discipline`, all subclasses of `skos:Concept`), so a document can be linked to a concept without dragging a whole vocabulary into every graph.
 

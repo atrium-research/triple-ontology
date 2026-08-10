@@ -140,7 +140,7 @@ Return all multimedia content with Creative Commons licenses.
 ```sparql
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX schema: <https://schema.org/>
-PREFIX lic: <https://gotriple.eu/ontology/triple/License/>
+PREFIX lic: <https://gotriple.eu/ontology/license/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?multimedia ?title ?license WHERE {
