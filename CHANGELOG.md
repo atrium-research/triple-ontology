@@ -15,6 +15,30 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Vocabularies: labels from COAR, DDC notations repaired, two broken Wikidata mappings
+
+**Type**: Modification
+
+**Iteration**: none; `vocabularies/serializations/ttl/`
+
+**Description**:
+The three gaps left open by the IRI migration were closed against authoritative sources rather than by hand.
+
+**56 labels came from COAR.** The ContentType and AccessCondition concepts already declare `skos:exactMatch` to the COAR Resource Types and Access Rights vocabularies, which are published multilingual SKOS (`coar_resourcetypes_v1.1_skos.ttl` and `coar_accessrights_skos-xl_v1.0`, with four newer terms read from the live pages, which are absent from the 2019 files). German and Italian were added to 20 ContentType and 4 AccessCondition concepts, and French and Portuguese to the four that had only English. The rule was to borrow **only across `skos:exactMatch`**, never `skos:closeMatch`: a close match is interchangeable in retrieval, not identical, and its label would mislabel our concept. That rule earned its keep on `ct:typ_semantic-artefact`, whose close match `GSZA-Y7V7` turns out to be "knowledge organization system" — a narrower thing — so it stays English-only rather than acquiring a wrong German name. Existing labels were never overwritten. Where our English label is more general than COAR's, the borrowed label carries COAR's specificity (`ct:typ_article` is "Article" for us and "Wissenschaftlicher Artikel" in German): worth a review pass.
+
+**The 36 truncated DDC notations are repaired.** A DDC number has at least three digits; the source vocabulary had dropped the trailing zeros. Padding was checked caption by caption against the published DDC Summaries: 34 of 36 agree outright, and the two that do not (`700` "Modified subdivisions of the arts" for "Arts", `790` "Recreational and performing arts" for "Sports, games and entertainment") differ in wording, not in code — they are older or paraphrased captions, and were kept, because the DDC Summaries are CC BY-NC-ND and this vocabulary is CC BY 4.0: importing OCLC's captions wholesale would be a licence conflict, while the numbers themselves are facts.
+
+**`ddc:12` was a duplicate of `ddc:120` with a wrong caption, and is gone.** It was labelled "Philosophy of Humanity" and would have collided with the existing `ddc:120` "Epistemology, causation, humankind". `disc:phil` maps the whole 1xx division series — 100, 110, 120, 140, 160, 170, 180, 190 — which fixes the reading: `12` is the division 120, and the caption was simply wrong at source. Its `skos:closeMatch` from `disc:phil` now points at `ddc:120`. The scheme holds 53 concepts, all with valid notations.
+
+**Two Wikidata mappings pointed at Wikimedia category pages.** `disc:class` declared `skos:exactMatch` to `Q7007177` "Category:Classical studies", and `disc:info` to `Q9477142` "Category:Animal husbandry in Belarus" — unrelated to communication sciences by any reading. All 32 Wikidata targets of the vocabulary were resolved and checked; these were the only two. They now point at `Q439072` "classical studies" (instance of science) and `Q1078351` "communication science" (instance of academic discipline), both verified.
+
+**One thesaurus IRI used a different form.** `disc:demo` referenced `https://www.semantics.gr/authorities/vocabularies/SSH-LCSH/sh85036659` while the other 40 references use `http://semantics.gr/authorities/SSH-LCSH/…`, which is also the form the GoTriple API emits. Normalised.
+
+**Left open, because it is a modelling decision and not a repair**: composite disciplines declare `skos:exactMatch` to each of their parts. `disc:musiq` "Musicology and Performing Arts" is exact-matched to both "Ethnomusicology" and "Performing arts" in the thesaurus, and to both `Q164204` musicology and `Q184485` performing arts; `disc:eco` "Economies and Finances" to both "Economics" and "Finance"; `disc:anthro-se` "Social Anthropology and Ethnology" to "Ethnology" alone. Read literally these assert that the parts are the same concept as the whole and as each other. Resolving them means demoting some to `skos:closeMatch` or `skos:narrowMatch` across the vocabulary, which changes what the alignments claim and wants a decision, not a script. `ProjectType` remains English-only: it has no external alignment and no counterpart in the API, so there is nothing to borrow from.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Breaking: vocabulary concepts move to their production key, identifier nodes retired
 
 **Type**: Refactoring (breaking — every controlled-vocabulary IRI changes)
