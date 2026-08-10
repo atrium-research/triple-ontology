@@ -29,8 +29,8 @@ Which disciplines is a profile interested in, either chosen by the user or autom
 A list of discipline concepts linked to the profile.
 
 ### Result
-* `profile_it19_1` → `disc:cultural_heritage_and_museology`
-* `profile_it19_1` → `disc:methods_and_statistics`
+* `profile_it19_1` → `disc:museo`
+* `profile_it19_1` → `disc:stat`
 
 ### Based on
 Example 1

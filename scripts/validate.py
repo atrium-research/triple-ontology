@@ -2,7 +2,7 @@
 """Validate TRIPLE data against the SHACL shapes in shapes/.
 
 Usage (from the repo root, with the venv active):
-    python scripts/validate.py                  # every iteration ABOX + examples/
+    python scripts/validate.py                  # iteration ABOXes + examples/ + vocabularies/
     python scripts/validate.py <file> [<file>…]
 """
 import glob
@@ -43,6 +43,8 @@ def targets(argv: list[str]) -> list[Path]:
     files = [ROOT / "development" / it / "ABOX.ttl" for it in IDENTIFIER_ITERATIONS]
     files = [f for f in files if f.exists()]
     files += sorted(ROOT.glob("examples/**/*.ttl"))
+    files += [f for f in sorted((ROOT / "vocabularies" / "serializations" / "ttl").glob("*.ttl"))
+              if not f.name.endswith(".metadata.ttl")]
     return files
 
 

@@ -57,7 +57,7 @@ triple:hasContentType rdf:type owl:ObjectProperty ;
                       rdfs:subPropertyOf dcterms:type .
 
 # Individuals (concept URIs live under the per-vocabulary namespace, e.g. .../ContentType/)
-ct:article rdf:type owl:NamedIndividual ,
+ct:typ_article rdf:type owl:NamedIndividual ,
                     triple:ContentType ;
            rdfs:label "Article"@en ;
            skos:exactMatch <https://vocabularies.coar-repositories.org/resource_types/c_6501> .
@@ -77,7 +77,7 @@ triple:hasAccessCondition rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf dcterms:accessRights .
 
 # Individuals
-acc:open_access rdf:type owl:NamedIndividual ,
+acc:acr_open-access rdf:type owl:NamedIndividual ,
                          triple:AccessCondition ;
                 rdfs:label "Open Access"@en ;
                 skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> .
@@ -93,8 +93,8 @@ triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
 
 # ABOX Usage
 triple:example_document rdf:type triple:Document ;
-                  triple:hasContentType ct:article ;
-                  triple:hasAccessCondition acc:open_access .
+                  triple:hasContentType ct:typ_article ;
+                  triple:hasAccessCondition acc:acr_open-access .
 
 # Standard Requirements:
 # - Define a local Bridge Class for the vocabulary (e.g., triple:ContentType)

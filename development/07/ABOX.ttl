@@ -33,7 +33,7 @@ triple:project_1 rdf:type triple:Project ;
                  schema:name "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration"@en ;
                  schema:alternateName "TRIPLE"@en ;
                  schema:description "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe."@en ;
-                 sioc:topic disc:methods_and_statistics ;
+                 sioc:topic disc:stat ;
                  schema:keywords triple:keyword_1 , triple:keyword_2 , triple:keyword_3 ;
                  schema:contactPoint triple:contact_1 ;
                  triple:hasProjectType prtype:funded ;
@@ -91,7 +91,7 @@ triple:project_2 rdf:type triple:Project ;
                  schema:name "Socio-Economic Integration of Migrants in Italian Urban Contexts"@en ;
                  schema:alternateName "MIGURIS"@en ;
                  schema:description "This research project investigates the mechanisms of socio-economic integration of migrant populations in three Italian metropolitan areas."@en ;
-                 sioc:topic disc:sociology , disc:demography ;
+                 sioc:topic disc:socio , disc:demo ;
                  schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85123964> ;
                  schema:keywords triple:keyword_4 , triple:keyword_5 , triple:keyword_6 , triple:keyword_7 ;
                  triple:hasProjectType prtype:funded ;
@@ -144,7 +144,7 @@ triple:project_3 rdf:type triple:Project ;
                  schema:name "Digital Documentation of Endangered Cultural Heritage in the Balkans"@en ;
                  schema:alternateName "BALKAN-HERITAGE"@en ;
                  schema:description "This collaborative project employs advanced digital technologies to document and preserve endangered cultural heritage sites across the Balkan region."@en ;
-                 sioc:topic disc:cultural_heritage_and_museology , disc:methods_and_statistics , disc:history ;
+                 sioc:topic disc:museo , disc:stat , disc:hist ;
                  schema:keywords triple:keyword_8 , triple:keyword_9 , triple:keyword_10 , triple:keyword_11 ;
                  triple:hasProjectType prtype:funded ;
                  schema:funding triple:grant_3 , triple:grant_4 .
@@ -206,7 +206,7 @@ triple:project_4 rdf:type triple:Project ;
                  schema:name "Conceptions of Justice in Hellenistic Philosophy"@en ;
                  schema:alternateName "HELLENISTIC-JUSTICE"@en ;
                  schema:description "This project provides a comprehensive analysis of how Hellenistic philosophical schools conceptualized justice and its role in ethical and political thought."@en ;
-                 sioc:topic disc:philosophy , disc:classical_studies ;
+                 sioc:topic disc:phil , disc:class ;
                  schema:keywords triple:keyword_12 , triple:keyword_13 , triple:keyword_14 , triple:keyword_15 ;
                  triple:hasProjectType prtype:funded ;
                  schema:funding triple:grant_5 .
@@ -297,43 +297,43 @@ prtype:funded rdf:type owl:NamedIndividual ,
 
 
 ###  Disciplines (from the Discipline controlled vocabulary)
-disc:classical_studies rdf:type owl:NamedIndividual ,
+disc:class rdf:type owl:NamedIndividual ,
                        triple:Discipline ;
                        rdfs:label "Classical Studies"@en ,
                                    "Studi Classici"@it ,
                                    "Études classiques"@fr .
 
-disc:cultural_heritage_and_museology rdf:type owl:NamedIndividual ,
+disc:museo rdf:type owl:NamedIndividual ,
                                      triple:Discipline ;
                                      rdfs:label "Cultural Heritage and Museology"@en ,
                                                  "Beni Culturali e Museologia"@it ,
                                                  "Héritage culturel et muséologie"@fr .
 
-disc:demography rdf:type owl:NamedIndividual ,
+disc:demo rdf:type owl:NamedIndividual ,
                 triple:Discipline ;
                 rdfs:label "Demography"@en ,
                             "Demografia"@it ,
                             "Démographie"@fr .
 
-disc:history rdf:type owl:NamedIndividual ,
+disc:hist rdf:type owl:NamedIndividual ,
              triple:Discipline ;
              rdfs:label "History"@en ,
                          "Storia"@it ,
                          "Histoire"@fr .
 
-disc:methods_and_statistics rdf:type owl:NamedIndividual ,
+disc:stat rdf:type owl:NamedIndividual ,
                             triple:Discipline ;
                             rdfs:label "Methods and Statistics"@en ,
                                         "Statistica"@it ,
                                         "Méthodes et statistiques"@fr .
 
-disc:philosophy rdf:type owl:NamedIndividual ,
+disc:phil rdf:type owl:NamedIndividual ,
                 triple:Discipline ;
                 rdfs:label "Philosophy"@en ,
                             "Filosofia"@it ,
                             "Philosophie"@fr .
 
-disc:sociology rdf:type owl:NamedIndividual ,
+disc:socio rdf:type owl:NamedIndividual ,
                triple:Discipline ;
                rdfs:label "Sociology"@en ,
                            "Sociologia"@it ,

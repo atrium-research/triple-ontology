@@ -35,8 +35,8 @@ ORDER BY ?discipline
 ```
 
 **Expected result:**
-- `triple:profile_it19_1` → `disc:cultural_heritage_and_museology`
-- `triple:profile_it19_1` → `disc:methods_and_statistics`
+- `triple:profile_it19_1` → `disc:museo`
+- `triple:profile_it19_1` → `disc:stat`
 
 ## CQ_19.3
 

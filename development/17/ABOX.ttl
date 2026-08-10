@@ -23,11 +23,11 @@ triple:document_it17_1 rdf:type owl:NamedIndividual ,
         triple:originalConditionsOfAccess "info:eu-repo/semantics/openAccess" ;
         triple:originalSource "Journal of Digital Humanities, 12(3), 2021" ;
         # normalized counterparts
-        triple:hasContentType ct:article ;
+        triple:hasContentType ct:typ_article ;
         schema:inLanguage triple:language_en_it17 ;
         schema:datePublished "2021-05-03"^^xsd:date ;
-        triple:hasLicense lic:creative_commons ;
-        triple:hasAccessCondition acc:open_access ;
+        triple:hasLicense lic:lic_creative-commons ;
+        triple:hasAccessCondition acc:acr_open-access ;
         schema:headline "Auditing Metadata Normalization in Aggregation Pipelines"@en .
 
 
@@ -36,8 +36,8 @@ triple:document_it17_2 rdf:type owl:NamedIndividual ,
                                 triple:Document ;
         triple:originalType "COAR text" ;
         triple:originalConditionsOfAccess "restricted" ;
-        triple:hasContentType ct:text ;
-        triple:hasAccessCondition acc:restricted_access_or_use ;
+        triple:hasContentType ct:typ_text ;
+        triple:hasAccessCondition acc:acr_restricted-access-or-use ;
         schema:headline "Working Notes on Provider Heterogeneity"@en .
 
 
@@ -55,17 +55,17 @@ triple:language_en_it17 rdf:type owl:NamedIndividual ,
                                  schema:Language ;
         schema:name "English" .
 
-ct:article rdf:type owl:NamedIndividual ,
+ct:typ_article rdf:type owl:NamedIndividual ,
                     triple:ContentType .
 
-ct:text rdf:type owl:NamedIndividual ,
+ct:typ_text rdf:type owl:NamedIndividual ,
                  triple:ContentType .
 
-acc:open_access rdf:type owl:NamedIndividual ,
+acc:acr_open-access rdf:type owl:NamedIndividual ,
                          triple:AccessCondition .
 
-acc:restricted_access_or_use rdf:type owl:NamedIndividual ,
+acc:acr_restricted-access-or-use rdf:type owl:NamedIndividual ,
                                       triple:AccessCondition .
 
-lic:creative_commons rdf:type owl:NamedIndividual ,
+lic:lic_creative-commons rdf:type owl:NamedIndividual ,
                               triple:License .

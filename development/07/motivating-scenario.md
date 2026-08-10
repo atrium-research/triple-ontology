@@ -76,7 +76,7 @@ The TRIPLE project ("Transforming Research through Innovative Practices for Link
 - Main Entity of Page: https://triple.eu/projects/1
 - Date Created: 2018-12-01
 - Date Modified: 2023-01-15
-- Discipline: Methods and Statistics (`disc:methods_and_statistics`)
+- Discipline: Methods and Statistics (`disc:stat`)
 - Project Type: Funded (`prtype:funded`)
 - Keywords: discovery platform, semantic web, SSH research
 - Name: Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration
@@ -99,7 +99,7 @@ A 2-year research project (2020-2022) on contemporary migration patterns in Sout
 - Language: it
 - Main Entity of Page: https://miguris.project.it
 - Date Created: 2020-02-01
-- Disciplines: Sociology (`disc:sociology`), Demography (`disc:demography`)
+- Disciplines: Sociology (`disc:socio`), Demography (`disc:demo`)
 - Project Type: Funded (`prtype:funded`)
 - Keywords: migration, integration, urban studies, Southern Europe
 - Name: Socio-Economic Integration of Migrants in Italian Urban Contexts
@@ -121,7 +121,7 @@ A digital humanities project (2021-2024) focused on documenting endangered cultu
 - Sponsors: Austrian Science Fund (FWF), The Getty Foundation
 - Language: en
 - Date Modified: 2021-12-01
-- Disciplines: Cultural Heritage and Museology (`disc:cultural_heritage_and_museology`), Methods and Statistics (`disc:methods_and_statistics`), History (`disc:history`)
+- Disciplines: Cultural Heritage and Museology (`disc:museo`), Methods and Statistics (`disc:stat`), History (`disc:hist`)
 - Keywords: heritage documentation, Balkans, digital preservation, cultural memory
 - Name: Digital Documentation of Endangered Cultural Heritage in the Balkans
 - Alternate name: BALKAN-HERITAGE
@@ -142,7 +142,7 @@ A 5-year individual research project (2022-2027) examining the concept of justic
 - Sponsor: European Research Council (ERC)
 - Language: en
 - Main Entity of Page: https://erc.europa.eu/projects/hellenistic
-- Disciplines: Philosophy (`disc:philosophy`), Classical Studies (`disc:classical_studies`)
+- Disciplines: Philosophy (`disc:phil`), Classical Studies (`disc:class`)
 - Keywords: Hellenistic philosophy, justice, ancient ethics, Stoicism
 - Name: Conceptions of Justice in Hellenistic Philosophy
 - Alternate name: HELLENISTIC-JUSTICE

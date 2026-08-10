@@ -27,7 +27,7 @@ triple:document_it18_1 rdf:type owl:NamedIndividual ,
         triple:detectedLanguage "fr" ;
         triple:machineTranslatedLanguage "en" , "pt" ;
         triple:originalLanguage "fre" ;
-        sioc:topic disc:methods_and_statistics ;
+        sioc:topic disc:stat ;
         schema:about <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> .
 
 
@@ -38,7 +38,7 @@ triple:document_it18_2 rdf:type owl:NamedIndividual ,
         schema:inLanguage triple:language_en_it18 ;
         triple:detectedLanguage "en" ;
         triple:originalLanguage "und" ;
-        sioc:topic disc:political_science ;
+        sioc:topic disc:scipo ;
         schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85009407> .
 
 
@@ -46,7 +46,7 @@ triple:document_it18_2 rdf:type owl:NamedIndividual ,
 triple:ann_it18_topic_1 rdf:type owl:NamedIndividual ,
                                  oa:Annotation ;
         oa:hasTarget triple:document_it18_1 ;
-        oa:hasBody disc:methods_and_statistics ;
+        oa:hasBody disc:stat ;
         oa:motivatedBy oa:classifying ;
         triple:confidence "0.87"^^xsd:decimal ;
         dcterms:creator triple:gotriple_pipeline .
@@ -54,7 +54,7 @@ triple:ann_it18_topic_1 rdf:type owl:NamedIndividual ,
 triple:ann_it18_topic_2 rdf:type owl:NamedIndividual ,
                                  oa:Annotation ;
         oa:hasTarget triple:document_it18_2 ;
-        oa:hasBody disc:political_science ;
+        oa:hasBody disc:scipo ;
         oa:motivatedBy oa:classifying ;
         triple:confidence "0.55"^^xsd:decimal ;
         dcterms:creator triple:gotriple_pipeline .
@@ -80,10 +80,10 @@ triple:language_en_it18 rdf:type owl:NamedIndividual ,
                                  schema:Language ;
         schema:name "English" .
 
-disc:methods_and_statistics rdf:type owl:NamedIndividual ,
+disc:stat rdf:type owl:NamedIndividual ,
                                      triple:Discipline .
 
-disc:political_science rdf:type owl:NamedIndividual ,
+disc:scipo rdf:type owl:NamedIndividual ,
                                 triple:Discipline .
 
 triple:gotriple_pipeline rdf:type owl:NamedIndividual ,

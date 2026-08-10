@@ -17,8 +17,8 @@ SELECT ?document ?discipline ?confidence WHERE {
 ```
 
 **Expected result:**
-- `triple:document_it18_1` → `disc:methods_and_statistics` → "0.87"
-- `triple:document_it18_2` → `disc:political_science` → "0.55"
+- `triple:document_it18_1` → `disc:stat` → "0.87"
+- `triple:document_it18_2` → `disc:scipo` → "0.55"
 
 ## CQ_18.2
 
