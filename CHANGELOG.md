@@ -15,6 +15,31 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Vocabularies: exactMatch demoted to closeMatch where it asserted a false identity
+
+**Type**: Modification
+
+**Iteration**: none; `vocabularies/serializations/ttl/Discipline.ttl`
+
+**Description**:
+`skos:exactMatch` asserts that two concepts are the same and can be substituted for each other everywhere. The Discipline vocabulary used it as a generic "is aligned with", and 42 of its 86 assertions did not survive that reading. All 86 targets were resolved and their preferred labels compared against ours — LCSH and the SSH-LCSH thesaurus through their JSON representations, Wikidata through the entity API, the DDC proxies locally.
+
+Demotion followed two rules, both applied mechanically so the result is reproducible:
+
+- **More than one exactMatch into the same target vocabulary.** If `disc:musiq` "Musicology and Performing Arts" is exactly "Musicology" *and* exactly "Performing arts", then musicology and the performing arts are the same thing. The composite disciplines all had this shape: `musiq` (three vocabularies), `eco` "Economies and Finances" (three), `art` "Art and Art History" (two), `museo` "Cultural Heritage and Museology" (two), `anthro-se` "Social Anthropology and Ethnology" (one).
+- **Target label not equivalent to ours.** `disc:class` "Classical Studies" was exactly "Classical philology"; `disc:info` "Communication Sciences" exactly "Communication in the social sciences"; `disc:stat` "Methods and Statistics" exactly "Statistics"; `disc:envir` "Environmental studies" exactly "Environmental sciences"; `disc:archeo` "Archaeology and Prehistory" exactly "prehistoric archaeology"; `disc:hisphilso` exactly "history of science"; `disc:archi` "Architecture and Space Management" exactly "organizational space". Each names something narrower or simply different.
+
+The nine `exactMatch` links to DDC proxies (`phil`→100, `hist`→900, `droit`→340, `lang`→410, `litt`→800, `manag`→658, `psy`→150, `relig`→200, `scipo`→320) were demoted too, on a different ground: a classification class groups works *about* a subject and is not the subject itself. The other 46 DDC links were already `closeMatch`, so this also makes the vocabulary internally consistent.
+
+**One link was removed rather than demoted.** `disc:museo` "Cultural Heritage and Museology" pointed at LCSH `sh85029103` "Communication in the social sciences" — the same URI `disc:info` uses, and unrelated to museology under any reading. A wrong alignment does not become right by weakening the predicate.
+
+The 44 surviving `exactMatch` are those where a single target per vocabulary carries a label equivalent to ours: `demo`, `droit`, `edu`, `geo`, `hist`, `litt`, `phil`, `psy`, `relig`, `scipo`, `socio` and the rest. After the pass no discipline holds two exactMatch into the same vocabulary, and none holds an exactMatch to a DDC class. Counts: 44 exactMatch and 133 closeMatch, from 86 and 89.
+
+**Found while resolving the targets**: LCSH `sh85077222`, referenced by `disc:lang`, is "Linguistics" and the alignment is correct — a first pass of this check misread it as "General" and would have demoted it. Labels were re-read from `madsrdf:authoritativeLabel` before any change was applied.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Vocabularies: labels from COAR, DDC notations repaired, two broken Wikidata mappings
 
 **Type**: Modification
