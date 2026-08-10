@@ -1,517 +1,565 @@
-[
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
+{
+  "@context": {
+    "acc": "https://gotriple.eu/ontology/triple/AccessCondition/",
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "triple": "https://gotriple.eu/ontology/triple/",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
   },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/metadata_only_access",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_metadata-only-access"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
+  "@graph": [
+    {
+      "@id": "acc:undefined",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Access condition is undefined or unknown."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Undefined"
+        },
+        {
+          "@language": "fr",
+          "@value": "Non Défini"
+        },
+        {
+          "@language": "pl",
+          "@value": "Nieokreślone"
+        },
+        {
+          "@language": "pt",
+          "@value": "Indefinido"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Access condition is undefined or unknown."
+      },
+      "skos:notation": "undefined",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Undefined"
+        },
+        {
+          "@language": "fr",
+          "@value": "Non Défini"
+        },
+        {
+          "@language": "pl",
+          "@value": "Nieokreślone"
+        },
+        {
+          "@language": "pt",
+          "@value": "Indefinido"
+        }
+      ]
+    },
+    {
+      "@id": "acc:acr_public-domain",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The resource is in the public domain."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Public Domain"
+        },
+        {
+          "@language": "fr",
+          "@value": "Domaine Public"
+        },
+        {
+          "@language": "pl",
+          "@value": "Domena publiczna"
+        },
+        {
+          "@language": "pt",
+          "@value": "Domínio Púlico"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "The resource is in the public domain."
+      },
+      "skos:notation": "acr_public-domain",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Public Domain"
+        },
+        {
+          "@language": "fr",
+          "@value": "Domaine Public"
+        },
+        {
+          "@language": "pl",
+          "@value": "Domena publiczna"
+        },
+        {
+          "@language": "pt",
+          "@value": "Domínio Púlico"
+        }
+      ]
+    },
+    {
+      "@id": "acc:acr_metadata-only-access",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
         "@language": "en",
         "@value": "Only the metadata of the resource is accessible."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Metadata Only Access"
+      },
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Only the metadata of the resource is accessible."
+      },
+      "skos:exactMatch": {
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
+      },
+      "skos:notation": "acr_metadata-only-access",
+      "skos:prefLabel": {
         "@language": "en",
         "@value": "Metadata Only Access"
       }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_all-rights-reserved",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/undefined",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_undefined"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
+    },
+    {
+      "@id": "acc:acr_free-access",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
         "@language": "en",
-        "@value": "Access condition is undefined or unknown."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
+        "@value": "Access to the resource is free of charge."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Free Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Libre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Bezpłatny dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Livre"
+        }
+      ],
+      "skos:closeMatch": {
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
+      },
+      "skos:definition": {
         "@language": "en",
-        "@value": "Undefined"
+        "@value": "Access to the resource is free of charge."
       },
-      {
-        "@language": "pt",
-        "@value": "Indefinido"
-      },
-      {
-        "@language": "pl",
-        "@value": "Nieokreślone"
-      },
-      {
-        "@language": "fr",
-        "@value": "Non Défini"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/public_domain",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
+      "skos:notation": "acr_free-access",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Free Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Libre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Bezpłatny dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Livre"
+        }
+      ]
+    },
+    {
+      "@id": "acc:acr_all-rights-reserved",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
         "@language": "en",
-        "@value": "The resource is in the public domain."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
+        "@value": "All rights are reserved by the copyright holder."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "All Rights Reserved"
+        },
+        {
+          "@language": "fr",
+          "@value": "Tous Droits Réservés"
+        },
+        {
+          "@language": "pl",
+          "@value": "Wszelkie prawa zastrzeżone"
+        },
+        {
+          "@language": "pt",
+          "@value": "Todos os Direitos Reservados"
+        }
+      ],
+      "skos:definition": {
         "@language": "en",
-        "@value": "Public Domain"
+        "@value": "All rights are reserved by the copyright holder."
       },
-      {
-        "@language": "pt",
-        "@value": "Domínio Púlico"
+      "skos:notation": "acr_all-rights-reserved",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "All Rights Reserved"
+        },
+        {
+          "@language": "fr",
+          "@value": "Tous Droits Réservés"
+        },
+        {
+          "@language": "pl",
+          "@value": "Wszelkie prawa zastrzeżone"
+        },
+        {
+          "@language": "pt",
+          "@value": "Todos os Direitos Reservados"
+        }
+      ]
+    },
+    {
+      "@id": "triple:AccessCondition",
+      "@type": [
+        "owl:Ontology",
+        "owl:Class"
+      ],
+      "dcterms:abstract": {
+        "@language": "en",
+        "@value": "A controlled vocabulary for specifying access conditions, aligned with COAR Access Rights where applicable."
       },
-      {
-        "@language": "pl",
-        "@value": "Domena publiczna"
+      "dcterms:contributor": [
+        "Luca De Santis",
+        "Silvio Peroni"
+      ],
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "2021-12-01"
       },
-      {
-        "@language": "fr",
-        "@value": "Domaine Public"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/restricted_access_or_use",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_restricted-access-or-use"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
+      "dcterms:creator": "Alessandro Bertozzi",
+      "dcterms:description": {
+        "@language": "en",
+        "@value": "The Access Condition vocabulary defines the access rights associated with resources in the TRIPLE platform, such as Open Access, Restricted Access, or Closed Access. It facilitates the filtering and identification of resource availability."
+      },
+      "dcterms:modified": {
+        "@type": "xsd:date",
+        "@value": "2026-08-10"
+      },
+      "dcterms:title": {
+        "@language": "en",
+        "@value": "Access Condition"
+      },
+      "owl:versionInfo": "3.0.0",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Access Condition"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "dcterms:RightsStatement"
+        },
+        {
+          "@id": "skos:Concept"
+        }
+      ],
+      "vann:preferredNamespacePrefix": "acc",
+      "vann:preferredNamespaceUri": "https://gotriple.eu/ontology/triple/AccessCondition/"
+    },
+    {
+      "@id": "acc:acr_restricted-access-or-use",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
         "@language": "en",
         "@value": "Access or use of the resource is restricted."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Restricted access or use"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès ou Utilisation Restreints"
+        },
+        {
+          "@language": "pl",
+          "@value": "Ograniczony dostęp lub użycie"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso ou Uso Restrito"
+        }
+      ],
+      "skos:definition": {
         "@language": "en",
-        "@value": "Restricted access or use"
+        "@value": "Access or use of the resource is restricted."
       },
-      {
-        "@language": "pt",
-        "@value": "Acesso ou Uso Restrito"
-      },
-      {
-        "@language": "pl",
-        "@value": "Ograniczony dostęp lub użycie"
-      },
-      {
-        "@language": "fr",
-        "@value": "Accès ou Utilisation Restreints"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
+      "skos:exactMatch": {
         "@id": "https://vocabularies.coar-repositories.org/access_rights/c_16ec/"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/open_access",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
+      },
+      "skos:notation": "acr_restricted-access-or-use",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Restricted access or use"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès ou Utilisation Restreints"
+        },
+        {
+          "@language": "pl",
+          "@value": "Ograniczony dostęp lub użycie"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso ou Uso Restrito"
+        }
+      ]
+    },
+    {
+      "@id": "acc:other",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
         "@language": "en",
-        "@value": "The resource is available under an open license."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
+        "@value": "Other access conditions not listed in the vocabulary."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Other"
+        },
+        {
+          "@language": "fr",
+          "@value": "Autre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Inne"
+        },
+        {
+          "@language": "pt",
+          "@value": "Outros"
+        }
+      ],
+      "skos:definition": {
         "@language": "en",
-        "@value": "Open Access"
+        "@value": "Other access conditions not listed in the vocabulary."
       },
-      {
-        "@language": "pt",
-        "@value": "Acesso Aberto"
+      "skos:notation": "other",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Other"
+        },
+        {
+          "@language": "fr",
+          "@value": "Autre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Inne"
+        },
+        {
+          "@language": "pt",
+          "@value": "Outros"
+        }
+      ]
+    },
+    {
+      "@id": "acc:acr_closed-access",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Access to the resource is closed."
       },
-      {
-        "@language": "pl",
-        "@value": "Otwarty dostęp"
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Closed Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Fermé"
+        },
+        {
+          "@language": "pl",
+          "@value": "Zamknięty dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Fechado"
+        }
+      ],
+      "skos:closeMatch": {
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
       },
-      {
-        "@language": "fr",
-        "@value": "Accès Ouvert"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_closed-access",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/embargoed_access",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Access to the resource is closed."
+      },
+      "skos:notation": "acr_closed-access",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Closed Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Fermé"
+        },
+        {
+          "@language": "pl",
+          "@value": "Zamknięty dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Fechado"
+        }
+      ]
+    },
+    {
+      "@id": "acc:acr_embargoed-access",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
         "@language": "en",
         "@value": "Access to the resource is embargoed until a specific date."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Embargoed Access"
+      },
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Access to the resource is embargoed until a specific date."
+      },
+      "skos:exactMatch": {
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_f1cf/"
+      },
+      "skos:notation": "acr_embargoed-access",
+      "skos:prefLabel": {
         "@language": "en",
         "@value": "Embargoed Access"
       }
-    ],
-    "http://www.w3.org/2004/02/skos/core#exactMatch": [
-      {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_f1cf/"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/closed_access",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_closed-access"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
+    },
+    {
+      "@id": "acc:acr_open-access",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
         "@language": "en",
-        "@value": "Access to the resource is closed."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
+        "@value": "The resource is available under an open license."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Open Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Ouvert"
+        },
+        {
+          "@language": "pl",
+          "@value": "Otwarty dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Aberto"
+        }
+      ],
+      "skos:definition": {
         "@language": "en",
-        "@value": "Closed Access"
+        "@value": "The resource is available under an open license."
       },
-      {
-        "@language": "pt",
-        "@value": "Acesso Fechado"
-      },
-      {
-        "@language": "pl",
-        "@value": "Zamknięty dostęp"
-      },
-      {
-        "@language": "fr",
-        "@value": "Accès Fermé"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/other",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_other"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Other access conditions not listed in the vocabulary."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Other"
-      },
-      {
-        "@language": "pt",
-        "@value": "Outros"
-      },
-      {
-        "@language": "pl",
-        "@value": "Inne"
-      },
-      {
-        "@language": "fr",
-        "@value": "Autre"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_other",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_undefined",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_embargoed-access",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/free_access",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_free-access"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Access to the resource is free of charge."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Free Access"
-      },
-      {
-        "@language": "pt",
-        "@value": "Acesso Livre"
-      },
-      {
-        "@language": "pl",
-        "@value": "Bezpłatny dostęp"
-      },
-      {
-        "@language": "fr",
-        "@value": "Accès Libre"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#closeMatch": [
-      {
+      "skos:exactMatch": {
         "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_public-domain",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Ontology",
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://purl.org/dc/terms/abstract": [
-      {
-        "@language": "en",
-        "@value": "A controlled vocabulary for specifying access conditions, aligned with COAR Access Rights where applicable."
-      }
-    ],
-    "http://purl.org/dc/terms/contributor": [
-      {
-        "@value": "Luca De Santis"
       },
-      {
-        "@value": "Silvio Peroni"
-      }
-    ],
-    "http://purl.org/dc/terms/created": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2021-12-01"
-      }
-    ],
-    "http://purl.org/dc/terms/creator": [
-      {
-        "@value": "Alessandro Bertozzi"
-      }
-    ],
-    "http://purl.org/dc/terms/description": [
-      {
-        "@language": "en",
-        "@value": "The Access Condition vocabulary defines the access rights associated with resources in the TRIPLE platform, such as Open Access, Restricted Access, or Closed Access. It facilitates the filtering and identification of resource availability."
-      }
-    ],
-    "http://purl.org/dc/terms/modified": [
-      {
-        "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-08-10"
-      }
-    ],
-    "http://purl.org/dc/terms/title": [
-      {
-        "@language": "en",
-        "@value": "Access Condition"
-      }
-    ],
-    "http://purl.org/vocab/vann/preferredNamespacePrefix": [
-      {
-        "@value": "accesscondition"
-      }
-    ],
-    "http://purl.org/vocab/vann/preferredNamespaceUri": [
-      {
-        "@value": "https://gotriple.eu/ontology/triple/AccessCondition/"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Access Condition"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
-      {
-        "@id": "http://purl.org/dc/terms/RightsStatement"
-      },
-      {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
-      }
-    ],
-    "http://www.w3.org/2002/07/owl#versionInfo": [
-      {
-        "@value": "3.0.0"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_open-access",
-    "@type": [
-      "http://purl.org/spar/datacite/Identifier",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/AccessCondition/all_rights_reserved",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/AccessCondition"
-    ],
-    "http://purl.org/spar/datacite/hasIdentifier": [
-      {
-        "@id": "https://gotriple.eu/ontology/triple/AccessCondition/acr_all-rights-reserved"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "All rights are reserved by the copyright holder."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "All Rights Reserved"
-      },
-      {
-        "@language": "pt",
-        "@value": "Todos os Direitos Reservados"
-      },
-      {
-        "@language": "pl",
-        "@value": "Wszelkie prawa zastrzeżone"
-      },
-      {
-        "@language": "fr",
-        "@value": "Tous Droits Réservés"
-      }
-    ]
-  }
-]
+      "skos:notation": "acr_open-access",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Open Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Ouvert"
+        },
+        {
+          "@language": "pl",
+          "@value": "Otwarty dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Aberto"
+        }
+      ]
+    }
+  ]
+}

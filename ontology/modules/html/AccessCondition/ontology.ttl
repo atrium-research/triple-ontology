@@ -1,17 +1,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-# TRIPLE Ontology - Conditions_Of_Access Vocabulary
-# Converted from RDF/XML to Turtle format
-# Original file: AccessCondition.rdf
+# TRIPLE Ontology - AccessCondition Vocabulary
 # License: CC BY 4.0
 # Website: https://gotriple.eu/ontology/triple
 
+
 @prefix acc: <https://gotriple.eu/ontology/triple/AccessCondition/> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 
@@ -22,134 +19,148 @@
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
     owl:versionInfo "3.0.0" ;
-    vann:preferredNamespacePrefix "accesscondition" ;
+    vann:preferredNamespacePrefix "acc" ;
     vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/AccessCondition/" ;
     dcterms:created "2021-12-01"^^xsd:date ;
     dcterms:modified "2026-08-10"^^xsd:date .
 
 
-triple:AccessCondition a owl:Class ;
-    rdfs:label "Access Condition"@en ;
-    rdfs:subClassOf dcterms:RightsStatement, skos:Concept .
-
-acc:all_rights_reserved a owl:NamedIndividual,
+acc:acr_all-rights-reserved a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "All Rights Reserved"@en,
-        "Todos os Direitos Reservados"@pt,
+        "Tous Droits Réservés"@fr,
         "Wszelkie prawa zastrzeżone"@pl,
-        "Tous Droits Réservés"@fr ;
-    datacite:hasIdentifier acc:acr_all-rights-reserved ;
-    rdfs:comment "All rights are reserved by the copyright holder."@en .
+        "Todos os Direitos Reservados"@pt ;
+    rdfs:comment "All rights are reserved by the copyright holder."@en ;
+    skos:definition "All rights are reserved by the copyright holder."@en ;
+    skos:notation "acr_all-rights-reserved" ;
+    skos:prefLabel "All Rights Reserved"@en,
+        "Tous Droits Réservés"@fr,
+        "Wszelkie prawa zastrzeżone"@pl,
+        "Todos os Direitos Reservados"@pt .
 
-acc:closed_access a owl:NamedIndividual,
+acc:acr_closed-access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Closed Access"@en,
-        "Acesso Fechado"@pt,
+        "Accès Fermé"@fr,
         "Zamknięty dostęp"@pl,
-        "Accès Fermé"@fr ;
-    datacite:hasIdentifier acc:acr_closed-access ;
+        "Acesso Fechado"@pt ;
     rdfs:comment "Access to the resource is closed."@en ;
-    skos:closeMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> .
+    skos:closeMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> ;
+    skos:definition "Access to the resource is closed."@en ;
+    skos:notation "acr_closed-access" ;
+    skos:prefLabel "Closed Access"@en,
+        "Accès Fermé"@fr,
+        "Zamknięty dostęp"@pl,
+        "Acesso Fechado"@pt .
 
-acc:free_access a owl:NamedIndividual,
-        triple:AccessCondition ;
-    rdfs:label "Free Access"@en,
-        "Acesso Livre"@pt,
-        "Bezpłatny dostęp"@pl,
-        "Accès Libre"@fr ;
-    datacite:hasIdentifier acc:acr_free-access ;
-    rdfs:comment "Access to the resource is free of charge."@en ;
-    skos:closeMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> .
-
-acc:open_access a owl:NamedIndividual,
-        triple:AccessCondition ;
-    rdfs:label "Open Access"@en,
-        "Acesso Aberto"@pt,
-        "Otwarty dostęp"@pl,
-        "Accès Ouvert"@fr ;
-    datacite:hasIdentifier acc:acr_open-access ;
-    rdfs:comment "The resource is available under an open license."@en ;
-    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> .
-
-acc:public_domain a owl:NamedIndividual,
-        triple:AccessCondition ;
-    rdfs:label "Public Domain"@en,
-        "Domínio Púlico"@pt,
-        "Domena publiczna"@pl,
-        "Domaine Public"@fr ;
-    datacite:hasIdentifier acc:acr_public-domain ;
-    rdfs:comment "The resource is in the public domain."@en .
-
-acc:restricted_access_or_use a owl:NamedIndividual,
-        triple:AccessCondition ;
-    rdfs:label "Restricted access or use"@en,
-        "Acesso ou Uso Restrito"@pt,
-        "Ograniczony dostęp lub użycie"@pl,
-        "Accès ou Utilisation Restreints"@fr ;
-    datacite:hasIdentifier acc:acr_restricted-access-or-use ;
-    rdfs:comment "Access or use of the resource is restricted."@en ;
-    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> .
-
-acc:embargoed_access a owl:NamedIndividual,
+acc:acr_embargoed-access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Embargoed Access"@en ;
-    datacite:hasIdentifier acc:acr_embargoed-access ;
     rdfs:comment "Access to the resource is embargoed until a specific date."@en ;
-    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> .
+    skos:definition "Access to the resource is embargoed until a specific date."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> ;
+    skos:notation "acr_embargoed-access" ;
+    skos:prefLabel "Embargoed Access"@en .
 
-acc:metadata_only_access a owl:NamedIndividual,
+acc:acr_free-access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Free Access"@en,
+        "Accès Libre"@fr,
+        "Bezpłatny dostęp"@pl,
+        "Acesso Livre"@pt ;
+    rdfs:comment "Access to the resource is free of charge."@en ;
+    skos:closeMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
+    skos:definition "Access to the resource is free of charge."@en ;
+    skos:notation "acr_free-access" ;
+    skos:prefLabel "Free Access"@en,
+        "Accès Libre"@fr,
+        "Bezpłatny dostęp"@pl,
+        "Acesso Livre"@pt .
+
+acc:acr_metadata-only-access a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Metadata Only Access"@en ;
-    datacite:hasIdentifier acc:acr_metadata-only-access ;
     rdfs:comment "Only the metadata of the resource is accessible."@en ;
-    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> .
+    skos:definition "Only the metadata of the resource is accessible."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> ;
+    skos:notation "acr_metadata-only-access" ;
+    skos:prefLabel "Metadata Only Access"@en .
 
-acc:acr_all-rights-reserved a datacite:Identifier,
-        owl:NamedIndividual .
+acc:acr_open-access a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Open Access"@en,
+        "Accès Ouvert"@fr,
+        "Otwarty dostęp"@pl,
+        "Acesso Aberto"@pt ;
+    rdfs:comment "The resource is available under an open license."@en ;
+    skos:definition "The resource is available under an open license."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
+    skos:notation "acr_open-access" ;
+    skos:prefLabel "Open Access"@en,
+        "Accès Ouvert"@fr,
+        "Otwarty dostęp"@pl,
+        "Acesso Aberto"@pt .
 
-acc:acr_closed-access a datacite:Identifier,
-        owl:NamedIndividual .
+acc:acr_public-domain a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Public Domain"@en,
+        "Domaine Public"@fr,
+        "Domena publiczna"@pl,
+        "Domínio Púlico"@pt ;
+    rdfs:comment "The resource is in the public domain."@en ;
+    skos:definition "The resource is in the public domain."@en ;
+    skos:notation "acr_public-domain" ;
+    skos:prefLabel "Public Domain"@en,
+        "Domaine Public"@fr,
+        "Domena publiczna"@pl,
+        "Domínio Púlico"@pt .
 
-acc:acr_embargoed-access a datacite:Identifier,
-        owl:NamedIndividual .
-
-acc:acr_free-access a datacite:Identifier,
-        owl:NamedIndividual .
-
-acc:acr_metadata-only-access a datacite:Identifier,
-        owl:NamedIndividual .
-
-acc:acr_open-access a datacite:Identifier,
-        owl:NamedIndividual .
-
-acc:acr_other a datacite:Identifier,
-        owl:NamedIndividual .
-
-acc:acr_public-domain a datacite:Identifier,
-        owl:NamedIndividual .
-
-acc:acr_restricted-access-or-use a datacite:Identifier,
-        owl:NamedIndividual .
-
-acc:acr_undefined a datacite:Identifier,
-        owl:NamedIndividual .
+acc:acr_restricted-access-or-use a owl:NamedIndividual,
+        triple:AccessCondition ;
+    rdfs:label "Restricted access or use"@en,
+        "Accès ou Utilisation Restreints"@fr,
+        "Ograniczony dostęp lub użycie"@pl,
+        "Acesso ou Uso Restrito"@pt ;
+    rdfs:comment "Access or use of the resource is restricted."@en ;
+    skos:definition "Access or use of the resource is restricted."@en ;
+    skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> ;
+    skos:notation "acr_restricted-access-or-use" ;
+    skos:prefLabel "Restricted access or use"@en,
+        "Accès ou Utilisation Restreints"@fr,
+        "Ograniczony dostęp lub użycie"@pl,
+        "Acesso ou Uso Restrito"@pt .
 
 acc:other a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Other"@en,
-        "Outros"@pt,
+        "Autre"@fr,
         "Inne"@pl,
-        "Autre"@fr ;
-    datacite:hasIdentifier acc:acr_other ;
-    rdfs:comment "Other access conditions not listed in the vocabulary."@en .
+        "Outros"@pt ;
+    rdfs:comment "Other access conditions not listed in the vocabulary."@en ;
+    skos:definition "Other access conditions not listed in the vocabulary."@en ;
+    skos:notation "other" ;
+    skos:prefLabel "Other"@en,
+        "Autre"@fr,
+        "Inne"@pl,
+        "Outros"@pt .
 
 acc:undefined a owl:NamedIndividual,
         triple:AccessCondition ;
     rdfs:label "Undefined"@en,
-        "Indefinido"@pt,
+        "Non Défini"@fr,
         "Nieokreślone"@pl,
-        "Non Défini"@fr ;
-    datacite:hasIdentifier acc:acr_undefined ;
-    rdfs:comment "Access condition is undefined or unknown."@en .
+        "Indefinido"@pt ;
+    rdfs:comment "Access condition is undefined or unknown."@en ;
+    skos:definition "Access condition is undefined or unknown."@en ;
+    skos:notation "undefined" ;
+    skos:prefLabel "Undefined"@en,
+        "Non Défini"@fr,
+        "Nieokreślone"@pl,
+        "Indefinido"@pt .
 
+triple:AccessCondition a owl:Class ;
+    rdfs:label "Access Condition"@en ;
+    rdfs:subClassOf dcterms:RightsStatement,
+        skos:Concept .
 

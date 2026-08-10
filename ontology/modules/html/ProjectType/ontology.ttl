@@ -1,12 +1,16 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
-@prefix pt: <https://gotriple.eu/ontology/triple/ProjectType/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+# TRIPLE Ontology - ProjectType Vocabulary
+# License: CC BY 4.0
+# Website: https://gotriple.eu/ontology/triple
+
+
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix pt: <https://gotriple.eu/ontology/triple/ProjectType/> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
-@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://gotriple.eu/ontology/triple/ProjectType> a owl:Ontology ;
     dcterms:title "Project Type"@en ;
@@ -15,51 +19,69 @@
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
     owl:versionInfo "3.0.0" ;
-    vann:preferredNamespacePrefix "projecttype" ;
+    vann:preferredNamespacePrefix "pt" ;
     vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/ProjectType/" ;
     dcterms:created "2021-12-01"^^xsd:date ;
     dcterms:modified "2026-08-10"^^xsd:date .
 
 
-triple:ProjectType a owl:Class ;
+pt: a owl:NamedIndividual,
+        triple:ProjectType ;
     rdfs:label "Project Type"@en ;
-    rdfs:subClassOf skos:Concept .
-
-pt: a owl:NamedIndividual, triple:ProjectType ;
-    rdfs:label "Project Type"@en ;
-    rdfs:comment "A generic project type categorization."@en .
-
-pt:funded a owl:NamedIndividual,
-        triple:ProjectType ;
-    rdfs:label "Funded"@en ;
-    rdfs:comment "A research project financed by a formal funding programme, such as a European or national grant."@en .
-
-pt:non_funded a owl:NamedIndividual,
-        triple:ProjectType ;
-    rdfs:label "Non-funded"@en ;
-    rdfs:comment "A research project carried out without dedicated external funding."@en .
-
-pt:crowdfunded a owl:NamedIndividual,
-        triple:ProjectType ;
-    rdfs:label "Crowdfunded"@en ;
-    rdfs:comment "A research project financed through collective contributions, typically via a crowdfunding platform."@en .
+    rdfs:comment "A generic project type categorization."@en ;
+    skos:definition "A generic project type categorization."@en ;
+    skos:prefLabel "Project Type"@en .
 
 pt:citizen_science a owl:NamedIndividual,
         triple:ProjectType ;
     rdfs:label "Citizen Science"@en ;
-    rdfs:comment "A research project conducted with the active participation of the general public."@en .
+    rdfs:comment "A research project conducted with the active participation of the general public."@en ;
+    skos:definition "A research project conducted with the active participation of the general public."@en ;
+    skos:prefLabel "Citizen Science"@en .
 
 pt:community_based a owl:NamedIndividual,
         triple:ProjectType ;
     rdfs:label "Community-based"@en ;
-    rdfs:comment "A research project initiated and driven by a community, typically outside formal institutional structures."@en .
+    rdfs:comment "A research project initiated and driven by a community, typically outside formal institutional structures."@en ;
+    skos:definition "A research project initiated and driven by a community, typically outside formal institutional structures."@en ;
+    skos:prefLabel "Community-based"@en .
 
-pt:legacy a owl:NamedIndividual,
+pt:crowdfunded a owl:NamedIndividual,
         triple:ProjectType ;
-    rdfs:label "Legacy"@en ;
-    rdfs:comment "A completed or historical research project included for archival and reference purposes."@en .
+    rdfs:label "Crowdfunded"@en ;
+    rdfs:comment "A research project financed through collective contributions, typically via a crowdfunding platform."@en ;
+    skos:definition "A research project financed through collective contributions, typically via a crowdfunding platform."@en ;
+    skos:prefLabel "Crowdfunded"@en .
+
+pt:funded a owl:NamedIndividual,
+        triple:ProjectType ;
+    rdfs:label "Funded"@en ;
+    rdfs:comment "A research project financed by a formal funding programme, such as a European or national grant."@en ;
+    skos:definition "A research project financed by a formal funding programme, such as a European or national grant."@en ;
+    skos:prefLabel "Funded"@en .
 
 pt:institutional a owl:NamedIndividual,
         triple:ProjectType ;
     rdfs:label "Institutional"@en ;
-    rdfs:comment "A research project funded or run internally by an institution, such as a university or research centre."@en .
+    rdfs:comment "A research project funded or run internally by an institution, such as a university or research centre."@en ;
+    skos:definition "A research project funded or run internally by an institution, such as a university or research centre."@en ;
+    skos:prefLabel "Institutional"@en .
+
+pt:legacy a owl:NamedIndividual,
+        triple:ProjectType ;
+    rdfs:label "Legacy"@en ;
+    rdfs:comment "A completed or historical research project included for archival and reference purposes."@en ;
+    skos:definition "A completed or historical research project included for archival and reference purposes."@en ;
+    skos:prefLabel "Legacy"@en .
+
+pt:non_funded a owl:NamedIndividual,
+        triple:ProjectType ;
+    rdfs:label "Non-funded"@en ;
+    rdfs:comment "A research project carried out without dedicated external funding."@en ;
+    skos:definition "A research project carried out without dedicated external funding."@en ;
+    skos:prefLabel "Non-funded"@en .
+
+triple:ProjectType a owl:Class ;
+    rdfs:label "Project Type"@en ;
+    rdfs:subClassOf skos:Concept .
+

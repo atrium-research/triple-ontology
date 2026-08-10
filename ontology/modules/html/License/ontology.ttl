@@ -1,17 +1,14 @@
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix vann: <http://purl.org/vocab/vann/> .
 # TRIPLE Ontology - License Vocabulary
-# Converted from RDF/XML to Turtle format
-# Original file: license.rdf
 # License: CC BY 4.0
 # Website: https://gotriple.eu/ontology/triple
 
-@prefix lic: <https://gotriple.eu/ontology/triple/License/> .
-@prefix datacite: <http://purl.org/spar/datacite/> .
+
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix lic: <https://gotriple.eu/ontology/triple/License/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix schema: <https://schema.org/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 
@@ -22,157 +19,196 @@
     dcterms:creator "Alessandro Bertozzi" ;
     dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
     owl:versionInfo "3.0.0" ;
-    vann:preferredNamespacePrefix "license" ;
+    vann:preferredNamespacePrefix "lic" ;
     vann:preferredNamespaceUri "https://gotriple.eu/ontology/triple/License/" ;
     dcterms:created "2021-12-01"^^xsd:date ;
     dcterms:modified "2026-08-10"^^xsd:date .
 
 
-triple:License a owl:Class ;
-    rdfs:label "License"@en ;
-    rdfs:subClassOf dcterms:LicenseDocument, skos:Concept .
+lic:lic_cairn a owl:NamedIndividual,
+        triple:License ;
+    rdfs:label "Cairn"@en,
+        "Cairn"@fr,
+        "Cairn"@pl,
+        "Cairn"@pt ;
+    rdfs:comment "The terms of use of the Cairn.info platform, which publishes French-language SSH journals and books. Not a standard open licence but the publisher's own conditions, normalised from the \"Cairn\" value that Isidore, HAL and BASE send."@en ;
+    skos:definition "The terms of use of the Cairn.info platform, which publishes French-language SSH journals and books. Not a standard open licence but the publisher's own conditions, normalised from the \"Cairn\" value that Isidore, HAL and BASE send."@en ;
+    skos:notation "lic_cairn" ;
+    skos:prefLabel "Cairn"@en,
+        "Cairn"@fr,
+        "Cairn"@pl,
+        "Cairn"@pt .
 
-lic:clarin-aca a owl:NamedIndividual,
+lic:lic_clarin-aca a owl:NamedIndividual,
         triple:License ;
     rdfs:label "CLARIN-ACA"@en,
-        "CLARIN-ACA"@pt,
+        "CLARIN-ACA"@fr,
         "CLARIN ACA"@pl,
-        "CLARIN-ACA"@fr ;
-    datacite:hasIdentifier lic:lic_clarin-aca ;
-    rdfs:comment "License for CLARIN Academic endpoints."@en .
+        "CLARIN-ACA"@pt ;
+    rdfs:comment "License for CLARIN Academic endpoints."@en ;
+    skos:definition "License for CLARIN Academic endpoints."@en ;
+    skos:notation "lic_clarin-aca" ;
+    skos:prefLabel "CLARIN-ACA"@en,
+        "CLARIN-ACA"@fr,
+        "CLARIN ACA"@pl,
+        "CLARIN-ACA"@pt .
 
-lic:clarin-res a owl:NamedIndividual,
-        triple:License ;
-    rdfs:label "CLARIN-RES"@en,
-        "CLARIN-RES"@pt,
-        "CLARIN RES"@pl,
-        "CLARIN-RES"@fr ;
-    datacite:hasIdentifier lic:lic_clarin-res ;
-    rdfs:comment "License for CLARIN Restricted endpoints."@en .
-
-lic:clarin_pub a owl:NamedIndividual,
+lic:lic_clarin-pub a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Clarin Pub"@en,
-        "Clarin Pub"@pt,
+        "Clarin Pub"@fr,
         "CLARIN PUB"@pl,
-        "Clarin Pub"@fr ;
-    datacite:hasIdentifier lic:lic_clarin-pub ;
-    rdfs:comment "License for CLARIN Public endpoints."@en .
+        "Clarin Pub"@pt ;
+    rdfs:comment "License for CLARIN Public endpoints."@en ;
+    skos:definition "License for CLARIN Public endpoints."@en ;
+    skos:notation "lic_clarin-pub" ;
+    skos:prefLabel "Clarin Pub"@en,
+        "Clarin Pub"@fr,
+        "CLARIN PUB"@pl,
+        "Clarin Pub"@pt .
 
-lic:creative_commons a owl:NamedIndividual,
+lic:lic_clarin-res a owl:NamedIndividual,
+        triple:License ;
+    rdfs:label "CLARIN-RES"@en,
+        "CLARIN-RES"@fr,
+        "CLARIN RES"@pl,
+        "CLARIN-RES"@pt ;
+    rdfs:comment "License for CLARIN Restricted endpoints."@en ;
+    skos:definition "License for CLARIN Restricted endpoints."@en ;
+    skos:notation "lic_clarin-res" ;
+    skos:prefLabel "CLARIN-RES"@en,
+        "CLARIN-RES"@fr,
+        "CLARIN RES"@pl,
+        "CLARIN-RES"@pt .
+
+lic:lic_creative-commons a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Creative Commons"@en,
-        "Creative Commons"@pt,
+        "Creative Commons"@fr,
         "Creative Commons"@pl,
-        "Creative Commons"@fr ;
-    datacite:hasIdentifier lic:lic_creative-commons ;
-    rdfs:comment "A Creative Commons license."@en .
+        "Creative Commons"@pt ;
+    rdfs:comment "A Creative Commons license."@en ;
+    skos:definition "A Creative Commons license."@en ;
+    skos:notation "lic_creative-commons" ;
+    skos:prefLabel "Creative Commons"@en,
+        "Creative Commons"@fr,
+        "Creative Commons"@pl,
+        "Creative Commons"@pt .
 
-lic:elra_licences a owl:NamedIndividual,
+lic:lic_elra a owl:NamedIndividual,
         triple:License ;
     rdfs:label "ELRA licences"@en,
-        "Licenças ELRA"@pt,
+        "Licences ELRA"@fr,
         "Licencje ELRA"@pl,
-        "Licences ELRA"@fr ;
-    datacite:hasIdentifier lic:lic_elra ;
-    rdfs:comment "License by ELRA."@en .
+        "Licenças ELRA"@pt ;
+    rdfs:comment "License by ELRA."@en ;
+    skos:definition "License by ELRA."@en ;
+    skos:notation "lic_elra" ;
+    skos:prefLabel "ELRA licences"@en,
+        "Licences ELRA"@fr,
+        "Licencje ELRA"@pl,
+        "Licenças ELRA"@pt .
 
-lic:meta-share a owl:NamedIndividual,
+lic:lic_meta-share a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Meta-Share"@en,
-        "Meta-Share"@pt,
+        "Meta-Share"@fr,
         "Meta-Share"@pl,
-        "Meta-Share"@fr ;
-    datacite:hasIdentifier lic:lic_meta-share ;
-    rdfs:comment "Meta-Share license."@en .
+        "Meta-Share"@pt ;
+    rdfs:comment "Meta-Share license."@en ;
+    skos:definition "Meta-Share license."@en ;
+    skos:notation "lic_meta-share" ;
+    skos:prefLabel "Meta-Share"@en,
+        "Meta-Share"@fr,
+        "Meta-Share"@pl,
+        "Meta-Share"@pt .
 
-lic:microsoft_public_licence a owl:NamedIndividual,
+lic:lic_ms-pl a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Microsoft Public Licence"@en,
-        "Licença Pública Microsoft"@pt,
+        "Licence Publique Microsoft"@fr,
         "Microsoft Public Licence (Ms-PL)"@pl,
-        "Licence Publique Microsoft"@fr ;
-    datacite:hasIdentifier lic:lic_ms-pl ;
-    rdfs:comment "Microsoft Public License (MS-PL)."@en .
+        "Licença Pública Microsoft"@pt ;
+    rdfs:comment "Microsoft Public License (MS-PL)."@en ;
+    skos:definition "Microsoft Public License (MS-PL)."@en ;
+    skos:notation "lic_ms-pl" ;
+    skos:prefLabel "Microsoft Public Licence"@en,
+        "Licence Publique Microsoft"@fr,
+        "Microsoft Public Licence (Ms-PL)"@pl,
+        "Licença Pública Microsoft"@pt .
 
-lic:microsoft_reciprocal_licence a owl:NamedIndividual,
+lic:lic_ms-rl a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Microsoft Reciprocal Licence"@en,
-        "Licença Recíproca Microsoft"@pt,
+        "Licence Réciproque Microsoft"@fr,
         "Microsoft Reciprocal License (Ms-RL)"@pl,
-        "Licence Réciproque Microsoft"@fr ;
-    datacite:hasIdentifier lic:lic_ms-rl ;
-    rdfs:comment "Microsoft Reciprocal License (MS-RL)."@en .
+        "Licença Recíproca Microsoft"@pt ;
+    rdfs:comment "Microsoft Reciprocal License (MS-RL)."@en ;
+    skos:definition "Microsoft Reciprocal License (MS-RL)."@en ;
+    skos:notation "lic_ms-rl" ;
+    skos:prefLabel "Microsoft Reciprocal Licence"@en,
+        "Licence Réciproque Microsoft"@fr,
+        "Microsoft Reciprocal License (Ms-RL)"@pl,
+        "Licença Recíproca Microsoft"@pt .
 
-lic:open_data a owl:NamedIndividual,
+lic:lic_open-data a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Open Data"@en,
-        "Dados Abertos"@pt,
+        "Données ouvertes"@fr,
         "Otwarte dane"@pl,
-        "Données ouvertes"@fr ;
-    datacite:hasIdentifier lic:lic_open-data ;
-    rdfs:comment "An open data license."@en .
+        "Dados Abertos"@pt ;
+    rdfs:comment "An open data license."@en ;
+    skos:definition "An open data license."@en ;
+    skos:notation "lic_open-data" ;
+    skos:prefLabel "Open Data"@en,
+        "Données ouvertes"@fr,
+        "Otwarte dane"@pl,
+        "Dados Abertos"@pt .
 
-lic:open_source a owl:NamedIndividual,
+lic:lic_open-source a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Open source"@en,
-        "Código Aberto"@pt,
+        "Open Source"@fr,
         "Otwarty kod źródłowy"@pl,
-        "Open Source"@fr ;
-    datacite:hasIdentifier lic:lic_open-source ;
-    rdfs:comment "An open source software license."@en .
-
-lic:lic_clarin-aca a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_clarin-pub a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_clarin-res a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_creative-commons a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_elra a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_meta-share a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_ms-pl a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_ms-rl a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_open-data a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_open-source a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_other a datacite:Identifier,
-        owl:NamedIndividual .
-
-lic:lic_undefined a datacite:Identifier,
-        owl:NamedIndividual .
+        "Código Aberto"@pt ;
+    rdfs:comment "An open source software license."@en ;
+    skos:definition "An open source software license."@en ;
+    skos:notation "lic_open-source" ;
+    skos:prefLabel "Open source"@en,
+        "Open Source"@fr,
+        "Otwarty kod źródłowy"@pl,
+        "Código Aberto"@pt .
 
 lic:other a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Other"@en,
-        "Outros"@pt,
+        "Autre"@fr,
         "Inne"@pl,
-        "Autre"@fr ;
-    datacite:hasIdentifier lic:lic_other ;
-    rdfs:comment "Other license not listed in the vocabulary."@en .
+        "Outros"@pt ;
+    rdfs:comment "Other license not listed in the vocabulary."@en ;
+    skos:definition "Other license not listed in the vocabulary."@en ;
+    skos:notation "other" ;
+    skos:prefLabel "Other"@en,
+        "Autre"@fr,
+        "Inne"@pl,
+        "Outros"@pt .
 
 lic:undefined a owl:NamedIndividual,
         triple:License ;
     rdfs:label "Undefined"@en,
-        "Indefinido"@pt,
+        "Non défini"@fr,
         "Nieokreślone"@pl,
-        "Non défini"@fr ;
-    datacite:hasIdentifier lic:lic_undefined ;
-    rdfs:comment "License is undefined or unknown."@en .
+        "Indefinido"@pt ;
+    rdfs:comment "License is undefined or unknown."@en ;
+    skos:definition "License is undefined or unknown."@en ;
+    skos:notation "undefined" ;
+    skos:prefLabel "Undefined"@en,
+        "Non défini"@fr,
+        "Nieokreślone"@pl,
+        "Indefinido"@pt .
+
+triple:License a owl:Class ;
+    rdfs:label "License"@en ;
+    rdfs:subClassOf dcterms:LicenseDocument,
+        skos:Concept .
 
