@@ -166,9 +166,9 @@ def merge_graphs(ttl_files):
 
     # Define common namespaces
     TRIPLE = Namespace("https://gotriple.eu/ontology/triple/")
-    SCHEMA = Namespace("http://schema.org/")
+    SCHEMA = Namespace("https://schema.org/")
     DATACITE = Namespace("http://purl.org/spar/datacite/")
-    LITRE = Namespace("http://purl.org/spar/literal/")
+    LITRE = Namespace("http://www.essepuntato.it/2010/06/literalreification/")
     DC = Namespace("http://purl.org/dc/elements/1.1/")
     SIOC = Namespace("http://rdfs.org/sioc/ns#")
     MOD = Namespace("https://w3id.org/mod#")
