@@ -11,7 +11,7 @@ and the RDF serializations (`ontology.ttl`, `ontology.rdf`, `ontology.jsonld`):
 | `content-type/` | the ContentType vocabulary (23) |
 | `access-condition/` | the AccessCondition vocabulary (10) |
 | `license/` | the License vocabulary (13) |
-| `project-type/` | the ProjectType vocabulary (8) |
+| `project-type/` | the ProjectType vocabulary (7) |
 | `ddc/` | the Dewey Decimal Classification proxies (53) |
 
 ## Resolution rules
