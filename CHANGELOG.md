@@ -15,6 +15,28 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Breaking: vocabularies move beside the ontology, entity modules retired, every IRI resolves
+
+**Type**: Refactoring (breaking — every vocabulary IRI changes; part of the 3.0.0 release)
+
+**Iteration**: none; `vocabularies/`, `ontology/`, `scripts/`, and every file that referenced a vocabulary namespace
+
+**Description**:
+Three connected decisions, taken together after auditing how the 173 IRIs of the ontology actually resolve (11 did) and how SKG-IF and OpenCitations structure the same problem.
+
+**The vocabularies are siblings of the ontology, not children.** A vocabulary is an artefact with its own lifecycle — it changes when the platform adds a term, while the model changes at releases — and its concepts are cited by 28 million documents. It now lives at `https://gotriple.eu/ontology/{name}` in kebab-case (`discipline`, `content-type`, `access-condition`, `license`, `project-type`, `ddc`), with concepts directly under it: `…/ontology/discipline/musiq`, `…/ontology/ddc/780`. This dissolves the double role the five capitalised names had — `…/triple/License` was both the bridge class and the vocabulary document. The class keeps its model IRI untouched; the vocabulary document moved out. Production is unaffected: the API emits bare keys, never IRIs, and the mapping rule stays namespace + key.
+
+**The six entity modules are retired.** Document, Dataset, MediaObject, SemanticArtefact, Project and Profile existed as separate RDF artefacts and HTML pages, but they overlapped on 47% of their terms, declared no `owl:imports`, and could not be loaded independently; the same borrowed property was documented in up to six places, and the module IRI collided with the class IRI (`triple:Document` was `owl:Class` and `owl:Ontology` at once, so the class inherited `dcterms:modified` and a version number). At 38 own terms this ontology is the size of SKOS, DCAT or FOAF, each of which is documented as a single page; SPAR modularises with namespaces because it is ten times larger, and OCO with 3 minted terms does not resolve them at all. What remains: **one artefact for the model** (`ontology/triple.ttl`, documented at `ontology/html/triple/`) and **one per vocabulary** (`ontology/html/{name}/`), each with its `index.html` and `ontology.ttl/.rdf/.jsonld`. `scripts/build_modules.py` and `ontology/modules/` are gone. The term IRIs stay flat (`…/triple/originalLicense`), so any future re-partitioning of the documentation is free.
+
+**Anchors are short and derivable from the IRI.** The pages addressed a term as `page#<full IRI>` — `…/Document#https://gotriple.eu/ontology/triple/hasContentType` — unguessable, never the term's IRI, and the inner `#` of borrowed terms forced the `%23` post-processing convention of issue #32. The pyLODE fork now derives the anchor from the IRI alone: own terms get the bare local name (`#originalLicense`, `#musiq`, `#780`), borrowed terms the prefixed name (`#foaf:Document`). Own vs borrowed is decided by `vann:preferredNamespaceUri` on the ontology node. Verified collision-free across all seven pages; the `%23` step is retired. Four namespaces used by alignment targets (`fabio`, `crm`, `sshoc`, `adms`) had no prefix in the model and produced full-IRI anchors: bound in `merge_iterations.py`.
+
+**Resolution** becomes two syntactic rules plus a closed list of six vocabulary names, documented for deployment in `ontology/html/README.md`: a model term redirects to `/ontology/triple#{term}`, a concept to `/ontology/{vocabulary}#{key}`; content negotiation serves the Turtle artefact on the same IRIs; everything else under `/ontology/` is a real 404 — today unknown IRIs return the frontend's not-found page with status 200, which poisons RDF clients. Verified against the generated pages: 38/38 model terms and 133/133 concepts have their anchor where the rules point.
+
+**Also**: `pt:`, an individual of ProjectType whose IRI was the vocabulary namespace itself (trailing slash included, empty local name — unresolvable by construction), labelled "A generic project type categorization" and referenced by nothing, is removed.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Vocabularies: counted over the whole corpus, not sampled — typ_audio, and licences stay coarse
 
 **Type**: Modification
