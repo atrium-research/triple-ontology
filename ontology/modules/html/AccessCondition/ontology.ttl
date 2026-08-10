@@ -4,7 +4,6 @@
 # License: CC BY 4.0
 # Website: https://gotriple.eu/ontology/triple
 
-
 @prefix acc: <https://gotriple.eu/ontology/triple/AccessCondition/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
@@ -56,12 +55,20 @@ acc:acr_closed-access a owl:NamedIndividual,
 
 acc:acr_embargoed-access a owl:NamedIndividual,
         triple:AccessCondition ;
-    rdfs:label "Embargoed Access"@en ;
+    rdfs:label "Zugang unterliegt Embargo"@de,
+        "Embargoed Access"@en,
+        "sous embargo"@fr,
+        "accesso sottoposto a periodo di embargo"@it,
+        "acesso embargado"@pt ;
     rdfs:comment "Access to the resource is embargoed until a specific date."@en ;
     skos:definition "Access to the resource is embargoed until a specific date."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_f1cf/> ;
     skos:notation "acr_embargoed-access" ;
-    skos:prefLabel "Embargoed Access"@en .
+    skos:prefLabel "Zugang unterliegt Embargo"@de,
+        "Embargoed Access"@en,
+        "sous embargo"@fr,
+        "accesso sottoposto a periodo di embargo"@it,
+        "acesso embargado"@pt .
 
 acc:acr_free-access a owl:NamedIndividual,
         triple:AccessCondition ;
@@ -80,25 +87,37 @@ acc:acr_free-access a owl:NamedIndividual,
 
 acc:acr_metadata-only-access a owl:NamedIndividual,
         triple:AccessCondition ;
-    rdfs:label "Metadata Only Access"@en ;
+    rdfs:label "nur Metadaten"@de,
+        "Metadata Only Access"@en,
+        "accès aux seules métadonnées"@fr,
+        "accesso limitato ai metadati"@it,
+        "acesso a metadados"@pt ;
     rdfs:comment "Only the metadata of the resource is accessible."@en ;
     skos:definition "Only the metadata of the resource is accessible."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_14cb/> ;
     skos:notation "acr_metadata-only-access" ;
-    skos:prefLabel "Metadata Only Access"@en .
+    skos:prefLabel "nur Metadaten"@de,
+        "Metadata Only Access"@en,
+        "accès aux seules métadonnées"@fr,
+        "accesso limitato ai metadati"@it,
+        "acesso a metadados"@pt .
 
 acc:acr_open-access a owl:NamedIndividual,
         triple:AccessCondition ;
-    rdfs:label "Open Access"@en,
+    rdfs:label "offener Zugang"@de,
+        "Open Access"@en,
         "Accès Ouvert"@fr,
+        "accesso aperto"@it,
         "Otwarty dostęp"@pl,
         "Acesso Aberto"@pt ;
     rdfs:comment "The resource is available under an open license."@en ;
     skos:definition "The resource is available under an open license."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_abf2/> ;
     skos:notation "acr_open-access" ;
-    skos:prefLabel "Open Access"@en,
+    skos:prefLabel "offener Zugang"@de,
+        "Open Access"@en,
         "Accès Ouvert"@fr,
+        "accesso aperto"@it,
         "Otwarty dostęp"@pl,
         "Acesso Aberto"@pt .
 
@@ -118,16 +137,20 @@ acc:acr_public-domain a owl:NamedIndividual,
 
 acc:acr_restricted-access-or-use a owl:NamedIndividual,
         triple:AccessCondition ;
-    rdfs:label "Restricted access or use"@en,
+    rdfs:label "eingeschränkter Zugang"@de,
+        "Restricted access or use"@en,
         "Accès ou Utilisation Restreints"@fr,
+        "accesso riservato"@it,
         "Ograniczony dostęp lub użycie"@pl,
         "Acesso ou Uso Restrito"@pt ;
     rdfs:comment "Access or use of the resource is restricted."@en ;
     skos:definition "Access or use of the resource is restricted."@en ;
     skos:exactMatch <https://vocabularies.coar-repositories.org/access_rights/c_16ec/> ;
     skos:notation "acr_restricted-access-or-use" ;
-    skos:prefLabel "Restricted access or use"@en,
+    skos:prefLabel "eingeschränkter Zugang"@de,
+        "Restricted access or use"@en,
         "Accès ou Utilisation Restreints"@fr,
+        "accesso riservato"@it,
         "Ograniczony dostęp lub użycie"@pl,
         "Acesso ou Uso Restrito"@pt .
 

@@ -1,171 +1,409 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
-  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:dcterms="http://purl.org/dc/terms/"
+  xmlns:owl="http://www.w3.org/2002/07/owl#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
   xmlns:vann="http://purl.org/vocab/vann/"
-  xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:triple="https://gotriple.eu/ontology/triple/"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:triple="https://gotriple.eu/ontology/triple/"
 >
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_bibliography">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Bibliography</rdfs:label>
-    <rdfs:label xml:lang="fr">Bibliographie</rdfs:label>
-    <rdfs:label xml:lang="pl">Bibliografia</rdfs:label>
-    <rdfs:label xml:lang="pt">Bibliografia</rdfs:label>
-    <rdfs:comment xml:lang="en">A systematic list of resources (books, articles, etc.) sharing specific characteristics.</rdfs:comment>
-    <skos:definition xml:lang="en">A systematic list of resources (books, articles, etc.) sharing specific characteristics.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_86bc"/>
-    <skos:notation>typ_bibliography</skos:notation>
-    <skos:prefLabel xml:lang="en">Bibliography</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Bibliographie</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Bibliografia</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Bibliografia</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_report">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Report</rdfs:label>
-    <rdfs:label xml:lang="fr">Rapport</rdfs:label>
-    <rdfs:label xml:lang="pl">Raport</rdfs:label>
-    <rdfs:label xml:lang="pt">Relatório</rdfs:label>
-    <rdfs:comment xml:lang="en">A document that presents information in an organized format for a specific audience and purpose.</rdfs:comment>
-    <skos:definition xml:lang="en">A document that presents information in an organized format for a specific audience and purpose.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_93fc"/>
-    <skos:notation>typ_report</skos:notation>
-    <skos:prefLabel xml:lang="en">Report</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Rapport</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Raport</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Relatório</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_map">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Map</rdfs:label>
-    <rdfs:label xml:lang="fr">Carte</rdfs:label>
-    <rdfs:label xml:lang="pl">Mapa</rdfs:label>
-    <rdfs:label xml:lang="pt">Mapa</rdfs:label>
-    <rdfs:comment xml:lang="en">A visual representation of an area.</rdfs:comment>
-    <skos:definition xml:lang="en">A visual representation of an area.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_12cd"/>
-    <skos:notation>typ_map</skos:notation>
-    <skos:prefLabel xml:lang="en">Map</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Carte</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Mapa</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Mapa</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_blog-post">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Blog post</rdfs:label>
-    <rdfs:label xml:lang="fr">Article de blog</rdfs:label>
-    <rdfs:label xml:lang="pl">Artykuł na blogu</rdfs:label>
-    <rdfs:label xml:lang="pt">Post de Blogue</rdfs:label>
-    <rdfs:comment xml:lang="en">A discrete entry or post in a blog.</rdfs:comment>
-    <skos:definition xml:lang="en">A discrete entry or post in a blog.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_6947"/>
-    <skos:notation>typ_blog-post</skos:notation>
-    <skos:prefLabel xml:lang="en">Blog post</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Article de blog</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Artykuł na blogu</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Post de Blogue</skos:prefLabel>
-  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_review">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Rezension</rdfs:label>
     <rdfs:label xml:lang="en">Review</rdfs:label>
     <rdfs:label xml:lang="fr">Revue</rdfs:label>
+    <rdfs:label xml:lang="it">recensione</rdfs:label>
     <rdfs:label xml:lang="pl">Recenzia</rdfs:label>
     <rdfs:label xml:lang="pt">Revisão</rdfs:label>
     <rdfs:comment xml:lang="en">A critical evaluation of a book, article, or other work.</rdfs:comment>
     <skos:definition xml:lang="en">A critical evaluation of a book, article, or other work.</skos:definition>
     <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_efa0"/>
     <skos:notation>typ_review</skos:notation>
+    <skos:prefLabel xml:lang="de">Rezension</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Review</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Revue</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">recensione</skos:prefLabel>
     <skos:prefLabel xml:lang="pl">Recenzia</skos:prefLabel>
     <skos:prefLabel xml:lang="pt">Revisão</skos:prefLabel>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_image">
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_manuscript">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Image</rdfs:label>
-    <rdfs:label xml:lang="fr">Image</rdfs:label>
-    <rdfs:label xml:lang="pl">Materiał wizualny</rdfs:label>
-    <rdfs:label xml:lang="pt">Imagem</rdfs:label>
-    <rdfs:comment xml:lang="en">A visual representation other than text, such as a photograph or diagram.</rdfs:comment>
-    <skos:definition xml:lang="en">A visual representation other than text, such as a photograph or diagram.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_c513"/>
-    <skos:notation>typ_image</skos:notation>
-    <skos:prefLabel xml:lang="en">Image</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Image</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Materiał wizualny</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Imagem</skos:prefLabel>
+    <rdfs:label xml:lang="de">Manuskript</rdfs:label>
+    <rdfs:label xml:lang="en">Manuscript</rdfs:label>
+    <rdfs:label xml:lang="fr">Manuscrit</rdfs:label>
+    <rdfs:label xml:lang="it">manoscritto</rdfs:label>
+    <rdfs:label xml:lang="pl">Rękopis</rdfs:label>
+    <rdfs:label xml:lang="pt">Manuscrito</rdfs:label>
+    <rdfs:comment xml:lang="en">A document written by hand or typewritten, as opposed to printed.</rdfs:comment>
+    <skos:definition xml:lang="en">A document written by hand or typewritten, as opposed to printed.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_0040"/>
+    <skos:notation>typ_manuscript</skos:notation>
+    <skos:prefLabel xml:lang="de">Manuskript</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Manuscript</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Manuscrit</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">manoscritto</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Rękopis</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Manuscrito</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_book">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Buch</rdfs:label>
+    <rdfs:label xml:lang="en">Book</rdfs:label>
+    <rdfs:label xml:lang="fr">Livre</rdfs:label>
+    <rdfs:label xml:lang="it">libro</rdfs:label>
+    <rdfs:label xml:lang="pl">Książka</rdfs:label>
+    <rdfs:label xml:lang="pt">Livro</rdfs:label>
+    <rdfs:comment xml:lang="en">A non-serial publication that is complete in one volume or a finite number of volumes.</rdfs:comment>
+    <skos:definition xml:lang="en">A non-serial publication that is complete in one volume or a finite number of volumes.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_2f33"/>
+    <skos:notation>typ_book</skos:notation>
+    <skos:prefLabel xml:lang="de">Buch</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Book</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Livre</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">libro</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Książka</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Livro</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_map">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Karte</rdfs:label>
+    <rdfs:label xml:lang="en">Map</rdfs:label>
+    <rdfs:label xml:lang="fr">Carte</rdfs:label>
+    <rdfs:label xml:lang="it">mappa</rdfs:label>
+    <rdfs:label xml:lang="pl">Mapa</rdfs:label>
+    <rdfs:label xml:lang="pt">Mapa</rdfs:label>
+    <rdfs:comment xml:lang="en">A visual representation of an area.</rdfs:comment>
+    <skos:definition xml:lang="en">A visual representation of an area.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_12cd"/>
+    <skos:notation>typ_map</skos:notation>
+    <skos:prefLabel xml:lang="de">Karte</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Map</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Carte</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">mappa</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Mapa</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Mapa</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_periodical">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">anderes Periodikum</rdfs:label>
+    <rdfs:label xml:lang="en">Periodical</rdfs:label>
+    <rdfs:label xml:lang="fr">Périodique</rdfs:label>
+    <rdfs:label xml:lang="it">altro periodico</rdfs:label>
+    <rdfs:label xml:lang="pl">Czasopismo</rdfs:label>
+    <rdfs:label xml:lang="pt">Periódico</rdfs:label>
+    <rdfs:comment xml:lang="en">A publication that appears at regular intervals, such as a journal, magazine, or newspaper.</rdfs:comment>
+    <skos:definition xml:lang="en">A publication that appears at regular intervals, such as a journal, magazine, or newspaper.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31"/>
+    <skos:notation>typ_periodical</skos:notation>
+    <skos:prefLabel xml:lang="de">anderes Periodikum</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Periodical</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Périodique</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">altro periodico</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Czasopismo</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Periódico</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_bibliography">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Bibliografie</rdfs:label>
+    <rdfs:label xml:lang="en">Bibliography</rdfs:label>
+    <rdfs:label xml:lang="fr">Bibliographie</rdfs:label>
+    <rdfs:label xml:lang="it">bibliografia</rdfs:label>
+    <rdfs:label xml:lang="pl">Bibliografia</rdfs:label>
+    <rdfs:label xml:lang="pt">Bibliografia</rdfs:label>
+    <rdfs:comment xml:lang="en">A systematic list of resources (books, articles, etc.) sharing specific characteristics.</rdfs:comment>
+    <skos:definition xml:lang="en">A systematic list of resources (books, articles, etc.) sharing specific characteristics.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_86bc"/>
+    <skos:notation>typ_bibliography</skos:notation>
+    <skos:prefLabel xml:lang="de">Bibliografie</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Bibliography</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Bibliographie</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">bibliografia</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Bibliografia</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Bibliografia</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_semantic-artefact">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="en">Semantic artefact</rdfs:label>
+    <rdfs:comment xml:lang="en">A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema.</rdfs:comment>
+    <skos:closeMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/GSZA-Y7V7"/>
+    <skos:definition xml:lang="en">A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema.</skos:definition>
+    <skos:notation>typ_semantic-artefact</skos:notation>
+    <skos:prefLabel xml:lang="en">Semantic artefact</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_blog-post">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Blogbeitrag</rdfs:label>
+    <rdfs:label xml:lang="en">Blog post</rdfs:label>
+    <rdfs:label xml:lang="fr">Article de blog</rdfs:label>
+    <rdfs:label xml:lang="it">articolo di blog</rdfs:label>
+    <rdfs:label xml:lang="pl">Artykuł na blogu</rdfs:label>
+    <rdfs:label xml:lang="pt">Post de Blogue</rdfs:label>
+    <rdfs:comment xml:lang="en">A discrete entry or post in a blog.</rdfs:comment>
+    <skos:definition xml:lang="en">A discrete entry or post in a blog.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_6947"/>
+    <skos:notation>typ_blog-post</skos:notation>
+    <skos:prefLabel xml:lang="de">Blogbeitrag</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Blog post</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Article de blog</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">articolo di blog</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Artykuł na blogu</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Post de Blogue</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_book-part">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Teil oder Kapitel eines Buches</rdfs:label>
+    <rdfs:label xml:lang="en">Book Part</rdfs:label>
+    <rdfs:label xml:lang="fr">Extrait de livre</rdfs:label>
+    <rdfs:label xml:lang="it">capitolo di libro</rdfs:label>
+    <rdfs:label xml:lang="pl">Materiał w książce</rdfs:label>
+    <rdfs:label xml:lang="pt">Parte de Livro</rdfs:label>
+    <rdfs:comment xml:lang="en">A defined chapter or section of a book, usually with a separate title or number.</rdfs:comment>
+    <skos:definition xml:lang="en">A defined chapter or section of a book, usually with a separate title or number.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_3248"/>
+    <skos:notation>typ_book-part</skos:notation>
+    <skos:prefLabel xml:lang="de">Teil oder Kapitel eines Buches</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Book Part</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Extrait de livre</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">capitolo di libro</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Materiał w książce</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Parte de Livro</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_thesis">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">schriftliche Abschlussarbeit</rdfs:label>
     <rdfs:label xml:lang="en">Thesis</rdfs:label>
     <rdfs:label xml:lang="fr">Mémoire ou thèse</rdfs:label>
+    <rdfs:label xml:lang="it">tesi</rdfs:label>
     <rdfs:label xml:lang="pl">Praca dyplomowa</rdfs:label>
     <rdfs:label xml:lang="pt">Tese</rdfs:label>
     <rdfs:comment xml:lang="en">A document submitted in support of candidature for an academic degree or professional qualification.</rdfs:comment>
     <skos:definition xml:lang="en">A document submitted in support of candidature for an academic degree or professional qualification.</skos:definition>
     <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_46ec"/>
     <skos:notation>typ_thesis</skos:notation>
+    <skos:prefLabel xml:lang="de">schriftliche Abschlussarbeit</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Thesis</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Mémoire ou thèse</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">tesi</skos:prefLabel>
     <skos:prefLabel xml:lang="pl">Praca dyplomowa</skos:prefLabel>
     <skos:prefLabel xml:lang="pt">Tese</skos:prefLabel>
   </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_learning-object">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Lernobjekt</rdfs:label>
+    <rdfs:label xml:lang="en">Learning object</rdfs:label>
+    <rdfs:label xml:lang="fr">Objet d'apprentissage</rdfs:label>
+    <rdfs:label xml:lang="it">oggetto didattico</rdfs:label>
+    <rdfs:label xml:lang="pl">Materiał dydaktyczny</rdfs:label>
+    <rdfs:label xml:lang="pt">Objeto de Aprendizagem</rdfs:label>
+    <rdfs:comment xml:lang="en">A resource designed to be used for learning or teaching.</rdfs:comment>
+    <skos:definition xml:lang="en">A resource designed to be used for learning or teaching.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_e059"/>
+    <skos:notation>typ_learning-object</skos:notation>
+    <skos:prefLabel xml:lang="de">Lernobjekt</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Learning object</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Objet d'apprentissage</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">oggetto didattico</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Materiał dydaktyczny</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Objeto de Aprendizagem</skos:prefLabel>
+  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_dataset">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Datensatz</rdfs:label>
     <rdfs:label xml:lang="en">Dataset</rdfs:label>
     <rdfs:label xml:lang="fr">Jeu de données</rdfs:label>
+    <rdfs:label xml:lang="it">dataset</rdfs:label>
     <rdfs:label xml:lang="pl">Zbiór danych</rdfs:label>
     <rdfs:label xml:lang="pt">Conjunto de Dados</rdfs:label>
     <rdfs:comment xml:lang="en">A collection of data, published or curated for a single agent or community.</rdfs:comment>
     <skos:definition xml:lang="en">A collection of data, published or curated for a single agent or community.</skos:definition>
     <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_ddb1"/>
     <skos:notation>typ_dataset</skos:notation>
+    <skos:prefLabel xml:lang="de">Datensatz</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Dataset</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Jeu de données</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">dataset</skos:prefLabel>
     <skos:prefLabel xml:lang="pl">Zbiór danych</skos:prefLabel>
     <skos:prefLabel xml:lang="pt">Conjunto de Dados</skos:prefLabel>
   </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_sound">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Ton</rdfs:label>
+    <rdfs:label xml:lang="en">Sound</rdfs:label>
+    <rdfs:label xml:lang="fr">son</rdfs:label>
+    <rdfs:label xml:lang="it">suono</rdfs:label>
+    <rdfs:label xml:lang="pt">som</rdfs:label>
+    <rdfs:comment xml:lang="en">An audio recording.</rdfs:comment>
+    <skos:definition xml:lang="en">An audio recording.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_18cc"/>
+    <skos:notation>typ_sound</skos:notation>
+    <skos:prefLabel xml:lang="de">Ton</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Sound</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">son</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">suono</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">som</skos:prefLabel>
+  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_preprint">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Preprint</rdfs:label>
     <rdfs:label xml:lang="en">Preprint</rdfs:label>
     <rdfs:label xml:lang="fr">Prépublication</rdfs:label>
+    <rdfs:label xml:lang="it">articolo preliminare</rdfs:label>
     <rdfs:label xml:lang="pl">Preprint</rdfs:label>
     <rdfs:label xml:lang="pt">Preprint</rdfs:label>
     <rdfs:comment xml:lang="en">A version of a scholarly paper that precedes formal peer review and publication.</rdfs:comment>
     <skos:definition xml:lang="en">A version of a scholarly paper that precedes formal peer review and publication.</skos:definition>
     <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_816b"/>
     <skos:notation>typ_preprint</skos:notation>
+    <skos:prefLabel xml:lang="de">Preprint</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Preprint</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Prépublication</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">articolo preliminare</skos:prefLabel>
     <skos:prefLabel xml:lang="pl">Preprint</skos:prefLabel>
     <skos:prefLabel xml:lang="pt">Preprint</skos:prefLabel>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_video">
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_conference">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Video</rdfs:label>
-    <rdfs:comment xml:lang="en">A recording of moving visual images.</rdfs:comment>
-    <skos:definition xml:lang="en">A recording of moving visual images.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_12ce"/>
-    <skos:notation>typ_video</skos:notation>
-    <skos:prefLabel xml:lang="en">Video</skos:prefLabel>
+    <rdfs:label xml:lang="de">Konferenzveröffentlichung</rdfs:label>
+    <rdfs:label xml:lang="en">Conference</rdfs:label>
+    <rdfs:label xml:lang="fr">Conférence</rdfs:label>
+    <rdfs:label xml:lang="it">contributo a congresso</rdfs:label>
+    <rdfs:label xml:lang="pl">Materiał konferencyjny</rdfs:label>
+    <rdfs:label xml:lang="pt">Conferência</rdfs:label>
+    <rdfs:comment xml:lang="en">Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters).</rdfs:comment>
+    <skos:definition xml:lang="en">Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters).</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_c94f"/>
+    <skos:notation>typ_conference</skos:notation>
+    <skos:prefLabel xml:lang="de">Konferenzveröffentlichung</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Conference</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Conférence</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">contributo a congresso</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Materiał konferencyjny</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Conferência</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_article">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Wissenschaftlicher Artikel</rdfs:label>
     <rdfs:label xml:lang="en">Article</rdfs:label>
     <rdfs:label xml:lang="fr">Article</rdfs:label>
+    <rdfs:label xml:lang="it">articolo in rivista</rdfs:label>
     <rdfs:label xml:lang="pl">Artykuł</rdfs:label>
     <rdfs:label xml:lang="pt">Artigo</rdfs:label>
     <rdfs:comment xml:lang="en">A scholarly work that describes research results, published in a journal or other publication series.</rdfs:comment>
     <skos:definition xml:lang="en">A scholarly work that describes research results, published in a journal or other publication series.</skos:definition>
     <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_6501"/>
     <skos:notation>typ_article</skos:notation>
+    <skos:prefLabel xml:lang="de">Wissenschaftlicher Artikel</skos:prefLabel>
     <skos:prefLabel xml:lang="en">Article</skos:prefLabel>
     <skos:prefLabel xml:lang="fr">Article</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">articolo in rivista</skos:prefLabel>
     <skos:prefLabel xml:lang="pl">Artykuł</skos:prefLabel>
     <skos:prefLabel xml:lang="pt">Artigo</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_software">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Software</rdfs:label>
+    <rdfs:label xml:lang="en">Software</rdfs:label>
+    <rdfs:label xml:lang="fr">Logiciel</rdfs:label>
+    <rdfs:label xml:lang="it">software</rdfs:label>
+    <rdfs:label xml:lang="pl">Oprogramowanie</rdfs:label>
+    <rdfs:label xml:lang="pt">Software</rdfs:label>
+    <rdfs:comment xml:lang="en">A set of instructions/programs used to operate computers and execute specific tasks.</rdfs:comment>
+    <skos:definition xml:lang="en">A set of instructions/programs used to operate computers and execute specific tasks.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_5ce6"/>
+    <skos:notation>typ_software</skos:notation>
+    <skos:prefLabel xml:lang="de">Software</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Software</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Logiciel</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">software</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Oprogramowanie</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Software</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_report">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Bericht</rdfs:label>
+    <rdfs:label xml:lang="en">Report</rdfs:label>
+    <rdfs:label xml:lang="fr">Rapport</rdfs:label>
+    <rdfs:label xml:lang="it">rapporto</rdfs:label>
+    <rdfs:label xml:lang="pl">Raport</rdfs:label>
+    <rdfs:label xml:lang="pt">Relatório</rdfs:label>
+    <rdfs:comment xml:lang="en">A document that presents information in an organized format for a specific audience and purpose.</rdfs:comment>
+    <skos:definition xml:lang="en">A document that presents information in an organized format for a specific audience and purpose.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_93fc"/>
+    <skos:notation>typ_report</skos:notation>
+    <skos:prefLabel xml:lang="de">Bericht</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Report</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Rapport</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">rapporto</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Raport</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Relatório</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_video">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Video</rdfs:label>
+    <rdfs:label xml:lang="en">Video</rdfs:label>
+    <rdfs:label xml:lang="fr">vidéo</rdfs:label>
+    <rdfs:label xml:lang="it">video</rdfs:label>
+    <rdfs:label xml:lang="pt">vídeo</rdfs:label>
+    <rdfs:comment xml:lang="en">A recording of moving visual images.</rdfs:comment>
+    <skos:definition xml:lang="en">A recording of moving visual images.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_12ce"/>
+    <skos:notation>typ_video</skos:notation>
+    <skos:prefLabel xml:lang="de">Video</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Video</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">vidéo</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">video</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">vídeo</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_text">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Text</rdfs:label>
+    <rdfs:label xml:lang="en">Text</rdfs:label>
+    <rdfs:label xml:lang="fr">Texte</rdfs:label>
+    <rdfs:label xml:lang="it">testo</rdfs:label>
+    <rdfs:label xml:lang="pl">Tekst</rdfs:label>
+    <rdfs:label xml:lang="pt">Texto</rdfs:label>
+    <rdfs:comment xml:lang="en">A written work or content consisting primarily of text.</rdfs:comment>
+    <skos:definition xml:lang="en">A written work or content consisting primarily of text.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_18cf"/>
+    <skos:notation>typ_text</skos:notation>
+    <skos:prefLabel xml:lang="de">Text</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Text</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Texte</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">testo</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Tekst</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Texto</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/undefined">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="en">Undefined</rdfs:label>
+    <rdfs:label xml:lang="fr">Non défini</rdfs:label>
+    <rdfs:label xml:lang="pl">Nieokreślone</rdfs:label>
+    <rdfs:label xml:lang="pt">Indefinido</rdfs:label>
+    <skos:notation>undefined</skos:notation>
+    <skos:prefLabel xml:lang="en">Undefined</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Non défini</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Nieokreślone</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Indefinido</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_image">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
+    <rdfs:label xml:lang="de">Bild</rdfs:label>
+    <rdfs:label xml:lang="en">Image</rdfs:label>
+    <rdfs:label xml:lang="fr">Image</rdfs:label>
+    <rdfs:label xml:lang="it">immagine</rdfs:label>
+    <rdfs:label xml:lang="pl">Materiał wizualny</rdfs:label>
+    <rdfs:label xml:lang="pt">Imagem</rdfs:label>
+    <rdfs:comment xml:lang="en">A visual representation other than text, such as a photograph or diagram.</rdfs:comment>
+    <skos:definition xml:lang="en">A visual representation other than text, such as a photograph or diagram.</skos:definition>
+    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_c513"/>
+    <skos:notation>typ_image</skos:notation>
+    <skos:prefLabel xml:lang="de">Bild</skos:prefLabel>
+    <skos:prefLabel xml:lang="en">Image</skos:prefLabel>
+    <skos:prefLabel xml:lang="fr">Image</skos:prefLabel>
+    <skos:prefLabel xml:lang="it">immagine</skos:prefLabel>
+    <skos:prefLabel xml:lang="pl">Materiał wizualny</skos:prefLabel>
+    <skos:prefLabel xml:lang="pt">Imagem</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/other">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
@@ -180,156 +418,6 @@
     <skos:prefLabel xml:lang="fr">Autre</skos:prefLabel>
     <skos:prefLabel xml:lang="pl">Inne</skos:prefLabel>
     <skos:prefLabel xml:lang="pt">Outros</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/undefined">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Undefined</rdfs:label>
-    <rdfs:label xml:lang="fr">Non défini</rdfs:label>
-    <rdfs:label xml:lang="pl">Nieokreślone</rdfs:label>
-    <rdfs:label xml:lang="pt">Indefinido</rdfs:label>
-    <skos:notation>undefined</skos:notation>
-    <skos:prefLabel xml:lang="en">Undefined</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Non défini</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Nieokreślone</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Indefinido</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_book-part">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Book Part</rdfs:label>
-    <rdfs:label xml:lang="fr">Extrait de livre</rdfs:label>
-    <rdfs:label xml:lang="pl">Materiał w książce</rdfs:label>
-    <rdfs:label xml:lang="pt">Parte de Livro</rdfs:label>
-    <rdfs:comment xml:lang="en">A defined chapter or section of a book, usually with a separate title or number.</rdfs:comment>
-    <skos:definition xml:lang="en">A defined chapter or section of a book, usually with a separate title or number.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_3248"/>
-    <skos:notation>typ_book-part</skos:notation>
-    <skos:prefLabel xml:lang="en">Book Part</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Extrait de livre</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Materiał w książce</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Parte de Livro</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_conference">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Conference</rdfs:label>
-    <rdfs:label xml:lang="fr">Conférence</rdfs:label>
-    <rdfs:label xml:lang="pl">Materiał konferencyjny</rdfs:label>
-    <rdfs:label xml:lang="pt">Conferência</rdfs:label>
-    <rdfs:comment xml:lang="en">Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters).</rdfs:comment>
-    <skos:definition xml:lang="en">Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters).</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_c94f"/>
-    <skos:notation>typ_conference</skos:notation>
-    <skos:prefLabel xml:lang="en">Conference</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Conférence</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Materiał konferencyjny</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Conferência</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_text">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Text</rdfs:label>
-    <rdfs:label xml:lang="fr">Texte</rdfs:label>
-    <rdfs:label xml:lang="pl">Tekst</rdfs:label>
-    <rdfs:label xml:lang="pt">Texto</rdfs:label>
-    <rdfs:comment xml:lang="en">A written work or content consisting primarily of text.</rdfs:comment>
-    <skos:definition xml:lang="en">A written work or content consisting primarily of text.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_18cf"/>
-    <skos:notation>typ_text</skos:notation>
-    <skos:prefLabel xml:lang="en">Text</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Texte</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Tekst</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Texto</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_book">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Book</rdfs:label>
-    <rdfs:label xml:lang="fr">Livre</rdfs:label>
-    <rdfs:label xml:lang="pl">Książka</rdfs:label>
-    <rdfs:label xml:lang="pt">Livro</rdfs:label>
-    <rdfs:comment xml:lang="en">A non-serial publication that is complete in one volume or a finite number of volumes.</rdfs:comment>
-    <skos:definition xml:lang="en">A non-serial publication that is complete in one volume or a finite number of volumes.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_2f33"/>
-    <skos:notation>typ_book</skos:notation>
-    <skos:prefLabel xml:lang="en">Book</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Livre</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Książka</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Livro</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_periodical">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Periodical</rdfs:label>
-    <rdfs:label xml:lang="fr">Périodique</rdfs:label>
-    <rdfs:label xml:lang="pl">Czasopismo</rdfs:label>
-    <rdfs:label xml:lang="pt">Periódico</rdfs:label>
-    <rdfs:comment xml:lang="en">A publication that appears at regular intervals, such as a journal, magazine, or newspaper.</rdfs:comment>
-    <skos:definition xml:lang="en">A publication that appears at regular intervals, such as a journal, magazine, or newspaper.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31"/>
-    <skos:notation>typ_periodical</skos:notation>
-    <skos:prefLabel xml:lang="en">Periodical</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Périodique</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Czasopismo</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Periódico</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_learning-object">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Learning object</rdfs:label>
-    <rdfs:label xml:lang="fr">Objet d'apprentissage</rdfs:label>
-    <rdfs:label xml:lang="pl">Materiał dydaktyczny</rdfs:label>
-    <rdfs:label xml:lang="pt">Objeto de Aprendizagem</rdfs:label>
-    <rdfs:comment xml:lang="en">A resource designed to be used for learning or teaching.</rdfs:comment>
-    <skos:definition xml:lang="en">A resource designed to be used for learning or teaching.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_e059"/>
-    <skos:notation>typ_learning-object</skos:notation>
-    <skos:prefLabel xml:lang="en">Learning object</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Objet d'apprentissage</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Materiał dydaktyczny</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Objeto de Aprendizagem</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_semantic-artefact">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Semantic artefact</rdfs:label>
-    <rdfs:comment xml:lang="en">A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema.</rdfs:comment>
-    <skos:closeMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/GSZA-Y7V7"/>
-    <skos:definition xml:lang="en">A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema.</skos:definition>
-    <skos:notation>typ_semantic-artefact</skos:notation>
-    <skos:prefLabel xml:lang="en">Semantic artefact</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_sound">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Sound</rdfs:label>
-    <rdfs:comment xml:lang="en">An audio recording.</rdfs:comment>
-    <skos:definition xml:lang="en">An audio recording.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_18cc"/>
-    <skos:notation>typ_sound</skos:notation>
-    <skos:prefLabel xml:lang="en">Sound</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_software">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Software</rdfs:label>
-    <rdfs:label xml:lang="fr">Logiciel</rdfs:label>
-    <rdfs:label xml:lang="pl">Oprogramowanie</rdfs:label>
-    <rdfs:label xml:lang="pt">Software</rdfs:label>
-    <rdfs:comment xml:lang="en">A set of instructions/programs used to operate computers and execute specific tasks.</rdfs:comment>
-    <skos:definition xml:lang="en">A set of instructions/programs used to operate computers and execute specific tasks.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_5ce6"/>
-    <skos:notation>typ_software</skos:notation>
-    <skos:prefLabel xml:lang="en">Software</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Logiciel</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Oprogramowanie</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Software</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/triple/ContentType/typ_manuscript">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ContentType"/>
-    <rdfs:label xml:lang="en">Manuscript</rdfs:label>
-    <rdfs:label xml:lang="fr">Manuscrit</rdfs:label>
-    <rdfs:label xml:lang="pl">Rękopis</rdfs:label>
-    <rdfs:label xml:lang="pt">Manuscrito</rdfs:label>
-    <rdfs:comment xml:lang="en">A document written by hand or typewritten, as opposed to printed.</rdfs:comment>
-    <skos:definition xml:lang="en">A document written by hand or typewritten, as opposed to printed.</skos:definition>
-    <skos:exactMatch rdf:resource="https://vocabularies.coar-repositories.org/resource_types/c_0040"/>
-    <skos:notation>typ_manuscript</skos:notation>
-    <skos:prefLabel xml:lang="en">Manuscript</skos:prefLabel>
-    <skos:prefLabel xml:lang="fr">Manuscrit</skos:prefLabel>
-    <skos:prefLabel xml:lang="pl">Rękopis</skos:prefLabel>
-    <skos:prefLabel xml:lang="pt">Manuscrito</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:Ontology rdf:about="https://gotriple.eu/ontology/triple/ContentType">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>

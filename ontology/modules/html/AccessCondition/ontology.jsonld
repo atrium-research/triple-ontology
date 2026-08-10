@@ -33,54 +33,128 @@
   },
   "@graph": [
     {
-      "@id": "acc:undefined",
+      "@id": "acc:acr_open-access",
       "@type": [
         "owl:NamedIndividual",
         "triple:AccessCondition"
       ],
       "rdfs:comment": {
         "@language": "en",
-        "@value": "Access condition is undefined or unknown."
+        "@value": "The resource is available under an open license."
       },
       "rdfs:label": [
         {
+          "@language": "de",
+          "@value": "offener Zugang"
+        },
+        {
           "@language": "en",
-          "@value": "Undefined"
+          "@value": "Open Access"
         },
         {
           "@language": "fr",
-          "@value": "Non Défini"
+          "@value": "Accès Ouvert"
+        },
+        {
+          "@language": "it",
+          "@value": "accesso aperto"
         },
         {
           "@language": "pl",
-          "@value": "Nieokreślone"
+          "@value": "Otwarty dostęp"
         },
         {
           "@language": "pt",
-          "@value": "Indefinido"
+          "@value": "Acesso Aberto"
         }
       ],
       "skos:definition": {
         "@language": "en",
-        "@value": "Access condition is undefined or unknown."
+        "@value": "The resource is available under an open license."
       },
-      "skos:notation": "undefined",
+      "skos:exactMatch": {
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
+      },
+      "skos:notation": "acr_open-access",
       "skos:prefLabel": [
         {
+          "@language": "de",
+          "@value": "offener Zugang"
+        },
+        {
           "@language": "en",
-          "@value": "Undefined"
+          "@value": "Open Access"
         },
         {
           "@language": "fr",
-          "@value": "Non Défini"
+          "@value": "Accès Ouvert"
+        },
+        {
+          "@language": "it",
+          "@value": "accesso aperto"
         },
         {
           "@language": "pl",
-          "@value": "Nieokreślone"
+          "@value": "Otwarty dostęp"
         },
         {
           "@language": "pt",
-          "@value": "Indefinido"
+          "@value": "Acesso Aberto"
+        }
+      ]
+    },
+    {
+      "@id": "acc:acr_free-access",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Access to the resource is free of charge."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Free Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Libre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Bezpłatny dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Livre"
+        }
+      ],
+      "skos:closeMatch": {
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
+      },
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Access to the resource is free of charge."
+      },
+      "skos:notation": "acr_free-access",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Free Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès Libre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Bezpłatny dostęp"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso Livre"
         }
       ]
     },
@@ -137,84 +211,191 @@
       ]
     },
     {
-      "@id": "acc:acr_metadata-only-access",
+      "@id": "acc:acr_restricted-access-or-use",
       "@type": [
         "owl:NamedIndividual",
         "triple:AccessCondition"
       ],
       "rdfs:comment": {
         "@language": "en",
-        "@value": "Only the metadata of the resource is accessible."
+        "@value": "Access or use of the resource is restricted."
       },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Metadata Only Access"
-      },
+      "rdfs:label": [
+        {
+          "@language": "de",
+          "@value": "eingeschränkter Zugang"
+        },
+        {
+          "@language": "en",
+          "@value": "Restricted access or use"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès ou Utilisation Restreints"
+        },
+        {
+          "@language": "it",
+          "@value": "accesso riservato"
+        },
+        {
+          "@language": "pl",
+          "@value": "Ograniczony dostęp lub użycie"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso ou Uso Restrito"
+        }
+      ],
       "skos:definition": {
         "@language": "en",
-        "@value": "Only the metadata of the resource is accessible."
+        "@value": "Access or use of the resource is restricted."
       },
       "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_16ec/"
       },
-      "skos:notation": "acr_metadata-only-access",
-      "skos:prefLabel": {
-        "@language": "en",
-        "@value": "Metadata Only Access"
-      }
+      "skos:notation": "acr_restricted-access-or-use",
+      "skos:prefLabel": [
+        {
+          "@language": "de",
+          "@value": "eingeschränkter Zugang"
+        },
+        {
+          "@language": "en",
+          "@value": "Restricted access or use"
+        },
+        {
+          "@language": "fr",
+          "@value": "Accès ou Utilisation Restreints"
+        },
+        {
+          "@language": "it",
+          "@value": "accesso riservato"
+        },
+        {
+          "@language": "pl",
+          "@value": "Ograniczony dostęp lub użycie"
+        },
+        {
+          "@language": "pt",
+          "@value": "Acesso ou Uso Restrito"
+        }
+      ]
     },
     {
-      "@id": "acc:acr_free-access",
+      "@id": "acc:acr_embargoed-access",
       "@type": [
         "owl:NamedIndividual",
         "triple:AccessCondition"
       ],
       "rdfs:comment": {
         "@language": "en",
-        "@value": "Access to the resource is free of charge."
+        "@value": "Access to the resource is embargoed until a specific date."
+      },
+      "rdfs:label": [
+        {
+          "@language": "de",
+          "@value": "Zugang unterliegt Embargo"
+        },
+        {
+          "@language": "en",
+          "@value": "Embargoed Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "sous embargo"
+        },
+        {
+          "@language": "it",
+          "@value": "accesso sottoposto a periodo di embargo"
+        },
+        {
+          "@language": "pt",
+          "@value": "acesso embargado"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Access to the resource is embargoed until a specific date."
+      },
+      "skos:exactMatch": {
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_f1cf/"
+      },
+      "skos:notation": "acr_embargoed-access",
+      "skos:prefLabel": [
+        {
+          "@language": "de",
+          "@value": "Zugang unterliegt Embargo"
+        },
+        {
+          "@language": "en",
+          "@value": "Embargoed Access"
+        },
+        {
+          "@language": "fr",
+          "@value": "sous embargo"
+        },
+        {
+          "@language": "it",
+          "@value": "accesso sottoposto a periodo di embargo"
+        },
+        {
+          "@language": "pt",
+          "@value": "acesso embargado"
+        }
+      ]
+    },
+    {
+      "@id": "acc:acr_closed-access",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:AccessCondition"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Access to the resource is closed."
       },
       "rdfs:label": [
         {
           "@language": "en",
-          "@value": "Free Access"
+          "@value": "Closed Access"
         },
         {
           "@language": "fr",
-          "@value": "Accès Libre"
+          "@value": "Accès Fermé"
         },
         {
           "@language": "pl",
-          "@value": "Bezpłatny dostęp"
+          "@value": "Zamknięty dostęp"
         },
         {
           "@language": "pt",
-          "@value": "Acesso Livre"
+          "@value": "Acesso Fechado"
         }
       ],
       "skos:closeMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
       },
       "skos:definition": {
         "@language": "en",
-        "@value": "Access to the resource is free of charge."
+        "@value": "Access to the resource is closed."
       },
-      "skos:notation": "acr_free-access",
+      "skos:notation": "acr_closed-access",
       "skos:prefLabel": [
         {
           "@language": "en",
-          "@value": "Free Access"
+          "@value": "Closed Access"
         },
         {
           "@language": "fr",
-          "@value": "Accès Libre"
+          "@value": "Accès Fermé"
         },
         {
           "@language": "pl",
-          "@value": "Bezpłatny dostęp"
+          "@value": "Zamknięty dostęp"
         },
         {
           "@language": "pt",
-          "@value": "Acesso Livre"
+          "@value": "Acesso Fechado"
         }
       ]
     },
@@ -318,61 +499,6 @@
       "vann:preferredNamespaceUri": "https://gotriple.eu/ontology/triple/AccessCondition/"
     },
     {
-      "@id": "acc:acr_restricted-access-or-use",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:AccessCondition"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "Access or use of the resource is restricted."
-      },
-      "rdfs:label": [
-        {
-          "@language": "en",
-          "@value": "Restricted access or use"
-        },
-        {
-          "@language": "fr",
-          "@value": "Accès ou Utilisation Restreints"
-        },
-        {
-          "@language": "pl",
-          "@value": "Ograniczony dostęp lub użycie"
-        },
-        {
-          "@language": "pt",
-          "@value": "Acesso ou Uso Restrito"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "Access or use of the resource is restricted."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_16ec/"
-      },
-      "skos:notation": "acr_restricted-access-or-use",
-      "skos:prefLabel": [
-        {
-          "@language": "en",
-          "@value": "Restricted access or use"
-        },
-        {
-          "@language": "fr",
-          "@value": "Accès ou Utilisation Restreints"
-        },
-        {
-          "@language": "pl",
-          "@value": "Ograniczony dostęp lub użycie"
-        },
-        {
-          "@language": "pt",
-          "@value": "Acesso ou Uso Restrito"
-        }
-      ]
-    },
-    {
       "@id": "acc:other",
       "@type": [
         "owl:NamedIndividual",
@@ -425,139 +551,117 @@
       ]
     },
     {
-      "@id": "acc:acr_closed-access",
+      "@id": "acc:undefined",
       "@type": [
         "owl:NamedIndividual",
         "triple:AccessCondition"
       ],
       "rdfs:comment": {
         "@language": "en",
-        "@value": "Access to the resource is closed."
+        "@value": "Access condition is undefined or unknown."
       },
       "rdfs:label": [
         {
           "@language": "en",
-          "@value": "Closed Access"
+          "@value": "Undefined"
         },
         {
           "@language": "fr",
-          "@value": "Accès Fermé"
+          "@value": "Non Défini"
         },
         {
           "@language": "pl",
-          "@value": "Zamknięty dostęp"
+          "@value": "Nieokreślone"
         },
         {
           "@language": "pt",
-          "@value": "Acesso Fechado"
+          "@value": "Indefinido"
         }
       ],
-      "skos:closeMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
-      },
       "skos:definition": {
         "@language": "en",
-        "@value": "Access to the resource is closed."
+        "@value": "Access condition is undefined or unknown."
       },
-      "skos:notation": "acr_closed-access",
+      "skos:notation": "undefined",
       "skos:prefLabel": [
         {
           "@language": "en",
-          "@value": "Closed Access"
+          "@value": "Undefined"
         },
         {
           "@language": "fr",
-          "@value": "Accès Fermé"
+          "@value": "Non Défini"
         },
         {
           "@language": "pl",
-          "@value": "Zamknięty dostęp"
+          "@value": "Nieokreślone"
         },
         {
           "@language": "pt",
-          "@value": "Acesso Fechado"
+          "@value": "Indefinido"
         }
       ]
     },
     {
-      "@id": "acc:acr_embargoed-access",
+      "@id": "acc:acr_metadata-only-access",
       "@type": [
         "owl:NamedIndividual",
         "triple:AccessCondition"
       ],
       "rdfs:comment": {
         "@language": "en",
-        "@value": "Access to the resource is embargoed until a specific date."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Embargoed Access"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "Access to the resource is embargoed until a specific date."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_f1cf/"
-      },
-      "skos:notation": "acr_embargoed-access",
-      "skos:prefLabel": {
-        "@language": "en",
-        "@value": "Embargoed Access"
-      }
-    },
-    {
-      "@id": "acc:acr_open-access",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:AccessCondition"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "The resource is available under an open license."
+        "@value": "Only the metadata of the resource is accessible."
       },
       "rdfs:label": [
         {
+          "@language": "de",
+          "@value": "nur Metadaten"
+        },
+        {
           "@language": "en",
-          "@value": "Open Access"
+          "@value": "Metadata Only Access"
         },
         {
           "@language": "fr",
-          "@value": "Accès Ouvert"
+          "@value": "accès aux seules métadonnées"
         },
         {
-          "@language": "pl",
-          "@value": "Otwarty dostęp"
+          "@language": "it",
+          "@value": "accesso limitato ai metadati"
         },
         {
           "@language": "pt",
-          "@value": "Acesso Aberto"
+          "@value": "acesso a metadados"
         }
       ],
       "skos:definition": {
         "@language": "en",
-        "@value": "The resource is available under an open license."
+        "@value": "Only the metadata of the resource is accessible."
       },
       "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_abf2/"
+        "@id": "https://vocabularies.coar-repositories.org/access_rights/c_14cb/"
       },
-      "skos:notation": "acr_open-access",
+      "skos:notation": "acr_metadata-only-access",
       "skos:prefLabel": [
         {
+          "@language": "de",
+          "@value": "nur Metadaten"
+        },
+        {
           "@language": "en",
-          "@value": "Open Access"
+          "@value": "Metadata Only Access"
         },
         {
           "@language": "fr",
-          "@value": "Accès Ouvert"
+          "@value": "accès aux seules métadonnées"
         },
         {
-          "@language": "pl",
-          "@value": "Otwarty dostęp"
+          "@language": "it",
+          "@value": "accesso limitato ai metadati"
         },
         {
           "@language": "pt",
-          "@value": "Acesso Aberto"
+          "@value": "acesso a metadados"
         }
       ]
     }
