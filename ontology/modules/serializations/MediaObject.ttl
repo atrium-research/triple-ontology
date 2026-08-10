@@ -47,8 +47,7 @@ triple:MediaObject a owl:Class,
     dcterms:description "The Media Object module manages multimedia resources within the platform. It defines the `triple:MediaObject` class for audio, video, and image content, providing properties to describe their technical characteristics (duration, size, encoding format) and intellectual content, aligned with `schema:MediaObject` and `fabio:Work`."@en ;
     dcterms:modified "2026-08-10" ;
     dcterms:title "Media Object"@en ;
-    rdfs:comment "A media object such as an image, video, audio, or other multimedia content used in SSH research."@en,
-        "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en ;
+    rdfs:comment "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty <http://purl.org/cerif/frapo/isOutputOf> ],
@@ -129,8 +128,8 @@ triple:MediaObject a owl:Class,
                     owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:headline ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
             owl:onProperty schema:mentions ],
@@ -219,12 +218,6 @@ triple:hasLicense a owl:ObjectProperty ;
     rdfs:range triple:License ;
     rdfs:subPropertyOf dcterms:license .
 
-triple:knowsAbout a owl:ObjectProperty ;
-    rdfs:label "knows about"@en ;
-    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
-    rdfs:range schema:DefinedTerm ;
-    rdfs:subPropertyOf schema:about .
-
 triple:originalConditionsOfAccess a owl:DatatypeProperty ;
     rdfs:label "original conditions of access"@en ;
     rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition."@en ;
@@ -268,7 +261,8 @@ schema:MediaObject a owl:Class ;
 schema:Text a rdfs:Datatype .
 
 schema:about a owl:ObjectProperty ;
-    rdfs:label "schema:about"@en .
+    rdfs:label "schema:about"@en ;
+    rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
@@ -294,8 +288,7 @@ schema:duration a owl:DatatypeProperty ;
 schema:encodingFormat a owl:DatatypeProperty ;
     rdfs:label "schema:encodingFormat",
         "schema:encodingFormat"@en ;
-    rdfs:comment "Media type typically expressed using a MIME format."@en,
-        "Media type typically expressed using a MIME format."@en ;
+    rdfs:comment "Media type typically expressed using a MIME format."@en ;
     rdfs:range xsd:string .
 
 schema:headline a owl:DatatypeProperty ;
@@ -308,8 +301,7 @@ schema:inLanguage a owl:ObjectProperty ;
     rdfs:range schema:Language .
 
 schema:keywords a owl:ObjectProperty ;
-    rdfs:label "schema:keywords"@en ;
-    rdfs:range schema:DefinedTerm .
+    rdfs:label "schema:keywords"@en .
 
 schema:mentions a owl:ObjectProperty ;
     rdfs:label "schema:mentions"@en ;
@@ -325,7 +317,7 @@ schema:publisher a owl:ObjectProperty ;
 
 schema:size a owl:DatatypeProperty ;
     rdfs:label "schema:size"@en ;
-    rdfs:comment "A standardized size of a product or creative work."@en .
+    rdfs:comment "A standardized size of a product or creative work, specified either through a simple textual string or a QuantitativeValue."@en .
 
 schema:spatialCoverage a owl:ObjectProperty ;
     rdfs:label "schema:spatialCoverage"@en ;

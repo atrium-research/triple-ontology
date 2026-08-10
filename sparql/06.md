@@ -95,6 +95,7 @@ SELECT ?profile ?name WHERE {
 
 **Expected Result:**
 - profile: profile_23, name: "Pierre Dupont"
+
 ## CQ_6.6
 
 Return all documents authored by profiles associated with `account_109`.

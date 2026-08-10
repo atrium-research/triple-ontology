@@ -16,7 +16,7 @@ SELECT ?profile ?givenName ?familyName WHERE {
 ```
 
 **Expected result:**
-- `triple:profile_it19_1` → "Sofia", "Rossi"
+- `triple:profile_it19_1` → "Sofia" → "Rossi"
 
 ## CQ_19.2
 
@@ -40,23 +40,25 @@ ORDER BY ?discipline
 
 ## CQ_19.3
 
-Retrieve the thesaurus keywords a profile declares to know about, with their names.
+Retrieve the TRIPLE thesaurus concepts a profile declares to know about, with their labels.
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX schema: <https://schema.org/>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
-SELECT ?profile ?keyword ?name WHERE {
+SELECT ?profile ?concept ?label WHERE {
   ?profile a triple:Profile ;
-           schema:knowsAbout ?keyword .
-  ?keyword a schema:DefinedTerm ;
-           schema:name ?name .
+           schema:knowsAbout ?concept .
+  ?concept a skos:Concept ;
+           skos:prefLabel ?label .
 }
 ```
 
 **Expected result:**
-- `triple:profile_it19_1` → `triple:kw_distant-reading_it19` → "Distant reading"@en
-- `triple:profile_it19_1` → `triple:kw_distant-reading_it19` → "Lettura distante"@it
+- `triple:profile_it19_1` → <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> → "Digital humanities"
+- `triple:profile_it19_1` → <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> → "Informatica umanistica"
+- `triple:profile_it19_1` → <http://semantics.gr/authorities/SSH-LCSH/sh2008122106> → "Humanités numériques"
 
 ## CQ_19.4
 
@@ -119,9 +121,11 @@ ORDER BY ?profile ?scheme
 ```
 
 **Expected result:**
+- `triple:profile_it19_1` → `datacite:ark` → "ark:/12345/profile-sofia-rossi"
 - `triple:profile_it19_1` → `datacite:orcid` → "0000-0002-1825-0097"
 - `triple:profile_it19_1` → `triple:gotriple_id_schema` → "sofia_rossi_operas_0001"
 - `triple:profile_it19_1` → `triple:idref_schema` → "123456789"
+- `triple:profile_it19_2` → `datacite:ark` → "ark:/12345/profile-joao-almeida"
 - `triple:profile_it19_2` → `datacite:isni` → "0000000121032683"
 
 ## CQ_19.7
@@ -161,7 +165,7 @@ SELECT ?profile ?description ?pronouns ?photo ?url ?lastUpdate WHERE {
 ```
 
 **Expected result:**
-- `triple:profile_it19_1` → "Digital historian working on computational analysis of cultural heritage collections."@en, "she/her", `https://gotriple.eu/media/profile/sofia-rossi.jpg`, `https://sofia-rossi.example.org`, "2026-06-15"^^xsd:date
+- `triple:profile_it19_1` → "Digital historian working on computational analysis of cultural heritage collections." → "she/her" → <https://gotriple.eu/media/profile/sofia-rossi.jpg> → <https://sofia-rossi.example.org> → "2026-06-15"
 
 ## CQ_19.9
 
@@ -207,5 +211,5 @@ ORDER BY ?profile
 ```
 
 **Expected result:**
-- `triple:profile_it19_1` → "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I", "ark:/12345/profile-sofia-rossi"
-- `triple:profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K", "ark:/12345/profile-joao-almeida"
+- `triple:profile_it19_1` → "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I" → "ark:/12345/profile-sofia-rossi"
+- `triple:profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K" → "ark:/12345/profile-joao-almeida"

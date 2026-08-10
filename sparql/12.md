@@ -21,9 +21,9 @@ SELECT ?artifact ?title ?abstract ?publisherName WHERE {
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "Controlled vocabulary for Social Sciences and Humanities research classification", "GoTriple Consortium"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "Comprehensive vocabulary for art historical concepts and terminology", "Digital Humanities Institute"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", "Formal ontology for medieval studies research domain", "University of Bologna"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "Controlled vocabulary for Social Sciences and Humanities research classification used in the GoTriple discovery platform. Provides standardized terminology for SSH domains." → "GoTriple Consortium"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "Comprehensive vocabulary for art historical concepts and terminology. Covers periods, movements, techniques, and cultural contexts in art history research." → "Digital Humanities Institute"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "Formal ontology for medieval studies research domain. Provides semantic modeling of medieval historical periods, events, places, and scholarly concepts." → "University of Bologna"
 
 ## CQ_12.2
 
@@ -47,12 +47,12 @@ SELECT ?artifact ?title ?identifierValue ?schemeLabel WHERE {
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "10.5281/zenodo.thesaurus.ssh.v2" (`datacite:doi`)
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "21.11130/00-THESAURUS-SSH-V2" (`datacite:handle`)
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "10.5281/zenodo.vocab.arthistory.v1" (`datacite:doi`)
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "21.11130/00-VOCAB-ARTHISTORY-V1" (`datacite:handle`)
-- `triple:ontology-medieval` → "Medieval Studies Ontology" → "10.5281/zenodo.ontology.medieval.v09" (`datacite:doi`)
-- `triple:ontology-medieval` → "Medieval Studies Ontology" → "21.11130/00-ONTOLOGY-MEDIEVAL-V09" (`datacite:handle`)
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "10.5281/zenodo.thesaurus.ssh.v2" → "datacite:doi"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "21.11130/00-THESAURUS-SSH-V2" → "datacite:handle"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "10.5281/zenodo.vocab.arthistory.v1" → "datacite:doi"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "21.11130/00-VOCAB-ARTHISTORY-V1" → "datacite:handle"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "10.5281/zenodo.ontology.medieval.v09" → "datacite:doi"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "21.11130/00-ONTOLOGY-MEDIEVAL-V09" → "datacite:handle"
 
 ## CQ_12.3
 
@@ -71,6 +71,7 @@ SELECT DISTINCT ?technique WHERE {
 **Expected result:**
 - "SKOS vocabulary"
 - "OWL ontology"
+
 ## CQ_12.4
 
 Find semantic artifacts and the documents that reference them
@@ -90,8 +91,8 @@ SELECT ?artifact ?artifactTitle ?document ?documentTitle WHERE {
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", `triple:document-dh-methodology` → "Digital Humanities Methodology Paper"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", `triple:document-carolingian` → "Carolingian Renaissance Research Article"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → `triple:document-dh-methodology` → "Digital Humanities Methodology Paper"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → `triple:document-carolingian` → "Carolingian Renaissance Research Article"
 
 ## CQ_12.5
 
@@ -109,9 +110,9 @@ SELECT ?artifact ?title ?fileFormat WHERE {
 ```
 
 **Expected result:**
-- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus", "application/rdf+xml"
-- `triple:vocab-arthistory` → "SKOS Art History Vocabulary", "text/turtle"
-- `triple:ontology-medieval` → "Medieval Studies Ontology", "application/owl+xml"
+- `triple:thesaurus-ssh` → "TRIPLE SSH Thesaurus" → "application/rdf+xml"
+- `triple:vocab-arthistory` → "SKOS Art History Vocabulary" → "text/turtle"
+- `triple:ontology-medieval` → "Medieval Studies Ontology" → "application/owl+xml"
 
 
 ## CQ_12.6

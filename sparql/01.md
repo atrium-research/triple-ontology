@@ -52,7 +52,6 @@ SELECT ?languages WHERE {
 ```
 
 
-
 ## CQ_1.8
 
 Return the title (headline) of `triple:document_1` in English.

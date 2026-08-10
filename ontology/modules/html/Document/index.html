@@ -1084,7 +1084,7 @@
                             </li>
                             
                             <li>
-                                <a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout">knows about</a>
+                                <a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -1098,7 +1098,7 @@
                                 
 
                                 
-                                <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm">schema:DefinedTerm</a>
+                                <a href="#http://www.w3.org/2004/02/skos/core%23Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -2119,35 +2119,6 @@
                 
 
                 
-                <dl class="description">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <dt>is in range of</dt>
-                    <dd>
-                        
-                        <a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout">knows about</a>
-                        <sup class="type-op" title="op">op</sup>
-                        , 
-                        
-                        <a href="#https://schema.org/keywords" title="https://schema.org/keywords">schema:keywords</a>
-                        <sup class="type-op" title="op">op</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-
-                    
-                </dl>
-                
             </div>
             
             <div class="entity" id="https://schema.org/Language">
@@ -2270,8 +2241,6 @@
                 <li><a href="#https://gotriple.eu/ontology/triple/hasLicense" title="https://gotriple.eu/ontology/triple/hasLicense">has license</a></li>
                 
                 <li><a href="#https://gotriple.eu/ontology/triple/inCluster" title="https://gotriple.eu/ontology/triple/inCluster">in cluster</a></li>
-                
-                <li><a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout">knows about</a></li>
                 
                 <li><a href="#https://schema.org/mentions" title="https://schema.org/mentions">mentions</a></li>
                 
@@ -2727,64 +2696,6 @@
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/knowsAbout">
-    <h3>knows about
-        <sup class="type-op" title="op">
-            op
-        </sup>
-        <span class="backlink">
-            back to <a href="#toc">ToC</a>
-        </span>
-    </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/knowsAbout</p>
-    
-    <div class="comment">
-        <p>Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works.</p>
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    <dl class="description">
-        
-        <dt>has super-properties</dt>
-        <dd>
-            
-            <a href="#https://schema.org/about" title="https://schema.org/about"
-                target="_self">schema:about</a>
-            <sup class="type-op" title="op">op</sup>
-            
-            
-        </dd>
-        
-
-        
-
-        
-
-        
-        <dt>has range</dt>
-        <dd>
-            
-            <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm"
-                target="_self">schema:DefinedTerm</a>
-            <sup class="type-c" title="c">c</sup>
-            
-            
-        </dd>
-        
-
-        
-    </dl>
-    
-</div>
-            
             <div class="entity" id="https://schema.org/mentions">
     <h3>mentions
         <sup class="type-op" title="op">
@@ -2937,36 +2848,18 @@
     </h3>
     <p><strong>IRI:</strong> https://schema.org/about</p>
     
+    <div class="comment">
+        <p>The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them.</p>
+    </div>
     
     
-
     
 
     
 
     
+
     
-    <dl class="description">
-        
-
-        
-        <dt>has sub-properties</dt>
-        <dd>
-            
-            <a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout"
-                target="_self">knows about</a>
-            <sup class="type-op" title="op">op</sup>
-            
-            
-        </dd>
-        
-
-        
-
-        
-
-        
-    </dl>
     
 </div>
             
@@ -3121,28 +3014,6 @@
     
 
     
-    
-    <dl class="description">
-        
-
-        
-
-        
-
-        
-        <dt>has range</dt>
-        <dd>
-            
-            <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm"
-                target="_self">schema:DefinedTerm</a>
-            <sup class="type-c" title="c">c</sup>
-            
-            
-        </dd>
-        
-
-        
-    </dl>
     
 </div>
             
@@ -4161,7 +4032,7 @@
     <p><strong>IRI:</strong> https://schema.org/dateModified</p>
     
     <div class="comment">
-        <p>Date on which the document record was most recently modified in the GoTriple index.</p>
+        <p>The date on which the CreativeWork was most recently modified or when the item&#39;s entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update.</p>
     </div>
     
     
@@ -4209,7 +4080,7 @@
     <p><strong>IRI:</strong> https://schema.org/datePublished</p>
     
     <div class="comment">
-        <p>Date of first publication of the document, normalized to ISO 8601 (yyyy-mm-dd).</p>
+        <p>Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd).</p>
     </div>
     
     

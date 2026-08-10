@@ -52,8 +52,7 @@ triple:SemanticArtefact a owl:Class,
     dcterms:description "The Semantic Artefact module is dedicated to describing the semantic assets used or indexed by the GoTriple platform, such as ontologies, taxonomies, and thesauri. It extends the MOD (Metadata for Ontology Description) ontology to provide rich metadata about these knowledge organization systems, including their versioning, format, and status."@en ;
     dcterms:modified "2026-08-10" ;
     dcterms:title "Semantic Artefact"@en ;
-    rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en,
-        "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
+    rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty <http://purl.org/cerif/frapo/isOutputOf> ],
@@ -121,6 +120,9 @@ triple:SemanticArtefact a owl:Class,
         [ a owl:Restriction ;
             owl:allValuesFrom triple:Discipline ;
             owl:onProperty sioc:topic ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
         [ a owl:Restriction ;
             owl:allValuesFrom triple:License ;
             owl:onProperty triple:hasLicense ],
@@ -304,12 +306,11 @@ schema:inLanguage a owl:ObjectProperty ;
     rdfs:range schema:Language .
 
 schema:keywords a owl:ObjectProperty ;
-    rdfs:label "schema:keywords"@en ;
-    rdfs:range schema:DefinedTerm .
+    rdfs:label "schema:keywords"@en .
 
 schema:mentions a owl:ObjectProperty ;
     rdfs:label "schema:mentions"@en ;
-    rdfs:comment "Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity."@en .
+    rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing."@en .
 
 schema:name a owl:DatatypeProperty ;
     rdfs:label "name"@en ;
@@ -399,3 +400,6 @@ foaf:Organization a owl:Class ;
 foaf:Person a owl:Class ;
     rdfs:label "foaf:Person"@en .
 
+schema:about a owl:ObjectProperty ;
+    rdfs:label "schema:about"@en ;
+    rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .

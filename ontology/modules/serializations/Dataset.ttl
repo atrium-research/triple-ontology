@@ -48,8 +48,7 @@ triple:Dataset a owl:Class,
     dcterms:description "The Dataset module specializes in representing research data. It defines `triple:Dataset` as a connection point to the DCAT ontology, supporting the description of datasets, their distributions, temporal/spatial coverage, and access rights. This facilitates the discovery and reuse of research data within the SSH domain."@en ;
     dcterms:modified "2026-08-10" ;
     dcterms:title "Dataset"@en ;
-    rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en,
-        "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en ;
+    rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom schema:Place ;
             owl:onProperty schema:spatialCoverage ],
@@ -77,8 +76,8 @@ triple:Dataset a owl:Class,
                     owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:abstract ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
         [ a owl:Restriction ;
             owl:onProperty schema:inLanguage ;
             owl:someValuesFrom schema:Language ],
@@ -256,12 +255,6 @@ triple:hasLicense a owl:ObjectProperty ;
     rdfs:range triple:License ;
     rdfs:subPropertyOf dcterms:license .
 
-triple:knowsAbout a owl:ObjectProperty ;
-    rdfs:label "knows about"@en ;
-    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
-    rdfs:range schema:DefinedTerm ;
-    rdfs:subPropertyOf schema:about .
-
 triple:originalConditionsOfAccess a owl:DatatypeProperty ;
     rdfs:label "original conditions of access"@en ;
     rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition."@en ;
@@ -300,7 +293,8 @@ schema:Dataset a owl:Class ;
     rdfs:comment "A body of structured information describing some topic(s) of interest."@en .
 
 schema:about a owl:ObjectProperty ;
-    rdfs:label "schema:about"@en .
+    rdfs:label "schema:about"@en ;
+    rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
@@ -344,8 +338,7 @@ schema:inLanguage a owl:ObjectProperty ;
     rdfs:range schema:Language .
 
 schema:keywords a owl:ObjectProperty ;
-    rdfs:label "schema:keywords"@en ;
-    rdfs:range schema:DefinedTerm .
+    rdfs:label "schema:keywords"@en .
 
 schema:mainEntityOfPage a owl:DatatypeProperty ;
     rdfs:label "schema:mainEntityOfPage"@en ;

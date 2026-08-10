@@ -186,8 +186,8 @@ triple:Document a owl:Class,
             owl:allValuesFrom xsd:string ;
             owl:onProperty triple:originalSource ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty triple:detectedLanguage ],
@@ -273,12 +273,6 @@ triple:inCluster a owl:ObjectProperty ;
     rdfs:domain triple:Document ;
     rdfs:range triple:Cluster .
 
-triple:knowsAbout a owl:ObjectProperty ;
-    rdfs:label "knows about"@en ;
-    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
-    rdfs:range schema:DefinedTerm ;
-    rdfs:subPropertyOf schema:about .
-
 triple:machineTranslatedLanguage a owl:DatatypeProperty ;
     rdfs:label "machine translated language"@en ;
     rdfs:comment "A language tag whose title and abstract versions were produced by the GoTriple machine-translation service. Title/abstract literals carrying this language tag are machine translations; the remaining language versions are as provided by the source."@en ;
@@ -324,7 +318,8 @@ schema:CreativeWork a owl:Class ;
     rdfs:label "schema:CreativeWork"@en .
 
 schema:about a owl:ObjectProperty ;
-    rdfs:label "schema:about"@en .
+    rdfs:label "schema:about"@en ;
+    rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .
 
 schema:abstract a owl:DatatypeProperty ;
     rdfs:label "schema:abstract"@en ;
@@ -357,8 +352,7 @@ schema:inLanguage a owl:ObjectProperty ;
     rdfs:range schema:Language .
 
 schema:keywords a owl:ObjectProperty ;
-    rdfs:label "schema:keywords"@en ;
-    rdfs:range schema:DefinedTerm .
+    rdfs:label "schema:keywords"@en .
 
 schema:mentions a owl:ObjectProperty ;
     rdfs:label "mentions"@en,
@@ -433,12 +427,12 @@ schema:Place a owl:Class ;
 
 schema:dateModified a owl:DatatypeProperty ;
     rdfs:label "schema:dateModified"@en ;
-    rdfs:comment "Date on which the document record was most recently modified in the GoTriple index."@en ;
+    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en ;
     rdfs:range xsd:date .
 
 schema:datePublished a owl:DatatypeProperty ;
     rdfs:label "schema:datePublished"@en ;
-    rdfs:comment "Date of first publication of the document, normalized to ISO 8601 (yyyy-mm-dd)."@en ;
+    rdfs:comment "Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd)."@en ;
     rdfs:range xsd:date .
 
 oa:Motivation a owl:Class ;

@@ -1,20 +1,66 @@
 [
   {
-    "@id": "http://purl.org/spar/datacite/researcherid",
+    "@id": "http://purl.org/spar/datacite/IdentifierScheme",
     "@type": [
-      "http://purl.org/spar/datacite/IdentifierScheme",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:IdentifierScheme"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/familyName",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "ResearcherID - an identifier system for scientific authors, owned by Clarivate (formerly Thomson Reuters)."
+        "@value": "The family name (last name) of a person."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "datacite:researcherid"
+        "@value": "foaf:familyName"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/URL",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:URL"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/openToCollaboration",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Whether the registered user declared to be open to collaboration with other GoTriple users."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "open to collaboration"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
       }
     ]
   },
@@ -37,7 +83,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b30"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b30"
       },
       {
         "@id": "https://schema.org/Thing"
@@ -45,7 +91,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b30",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b30",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -63,6 +109,103 @@
       {
         "@type": "http://www.w3.org/2001/XMLSchema#nonNegativeInteger",
         "@value": "1"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/isni",
+    "@type": [
+      "http://purl.org/spar/datacite/IdentifierScheme",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "International Standard Name Identifier - an ISO standard identifier for the public identities of contributors to media content."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:isni"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/givenName",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The given name (first name) of a person."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:givenName"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/idref_schema",
+    "@type": [
+      "http://purl.org/spar/datacite/IdentifierScheme",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "IdRef (Identifiants et Referentiels pour l'enseignement superieur et la recherche) - the French authority file for higher education and research, maintained by ABES. Declared in the TRIPLE namespace because the DataCite ontology has no scheme for it."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "IdRef"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/usesIdentifierScheme",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:usesIdentifierScheme"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "litre:hasLiteralValue"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/Person",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Person"
       }
     ]
   },
@@ -85,7 +228,7 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b29"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b29"
       },
       {
         "@id": "https://schema.org/Thing"
@@ -98,7 +241,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b29",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b29",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -120,43 +263,14 @@
     ]
   },
   {
-    "@id": "https://schema.org/description",
+    "@id": "https://schema.org/Language",
     "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A description of the entity. Used in GoTriple for the self-description of the profile."
-      }
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:description"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/registeredUser",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Whether the profile belongs to a registered GoTriple user (true) or was automatically created for an author extracted from harvested document metadata (false)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "registered user"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+        "@value": "schema:Language"
       }
     ]
   },
@@ -173,38 +287,177 @@
     ]
   },
   {
-    "@id": "https://schema.org/dateModified",
+    "@id": "http://xmlns.com/foaf/0.1/OnlineAccount",
     "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:OnlineAccount"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/hasIdentifier",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:hasIdentifier"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://purl.org/spar/datacite/Identifier"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/gotriple_id_schema",
+    "@type": [
+      "http://purl.org/spar/datacite/IdentifierScheme",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "The date on which the entity was most recently modified. Used on profiles for the last GoTriple update."
+        "@value": "The OPERAS/GoTriple identifier assigned to a profile (the goTripleId field)."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:dateModified"
+        "@value": "GoTriple ID"
       }
     ]
   },
   {
-    "@id": "https://schema.org/knowsLanguage",
+    "@id": "http://purl.org/spar/datacite/researcherid",
+    "@type": [
+      "http://purl.org/spar/datacite/IdentifierScheme",
+      "http://www.w3.org/2002/07/owl#NamedIndividual"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "ResearcherID - an identifier system for scientific authors, owned by Clarivate (formerly Thomson Reuters)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "datacite:researcherid"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/topic_interest",
     "@type": [
       "http://www.w3.org/2002/07/owl#ObjectProperty"
     ],
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A language the agent knows."
+        "@value": "A thing of interest to this person. Used in GoTriple to link a profile to the disciplines the user chose or that were automatically detected from the author's publications."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "schema:knowsLanguage"
+        "@value": "foaf:topic_interest"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/Agent",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An agent (person or organization)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:Agent"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/url",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The URL of the entity. Used in GoTriple for the personal web pages of the profile."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:url"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/knowsAbout",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A topic the agent knows about. Schema.org declares it for Person and Organization, so it is in domain here: every triple:Profile is a person or an organization. It carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) the user declares to know about. The data model revision leaves this field unmapped: the choice of this property is the ontology own."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:knowsAbout"
+      }
+    ]
+  },
+  {
+    "@id": "http://xmlns.com/foaf/0.1/account",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Indicates an account held by this agent"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "foaf:account"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/image",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An image of the entity. Used in GoTriple for the URL of the personal picture chosen by the user."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:image"
       }
     ]
   },
@@ -285,73 +538,73 @@
     ],
     "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b1"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b1"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b2"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b2"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b3"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b3"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b4"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b4"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b5"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b5"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b6"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b6"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b7"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b7"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b8"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b8"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b9"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b9"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b10"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b10"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b11"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b11"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b12"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b12"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b13"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b13"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b14"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b14"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b15"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b15"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b16"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b16"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b17"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b17"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b20"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b20"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b21"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b21"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b22"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b22"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b23"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b23"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b24"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b24"
       },
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b25"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b25"
       }
     ],
     "http://www.w3.org/2002/07/owl#versionInfo": [
@@ -371,7 +624,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b1",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b1",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -387,7 +640,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b2",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b2",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -404,7 +657,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b3",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b3",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -420,7 +673,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b4",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b4",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -437,7 +690,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b5",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b5",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -453,7 +706,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b6",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b6",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -469,13 +722,13 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b7",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b7",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#allValuesFrom": [
       {
-        "@id": "https://schema.org/DefinedTerm"
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
@@ -485,7 +738,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b8",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b8",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -501,7 +754,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b9",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b9",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -523,7 +776,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b10",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b10",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -539,7 +792,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b11",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b11",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -555,7 +808,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b12",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b12",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -572,7 +825,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b13",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b13",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -588,7 +841,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b14",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b14",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -605,7 +858,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b15",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b15",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -621,7 +874,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b16",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b16",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -638,7 +891,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b17",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b17",
     "http://www.w3.org/2002/07/owl#unionOf": [
       {
         "@list": [
@@ -653,7 +906,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b20",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b20",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -675,7 +928,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b21",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b21",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -691,7 +944,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b22",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b22",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -708,7 +961,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b23",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b23",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -724,7 +977,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b24",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b24",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
@@ -741,13 +994,13 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b25",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b25",
     "@type": [
       "http://www.w3.org/2002/07/owl#Restriction"
     ],
     "http://www.w3.org/2002/07/owl#allValuesFrom": [
       {
-        "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b26"
+        "@id": "_:n1c518b47bd744f59a31ed0095f452789b26"
       }
     ],
     "http://www.w3.org/2002/07/owl#onProperty": [
@@ -757,7 +1010,7 @@
     ]
   },
   {
-    "@id": "_:n08a489c5fff94c4c88f00d6a1b13b762b26",
+    "@id": "_:n1c518b47bd744f59a31ed0095f452789b26",
     "@type": [
       "http://www.w3.org/2000/01/rdf-schema#Datatype"
     ],
@@ -775,143 +1028,6 @@
     ]
   },
   {
-    "@id": "https://schema.org/url",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The URL of the entity. Used in GoTriple for the personal web pages of the profile."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:url"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/familyName",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The family name (last name) of a person."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:familyName"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/IdentifierScheme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:IdentifierScheme"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/orcid",
-    "@type": [
-      "http://purl.org/spar/datacite/IdentifierScheme",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Open Researcher and Contributor ID - a persistent identifier for researchers, maintained by ORCID Inc."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:orcid"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/Agent",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An agent (person or organization)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:Agent"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "litre:hasLiteralValue"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/name",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "name"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#string"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/topic_interest",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A thing of interest to this person. Used in GoTriple to link a profile to the disciplines the user chose or that were automatically detected from the author's publications."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:topic_interest"
-      }
-    ]
-  },
-  {
     "@id": "http://purl.org/spar/datacite/Identifier",
     "@type": [
       "http://www.w3.org/2002/07/owl#Class"
@@ -920,124 +1036,6 @@
       {
         "@language": "en",
         "@value": "datacite:Identifier"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/hasIdentifier",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:hasIdentifier"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://purl.org/spar/datacite/Identifier"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/URL",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:URL"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Language",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:Language"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/account",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Indicates an account held by this agent"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:account"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/usesIdentifierScheme",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "datacite:usesIdentifierScheme"
-      }
-    ]
-  },
-  {
-    "@id": "http://www.w3.org/2004/02/skos/core#Concept",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "skos:Concept"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/OnlineAccount",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "foaf:OnlineAccount"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/openToCollaboration",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#DatatypeProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "Whether the registered user declared to be open to collaboration with other GoTriple users."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "open to collaboration"
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#range": [
-      {
-        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
       }
     ]
   },
@@ -1065,7 +1063,79 @@
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/idref_schema",
+    "@id": "https://schema.org/knowsLanguage",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A language the agent knows."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:knowsLanguage"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/dateModified",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:dateModified"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/affiliation",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#ObjectProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An organization the agent is affiliated with. Used in GoTriple for the current organization specified by the user in the Experience tab."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:affiliation"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/description",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A description of the item. Used in GoTriple for the self-description of a profile."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:description"
+      }
+    ]
+  },
+  {
+    "@id": "http://purl.org/spar/datacite/orcid",
     "@type": [
       "http://purl.org/spar/datacite/IdentifierScheme",
       "http://www.w3.org/2002/07/owl#NamedIndividual"
@@ -1073,13 +1143,66 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "IdRef (Identifiants et Referentiels pour l'enseignement superieur et la recherche) - the French authority file for higher education and research, maintained by ABES. Declared in the TRIPLE namespace because the DataCite ontology has no scheme for it."
+        "@value": "Open Researcher and Contributor ID - a persistent identifier for researchers, maintained by ORCID Inc."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "IdRef"
+        "@value": "datacite:orcid"
+      }
+    ]
+  },
+  {
+    "@id": "http://www.w3.org/2004/02/skos/core#Concept",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "skos:Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/registeredUser",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#DatatypeProperty"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Whether the profile belongs to a registered GoTriple user (true) or was automatically created for an author extracted from harvested document metadata (false)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "registered user"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#range": [
+      {
+        "@id": "http://www.w3.org/2001/XMLSchema#boolean"
+      }
+    ]
+  },
+  {
+    "@id": "https://schema.org/DefinedTerm",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A word, name, acronym, phrase, etc. with a formal definition. In GoTriple it types the producer's own keywords, which are free text and carry no URI."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "schema:DefinedTerm"
       }
     ]
   },
@@ -1107,142 +1230,19 @@
     ]
   },
   {
-    "@id": "https://schema.org/image",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An image of the entity. Used in GoTriple for the URL of the personal picture chosen by the user."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:image"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/Person",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Person"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/affiliation",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "An organization the agent is affiliated with. Used in GoTriple for the current organization specified by the user in the Experience tab."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:affiliation"
-      }
-    ]
-  },
-  {
-    "@id": "http://xmlns.com/foaf/0.1/givenName",
+    "@id": "https://schema.org/name",
     "@type": [
       "http://www.w3.org/2002/07/owl#DatatypeProperty"
     ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The given name (first name) of a person."
-      }
-    ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "foaf:givenName"
-      }
-    ]
-  },
-  {
-    "@id": "http://purl.org/spar/datacite/isni",
-    "@type": [
-      "http://purl.org/spar/datacite/IdentifierScheme",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "International Standard Name Identifier - an ISO standard identifier for the public identities of contributors to media content."
+        "@value": "name"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
+    "http://www.w3.org/2000/01/rdf-schema#range": [
       {
-        "@language": "en",
-        "@value": "datacite:isni"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/triple/gotriple_id_schema",
-    "@type": [
-      "http://purl.org/spar/datacite/IdentifierScheme",
-      "http://www.w3.org/2002/07/owl#NamedIndividual"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "The OPERAS/GoTriple identifier assigned to a profile (the goTripleId field)."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "GoTriple ID"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/knowsAbout",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#ObjectProperty"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A topic the agent knows about. Natively declared by Schema.org for Person and Organization; used in GoTriple to link a profile to structured thesaurus keywords."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:knowsAbout"
-      }
-    ]
-  },
-  {
-    "@id": "https://schema.org/DefinedTerm",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A word, name, acronym or phrase defined in a controlled context; used for GoTriple keywords."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "schema:DefinedTerm"
+        "@id": "http://www.w3.org/2001/XMLSchema#string"
       }
     ]
   }

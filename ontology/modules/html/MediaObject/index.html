@@ -505,9 +505,7 @@
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/MediaObject</p>
                 
                 <div class="comment">
-                    <p>A media object such as an image, video, audio, or other multimedia content used in SSH research.
-
-A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works. @en</p>
+                    <p>A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works. Original provider values are preserved before normalization.</p>
                 </div>
                 
 
@@ -1196,7 +1194,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
                             </li>
                             
                             <li>
-                                <a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout">knows about</a>
+                                <a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -1210,7 +1208,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
                                 
 
                                 
-                                <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm">schema:DefinedTerm</a>
+                                <a href="#http://www.w3.org/2004/02/skos/core%23Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -1953,19 +1951,6 @@ A multimedia object in the GoTriple platform, representing various types of medi
                     
 
                     
-                    <dt>is in range of</dt>
-                    <dd>
-                        
-                        <a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout">knows about</a>
-                        <sup class="type-op" title="op">op</sup>
-                        , 
-                        
-                        <a href="#https://schema.org/keywords" title="https://schema.org/keywords">schema:keywords</a>
-                        <sup class="type-op" title="op">op</sup>
-                        
-                        
-                    </dd>
-                    
 
                     
 
@@ -2117,8 +2102,6 @@ A multimedia object in the GoTriple platform, representing various types of medi
                 <li><a href="#https://gotriple.eu/ontology/triple/hasContentType" title="https://gotriple.eu/ontology/triple/hasContentType">has content type</a></li>
                 
                 <li><a href="#https://gotriple.eu/ontology/triple/hasLicense" title="https://gotriple.eu/ontology/triple/hasLicense">has license</a></li>
-                
-                <li><a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout">knows about</a></li>
                 
                 <li><a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a></li>
                 
@@ -2482,64 +2465,6 @@ A multimedia object in the GoTriple platform, representing various types of medi
     
 </div>
             
-            <div class="entity" id="https://gotriple.eu/ontology/triple/knowsAbout">
-    <h3>knows about
-        <sup class="type-op" title="op">
-            op
-        </sup>
-        <span class="backlink">
-            back to <a href="#toc">ToC</a>
-        </span>
-    </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/knowsAbout</p>
-    
-    <div class="comment">
-        <p>Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works.</p>
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    <dl class="description">
-        
-        <dt>has super-properties</dt>
-        <dd>
-            
-            <a href="#https://schema.org/about" title="https://schema.org/about"
-                target="_self">schema:about</a>
-            <sup class="type-op" title="op">op</sup>
-            
-            
-        </dd>
-        
-
-        
-
-        
-
-        
-        <dt>has range</dt>
-        <dd>
-            
-            <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm"
-                target="_self">schema:DefinedTerm</a>
-            <sup class="type-c" title="c">c</sup>
-            
-            
-        </dd>
-        
-
-        
-    </dl>
-    
-</div>
-            
             <div class="entity" id="https://schema.org/about">
     <h3>schema:about
         <sup class="type-op" title="op">
@@ -2551,36 +2476,18 @@ A multimedia object in the GoTriple platform, representing various types of medi
     </h3>
     <p><strong>IRI:</strong> https://schema.org/about</p>
     
+    <div class="comment">
+        <p>The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them.</p>
+    </div>
     
     
-
     
 
     
 
     
+
     
-    <dl class="description">
-        
-
-        
-        <dt>has sub-properties</dt>
-        <dd>
-            
-            <a href="#https://gotriple.eu/ontology/triple/knowsAbout" title="https://gotriple.eu/ontology/triple/knowsAbout"
-                target="_self">knows about</a>
-            <sup class="type-op" title="op">op</sup>
-            
-            
-        </dd>
-        
-
-        
-
-        
-
-        
-    </dl>
     
 </div>
             
@@ -2735,28 +2642,6 @@ A multimedia object in the GoTriple platform, representing various types of medi
     
 
     
-    
-    <dl class="description">
-        
-
-        
-
-        
-
-        
-        <dt>has range</dt>
-        <dd>
-            
-            <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm"
-                target="_self">schema:DefinedTerm</a>
-            <sup class="type-c" title="c">c</sup>
-            
-            
-        </dd>
-        
-
-        
-    </dl>
     
 </div>
             
@@ -3922,7 +3807,7 @@ A multimedia object in the GoTriple platform, representing various types of medi
     <p><strong>IRI:</strong> https://schema.org/size</p>
     
     <div class="comment">
-        <p>A standardized size of a product or creative work.</p>
+        <p>A standardized size of a product or creative work, specified either through a simple textual string or a QuantitativeValue.</p>
     </div>
     
     

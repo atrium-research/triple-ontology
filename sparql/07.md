@@ -11,6 +11,7 @@ PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
 
 SELECT ?project ?identifierValue ?startDate ?endDate ?name ?alternateName ?description
        ?topicLabel ?keywordName ?grant
@@ -32,10 +33,11 @@ WHERE {
   OPTIONAL { ?project schema:alternateName ?alternateName . }
   OPTIONAL { ?project schema:description ?description . }
 
-  # Topics
+  # Discipline (labels are multilingual: pick one language)
   OPTIONAL {
-    ?project schema:about ?topic .
+    ?project sioc:topic ?topic .
     ?topic rdfs:label ?topicLabel .
+    FILTER(LANG(?topicLabel) = "en")
   }
 
   # Keywords
@@ -50,8 +52,15 @@ WHERE {
 ```
 
 **Expected Results:**
-- `triple:project_1`: dates 2019-01-01 → 2022-12-31, names "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration"/"TRIPLE", topic "Digital Humanities", grant `triple:grant_1`
-- 9 rows in all: the query cross-joins the project's three identifier values ("TRIPLE_PROJ_001", "ark:/12345/project-triple-ssh", "H2020-863420") with its three keywords ("discovery platform", "semantic web", "SSH research")
+- `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "discovery platform" → `triple:grant_1`
+- `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "semantic web" → `triple:grant_1`
+- `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "SSH research" → `triple:grant_1`
+- `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "discovery platform" → `triple:grant_1`
+- `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "semantic web" → `triple:grant_1`
+- `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "SSH research" → `triple:grant_1`
+- `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "discovery platform" → `triple:grant_1`
+- `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "semantic web" → `triple:grant_1`
+- `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Methods and Statistics" → "SSH research" → `triple:grant_1`
 
 
 ## CQ_7.2
@@ -110,31 +119,33 @@ ORDER BY DESC(?grantCount)
 
 ## CQ_7.4
 
-What projects are associated with a specific discipline or topic (e.g., Digital Humanities)?
+What projects are classified under a given discipline (e.g. Methods and Statistics)?
 
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
+PREFIX sioc: <http://rdfs.org/sioc/ns#>
 
 SELECT ?project ?projectName ?alternateName ?topicLabel
 WHERE {
   ?project a triple:Project ;
            schema:name ?projectName ;
-           schema:about ?topic .
+           sioc:topic ?topic .
 
   ?topic rdfs:label ?topicLabel .
 
   OPTIONAL { ?project schema:alternateName ?alternateName . }
 
-  FILTER(REGEX(?topicLabel, "Digital Humanities", "i"))
+  FILTER(LANG(?topicLabel) = "en" && REGEX(?topicLabel, "Methods and Statistics", "i"))
 }
 ORDER BY ?projectName
 ```
 
 **Expected Results:**
-- project_1 (TRIPLE) and project_3 (BALKAN-HERITAGE)
+- `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "BALKAN-HERITAGE" → "Methods and Statistics"
+- `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "Methods and Statistics"
 
 
 ## CQ_7.5
@@ -348,26 +359,28 @@ WHERE {
 
 ## CQ_7.12
 
-What topics does a project "know about" (areas of expertise)?
+Which concepts of the TRIPLE thesaurus were detected in a project, and to which LCSH heading do they correspond?
 
 ```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
-SELECT ?project ?projectName ?topicLabel
+SELECT ?project ?projectName ?label ?lcsh
 WHERE {
   ?project a triple:Project ;
            schema:name ?projectName ;
-           schema:knowsAbout ?topic .
+           schema:about ?concept .
 
-  ?topic rdfs:label ?topicLabel .
+  ?concept skos:prefLabel ?label .
+  OPTIONAL { ?concept skos:exactMatch ?lcsh }
+
+  FILTER(LANG(?projectName) = "en" && LANG(?label) = "en")
 }
 ```
 
 **Expected Results:**
-- project_2: Migration Studies
+- `triple:project_2` → "Socio-Economic Integration of Migrants in Italian Urban Contexts" → "Social integration" → <http://id.loc.gov/authorities/subjects/sh85123964>
 
 
 ## CQ_7.13

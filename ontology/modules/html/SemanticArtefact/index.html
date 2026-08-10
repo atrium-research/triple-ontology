@@ -639,9 +639,7 @@
                 <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/SemanticArtefact</p>
                 
                 <div class="comment">
-                    <p>A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research
-
-A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. @en</p>
+                    <p>A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. Original provider values are preserved before normalization.</p>
                 </div>
                 
 
@@ -1221,6 +1219,30 @@ A semantic artefact in the context of GoTriple platform, representing formal kno
 
                                 
                                 <a href="#https://gotriple.eu/ontology/triple/Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#http://www.w3.org/2004/02/skos/core%23Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -1934,31 +1956,6 @@ A semantic artefact in the context of GoTriple platform, representing formal kno
                 
 
                 
-                <dl class="description">
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <dt>is in range of</dt>
-                    <dd>
-                        
-                        <a href="#https://schema.org/keywords" title="https://schema.org/keywords">schema:keywords</a>
-                        <sup class="type-op" title="op">op</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-
-                    
-                </dl>
-                
             </div>
             
             <div class="entity" id="https://schema.org/Language">
@@ -2033,6 +2030,8 @@ A semantic artefact in the context of GoTriple platform, representing formal kno
                 <li><a href="#https://gotriple.eu/ontology/triple/hasContentType" title="https://gotriple.eu/ontology/triple/hasContentType">has content type</a></li>
                 
                 <li><a href="#https://gotriple.eu/ontology/triple/hasLicense" title="https://gotriple.eu/ontology/triple/hasLicense">has license</a></li>
+                
+                <li><a href="#https://schema.org/about" title="https://schema.org/about">schema:about</a></li>
                 
                 <li><a href="#https://schema.org/author" title="https://schema.org/author">schema:author</a></li>
                 
@@ -2462,6 +2461,32 @@ A semantic artefact in the context of GoTriple platform, representing formal kno
     
 </div>
             
+            <div class="entity" id="https://schema.org/about">
+    <h3>schema:about
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://schema.org/about</p>
+    
+    <div class="comment">
+        <p>The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them.</p>
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    
+</div>
+            
             <div class="entity" id="https://schema.org/author">
     <h3>schema:author
         <sup class="type-op" title="op">
@@ -2614,28 +2639,6 @@ A semantic artefact in the context of GoTriple platform, representing formal kno
 
     
     
-    <dl class="description">
-        
-
-        
-
-        
-
-        
-        <dt>has range</dt>
-        <dd>
-            
-            <a href="#https://schema.org/DefinedTerm" title="https://schema.org/DefinedTerm"
-                target="_self">schema:DefinedTerm</a>
-            <sup class="type-c" title="c">c</sup>
-            
-            
-        </dd>
-        
-
-        
-    </dl>
-    
 </div>
             
             <div class="entity" id="https://schema.org/mentions">
@@ -2650,7 +2653,7 @@ A semantic artefact in the context of GoTriple platform, representing formal kno
     <p><strong>IRI:</strong> https://schema.org/mentions</p>
     
     <div class="comment">
-        <p>Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity.</p>
+        <p>Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing.</p>
     </div>
     
     

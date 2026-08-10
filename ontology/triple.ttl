@@ -139,9 +139,7 @@ triple:Dataset a owl:Class ;
         "Jeu de Données"@fr,
         "Zbiór Danych"@pl,
         "Base de Dados"@pt ;
-    rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en,
-        "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset."@en,
-        "A dataset in the GoTriple platform. Original provider values are preserved before normalization."@en ;
+    rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:contributor ],
@@ -190,8 +188,8 @@ triple:Dataset a owl:Class ;
                     owl:unionOf ( rdf:langString xsd:string ) ] ;
             owl:onProperty schema:abstract ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
         [ a owl:Restriction ;
             owl:onProperty schema:inLanguage ;
             owl:someValuesFrom schema:Language ],
@@ -284,9 +282,7 @@ triple:MediaObject a owl:Class ;
         "Multimédia"@fr,
         "Multimedia"@pl,
         "Multimédia"@pt ;
-    rdfs:comment "A media object such as an image, video, audio, or other multimedia content used in SSH research."@en,
-        "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works."@en,
-        "A multimedia object in the GoTriple platform. Original provider values are preserved before normalization."@en ;
+    rdfs:comment "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty frapo:isOutputOf ],
@@ -353,8 +349,8 @@ triple:MediaObject a owl:Class ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty schema:temporalCoverage ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
         [ a owl:Restriction ;
             owl:allValuesFrom owl:Thing ;
             owl:onProperty schema:mentions ],
@@ -432,7 +428,7 @@ triple:Profile a owl:Class ;
             owl:allValuesFrom triple:Discipline ;
             owl:onProperty foaf:topic_interest ],
         [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
+            owl:allValuesFrom skos:Concept ;
             owl:onProperty schema:knowsAbout ],
         [ a owl:Restriction ;
             owl:allValuesFrom schema:Language ;
@@ -481,9 +477,7 @@ triple:SemanticArtefact a owl:Class ;
         "Artefact Sémantique"@fr,
         "Artefakt Semantyczny"@pl,
         "Artefacto Semântico"@pt ;
-    rdfs:comment "A semantic artefact in the GoTriple platform. Original provider values are preserved before normalization."@en,
-        "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research"@en,
-        "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
+    rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. Original provider values are preserved before normalization."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom triple:Project ;
             owl:onProperty frapo:isOutputOf ],
@@ -558,6 +552,9 @@ triple:SemanticArtefact a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom triple:Discipline ;
             owl:onProperty sioc:topic ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
         [ a owl:Restriction ;
             owl:allValuesFrom triple:License ;
             owl:onProperty triple:hasLicense ],
@@ -675,7 +672,9 @@ dcterms:provenance a owl:ObjectProperty ;
     rdfs:comment "A statement of any changes in ownership and custody of the resource since its creation that are significant for its authenticity, integrity, and interpretation."@en ;
     rdfs:range dcterms:ProvenanceStatement .
 
-dcterms:source a owl:ObjectProperty .
+dcterms:source a owl:ObjectProperty ;
+    rdfs:label "dcterms:source"@en ;
+    rdfs:comment "A related resource from which the described resource is derived. In GoTriple it points to the system the document was harvested from."@en .
 
 datacite:usesIdentifierScheme a owl:ObjectProperty ;
     rdfs:label "datacite:usesIdentifierScheme"@en ;
@@ -761,7 +760,7 @@ triple:machineTranslatedLanguage a owl:DatatypeProperty ;
 
 schema:Grant a owl:Class ;
     rdfs:label "schema:Grant"@en ;
-    rdfs:comment "A grant, typically financial or otherwise quantifiable, of resources"@en ;
+    rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
             owl:onProperty schema:funder ],
@@ -808,6 +807,10 @@ schema:fileFormat a owl:DatatypeProperty ;
 schema:funder a owl:ObjectProperty ;
     rdfs:label "schema:funder"@en ;
     rdfs:comment "A person or organization that supports something through some kind of financial contribution"@en .
+
+schema:knowsAbout a owl:ObjectProperty ;
+    rdfs:label "schema:knowsAbout"@en ;
+    rdfs:comment "A topic the agent knows about. Schema.org declares it for Person and Organization, so it is in domain here: every triple:Profile is a person or an organization. It carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) the user declares to know about. The data model revision leaves this field unmapped: the choice of this property is the ontology own."@en .
 
 schema:knowsLanguage a owl:ObjectProperty ;
     rdfs:label "schema:knowsLanguage"@en ;
@@ -916,10 +919,6 @@ schema:Organization a owl:Class ;
 schema:Thing a owl:Class ;
     rdfs:label "schema:Thing"@en .
 
-schema:about a owl:ObjectProperty ;
-    rdfs:label "schema:about"@en ;
-    rdfs:comment "The subject matter of the content."@en .
-
 schema:creativeWorkStatus a owl:DatatypeProperty ;
     rdfs:label "schema:creativeWorkStatus",
         "schema:creativeWorkStatus"@en ;
@@ -928,8 +927,7 @@ schema:creativeWorkStatus a owl:DatatypeProperty ;
 
 schema:description a owl:DatatypeProperty ;
     rdfs:label "schema:description"@en ;
-    rdfs:comment "A description of the entity. Used in GoTriple for the self-description of the profile."@en,
-        "A description of the item"@en ;
+    rdfs:comment "A description of the item. Used in GoTriple for the self-description of a profile."@en ;
     rdfs:range rdf:langString .
 
 schema:endDate a owl:DatatypeProperty ;
@@ -939,18 +937,11 @@ schema:endDate a owl:DatatypeProperty ;
 
 schema:funding a owl:ObjectProperty ;
     rdfs:label "schema:funding"@en ;
-    rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en,
-        "A grant, typically financial or otherwise quantifiable, of resources"@en .
+    rdfs:comment "A Grant that directly or indirectly provide funding or sponsorship for this item."@en .
 
 schema:image a owl:ObjectProperty ;
     rdfs:label "schema:image"@en ;
     rdfs:comment "An image of the entity. Used in GoTriple for the URL of the personal picture chosen by the user."@en .
-
-schema:knowsAbout a owl:ObjectProperty ;
-    rdfs:label "schema:knowsAbout"@en ;
-    rdfs:comment "A topic the agent knows about. Natively declared by Schema.org for Person and Organization; used in GoTriple to link a profile to structured thesaurus keywords."@en,
-        "Of a Person, and less typically of an Organization, to indicate a topic that is known about - suggested for areas of expertise."@en ;
-    rdfs:range skos:Concept .
 
 schema:mainEntityOfPage a owl:DatatypeProperty ;
     rdfs:label "schema:mainEntityOfPage"@en ;
@@ -959,19 +950,12 @@ schema:mainEntityOfPage a owl:DatatypeProperty ;
 
 schema:size a owl:DatatypeProperty ;
     rdfs:label "schema:size"@en ;
-    rdfs:comment "A standardized size of a product or creative work, specified either through a simple textual string or a QuantitativeValue."@en,
-        "A standardized size of a product or creative work."@en .
+    rdfs:comment "A standardized size of a product or creative work, specified either through a simple textual string or a QuantitativeValue."@en .
 
 schema:startDate a owl:DatatypeProperty ;
     rdfs:label "schema:startDate"@en ;
     rdfs:comment "The start date and time of the item"@en ;
     rdfs:range xsd:date .
-
-triple:knowsAbout a owl:ObjectProperty ;
-    rdfs:label "knows about"@en ;
-    rdfs:comment "Links a GoTriple resource to a keyword extracted by the enrichment pipeline, represented as a schema:DefinedTerm with multilingual labels and an optional external URI. Introduced because schema:knowsAbout is declared only for Person and Organization; schema:about is the in-domain super-property for creative works."@en ;
-    rdfs:range schema:DefinedTerm ;
-    rdfs:subPropertyOf schema:about .
 
 triple:originalSource a owl:DatatypeProperty ;
     rdfs:label "original source"@en ;
@@ -981,9 +965,7 @@ triple:originalSource a owl:DatatypeProperty ;
 
 schema:provider a owl:ObjectProperty ;
     rdfs:label "schema:provider"@en ;
-    rdfs:comment "The service provider, organization, or individual that provides the data"@en,
-        "The service provider, service operator, or service performer."@en,
-        "The service provider, service operator, or service performer; the goods producer."@en ;
+    rdfs:comment "The service provider, service operator, or service performer; the goods producer."@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
 schema:temporalCoverage a owl:DatatypeProperty ;
@@ -1009,6 +991,70 @@ triple:Document a owl:Class ;
         "Documento"@pt ;
     rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the internal id, the GoTriple PID and the identifier from the source system, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
+            owl:allValuesFrom triple:Project ;
+            owl:onProperty frapo:isOutputOf ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom skos:Concept ;
+            owl:onProperty schema:about ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:detectedLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:machineTranslatedLanguage ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:mentions ;
+            owl:someValuesFrom oa:Annotation ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:keywords ;
+            owl:someValuesFrom schema:DefinedTerm ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:spatialCoverage ;
+            owl:someValuesFrom schema:Place ],
+        [ a owl:Restriction ;
+            owl:onProperty schema:temporalCoverage ;
+            owl:someValuesFrom xsd:string ],
+        [ a owl:Restriction ;
+            owl:onClass triple:Cluster ;
+            owl:onProperty triple:inCluster ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:author ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:contributor ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:publisher ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty schema:provider ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
+            owl:onProperty triple:aggregator ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom schema:ContactPoint ;
+            owl:onProperty schema:contactPoint ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalType ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLanguage ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalDatePublished ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalLicense ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalConditionsOfAccess ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:originalSource ],
+        [ a owl:Restriction ;
             owl:allValuesFrom triple:Discipline ;
             owl:onProperty sioc:topic ],
         [ a owl:Restriction ;
@@ -1052,70 +1098,6 @@ triple:Document a owl:Class ;
             owl:onProperty schema:abstract ;
             owl:someValuesFrom [ a rdfs:Datatype ;
                     owl:unionOf ( rdf:langString xsd:string ) ] ],
-        [ a owl:Restriction ;
-            owl:onClass triple:Cluster ;
-            owl:onProperty triple:inCluster ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:author ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:contributor ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:publisher ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty schema:provider ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
-            owl:onProperty triple:aggregator ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:ContactPoint ;
-            owl:onProperty schema:contactPoint ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom triple:Project ;
-            owl:onProperty frapo:isOutputOf ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom schema:DefinedTerm ;
-            owl:onProperty triple:knowsAbout ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:detectedLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:machineTranslatedLanguage ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:keywords ;
-            owl:someValuesFrom schema:DefinedTerm ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:spatialCoverage ;
-            owl:someValuesFrom schema:Place ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:temporalCoverage ;
-            owl:someValuesFrom xsd:string ],
-        [ a owl:Restriction ;
-            owl:onProperty schema:mentions ;
-            owl:someValuesFrom oa:Annotation ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalType ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLanguage ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalDatePublished ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalLicense ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalConditionsOfAccess ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:originalSource ],
         foaf:Document,
         schema:CreativeWork ;
     skos:exactMatch <http://purl.org/spar/fabio/ScholarlyWork>,
@@ -1183,10 +1165,7 @@ schema:abstract a owl:DatatypeProperty ;
 
 schema:author a owl:ObjectProperty ;
     rdfs:label "schema:author"@en ;
-    rdfs:comment "The author of this content"@en,
-        "The author of this content or rating."@en,
-        "The author of this content."@en,
-        "The author of this content. The documents a profile is author of (author_of) are retrieved as the inverse of this property."@en ;
+    rdfs:comment "The author of this content or rating. The documents a profile is author of (the author_of field) are retrieved as the inverse of this property."@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ],
         [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
     rdfs:subPropertyOf schema:creator .
@@ -1211,8 +1190,7 @@ schema:headline a owl:DatatypeProperty ;
 schema:mentions a owl:ObjectProperty ;
     rdfs:label "mentions"@en,
         "schema:mentions"@en ;
-    rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing."@en,
-        "Indicates that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity."@en ;
+    rdfs:comment "Indicates that the CreativeWork contains a reference to, but is not necessarily about a particular thing."@en ;
     rdfs:range owl:Thing .
 
 schema:publisher a owl:ObjectProperty ;
@@ -1238,11 +1216,6 @@ triple:ContentType a owl:Class ;
     rdfs:comment "The kind of content a resource is (journal article, dataset, software, ...), drawn from the Content Type controlled vocabulary and aligned with COAR resource types."@en ;
     rdfs:subClassOf skos:Concept .
 
-triple:Discipline a owl:Class ;
-    rdfs:label "Discipline"@en ;
-    rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
-    rdfs:subClassOf skos:Concept .
-
 triple:License a owl:Class ;
     rdfs:label "License"@en ;
     rdfs:comment "The licence under which a resource is made available, drawn from the License controlled vocabulary and aligned with Creative Commons and SPDX."@en ;
@@ -1255,8 +1228,7 @@ triple:Project a owl:Class ;
         "Projet"@fr,
         "Projekt"@pl,
         "Projeto"@pt ;
-    rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform."@en,
-        "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
+    rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty schema:startDate ],
@@ -1273,6 +1245,9 @@ triple:Project a owl:Class ;
             owl:allValuesFrom schema:Grant ;
             owl:onProperty schema:funding ],
         [ a owl:Restriction ;
+            owl:allValuesFrom triple:Discipline ;
+            owl:onProperty sioc:topic ],
+        [ a owl:Restriction ;
             owl:allValuesFrom skos:Concept ;
             owl:onProperty schema:about ],
         [ a owl:Restriction ;
@@ -1287,9 +1262,6 @@ triple:Project a owl:Class ;
         [ a owl:Restriction ;
             owl:allValuesFrom schema:Organization ;
             owl:onProperty schema:organizer ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom skos:Concept ;
-            owl:onProperty schema:knowsAbout ],
         [ a owl:Restriction ;
             owl:allValuesFrom schema:URL ;
             owl:onProperty schema:mainEntityOfPage ],
@@ -1325,6 +1297,13 @@ triple:Project a owl:Class ;
 schema:CreativeWork a owl:Class ;
     rdfs:label "schema:CreativeWork"@en .
 
+schema:DefinedTerm a owl:Class ;
+    rdfs:label "schema:DefinedTerm"@en ;
+    rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition. In GoTriple it types the producer's own keywords, which are free text and carry no URI."@en ;
+    rdfs:subClassOf [ a owl:Restriction ;
+            owl:onProperty schema:name ;
+            owl:someValuesFrom schema:Text ] .
+
 schema:Place a owl:Class ;
     rdfs:label "Place"@en,
         "schema:Place"@en ;
@@ -1338,6 +1317,10 @@ schema:URL a rdfs:Datatype,
     rdfs:label "schema:URL"@en ;
     rdfs:comment "Data type: URL."@en .
 
+schema:about a owl:ObjectProperty ;
+    rdfs:label "schema:about"@en ;
+    rdfs:comment "The subject matter of the content. In GoTriple it carries the concepts of the TRIPLE Vocabulary (SSH-LCSH) detected in the resource by the enrichment pipeline: the values are the concepts themselves, identified by their semantics.gr URI, not local copies of them."@en .
+
 schema:contactPoint a owl:ObjectProperty ;
     rdfs:label "schema:contactPoint"@en ;
     rdfs:comment "A contact point for a person or organization."@en ;
@@ -1345,10 +1328,7 @@ schema:contactPoint a owl:ObjectProperty ;
 
 schema:contributor a owl:ObjectProperty ;
     rdfs:label "schema:contributor"@en ;
-    rdfs:comment "A secondary contributor to the CreativeWork"@en,
-        "A secondary contributor to the CreativeWork or Event."@en,
-        "A secondary contributor to the CreativeWork."@en,
-        "A secondary contributor to the creative work or event."@en ;
+    rdfs:comment "A secondary contributor to the CreativeWork or Event."@en ;
     rdfs:range [ owl:unionOf ( foaf:Person foaf:Organization ) ],
         [ owl:unionOf ( foaf:Person foaf:Organization ) ] .
 
@@ -1360,16 +1340,12 @@ schema:inLanguage a owl:ObjectProperty ;
 schema:keywords a owl:ObjectProperty ;
     rdfs:label "schema:keywords",
         "schema:keywords"@en ;
-    rdfs:comment "Keywords or tags used to describe content"@en,
-        "Keywords or tags used to describe this content"@en,
-        "Keywords or tags used to describe this content."@en ;
-    rdfs:range schema:DefinedTerm .
+    rdfs:comment "Keywords or tags used to describe this content. In GoTriple these are the producer's own keywords, free text with no URI; the concepts detected by the enrichment pipeline are carried by schema:about instead."@en .
 
-sioc:topic a owl:ObjectProperty ;
-    rdfs:label "sioc:topic"@en ;
-    rdfs:comment "A topic of interest, linking to the concept URI."@en,
-        "A topic of interest, linking to the concept URI. Links to discipline terms."@en ;
-    rdfs:subPropertyOf dcterms:subject .
+triple:Discipline a owl:Class ;
+    rdfs:label "Discipline"@en ;
+    rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
+    rdfs:subClassOf skos:Concept .
 
 schema:ContactPoint a owl:Class ;
     rdfs:label "schema:ContactPoint",
@@ -1385,8 +1361,12 @@ schema:name a owl:DatatypeProperty ;
 
 dcterms:isReferencedBy a owl:ObjectProperty ;
     rdfs:label "dcterms:isReferencedBy"@en ;
-    rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en,
-        "A related resource that references, cites, or otherwise points to the multimedia object."@en .
+    rdfs:comment "A related resource that references, cites, or otherwise points to the described resource."@en .
+
+sioc:topic a owl:ObjectProperty ;
+    rdfs:label "sioc:topic"@en ;
+    rdfs:comment "The discipline a resource is classified under, from the GoTriple 27-discipline SSH taxonomy (triple:Discipline). Distinct from schema:about, which carries the concepts of the TRIPLE thesaurus."@en ;
+    rdfs:subPropertyOf dcterms:subject .
 
 schema:Language a owl:Class ;
     rdfs:label "schema:Language"@en ;
@@ -1395,40 +1375,25 @@ schema:Language a owl:Class ;
 schema:dateCreated a owl:DatatypeProperty ;
     rdfs:label "schema:dateCreated",
         "schema:dateCreated"@en ;
-    rdfs:comment "The date on which the CreativeWork was created"@en,
-        "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
+    rdfs:comment "The date on which the CreativeWork was created or the item was added to a DataFeed."@en ;
     rdfs:range xsd:date .
 
 schema:datePublished a owl:DatatypeProperty ;
     rdfs:label "schema:datePublished",
         "schema:datePublished"@en ;
-    rdfs:comment "Date of first broadcast/publication."@en,
-        "Date of first publication"@en,
-        "Date of first publication of the document, normalized to ISO 8601 (yyyy-mm-dd)."@en,
-        "Date of first publication or broadcast"@en ;
+    rdfs:comment "Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd)."@en ;
     rdfs:range xsd:date .
-
-schema:DefinedTerm a owl:Class ;
-    rdfs:label "schema:DefinedTerm"@en ;
-    rdfs:comment "A word, name, acronym or phrase defined in a controlled context; used for GoTriple keywords."@en,
-        "A word, name, acronym, phrase, etc. with a formal definition"@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onProperty schema:name ;
-            owl:someValuesFrom schema:Text ] .
 
 schema:dateModified a owl:DatatypeProperty ;
     rdfs:label "schema:dateModified",
         "schema:dateModified"@en ;
-    rdfs:comment "Date on which the document record was most recently modified in the GoTriple index."@en,
-        "The date on which the CreativeWork was most recently modified"@en,
-        "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed."@en,
-        "The date on which the entity was most recently modified. Used on profiles for the last GoTriple update."@en ;
+    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en ;
     rdfs:range xsd:date .
 
 skos:Concept a owl:Class ;
     rdfs:label "Concept"@en,
         "skos:Concept"@en ;
-    rdfs:comment "A SKOS concept representing a term in a controlled vocabulary."@en .
+    rdfs:comment "A concept of a knowledge organization system, from SKOS. Values of schema:about are the concepts of the TRIPLE Vocabulary (SSH-LCSH), maintained by the TRIPLE consortium and published on semantics.gr."@en .
 
 datacite:IdentifierScheme a owl:Class ;
     rdfs:label "datacite:IdentifierScheme"@en ;
