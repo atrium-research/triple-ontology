@@ -50,7 +50,8 @@ WHERE {
 ```
 
 **Expected Results:**
-- project_1 metadata including H2020-863420, dates 2019-01-01 to 2022-12-31, multilingual names, Digital Humanities topic, 3 keywords, and grant_1
+- `triple:project_1`: dates 2019-01-01 → 2022-12-31, names "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration"/"TRIPLE", topic "Digital Humanities", grant `triple:grant_1`
+- 9 rows in all: the query cross-joins the project's three identifier values ("TRIPLE_PROJ_001", "ark:/12345/project-triple-ssh", "H2020-863420") with its three keywords ("discovery platform", "semantic web", "SSH research")
 
 
 ## CQ_7.2
@@ -219,10 +220,19 @@ ORDER BY ?project ?schemeLabel
 ```
 
 **Expected Results:**
-- project_1: Original Identifier → H2020-863420
-- project_2: Original Identifier → PRIN-2018ABCD123
-- project_3: Original Identifier → FWF-P-34567, Original Identifier → GETTY-KIM-2021-15
-- project_4: ERC → ERC-ADG-101052789
+- `triple:project_1` → "Original Identifier" → "H2020-863420"
+- `triple:project_1` → "TRIPLE Internal ID" → "TRIPLE_PROJ_001"
+- `triple:project_1` → "datacite:ark" → "ark:/12345/project-triple-ssh"
+- `triple:project_2` → "Original Identifier" → "PRIN-2018ABCD123"
+- `triple:project_2` → "TRIPLE Internal ID" → "TRIPLE_PROJ_002"
+- `triple:project_2` → "datacite:ark" → "ark:/12345/project-miguris"
+- `triple:project_3` → "Original Identifier" → "FWF-P-34567"
+- `triple:project_3` → "Original Identifier" → "GETTY-KIM-2021-15"
+- `triple:project_3` → "TRIPLE Internal ID" → "TRIPLE_PROJ_003"
+- `triple:project_3` → "datacite:ark" → "ark:/12345/project-balkan-heritage"
+- `triple:project_4` → "Original Identifier" → "ERC-ADG-101052789"
+- `triple:project_4` → "TRIPLE Internal ID" → "TRIPLE_PROJ_004"
+- `triple:project_4` → "datacite:ark" → "ark:/12345/project-hellenistic-justice"
 
 
 ## CQ_7.8
@@ -431,6 +441,7 @@ What is the type of a specific project (e.g., Research, Training, Network)?
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
+PREFIX schema: <https://schema.org/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 
@@ -446,5 +457,9 @@ WHERE {
 ```
 
 **Expected Results:**
-- project_1: Network/Infrastructure
-- project_2: Research Project
+- `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "Funded"
+- `triple:project_2` → "Socio-Economic Integration of Migrants in Italian Urban Contexts" → "Funded"
+- `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "Funded"
+- `triple:project_4` → "Conceptions of Justice in Hellenistic Philosophy" → "Funded"
+
+All four projects are financed by a formal funding programme, so they all carry `prtype:funded`; `prtype:network` and `prtype:research`, used until now, are not concepts of the ProjectType vocabulary.

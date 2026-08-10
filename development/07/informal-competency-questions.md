@@ -12,21 +12,15 @@ What are all the metadata properties and values associated with a specific proje
 A complete list of all metadata for the project including identifiers, temporal information, names, descriptions, topics, keywords, and funding.
 
 ### Result
-For `project_1` (TRIPLE-SSH):
-* Identifier: H2020-863420
-* Start date: 2019-01-01
-* End date: 2022-12-31
-* Name: "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration"@en
-* Alternate name: "TRIPLE"@en
-* Description: "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe."@en
-* Topic: Digital Humanities
-* Keywords: discovery platform, semantic web, SSH research
-* Funding: grant_1
-* Date created: 2018-12-01
-* Date modified: 2023-01-15
-* Language: en
-* Organizer: ACDH-CH
-* Main Entity of Page: https://triple.eu/projects/1
+* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "discovery platform" → `triple:grant_1`
+* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "semantic web" → `triple:grant_1`
+* `triple:project_1` → "TRIPLE_PROJ_001" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "SSH research" → `triple:grant_1`
+* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "discovery platform" → `triple:grant_1`
+* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "semantic web" → `triple:grant_1`
+* `triple:project_1` → "ark:/12345/project-triple-ssh" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "SSH research" → `triple:grant_1`
+* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "discovery platform" → `triple:grant_1`
+* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "semantic web" → `triple:grant_1`
+* `triple:project_1` → "H2020-863420" → "2019-01-01" → "2022-12-31" → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE" → "The TRIPLE project aims at creating a discovery platform that connects SSH researchers with relevant resources across Europe." → "Digital Humanities" → "SSH research" → `triple:grant_1`
 
 ### Based on
 Example 1
@@ -148,12 +142,19 @@ What are all the identifier schemes used for projects and their corresponding id
 A list of projects with their identifier schemes and literal values.
 
 ### Result
-* `project_1`: Horizon 2020 Grant Agreement Number → "H2020-863420"
-* `project_2`: PRIN Project Code → "PRIN-2018ABCD123"
-* `project_3`:
-  * FWF Project Number → "FWF-P-34567"
-  * Getty Foundation Grant Number → "GETTY-KIM-2021-15"
-* `project_4`: ERC Grant Number → "ERC-ADG-101052789"
+* `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "Original Identifier" → "H2020-863420"
+* `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "TRIPLE Internal ID" → "TRIPLE_PROJ_001"
+* `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "datacite:ark" → "ark:/12345/project-triple-ssh"
+* `triple:project_2` → "Socio-Economic Integration of Migrants in Italian Urban Contexts" → "Original Identifier" → "PRIN-2018ABCD123"
+* `triple:project_2` → "Socio-Economic Integration of Migrants in Italian Urban Contexts" → "TRIPLE Internal ID" → "TRIPLE_PROJ_002"
+* `triple:project_2` → "Socio-Economic Integration of Migrants in Italian Urban Contexts" → "datacite:ark" → "ark:/12345/project-miguris"
+* `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "Original Identifier" → "FWF-P-34567"
+* `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "Original Identifier" → "GETTY-KIM-2021-15"
+* `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "TRIPLE Internal ID" → "TRIPLE_PROJ_003"
+* `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "datacite:ark" → "ark:/12345/project-balkan-heritage"
+* `triple:project_4` → "Conceptions of Justice in Hellenistic Philosophy" → "Original Identifier" → "ERC-ADG-101052789"
+* `triple:project_4` → "Conceptions of Justice in Hellenistic Philosophy" → "TRIPLE Internal ID" → "TRIPLE_PROJ_004"
+* `triple:project_4` → "Conceptions of Justice in Hellenistic Philosophy" → "datacite:ark" → "ark:/12345/project-hellenistic-justice"
 
 ### Based on
 Examples 1, 2, 3, 4
@@ -247,8 +248,10 @@ What is the type of a specific project (e.g., Research, Training, Network)?
 The project classification from the controlled vocabulary.
 
 ### Result
-For `project_1`: Network/Infrastructure
-For `project_2`: Research Project
+* `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "Funded"
+* `triple:project_2` → "Socio-Economic Integration of Migrants in Italian Urban Contexts" → "Funded"
+* `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "Funded"
+* `triple:project_4` → "Conceptions of Justice in Hellenistic Philosophy" → "Funded"
 
 ### Based on
 Examples 1 and 2

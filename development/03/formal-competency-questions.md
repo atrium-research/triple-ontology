@@ -2,7 +2,7 @@
 
 ## CQ_3.1
 
-Return all roles (authors, contributors, publishers, providers, etc.) connected to `document_1`.
+Return all the agents connected to `document_1` and the role each of them plays (author, contributor, publisher, provider, aggregator).
 
 ```sparql
 PREFIX schema: <https://schema.org/>
@@ -14,10 +14,8 @@ SELECT DISTINCT ?roleType ?agent WHERE {
     schema:author,
     schema:contributor,
     schema:publisher,
-    schema:producer,
     schema:provider,
-    triple:aggregator,
-    triple:primaryProducer
+    triple:aggregator
   ))
 }
 ```
@@ -102,21 +100,20 @@ SELECT ?document WHERE {
 **Expected Result:**
 - document: document_1
 
-## CQ_3.7
+## CQ_3.6
 
 Who is the contact point for a specific document?
 
 ```sparql
 PREFIX schema: <https://schema.org/>
-PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-  
-SELECT ?document ?email
+
+SELECT ?contactPoint ?email
 WHERE {
-  triple:document_1 schema:contactPoint ?cp .
-  ?cp schema:email ?email .
+  triple:document_1 schema:contactPoint ?contactPoint .
+  ?contactPoint schema:email ?email .
 }
 ```
 
 **Expected Result:**
-- contact@example.org
+- `triple:contact_point_1` → "contact@example.org"

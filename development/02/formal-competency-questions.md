@@ -165,19 +165,24 @@ SELECT ?license ?access ?type ?discipline WHERE {
 
 ## CQ_2.10
 
-List all imported vocabulary modules in the ontology.
+Which controlled-vocabulary classes does the document metadata draw its values from?
 
 ```sparql
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 PREFIX owl: <http://www.w3.org/2002/07/owl#>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
-SELECT ?vocabularyModule WHERE {
-  <https://gotriple.eu/ontology/triple> owl:imports ?vocabularyModule .
+SELECT ?vocabularyClass ?label WHERE {
+  ?vocabularyClass a owl:Class ;
+                   rdfs:subClassOf skos:Concept ;
+                   rdfs:label ?label .
 }
 ```
 
 **Expected Result:**
-- `https://gotriple.eu/ontology/triple/content_types#`
-- `https://gotriple.eu/ontology/triple/conditions_of_access#` 
-- `https://gotriple.eu/ontology/triple/licenses#`
-- `https://gotriple.eu/ontology/triple/disciplines#`
+- `triple:License` → "License"
+- `triple:AccessCondition` → "Access Condition"
+- `triple:Discipline` → "Discipline"
+- `triple:ContentType` → "Content Type"
+
+The four vocabularies are published as separate modules (`vocabularies/serializations/ttl/`) and compiled into stand-alone ontologies by `scripts/build.py`; the iteration TBOX declares the classes their concepts instantiate, not an `owl:imports` of the modules.

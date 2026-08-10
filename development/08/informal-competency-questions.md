@@ -74,6 +74,9 @@ A list of identifier schemes.
 * `datacite:issn`
 * `datacite:isbn`
 * `datacite:handle`
+* `datacite:ark`
+* `triple:original_id_schema`
+* `triple:internal_id_schema`
 
 ### Based on
 Example 1
@@ -94,8 +97,11 @@ Return all identifiers of `document_45` along with their schemes.
 A list of identifiers with their respective schemes.
 
 ### Result
-* `identifier_23` uses `datacite:issn`
-* `identifier_24` uses `datacite:doi`
+* `triple:identifier_internal_45` → `triple:internal_id_schema`
+* `triple:identifier_pid_45` → `datacite:ark`
+* `triple:identifier_original_45` → `triple:original_id_schema`
+* `triple:identifier_23` → `datacite:issn`
+* `triple:identifier_24` → `datacite:doi`
 
 ### Based on
 Example 2
@@ -149,7 +155,10 @@ Return all identifiers and their schemes for `document_78`.
 An identifier with its scheme.
 
 ### Result
-* `identifier_90` uses `datacite:handle`
+* `triple:identifier_internal_78` → `triple:internal_id_schema`
+* `triple:identifier_pid_78` → `datacite:ark`
+* `triple:identifier_original_78` → `triple:original_id_schema`
+* `triple:identifier_90` → `datacite:handle`
 
 ### Based on
 Example 3

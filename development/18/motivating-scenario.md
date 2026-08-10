@@ -29,7 +29,7 @@ The pattern is **two-level**: the direct triple (`sioc:topic`, `triple:knowsAbou
 
 Two further reuse decisions, also verified against the official vocabularies:
 
-- `schema:knowsAbout` has `domainIncludes` only `Person` and `Organization`, so applying it to documents is off-label. A new **`triple:knowsAbout rdfs:subPropertyOf schema:about`** is introduced instead (`schema:about` has `domainIncludes CreativeWork`, in domain for all GoTriple resources), and the pre-existing off-label usage on `triple:Dataset` and `triple:MediaObject` is migrated.
+- `schema:knowsAbout` has `domainIncludes` only `Person` and `Organization`, so applying it to documents is off-label. A new **`triple:knowsAbout rdfs:subPropertyOf schema:about`** is introduced instead (`schema:about` has `domainIncludes CreativeWork`, in domain for all GoTriple resources), and the pre-existing off-label usage on `triple:Dataset` (iteration 10) and `triple:MediaObject` (iteration 11) is migrated to it. One off-label usage survives on `triple:Project` in iteration 07, where `schema:knowsAbout` carries the "areas of expertise" of a project: it is left as is because `triple:knowsAbout` ranges over `schema:DefinedTerm` while that iteration links `skos:Concept` topics — deciding between `schema:about` and a dedicated property is a modelling question of its own.
 - Keyword URIs are linked with **`schema:sameAs`** (domain `Thing`, range `URL`, defined for reference pages such as Wikidata) rather than `skos:exactMatch`, whose super-property chain (`⊑ closeMatch ⊑ mappingRelation ⊑ semanticRelation`, domain and range `skos:Concept`) would entail typing the external entities as `skos:Concept`.
 
 ## Technical Specification

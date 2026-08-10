@@ -174,7 +174,7 @@ SELECT ?internal_id WHERE {
 
 ## CQ_1.15_NEW
 
-Return the internal ID for `triple:document_1` using class-based approach.
+Return the internal ID for `triple:document_1` by identifier scheme.
 
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>
@@ -206,7 +206,7 @@ SELECT ?pid WHERE {
 
 ## CQ_1.16_NEW
 
-Return the PID (persistent identifier) for `triple:document_1` using class-based approach.
+Return the PID (persistent identifier) for `triple:document_1` by identifier scheme.
 
 ```
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -239,7 +239,7 @@ SELECT ?identifier ?scheme ?value WHERE {
 
 ## CQ_1.17_NEW
 
-Return all platform identifiers (internal, PID, original) for `triple:document_1` using class-based approach.
+Return all platform identifiers (internal, PID, original) for `triple:document_1` by identifier scheme.
 
 ```
 PREFIX datacite: <http://purl.org/spar/datacite/>

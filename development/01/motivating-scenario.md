@@ -37,15 +37,15 @@ In the TRIPLE ontology, a document (`triple:Document`) represents any scholarly 
 
 3. **Language Standardization**: Languages are represented using `schema:Language` following ISO-639-1 two-character codes (e.g., "en", "fr", "de"). The platform uses a controlled vocabulary including TRIPLE's primary languages (Croatian, English, French, German, Greek, Italian, Polish, Portuguese, Slovenian, Spanish, Ukrainian) and common additional languages (Arabic, Dutch, Swedish, etc.). Special labels "other" and "undefined" handle edge cases.
 
-4. **Multiple Identifiers**: Each document is associated with multiple identifiers following a class-based approach that extends the DataCite specification. The TRIPLE ontology implements three mandatory identifier types:
+4. **Multiple Identifiers**: Each document carries several identifiers, all following the DataCite pattern. Every identifier is a `datacite:Identifier` node with exactly one `datacite:usesIdentifierScheme` and exactly one `litre:hasLiteralValue`: **the scheme is what tells one kind of identifier from another**, and the ontology has no identifier subclasses. Three kinds are mandatory:
 
-   - **Internal ID** (`triple:ID`) - Unique identifier within the GoTriple platform for internal resource management
-   - **Persistent ID** (`triple:PID`) - External persistent identifier generated and exposed by the GoTriple platform  
-   - **Original Identifier** (`triple:OriginalIdentifier`) - Original identifier from the source system where the document was harvested
+   - **Internal ID** — scheme `triple:internal_id_schema`. Unique identifier within the GoTriple platform, for internal resource management.
+   - **Persistent ID** — scheme `datacite:ark`. The ARK that GoTriple mints and exposes externally.
+   - **Original Identifier** — scheme `triple:original_id_schema`, or a scheme naming the source system when it has one. The identifier the document carried where it was harvested.
 
-Each identifier type is implemented as a specific class inheriting from `datacite:Identifier`, ensuring strong typing while maintaining DataCite compatibility. The class-based approach provides automatic schema inference through OWL restrictions, where each identifier class automatically uses its corresponding `datacite:IdentifierScheme` (e.g., `triple:ID` uses `triple:internal_id_schema`).
+The scheme is always asserted explicitly in the data; nothing is inferred. That these three are mandatory is expressed in `shapes/entity.shapes.ttl` and checked with SHACL, not stated as OWL axioms — OWL restrictions describe inferences rather than constraints, so a missing identifier would be inferred to exist instead of being reported.
 
-Additional URL-based identifiers for navigation and access are supported through DataCite's schema-based pattern for backward compatibility.
+The landing page, full text and source URLs are identifiers too, distinguished by their own schemes (`triple:landing_page_url_schema`, `triple:full_text_url_schema`, `triple:source_url_schema`), and DOI, Handle, ISSN and ISBN are optional additions with their DataCite schemes.
 
 ### Technical Specification
 
@@ -57,11 +57,10 @@ triple:Document rdf:type owl:Class ;
 
 **Core Properties and Restrictions**:
 
-2. **Class-based Identifiers** (`datacite:hasIdentifier`):
+2. **Identifiers** (`datacite:hasIdentifier`):
    - Domain: `triple:Document`
-   - Range: `triple:ID`, `triple:PID`, `triple:OriginalIdentifier` (mandatory)
-   - Cardinality: At least one of each type (`owl:someValuesFrom`)
-   - Strong typing ensures proper identifier categorization and automatic schema inference
+   - Range: `datacite:Identifier` — there are no identifier subclasses; every identifier carries exactly one `datacite:usesIdentifierScheme` and one `litre:hasLiteralValue`, and the scheme is what says which kind it is
+   - Cardinality: no OWL restriction. Which identifiers a document must carry (one internal id, one ARK PID, at least one source identifier) is stated in `shapes/entity.shapes.ttl` and checked with SHACL
 
 3. **Language** (`schema:inLanguage`):
    - Domain: `triple:Document`
@@ -95,7 +94,7 @@ triple:Document rdf:type owl:Class ;
 
 **External Vocabularies Used**:
 - **Schema.org** (`schema:inLanguage`, `schema:Language`, `schema:CreativeWork`, `schema:headline`, `schema:abstract`, `schema:encodingFormat`): Document type classification, language metadata, creative work modeling, and descriptive metadata
-- **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): Base classes and properties for identifier management with class-based extensions
+- **DataCite** (`datacite:Identifier`, `datacite:hasIdentifier`, `datacite:usesIdentifierScheme`): the whole identifier model, used as-is with no subclasses of our own
 - **FOAF** (`foaf:Document`): Document representation
 - **SKOS** (`skos:Concept`): Controlled vocabulary concepts for document types
 - **SPAR Literal** (`litre:hasLiteralValue`): Literal value management for identifiers
@@ -109,10 +108,10 @@ A scholarly article in English and French with multiple identifiers including UR
 - **Instance**: `document_1`
 - **Type**: Instance of `triple:Document`
 - **Document Type**: `type_5` (a `skos:Concept` representing "Article")
-- **Platform Identifiers** (class-based):
-  - `identifier_internal_1` (`triple:ID`): "TRIPLE_DOC_001" - Internal platform identifier
-  - `identifier_pid_1` (`triple:PID`): "ark:/12345/doc-12345-abcd-6789" - External persistent identifier  
-  - `identifier_original_1` (`triple:OriginalIdentifier`): "hal-12345" - Source system identifier
+- **Platform Identifiers** (each a `datacite:Identifier`, told apart by its scheme):
+  - `identifier_internal_1` (scheme `triple:internal_id_schema`): "TRIPLE_DOC_001" - internal platform identifier
+  - `identifier_pid_1` (scheme `datacite:ark`): "ark:/12345/doc-12345-abcd-6789" - the ARK GoTriple mints
+  - `identifier_original_1` (scheme `triple:original_id_schema`): "hal-12345" - source system identifier
 - **Additional Identifiers** (schema-based):
   - `identifier_landing_1` (Landing Page URL: "https://hal.archives-ouvertes.fr/hal-12345")
   - `identifier_fulltext_1` (Full Text URL: "https://hal.archives-ouvertes.fr/hal-12345/document")
@@ -124,7 +123,7 @@ A scholarly article in English and French with multiple identifiers including UR
 - **Source**: `document_journal` (The "Journal of Digital Humanities" containing this article)
 
 
-The example demonstrates the dual approach: class-based identifiers for platform management with automatic schema inference, and traditional schema-based identifiers for URLs and external systems.
+The example shows the single pattern applied uniformly: every identifier, whether a platform id, an ARK, a source-system id or a URL, is a `datacite:Identifier` whose scheme states its kind.
 
 ## Example 2
 

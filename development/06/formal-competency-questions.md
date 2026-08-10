@@ -77,7 +77,25 @@ SELECT ?profile ?name WHERE {
 - profile: profile_123, name: "Maria R. Rossi"
 
 
-## CQ_6.4
+## CQ_6.5
+
+Return all unassociated profiles (profiles without an account).
+
+```sparql
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX schema: <https://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+
+SELECT ?profile ?name WHERE {
+  ?profile a triple:Profile ;
+           schema:name ?name .
+  FILTER NOT EXISTS { ?profile foaf:account ?account }
+}
+```
+
+**Expected Result:**
+- profile: profile_23, name: "Pierre Dupont"
+## CQ_6.6
 
 Return all documents authored by profiles associated with `account_109`.
 
@@ -101,21 +119,3 @@ SELECT DISTINCT ?document ?authorProfile WHERE {
 - document: document_42, authorProfile: profile_123
 
 
-## CQ_6.5
-
-Return all unassociated profiles (profiles without an account).
-
-```sparql
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX schema: <https://schema.org/>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-
-SELECT ?profile ?name WHERE {
-  ?profile a triple:Profile ;
-           schema:name ?name .
-  FILTER NOT EXISTS { ?profile foaf:account ?account }
-}
-```
-
-**Expected Result:**
-- profile: profile_23, name: "Pierre Dupont"

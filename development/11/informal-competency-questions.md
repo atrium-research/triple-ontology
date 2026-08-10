@@ -199,7 +199,7 @@ Example 1, Example 2, and Example 3
 CQ_11.11
 
 ### Question
-Return all multimedia content that have DOI identifiers using class-based approach.
+Return all multimedia content that have DOI identifiers by identifier scheme.
 
 ### Expected Outcome
 A list of multimedia objects with valid DOI identifiers.
@@ -219,7 +219,7 @@ Example 1, Example 2, and Example 3
 CQ_11.12
 
 ### Question
-Return all multimedia content that have Handle identifiers using class-based approach.
+Return all multimedia content that have Handle identifiers by identifier scheme.
 
 ### Expected Outcome
 A list of multimedia objects with valid Handle identifiers.
@@ -245,9 +245,15 @@ Return all multimedia content with platform identifiers by type.
 A list of multimedia objects with their internal platform identifiers categorized by type.
 
 ### Result
-* `multimedia-001` → Internal ID: TRIPLE_MEDIA_VIDEO_001, PID: ark:/12345/media-video-medieval-carolingian
-* `multimedia-002` → Internal ID: TRIPLE_MEDIA_AUDIO_002
-* `multimedia-003` → Internal ID: TRIPLE_MEDIA_IMAGE_003
+* `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:internal_id_schema` → "TRIPLE_MEDIA_VIDEO_001"
+* `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `datacite:ark` → "ark:/12345/media-video-medieval-carolingian"
+* `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:original_id_schema` → "canal_u_video_12345"
+* `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:internal_id_schema` → "TRIPLE_MEDIA_AUDIO_002"
+* `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `datacite:ark` → "ark:/12345/media-audio-resistance-interview"
+* `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:original_id_schema` → "memory_inst_audio_789"
+* `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:internal_id_schema` → "TRIPLE_MEDIA_IMAGE_003"
+* `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `datacite:ark` → "ark:/12345/media-image-birth-venus-hd"
+* `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:original_id_schema` → "uffizi_digital_venus_hd"
 
 ### Based on
 Example 1, Example 2, and Example 3

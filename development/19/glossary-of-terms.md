@@ -6,10 +6,11 @@
 | `triple:pronouns`                           | Datatype property recording the personal pronouns chosen by the user for their profile (e.g. "she/her").                                                                |
 | `triple:registeredUser`                     | Datatype property (boolean) stating whether the profile belongs to a registered GoTriple user or was automatically created for a harvested author.                      |
 | `triple:openToCollaboration`                | Datatype property (boolean) stating whether the registered user declared to be open to collaboration with other GoTriple users.                                         |
-| `triple:ID`                                 | Internal identifier used within the GoTriple platform for resource management. On profiles it carries the Elasticsearch id.                                             |
-| `triple:PID`                                | Persistent identifier generated and exposed externally by the GoTriple platform. On profiles it carries the `pid` field, distinct from the OPERAS/GoTriple id.          |
+| `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform. |
+| `datacite:ark` | Identifier scheme of the persistent identifier minted by GoTriple: an ARK. |
 | `triple:Discipline`                         | A discipline of the GoTriple classification, subclass of `skos:Concept`.                                                                                                |
 | `triple:Document`                           | A document in the GoTriple platform.                                                                                                                                    |
+| `triple:original_id_schema`                 | Generic identifier scheme for the identifier a resource carried in the system it was harvested from. |
 | `triple:idref_schema`                       | Identifier scheme for IdRef, the French authority file for higher education and research maintained by ABES (not present in the DataCite ontology).                     |
 | `triple:gotriple_id_schema`                 | Identifier scheme for the OPERAS/GoTriple identifier assigned to a profile (the `goTripleId` field).                                                                    |
 | `foaf:givenName`                            | The given name (first name) of a person, from the FOAF vocabulary.                                                                                                      |
@@ -37,5 +38,5 @@
 | `datacite:orcid`                            | Identifier scheme for the Open Researcher and Contributor ID (ORCID), from the DataCite ontology.                                                                       |
 | `datacite:isni`                             | Identifier scheme for the International Standard Name Identifier (ISNI), from the DataCite ontology.                                                                    |
 | `datacite:researcherid`                     | Identifier scheme for ResearcherID, from the DataCite ontology.                                                                                                         |
-| `datacite:local-resource-identifier-scheme` | Identifier scheme for local resource identifiers, from the DataCite ontology. Used for the internal Elasticsearch id of the profile.                                    |
 | `litre:hasLiteralValue`                     | The literal value of an identifier, from the SPAR literal ontology.                                                                                                     |
+| `skos:Concept`                              | A concept of a knowledge organization system, from SKOS. Superclass of `triple:Discipline`.                                                                            |

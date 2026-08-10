@@ -139,7 +139,7 @@ Return all documents that are of type "Article" and are Open Access.
 Documents that match both criteria.
 
 ### Result
-* (Would return documents matching both criteria)
+* (none: no document in the exemplar data is both an Article and Open Access — the query is there to show the join, not to return rows)
 
 ### Based on
 Examples 2 and 3
@@ -157,7 +157,7 @@ For a given document, return all its classification metadata (license, access co
 A consolidated view of all vocabulary terms linked to the document.
 
 ### Result
-* License, Access Condition, Content Type, and Disciplines for the document.
+* `document_1` → licence `triple:cc_by_4_0`; access condition, content type and discipline are not asserted on this document in the exemplar data
 
 ### Based on
 All Examples
@@ -169,13 +169,13 @@ All Examples
 CQ_2.10
 
 ### Question
-List all imported vocabulary modules in the ontology.
+Which controlled-vocabulary classes does the document metadata draw its values from?
 
 ### Expected Outcome
-The URIs of the imported ontology modules.
+The vocabulary classes declared in the model, i.e. the subclasses of `skos:Concept`.
 
 ### Result
-* `content_types`, `conditions_of_access`, `licenses`, `disciplines` modules.
+* `triple:License`, `triple:AccessCondition`, `triple:Discipline`, `triple:ContentType`
 
 ### Based on
-Ontology imports
+All Examples

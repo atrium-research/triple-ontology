@@ -1,4 +1,4 @@
-## Informal Competency Questions (Iteration 3)
+## Informal Competency Questions (Iteration 5)
 
 ## Question 1
 
@@ -31,8 +31,8 @@ Return all authors from `document_56` and if they are discarded or not.
 a list of authors and the boolean if they were discarded or not.
 
 ### Result
-* `author_5`, `False`
-* `author_567`, `True`
+* `person_456`, `false`
+* `person_78`, `true`
 
 ### Based on
 Example 2
@@ -50,8 +50,8 @@ Return all keywords from `document_67` and if they are discarded or not.
 a list of keywords and the boolean if they were discarded or not.
 
 ### Result
-* `keyword_90`, `True`
-* `keyword_67`, `True`
+* `keyword_67`, `true`
+* `keyword_90`, `true`
 
 ### Based on
 Example 3

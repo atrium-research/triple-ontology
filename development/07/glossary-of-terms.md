@@ -32,3 +32,5 @@
 | `Concept`                 | A SKOS concept used to represent disciplines and fields of study. Represented as `skos:Concept`.                                                                                                                               |
 | `triple:ProjectType`         | Bridge class for project types, subclass of skos:Concept.                                                                                           |
 | `triple:hasProjectType`      | Property linking a project to its type, subProperty of dcterms:type.                                                                                |
+| `datacite:ark` | Identifier scheme of the persistent identifier minted by GoTriple: an ARK. |
+| `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform. |

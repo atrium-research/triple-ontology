@@ -33,8 +33,8 @@ In this way, the data is preserved, but not made operational on the interface wi
 
 ## Example 2
 
-`document_56` has as authors `author_5` and `author_567`. This last author was discarded.
+`document_56` has as authors `person_456` and `person_78`. This last author was discarded.
 
 ## Example 3
 
-`document_67` has as keywords `keyword_90` and `keyword_67`. Both keywords were discarded.
+`document_67` has as keywords `keyword_67` and `keyword_90`. Both keywords were discarded.

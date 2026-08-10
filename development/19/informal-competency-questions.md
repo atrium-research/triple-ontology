@@ -172,7 +172,7 @@ One row per profile with the internal Elasticsearch id and, when present, the pe
 
 ### Result
 * `profile_it19_1` → "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I", "ark:/12345/profile-sofia-rossi"
-* `profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K", no pid in this example
+* `profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K", "ark:/12345/profile-joao-almeida"
 
 ### Based on
 Example 1 and Example 2

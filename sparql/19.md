@@ -208,4 +208,4 @@ ORDER BY ?profile
 
 **Expected result:**
 - `triple:profile_it19_1` → "sofia_rossi_x8KfvrDgWBlxpw8Ve9U5I", "ark:/12345/profile-sofia-rossi"
-- `triple:profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K", (no pid in this example)
+- `triple:profile_it19_2` → "joao_almeida_p2QhtsFjYDnzrw7Xg1W7K", "ark:/12345/profile-joao-almeida"

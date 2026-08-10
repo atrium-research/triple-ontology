@@ -15,3 +15,5 @@
 | `schema:Project` | Schema.org class representing collaborative enterprises planned to achieve particular aims. |
 | `schema:CreativeWork` | Schema.org class representing creative works including scholarly publications, datasets, and media. |
 | `mod:SemanticArtefact` | Class from MOD ontology representing semantic artifacts such as ontologies and vocabularies. |
+| `schema:MediaObject` | Schema.org class for media objects (image, video, audio). Superclass of `triple:MediaObject`. |
+| `schema:Dataset` | Schema.org class for datasets. Superclass of `triple:Dataset`. |

@@ -12,10 +12,13 @@ Return all information about `profile_1`.
 A profile with all associated properties and values.
 
 ### Result
-* type: `triple:Profile`
-* identifier: `agent_identifier_2345678998765`
-* account: `account_1`
-* name: "John Smith"
+* <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> → <http://www.w3.org/2002/07/owl#NamedIndividual>
+* <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> → `triple:Profile`
+* `datacite:hasIdentifier` → `triple:identifier_pid_profile_1`
+* `datacite:hasIdentifier` → `triple:agent_identifier_2345678998765`
+* `foaf:account` → `triple:account_1`
+* `schema:name` → "John Smith"
+* <http://www.w3.org/2000/01/rdf-schema#comment> → "Profile associated with account_1"
 
 ### Based on
 Example 1
@@ -97,3 +100,25 @@ A list of profiles that are not associated with any user account.
 
 ### Based on
 Example 2
+
+## Question 6
+
+### Identifier
+CQ_6.6
+
+### Question
+Return all documents authored by profiles associated with `account_109`.
+
+### Expected Outcome
+A list of documents with the profile that authored each of them.
+
+### Result
+* `document_56` - `profile_56`
+* `document_67` - `profile_56`
+* `document_56` - `profile_09`
+* `document_98` - `profile_09`
+* `document_56` - `profile_123`
+* `document_42` - `profile_123`
+
+### Based on
+Example 3

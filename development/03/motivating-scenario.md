@@ -31,27 +31,19 @@ Each of these roles contributes to the lifecycle of a document in GoTriple, from
 
 ### Technical specification
 
-In a technical framework like GoTriple, the role system for document creation and lifecycle management is defined by three key parameters: the temporal collocation, the associated entities (persons or organizations), and the specific functions or responsibilities of each role.
+The roles are modelled as **direct properties of the document**, not as reified role objects: `schema:author`, `schema:contributor`, `schema:publisher`, `schema:provider` and the TRIPLE-minted `triple:aggregator` link a `triple:Document` to a `foaf:Person` or a `foaf:Organization`, and `schema:contactPoint` links it to a `schema:ContactPoint`.
 
-1. **Temporal Collocation**: 
-   - Each role is aligned with a specific phase in the document's lifecycle. This temporal placement defines when a particular role is active and influential in the process of document creation, modification, dissemination, or preservation.
-   - The lifecycle phases typically include the initial creation or conceptualization phase, the development or production phase, the publication or release phase, and the archival or preservation phase.
+Two consequences follow, and they are deliberate:
 
-2. **Associated Entities**:
-   - Roles can be assumed by individuals such as researchers, writers, and technical experts, or by organizations including academic institutions, publishing houses, data repositories, and funding bodies.
-   - The entity associated with a role may vary based on the nature of the document, the field of study, and the resources available for the project.
+- **No temporal collocation.** A reified `RoleInTime` proxy — role, agent and time as three sides of one object — would be needed to say *when* an agent held a role. GoTriple's source metadata does not carry that information, so the model does not ask for it: the year a provider made a document available is not represented. Should it become necessary, the PROV or PRO patterns are the place to look.
+- **Roles are only those the platform actually receives.** Producer, primary producer and funder are described above because they are part of the publishing lifecycle, but no source in GoTriple provides them for a document, and no property is minted for them here. Funding is modelled at project level in iteration 07 (`schema:funding`, `schema:funder`), not on the document.
 
-3. **Role Specification**:
-   - Each role comes with a set of specific functions or responsibilities that contribute to the document's development.
-
-In this role system, the interplay between the temporal collocation, the entities involved, and their specified roles ensures a dynamic yet structured progression of a document from its inception to its ultimate utilization and archiving. This systematic approach is crucial in managing the complex processes involved in the handling of scholarly and research documents, particularly in a multifaceted platform like GoTriple.
+`triple:aggregator` is the only new property of this iteration: no standard vocabulary names the agent that collates documents from several sources into a discovery platform.
 
 ## Example 1
 
 `document_1` has the following metadata:
 
-- **Author**: name_34 (Person)
-- **Providers**: name_3 (Organization, 2012), name_1 (Organization, 2022)
-- **Contact Point**: contact@example.org
-- **Aggregator**: name_56 (Organization)
-- **Funder**: name_78 (Organization) `2022`.
+- **Author**: `author_34`, a `foaf:Person` named "name_45"
+- **Providers**: `provider_9`, a `foaf:Organization` named "name_3", and `provider_45`, a `foaf:Organization` named "name_1"
+- **Contact point**: `contact_point_1`, with e-mail `contact@example.org`

@@ -13,3 +13,4 @@
 | `usesIdentifierScheme`    | The property connecting an identifier to its scheme (`datacite:usesIdentifierScheme`).                                                                      |
 | `hasLiteralValue`         | The property connecting an identifier to its string value (`litre:hasLiteralValue`).                                                                        |
 | `Document`                | An entity representing any type of resource available on the GoTriple platform.                                                                             |
+| `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform. |

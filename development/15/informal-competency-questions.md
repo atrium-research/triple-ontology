@@ -8,12 +8,12 @@ CQ_15.1
 Which entities are mentioned in "Document 1"?
 
 ### Expected Outcome
-A list of names/URIs: Ada Lovelace, Jane Doe, New Author Name.
+A list of names/URIs: Ada Lovelace, Jane Doe, John Smith.
 
 ### Result
 *   <http://www.wikidata.org/entity/Q7259> (Ada Lovelace)
 *   `triple:JaneDoe` (Jane Doe)
-*   `triple:person_1` (New Author Name)
+*   `triple:person_1` (John Smith)
 *   `triple:place_rome` (Rome)
 *   `triple:concept_democracy` (Democracy)
 
@@ -41,7 +41,7 @@ CQ_15.3
 Which newly discovered local entities are mentioned in "Document 1"?
 
 ### Expected Outcome
-New Author Name URI.
+John Smith URI.
 
 ### Result
 *   `triple:person_1`

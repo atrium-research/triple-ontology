@@ -31,8 +31,14 @@ Return the identifiers associated with `document_1`.
 A list of identifiers.
 
 ### Result
-* `identifier_2`
-* `identifier_4`
+* `triple:identifier_2`
+* `triple:identifier_4`
+* `triple:identifier_landing_1`
+* `triple:identifier_fulltext_1`
+* `triple:identifier_source_1`
+* `triple:identifier_internal_1`
+* `triple:identifier_pid_1`
+* `triple:identifier_original_1`
 
 ### Based on
 Example 1
@@ -51,9 +57,10 @@ Return all documents.
 A list of documents.
 
 ### Result
-* `document_1`
-* `document_45`
-* `document_31`
+* `triple:document_1`
+* `triple:document_31`
+* `triple:document_45`
+* `triple:document_journal`
 
 ### Based on
 Example 1

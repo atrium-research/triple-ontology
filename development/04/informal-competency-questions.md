@@ -12,7 +12,7 @@ Return all spatial subjects of the `document_2`.
 A list of places.
 
 ### Result
-* `place_45`
+* `triple:place_67`
 
 ### Based on
 Example 2
@@ -30,10 +30,10 @@ Return all temporal subjects of the `document_2`.
 A list of dates or events.
 
 ### Result
-* `temporal_entity_4`
+* "1942" (a literal typed `schema:DateTime`, not an individual)
 
 ### Based on
-Example 1
+Example 2
 
 ## Question 3
 

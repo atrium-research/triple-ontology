@@ -12,8 +12,8 @@ Return all datasets available in the platform.
 A list of all datasets with their titles.
 
 ### Result
-* `dataset_001` (European Archaeological Sites Database)
-* `dataset_002` (European Social Attitudes Survey 2023)
+* `triple:dataset-001` → "European Archaeological Sites Database"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023"
 
 ### Based on
 Example 1 and Example 2
@@ -31,8 +31,8 @@ Return all datasets with their spatial coverage.
 A list of datasets with their geographical coverage information.
 
 ### Result
-* `dataset_001` → Europe
-* `dataset_002` → European Union
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:place-europe`
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:place-european-union`
 
 ### Based on
 Example 1 and Example 2
@@ -50,8 +50,10 @@ Return all datasets with their format and size information.
 A list of datasets with encoding format and file size.
 
 ### Result
-* `dataset_001` → text/csv, 15.2 MB
-* `dataset_002` → application/x-spss, 245 MB
+* `triple:dataset-001` → "European Archaeological Sites Database" → "text/csv" → "15.2 MB"
+* `triple:dataset-001` → "European Archaeological Sites Database" → "application/json" → "15.2 MB"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "application/x-spss" → "245 MB"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "text/csv" → "245 MB"
 
 ### Based on
 Example 1 and Example 2
@@ -69,8 +71,9 @@ Return all datasets that have DOI identifiers.
 A list of datasets with valid DOI identifiers.
 
 ### Result
-* `dataset-001` → 10.5281/zenodo.heritage.arch.2023
-* `dataset-002` → 10.5281/zenodo.social.attitudes.2023
+* `triple:dataset-001` → "European Archaeological Sites Database" → "10.5281/zenodo.heritage.arch.2023"
+* `triple:dataset-001` → "European Archaeological Sites Database" → "10.1234/example.dataset.001"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "10.5281/zenodo.social.attitudes.2023"
 
 ### Based on
 Example 1 and Example 2
@@ -88,8 +91,14 @@ Return all datasets with their descriptive keywords.
 A list of datasets with their associated keyword terms.
 
 ### Result
-* `dataset_001` → archaeology, Europe, heritage, spatial data
-* `dataset_002` → social attitudes, survey, politics, demographics
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-archaeology` → "archaeology"
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-europe` → "Europe"
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-heritage` → "heritage"
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-spatial-data` → "spatial data"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-social-attitudes` → "social attitudes"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-survey` → "survey"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-politics` → "politics"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-demographics` → "demographics"
 
 ### Based on
 Example 1 and Example 2
@@ -107,8 +116,8 @@ Return all datasets with temporal coverage.
 A list of datasets with their temporal scope.
 
 ### Result
-* `dataset_001` → 2000 BCE - 1500 CE
-* `dataset_002` → 2023
+* `triple:dataset-001` → "European Archaeological Sites Database" → "2000 BCE - 1500 CE"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "2023"
 
 ### Based on
 Example 1 and Example 2
@@ -126,8 +135,9 @@ Return all datasets with their contributors.
 A list of datasets with their contributor information.
 
 ### Result
-* `dataset_001` → Dr. Anna Fischer
-* `dataset_002` → Prof. Elena Rodriguez, Dr. Klaus Mueller
+* `triple:dataset-001` → "European Archaeological Sites Database" → "Dr. Anna Fischer"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Prof. Elena Rodriguez"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Dr. Klaus Mueller"
 
 ### Based on
 Example 1 and Example 2
@@ -145,8 +155,8 @@ Return all datasets with their funding projects.
 A list of datasets with their associated research projects.
 
 ### Result
-* `dataset_001` → European Heritage Digital Mapping Initiative
-* `dataset_002` → Social Cohesion Research Program
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:project-heritage-mapping`
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:project-social-cohesion`
 
 ### Based on
 Example 1 and Example 2
@@ -164,8 +174,8 @@ Return all datasets with their contact points.
 A list of datasets with contact information for data access.
 
 ### Result
-* `dataset_001` → European Heritage Institute Data Team (data@heritage.eu)
-* `dataset_002` → EU Social Observatory Research Support (support@social-eu.org)
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:contact-heritage-institute` → "data@heritage.eu"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:contact-social-observatory` → "support@social-eu.org"
 
 ### Based on
 Example 1 and Example 2
@@ -177,14 +187,15 @@ Example 1 and Example 2
 CQ_10.10
 
 ### Question
-Return all datasets that have Handle identifiers using class-based approach.
+Return all datasets that have Handle identifiers by identifier scheme.
 
 ### Expected Outcome
 A list of datasets with valid Handle identifiers.
 
 ### Result
-* `dataset-001` → 21.11130/00-HERITAGE-ARCH-2023
-* `dataset-002` → 21.11130/00-SOCIAL-ATTITUDES-2023
+* `triple:dataset-001` → "European Archaeological Sites Database" → "21.11130/00-HERITAGE-ARCH-2023"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "21.11130/00-SOCIAL-ATTITUDES-2023"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "hdl:1234.5/survey2023"
 
 ### Based on
 Example 1 and Example 2
@@ -196,15 +207,18 @@ Example 1 and Example 2
 CQ_10.11
 
 ### Question
-Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
+Return all datasets that have platform identifiers (internal id, PID, original identifier).
 
 ### Expected Outcome
 A list of datasets with their internal platform identifiers by type.
 
 ### Result
-* `dataset-001` → Internal ID: TRIPLE_DATASET_HERITAGE_001
-* `dataset-001` → PID: ark:/12345/dataset-heritage-archaeological-sites
-* `dataset-002` → Internal ID: TRIPLE_DATASET_SOCIAL_002
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-internal` → `triple:internal_id_schema` → "TRIPLE_DATASET_HERITAGE_001"
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `datacite:ark` → "ark:/12345/dataset-heritage-archaeological-sites"
+* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-original` → `triple:original_id_schema` → "heritage_inst_arch_sites_2023"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-internal` → `triple:internal_id_schema` → "TRIPLE_DATASET_SOCIAL_002"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-pid` → `datacite:ark` → "ark:/12345/dataset-social-attitudes-survey-2023"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-original` → `triple:original_id_schema` → "social_obs_attitudes_2023"
 
 ### Based on
 Example 1 and Example 2
@@ -222,7 +236,7 @@ Return all datasets with their distribution access URLs.
 A list of datasets with the URL to access/download the data.
 
 ### Result
-* `dataset_001` → https://data.heritage.eu/download/sites.csv
+* `triple:dataset-001` → "European Archaeological Sites Database" → "https://data.heritage.eu/download/sites.csv"
 
 ### Based on
 Example 1
@@ -240,14 +254,33 @@ Return all datasets with their bounding box.
 A list of datasets with their spatial extent defined as a WKT literal.
 
 ### Result
-* `dataset_001` → POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))
-* `dataset_002` → POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))
+* `triple:dataset-001` → "European Archaeological Sites Database" → "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"
 
 ### Based on
 Example 1 and Example 2
 
 
 ## Question 14
+
+### Identifier
+CQ_10.14
+
+### Question
+Return the provenance statement for all datasets.
+
+### Expected Outcome
+A list of datasets with the statement describing how the data was produced.
+
+### Result
+* `triple:dataset-001` → "European Archaeological Sites Database" → "Data aggregated from 15 national museums and normalized to CIDOC-CRM before conversion to CSV."
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Survey results merged from 27 EU member state polls, anonymized, and weighted for demographic representativeness."
+
+### Based on
+Example 1 and Example 2
+
+
+## Question 15
 
 ### Identifier
 CQ_10.15
@@ -259,14 +292,14 @@ Return all datasets with their license.
 A list of datasets with their license information.
 
 ### Result
-* `dataset_001` → CC BY-NC-ND 4.0
-* `dataset_002` → CC BY 4.0
+* `triple:dataset-001` → "European Archaeological Sites Database" → "CC BY-NC-ND 4.0"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "CC BY 4.0"
 
 ### Based on
 Example 1 and Example 2
 
 
-## Question 15
+## Question 16
 
 ### Identifier
 CQ_10.16
@@ -278,8 +311,8 @@ Return all datasets with their access conditions.
 A list of datasets with their access status.
 
 ### Result
-* `dataset_001` → Open Access
-* `dataset_002` → Restricted Access
+* `triple:dataset-001` → "European Archaeological Sites Database" → "Open Access"
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Restricted Access"
 
 ### Based on
 Example 1 and Example 2

@@ -73,6 +73,9 @@ SELECT ?scheme WHERE {
 - `datacite:issn`
 - `datacite:isbn`
 - `datacite:handle`
+- `datacite:ark`
+- `triple:original_id_schema`
+- `triple:internal_id_schema`
 
 
 ## CQ_8.5
@@ -90,6 +93,9 @@ SELECT ?identifier ?scheme WHERE {
 ```
 
 **Expected result:**
+- `triple:identifier_internal_45` → `triple:internal_id_schema`
+- `triple:identifier_pid_45` → `datacite:ark`
+- `triple:identifier_original_45` → `triple:original_id_schema`
 - `triple:identifier_23` → `datacite:issn`
 - `triple:identifier_24` → `datacite:doi`
 
@@ -115,7 +121,7 @@ SELECT ?value WHERE {
 
 ## CQ_8.13
 
-Return all documents that have a DOI identifier using class-based approach.
+Return all documents that have a DOI identifier by identifier scheme.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
@@ -153,7 +159,7 @@ SELECT ?document WHERE {
 
 ## CQ_8.14
 
-Return all documents that have an ISSN identifier using class-based approach.
+Return all documents that have an ISSN identifier by identifier scheme.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
@@ -171,7 +177,7 @@ SELECT ?document WHERE {
 
 ## CQ_8.15
 
-Return all identifier values by type using class-based approach.
+Return all identifier values by type by identifier scheme.
 
 ```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
@@ -210,6 +216,9 @@ SELECT ?identifier ?scheme WHERE {
 ```
 
 **Expected result:**
+- `triple:identifier_internal_78` → `triple:internal_id_schema`
+- `triple:identifier_pid_78` → `datacite:ark`
+- `triple:identifier_original_78` → `triple:original_id_schema`
 - `triple:identifier_90` → `datacite:handle`
 
 
@@ -234,3 +243,15 @@ SELECT ?identifier ?scheme ?value WHERE {
 - `triple:identifier_24` → `datacite:doi` → "10.5678/journal.2024.045"
 - `triple:identifier_90` → `datacite:handle` → "11234/5678-abcd-efgh"
 - `triple:identifier_110` → `datacite:isbn` → "978-3-16-148410-0"
+- `triple:identifier_internal_1` → `triple:internal_id_schema` → "TRIPLE_DOC_001"
+- `triple:identifier_pid_1` → `datacite:ark` → "ark:/12345/doc-001"
+- `triple:identifier_original_1` → `triple:original_id_schema` → "hal-00001"
+- `triple:identifier_internal_45` → `triple:internal_id_schema` → "TRIPLE_DOC_045"
+- `triple:identifier_pid_45` → `datacite:ark` → "ark:/12345/doc-045"
+- `triple:identifier_original_45` → `triple:original_id_schema` → "openedition-045"
+- `triple:identifier_internal_78` → `triple:internal_id_schema` → "TRIPLE_DOC_078"
+- `triple:identifier_pid_78` → `datacite:ark` → "ark:/12345/doc-078"
+- `triple:identifier_original_78` → `triple:original_id_schema` → "nakala-078"
+- `triple:identifier_internal_99` → `triple:internal_id_schema` → "TRIPLE_DOC_099"
+- `triple:identifier_pid_99` → `datacite:ark` → "ark:/12345/doc-099"
+- `triple:identifier_original_99` → `triple:original_id_schema` → "persee-099"

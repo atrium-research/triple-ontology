@@ -108,7 +108,8 @@ SELECT ?audio ?title ?language ?temporal WHERE {
 ```
 
 **Expected result:**
-- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "it" → "1943-1945"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `schema:language-it` → "1943-1945"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `schema:language-en` → "1943-1945"
 
 
 ## CQ_11.6
@@ -175,9 +176,9 @@ SELECT ?multimedia ?title ?spatial ?topic WHERE {
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "Europe occidentale" → "Medieval History"
-- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → "Italy" → "European History"
-- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "Florence, Italy" → "Art History"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:place-europe-occidentale` → "Medieval History"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:place-italy` → "European History"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:place-florence-italy` → "Art History"
 
 
 ## CQ_11.9
@@ -198,8 +199,8 @@ SELECT ?multimedia ?title ?referencedDoc ?docTitle WHERE {
 ```
 
 **Expected result:**
-- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → "triple:document-medieval-anthology-2023" → "Medieval Studies Anthology 2023"
-- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → "triple:document-botticelli-analysis-2023" → "Digital Analysis of Botticelli's Techniques"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:document-medieval-anthology-2023` → "Medieval Studies Anthology 2023"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:document-botticelli-analysis-2023` → "Digital Analysis of Botticelli's Techniques"
 
 
 ## CQ_11.10
@@ -221,13 +222,20 @@ SELECT ?multimedia ?title ?keyword ?keywordName WHERE {
 **Expected result:**
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:keyword-histoire-medievale` → "histoire médiévale"
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:keyword-renaissance-carolingienne` → "renaissance carolingienne"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:keyword-charlemagne` → "Charlemagne"
 - `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:keyword-oral-history` → "oral history"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:keyword-world-war-ii` → "World War II"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:keyword-italian-resistance` → "Italian Resistance"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:keyword-memory-studies` → "memory studies"
 - `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:keyword-renaissance-art` → "Renaissance art"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:keyword-botticelli` → "Botticelli"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:keyword-digital-humanities` → "digital humanities"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:keyword-cultural-heritage` → "cultural heritage"
 
 
 ## CQ_11.11
 
-Return all multimedia content that have DOI identifiers using class-based approach.
+Return all multimedia content that have DOI identifiers by identifier scheme.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
@@ -252,7 +260,7 @@ SELECT ?multimedia ?title ?identifierValue WHERE {
 
 ## CQ_11.12
 
-Return all multimedia content that have Handle identifiers using class-based approach.
+Return all multimedia content that have Handle identifiers by identifier scheme.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
@@ -298,4 +306,10 @@ SELECT ?multimedia ?title ?identifierType ?value WHERE {
 **Expected result:**
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:internal_id_schema` → "TRIPLE_MEDIA_VIDEO_001"
 - `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `datacite:ark` → "ark:/12345/media-video-medieval-carolingian"
+- `triple:multimedia-001` → "Introduction to Medieval History: The Carolingian Renaissance" → `triple:original_id_schema` → "canal_u_video_12345"
 - `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:internal_id_schema` → "TRIPLE_MEDIA_AUDIO_002"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `datacite:ark` → "ark:/12345/media-audio-resistance-interview"
+- `triple:multimedia-002` → "Oral History: Resistance Movement in WWII Italy" → `triple:original_id_schema` → "memory_inst_audio_789"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:internal_id_schema` → "TRIPLE_MEDIA_IMAGE_003"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `datacite:ark` → "ark:/12345/media-image-birth-venus-hd"
+- `triple:multimedia-003` → "High-Resolution Scan: Botticelli's Birth of Venus" → `triple:original_id_schema` → "uffizi_digital_venus_hd"

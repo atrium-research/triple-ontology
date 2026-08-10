@@ -15,8 +15,8 @@ SELECT ?dataset ?title WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023"
+- `triple:dataset-001` → "European Archaeological Sites Database"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023"
 
 
 ## CQ_10.2
@@ -35,8 +35,8 @@ SELECT ?dataset ?title ?spatial WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "Europe"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "European Union"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:place-europe`
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:place-european-union`
 
 
 ## CQ_10.3
@@ -56,8 +56,10 @@ SELECT ?dataset ?title ?format ?size WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "text/csv" → "15.2 MB"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "application/x-spss" → "245 MB"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "text/csv" → "15.2 MB"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "application/json" → "15.2 MB"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "application/x-spss" → "245 MB"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "text/csv" → "245 MB"
 
 
 ## CQ_10.4
@@ -81,12 +83,13 @@ SELECT ?dataset ?title ?identifierValue WHERE {
 
 **Expected result:**
 - `triple:dataset-001` → "European Archaeological Sites Database" → "10.5281/zenodo.heritage.arch.2023"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "10.1234/example.dataset.001"
 - `triple:dataset-002` → "European Social Attitudes Survey 2023" → "10.5281/zenodo.social.attitudes.2023"
 
 
 ## CQ_10.10
 
-Return all datasets that have Handle identifiers using class-based approach.
+Return all datasets that have Handle identifiers by identifier scheme.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
@@ -106,11 +109,12 @@ SELECT ?dataset ?title ?identifierValue WHERE {
 **Expected result:**
 - `triple:dataset-001` → "European Archaeological Sites Database" → "21.11130/00-HERITAGE-ARCH-2023"
 - `triple:dataset-002` → "European Social Attitudes Survey 2023" → "21.11130/00-SOCIAL-ATTITUDES-2023"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "hdl:1234.5/survey2023"
 
 
 ## CQ_10.11
 
-Return all datasets that have platform identifiers (ID, PID, OriginalIdentifier).
+Return all datasets that have platform identifiers (internal id, PID, original identifier).
 
 ```sparql
 PREFIX schema: <https://schema.org/>
@@ -131,7 +135,10 @@ SELECT ?dataset ?title ?identifier ?identifierType ?value WHERE {
 **Expected result:**
 - `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-internal` → `triple:internal_id_schema` → "TRIPLE_DATASET_HERITAGE_001"
 - `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-pid` → `datacite:ark` → "ark:/12345/dataset-heritage-archaeological-sites"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:identifier-heritage-original` → `triple:original_id_schema` → "heritage_inst_arch_sites_2023"
 - `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-internal` → `triple:internal_id_schema` → "TRIPLE_DATASET_SOCIAL_002"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-pid` → `datacite:ark` → "ark:/12345/dataset-social-attitudes-survey-2023"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:identifier-social-original` → `triple:original_id_schema` → "social_obs_attitudes_2023"
 
 
 ## CQ_10.5
@@ -151,10 +158,14 @@ SELECT ?dataset ?title ?keyword ?keywordName WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:keyword-archaeology` → "archaeology"
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:keyword-heritage` → "heritage"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:keyword-survey` → "survey"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:keyword-politics` → "politics"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-archaeology` → "archaeology"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-europe` → "Europe"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-heritage` → "heritage"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:keyword-spatial-data` → "spatial data"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-social-attitudes` → "social attitudes"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-survey` → "survey"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-politics` → "politics"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:keyword-demographics` → "demographics"
 
 
 ## CQ_10.6
@@ -173,8 +184,8 @@ SELECT ?dataset ?title ?temporal WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "2000 BCE - 1500 CE"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "2023"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "2000 BCE - 1500 CE"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "2023"
 
 
 ## CQ_10.7
@@ -193,8 +204,9 @@ SELECT ?dataset ?title ?contributor WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "Dr. Anna Fischer"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "Prof. Elena Rodriguez"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "Dr. Anna Fischer"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Prof. Elena Rodriguez"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Dr. Klaus Mueller"
 
 
 ## CQ_10.8
@@ -214,8 +226,8 @@ SELECT ?dataset ?title ?project WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:project-heritage-mapping`
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:project-social-cohesion`
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:project-heritage-mapping`
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:project-social-cohesion`
 
 
 ## CQ_10.9
@@ -235,8 +247,8 @@ SELECT ?dataset ?title ?contact ?email WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → `triple:contact-heritage-institute` → "data@heritage.eu"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → `triple:contact-social-observatory` → "support@social-eu.org"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:contact-heritage-institute` → "data@heritage.eu"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:contact-social-observatory` → "support@social-eu.org"
 
 
 ## CQ_10.12
@@ -257,7 +269,7 @@ SELECT ?dataset ?title ?accessURL WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "https://data.heritage.eu/download/sites.csv"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "https://data.heritage.eu/download/sites.csv"
 
 
 ## CQ_10.13
@@ -277,8 +289,8 @@ SELECT ?dataset ?title ?bbox WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_001` → "European Archaeological Sites Database" → "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"
 
 
 ## CQ_10.14
@@ -300,7 +312,8 @@ SELECT ?dataset ?title ?provenanceComment WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset_002` → "European Social Attitudes Survey 2023" → "Survey results merged from 27 EU member state polls..."
+- `triple:dataset-001` → "European Archaeological Sites Database" → "Data aggregated from 15 national museums and normalized to CIDOC-CRM before conversion to CSV."
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "Survey results merged from 27 EU member state polls, anonymized, and weighted for demographic representativeness."
 
 
 ## CQ_10.15
