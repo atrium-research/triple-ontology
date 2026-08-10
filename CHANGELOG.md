@@ -15,6 +15,27 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - The exemplar data cites real vocabulary concepts, chosen by the production classifier
+
+**Type**: Modification
+
+**Iteration**: 02, 10, 11, 12 (ABOXes, competency questions, scenario prose)
+
+**Description**:
+Fifteen individuals typed with vocabulary classes were minted locally by the exemplar data — `triple:open_access`, `triple:article`, `triple:digital_humanities`, `triple:topic-medieval-history`, `triple:educational_use` and friends — in the term namespace, existing in no vocabulary. Same disease as the licence individuals removed earlier today; these were the remaining cases. Eleven had an obvious concept; four did not, and instead of judging by feel each was resolved by **asking the platform's classifier what it does with real works of that kind** (50-document samples per query):
+
+- the interdisciplinary digital-humanities study of dev/02 is classified `hisphilso` + `lang` in production ("digital humanities" returns hist 19, hisphilso 18, info 10, lang 10 — no DH concept exists, and the scenario now says so explicitly);
+- the social-attitudes survey dataset of dev/10 is `socio` (43/50 on real survey datasets);
+- dev/11's three multimedia stay **distinct**, which had looked impossible: the medieval-history lecture is `hist` (43/50), the Botticelli scan is `art` (31/50), and the WWII oral-history recording is `anthro-se` — the classifier files oral history under social anthropology (40/50), not history;
+- "Educational and Research Use" exists in no vocabulary and maps to `acr_restricted-access-or-use`.
+
+`CQ_11.4` filtered topic labels for the string "medieval" and only worked because the exemplar minted a "Medieval History" concept; it now asks for multimedia classified under History and matches the concept directly. Label-returning queries in dev/11 gained `FILTER(LANG(…) = "en")`, since the real concepts are multilingual where the minted ones were English-only. `CQ_2.6` asks for the exact match of `acr_open-access` (the real concept's alignment) instead of the close match of the minted one. Every rewritten query was executed and returns exactly its declared expected result; 163 CQs, 0 errors, the usual 2 empty by design.
+
+With this, no exemplar file mints vocabulary individuals any more (`URI-CONVENTIONS.md` §3 rule three, now enforced end to end).
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Breaking: vocabularies move beside the ontology, entity modules retired, every IRI resolves
 
 **Type**: Refactoring (breaking — every vocabulary IRI changes; part of the 3.0.0 release)
