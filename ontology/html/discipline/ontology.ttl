@@ -1,0 +1,699 @@
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+# TRIPLE Ontology - Discipline Vocabulary
+# License: CC BY 4.0
+# Website: https://gotriple.eu/ontology/triple
+
+@prefix ddc: <https://gotriple.eu/ontology/ddc/> .
+@prefix disc: <https://gotriple.eu/ontology/discipline/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+
+<https://gotriple.eu/ontology/discipline> a owl:Ontology ;
+    dcterms:title "Discipline"@en ;
+    dcterms:description "The Discipline vocabulary provides a classification scheme for academic disciplines and fields of study, with a focus on Humanities and Social Sciences. It allows resources to be categorized by their subject area."@en ;
+    dcterms:abstract "A controlled vocabulary of academic disciplines, supporting multilingual discovery of resources."@en ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    owl:versionInfo "3.0.0" ;
+    vann:preferredNamespacePrefix "disc" ;
+    vann:preferredNamespaceUri "https://gotriple.eu/ontology/discipline/" ;
+    dcterms:created "2021-12-01"^^xsd:date ;
+    dcterms:modified "2026-08-10"^^xsd:date .
+
+
+skos:closeMatch a owl:ObjectProperty ;
+    rdfs:label "has close match"@en ;
+    rdfs:comment "skos:closeMatch is used to link two concepts that are sufficiently similar that they can be used interchangeably in some information retrieval applications. In order to avoid the possibility of \"compound errors\" when combining mappings across more than two concept schemes, skos:closeMatch is not declared to be a transitive property."@en ;
+    rdfs:isDefinedBy skos: .
+
+disc:anthro-bio a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Biologische Anthropologie"@de,
+        "Biological Anthropology"@en,
+        "Anthropologie biologique"@fr,
+        "Antropologia Biologica"@it,
+        "Antropologia fizyczna"@pl,
+        "Antropologia Biológica"@pt ;
+    rdfs:comment "The study of human biological variation, evolution and adaptation."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85101512>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85005581>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh89006497>,
+        ddc:599.9 ;
+    skos:definition "The study of human biological variation, evolution and adaptation."@en ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q27172> ;
+    skos:notation "anthro-bio" ;
+    skos:prefLabel "Biologische Anthropologie"@de,
+        "Biological Anthropology"@en,
+        "Anthropologie biologique"@fr,
+        "Antropologia Biologica"@it,
+        "Antropologia fizyczna"@pl,
+        "Antropologia Biológica"@pt .
+
+disc:anthro-se a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Soziale Anthropologie and Ethnologie"@de,
+        "Social Anthropology and Ethnology"@en,
+        "Anthropologie sociale et ethnologie"@fr,
+        "Antropologia Sociale ed Etnologia"@it,
+        "Antropologia społeczna i etnologia"@pl,
+        "Antropologia Social e Etnologia"@pt ;
+    rdfs:comment "The comparative study of human societies, cultures and their social organisation."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85045198>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85045198>,
+        ddc:301,
+        ddc:305,
+        ddc:307,
+        <https://www.wikidata.org/entity/Q29051>,
+        <https://www.wikidata.org/entity/Q43455> ;
+    skos:definition "The comparative study of human societies, cultures and their social organisation."@en ;
+    skos:notation "anthro-se" ;
+    skos:prefLabel "Soziale Anthropologie and Ethnologie"@de,
+        "Social Anthropology and Ethnology"@en,
+        "Anthropologie sociale et ethnologie"@fr,
+        "Antropologia Sociale ed Etnologia"@it,
+        "Antropologia społeczna i etnologia"@pl,
+        "Antropologia Social e Etnologia"@pt .
+
+disc:archeo a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Archäologie und Vor- und Frühgeschichte"@de,
+        "Archaeology and Prehistory"@en,
+        "Archéologie et Préhistoire"@fr,
+        "Archeologia e Preistoria"@it,
+        "Archeologia i prehistoria"@pl,
+        "Arqueologia e Pré-História"@pt ;
+    rdfs:comment "The study of past human societies through their material remains, including the periods before written records."@en ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh85006507>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85061212>,
+        ddc:930.1,
+        ddc:930.11,
+        <https://www.wikidata.org/entity/Q2415966> ;
+    skos:definition "The study of past human societies through their material remains, including the periods before written records."@en ;
+    skos:notation "archeo" ;
+    skos:prefLabel "Archäologie und Vor- und Frühgeschichte"@de,
+        "Archaeology and Prehistory"@en,
+        "Archéologie et Préhistoire"@fr,
+        "Archeologia e Preistoria"@it,
+        "Archeologia i prehistoria"@pl,
+        "Arqueologia e Pré-História"@pt .
+
+disc:archi a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Architektur und Raummanagement"@de,
+        "Architecture and Space Management"@en,
+        "Architecture, aménagement de l'espace"@fr,
+        "Architettura e Organizzazione dello Spazio"@it,
+        "Architektura i zarządzanie przestrzenią"@pl,
+        "Arquitetura e Gestão do Espaço"@pt ;
+    rdfs:comment "The design of buildings and the planning and organisation of built and open space."@en ;
+    skos:closeMatch <http://semantics.gr/authorities/SSH-LCSH/sh85006611>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85125911>,
+        ddc:710,
+        ddc:720,
+        <https://www.wikidata.org/entity/Q7102036> ;
+    skos:definition "The design of buildings and the planning and organisation of built and open space."@en ;
+    skos:notation "archi" ;
+    skos:prefLabel "Architektur und Raummanagement"@de,
+        "Architecture and Space Management"@en,
+        "Architecture, aménagement de l'espace"@fr,
+        "Architettura e Organizzazione dello Spazio"@it,
+        "Architektura i zarządzanie przestrzenią"@pl,
+        "Arquitetura e Gestão do Espaço"@pt .
+
+disc:art a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Kunst und Kunstgeschichte"@de,
+        "Art and Art History"@en,
+        "Art et histoire de l'art"@fr,
+        "Arte e Storia dell'Arte"@it,
+        "Sztuka i historia sztuki"@pl,
+        "Arte e História da Arte"@pt ;
+    rdfs:comment "The visual arts and the historical and critical study of artistic production."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85007461>,
+        <http://id.loc.gov/authorities/subjects/sh85007488>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2005003729>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85007461>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85007960>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85008324>,
+        ddc:700,
+        ddc:730,
+        ddc:740,
+        ddc:750,
+        ddc:760,
+        ddc:770,
+        <https://www.wikidata.org/entity/Q50637>,
+        <https://www.wikidata.org/entity/Q735> ;
+    skos:definition "The visual arts and the historical and critical study of artistic production."@en ;
+    skos:notation "art" ;
+    skos:prefLabel "Kunst und Kunstgeschichte"@de,
+        "Art and Art History"@en,
+        "Art et histoire de l'art"@fr,
+        "Arte e Storia dell'Arte"@it,
+        "Sztuka i historia sztuki"@pl,
+        "Arte e História da Arte"@pt .
+
+disc:class a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Klassische Studien"@de,
+        "Classical Studies"@en,
+        "Études classiques"@fr,
+        "Studi Classici"@it,
+        "Studia klasyczne"@pl,
+        "Estudos Clássicos"@pt ;
+    rdfs:comment "The languages, literature, history and material culture of ancient Greece and Rome."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85026710>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85026706>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85026710>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85026714>,
+        ddc:930,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.InformationSociety> ;
+    skos:definition "The languages, literature, history and material culture of ancient Greece and Rome."@en ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q439072> ;
+    skos:notation "class" ;
+    skos:prefLabel "Klassische Studien"@de,
+        "Classical Studies"@en,
+        "Études classiques"@fr,
+        "Studi Classici"@it,
+        "Studia klasyczne"@pl,
+        "Estudos Clássicos"@pt .
+
+disc:demo a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Demografie"@de,
+        "Demography"@en,
+        "Démographie"@fr,
+        "Demografia"@it,
+        "Demografia"@pl,
+        "Demografia"@pt ;
+    rdfs:comment "The statistical study of human populations, their structure and their change over time."@en ;
+    skos:closeMatch ddc:304.6,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Demography> ;
+    skos:definition "The statistical study of human populations, their structure and their change over time."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85036659>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85036659>,
+        <https://www.wikidata.org/entity/Q37732> ;
+    skos:notation "demo" ;
+    skos:prefLabel "Demografie"@de,
+        "Demography"@en,
+        "Démographie"@fr,
+        "Demografia"@it,
+        "Demografia"@pl,
+        "Demografia"@pt .
+
+disc:droit a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Rechtswissenschaften"@de,
+        "Law"@en,
+        "Droit"@fr,
+        "Legge"@it,
+        "Prawo"@pl,
+        "Direito"@pt ;
+    rdfs:comment "Legal systems, norms and institutions, and the scholarly study of them."@en ;
+    skos:closeMatch ddc:340,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#LawCrimeAndLegalSystems> ;
+    skos:definition "Legal systems, norms and institutions, and the scholarly study of them."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85075119>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85075119>,
+        <https://www.wikidata.org/entity/Q7748> ;
+    skos:notation "droit" ;
+    skos:prefLabel "Rechtswissenschaften"@de,
+        "Law"@en,
+        "Droit"@fr,
+        "Legge"@it,
+        "Prawo"@pl,
+        "Direito"@pt .
+
+disc:eco a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Wirtschaft und Finanzen"@de,
+        "Economies and Finances"@en,
+        "Économies et finances"@fr,
+        "Economia e Finanza"@it,
+        "Ekonomia i finanse"@pl,
+        "Economia e Finanças"@pt ;
+    rdfs:comment "The production, distribution and consumption of goods and services, and the workings of financial systems."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85040850>,
+        <http://id.loc.gov/authorities/subjects/sh85048256>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85040850>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85048256>,
+        ddc:330,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Economics>,
+        <https://www.wikidata.org/entity/Q159810>,
+        <https://www.wikidata.org/entity/Q43015> ;
+    skos:definition "The production, distribution and consumption of goods and services, and the workings of financial systems."@en ;
+    skos:notation "eco" ;
+    skos:prefLabel "Wirtschaft und Finanzen"@de,
+        "Economies and Finances"@en,
+        "Économies et finances"@fr,
+        "Economia e Finanza"@it,
+        "Ekonomia i finanse"@pl,
+        "Economia e Finanças"@pt .
+
+disc:edu a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Bildung"@de,
+        "Education"@en,
+        "Éducation"@fr,
+        "Formazione"@it,
+        "Edukacja"@pl,
+        "Educação"@pt ;
+    rdfs:comment "Teaching, learning, and the institutions and policies that organise them."@en ;
+    skos:closeMatch ddc:370,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Education> ;
+    skos:definition "Teaching, learning, and the institutions and policies that organise them."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85040989>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85040989>,
+        <https://www.wikidata.org/entity/Q8434> ;
+    skos:notation "edu" ;
+    skos:prefLabel "Bildung"@de,
+        "Education"@en,
+        "Éducation"@fr,
+        "Formazione"@it,
+        "Edukacja"@pl,
+        "Educação"@pt .
+
+disc:envir a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Umweltwissenschaften"@de,
+        "Environmental studies"@en,
+        "Études de l'environnement"@fr,
+        "Scienze Ambientali"@it,
+        "Nauki o środowisku"@pl,
+        "Estudos Ambientais"@pt ;
+    rdfs:comment "The relationship between human societies and their natural environment, including environmental policy and change."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh92004048>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2008001585>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2009010555>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85044169>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85044184>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85044210>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh93004763>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh99004421>,
+        ddc:370,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#NaturalEnvironment> ;
+    skos:definition "The relationship between human societies and their natural environment, including environmental policy and change."@en ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q5381367> ;
+    skos:notation "envir" ;
+    skos:prefLabel "Umweltwissenschaften"@de,
+        "Environmental studies"@en,
+        "Études de l'environnement"@fr,
+        "Scienze Ambientali"@it,
+        "Nauki o środowisku"@pl,
+        "Estudos Ambientais"@pt .
+
+disc:genre a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Gender Studies"@de,
+        "Gender Studies"@en,
+        "Gender Studies"@fr,
+        "Studi di Genere"@it,
+        "Gender studies"@pl,
+        "Estudos de Género"@pt ;
+    rdfs:comment "The study of gender as a social and cultural construct, including feminist and queer scholarship."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85147771>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2001004859>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2001006204>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2007002363>,
+        ddc:363.7,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocialStratificationAndGroupings.GenderAndGenderRoles> ;
+    skos:definition "The study of gender as a social and cultural construct, including feminist and queer scholarship."@en ;
+    skos:exactMatch <http://id.loc.gov/vocabulary/ethnographicTerms/afset007751>,
+        <http://www.wikidata.org/entity/Q1662673> ;
+    skos:notation "genre" ;
+    skos:prefLabel "Gender Studies"@de,
+        "Gender Studies"@en,
+        "Gender Studies"@fr,
+        "Studi di Genere"@it,
+        "Gender studies"@pl,
+        "Estudos de Género"@pt .
+
+disc:geo a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Geografie"@de,
+        "Geography"@en,
+        "Géographie"@fr,
+        "Geografia"@it,
+        "Geografia"@pl,
+        "Geografia"@pt ;
+    rdfs:comment "The study of places, spatial relationships, and the interaction between people and their environment."@en ;
+    skos:closeMatch ddc:910 ;
+    skos:definition "The study of places, spatial relationships, and the interaction between people and their environment."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85053986>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85053986>,
+        <https://www.wikidata.org/entity/Q1071> ;
+    skos:notation "geo" ;
+    skos:prefLabel "Geografie"@de,
+        "Geography"@en,
+        "Géographie"@fr,
+        "Geografia"@it,
+        "Geografia"@pl,
+        "Geografia"@pt .
+
+disc:hisphilso a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Geschichtswissenschaft, Philosophie und Soziologie"@de,
+        "History, Philosophy and Sociology of Sciences"@en,
+        "Histoire, Philosophie et Sociologie des sciences"@fr,
+        "Storia, Filosofia e Sociologia delle Scienze"@it,
+        "Historia, filozofia i socjologia nauki"@pl,
+        "História, Filosofia e Sociologia das Ciências"@pt ;
+    rdfs:comment "The study of scientific knowledge and practice from historical, philosophical and sociological perspectives."@en ;
+    skos:closeMatch ddc:120,
+        ddc:121,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#History>,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocietyAndCulture>,
+        <https://www.wikidata.org/entity/Q201486> ;
+    skos:definition "The study of scientific knowledge and practice from historical, philosophical and sociological perspectives."@en ;
+    skos:notation "hisphilso" ;
+    skos:prefLabel "Geschichtswissenschaft, Philosophie und Soziologie"@de,
+        "History, Philosophy and Sociology of Sciences"@en,
+        "Histoire, Philosophie et Sociologie des sciences"@fr,
+        "Storia, Filosofia e Sociologia delle Scienze"@it,
+        "Historia, filozofia i socjologia nauki"@pl,
+        "História, Filosofia e Sociologia das Ciências"@pt .
+
+disc:hist a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Geschichtswissenschaft"@de,
+        "History"@en,
+        "Histoire"@fr,
+        "Storia"@it,
+        "Historia"@pl,
+        "História"@pt ;
+    rdfs:comment "The study of the human past on the basis of written and other historical sources."@en ;
+    skos:closeMatch ddc:900,
+        ddc:940,
+        ddc:950,
+        ddc:960,
+        ddc:970,
+        ddc:980,
+        ddc:990,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#History> ;
+    skos:definition "The study of the human past on the basis of written and other historical sources."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85061212>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85061212>,
+        <https://www.wikidata.org/entity/Q309> ;
+    skos:notation "hist" ;
+    skos:prefLabel "Geschichtswissenschaft"@de,
+        "History"@en,
+        "Histoire"@fr,
+        "Storia"@it,
+        "Historia"@pl,
+        "História"@pt .
+
+disc:info a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Kommunikationswissenschaft"@de,
+        "Communication Sciences"@en,
+        "Sciences de l'information et de la communication"@fr,
+        "Scienze della Comunicazione"@it,
+        "Nauki o Komunikacji"@pl,
+        "Ciências da Comunicação"@pt ;
+    rdfs:comment "The study of information, media and the processes by which messages are produced, circulated and received."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85029103>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85029027>,
+        ddc:384,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.InformationSociety>,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.Media>,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.PublicRelations> ;
+    skos:definition "The study of information, media and the processes by which messages are produced, circulated and received."@en ;
+    skos:exactMatch <https://www.wikidata.org/entity/Q1078351> ;
+    skos:notation "info" ;
+    skos:prefLabel "Kommunikationswissenschaft"@de,
+        "Communication Sciences"@en,
+        "Sciences de l'information et de la communication"@fr,
+        "Scienze della Comunicazione"@it,
+        "Nauki o Komunikacji"@pl,
+        "Ciências da Comunicação"@pt .
+
+disc:lang a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Linguistik"@de,
+        "Linguistics"@en,
+        "Linguistique"@fr,
+        "Linguistica"@it,
+        "Lingwistyka"@pl,
+        "Linguística"@pt ;
+    rdfs:comment "The scientific study of language, its structure and its use."@en ;
+    skos:closeMatch ddc:410,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#MediaCommunicationAndLanguage.LanguageAndLinguistics> ;
+    skos:definition "The scientific study of language, its structure and its use."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85077222>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85077222>,
+        <https://www.wikidata.org/entity/Q8162> ;
+    skos:notation "lang" ;
+    skos:prefLabel "Linguistik"@de,
+        "Linguistics"@en,
+        "Linguistique"@fr,
+        "Linguistica"@it,
+        "Lingwistyka"@pl,
+        "Linguística"@pt .
+
+disc:litt a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Literaturwissenschaft"@de,
+        "Literature"@en,
+        "Littératures"@fr,
+        "Letteratura"@it,
+        "Literatura"@pl,
+        "Literatura"@pt ;
+    rdfs:comment "Literary works and their history, theory and criticism."@en ;
+    skos:closeMatch ddc:800 ;
+    skos:definition "Literary works and their history, theory and criticism."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85077507>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh2003003668>,
+        <https://www.wikidata.org/entity/Q8242> ;
+    skos:notation "litt" ;
+    skos:prefLabel "Literaturwissenschaft"@de,
+        "Literature"@en,
+        "Littératures"@fr,
+        "Letteratura"@it,
+        "Literatura"@pl,
+        "Literatura"@pt .
+
+disc:manag a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Management"@de,
+        "Management"@en,
+        "Gestion et management"@fr,
+        "Management"@it,
+        "Zarządzanie"@pl,
+        "Gestão"@pt ;
+    rdfs:comment "The organisation and direction of institutions, firms and their resources."@en ;
+    skos:closeMatch ddc:658,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#TradeIndustryAndMarkets.BusinessIndustrialManagementAndOrganisation> ;
+    skos:definition "The organisation and direction of institutions, firms and their resources."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85080336>,
+        <https://www.wikidata.org/entity/Q2920921> ;
+    skos:notation "manag" ;
+    skos:prefLabel "Management"@de,
+        "Management"@en,
+        "Gestion et management"@fr,
+        "Management"@it,
+        "Zarządzanie"@pl,
+        "Gestão"@pt .
+
+disc:museo a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Kulturelles Erbe und Museologie"@de,
+        "Cultural Heritage and Museology"@en,
+        "Héritage culturel et muséologie"@fr,
+        "Beni Culturali e Museologia"@it,
+        "Dziedzictwo Kulturowe i Muzeologia"@pl,
+        "Património Cultural e Museologia"@pt ;
+    rdfs:comment "The preservation, interpretation and management of cultural heritage, including museum theory and practice."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85088723>,
+        <http://id.loc.gov/authorities/subjects/sh97000183>,
+        <http://id.loc.gov/vocabulary/ethnographicTerms/afset012103>,
+        ddc:069,
+        <https://www.wikidata.org/entity/Q210272>,
+        <https://www.wikidata.org/entity/Q460162> ;
+    skos:definition "The preservation, interpretation and management of cultural heritage, including museum theory and practice."@en ;
+    skos:notation "museo" ;
+    skos:prefLabel "Kulturelles Erbe und Museologie"@de,
+        "Cultural Heritage and Museology"@en,
+        "Héritage culturel et muséologie"@fr,
+        "Beni Culturali e Museologia"@it,
+        "Dziedzictwo Kulturowe i Muzeologia"@pl,
+        "Património Cultural e Museologia"@pt .
+
+disc:musiq a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Musikwissenschaft und Darstellende Künste"@de,
+        "Musicology and Performing Arts"@en,
+        "Musique, musicologie et arts de la scène"@fr,
+        "Musicologia e Arti Performative"@it,
+        "Muzykologia i sztuki performatywne"@pl,
+        "Musicologia e Artes Performativas"@pt ;
+    rdfs:comment "The study of music, theatre, dance and the performing arts, including their history, theory and practice."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85089048>,
+        <http://id.loc.gov/authorities/subjects/sh85099818>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85045421>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85099818>,
+        ddc:780,
+        ddc:790,
+        <https://www.wikidata.org/entity/Q164204>,
+        <https://www.wikidata.org/entity/Q184485> ;
+    skos:definition "The study of music, theatre, dance and the performing arts, including their history, theory and practice."@en ;
+    skos:notation "musiq" ;
+    skos:prefLabel "Musikwissenschaft und Darstellende Künste"@de,
+        "Musicology and Performing Arts"@en,
+        "Musique, musicologie et arts de la scène"@fr,
+        "Musicologia e Arti Performative"@it,
+        "Muzykologia i sztuki performatywne"@pl,
+        "Musicologia e Artes Performativas"@pt .
+
+disc:phil a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Philosophie"@de,
+        "Philosophy"@en,
+        "Philosophie"@fr,
+        "Filosofia"@it,
+        "Filozofia"@pl,
+        "Filosofia"@pt ;
+    rdfs:comment "The systematic study of fundamental questions about knowledge, existence, value and reasoning."@en ;
+    skos:closeMatch ddc:100,
+        ddc:110,
+        ddc:120,
+        ddc:140,
+        ddc:160,
+        ddc:170,
+        ddc:180,
+        ddc:190 ;
+    skos:definition "The systematic study of fundamental questions about knowledge, existence, value and reasoning."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85100849>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85100849>,
+        <https://www.wikidata.org/entity/Q5891> ;
+    skos:notation "phil" ;
+    skos:prefLabel "Philosophie"@de,
+        "Philosophy"@en,
+        "Philosophie"@fr,
+        "Filosofia"@it,
+        "Filozofia"@pl,
+        "Filosofia"@pt .
+
+disc:psy a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Psychologie"@de,
+        "Psychology"@en,
+        "Psychologie"@fr,
+        "Psicologia"@it,
+        "Psychologia"@pl,
+        "Psicologia"@pt ;
+    rdfs:comment "The study of mind and behaviour in individuals and groups."@en ;
+    skos:closeMatch ddc:150,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Psychology> ;
+    skos:definition "The study of mind and behaviour in individuals and groups."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85108459>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85108459>,
+        <https://www.wikidata.org/entity/Q9418> ;
+    skos:notation "psy" ;
+    skos:prefLabel "Psychologie"@de,
+        "Psychology"@en,
+        "Psychologie"@fr,
+        "Psicologia"@it,
+        "Psychologia"@pl,
+        "Psicologia"@pt .
+
+disc:relig a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Religionen"@de,
+        "Religions"@en,
+        "Religions"@fr,
+        "Religioni"@it,
+        "Religie"@pl,
+        "Religiões"@pt ;
+    rdfs:comment "Religious traditions, beliefs and practices, and their historical and social study."@en ;
+    skos:closeMatch ddc:200,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocietyAndCulture.ReligionAndValues> ;
+    skos:definition "Religious traditions, beliefs and practices, and their historical and social study."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85112599>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85112599>,
+        <https://www.wikidata.org/entity/Q9174> ;
+    skos:notation "relig" ;
+    skos:prefLabel "Religionen"@de,
+        "Religions"@en,
+        "Religions"@fr,
+        "Religioni"@it,
+        "Religie"@pl,
+        "Religiões"@pt .
+
+disc:scipo a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Politikwissenschaft"@de,
+        "Political Science"@en,
+        "Science politique"@fr,
+        "Scienze Politiche"@it,
+        "Politologia"@pl,
+        "Ciência Política"@pt ;
+    rdfs:comment "The study of political systems, institutions, behaviour and public policy."@en ;
+    skos:closeMatch ddc:320,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#Politics> ;
+    skos:definition "The study of political systems, institutions, behaviour and public policy."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85104440>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85104440>,
+        <https://www.wikidata.org/entity/Q36442> ;
+    skos:notation "scipo" ;
+    skos:prefLabel "Politikwissenschaft"@de,
+        "Political Science"@en,
+        "Science politique"@fr,
+        "Scienze Politiche"@it,
+        "Politologia"@pl,
+        "Ciência Política"@pt .
+
+disc:socio a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Soziologie"@de,
+        "Sociology"@en,
+        "Sociologie"@fr,
+        "Sociologia"@it,
+        "Socjologia"@pl,
+        "Sociologia"@pt ;
+    rdfs:comment "The study of social relations, institutions and collective behaviour."@en ;
+    skos:closeMatch ddc:300,
+        ddc:302,
+        ddc:303,
+        ddc:304,
+        ddc:306,
+        <https://vocabularies.cessda.eu/vocabulary/TopicClassification?v=4.2.2#SocietyAndCulture> ;
+    skos:definition "The study of social relations, institutions and collective behaviour."@en ;
+    skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85124200>,
+        <http://semantics.gr/authorities/SSH-LCSH/sh85124200>,
+        <https://www.wikidata.org/entity/Q21201> ;
+    skos:notation "socio" ;
+    skos:prefLabel "Soziologie"@de,
+        "Sociology"@en,
+        "Sociologie"@fr,
+        "Sociologia"@it,
+        "Socjologia"@pl,
+        "Sociologia"@pt .
+
+disc:stat a owl:NamedIndividual,
+        triple:Discipline ;
+    rdfs:label "Methoden und Statistik"@de,
+        "Methods and Statistics"@en,
+        "Méthodes et statistiques"@fr,
+        "Statistica"@it,
+        "Metodologia i statystyka"@pl,
+        "Métodos e Estatística"@pt ;
+    rdfs:comment "Research methodology and the statistical techniques used to collect and analyse data."@en ;
+    skos:closeMatch <http://id.loc.gov/authorities/subjects/sh85127580>,
+        ddc:310,
+        <https://www.wikidata.org/entity/Q12483> ;
+    skos:definition "Research methodology and the statistical techniques used to collect and analyse data."@en ;
+    skos:notation "stat" ;
+    skos:prefLabel "Methoden und Statistik"@de,
+        "Methods and Statistics"@en,
+        "Méthodes et statistiques"@fr,
+        "Statistica"@it,
+        "Metodologia i statystyka"@pl,
+        "Métodos e Estatística"@pt .
+
+triple:Discipline a owl:Class ;
+    rdfs:label "Discipline"@en ;
+    rdfs:subClassOf skos:Concept .
+

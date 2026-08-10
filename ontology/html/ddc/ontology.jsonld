@@ -1,0 +1,1086 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "ddc": "https://gotriple.eu/ontology/ddc/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "ddc:658",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Management"
+      },
+      "skos:notation": "658",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Management"
+      }
+    },
+    {
+      "@id": "ddc:340",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Law"
+      },
+      "skos:notation": "340",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Law"
+      }
+    },
+    {
+      "@id": "ddc:301",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Sociology and anthropology"
+      },
+      "skos:notation": "301",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Sociology and anthropology"
+      }
+    },
+    {
+      "@id": "ddc:384",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Telecommunications (Telegraph, Internet, Cables, Broadcasting, Telephones, Movies"
+      },
+      "skos:notation": "384",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Telecommunications (Telegraph, Internet, Cables, Broadcasting, Telephones, Movies"
+      }
+    },
+    {
+      "@id": "ddc:790",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Recreational and performing arts"
+      },
+      "skos:notation": "790",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Recreational and performing arts"
+      }
+    },
+    {
+      "@id": "https://gotriple.eu/ontology/ddc",
+      "@type": [
+        "owl:Ontology",
+        "owl:NamedIndividual",
+        "skos:ConceptScheme"
+      ],
+      "dcterms:abstract": {
+        "@language": "en",
+        "@value": "Proxy concepts for the DDC classes referenced by the Discipline vocabulary."
+      },
+      "dcterms:contributor": [
+        "Luca De Santis",
+        "Silvio Peroni"
+      ],
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "2021-12-01"
+      },
+      "dcterms:creator": "Alessandro Bertozzi",
+      "dcterms:description": {
+        "@language": "en",
+        "@value": "Local proxy resources for the Dewey Decimal Classification classes that the Discipline vocabulary maps to. They are not TRIPLE disciplines: they are concepts of an external classification, minted locally because OCLC withdrew dewey.info and no dereferenceable DDC IRI exists."
+      },
+      "dcterms:modified": {
+        "@type": "xsd:date",
+        "@value": "2026-08-10"
+      },
+      "dcterms:title": {
+        "@language": "en",
+        "@value": "Dewey Decimal Classification proxies"
+      },
+      "owl:versionInfo": "3.0.0",
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Local proxies for Dewey Decimal Classification classes, used as mapping targets by the Discipline vocabulary. OCLC withdrew dewey.info and no dereferenceable DDC IRI exists, so TRIPLE mints its own. Notations are those of the source vocabulary: some are truncated (78 for 780) and need review against the classification itself."
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Dewey Decimal Classification"
+      },
+      "vann:preferredNamespacePrefix": "ddc",
+      "vann:preferredNamespaceUri": "https://gotriple.eu/ontology/ddc/"
+    },
+    {
+      "@id": "ddc:110",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Metaphysics"
+      },
+      "skos:notation": "110",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Metaphysics"
+      }
+    },
+    {
+      "@id": "ddc:100",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Philosophy"
+      },
+      "skos:notation": "100",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Philosophy"
+      }
+    },
+    {
+      "@id": "ddc:740",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Graphic arts and decorative arts"
+      },
+      "skos:notation": "740",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Graphic arts and decorative arts"
+      }
+    },
+    {
+      "@id": "ddc:305",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Groups of people"
+      },
+      "skos:notation": "305",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Groups of people"
+      }
+    },
+    {
+      "@id": "ddc:190",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Modern western philosophy"
+      },
+      "skos:notation": "190",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Modern western philosophy"
+      }
+    },
+    {
+      "@id": "ddc:720",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Architecture"
+      },
+      "skos:notation": "720",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Architecture"
+      }
+    },
+    {
+      "@id": "ddc:710",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Area planning and landscape architecture"
+      },
+      "skos:notation": "710",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Area planning and landscape architecture"
+      }
+    },
+    {
+      "@id": "ddc:363.7",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Environmental problems"
+      },
+      "skos:notation": "363.7",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Environmental problems"
+      }
+    },
+    {
+      "@id": "ddc:730",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Sculpture and related arts"
+      },
+      "skos:notation": "730",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Sculpture and related arts"
+      }
+    },
+    {
+      "@id": "ddc:940",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Europe"
+      },
+      "skos:notation": "940",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Europe"
+      }
+    },
+    {
+      "@id": "ddc:200",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Religions"
+      },
+      "skos:notation": "200",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Religions"
+      }
+    },
+    {
+      "@id": "ddc:900",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "History"
+      },
+      "skos:notation": "900",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "History"
+      }
+    },
+    {
+      "@id": "ddc:750",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Painting"
+      },
+      "skos:notation": "750",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Painting"
+      }
+    },
+    {
+      "@id": "ddc:121",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Epistemology"
+      },
+      "skos:notation": "121",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Epistemology"
+      }
+    },
+    {
+      "@id": "ddc:307",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Communities"
+      },
+      "skos:notation": "307",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Communities"
+      }
+    },
+    {
+      "@id": "ddc:306",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Culture and Institutions"
+      },
+      "skos:notation": "306",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Culture and Institutions"
+      }
+    },
+    {
+      "@id": "ddc:760",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Printmaking and prints"
+      },
+      "skos:notation": "760",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Printmaking and prints"
+      }
+    },
+    {
+      "@id": "ddc:930.11",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Prehistoric"
+      },
+      "skos:notation": "930.11",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Prehistoric"
+      }
+    },
+    {
+      "@id": "ddc:700",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Modified subdivisions of the arts"
+      },
+      "skos:notation": "700",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Modified subdivisions of the arts"
+      }
+    },
+    {
+      "@id": "ddc:170",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Ethics"
+      },
+      "skos:notation": "170",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Ethics"
+      }
+    },
+    {
+      "@id": "ddc:310",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Statistics"
+      },
+      "skos:notation": "310",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Statistics"
+      }
+    },
+    {
+      "@id": "ddc:780",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Music"
+      },
+      "skos:notation": "780",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Music"
+      }
+    },
+    {
+      "@id": "ddc:970",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "North America"
+      },
+      "skos:notation": "970",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "North America"
+      }
+    },
+    {
+      "@id": "ddc:770",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Photography, computer art, cinematography, videography"
+      },
+      "skos:notation": "770",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Photography, computer art, cinematography, videography"
+      }
+    },
+    {
+      "@id": "ddc:304",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Factors affecting social behavior"
+      },
+      "skos:notation": "304",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Factors affecting social behavior"
+      }
+    },
+    {
+      "@id": "ddc:120",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Epistemology, causation, humankind"
+      },
+      "skos:notation": "120",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Epistemology, causation, humankind"
+      }
+    },
+    {
+      "@id": "ddc:910",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Geography and Travel"
+      },
+      "skos:notation": "910",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Geography and Travel"
+      }
+    },
+    {
+      "@id": "ddc:990",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Oceania and elsewhere"
+      },
+      "skos:notation": "990",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Oceania and elsewhere"
+      }
+    },
+    {
+      "@id": "ddc:302",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Social Interaction"
+      },
+      "skos:notation": "302",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Social Interaction"
+      }
+    },
+    {
+      "@id": "ddc:950",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Asia"
+      },
+      "skos:notation": "950",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Asia"
+      }
+    },
+    {
+      "@id": "ddc:069",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Museums"
+      },
+      "skos:notation": "069",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Museums"
+      }
+    },
+    {
+      "@id": "ddc:960",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Africa"
+      },
+      "skos:notation": "960",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Africa"
+      }
+    },
+    {
+      "@id": "ddc:160",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Logic"
+      },
+      "skos:notation": "160",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Logic"
+      }
+    },
+    {
+      "@id": "ddc:930.1",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Archeology"
+      },
+      "skos:notation": "930.1",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Archeology"
+      }
+    },
+    {
+      "@id": "ddc:800",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Literature"
+      },
+      "skos:notation": "800",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Literature"
+      }
+    },
+    {
+      "@id": "ddc:304.6",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Population"
+      },
+      "skos:notation": "304.6",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Population"
+      }
+    },
+    {
+      "@id": "ddc:150",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Psychology"
+      },
+      "skos:notation": "150",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Psychology"
+      }
+    },
+    {
+      "@id": "ddc:930",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Ancient World"
+      },
+      "skos:notation": "930",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Ancient World"
+      }
+    },
+    {
+      "@id": "ddc:980",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "South America"
+      },
+      "skos:notation": "980",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "South America"
+      }
+    },
+    {
+      "@id": "ddc:410",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Linguistics"
+      },
+      "skos:notation": "410",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Linguistics"
+      }
+    },
+    {
+      "@id": "ddc:370",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Education"
+      },
+      "skos:notation": "370",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Education"
+      }
+    },
+    {
+      "@id": "ddc:320",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Political Science"
+      },
+      "skos:notation": "320",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Political Science"
+      }
+    },
+    {
+      "@id": "ddc:330",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Economics"
+      },
+      "skos:notation": "330",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Economics"
+      }
+    },
+    {
+      "@id": "ddc:303",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Social Processes"
+      },
+      "skos:notation": "303",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Social Processes"
+      }
+    },
+    {
+      "@id": "ddc:300",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Social sciences"
+      },
+      "skos:notation": "300",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Social sciences"
+      }
+    },
+    {
+      "@id": "ddc:140",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Philosophical Systems"
+      },
+      "skos:notation": "140",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Philosophical Systems"
+      }
+    },
+    {
+      "@id": "ddc:599.9",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Humans"
+      },
+      "skos:notation": "599.9",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Humans"
+      }
+    },
+    {
+      "@id": "ddc:180",
+      "@type": [
+        "owl:NamedIndividual",
+        "skos:Concept"
+      ],
+      "rdfs:isDefinedBy": {
+        "@id": "https://gotriple.eu/ontology/ddc"
+      },
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "Ancient, medieval and eastern philosophy"
+      },
+      "skos:notation": "180",
+      "skos:prefLabel": {
+        "@language": "en",
+        "@value": "Ancient, medieval and eastern philosophy"
+      }
+    }
+  ]
+}

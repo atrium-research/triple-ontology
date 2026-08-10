@@ -1,0 +1,1531 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Access Condition</title>
+    <link href="static/owl.css" rel="stylesheet" type="text/css" />
+    <link href="static/yeti.css" rel="stylesheet" type="text/css" />
+    <link href="static/rec.css" rel="stylesheet" type="text/css" />
+    <link href="static/extra.css" rel="stylesheet" type="text/css" />
+    <script src="static/jquery.js"></script>
+    <script src="static/jquery.scrollTo.js"></script>
+    <script src="static/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>Access Condition</h1>
+
+            <dl>
+                <dt>This version:</dt>
+                <dd><a href="https://gotriple.eu/ontology/access-condition">https://gotriple.eu/ontology/access-condition</a></dd>
+
+                
+                <dt>Revision:</dt>
+                <dd>3.0.0</dd>
+                
+
+                
+                <dt>Authors:</dt>
+                <dd>
+                    
+                    Alessandro Bertozzi
+                    
+                </dd>
+                
+
+                
+                <dt>Contributors:</dt>
+                <dd>
+                    
+                    Luca De Santis, 
+                    
+                    Silvio Peroni
+                    
+                </dd>
+                
+
+                
+
+                
+
+                
+
+            </dl>
+
+            <div class="copyright">
+                <span class="markdown"></span>
+            </div>
+        </div>
+
+        <hr />
+
+        
+        <h2>Abstract</h2>
+        <div id="abstract">
+            <p>A controlled vocabulary for specifying access conditions, aligned with COAR Access Rights where applicable.</p>
+        </div>
+        
+
+        
+        
+        
+        
+        
+        
+        
+        
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                <li><a href="#introduction">1. Introduction</a></li>
+                <li><a href="#classes">2. Classes</a></li>
+                
+                
+                
+                <li><a href="#namedindividuals">3. Named Individuals</a></li>
+                <li><a href="#namespacedeclarations">4. Namespaces</a></li>
+            </ul>
+        </div>
+
+
+
+        
+        <div id="introduction">
+            <h2>1. Introduction</h2>
+            <div class="markdown">The Access Condition vocabulary defines the access rights associated with resources in the TRIPLE platform, such as Open Access, Restricted Access, or Closed Access. It facilitates the filtering and identification of resource availability.</div>
+        </div>
+        
+
+        <hr />
+
+        <div id="classes">
+            <h2>2. Classes</h2>
+            <ul class="hlist">
+                
+                <li><a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="triple:AccessCondition">
+                <h3>Access Condition
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition</p>
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#dcterms:RightsStatement" title="http://purl.org/dc/terms/RightsStatement">dcterms:RightsStatement</a>
+                        <sup class="type-c" title="c">c</sup>
+                        , 
+                        
+                        <a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <dt>has members</dt>
+                    <dd>
+                        
+                        <a href="#acr_all-rights-reserved" title="https://gotriple.eu/ontology/access-condition/acr_all-rights-reserved">All Rights Reserved</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#acr_closed-access" title="https://gotriple.eu/ontology/access-condition/acr_closed-access">Closed Access</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#acr_embargoed-access" title="https://gotriple.eu/ontology/access-condition/acr_embargoed-access">Embargoed Access</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#acr_free-access" title="https://gotriple.eu/ontology/access-condition/acr_free-access">Free Access</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#acr_metadata-only-access" title="https://gotriple.eu/ontology/access-condition/acr_metadata-only-access">Metadata Only Access</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#acr_open-access" title="https://gotriple.eu/ontology/access-condition/acr_open-access">Open Access</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#acr_public-domain" title="https://gotriple.eu/ontology/access-condition/acr_public-domain">Public Domain</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#acr_restricted-access-or-use" title="https://gotriple.eu/ontology/access-condition/acr_restricted-access-or-use">Restricted access or use</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#other" title="https://gotriple.eu/ontology/access-condition/other">Other</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        , 
+                        
+                        <a href="#undefined" title="https://gotriple.eu/ontology/access-condition/undefined">Undefined</a>
+                        <sup class="type-ni" title="ni">ni</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+        </div>
+
+        
+
+        
+
+        
+
+        
+        <div id="namedindividuals">
+            <h2>3. Named Individuals</h2>
+            <ul class="hlist">
+                
+                <li><a href="#acr_all-rights-reserved" title="https://gotriple.eu/ontology/access-condition/acr_all-rights-reserved">All Rights Reserved</a></li>
+                
+                <li><a href="#acr_closed-access" title="https://gotriple.eu/ontology/access-condition/acr_closed-access">Closed Access</a></li>
+                
+                <li><a href="#acr_embargoed-access" title="https://gotriple.eu/ontology/access-condition/acr_embargoed-access">Embargoed Access</a></li>
+                
+                <li><a href="#acr_free-access" title="https://gotriple.eu/ontology/access-condition/acr_free-access">Free Access</a></li>
+                
+                <li><a href="#acr_metadata-only-access" title="https://gotriple.eu/ontology/access-condition/acr_metadata-only-access">Metadata Only Access</a></li>
+                
+                <li><a href="#acr_open-access" title="https://gotriple.eu/ontology/access-condition/acr_open-access">Open Access</a></li>
+                
+                <li><a href="#other" title="https://gotriple.eu/ontology/access-condition/other">Other</a></li>
+                
+                <li><a href="#acr_public-domain" title="https://gotriple.eu/ontology/access-condition/acr_public-domain">Public Domain</a></li>
+                
+                <li><a href="#acr_restricted-access-or-use" title="https://gotriple.eu/ontology/access-condition/acr_restricted-access-or-use">Restricted access or use</a></li>
+                
+                <li><a href="#undefined" title="https://gotriple.eu/ontology/access-condition/undefined">Undefined</a></li>
+                
+            </ul>
+            
+            <div class="entity" id="acr_all-rights-reserved">
+    <h3>All Rights Reserved
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_all-rights-reserved</p>
+    
+    <div class="comment">
+        <p>All rights are reserved by the copyright holder.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>Tous Droits Réservés @fr</li>
+            
+            <li>Wszelkie prawa zastrzeżone @pl</li>
+            
+            <li>Todos os Direitos Reservados @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"All rights are reserved by the copyright holder."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_all-rights-reserved"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"All Rights Reserved"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Tous Droits Réservés"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Wszelkie prawa zastrzeżone"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Todos os Direitos Reservados"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="acr_closed-access">
+    <h3>Closed Access
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_closed-access</p>
+    
+    <div class="comment">
+        <p>Access to the resource is closed.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>Accès Fermé @fr</li>
+            
+            <li>Zamknięty dostęp @pl</li>
+            
+            <li>Acesso Fechado @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank">skos:closeMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_14cb/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_14cb/</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"Access to the resource is closed."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_closed-access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Closed Access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Accès Fermé"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Zamknięty dostęp"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Acesso Fechado"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="acr_embargoed-access">
+    <h3>Embargoed Access
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_embargoed-access</p>
+    
+    <div class="comment">
+        <p>Access to the resource is embargoed until a specific date.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>Zugang unterliegt Embargo @de</li>
+            
+            <li>sous embargo @fr</li>
+            
+            <li>accesso sottoposto a periodo di embargo @it</li>
+            
+            <li>acesso embargado @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"Access to the resource is embargoed until a specific date."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_f1cf/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_f1cf/</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_embargoed-access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Zugang unterliegt Embargo"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Embargoed Access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"sous embargo"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"accesso sottoposto a periodo di embargo"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"acesso embargado"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="acr_free-access">
+    <h3>Free Access
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_free-access</p>
+    
+    <div class="comment">
+        <p>Access to the resource is free of charge.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>Accès Libre @fr</li>
+            
+            <li>Bezpłatny dostęp @pl</li>
+            
+            <li>Acesso Livre @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#closeMatch" target="_blank">skos:closeMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_abf2/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_abf2/</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"Access to the resource is free of charge."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_free-access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Free Access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Accès Libre"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Bezpłatny dostęp"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Acesso Livre"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="acr_metadata-only-access">
+    <h3>Metadata Only Access
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_metadata-only-access</p>
+    
+    <div class="comment">
+        <p>Only the metadata of the resource is accessible.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>nur Metadaten @de</li>
+            
+            <li>accès aux seules métadonnées @fr</li>
+            
+            <li>accesso limitato ai metadati @it</li>
+            
+            <li>acesso a metadados @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"Only the metadata of the resource is accessible."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_14cb/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_14cb/</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_metadata-only-access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"nur Metadaten"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Metadata Only Access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"accès aux seules métadonnées"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"accesso limitato ai metadati"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"acesso a metadados"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="acr_open-access">
+    <h3>Open Access
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_open-access</p>
+    
+    <div class="comment">
+        <p>The resource is available under an open license.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>offener Zugang @de</li>
+            
+            <li>Accès Ouvert @fr</li>
+            
+            <li>accesso aperto @it</li>
+            
+            <li>Otwarty dostęp @pl</li>
+            
+            <li>Acesso Aberto @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"The resource is available under an open license."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_abf2/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_abf2/</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_open-access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"offener Zugang"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Open Access"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Accès Ouvert"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"accesso aperto"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Otwarty dostęp"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Acesso Aberto"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="other">
+    <h3>Other
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/other</p>
+    
+    <div class="comment">
+        <p>Other access conditions not listed in the vocabulary.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>Autre @fr</li>
+            
+            <li>Inne @pl</li>
+            
+            <li>Outros @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"Other access conditions not listed in the vocabulary."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"other"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Other"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Autre"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Inne"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Outros"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="acr_public-domain">
+    <h3>Public Domain
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_public-domain</p>
+    
+    <div class="comment">
+        <p>The resource is in the public domain.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>Domaine Public @fr</li>
+            
+            <li>Domena publiczna @pl</li>
+            
+            <li>Domínio Púlico @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"The resource is in the public domain."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_public-domain"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Public Domain"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Domaine Public"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Domena publiczna"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Domínio Púlico"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="acr_restricted-access-or-use">
+    <h3>Restricted access or use
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/acr_restricted-access-or-use</p>
+    
+    <div class="comment">
+        <p>Access or use of the resource is restricted.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>eingeschränkter Zugang @de</li>
+            
+            <li>Accès ou Utilisation Restreints @fr</li>
+            
+            <li>accesso riservato @it</li>
+            
+            <li>Ograniczony dostęp lub użycie @pl</li>
+            
+            <li>Acesso ou Uso Restrito @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"Access or use of the resource is restricted."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#exactMatch" target="_blank">skos:exactMatch</a>
+            
+            <a href="https://vocabularies.coar-repositories.org/access_rights/c_16ec/" target="_blank">https://vocabularies.coar-repositories.org/access_rights/c_16ec/</a>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"acr_restricted-access-or-use"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"eingeschränkter Zugang"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Restricted access or use"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Accès ou Utilisation Restreints"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"accesso riservato"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Ograniczony dostęp lub użycie"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Acesso ou Uso Restrito"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+            <div class="entity" id="undefined">
+    <h3>Undefined
+        <sup class="type-ni" title="ni">
+            ni
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/access-condition/undefined</p>
+    
+    <div class="comment">
+        <p>Access condition is undefined or unknown.</p>
+    </div>
+    
+    
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            
+            <li>Non Défini @fr</li>
+            
+            <li>Nieokreślone @pl</li>
+            
+            <li>Indefinido @pt</li>
+            
+        </ul>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    <dl class="description">
+        
+        <dt>belongs to</dt>
+        
+        <dd>
+            <a href="#triple:AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
+                target="_self">Access Condition</a>
+            <sup class="type-c" title="c">c</sup>
+        </dd>
+        
+        
+
+        
+
+        
+        <dt>has assertions</dt>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#definition" target="_blank">skos:definition</a>
+            
+            <span class="literal">"Access condition is undefined or unknown."</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#notation" target="_blank">skos:notation</a>
+            
+            <span class="literal">"undefined"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Undefined"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Non Défini"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Nieokreślone"</span>
+            
+        </dd>
+        
+        <dd>
+            <a href="http://www.w3.org/2004/02/skos/core#prefLabel" target="_blank">skos:prefLabel</a>
+            
+            <span class="literal">"Indefinido"</span>
+            
+        </dd>
+        
+        
+    </dl>
+    
+    
+</div>
+            
+        </div>
+        
+
+        <div id="namespacedeclarations">
+            <h2>4. Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>URI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    
+                    <tr>
+                        <td>acc</td>
+                        <td>https://gotriple.eu/ontology/access-condition/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>brick</td>
+                        <td>https://brickschema.org/schema/Brick#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>csvw</td>
+                        <td>http://www.w3.org/ns/csvw#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dc</td>
+                        <td>http://purl.org/dc/elements/1.1/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcam</td>
+                        <td>http://purl.org/dc/dcam/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcat</td>
+                        <td>http://www.w3.org/ns/dcat#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcmitype</td>
+                        <td>http://purl.org/dc/dcmitype/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>dcterms</td>
+                        <td>http://purl.org/dc/terms/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>doap</td>
+                        <td>http://usefulinc.com/ns/doap#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>foaf</td>
+                        <td>http://xmlns.com/foaf/0.1/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>geo</td>
+                        <td>http://www.opengis.net/ont/geosparql#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>odrl</td>
+                        <td>http://www.w3.org/ns/odrl/2/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>org</td>
+                        <td>http://www.w3.org/ns/org#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>owl</td>
+                        <td>http://www.w3.org/2002/07/owl#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>prof</td>
+                        <td>http://www.w3.org/ns/dx/prof/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>prov</td>
+                        <td>http://www.w3.org/ns/prov#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>qb</td>
+                        <td>http://purl.org/linked-data/cube#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>rdf</td>
+                        <td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>rdfs</td>
+                        <td>http://www.w3.org/2000/01/rdf-schema#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>schema</td>
+                        <td>https://schema.org/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>sh</td>
+                        <td>http://www.w3.org/ns/shacl#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>skos</td>
+                        <td>http://www.w3.org/2004/02/skos/core#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>sosa</td>
+                        <td>http://www.w3.org/ns/sosa/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>ssn</td>
+                        <td>http://www.w3.org/ns/ssn/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>time</td>
+                        <td>http://www.w3.org/2006/time#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>triple</td>
+                        <td>https://gotriple.eu/ontology/triple/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>vann</td>
+                        <td>http://purl.org/vocab/vann/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>void</td>
+                        <td>http://rdfs.org/ns/void#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>wgs</td>
+                        <td>https://www.w3.org/2003/01/geo/wgs84_pos#</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>xml</td>
+                        <td>http://www.w3.org/XML/1998/namespace</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>xsd</td>
+                        <td>http://www.w3.org/2001/XMLSchema#</td>
+                    </tr>
+                    
+                </tbody>
+            </table>
+        </div>
+        <p class="endnote">
+            This HTML document was obtained by processing the OWL ontology source code through <a
+                href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed
+            by <a href="http://www.essepuntato.it/">Silvio Peroni</a>.
+        </p>
+    </div>
+</body>
+
+</html>

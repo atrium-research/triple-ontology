@@ -1,0 +1,763 @@
+{
+  "@context": {
+    "brick": "https://brickschema.org/schema/Brick#",
+    "csvw": "http://www.w3.org/ns/csvw#",
+    "dc": "http://purl.org/dc/elements/1.1/",
+    "dcam": "http://purl.org/dc/dcam/",
+    "dcat": "http://www.w3.org/ns/dcat#",
+    "dcmitype": "http://purl.org/dc/dcmitype/",
+    "dcterms": "http://purl.org/dc/terms/",
+    "doap": "http://usefulinc.com/ns/doap#",
+    "foaf": "http://xmlns.com/foaf/0.1/",
+    "geo": "http://www.opengis.net/ont/geosparql#",
+    "lic": "https://gotriple.eu/ontology/license/",
+    "odrl": "http://www.w3.org/ns/odrl/2/",
+    "org": "http://www.w3.org/ns/org#",
+    "owl": "http://www.w3.org/2002/07/owl#",
+    "prof": "http://www.w3.org/ns/dx/prof/",
+    "prov": "http://www.w3.org/ns/prov#",
+    "qb": "http://purl.org/linked-data/cube#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "schema": "https://schema.org/",
+    "sh": "http://www.w3.org/ns/shacl#",
+    "skos": "http://www.w3.org/2004/02/skos/core#",
+    "sosa": "http://www.w3.org/ns/sosa/",
+    "ssn": "http://www.w3.org/ns/ssn/",
+    "time": "http://www.w3.org/2006/time#",
+    "triple": "https://gotriple.eu/ontology/triple/",
+    "vann": "http://purl.org/vocab/vann/",
+    "void": "http://rdfs.org/ns/void#",
+    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#"
+  },
+  "@graph": [
+    {
+      "@id": "lic:lic_open-source",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An open source software license."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Open source"
+        },
+        {
+          "@language": "fr",
+          "@value": "Open Source"
+        },
+        {
+          "@language": "pl",
+          "@value": "Otwarty kod źródłowy"
+        },
+        {
+          "@language": "pt",
+          "@value": "Código Aberto"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "An open source software license."
+      },
+      "skos:notation": "lic_open-source",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Open source"
+        },
+        {
+          "@language": "fr",
+          "@value": "Open Source"
+        },
+        {
+          "@language": "pl",
+          "@value": "Otwarty kod źródłowy"
+        },
+        {
+          "@language": "pt",
+          "@value": "Código Aberto"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_ms-rl",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Microsoft Reciprocal License (MS-RL)."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Microsoft Reciprocal Licence"
+        },
+        {
+          "@language": "fr",
+          "@value": "Licence Réciproque Microsoft"
+        },
+        {
+          "@language": "pl",
+          "@value": "Microsoft Reciprocal License (Ms-RL)"
+        },
+        {
+          "@language": "pt",
+          "@value": "Licença Recíproca Microsoft"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Microsoft Reciprocal License (MS-RL)."
+      },
+      "skos:notation": "lic_ms-rl",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Microsoft Reciprocal Licence"
+        },
+        {
+          "@language": "fr",
+          "@value": "Licence Réciproque Microsoft"
+        },
+        {
+          "@language": "pl",
+          "@value": "Microsoft Reciprocal License (Ms-RL)"
+        },
+        {
+          "@language": "pt",
+          "@value": "Licença Recíproca Microsoft"
+        }
+      ]
+    },
+    {
+      "@id": "triple:License",
+      "@type": "owl:Class",
+      "rdfs:label": {
+        "@language": "en",
+        "@value": "License"
+      },
+      "rdfs:subClassOf": [
+        {
+          "@id": "dcterms:LicenseDocument"
+        },
+        {
+          "@id": "skos:Concept"
+        }
+      ]
+    },
+    {
+      "@id": "lic:undefined",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "License is undefined or unknown."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Undefined"
+        },
+        {
+          "@language": "fr",
+          "@value": "Non défini"
+        },
+        {
+          "@language": "pl",
+          "@value": "Nieokreślone"
+        },
+        {
+          "@language": "pt",
+          "@value": "Indefinido"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "License is undefined or unknown."
+      },
+      "skos:notation": "undefined",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Undefined"
+        },
+        {
+          "@language": "fr",
+          "@value": "Non défini"
+        },
+        {
+          "@language": "pl",
+          "@value": "Nieokreślone"
+        },
+        {
+          "@language": "pt",
+          "@value": "Indefinido"
+        }
+      ]
+    },
+    {
+      "@id": "lic:other",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Other license not listed in the vocabulary."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Other"
+        },
+        {
+          "@language": "fr",
+          "@value": "Autre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Inne"
+        },
+        {
+          "@language": "pt",
+          "@value": "Outros"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Other license not listed in the vocabulary."
+      },
+      "skos:notation": "other",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Other"
+        },
+        {
+          "@language": "fr",
+          "@value": "Autre"
+        },
+        {
+          "@language": "pl",
+          "@value": "Inne"
+        },
+        {
+          "@language": "pt",
+          "@value": "Outros"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_open-data",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "An open data license."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Open Data"
+        },
+        {
+          "@language": "fr",
+          "@value": "Données ouvertes"
+        },
+        {
+          "@language": "pl",
+          "@value": "Otwarte dane"
+        },
+        {
+          "@language": "pt",
+          "@value": "Dados Abertos"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "An open data license."
+      },
+      "skos:notation": "lic_open-data",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Open Data"
+        },
+        {
+          "@language": "fr",
+          "@value": "Données ouvertes"
+        },
+        {
+          "@language": "pl",
+          "@value": "Otwarte dane"
+        },
+        {
+          "@language": "pt",
+          "@value": "Dados Abertos"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_meta-share",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Meta-Share license."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Meta-Share"
+        },
+        {
+          "@language": "fr",
+          "@value": "Meta-Share"
+        },
+        {
+          "@language": "pl",
+          "@value": "Meta-Share"
+        },
+        {
+          "@language": "pt",
+          "@value": "Meta-Share"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Meta-Share license."
+      },
+      "skos:notation": "lic_meta-share",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Meta-Share"
+        },
+        {
+          "@language": "fr",
+          "@value": "Meta-Share"
+        },
+        {
+          "@language": "pl",
+          "@value": "Meta-Share"
+        },
+        {
+          "@language": "pt",
+          "@value": "Meta-Share"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_ms-pl",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "Microsoft Public License (MS-PL)."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Microsoft Public Licence"
+        },
+        {
+          "@language": "fr",
+          "@value": "Licence Publique Microsoft"
+        },
+        {
+          "@language": "pl",
+          "@value": "Microsoft Public Licence (Ms-PL)"
+        },
+        {
+          "@language": "pt",
+          "@value": "Licença Pública Microsoft"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "Microsoft Public License (MS-PL)."
+      },
+      "skos:notation": "lic_ms-pl",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Microsoft Public Licence"
+        },
+        {
+          "@language": "fr",
+          "@value": "Licence Publique Microsoft"
+        },
+        {
+          "@language": "pl",
+          "@value": "Microsoft Public Licence (Ms-PL)"
+        },
+        {
+          "@language": "pt",
+          "@value": "Licença Pública Microsoft"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_creative-commons",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "A Creative Commons license."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Creative Commons"
+        },
+        {
+          "@language": "fr",
+          "@value": "Creative Commons"
+        },
+        {
+          "@language": "pl",
+          "@value": "Creative Commons"
+        },
+        {
+          "@language": "pt",
+          "@value": "Creative Commons"
+        }
+      ],
+      "skos:closeMatch": {
+        "@id": "https://www.wikidata.org/entity/Q284742"
+      },
+      "skos:definition": {
+        "@language": "en",
+        "@value": "A Creative Commons license."
+      },
+      "skos:notation": "lic_creative-commons",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Creative Commons"
+        },
+        {
+          "@language": "fr",
+          "@value": "Creative Commons"
+        },
+        {
+          "@language": "pl",
+          "@value": "Creative Commons"
+        },
+        {
+          "@language": "pt",
+          "@value": "Creative Commons"
+        }
+      ]
+    },
+    {
+      "@id": "https://gotriple.eu/ontology/license",
+      "@type": "owl:Ontology",
+      "dcterms:abstract": {
+        "@language": "en",
+        "@value": "A controlled vocabulary for rights and licenses concepts."
+      },
+      "dcterms:contributor": [
+        "Luca De Santis",
+        "Silvio Peroni"
+      ],
+      "dcterms:created": {
+        "@type": "xsd:date",
+        "@value": "2021-12-01"
+      },
+      "dcterms:creator": "Alessandro Bertozzi",
+      "dcterms:description": {
+        "@language": "en",
+        "@value": "The License vocabulary enumerates the standard licenses used to release resources/items in the TRIPLE platform, including Creative Commons licenses and other open or proprietary licenses."
+      },
+      "dcterms:modified": {
+        "@type": "xsd:date",
+        "@value": "2026-08-10"
+      },
+      "dcterms:title": {
+        "@language": "en",
+        "@value": "License"
+      },
+      "owl:versionInfo": "3.0.0",
+      "vann:preferredNamespacePrefix": "lic",
+      "vann:preferredNamespaceUri": "https://gotriple.eu/ontology/license/"
+    },
+    {
+      "@id": "lic:lic_cairn",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "The terms of use of the Cairn.info platform, which publishes French-language SSH journals and books. Not a standard open licence but the publisher's own conditions, normalised from the \"Cairn\" value that Isidore, HAL and BASE send."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Cairn"
+        },
+        {
+          "@language": "fr",
+          "@value": "Cairn"
+        },
+        {
+          "@language": "pl",
+          "@value": "Cairn"
+        },
+        {
+          "@language": "pt",
+          "@value": "Cairn"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "The terms of use of the Cairn.info platform, which publishes French-language SSH journals and books. Not a standard open licence but the publisher's own conditions, normalised from the \"Cairn\" value that Isidore, HAL and BASE send."
+      },
+      "skos:notation": "lic_cairn",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Cairn"
+        },
+        {
+          "@language": "fr",
+          "@value": "Cairn"
+        },
+        {
+          "@language": "pl",
+          "@value": "Cairn"
+        },
+        {
+          "@language": "pt",
+          "@value": "Cairn"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_clarin-res",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "License for CLARIN Restricted endpoints."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "CLARIN-RES"
+        },
+        {
+          "@language": "fr",
+          "@value": "CLARIN-RES"
+        },
+        {
+          "@language": "pl",
+          "@value": "CLARIN RES"
+        },
+        {
+          "@language": "pt",
+          "@value": "CLARIN-RES"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "License for CLARIN Restricted endpoints."
+      },
+      "skos:notation": "lic_clarin-res",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "CLARIN-RES"
+        },
+        {
+          "@language": "fr",
+          "@value": "CLARIN-RES"
+        },
+        {
+          "@language": "pl",
+          "@value": "CLARIN RES"
+        },
+        {
+          "@language": "pt",
+          "@value": "CLARIN-RES"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_elra",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "License by ELRA."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "ELRA licences"
+        },
+        {
+          "@language": "fr",
+          "@value": "Licences ELRA"
+        },
+        {
+          "@language": "pl",
+          "@value": "Licencje ELRA"
+        },
+        {
+          "@language": "pt",
+          "@value": "Licenças ELRA"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "License by ELRA."
+      },
+      "skos:notation": "lic_elra",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "ELRA licences"
+        },
+        {
+          "@language": "fr",
+          "@value": "Licences ELRA"
+        },
+        {
+          "@language": "pl",
+          "@value": "Licencje ELRA"
+        },
+        {
+          "@language": "pt",
+          "@value": "Licenças ELRA"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_clarin-pub",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "License for CLARIN Public endpoints."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "Clarin Pub"
+        },
+        {
+          "@language": "fr",
+          "@value": "Clarin Pub"
+        },
+        {
+          "@language": "pl",
+          "@value": "CLARIN PUB"
+        },
+        {
+          "@language": "pt",
+          "@value": "Clarin Pub"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "License for CLARIN Public endpoints."
+      },
+      "skos:notation": "lic_clarin-pub",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "Clarin Pub"
+        },
+        {
+          "@language": "fr",
+          "@value": "Clarin Pub"
+        },
+        {
+          "@language": "pl",
+          "@value": "CLARIN PUB"
+        },
+        {
+          "@language": "pt",
+          "@value": "Clarin Pub"
+        }
+      ]
+    },
+    {
+      "@id": "lic:lic_clarin-aca",
+      "@type": [
+        "owl:NamedIndividual",
+        "triple:License"
+      ],
+      "rdfs:comment": {
+        "@language": "en",
+        "@value": "License for CLARIN Academic endpoints."
+      },
+      "rdfs:label": [
+        {
+          "@language": "en",
+          "@value": "CLARIN-ACA"
+        },
+        {
+          "@language": "fr",
+          "@value": "CLARIN-ACA"
+        },
+        {
+          "@language": "pl",
+          "@value": "CLARIN ACA"
+        },
+        {
+          "@language": "pt",
+          "@value": "CLARIN-ACA"
+        }
+      ],
+      "skos:definition": {
+        "@language": "en",
+        "@value": "License for CLARIN Academic endpoints."
+      },
+      "skos:notation": "lic_clarin-aca",
+      "skos:prefLabel": [
+        {
+          "@language": "en",
+          "@value": "CLARIN-ACA"
+        },
+        {
+          "@language": "fr",
+          "@value": "CLARIN-ACA"
+        },
+        {
+          "@language": "pl",
+          "@value": "CLARIN ACA"
+        },
+        {
+          "@language": "pt",
+          "@value": "CLARIN-ACA"
+        }
+      ]
+    }
+  ]
+}

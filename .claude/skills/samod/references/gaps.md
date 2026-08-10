@@ -79,7 +79,7 @@ For each gap we list: **SAMOD says** → **TRIPLE does** → **Why**.
 ## 12. Documentation output
 
 - **SAMOD says:** any tool (examples: LODE).
-- **TRIPLE does:** per-module HTML under `ontology/modules/html/<Module>/`.
+- **TRIPLE does:** one HTML page per artefact under `ontology/html/<name>/` — the consolidated model plus one per vocabulary.
 - **Why:** publishing the ontology on https://gotriple.eu/ontology/triple requires static HTML; generating per-module pages avoids one huge monolithic document.
 
 ## 13. Ontology-level metadata
@@ -108,4 +108,4 @@ These are explicit "not decided" points where a future iteration has freedom:
 
 - Dependency management for imported ontologies — currently we *reference* external ontologies (Schema.org, FOAF, Dublin Core, DataCite, COAR, CIDOC CRM…) but do not `owl:imports` them.
 - Governance for retiring old iterations — all iterations are kept forever as part of BoT.
-- Automated HTML generation tool (LODE vs pyLODE vs WIDOCO) — the per-module HTML in `ontology/modules/html/` is present but the generator is not wired into the skill.
+- Automated HTML generation tool (LODE vs pyLODE vs WIDOCO) — the HTML in `ontology/html/` is present but the generator is not wired into the skill.

@@ -28,7 +28,7 @@ SAMOD (Peroni, 2016) is the iterative methodology used to build the TRIPLE ontol
 | Modelet  | The stand-alone model for iteration N (diagram + TBox)                    | `development/NN/modelet.graphml` / `.png`        |
 | Test Case T_n | 6-tuple (MS, CQ, GoT, TBox, ABox, SQ) for iteration N                | the whole `development/NN/` directory            |
 | BoT      | Bag of Test Cases — all T_1 … T_n                                         | `development/` (the set of iteration dirs)       |
-| Current Model | TBox released at end of iteration N-1                                | `ontology/triple.ttl` (+ `ontology/modules/*`)   |
+| Current Model | TBox released at end of iteration N-1                                | `ontology/triple.ttl` (+ `ontology/html/*`)      |
 
 ### The three phases (applied *per iteration*)
 
@@ -98,7 +98,7 @@ SAMOD is silent on tooling — this repo has already decided. Do *not* re-open t
 | External ontology alignment    | `skos:exactMatch` / `skos:closeMatch` / `rdfs:subClassOf` on TBox classes; link in `Documentation`-phase metadata                                                                         |
 | Merge (Phase 2)                | `scripts/merge_iterations.py` — **warning**: its default output is the legacy `ontology/triple-ontology.ttl`. Always pass `--output ../ontology/triple.ttl` to overwrite the canonical file. |
 | Milestones                     | Git commits at the end of each SAMOD phase (`samod: iter NN phase 1 done` style)                |
-| Documentation output           | Per-module HTML under `ontology/modules/html/<Module>/`                                         |
+| Documentation output           | One page per artefact under `ontology/html/<name>/`: `triple` (the model) plus the six vocabularies |
 | Ontology metadata              | The exhaustive block (`dcterms:*`, `vann:*`, `schema:citation`, `owl:versionInfo`, `owl:priorVersion`) documented in `CLAUDE.md` → *Ontology Metadata and Serialization Guidelines* |
 | Identifier value carrier       | **`litre:hasLiteralValue`** (from `http://www.essepuntato.it/2010/06/literalreification/`) — *not* `datacite:hasIdentifierValue`. |
 | Identifier typing              | **No identifier subclasses.** Every identifier is a plain `datacite:Identifier` told apart by its `datacite:usesIdentifierScheme`. Adding a new kind of identifier means adding one scheme individual, declared in the consolidated ontology — never a class. |
@@ -124,7 +124,7 @@ Concrete sequence when the user asks for a new iteration N:
 
 Goal: integrate modelet_N into the current consolidated model and keep the whole BoT passing.
 
-1. Inspect `ontology/triple.ttl` and `ontology/modules/serializations/*.ttl` for entities that semantically overlap with modelet_N. Typical overlaps: identifier patterns, agents, concepts, dates — resolve to the existing name.
+1. Inspect `ontology/triple.ttl` for entities that semantically overlap with modelet_N. Typical overlaps: identifier patterns, agents, concepts, dates — resolve to the existing name.
 2. **Rename in iteration N** if collapsing is needed. Update `TBOX.ttl`, `ABOX.ttl`, the SPARQL, the GoT and the diagram.
 3. Run merge:
    ```bash
@@ -137,9 +137,8 @@ Goal: integrate modelet_N into the current consolidated model and keep the whole
 5. Regenerate the per-module serializations and check the invariants:
    ```bash
    python scripts/check_model.py      # one comment per term, triple: terms documented, no range on foreign properties
-   python scripts/build_modules.py    # ontology/modules/serializations/*.ttl are generated, never hand-edited
    ```
-   A module's only hand-written part is its sidecar `ontology/modules/serializations/<M>.metadata.ttl`:
+   The vocabularies' only hand-written part is the sidecar `vocabularies/serializations/ttl/<V>.metadata.ttl`:
    the module's own title/description/abstract, plus the terms it must carry that are not reachable
    from the class through the model and the shapes.
 6. Commit: `samod(NN): phase 2 — merge into consolidated model`.
