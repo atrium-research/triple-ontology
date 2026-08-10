@@ -1,6 +1,7 @@
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
@@ -9,8 +10,15 @@
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
+datacite:ark a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "datacite:ark"@en ;
+    rdfs:comment "Archival Resource Key - a persistent identifier scheme for information objects, maintained by the California Digital Library. Used by GoTriple for the persistent identifiers it mints."@en .
+
 datacite:hasIdentifier a owl:ObjectProperty ;
-    rdfs:label "datacite:hasIdentifier"@en ;
+    rdfs:label "datacite:hasIdentifier",
+        "datacite:hasIdentifier"@en ;
+    rdfs:comment "Links an entity to one of its identifiers. Every identifier in the TRIPLE ontology is reached through this property and is a datacite:Identifier: there is no other way of attaching an identifier to an entity."@en ;
     rdfs:range datacite:Identifier .
 
 datacite:isni a datacite:IdentifierScheme,
@@ -29,16 +37,19 @@ datacite:researcherid a datacite:IdentifierScheme,
     rdfs:comment "ResearcherID - an identifier system for scientific authors, owned by Clarivate (formerly Thomson Reuters)."@en .
 
 datacite:usesIdentifierScheme a owl:ObjectProperty ;
-    rdfs:label "datacite:usesIdentifierScheme"@en .
+    rdfs:label "datacite:usesIdentifierScheme"@en ;
+    rdfs:comment "Links an identifier to the scheme it belongs to. The scheme is what tells one kind of identifier from another."@en ;
+    rdfs:domain datacite:Identifier ;
+    rdfs:range datacite:IdentifierScheme .
 
-<http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue> a owl:DatatypeProperty ;
+litre:hasLiteralValue a owl:DatatypeProperty ;
     rdfs:label "litre:hasLiteralValue"@en ;
+    rdfs:comment "Associates an entity with a literal value representing its textual content."@en ;
     rdfs:range xsd:string .
 
 triple:Profile a owl:Class,
         owl:Ontology ;
-    rdfs:label "Profile"@en,
-        "profile"@en,
+    rdfs:label "profile"@en,
         "Profil"@fr,
         "Profil"@pl,
         "Perfil"@pt ;
@@ -53,7 +64,7 @@ triple:Profile a owl:Class,
     rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
     rdfs:subClassOf [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
-            owl:onProperty triple:pronouns ],
+            owl:onProperty foaf:givenName ],
         [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty triple:pronouns ],
@@ -76,10 +87,6 @@ triple:Profile a owl:Class,
             owl:allValuesFrom schema:Language ;
             owl:onProperty schema:knowsLanguage ],
         [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty schema:name ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        [ a owl:Restriction ;
             owl:allValuesFrom foaf:Organization ;
             owl:onProperty schema:affiliation ],
         [ a owl:Restriction ;
@@ -88,6 +95,9 @@ triple:Profile a owl:Class,
         [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty triple:registeredUser ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onProperty foaf:givenName ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:boolean ;
             owl:onProperty triple:openToCollaboration ],
@@ -100,17 +110,6 @@ triple:Profile a owl:Class,
         [ a owl:Restriction ;
             owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
             owl:onProperty schema:dateModified ],
-        [ owl:unionOf ( foaf:Person foaf:Organization ) ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onClass foaf:OnlineAccount ;
-            owl:onProperty foaf:account ],
-        [ a owl:Restriction ;
-            owl:allValuesFrom xsd:string ;
-            owl:onProperty foaf:givenName ],
-        [ a owl:Restriction ;
-            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
-            owl:onProperty foaf:givenName ],
         [ a owl:Restriction ;
             owl:allValuesFrom xsd:string ;
             owl:onProperty foaf:familyName ],
@@ -120,7 +119,19 @@ triple:Profile a owl:Class,
         [ a owl:Restriction ;
             owl:allValuesFrom [ a rdfs:Datatype ;
                     owl:unionOf ( rdf:langString xsd:string ) ] ;
-            owl:onProperty schema:description ] ;
+            owl:onProperty schema:description ],
+        [ a owl:Restriction ;
+            owl:allValuesFrom xsd:string ;
+            owl:onProperty triple:pronouns ],
+        [ a owl:Restriction ;
+            owl:onDataRange xsd:string ;
+            owl:onProperty schema:name ;
+            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
+        [ a owl:Restriction ;
+            owl:maxCardinality "1"^^xsd:nonNegativeInteger ;
+            owl:onClass foaf:OnlineAccount ;
+            owl:onProperty foaf:account ],
+        [ owl:unionOf ( foaf:Person foaf:Organization ) ] ;
     owl:versionInfo "3.0.0" ;
     skos:exactMatch foaf:Agent ;
     schema:creativeWorkStatus "Ontology Module" .
@@ -135,27 +146,27 @@ triple:idref_schema a datacite:IdentifierScheme,
     rdfs:label "IdRef"@en ;
     rdfs:comment "IdRef (Identifiants et Referentiels pour l'enseignement superieur et la recherche) - the French authority file for higher education and research, maintained by ABES. Declared in the TRIPLE namespace because the DataCite ontology has no scheme for it."@en .
 
-datacite:Identifier a owl:Class ;
-    rdfs:label "datacite:Identifier"@en .
+triple:internal_id_schema a datacite:IdentifierScheme,
+        owl:NamedIndividual ;
+    rdfs:label "TRIPLE Internal ID"@en ;
+    rdfs:comment "Identifier scheme of the internal identifier assigned by the GoTriple platform to a resource. Declared in the TRIPLE namespace because datacite:local-resource-identifier-scheme cannot distinguish an identifier local to GoTriple from one local to the source system. On profiles it carries the Elasticsearch id."@en .
 
-skos:Concept a owl:Class ;
-    rdfs:label "skos:Concept"@en .
+schema:DefinedTerm a owl:Class ;
+    rdfs:label "schema:DefinedTerm"@en ;
+    rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition. In GoTriple it types the producer's own keywords, which are free text and carry no URI."@en .
 
 foaf:Agent a owl:Class ;
     rdfs:label "foaf:Agent"@en ;
     rdfs:comment "An agent (person or organization)."@en .
 
 foaf:OnlineAccount a owl:Class ;
-    rdfs:label "foaf:OnlineAccount"@en .
+    rdfs:label "foaf:OnlineAccount"@en ;
+    rdfs:comment "An online account held by a GoTriple user. Created inside the platform, so it carries only its internal identifier."@en .
 
 foaf:Person a owl:Class ;
     rdfs:label "foaf:Person"@en ;
     rdfs:comment "A person."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty schema:name ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        schema:Thing ;
+    rdfs:subClassOf schema:Thing ;
     owl:equivalentClass schema:Person .
 
 foaf:account a owl:ObjectProperty ;
@@ -171,15 +182,13 @@ triple:Discipline a owl:Class ;
     rdfs:comment "An academic discipline used to classify a resource, drawn from the Discipline controlled vocabulary of the GoTriple classification."@en ;
     rdfs:subClassOf skos:Concept .
 
-schema:DefinedTerm a owl:Class ;
-    rdfs:label "schema:DefinedTerm"@en ;
-    rdfs:comment "A word, name, acronym, phrase, etc. with a formal definition. In GoTriple it types the producer's own keywords, which are free text and carry no URI."@en .
-
 schema:Language a owl:Class ;
-    rdfs:label "schema:Language"@en .
+    rdfs:label "schema:Language"@en ;
+    rdfs:comment "Natural language such as Spanish, Tamil, or English."@en .
 
 schema:Person a owl:Class ;
-    rdfs:label "Person"@en .
+    rdfs:label "Person"@en,
+        "schema:Person"@en .
 
 schema:affiliation a owl:ObjectProperty ;
     rdfs:label "schema:affiliation"@en ;
@@ -187,7 +196,8 @@ schema:affiliation a owl:ObjectProperty ;
 
 schema:description a owl:DatatypeProperty ;
     rdfs:label "schema:description"@en ;
-    rdfs:comment "A description of the item. Used in GoTriple for the self-description of a profile."@en .
+    rdfs:comment "A description of the item. Used in GoTriple for the self-description of a profile."@en ;
+    rdfs:range rdf:langString .
 
 schema:knowsAbout a owl:ObjectProperty ;
     rdfs:label "schema:knowsAbout"@en ;
@@ -197,18 +207,30 @@ schema:knowsLanguage a owl:ObjectProperty ;
     rdfs:label "schema:knowsLanguage"@en ;
     rdfs:comment "A language the agent knows."@en .
 
+schema:name a owl:DatatypeProperty ;
+    rdfs:label "schema:name",
+        "name"@en,
+        "schema:name"@en ;
+    rdfs:comment "The name of the item."@en ;
+    rdfs:range xsd:string .
+
 schema:url a owl:ObjectProperty ;
     rdfs:label "schema:url"@en ;
     rdfs:comment "The URL of the entity. Used in GoTriple for the personal web pages of the profile."@en .
 
+datacite:Identifier a owl:Class ;
+    rdfs:label "datacite:Identifier"@en ;
+    rdfs:comment "An identifier that uniquely identifies an entity according to some identification scheme."@en .
+
+skos:Concept a owl:Class ;
+    rdfs:label "Concept"@en,
+        "skos:Concept"@en ;
+    rdfs:comment "A concept of a knowledge organization system, from SKOS. Values of schema:about are the concepts of the TRIPLE Vocabulary (SSH-LCSH), maintained by the TRIPLE consortium and published on semantics.gr."@en .
+
 foaf:Organization a owl:Class ;
     rdfs:label "foaf:Organization"@en ;
     rdfs:comment "An organization."@en ;
-    rdfs:subClassOf [ a owl:Restriction ;
-            owl:onDataRange xsd:string ;
-            owl:onProperty schema:name ;
-            owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ],
-        schema:Thing .
+    rdfs:subClassOf schema:Thing .
 
 foaf:familyName a owl:DatatypeProperty ;
     rdfs:label "foaf:familyName"@en ;
@@ -236,21 +258,22 @@ triple:registeredUser a owl:DatatypeProperty ;
 schema:Thing a owl:Class ;
     rdfs:label "schema:Thing"@en .
 
-schema:URL a owl:Class ;
-    rdfs:label "schema:URL"@en .
+schema:URL a rdfs:Datatype,
+        owl:Class ;
+    rdfs:label "schema:URL"@en ;
+    rdfs:comment "Data type: URL."@en .
 
 schema:dateModified a owl:DatatypeProperty ;
-    rdfs:label "schema:dateModified"@en ;
-    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en .
+    rdfs:label "schema:dateModified",
+        "schema:dateModified"@en ;
+    rdfs:comment "The date on which the CreativeWork was most recently modified or when the item's entry was modified within a DataFeed. In GoTriple it records the last update of the record in the index; on a profile, the last GoTriple update."@en ;
+    rdfs:range xsd:date .
 
 schema:image a owl:ObjectProperty ;
     rdfs:label "schema:image"@en ;
     rdfs:comment "An image of the entity. Used in GoTriple for the URL of the personal picture chosen by the user."@en .
 
-schema:name a owl:DatatypeProperty ;
-    rdfs:label "name"@en ;
-    rdfs:range xsd:string .
-
 datacite:IdentifierScheme a owl:Class ;
-    rdfs:label "datacite:IdentifierScheme"@en .
+    rdfs:label "datacite:IdentifierScheme"@en ;
+    rdfs:comment "A scheme that uniquely identifies entities of a particular type."@en .
 

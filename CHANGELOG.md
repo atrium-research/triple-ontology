@@ -15,6 +15,30 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Toolchain: the modules become generated, and the model gets its invariants
+
+**Type**: Refactoring / Documentation
+
+**Iteration**: 02, 03, 10, 12; all entity modules; new `scripts/check_model.py` and `scripts/build_modules.py`
+
+**Description**:
+Of the artefacts in the chain, `ontology/modules/serializations/*.ttl` was the only one that was both a copy and a source: the consolidated model is produced by `merge_iterations.py`, the HTML pages by pyLODE, the compiled vocabularies by `build.py` — the six modules were typed twice, by hand. Measured against the model they had drifted by some 300 assertions, mostly comments and labels the model had and the modules did not, and since pyLODE reads the *module*, those were the comments the published documentation was missing. Two rounds of hand-repair in a single day made the point.
+
+**The rule first.** The samod skill gains a "One home per term" section. The duplication *between iterations* stays — `triple:Document` is declared in fifteen of them because each must run its three tests on `TBOX + ABOX` alone, with no imports — but the annotation of a term is written in exactly one iteration, the one that introduces it; every other iteration declares only what its own tests need; no `rdfs:domain`, `rdfs:range` or `rdfs:subPropertyOf` is ever asserted on a term outside the `triple:` namespace; and the vocabulary individuals an ABox uses are declared locally, or the iteration's queries return nothing.
+
+**`scripts/check_model.py`** enforces four invariants on the consolidated model, each of which had been broken at least once before it was written: one comment per term and language; every `triple:` term labelled and commented; no new global axiom on a foreign term (the 39 that predate the rule are recorded in `check_model_baseline.txt`, annotated as restatements of the source ontology or as narrowings to be moved into a restriction — shrink that file, do not grow it); every term referenced as a superclass, a range or inside a restriction is itself declared.
+
+That fourth rule found twelve terms that the model used but never declared — `dcat:Dataset` as the superclass of `triple:Dataset`, `dcterms:subject` above `sioc:topic`, `mod:SemanticArtefact`, `schema:creator` — which is why the modules had to declare them by hand. They are now declared, with a label and the source definition, in the iteration that uses them (02, 03, 10, 12).
+
+**`scripts/build_modules.py`** turns the modules into output. A module is the class, its direct neighbours in the model — one hop: two pull in the neighbours' neighbours and the module grows from seventy terms to a hundred and ten — the terms the SHACL shapes targeting that class mention, and the handful listed in the new sidecar `<M>.metadata.ttl`, which also holds the module's own title, description and abstract. Every member is written with the description the model gives it; only the module's own class keeps its restrictions, because carrying another class's axioms would link to sections the page does not have. `--check` reports any module that differs from its projection.
+
+The regenerated modules keep every term but `owl:Thing` and gain the annotations they were missing: Document 470 → 611 triples, Dataset 474 → 617, MediaObject 431 → 551, SemanticArtefact 424 → 564, Project 192 → 242, Profile 242 → 260. Two duplicate restrictions on `triple:MediaObject`, an artefact of hand-copying, disappear.
+
+155 competency questions run with 0 errors; the ten in-scope ABOXes conform to the shapes; the model satisfies its four invariants; the eleven documentation pages have no broken internal anchor.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Breaking: the TRIPLE thesaurus is cited, not copied — knowsAbout retired in favour of schema:about
 
 **Type**: Refactoring (breaking)

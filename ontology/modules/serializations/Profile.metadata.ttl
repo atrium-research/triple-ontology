@@ -1,0 +1,30 @@
+# Hand-written part of the Profile module: its own descriptive metadata, plus the
+# terms it must carry that the projection does not reach (see scripts/build_modules.py).
+# Version and modification date come from ontology/metadata.ttl.
+
+@prefix datacite: <http://purl.org/spar/datacite/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix tbuild: <https://gotriple.eu/ontology/triple/build#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+
+triple:Profile dcterms:abstract "The Profile module of the TRIPLE Ontology, defining Agents (People, Organizations) and Accounts."@en ;
+    dcterms:contributor "Luca De Santis",
+        "Silvio Peroni" ;
+    dcterms:created "2021-12-01" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:description "The Profile module models the actors within the GoTriple ecosystem. It defines `triple:Profile` for describing researchers and organizations, aligning them with `foaf:Person` and `foaf:Organization`. It also manages User Accounts (`foaf:OnlineAccount`) and their association with profiles to handle platform access and identity. Since iteration 19 the profile also carries personal names, self-description, pronouns, photo, personal web pages, disciplines of interest, thesaurus keywords, known languages, affiliation, registration and collaboration flags, the date of the last GoTriple update, and several identifiers kept apart by their scheme: the internal Elasticsearch id, the ARK minted by GoTriple, the OPERAS/GoTriple id and the external person PIDs (ORCID, IdRef, ISNI, ResearcherID). Which of these are mandatory is expressed in the SHACL shapes, not in OWL."@en ;
+    dcterms:title "Profile"@en ;
+    tbuild:includes datacite:Identifier,
+        datacite:IdentifierScheme,
+        datacite:isni,
+        datacite:orcid,
+        datacite:researcherid,
+        <http://www.essepuntato.it/2010/06/literalreification/hasLiteralValue>,
+        triple:gotriple_id_schema,
+        triple:idref_schema,
+        schema:DefinedTerm,
+        schema:Person,
+        schema:Thing ;
+    schema:creativeWorkStatus "Ontology Module" .
+

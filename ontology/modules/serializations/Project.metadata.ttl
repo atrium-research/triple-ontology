@@ -1,0 +1,21 @@
+# Hand-written part of the Project module: its own descriptive metadata, plus the
+# terms it must carry that the projection does not reach (see scripts/build_modules.py).
+# Version and modification date come from ontology/metadata.ttl.
+
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix schema: <https://schema.org/> .
+@prefix tbuild: <https://gotriple.eu/ontology/triple/build#> .
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+
+triple:Project dcterms:abstract "The Project module of the TRIPLE Ontology, defining Projects, Grants, and Funding."@en ;
+    dcterms:contributor "Luca De Santis",
+        "Silvio Peroni" ;
+    dcterms:created "2021-12-01" ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:description "The Project module describes research projects and their funding structures. It defines the `triple:Project` class and links it to Grants (`schema:Grant`, `frapo:Grant`), Funding sources, and Organizations. It also includes the `triple:ProjectType` classification to categorize projects (e.g., EU-funded, National, Citizen Science)."@en ;
+    dcterms:title "Project"@en ;
+    tbuild:includes <http://purl.org/cerif/frapo/isOutputOf>,
+        schema:funder,
+        schema:sponsor ;
+    schema:creativeWorkStatus "Ontology Module" .
+
