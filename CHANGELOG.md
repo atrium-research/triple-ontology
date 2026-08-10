@@ -15,6 +15,153 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Breaking: vocabulary concepts move to their production key, identifier nodes retired
+
+**Type**: Refactoring (breaking — every controlled-vocabulary IRI changes)
+
+**Iteration**: none; `vocabularies/`, `patterns/`, and the ABOXes of iterations 07, 17, 18 and 19
+
+**Description**:
+Every concept carried two IRIs: the concept itself, named after its English label, and an empty `datacite:Identifier` node named after the key the platform actually emits — `disc:musicology_and_performing_arts` beside `disc:musiq`, `ct:article` beside `ct:typ_article`, `acc:open_access` beside `acc:acr_open-access`. Checked over 4,000 documents from `api.gotriple.eu`: in all four vocabularies **the identifier's local name is exactly the value production emits**. The concept lived at the IRI nobody uses, and the IRI everyone uses was a dead end.
+
+The concept now lives at the production key. Mapping a harvested record becomes string concatenation — namespace + value — with no lookup table and no join. The cost is the stutter in `ct:typ_article` and `lic:lic_cairn`, accepted deliberately: production is not internally consistent (see below), and only a verbatim key keeps concatenation working for every value rather than most of them.
+
+**The identifier nodes were also invalid.** `tsh:IdentifierShape` requires every `datacite:Identifier` to carry exactly one `datacite:usesIdentifierScheme` and one `litre:hasLiteralValue`; all 73 nodes had neither. Running the shapes over the vocabularies produced 146 violations — nothing had reported them because `scripts/validate.py` covered only the iteration ABOXes and `examples/`. It now covers `vocabularies/serializations/ttl/*.ttl` as well, and all six files conform.
+
+**`other` and `undefined` keep their bare form.** Production emits them without a prefix — never `acr_other`, `typ_undefined`, `lic_other` — across all three fields and every one of the 4,000 documents. Their identifiers in the vocabulary said otherwise, so for those six concepts it is the identifier that was wrong, and the identifier is what disappears.
+
+**The code survives as `skos:notation`.** Until now the code existed nowhere as a literal: it was only the local name of the dead-end IRI, recoverable solely by string surgery on an IRI. `?c skos:notation "musiq"` now answers directly.
+
+**SKOS labelling on every concept.** `skos:prefLabel` mirrors `rdfs:label` and `skos:definition` mirrors `rdfs:comment` — added, not substituted. SKOS-aware consumers (thesaurus browsers, semantics.gr) read the SKOS properties and saw unnamed concepts; pyLODE and generic RDF tools read `rdfs:label`/`rdfs:comment` and would lose the display name if those were dropped. The mirroring applies to the individuals only: the bridge classes and `skos:closeMatch` itself keep their plain annotations.
+
+**The 27 disciplines have a definition for the first time.** None of the 81 individuals in the vocabulary carried an `rdfs:comment`, in the vocabulary whose IRIs are now the least self-explanatory. One-sentence scope notes were drafted in English, in the style of the other three vocabularies; they are new editorial content and want review. The five concepts whose labels exist only in English (`ct:typ_semantic-artefact`, `ct:typ_sound`, `ct:typ_video`, `acc:acr_embargoed-access`, `acc:acr_metadata-only-access`), and the missing `de` and `it` labels on ContentType, AccessCondition and License, are left as they are: translations of a multilingual controlled vocabulary are the consortium's, not this repository's.
+
+**The 54 Dewey proxies left the Discipline vocabulary.** They were typed `triple:Discipline`, which asserted that "Dewey class 78 (Music)" is one of GoTriple's disciplines and inflated the vocabulary from 27 members to 81. They are now `skos:Concept` in their own scheme at `https://gotriple.eu/ontology/triple/ddc`, with IRIs built from the notation (`ddc:78`, `ddc:930.1`), the label split out of the packed string `"Dewey Decimal Classification: 78 (Music)"` into `rdfs:label "Music"@en` plus `skos:notation "78"`. The scheme resource itself is redeclared: it had been removed in `f223b29` together with the other `skos:ConceptScheme` declarations, leaving 54 `rdfs:isDefinedBy` pointing at nothing for eight months. They stay local proxies because there is nowhere to point: `dewey.info` does not respond at all, `id.oclc.org/worldcat/ddc/780` and `classify.oclc.org` return 404 — OCLC withdrew its DDC linked-data service and no dereferenceable DDC IRI exists.
+
+**36 of the 54 DDC notations are truncated and were left alone.** A DDC number has at least three digits: Music is 780, not 78. Normalising mechanically also collides — `ddc_12` is labelled "Philosophy of Humanity" and would become `120`, which already exists with the official caption "Epistemology, causation, humankind". Correcting them is content work against a licensed classification, so the notations are carried over unchanged and the defect is stated in the scheme's own `rdfs:comment` rather than hidden.
+
+**Also**: `vann:preferredNamespacePrefix` in the five vocabulary sidecars declared `discipline`, `contenttype`, `accesscondition`, `license`, `projecttype` while the files themselves bind `disc:`, `ct:`, `acc:`, `lic:`, `pt:` — aligned to the prefixes actually in use.
+
+**Regenerated**: `build/` (six vocabularies now, `ddc` included) and the HTML documentation for all six with the patched pyLODE. The consolidated model and the six entity module serializations are byte-for-byte unaffected — verified by graph isomorphism, since no vocabulary concept appears in them.
+
+**Crosswalk**
+
+**Discipline** (27 concepts)
+
+| before | after |
+|---|---|
+| `disc:archaeology_and_prehistory` | `disc:archeo` |
+| `disc:architecture_and_space_management` | `disc:archi` |
+| `disc:art_and_art_history` | `disc:art` |
+| `disc:biological_anthropology` | `disc:anthro-bio` |
+| `disc:classical_studies` | `disc:class` |
+| `disc:communication_sciences` | `disc:info` |
+| `disc:cultural_heritage_and_museology` | `disc:museo` |
+| `disc:demography` | `disc:demo` |
+| `disc:economies_and_finances` | `disc:eco` |
+| `disc:education` | `disc:edu` |
+| `disc:environmental_studies` | `disc:envir` |
+| `disc:gender_studies` | `disc:genre` |
+| `disc:geography` | `disc:geo` |
+| `disc:history` | `disc:hist` |
+| `disc:history,_philosophy_and_sociology_of_sciences` | `disc:hisphilso` |
+| `disc:law` | `disc:droit` |
+| `disc:linguistics` | `disc:lang` |
+| `disc:literature` | `disc:litt` |
+| `disc:management` | `disc:manag` |
+| `disc:methods_and_statistics` | `disc:stat` |
+| `disc:musicology_and_performing_arts` | `disc:musiq` |
+| `disc:philosophy` | `disc:phil` |
+| `disc:political_science` | `disc:scipo` |
+| `disc:psychology` | `disc:psy` |
+| `disc:religions` | `disc:relig` |
+| `disc:social_anthropology_and_ethnology` | `disc:anthro-se` |
+| `disc:sociology` | `disc:socio` |
+
+**ContentType** (23 concepts)
+
+| before | after |
+|---|---|
+| `ct:article` | `ct:typ_article` |
+| `ct:bibliography` | `ct:typ_bibliography` |
+| `ct:blog_post` | `ct:typ_blog-post` |
+| `ct:book` | `ct:typ_book` |
+| `ct:book_part` | `ct:typ_book-part` |
+| `ct:conference` | `ct:typ_conference` |
+| `ct:dataset` | `ct:typ_dataset` |
+| `ct:image` | `ct:typ_image` |
+| `ct:learning_object` | `ct:typ_learning-object` |
+| `ct:manuscript` | `ct:typ_manuscript` |
+| `ct:map` | `ct:typ_map` |
+| `ct:other` | `ct:other` *(unchanged)* |
+| `ct:periodical` | `ct:typ_periodical` |
+| `ct:preprint` | `ct:typ_preprint` |
+| `ct:report` | `ct:typ_report` |
+| `ct:review` | `ct:typ_review` |
+| `ct:semantic_artefact` | `ct:typ_semantic-artefact` |
+| `ct:software` | `ct:typ_software` |
+| `ct:sound` | `ct:typ_sound` |
+| `ct:text` | `ct:typ_text` |
+| `ct:thesis` | `ct:typ_thesis` |
+| `ct:undefined` | `ct:undefined` *(unchanged)* |
+| `ct:video` | `ct:typ_video` |
+
+**AccessCondition** (10 concepts)
+
+| before | after |
+|---|---|
+| `acc:all_rights_reserved` | `acc:acr_all-rights-reserved` |
+| `acc:closed_access` | `acc:acr_closed-access` |
+| `acc:embargoed_access` | `acc:acr_embargoed-access` |
+| `acc:free_access` | `acc:acr_free-access` |
+| `acc:metadata_only_access` | `acc:acr_metadata-only-access` |
+| `acc:open_access` | `acc:acr_open-access` |
+| `acc:other` | `acc:other` *(unchanged)* |
+| `acc:public_domain` | `acc:acr_public-domain` |
+| `acc:restricted_access_or_use` | `acc:acr_restricted-access-or-use` |
+| `acc:undefined` | `acc:undefined` *(unchanged)* |
+
+**License** (13 concepts)
+
+| before | after |
+|---|---|
+| `lic:cairn` | `lic:lic_cairn` |
+| `lic:clarin-aca` | `lic:lic_clarin-aca` |
+| `lic:clarin-res` | `lic:lic_clarin-res` |
+| `lic:clarin_pub` | `lic:lic_clarin-pub` |
+| `lic:creative_commons` | `lic:lic_creative-commons` |
+| `lic:elra_licences` | `lic:lic_elra` |
+| `lic:meta-share` | `lic:lic_meta-share` |
+| `lic:microsoft_public_licence` | `lic:lic_ms-pl` |
+| `lic:microsoft_reciprocal_licence` | `lic:lic_ms-rl` |
+| `lic:open_data` | `lic:lic_open-data` |
+| `lic:open_source` | `lic:lic_open-source` |
+| `lic:other` | `lic:other` *(unchanged)* |
+| `lic:undefined` | `lic:undefined` *(unchanged)* |
+
+The 54 DDC proxies move from `disc:ddc_<code with underscores>` to `ddc:<notation>`: `disc:ddc_78` → `ddc:78`, `disc:ddc_930_1` → `ddc:930.1`.
+
+**Author**: Alessandro Bertozzi
+
+
+### 2026-08-10 - Addition: the Cairn licence, and what a 9,949-document check found
+
+**Type**: Addition
+
+**Iteration**: none; `vocabularies/serializations/ttl/License.ttl`
+
+**Description**:
+Every value the GoTriple API emits for `conditions_of_access`, `license` and `additional_type` was checked against the vocabulary that is supposed to contain it, over a sample of 9,949 documents drawn from ten queries. Three findings, one of which is fixed here.
+
+**`lic_cairn` was missing** — 82 occurrences, from Isidore (59), HAL and Isidore (10) and BASE and Isidore (3), always normalised from an original value of `"Cairn"`. Added as `lic:lic_cairn`: the terms of use of the Cairn.info platform, which are the publisher's own conditions rather than a standard open licence, so no external alignment. With it, `conditions_of_access` and `license` are fully covered: every value in production has a concept.
+
+**`typ_audio` is a normalisation bug, not a missing concept.** Two documents, both from Canal-U, both with `original_document_types: ["Sound"]` — and the vocabulary already has `ct:typ_sound`, identifier `typ_sound`, aligned to COAR `c_18cc` (Sound). Adding `typ_audio` would mint a duplicate of a concept that exists. It belongs in the normalisation pipeline, not here.
+
+**Two identifier conventions coexist in production, and this is the one to watch.** For every concept the API emits the concept's *identifier* — `acr_open-access`, `lic_creative-commons`, `typ_article` — except for `other` and `undefined`, where it emits the *local name*, while their identifiers would be `acr_other`, `acr_undefined`, `lic_other`, and so on. It is not rare: across the sample, `other` and `undefined` account for 4,901 and 3,458 values on access conditions, 524 and 9,433 on licences, 2,097 and 68 on types. Any mapping that resolves values by identifier alone will silently drop them. Recorded here because it is a fact about the data that the ontology cannot fix on its own.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - Decision: w3id IRIs for the resources, one named graph per document
 
 **Type**: Documentation (decision record — nothing in the repository implements it yet)
