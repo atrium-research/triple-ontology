@@ -15,6 +15,24 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-11 - Iteration 20: deduplication is one directed link, the Cluster node is retired
+
+**Type**: Refactoring (breaking — `triple:Cluster` and `triple:inCluster` no longer exist; part of the 3.0.0 release)
+
+**Iteration**: 20 (new), 05 (retrofitted)
+
+**Description**:
+Deduplication becomes a single directed property: a duplicate record points at the representative record of the same scholarly work with **`triple:isDuplicateOf`**, a specialisation of `prov:alternateOf`. The representative asserts nothing — its role is being the target. The `triple:Cluster` class and `triple:inCluster` property of iteration 05 are removed (hard removal, per the direction already proposed on issue #20: the KG is not yet published, so nothing dereferences them).
+
+The decision was taken against evidence, in three steps. **Production**: the platform has no cluster entity — the default API listing returns only representatives (4,000/4,000 sampled), the representative is itself a document, and the siblings carry its identifier as their `cluster_id`; a cluster node would have to be minted from the representative's id, a second IRI for the same information — the same disease as the 73 empty identifier nodes removed earlier in this release. **Standards** (surveyed online): FaBiO's `Work`/`Manifestation` is a category error for harvested records (they are descriptions, not manifestations); `schema:exampleOfWork` fits the direction but no standard offers the group-plus-representative pattern; PROV-O's `alternateOf` is the right semantics between sibling records but is symmetric by specification — the direction towards the representative is exactly what the specialisation adds, and it cannot be reused bare also because the cardinality and chain rules would then constrain every `alternateOf` in the world (URI-CONVENTIONS §3). **Experiment**: both models were populated with real GoTriple records on a QLever instance with one named graph per document; they answer the same competency questions, but on a Graph Store `DELETE` of a withdrawn record the node model leaves an orphan cluster node that belongs to no document's lifecycle, while the link model leaves zero residue.
+
+The API fields derive rather than being asserted: `is_duplicate` is having an outgoing link, `is_cluster` is being a target, `cluster_id` is the target's identifier, `cluster_children_count` is a count. The deduplicated view is `FILTER NOT EXISTS { ?d triple:isDuplicateOf ?rep }`. The rules OWL cannot check live in `shapes/dedup.shapes.ttl`: at most one representative per record, no chains (a representative is never itself a duplicate), no self-links — verified to reject malformed data and accept the exemplars.
+
+Iteration 20 carries the full SAMOD test case, with the exemplar built from a real GoTriple cluster (the work "De l'esthétique au présent", harvested by HAL/Isidore and BASE) plus a singleton; five competency questions cover membership, representative lookup, the deduplicated view, group size and cross-record provenance — all returning exactly their declared results. Iteration 05 is retrofitted (Phase 2 allows it): its cluster exemplar, competency question, scenario prose and glossary now describe the directed link; its `isDiscarded` modelling is untouched. `scripts/validate.py` includes iteration 20 in the conformance perimeter; the samod skill's cluster convention is updated. 168 competency questions run with 0 errors (2 empty by design); model invariants and shapes all green.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-10 - The exemplar data cites real vocabulary concepts, chosen by the production classifier
 
 **Type**: Modification
