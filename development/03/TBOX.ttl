@@ -13,7 +13,7 @@
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
               rdfs:label "schema:author"@en ;
-              rdfs:comment "The author of this content"@en ;
+              rdfs:comment "The author of this content or rating. The documents a profile is author of (the author_of field) are retrieved as the inverse of this property."@en ;
               rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] ;
               rdfs:subPropertyOf schema:creator .
 
@@ -21,7 +21,7 @@ schema:author rdf:type owl:ObjectProperty ;
 ###  https://schema.org/contributor
 schema:contributor rdf:type owl:ObjectProperty ;
                    rdfs:label "schema:contributor"@en ;
-                   rdfs:comment "A secondary contributor to the CreativeWork"@en ;
+                   rdfs:comment "A secondary contributor to the CreativeWork or Event."@en ;
                    rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -36,7 +36,7 @@ schema:publisher rdf:type owl:ObjectProperty ;
 ###  https://schema.org/provider
 schema:provider rdf:type owl:ObjectProperty ;
                 rdfs:label "schema:provider"@en ;
-                rdfs:comment "The service provider, organization, or individual that provides the data"@en ;
+                rdfs:comment "The service provider, service operator, or service performer; the goods producer."@en ;
                 rdfs:range [ owl:unionOf (foaf:Person foaf:Organization) ] .
 
 
@@ -69,7 +69,7 @@ schema:name rdf:type owl:DatatypeProperty ;
 ###  https://schema.org/datePublished
 schema:datePublished rdf:type owl:DatatypeProperty ;
                      rdfs:label "schema:datePublished"@en ;
-                     rdfs:comment "Date of first publication or broadcast"@en ;
+                     rdfs:comment "Date of first publication or broadcast. In GoTriple it is normalized to ISO 8601 (yyyy-mm-dd)."@en ;
                      rdfs:range xsd:date .
 
 

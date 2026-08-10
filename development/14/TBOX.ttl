@@ -42,7 +42,7 @@ schema:Project rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/Project
 triple:Project rdf:type owl:Class ;
                rdfs:label "Project"@en ;
-               rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform."@en ;
+               rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
                rdfs:subClassOf schema:Project .
 
 ###  https://gotriple.eu/ontology/triple/Document
@@ -59,7 +59,7 @@ triple:Document rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/SemanticArtefact
 triple:SemanticArtefact rdf:type owl:Class ;
                        rdfs:label "Semantic Artefact"@en ;
-                       rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research."@en ;
+                       rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. Original provider values are preserved before normalization."@en ;
                        rdfs:subClassOf mod:SemanticArtefact ,
                                        schema:CreativeWork ,
                                        [ rdf:type owl:Restriction ;
@@ -74,7 +74,7 @@ triple:SemanticArtefact rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/MediaObject
 triple:MediaObject rdf:type owl:Class ;
                    rdfs:label "Media Object"@en ;
-                   rdfs:comment "A media object such as an image, video, audio, or other multimedia content used in SSH research."@en ;
+                   rdfs:comment "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works. Original provider values are preserved before normalization."@en ;
                    rdfs:subClassOf schema:MediaObject ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty frapo:isOutputOf ;
@@ -88,7 +88,7 @@ triple:MediaObject rdf:type owl:Class ;
 ###  https://gotriple.eu/ontology/triple/Dataset
 triple:Dataset rdf:type owl:Class ;
                rdfs:label "Dataset"@en ;
-               rdfs:comment "A collection of data organized for research purposes in the Social Sciences and Humanities domain."@en ;
+               rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset. Original provider values are preserved before normalization."@en ;
                rdfs:subClassOf schema:Dataset ,
                                [ rdf:type owl:Restriction ;
                                  owl:onProperty frapo:isOutputOf ;

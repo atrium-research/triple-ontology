@@ -61,20 +61,20 @@
                           rdfs:label "place" .
 
 
-###  https://schema.org/definedTerm
-<https://schema.org/definedTerm> rdf:type owl:Class ;
+###  https://schema.org/DefinedTerm
+<https://schema.org/DefinedTerm> rdf:type owl:Class ;
                                 rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                   owl:onProperty <https://schema.org/name> ;
                                                   owl:someValuesFrom <https://schema.org/Text>
                                                 ] ;
-                                rdfs:label "defined term" .
+                                rdfs:label "schema:DefinedTerm"@en .
 
 
 ###  http://xmlns.com/foaf/0.1/Document
 <http://xmlns.com/foaf/0.1/Document> rdf:type owl:Class ;
                                      rdfs:subClassOf [ rdf:type owl:Restriction ;
                                                        owl:onProperty <https://schema.org/keywords> ;
-                                                       owl:someValuesFrom <https://schema.org/definedTerm>
+                                                       owl:someValuesFrom <https://schema.org/DefinedTerm>
                                                      ] ,
                                                      [ rdf:type owl:Restriction ;
                                                        owl:onProperty <https://schema.org/spatialCoverage> ;
@@ -109,19 +109,19 @@ triple:document_2 rdf:type owl:NamedIndividual ,
 
 ###  https://gotriple.eu/ontology/triple/keyword_3
 triple:keyword_3 rdf:type owl:NamedIndividual ,
-                          <https://schema.org/definedTerm> ;
+                          <https://schema.org/DefinedTerm> ;
                  <https://schema.org/name> "keyword_3"^^<https://schema.org/Text> .
 
 
 ###  https://gotriple.eu/ontology/triple/keyword_56
 triple:keyword_56 rdf:type owl:NamedIndividual ,
-                           <https://schema.org/definedTerm> ;
+                           <https://schema.org/DefinedTerm> ;
                   <https://schema.org/name> "keyword_56"^^<https://schema.org/Text> .
 
 
 ###  https://gotriple.eu/ontology/triple/keyword_6
 triple:keyword_6 rdf:type owl:NamedIndividual ,
-                          <https://schema.org/definedTerm> ;
+                          <https://schema.org/DefinedTerm> ;
                  <https://schema.org/name> "keyword_6"^^<https://schema.org/Text> .
 
 
