@@ -15,6 +15,56 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-10 - Decision: w3id IRIs for the resources, one named graph per document
+
+**Type**: Documentation (decision record — nothing in the repository implements it yet)
+
+**Iteration**: none yet; affects every ABOX and the published data
+
+**Description**:
+Recorded here because it was agreed in conversation and written nowhere. Verified against a real QLever instance before writing it down, because two of the assumptions turned out to be wrong.
+
+**Two namespaces, on purpose.** The ontology keeps `https://gotriple.eu/ontology/triple/` — the request was explicit — because that is the namespace of the *terms*: `triple:Document`, `triple:hasContentType`. The *resources* move to `https://w3id.org/gto/`. They are different kinds of thing with different lifecycles: the term namespace is versioned and stable by contract, while resource IRIs are minted continuously and must survive independently of an ontology release. The exemplar ABOXes currently mint 74 resources inside the term namespace (`…/ontology/triple/document_1` next to `…/ontology/triple/Document`), which is the anomaly this removes.
+
+**The pattern**:
+
+    https://w3id.org/gto/{type}/{reference}
+
+- `gto` is the authority segment. It is free — checked — and registering it means a pull request to `perma-id/w3id.org`. Longest lead time of anything here and the least reversible: the prefix is forever.
+- `{type}` is the entity type spelled out: `document`, `dataset`, `media`, `semantic-artefact`, `project`, `profile`. Not abbreviated — `doc` is reserved by the UKGovLD pattern for "the document *about* the thing", a different referent.
+- `{reference}` is the ARK name **without the NAAN**, so `<https://w3id.org/gto/document/x54g7>` and `"ark:/12345/x54g7"` share their last segment by construction. Minted independently they would drift; the rule is what keeps them tied, and it is checkable in SPARQL.
+
+The `id` / `doc` distinction and its 303 are **deferred, not rejected**. The object IRI does not change when they arrive; only the HTTP behaviour does.
+
+**One named graph per document, named after the document.** The graph that holds a document's assertions carries **the document's own IRI** — no suffix, no separate record resource:
+
+    GRAPH <https://w3id.org/gto/document/x54g7> {
+        <https://w3id.org/gto/document/x54g7> a triple:Document ; … }
+
+The requirement it answers is deletion: one URI, one operation, the whole subgraph gone. Naming the graph after the document means the thing to delete and the handle to delete it with are the same string, with no mapping to build or look up. The URI then denotes both the document and its graph, which is a real ambiguity — but the same one already accepted by not separating object from record, and SPARQL keeps the two roles apart positionally, so no query is ever ambiguous.
+
+**Three containment rules, without which the deletion is not clean**:
+- Everything the document asserts lives **inside its graph**, enrichment annotations included. An `oa:Annotation` in a separate graph would survive the delete and point at a document that no longer exists.
+- Identifiers are **blank nodes**. They have no identity of their own, they live in the document's graph and disappear with it — which is the argument for not giving them IRIs at all.
+- The **default graph holds the ontology and the vocabularies only**. Put a document index there and `DROP GRAPH` will not touch it, which is the two-step deletion this design exists to avoid.
+
+**A known limit, and it is deliberate.** Deleting a document removes what *it* asserts, not the references other graphs make *to* it — a `schema:mentions` from another document, a cluster that listed it. Those survive as dangling IRIs. They are assertions belonging to other records, and removing them silently would edit someone else's data.
+
+**Verified on QLever** (`adfreiburg/qlever`, build 65f84b4), which is the store in use — nine tests on a fixture with two documents, blank-node identifiers, an annotation, and ontology plus vocabulary in the default graph:
+- the default graph is the **union** of the named graphs: a query with no `GRAPH` clause finds a document that lives inside one. The existing competency questions keep working unchanged after partitioning — this was the finding that could have multiplied the work and did not;
+- the same IRI works as graph name and as subject in one query, and `SELECT DISTINCT ?g WHERE { GRAPH ?g { ?g a triple:Document } }` lists the document graphs by exploiting the coincidence;
+- `PUT ?graph=<uri>` replaces the graph integrally — the stale annotation disappeared with it — and `DELETE ?graph=<uri>` removed document, identifier and annotation in one call, leaving the other document and the default graph untouched;
+- `--persist-updates` keeps updates across a restart, in `<index>.update-triples`. Without it they are in memory only and a restart loses everything harvested since the last index build.
+- Operational notes: updates need `?access-token=`; the Docker image needs `-u $(id -u):$(id -g)` or the index builder cannot write.
+
+**Turtle is enough — no quad format needed.** QLever's index builder accepts `ttl`, `nt` and `nq` only, so TriG is not an option, but `-g / --default-graph` assigns a graph per input file: a plain Turtle file loaded with `-g https://w3id.org/gto/document/x54g7` lands in that named graph, verified. The repository stays entirely in Turtle; partitioning is a loading parameter, not a serialization change.
+
+**Still open**: whether the 74 exemplar resources in the ABOXes are migrated to this form. They would show the real shape instead of a parody of it — the argument that moved the thesaurus concepts to their `semantics.gr` IRIs — but it touches 19 iterations and every expected result naming `triple:document_1`.
+
+**Backlog**: registering `gto` on w3id (start early), a real NAAN in place of the `12345` placeholder, resolvable links from `triple:resolverTemplate`, and iteration 20 for record-level metadata. That last one is where the accepted ambiguity resurfaces: saying when a document was harvested is, written naively, indistinguishable from saying when the document changed. It will force the choice between a distinct IRI for the graph and a separate metadata graph — not before.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-08-10 - Fix: stop narrowing other people's properties
 
 **Type**: Refactoring
