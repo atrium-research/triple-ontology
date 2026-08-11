@@ -14,7 +14,7 @@ WHERE {
 }
 ```
 
-### CQ_13.2: Find SSHOC-RO equivalent for Project
+### CQ_13.2: Find the SSHOC-RO counterpart of Project (close match)
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -23,7 +23,8 @@ PREFIX sshocro: <https://sshoc.eu/ontology/>
 
 SELECT ?sshocClass
 WHERE {
-  triple:Project skos:exactMatch ?sshocClass .
+  triple:Project skos:closeMatch ?sshocClass .
+  FILTER(STRSTARTS(STR(?sshocClass), STR(sshocro:)))
 }
 ```
 

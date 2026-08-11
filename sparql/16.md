@@ -18,7 +18,7 @@ WHERE {
 
 ---
 
-### CQ_16.2: Find the TRIPLE class that exactly matches fabio:Dataset
+### CQ_16.2: Find the TRIPLE class that closely matches fabio:Dataset
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -27,7 +27,7 @@ PREFIX fabio: <http://purl.org/spar/fabio/>
 
 SELECT ?tripleClass
 WHERE {
-  ?tripleClass skos:exactMatch fabio:Dataset .
+  ?tripleClass skos:closeMatch fabio:Dataset .
 }
 ```
 
@@ -35,21 +35,24 @@ WHERE {
 
 ---
 
-### CQ_16.3: Find alignment for Profile
+### CQ_16.3: Find the FOAF alignment of Profile
+
+Every Profile denotes an agent, so the alignment is structural (issue #30, option A):
+a subclass axiom, not a SKOS match.
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 
-SELECT ?matchType ?externalClass
+SELECT ?foafClass
 WHERE {
-  triple:Profile ?matchType ?externalClass .
-  FILTER(?matchType IN (skos:exactMatch, skos:closeMatch))
+  triple:Profile rdfs:subClassOf ?foafClass .
+  FILTER(STRSTARTS(STR(?foafClass), STR(foaf:)))
 }
 ```
 
-**Expected Result**: `skos:exactMatch`, `foaf:Agent`
+**Expected Result**: `foaf:Agent`
 
 ---
 
