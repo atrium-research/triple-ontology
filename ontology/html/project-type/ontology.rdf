@@ -1,33 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <rdf:RDF
   xmlns:dcterms="http://purl.org/dc/terms/"
-  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
-  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
   xmlns:owl="http://www.w3.org/2002/07/owl#"
-  xmlns:triple="https://gotriple.eu/ontology/triple/"
   xmlns:vann="http://purl.org/vocab/vann/"
   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+  xmlns:skos="http://www.w3.org/2004/02/skos/core#"
+  xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+  xmlns:triple="https://gotriple.eu/ontology/triple/"
 >
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/community_based">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Community-based</rdfs:label>
-    <rdfs:comment xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</rdfs:comment>
-    <skos:definition xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</skos:definition>
-    <skos:prefLabel xml:lang="en">Community-based</skos:prefLabel>
-  </owl:NamedIndividual>
-  <owl:Ontology rdf:about="https://gotriple.eu/ontology/project-type">
-    <dcterms:title xml:lang="en">Project Type</dcterms:title>
-    <dcterms:description xml:lang="en">The Project Type vocabulary defines the various categories of research projects included in the TRIPLE platform, distinguishing between different funding schemes and project structures.</dcterms:description>
-    <dcterms:abstract xml:lang="en">A controlled vocabulary for classifying research projects.</dcterms:abstract>
-    <dcterms:creator>Alessandro Bertozzi</dcterms:creator>
-    <dcterms:contributor>Luca De Santis</dcterms:contributor>
-    <dcterms:contributor>Silvio Peroni</dcterms:contributor>
-    <owl:versionInfo>3.0.0</owl:versionInfo>
-    <vann:preferredNamespacePrefix>pt</vann:preferredNamespacePrefix>
-    <vann:preferredNamespaceUri>https://gotriple.eu/ontology/project-type/</vann:preferredNamespaceUri>
-    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-12-01</dcterms:created>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-10</dcterms:modified>
-  </owl:Ontology>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/institutional">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
     <rdfs:label xml:lang="en">Institutional</rdfs:label>
@@ -42,6 +22,13 @@
     <skos:definition xml:lang="en">A research project carried out without dedicated external funding.</skos:definition>
     <skos:prefLabel xml:lang="en">Non-funded</skos:prefLabel>
   </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/community_based">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Community-based</rdfs:label>
+    <rdfs:comment xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</rdfs:comment>
+    <skos:definition xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</skos:definition>
+    <skos:prefLabel xml:lang="en">Community-based</skos:prefLabel>
+  </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/crowdfunded">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
     <rdfs:label xml:lang="en">Crowdfunded</rdfs:label>
@@ -49,19 +36,32 @@
     <skos:definition xml:lang="en">A research project financed through collective contributions, typically via a crowdfunding platform.</skos:definition>
     <skos:prefLabel xml:lang="en">Crowdfunded</skos:prefLabel>
   </owl:NamedIndividual>
-  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/legacy">
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Legacy</rdfs:label>
-    <rdfs:comment xml:lang="en">A completed or historical research project included for archival and reference purposes.</rdfs:comment>
-    <skos:definition xml:lang="en">A completed or historical research project included for archival and reference purposes.</skos:definition>
-    <skos:prefLabel xml:lang="en">Legacy</skos:prefLabel>
-  </owl:NamedIndividual>
+  <owl:Ontology rdf:about="https://gotriple.eu/ontology/project-type">
+    <dcterms:title xml:lang="en">Project Type</dcterms:title>
+    <dcterms:description xml:lang="en">The Project Type vocabulary defines the various categories of research projects included in the TRIPLE platform, distinguishing between different funding schemes and project structures.</dcterms:description>
+    <dcterms:abstract xml:lang="en">A controlled vocabulary for classifying research projects.</dcterms:abstract>
+    <dcterms:creator>Alessandro Bertozzi</dcterms:creator>
+    <dcterms:contributor>Luca De Santis</dcterms:contributor>
+    <dcterms:contributor>Silvio Peroni</dcterms:contributor>
+    <owl:versionInfo>3.0.0</owl:versionInfo>
+    <vann:preferredNamespacePrefix>pt</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://gotriple.eu/ontology/project-type/</vann:preferredNamespaceUri>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-12-01</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-11</dcterms:modified>
+  </owl:Ontology>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/funded">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
     <rdfs:label xml:lang="en">Funded</rdfs:label>
     <rdfs:comment xml:lang="en">A research project financed by a formal funding programme, such as a European or national grant.</rdfs:comment>
     <skos:definition xml:lang="en">A research project financed by a formal funding programme, such as a European or national grant.</skos:definition>
     <skos:prefLabel xml:lang="en">Funded</skos:prefLabel>
+  </owl:NamedIndividual>
+  <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/legacy">
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Legacy</rdfs:label>
+    <rdfs:comment xml:lang="en">A completed or historical research project included for archival and reference purposes.</rdfs:comment>
+    <skos:definition xml:lang="en">A completed or historical research project included for archival and reference purposes.</skos:definition>
+    <skos:prefLabel xml:lang="en">Legacy</skos:prefLabel>
   </owl:NamedIndividual>
   <owl:NamedIndividual rdf:about="https://gotriple.eu/ontology/project-type/citizen_science">
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>

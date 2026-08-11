@@ -15,6 +15,8 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+## [3.0.0] - 2026-08-11
+
 ### 2026-08-11 - Profile naming goes FOAF: foaf:name for agents, schema:name for things
 
 **Type**: Modification
