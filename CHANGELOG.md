@@ -15,6 +15,31 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+## [3.1.0] - 2026-08-11
+
+### 2026-08-11 - The original_* family completes its derivation rule
+
+**Type**: Refactoring
+
+**Iteration**: 17 (home), 18 following
+
+**Description**:
+Three of the six original-value properties are renamed so that every member of the family reads as **original + the name of its normalized counterpart**, exactly as `originalLicense`, `originalSource` and `originalDatePublished` already did: `triple:originalLanguage` becomes **`triple:originalInLanguage`** (normalized field `in_language`, property `schema:inLanguage`), `triple:originalType` becomes **`triple:originalAdditionalType`** (normalized field `additional_type`, expressed via `triple:hasContentType`), and `triple:originalConditionsOfAccess` becomes **`triple:originalConditionOfAccess`** (singular, following the ConditionOfAccess rename below). Sub-property axioms (`dc:type`, `dc:language`, `dc:rights`), ranges and comments are unchanged: the rename is purely lexical, and the historical CHANGELOG entries keep the old names.
+
+**Author**: Alessandro Bertozzi
+
+
+### 2026-08-11 - Breaking rename: AccessCondition becomes ConditionOfAccess
+
+**Type**: Refactoring
+
+**Iteration**: 02 (home), with 10, 11, 12, 17 following
+
+**Description**:
+The access-rights vocabulary and its bridge class are renamed to match the platform's own lexicon (the API field is `conditions_of_access`, Schema.org's neighbouring property is `conditionsOfAccess`). The rename is applied at all three coordinated levels, keeping the class-name → vocabulary-name derivation rule of `URI-CONVENTIONS.md` intact: the bridge class `triple:AccessCondition` becomes **`triple:ConditionOfAccess`**, the property `triple:hasAccessCondition` becomes **`triple:hasConditionOfAccess`** (still `⊑ dcterms:accessRights`), and the vocabulary moves from `https://gotriple.eu/ontology/access-condition` to **`https://gotriple.eu/ontology/condition-of-access`**, concepts included (`…/condition-of-access/acr_open-access`). The concept local names — the production keys `acr_*`, `other`, `undefined` — do not change. The closed list in the resolution rules (`ontology/html/README.md`, nginx sketch included) and the conventions examples are updated; the vocabulary file, its metadata sidecar and its HTML page directory are renamed accordingly. Historical CHANGELOG entries keep the old name, as records of what happened. Released as a minor on top of 3.0.0 because nothing of the 3.0.0 URI space has been deployed yet; consumers of the unpublished `access-condition` IRIs are none by construction.
+
+**Author**: Alessandro Bertozzi
+
 ## [3.0.0] - 2026-08-11
 
 ### 2026-08-11 - The funding programme joins the Grant: schema:FundingScheme via schema:funder
