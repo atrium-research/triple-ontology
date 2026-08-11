@@ -1,6 +1,6 @@
 # Formal Competency Questions (Iteration 16)
 
-### CQ_16.1: Find the TRIPLE class that exactly matches fabio:ScholarlyWork
+### CQ_16.1: Find the TRIPLE class that closely matches fabio:ScholarlyWork
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -10,7 +10,7 @@ PREFIX owl: <http://www.w3.org/2002/07/owl#>
 
 SELECT ?tripleClass
 WHERE {
-  ?tripleClass skos:exactMatch fabio:ScholarlyWork .
+  ?tripleClass skos:closeMatch fabio:ScholarlyWork .
 }
 ```
 

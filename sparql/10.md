@@ -269,7 +269,7 @@ SELECT ?dataset ?title ?accessURL WHERE {
 ```
 
 **Expected result:**
-- `triple:dataset-001` → "European Archaeological Sites Database" → "https://data.heritage.eu/download/sites.csv"
+- `triple:dataset-001` → "European Archaeological Sites Database" → `https://data.heritage.eu/download/sites.csv`
 
 
 ## CQ_10.13
