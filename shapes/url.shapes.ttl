@@ -1,0 +1,27 @@
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix tsh: <https://gotriple.eu/ontology/triple/shapes/> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix schema: <https://schema.org/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+
+# URL handling, rule of iteration 21: outside the identifier reification a URL
+# is never a literal. Role-B links (references to other resources) and role-C
+# links (access points) carry IRIs.
+
+tsh:UrlAsIriShape a sh:NodeShape ;
+    rdfs:label "URLs are IRIs"@en ;
+    sh:targetSubjectsOf schema:url , schema:mainEntityOfPage , schema:isBasedOn ,
+                        dcterms:references , dcat:accessURL , dcat:downloadURL ;
+    sh:property [ sh:path schema:url ;             sh:nodeKind sh:IRI ;
+                  sh:message "schema:url carries an IRI, not a literal."@en ] ;
+    sh:property [ sh:path schema:mainEntityOfPage ; sh:nodeKind sh:IRI ;
+                  sh:message "schema:mainEntityOfPage carries an IRI, not a literal."@en ] ;
+    sh:property [ sh:path schema:isBasedOn ;       sh:nodeKind sh:IRI ;
+                  sh:message "schema:isBasedOn carries an IRI, not a literal."@en ] ;
+    sh:property [ sh:path dcterms:references ;     sh:nodeKind sh:IRI ;
+                  sh:message "dcterms:references carries an IRI, not a literal."@en ] ;
+    sh:property [ sh:path dcat:accessURL ;         sh:nodeKind sh:IRI ;
+                  sh:message "dcat:accessURL carries an IRI (DCAT range rdfs:Resource)."@en ] ;
+    sh:property [ sh:path dcat:downloadURL ;       sh:nodeKind sh:IRI ;
+                  sh:message "dcat:downloadURL carries an IRI (DCAT range rdfs:Resource)."@en ] .

@@ -1,0 +1,60 @@
+@prefix triple: <https://gotriple.eu/ontology/triple/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
+@prefix schema: <https://schema.org/> .
+
+#################################################################
+#    Object Properties
+#################################################################
+
+###  https://schema.org/isBasedOn
+schema:isBasedOn rdf:type owl:ObjectProperty ;
+                 rdfs:label "schema:isBasedOn"@en ;
+                 rdfs:comment "A resource from which this work is derived or from which it is a modification or adaptation. Supersedes the deprecated schema:isBasedOnUrl, which the data model revision still names. The value is an IRI (role-B link): an external resource today, possibly a platform resource tomorrow, with the same triple shape."@en .
+
+###  http://purl.org/dc/terms/references
+dcterms:references rdf:type owl:ObjectProperty ;
+                   rdfs:label "dcterms:references"@en ;
+                   rdfs:comment "A related resource that is referenced, cited, or otherwise pointed to by the described resource. Declared inverse of dcterms:isReferencedBy (DCMI), which the model already carries on Dataset, MediaObject and SemanticArtefact: this is the active side, on the document. Not a formal bibliographic citation."@en ;
+                   owl:inverseOf dcterms:isReferencedBy .
+
+###  http://www.w3.org/ns/dcat#accessURL
+dcat:accessURL rdf:type owl:ObjectProperty ;
+               rdfs:label "dcat:accessURL"@en ;
+               rdfs:comment "A URL of a resource that gives access to a distribution of the dataset — a landing page, portal or feed. When the URL is the file itself, dcat:downloadURL is the right property. IRI-valued by DCAT's own range (rdfs:Resource)."@en .
+
+###  http://www.w3.org/ns/dcat#downloadURL
+dcat:downloadURL rdf:type owl:ObjectProperty ;
+                 rdfs:label "dcat:downloadURL"@en ;
+                 rdfs:comment "The URL of the downloadable file of a distribution in a given format. IRI-valued."@en .
+
+#################################################################
+#    Data properties
+#################################################################
+
+###  https://schema.org/jobTitle
+schema:jobTitle rdf:type owl:DatatypeProperty ;
+                rdfs:label "schema:jobTitle"@en ;
+                rdfs:comment "The job title of the person, as the plain string the provider supplies. Chosen over schema:hasOccupation, whose range demands a structured schema:Occupation node: when an Occupation vocabulary exists, hasOccupation will be added beside jobTitle without changing it."@en .
+
+#################################################################
+#    Classes
+#################################################################
+
+###  https://gotriple.eu/ontology/triple/Document
+triple:Document rdf:type owl:Class .
+
+###  https://gotriple.eu/ontology/triple/Dataset
+triple:Dataset rdf:type owl:Class .
+
+###  https://gotriple.eu/ontology/triple/Profile
+triple:Profile rdf:type owl:Class .
+
+###  http://www.w3.org/ns/dcat#Distribution
+dcat:Distribution rdf:type owl:Class .
+
+###  http://purl.org/dc/terms/isReferencedBy (declared: target of owl:inverseOf)
+dcterms:isReferencedBy rdf:type owl:ObjectProperty .
