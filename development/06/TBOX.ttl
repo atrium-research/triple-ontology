@@ -92,11 +92,17 @@ foaf:OnlineAccount rdf:type owl:Class ;
                    rdfs:comment "An online account held by a GoTriple user. Created inside the platform, so it carries only its internal identifier."@en  .
 
 
+###  http://xmlns.com/foaf/0.1/name
+foaf:name rdf:type owl:DatatypeProperty ;
+          rdfs:label "foaf:name"@en ;
+          rdfs:comment "The full name of the agent, as a plain string. Chosen over schema:name for FOAF-typed agents (profiles, persons, organizations): it completes the FOAF naming triad with foaf:givenName and foaf:familyName, and is declared rdfs:subPropertyOf rdfs:label by FOAF itself, so generic consumers see it as a label by inference. schema:name remains on schema-typed things (projects, languages, keywords, places)."@en .
+
+
 ###  http://xmlns.com/foaf/0.1/Organization
 foaf:Organization rdf:type owl:Class ;
                   rdfs:label "foaf:Organization"@en ;
                   rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                    owl:onProperty schema:name ;
+                                    owl:onProperty foaf:name ;
                                     owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                     owl:onDataRange xsd:string
                                   ] .
@@ -107,7 +113,7 @@ foaf:Person rdf:type owl:Class ;
             rdfs:label "foaf:Person"@en ;
             owl:equivalentClass schema:Person ;
             rdfs:subClassOf [ rdf:type owl:Restriction ;
-                              owl:onProperty schema:name ;
+                              owl:onProperty foaf:name ;
                               owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                               owl:onDataRange xsd:string
                             ] .
@@ -139,7 +145,7 @@ triple:Profile rdf:type owl:Class ;
                # optional person PIDs (ORCID, IdRef, ISNI, GoTriple id).
                rdfs:subClassOf
                                [ rdf:type owl:Restriction ;
-                                 owl:onProperty schema:name ;
+                                 owl:onProperty foaf:name ;
                                  owl:qualifiedCardinality "1"^^xsd:nonNegativeInteger ;
                                  owl:onDataRange xsd:string
                                ] ,

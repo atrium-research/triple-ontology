@@ -17,7 +17,7 @@ A profile with all associated properties and values.
 * `datacite:hasIdentifier` → `triple:identifier_pid_profile_1`
 * `datacite:hasIdentifier` → `triple:agent_identifier_2345678998765`
 * `foaf:account` → `triple:account_1`
-* `schema:name` → "John Smith"
+* `foaf:name` → "John Smith"
 * <http://www.w3.org/2000/01/rdf-schema#comment> → "Profile associated with account_1"
 
 ### Based on

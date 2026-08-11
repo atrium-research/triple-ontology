@@ -16,7 +16,7 @@ SELECT ?artifact ?title ?abstract ?publisherName WHERE {
            schema:headline ?title ;
            schema:abstract ?abstract ;
            schema:publisher ?publisher .
-  ?publisher schema:name ?publisherName .
+  ?publisher foaf:name ?publisherName .
 }
 ```
 

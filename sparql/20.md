@@ -77,7 +77,7 @@ PREFIX schema: <https://schema.org/>
 
 SELECT ?duplicate ?provider ?headline WHERE {
   ?duplicate triple:isDuplicateOf ?representative ;
-             schema:provider/schema:name ?provider .
+             schema:provider/foaf:name ?provider .
   ?representative schema:headline ?headline .
 }
 ```

@@ -48,7 +48,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?author ?name WHERE {
   triple:document_56 schema:author ?author .
-  ?author schema:name ?name .
+  ?author foaf:name ?name .
   FILTER NOT EXISTS { ?author foaf:account ?account }
 }
 ```
@@ -67,7 +67,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?profile ?name WHERE {
   ?profile foaf:account triple:account_109 ;
-           schema:name ?name .
+           foaf:name ?name .
 }
 ```
 
@@ -88,7 +88,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?profile ?name WHERE {
   ?profile a triple:Profile ;
-           schema:name ?name .
+           foaf:name ?name .
   FILTER NOT EXISTS { ?profile foaf:account ?account }
 }
 ```

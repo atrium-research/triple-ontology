@@ -94,7 +94,7 @@ SELECT ?profile ?organization ?organizationName WHERE {
   ?profile a triple:Profile ;
            schema:affiliation ?organization .
   ?organization a foaf:Organization ;
-                schema:name ?organizationName .
+                foaf:name ?organizationName .
 }
 ```
 

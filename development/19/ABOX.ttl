@@ -18,7 +18,7 @@
 triple:profile_it19_1 rdf:type owl:NamedIndividual ,
                                triple:Profile ,
                                foaf:Person ;
-        schema:name "Sofia Rossi" ;
+        foaf:name "Sofia Rossi" ;
         foaf:givenName "Sofia" ;
         foaf:familyName "Rossi" ;
         schema:description "Digital historian working on computational analysis of cultural heritage collections."@en ;
@@ -74,7 +74,7 @@ triple:identifier_idref_it19_1 rdf:type owl:NamedIndividual ,
 triple:profile_it19_2 rdf:type owl:NamedIndividual ,
                                triple:Profile ,
                                foaf:Person ;
-        schema:name "João Almeida" ;
+        foaf:name "João Almeida" ;
         triple:registeredUser "false"^^xsd:boolean ;
         datacite:hasIdentifier triple:identifier_internal_it19_2 ,
                                triple:identifier_pid_it19_2 ,
@@ -126,7 +126,7 @@ triple:identifier_original_doc_it19 rdf:type owl:NamedIndividual ,
 ###  Referenced entities
 triple:organization_it19_1 rdf:type owl:NamedIndividual ,
                                     foaf:Organization ;
-        schema:name "University of Bologna" .
+        foaf:name "University of Bologna" .
 
 triple:language_it_it19 rdf:type owl:NamedIndividual ,
                                  schema:Language ;
@@ -154,3 +154,5 @@ disc:stat rdf:type owl:NamedIndividual ,
                     "Informatica umanistica"@it ,
                     "Humanités numériques"@fr ;
     skos:exactMatch <http://id.loc.gov/authorities/subjects/sh2008122106> .
+
+foaf:name rdf:type owl:DatatypeProperty .

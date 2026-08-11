@@ -35,7 +35,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?author ?name WHERE {
   triple:document_1 schema:author ?author .
-  ?author schema:name ?name .
+  ?author foaf:name ?name .
 }
 ```
 
@@ -52,7 +52,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?provider ?name WHERE {
   triple:document_1 schema:provider ?provider .
-  ?provider schema:name ?name .
+  ?provider foaf:name ?name .
 }
 ```
 
@@ -72,7 +72,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 SELECT DISTINCT ?agent ?name ?agentType WHERE {
   triple:document_1 ?roleType ?agent .
   ?agent a ?agentType .
-  ?agent schema:name ?name .
+  ?agent foaf:name ?name .
   FILTER(?agentType IN (foaf:Person, foaf:Organization))
 }
 ```

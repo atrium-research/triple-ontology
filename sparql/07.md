@@ -80,12 +80,12 @@ WHERE {
 
   OPTIONAL {
     ?grant schema:funder ?funder .
-    ?funder schema:name ?funderName .
+    ?funder foaf:name ?funderName .
   }
 
   OPTIONAL {
     ?grant schema:sponsor ?sponsor .
-    ?sponsor schema:name ?sponsorName .
+    ?sponsor foaf:name ?sponsorName .
   }
 }
 ```
@@ -270,7 +270,7 @@ WHERE {
     ?grant schema:sponsor ?organization .
   }
 
-  ?organization schema:name ?orgName .
+  ?organization foaf:name ?orgName .
 }
 GROUP BY ?organization ?orgName
 HAVING (COUNT(DISTINCT ?project) > 1)
@@ -339,6 +339,7 @@ Which organization is the organizer of a specific project?
 
 ```sparql
 PREFIX schema: <https://schema.org/>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?project ?projectName ?organizerName
@@ -347,7 +348,7 @@ WHERE {
            schema:name ?projectName ;
            schema:organizer ?organizer .
 
-  ?organizer schema:name ?organizerName .
+  ?organizer foaf:name ?organizerName .
 }
 ```
 
