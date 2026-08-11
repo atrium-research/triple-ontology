@@ -92,3 +92,19 @@ the full IRI — checked at regeneration).
 in the OpenCitations style — is planned for the 3.0.0 release chore and not yet minted;
 its pattern must not collide with the flat term space (this rules out bare
 `…/triple/{X.Y.Z}` until the routing reserves a digits-only pattern).
+
+## 7. URLs
+
+A URL is handled by the **role it plays**, not by the field it arrives in:
+
+| role | pattern | examples |
+|---|---|---|
+| **A** — identifies *this* record at a source, and several kinds must be told apart | identifier reification: `datacite:Identifier` + URL scheme + `litre:hasLiteralValue` | the Document's landing page, full text and source URLs |
+| **B** — references *another* resource | direct object property, **URL as IRI** | `schema:isBasedOn`, `dcterms:references` |
+| **C** — access point of a platform entity or distribution | direct property, **URL as IRI** | `schema:url`, `schema:mainEntityOfPage`, `dcat:accessURL`, `dcat:downloadURL` |
+
+Outside the identifier reification a URL is **never a literal** (`"…"^^schema:URL`
+is a dead end: it cannot be joined or dereferenced, and the triple changes shape
+the day the resource enters the KG). Enforced by `shapes/url.shapes.ttl`
+(`sh:nodeKind sh:IRI`). Established in iteration 21; the Document's role-A
+treatment is the 3.0.0 identifier decision and predates it.

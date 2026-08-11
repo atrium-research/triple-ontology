@@ -15,6 +15,24 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-11 - Iteration 21: links by role — reuse, references, access URLs, and occupation as a string
+
+**Type**: Addition (with one alignment demotion)
+
+**Iteration**: 21 (new); 07, 10, 16 (retrofitted)
+
+**Description**:
+The remaining ADR fields were all links, and the model was carrying URLs in three inconsistent shapes: reified as identifiers, as direct properties, and as typed literals — including a `dcat:accessURL` that iteration 10's exemplar used as a string without the model ever declaring the term. The iteration closes the fields under one rule, **by the role the URL plays**, now normative in `URI-CONVENTIONS.md` §7: (A) the URL identifies *this* record at a source and several kinds must be told apart → the identifier reification (the standing 3.0.0 decision for the Document's landing page, full text and source URLs); (B) the URL references *another* resource → direct object property with an IRI; (C) the URL is an access point → direct property with an IRI. Outside the identifier reification a URL is never a literal: `"…"^^schema:URL` cannot be joined or dereferenced, and the triple changes shape the day the resource enters the KG. `shapes/url.shapes.ttl` enforces `sh:nodeKind sh:IRI` on all six role-B/C properties; verified to reject literal-valued data. The historical inconsistency — `main_entity_of_page` reified on the Document, direct on Project and Dataset — becomes principled: the Document has three kinds of URL to tell apart, the platform entities have one page.
+
+**New terms** (all reused, annotated at their first use per the one-home rule): `schema:isBasedOn` — derivation, on the Document; the ADR still names the deprecated `isBasedOnUrl` form (errata). `dcterms:references` — the active side of the reference relation, declared inverse of `dcterms:isReferencedBy` per the DCMI specification itself (the `owl:inverseOf` is a verified restatement); it closes the asymmetry the ADR left open, where the model carried only the passive side. `dcat:accessURL` and `dcat:downloadURL` on `dcat:Distribution` — access page vs direct file. `schema:jobTitle` on the Profile — **occupation is treated as a string by decision**: the value arrives from providers as plain text, and `schema:hasOccupation` (the ADR's mapping) demands a structured `Occupation` node the data cannot fill; when an Occupation vocabulary exists, `hasOccupation` will be added beside `jobTitle` without changing it.
+
+**Cleanups**: iteration 07's three `mainEntityOfPage` literals and iteration 10's `accessURL` literal converted to IRIs. **Alignment demotion**: `triple:Document skos:exactMatch fabio:ScholarlyWork` (iteration 16) demoted to `closeMatch` — `ScholarlyWork` is FRBR Work-level while a GoTriple document is a per-source record; the co-asserted `exactMatch` to `crm:E31_Document` (record-level) stands, and asserting identity to both was claiming `ScholarlyWork ≡ E31`. `CQ_16.1` updated accordingly. `sshoc:SHE8_Publication` (iteration 13) remains to be resolved the same way.
+
+Exemplar: a data paper derived from an external Zenodo dataset and referencing a platform dataset with one distribution (access page + CSV), plus a profile with the provider's occupation string. Five competency questions, all returning their declared results; 173 total (168 + 5), 0 errors, the usual 2 empty by design. Iteration 21 joins the conformance perimeter of `scripts/validate.py`.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-11 - Iteration 20: deduplication is one directed link, the Cluster node is retired
 
 **Type**: Refactoring (breaking — `triple:Cluster` and `triple:inCluster` no longer exist; part of the 3.0.0 release)
