@@ -15,6 +15,18 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-11 - Profile naming goes FOAF: foaf:name for agents, schema:name for things
+
+**Type**: Modification
+
+**Iteration**: 06 (home), with 03, 07, 12, 18, 19, 20, 21 ABOXes and queries following
+
+**Description**:
+"Full FOAF" for the Profile was examined against the FOAF specification and rejected on facts: FOAF has no counterpart for seven of the profile's fields (`affiliation`, `knowsLanguage`, `knowsAbout`, `jobTitle`, `description`, `dateModified`, `pronouns`), and its `homepage` and `mbox` are `owl:InverseFunctionalProperty` — two profiles sharing a lab homepage would be merged into one individual by any reasoner, a trap for harvested data where URLs repeat. What FOAF is for is the agent's identity, and there the model now commits fully: **`foaf:name` replaces `schema:name` on every FOAF-typed agent** (profiles, persons, organizations — 33 subjects across eight exemplars, plus the naming restrictions on `foaf:Person` and `foaf:Organization`). It completes the naming triad with `foaf:givenName`/`familyName`, aligns the model with the ADR's own mapping (one erratum dissolves), and `foaf:name ⊑ rdfs:label` gives every generic consumer a label by inference. The boundary rule, now stated at the property's home: FOAF names who the agent *is*; schema describes what it does and knows. `schema:name` stays on schema-typed things — projects, languages, keywords, places, contact points, and Graphia's extracted `schema:Person` entities, which are mention targets, not platform agents. Eight queries across six iterations updated to the new predicate; 173 competency questions run with 0 errors.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-11 - Class alignments: exactMatch only for same-level identity, structure via subClassOf
 
 **Type**: Modification
