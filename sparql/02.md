@@ -26,12 +26,12 @@ PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?accessConditions WHERE {
-  triple:document_2 triple:hasAccessCondition ?accessConditions .
+  triple:document_2 triple:hasConditionOfAccess ?accessConditions .
 }
 ```
 
 **Expected Result:**
-- `acc:acr_open-access`
+- `coa:acr_open-access`
 
 
 ## CQ_2.3
@@ -91,10 +91,10 @@ What external entity does the access term `acr_open-access` match exactly?
 
 ```sparql
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-PREFIX acc: <https://gotriple.eu/ontology/access-condition/>
+PREFIX coa: <https://gotriple.eu/ontology/condition-of-access/>
 
 SELECT ?externalEntity WHERE {
-  acc:acr_open-access skos:exactMatch ?externalEntity .
+  coa:acr_open-access skos:exactMatch ?externalEntity .
 }
 ```
 
@@ -126,11 +126,11 @@ Return all documents that are of type "Article" and are Open Access.
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX ct: <https://gotriple.eu/ontology/content-type/>
-PREFIX acc: <https://gotriple.eu/ontology/access-condition/>
+PREFIX coa: <https://gotriple.eu/ontology/condition-of-access/>
 
 SELECT ?document WHERE {
   ?document triple:hasContentType ct:typ_article ;
-            triple:hasAccessCondition acc:acr_open-access .
+            triple:hasConditionOfAccess coa:acr_open-access .
 }
 ```
 
@@ -149,7 +149,7 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?license ?access ?type ?discipline WHERE {
   OPTIONAL { triple:document_1 triple:hasLicense ?license . }
-  OPTIONAL { triple:document_1 triple:hasAccessCondition ?access . }
+  OPTIONAL { triple:document_1 triple:hasConditionOfAccess ?access . }
   OPTIONAL { triple:document_1 triple:hasContentType ?type . }
   OPTIONAL { triple:document_1 sioc:topic ?discipline . }
 }
@@ -180,7 +180,7 @@ SELECT ?vocabularyClass ?label WHERE {
 
 **Expected Result:**
 - `triple:License` → "License"
-- `triple:AccessCondition` → "Access Condition"
+- `triple:ConditionOfAccess` → "Condition of Access"
 - `triple:Discipline` → "Discipline"
 - `triple:ContentType` → "Content Type"
 

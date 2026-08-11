@@ -21,11 +21,11 @@ triple:hasLicense rdf:type owl:ObjectProperty ;
                   rdfs:label "has license"@en ;
                   rdfs:comment "Links a resource to its licence."@en .
 
-###  https://gotriple.eu/ontology/triple/hasAccessCondition
-triple:hasAccessCondition rdf:type owl:ObjectProperty ;
+###  https://gotriple.eu/ontology/triple/hasConditionOfAccess
+triple:hasConditionOfAccess rdf:type owl:ObjectProperty ;
                           rdfs:subPropertyOf dcterms:accessRights ;
-                          rdfs:range triple:AccessCondition ;
-                          rdfs:label "has access condition"@en ;
+                          rdfs:range triple:ConditionOfAccess ;
+                          rdfs:label "has condition of access"@en ;
                           rdfs:comment "Links a resource to its access condition."@en .
 
 ###  http://rdfs.org/sioc/ns#topic
@@ -93,8 +93,8 @@ triple:Document rdf:type owl:Class ;
                                   owl:allValuesFrom triple:License
                                 ] ,
                                 [ rdf:type owl:Restriction ;
-                                  owl:onProperty triple:hasAccessCondition ;
-                                  owl:allValuesFrom triple:AccessCondition
+                                  owl:onProperty triple:hasConditionOfAccess ;
+                                  owl:allValuesFrom triple:ConditionOfAccess
                                 ] ,
                                 [ rdf:type owl:Restriction ;
                                   owl:onProperty triple:hasContentType ;
@@ -114,12 +114,12 @@ triple:License rdf:type owl:Class ;
                rdfs:label "License"@en ;
                rdfs:comment "The licence under which a resource is made available, drawn from the License controlled vocabulary and aligned with Creative Commons and SPDX."@en .
 
-###  https://gotriple.eu/ontology/triple/AccessCondition
-triple:AccessCondition rdf:type owl:Class ;
+###  https://gotriple.eu/ontology/triple/ConditionOfAccess
+triple:ConditionOfAccess rdf:type owl:Class ;
                        rdfs:subClassOf skos:Concept ,
                                        dcterms:RightsStatement ;
-                       rdfs:label "Access Condition"@en ;
-                       rdfs:comment "The access condition of a resource — how and to whom it is available — drawn from the Access Condition controlled vocabulary and aligned with COAR access rights."@en .
+                       rdfs:label "Condition of Access"@en ;
+                       rdfs:comment "The access condition of a resource — how and to whom it is available — drawn from the Condition of Access controlled vocabulary and aligned with COAR access rights."@en .
 
 ###  https://gotriple.eu/ontology/triple/Discipline
 triple:Discipline rdf:type owl:Class ;
@@ -146,13 +146,13 @@ dcterms:LicenseDocument rdf:type owl:Class ;
 ###  http://purl.org/dc/terms/RightsStatement
 dcterms:RightsStatement rdf:type owl:Class ;
                         rdfs:label "dcterms:RightsStatement"@en ;
-                        rdfs:comment "A statement about the intellectual property rights held in or over a resource (DCMI Metadata Terms). Superclass of triple:AccessCondition."@en .
+                        rdfs:comment "A statement about the intellectual property rights held in or over a resource (DCMI Metadata Terms). Superclass of triple:ConditionOfAccess."@en .
 
 
 ###  http://purl.org/dc/terms/accessRights
 dcterms:accessRights rdf:type owl:ObjectProperty ;
                      rdfs:label "dcterms:accessRights"@en ;
-                     rdfs:comment "Information about who access the resource or an indication of its security status (DCMI Metadata Terms). Super-property of triple:hasAccessCondition."@en .
+                     rdfs:comment "Information about who access the resource or an indication of its security status (DCMI Metadata Terms). Super-property of triple:hasConditionOfAccess."@en .
 
 
 ###  http://purl.org/dc/terms/license

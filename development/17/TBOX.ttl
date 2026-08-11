@@ -39,17 +39,17 @@ dc:source rdf:type owl:DatatypeProperty ;
           rdfs:comment "A related resource from which the described resource is derived (Dublin Core Elements 1.1)."@en .
 
 
-###  https://gotriple.eu/ontology/triple/originalType
-triple:originalType rdf:type owl:DatatypeProperty ;
-                    rdfs:label "original type"@en ;
+###  https://gotriple.eu/ontology/triple/originalAdditionalType
+triple:originalAdditionalType rdf:type owl:DatatypeProperty ;
+                    rdfs:label "original additional type"@en ;
                     rdfs:comment "The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. 'journalArticle'). The normalized value is expressed via triple:hasContentType."@en ;
                     rdfs:subPropertyOf dc:type ;
                     rdfs:range xsd:string .
 
 
-###  https://gotriple.eu/ontology/triple/originalLanguage
-triple:originalLanguage rdf:type owl:DatatypeProperty ;
-                        rdfs:label "original language"@en ;
+###  https://gotriple.eu/ontology/triple/originalInLanguage
+triple:originalInLanguage rdf:type owl:DatatypeProperty ;
+                        rdfs:label "original in language"@en ;
                         rdfs:comment "The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. 'eng', 'English', 'fr-FR'). The normalized value is expressed via schema:inLanguage."@en ;
                         rdfs:subPropertyOf dc:language ;
                         rdfs:range xsd:string .
@@ -71,10 +71,10 @@ triple:originalLicense rdf:type owl:DatatypeProperty ;
                        rdfs:range xsd:string .
 
 
-###  https://gotriple.eu/ontology/triple/originalConditionsOfAccess
-triple:originalConditionsOfAccess rdf:type owl:DatatypeProperty ;
-                                  rdfs:label "original conditions of access"@en ;
-                                  rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition."@en ;
+###  https://gotriple.eu/ontology/triple/originalConditionOfAccess
+triple:originalConditionOfAccess rdf:type owl:DatatypeProperty ;
+                                  rdfs:label "original condition of access"@en ;
+                                  rdfs:comment "The access rights statement exactly as received from the source provider (e.g. 'info:eu-repo/semantics/openAccess'), before normalization to the Condition of Access controlled vocabulary. The normalized value is expressed via triple:hasConditionOfAccess."@en ;
                                   rdfs:subPropertyOf dc:rights ;
                                   rdfs:range xsd:string .
 
@@ -98,13 +98,13 @@ triple:Document rdf:type owl:Class ;
 
           # Optional original type (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalType ;
+                            owl:onProperty triple:originalAdditionalType ;
                             owl:allValuesFrom xsd:string
                           ] ;
 
           # Optional original language (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalLanguage ;
+                            owl:onProperty triple:originalInLanguage ;
                             owl:allValuesFrom xsd:string
                           ] ;
 
@@ -122,7 +122,7 @@ triple:Document rdf:type owl:Class ;
 
           # Optional original conditions of access (0 or more)
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:onProperty triple:originalConditionOfAccess ;
                             owl:allValuesFrom xsd:string
                           ] ;
 
@@ -140,11 +140,11 @@ triple:Dataset rdf:type owl:Class ;
           rdfs:label "Dataset"@en ;
           rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset. Original provider values are preserved before normalization."@en ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalType ;
+                            owl:onProperty triple:originalAdditionalType ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalLanguage ;
+                            owl:onProperty triple:originalInLanguage ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
@@ -156,7 +156,7 @@ triple:Dataset rdf:type owl:Class ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:onProperty triple:originalConditionOfAccess ;
                             owl:allValuesFrom xsd:string
                           ] .
 
@@ -166,11 +166,11 @@ triple:MediaObject rdf:type owl:Class ;
           rdfs:label "Media Object"@en ;
           rdfs:comment "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works. Original provider values are preserved before normalization."@en ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalType ;
+                            owl:onProperty triple:originalAdditionalType ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalLanguage ;
+                            owl:onProperty triple:originalInLanguage ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
@@ -182,7 +182,7 @@ triple:MediaObject rdf:type owl:Class ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:onProperty triple:originalConditionOfAccess ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
@@ -196,11 +196,11 @@ triple:SemanticArtefact rdf:type owl:Class ;
           rdfs:label "Semantic Artefact"@en ;
           rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. Original provider values are preserved before normalization."@en ;
           rdfs:subClassOf [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalType ;
+                            owl:onProperty triple:originalAdditionalType ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalLanguage ;
+                            owl:onProperty triple:originalInLanguage ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
@@ -212,7 +212,7 @@ triple:SemanticArtefact rdf:type owl:Class ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;
-                            owl:onProperty triple:originalConditionsOfAccess ;
+                            owl:onProperty triple:originalConditionOfAccess ;
                             owl:allValuesFrom xsd:string
                           ] ,
                           [ rdf:type owl:Restriction ;

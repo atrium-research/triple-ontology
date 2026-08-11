@@ -21,7 +21,7 @@ This iteration extends the TRIPLE ontology to support semantic artifacts followi
 - Status tracking for semantic artifact lifecycle stages
 - Status tracking for semantic artifact lifecycle stages
 - Contact point information for administrative queries
-- Support for license and access conditions using Bridge Classes (`triple:License`, `triple:AccessCondition`)
+- Support for license and access conditions using Bridge Classes (`triple:License`, `triple:ConditionOfAccess`)
 
 ## Examples
 - Ontology repositories from OntoPortal with version control, publisher information, and status tracking

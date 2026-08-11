@@ -10,7 +10,7 @@
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix prtype: <https://gotriple.eu/ontology/project-type/> .
+@prefix pt: <https://gotriple.eu/ontology/project-type/> .
 
 #################################################################
 #    Individuals
@@ -36,7 +36,7 @@ triple:project_1 rdf:type triple:Project ;
                  sioc:topic disc:stat ;
                  schema:keywords triple:keyword_1 , triple:keyword_2 , triple:keyword_3 ;
                  schema:contactPoint triple:contact_1 ;
-                 triple:hasProjectType prtype:funded ;
+                 triple:hasProjectType pt:funded ;
                  schema:funding triple:grant_1 .
 
 triple:contact_1 rdf:type schema:ContactPoint ;
@@ -98,7 +98,7 @@ triple:project_2 rdf:type triple:Project ;
                  sioc:topic disc:socio , disc:demo ;
                  schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85123964> ;
                  schema:keywords triple:keyword_4 , triple:keyword_5 , triple:keyword_6 , triple:keyword_7 ;
-                 triple:hasProjectType prtype:funded ;
+                 triple:hasProjectType pt:funded ;
                  schema:funding triple:grant_2 .
 
 ###  Identifiers
@@ -150,7 +150,7 @@ triple:project_3 rdf:type triple:Project ;
                  schema:description "This collaborative project employs advanced digital technologies to document and preserve endangered cultural heritage sites across the Balkan region."@en ;
                  sioc:topic disc:museo , disc:stat , disc:hist ;
                  schema:keywords triple:keyword_8 , triple:keyword_9 , triple:keyword_10 , triple:keyword_11 ;
-                 triple:hasProjectType prtype:funded ;
+                 triple:hasProjectType pt:funded ;
                  schema:funding triple:grant_3 , triple:grant_4 .
 
 ###  Identifiers
@@ -212,7 +212,7 @@ triple:project_4 rdf:type triple:Project ;
                  schema:description "This project provides a comprehensive analysis of how Hellenistic philosophical schools conceptualized justice and its role in ethical and political thought."@en ;
                  sioc:topic disc:phil , disc:class ;
                  schema:keywords triple:keyword_12 , triple:keyword_13 , triple:keyword_14 , triple:keyword_15 ;
-                 triple:hasProjectType prtype:funded ;
+                 triple:hasProjectType pt:funded ;
                  schema:funding triple:grant_5 .
 
 ###  Identifiers
@@ -281,7 +281,7 @@ triple:identifier_pid_p4 rdf:type datacite:Identifier ;
 
 
 ###  Project Types (from the ProjectType controlled vocabulary)
-prtype:funded rdf:type owl:NamedIndividual ,
+pt:funded rdf:type owl:NamedIndividual ,
                        triple:ProjectType ;
               rdfs:label "Funded"@en ;
               rdfs:comment "A research project financed by a formal funding programme, such as a European or national grant."@en .

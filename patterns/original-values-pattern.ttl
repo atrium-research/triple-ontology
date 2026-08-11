@@ -15,12 +15,12 @@
 # (which has no domain/range constraints), so generic DC consumers see the
 # raw values through standard dc: terms by inference.
 
-triple:originalType rdf:type owl:DatatypeProperty ;
+triple:originalAdditionalType rdf:type owl:DatatypeProperty ;
                     rdfs:label "original type"@en ;
                     rdfs:subPropertyOf dc:type ;
                     rdfs:range xsd:string .
 
-triple:originalLanguage rdf:type owl:DatatypeProperty ;
+triple:originalInLanguage rdf:type owl:DatatypeProperty ;
                         rdfs:label "original language"@en ;
                         rdfs:subPropertyOf dc:language ;
                         rdfs:range xsd:string .
@@ -35,7 +35,7 @@ triple:originalLicense rdf:type owl:DatatypeProperty ;
                        rdfs:subPropertyOf dc:rights ;
                        rdfs:range xsd:string .
 
-triple:originalConditionsOfAccess rdf:type owl:DatatypeProperty ;
+triple:originalConditionOfAccess rdf:type owl:DatatypeProperty ;
                                   rdfs:label "original conditions of access"@en ;
                                   rdfs:subPropertyOf dc:rights ;
                                   rdfs:range xsd:string .
@@ -47,23 +47,23 @@ triple:originalSource rdf:type owl:DatatypeProperty ;
 
 # Usage Pattern in Classes (optional, 0 or more)
 triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                owl:onProperty triple:originalType ;
+                                owl:onProperty triple:originalAdditionalType ;
                                 owl:allValuesFrom xsd:string ] .
 # Same restrictions on triple:Dataset, triple:MediaObject, triple:SemanticArtefact
 # (originalSource is NOT defined for Dataset, per the LUMEN ADR 005 tables).
 
 # Example ABOX usage — raw value next to its normalized counterpart:
 # triple:document-example
-#     triple:originalType "journalArticle" ;             # raw
+#     triple:originalAdditionalType "journalArticle" ;             # raw
 #     triple:hasContentType ct:typ_article ;                 # normalized
-#     triple:originalLanguage "eng" ;                    # raw
+#     triple:originalInLanguage "eng" ;                    # raw
 #     schema:inLanguage triple:language-en ;             # normalized
 #     triple:originalDatePublished "03/05/2021" ;        # raw
 #     schema:datePublished "2021-05-03"^^xsd:date ;      # normalized
 #     triple:originalLicense "CC BY 4.0" ;               # raw
 #     triple:hasLicense lic:lic_creative-commons ;           # normalized
-#     triple:originalConditionsOfAccess "info:eu-repo/semantics/openAccess" ;
-#     triple:hasAccessCondition acc:acr_open-access ;
+#     triple:originalConditionOfAccess "info:eu-repo/semantics/openAccess" ;
+#     triple:hasConditionOfAccess coa:acr_open-access ;
 #     triple:originalSource "Journal of Digital Humanities, 12(3), 2021" .
 
 # Standard Requirements:
@@ -71,7 +71,7 @@ triple:Document rdfs:subClassOf [ rdf:type owl:Restriction ;
 # - Each is rdfs:subPropertyOf the matching dc: (Elements 1.1) term:
 #   type→dc:type, language→dc:language, datePublished→dc:date,
 #   license→dc:rights, conditionsOfAccess→dc:rights, source→dc:source
-# - originalLicense and originalConditionsOfAccess both refine dc:rights
+# - originalLicense and originalConditionOfAccess both refine dc:rights
 #   (DC does not distinguish the two notions; TRIPLE preserves the distinction)
 # - Raw values NEVER replace the normalized properties — they document provenance,
 #   allow the normalization to be audited/re-run, and expose mapping errors

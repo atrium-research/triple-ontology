@@ -22,7 +22,7 @@
 ###  Identifiers
 ###  Referenced Document
 ###  Licenses
-###  Access Conditions
+###  Condition of Access
 ###  Extracted keywords (knows_about)
 ###  Concepts of the TRIPLE Vocabulary (SSH-LCSH)
 #    http://semantics.gr/authorities/vocabularies/SSH-LCSH — maintained by the TRIPLE consortium,
@@ -30,7 +30,7 @@
 #    are these concepts themselves, identified by their own URI: GoTriple does not mint local copies.
 #    The labels below are a snapshot of the authoritative ones; the vocabulary carries up to 12 languages.
 
-@prefix acc: <https://gotriple.eu/ontology/access-condition/> .
+@prefix coa: <https://gotriple.eu/ontology/condition-of-access/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -58,7 +58,7 @@ triple:dataset-002 a triple:Dataset ;
         triple:identifier-social-pid ;
     sioc:topic disc:socio ;
     dcat:bbox "POLYGON((-10 34, 34 34, 34 72, -10 72, -10 34))"^^rdfs:Literal ;
-    triple:hasAccessCondition acc:acr_restricted-access-or-use ;
+    triple:hasConditionOfAccess coa:acr_restricted-access-or-use ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85009407>,
         <http://semantics.gr/authorities/SSH-LCSH/sh85104440>,
@@ -135,7 +135,7 @@ triple:dataset-001 a triple:Dataset ;
     dcat:bbox "POLYGON((-10 35, 30 35, 30 70, -10 70, -10 35))"^^rdfs:Literal ;
     dcat:distribution triple:distribution-heritage-001 ;
     dcat:theme <http://publications.europa.eu/resource/authority/data-theme/SOCI> ;
-    triple:hasAccessCondition acc:acr_open-access ;
+    triple:hasConditionOfAccess coa:acr_open-access ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:abstract "A comprehensive dataset containing archaeological site information across Europe, including spatial coordinates, dating, and cultural attributions."@en ;
     schema:author "Jane Smith",

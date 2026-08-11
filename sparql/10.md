@@ -350,7 +350,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?dataset ?title ?access WHERE {
   ?dataset a triple:Dataset ;
            schema:headline ?title ;
-           triple:hasAccessCondition ?acc .
+           triple:hasConditionOfAccess ?acc .
   ?acc rdfs:label ?access .
 }
 ```

@@ -27,10 +27,10 @@ CQ_2.2
 What are the access conditions for `document_2`?
 
 ### Expected Outcome
-The access conditions term from the Access Conditions Vocabulary.
+The access conditions term from the Condition of Access Vocabulary.
 
 ### Result
-* `acc:acr_open-access`
+* `coa:acr_open-access`
 
 ### Based on
 Example 2
@@ -175,7 +175,7 @@ Which controlled-vocabulary classes does the document metadata draw its values f
 The vocabulary classes declared in the model, i.e. the subclasses of `skos:Concept`.
 
 ### Result
-* `triple:License`, `triple:AccessCondition`, `triple:Discipline`, `triple:ContentType`
+* `triple:License`, `triple:ConditionOfAccess`, `triple:Discipline`, `triple:ContentType`
 
 ### Based on
 All Examples

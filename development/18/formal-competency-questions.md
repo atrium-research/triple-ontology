@@ -85,14 +85,14 @@ SELECT ?headline WHERE {
 
 ## CQ_18.5
 
-Return the documents whose detected language differs from the raw language declared by the provider (`triple:originalLanguage`, iteration 17).
+Return the documents whose detected language differs from the raw language declared by the provider (`triple:originalInLanguage`, iteration 17).
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?document ?detected ?original WHERE {
   ?document triple:detectedLanguage ?detected ;
-            triple:originalLanguage ?original .
+            triple:originalInLanguage ?original .
   FILTER(?detected != ?original)
 }
 ```

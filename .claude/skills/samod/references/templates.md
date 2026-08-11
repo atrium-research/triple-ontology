@@ -77,7 +77,7 @@ Guidelines:
 | `Domain Term`                  | Domain-specific term with no namespace (used only if it later becomes part of the TBox).                  |
 ```
 
-**Hard rule — TBox only.** Every row must be a name that appears in `TBOX.ttl`. Do not list ABox individuals. Do not list `prtype:network` or `ct:typ_article` and so on unless the concept scheme itself is introduced in this iteration's TBox.
+**Hard rule — TBox only.** Every row must be a name that appears in `TBOX.ttl`. Do not list ABox individuals. Do not list `pt:network` or `ct:typ_article` and so on unless the concept scheme itself is introduced in this iteration's TBox.
 
 ---
 

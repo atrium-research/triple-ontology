@@ -54,7 +54,7 @@ SELECT ?multimedia ?title ?size ?access WHERE {
   ?multimedia a triple:MediaObject ;
               schema:headline ?title ;
               schema:size ?size ;
-              triple:hasAccessCondition ?accessCond .
+              triple:hasConditionOfAccess ?accessCond .
   ?accessCond rdfs:label ?access .
   FILTER(LANG(?access) = "en")
 }

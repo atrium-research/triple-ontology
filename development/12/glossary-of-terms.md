@@ -30,9 +30,9 @@
 | `datacite:usesIdentifierScheme` | DataCite property connecting identifiers to their schemes, always asserted explicitly in the data. |
 | `litre:hasLiteralValue` | Property connecting identifiers to their string values. |
 | `triple:License` | Bridge class for licenses, subclass of skos:Concept and dcterms:LicenseDocument. |
-| `triple:AccessCondition` | Bridge class for access rights, subclass of skos:Concept and dcterms:RightsStatement. |
+| `triple:ConditionOfAccess` | Bridge class for access rights, subclass of skos:Concept and dcterms:RightsStatement. |
 | `triple:hasLicense` | Property connecting a semantic artifact to its license. |
-| `triple:hasAccessCondition` | Property connecting a semantic artifact to its access conditions. |
+| `triple:hasConditionOfAccess` | Property connecting a semantic artifact to its access conditions. |
 | `adms:representationTechnique` | ADMS property giving more information about the format in which the semantic artefact is released (e.g. SKOS, OWL), distinct from the file format. Range `skos:Concept`. |
 | `schema:mentions` | Schema.org property indicating that the semantic artefact contains a reference to, but is not necessarily about, a concept or entity. |
 | `schema:contributor` | A secondary contributor to the creative work, from Schema.org. |

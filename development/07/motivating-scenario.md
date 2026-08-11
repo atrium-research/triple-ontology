@@ -77,7 +77,7 @@ The TRIPLE project ("Transforming Research through Innovative Practices for Link
 - Date Created: 2018-12-01
 - Date Modified: 2023-01-15
 - Discipline: Methods and Statistics (`disc:stat`)
-- Project Type: Funded (`prtype:funded`)
+- Project Type: Funded (`pt:funded`)
 - Keywords: discovery platform, semantic web, SSH research
 - Name: Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration
 - Alternate name: TRIPLE
@@ -100,7 +100,7 @@ A 2-year research project (2020-2022) on contemporary migration patterns in Sout
 - Main Entity of Page: https://miguris.project.it
 - Date Created: 2020-02-01
 - Disciplines: Sociology (`disc:socio`), Demography (`disc:demo`)
-- Project Type: Funded (`prtype:funded`)
+- Project Type: Funded (`pt:funded`)
 - Keywords: migration, integration, urban studies, Southern Europe
 - Name: Socio-Economic Integration of Migrants in Italian Urban Contexts
 - Alternate name: MIGURIS

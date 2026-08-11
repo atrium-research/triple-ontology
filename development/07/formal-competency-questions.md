@@ -476,7 +476,7 @@ WHERE {
 - `triple:project_3` → "Digital Documentation of Endangered Cultural Heritage in the Balkans" → "Funded"
 - `triple:project_4` → "Conceptions of Justice in Hellenistic Philosophy" → "Funded"
 
-All four projects are financed by a formal funding programme, so they all carry `prtype:funded`; `prtype:network` and `prtype:research`, used until now, are not concepts of the ProjectType vocabulary.
+All four projects are financed by a formal funding programme, so they all carry `pt:funded`; `pt:network` and `pt:research`, used until now, are not concepts of the ProjectType vocabulary.
 
 
 ## CQ_7.17

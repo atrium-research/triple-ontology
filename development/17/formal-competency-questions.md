@@ -10,21 +10,21 @@ PREFIX triple: <https://gotriple.eu/ontology/triple/>
 SELECT ?property ?value WHERE {
   triple:document_it17_1 ?property ?value .
   FILTER(?property IN (
-    triple:originalType,
-    triple:originalLanguage,
+    triple:originalAdditionalType,
+    triple:originalInLanguage,
     triple:originalDatePublished,
     triple:originalLicense,
-    triple:originalConditionsOfAccess
+    triple:originalConditionOfAccess
   ))
 }
 ```
 
 **Expected result:**
-- `triple:originalType` → "journalArticle"
-- `triple:originalLanguage` → "eng"
+- `triple:originalAdditionalType` → "journalArticle"
+- `triple:originalInLanguage` → "eng"
 - `triple:originalDatePublished` → "03/05/2021"
 - `triple:originalLicense` → "CC BY 4.0"
-- `triple:originalConditionsOfAccess` → "info:eu-repo/semantics/openAccess"
+- `triple:originalConditionOfAccess` → "info:eu-repo/semantics/openAccess"
 
 ## CQ_17.2
 
@@ -34,9 +34,9 @@ For each document, return the original type received from the provider and the C
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
-SELECT ?document ?originalType ?contentType WHERE {
+SELECT ?document ?originalAdditionalType ?contentType WHERE {
   ?document rdf:type triple:Document ;
-            triple:originalType ?originalType ;
+            triple:originalAdditionalType ?originalAdditionalType ;
             triple:hasContentType ?contentType .
 }
 ```
@@ -55,7 +55,7 @@ PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
 SELECT ?document WHERE {
   ?document rdf:type triple:Document ;
-            triple:originalConditionsOfAccess "info:eu-repo/semantics/openAccess" .
+            triple:originalConditionOfAccess "info:eu-repo/semantics/openAccess" .
 }
 ```
 
@@ -79,7 +79,7 @@ SELECT ?property ?value WHERE {
 
 **Expected result:**
 - `triple:originalLicense` → "CC BY 4.0"
-- `triple:originalConditionsOfAccess` → "info:eu-repo/semantics/openAccess"
+- `triple:originalConditionOfAccess` → "info:eu-repo/semantics/openAccess"
 
 ## CQ_17.5
 
@@ -98,6 +98,6 @@ SELECT ?documentSource ?datasetProperty ?datasetValue WHERE {
 
 **Expected result:**
 - `documentSource` → "Journal of Digital Humanities, 12(3), 2021"
-- `triple:originalType` → "Dataset/csv"
-- `triple:originalLanguage` → "French"
+- `triple:originalAdditionalType` → "Dataset/csv"
+- `triple:originalInLanguage` → "French"
 - `triple:originalLicense` → "https://spdx.org/licenses/CC-BY-4.0.html"

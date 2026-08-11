@@ -1,6 +1,6 @@
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix ct: <https://gotriple.eu/ontology/content-type/> .
-@prefix acc: <https://gotriple.eu/ontology/access-condition/> .
+@prefix coa: <https://gotriple.eu/ontology/condition-of-access/> .
 @prefix lic: <https://gotriple.eu/ontology/license/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -16,36 +16,36 @@
 triple:document_it17_1 rdf:type owl:NamedIndividual ,
                                 triple:Document ;
         # original values as received from the provider
-        triple:originalType "journalArticle" ;
-        triple:originalLanguage "eng" ;
+        triple:originalAdditionalType "journalArticle" ;
+        triple:originalInLanguage "eng" ;
         triple:originalDatePublished "03/05/2021" ;
         triple:originalLicense "CC BY 4.0" ;
-        triple:originalConditionsOfAccess "info:eu-repo/semantics/openAccess" ;
+        triple:originalConditionOfAccess "info:eu-repo/semantics/openAccess" ;
         triple:originalSource "Journal of Digital Humanities, 12(3), 2021" ;
         # normalized counterparts
         triple:hasContentType ct:typ_article ;
         schema:inLanguage triple:language_en_it17 ;
         schema:datePublished "2021-05-03"^^xsd:date ;
         triple:hasLicense lic:lic_creative-commons ;
-        triple:hasAccessCondition acc:acr_open-access ;
+        triple:hasConditionOfAccess coa:acr_open-access ;
         schema:headline "Auditing Metadata Normalization in Aggregation Pipelines"@en .
 
 
 ###  Example 2: document with only some original provider values
 triple:document_it17_2 rdf:type owl:NamedIndividual ,
                                 triple:Document ;
-        triple:originalType "COAR text" ;
-        triple:originalConditionsOfAccess "restricted" ;
+        triple:originalAdditionalType "COAR text" ;
+        triple:originalConditionOfAccess "restricted" ;
         triple:hasContentType ct:typ_text ;
-        triple:hasAccessCondition acc:acr_restricted-access-or-use ;
+        triple:hasConditionOfAccess coa:acr_restricted-access-or-use ;
         schema:headline "Working Notes on Provider Heterogeneity"@en .
 
 
 ###  Example 3: dataset with original provider values (no original source, per ADR 005)
 triple:dataset_it17_1 rdf:type owl:NamedIndividual ,
                                triple:Dataset ;
-        triple:originalType "Dataset/csv" ;
-        triple:originalLanguage "French" ;
+        triple:originalAdditionalType "Dataset/csv" ;
+        triple:originalInLanguage "French" ;
         triple:originalLicense "https://spdx.org/licenses/CC-BY-4.0.html" ;
         schema:headline "Enquête sociale européenne - vague 10 (données France)"@fr .
 
@@ -61,11 +61,11 @@ ct:typ_article rdf:type owl:NamedIndividual ,
 ct:typ_text rdf:type owl:NamedIndividual ,
                  triple:ContentType .
 
-acc:acr_open-access rdf:type owl:NamedIndividual ,
-                         triple:AccessCondition .
+coa:acr_open-access rdf:type owl:NamedIndividual ,
+                         triple:ConditionOfAccess .
 
-acc:acr_restricted-access-or-use rdf:type owl:NamedIndividual ,
-                                      triple:AccessCondition .
+coa:acr_restricted-access-or-use rdf:type owl:NamedIndividual ,
+                                      triple:ConditionOfAccess .
 
 lic:lic_creative-commons rdf:type owl:NamedIndividual ,
                               triple:License .

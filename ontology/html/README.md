@@ -9,7 +9,7 @@ and the RDF serializations (`ontology.ttl`, `ontology.rdf`, `ontology.jsonld`):
 | `triple/` | the consolidated model — every class, property and identifier scheme |
 | `discipline/` | the Discipline vocabulary (27 concepts) |
 | `content-type/` | the ContentType vocabulary (23) |
-| `access-condition/` | the AccessCondition vocabulary (10) |
+| `condition-of-access/` | the ConditionOfAccess vocabulary (10) |
 | `license/` | the License vocabulary (13) |
 | `project-type/` | the ProjectType vocabulary (7) |
 | `ddc/` | the Dewey Decimal Classification proxies (53) |
@@ -30,7 +30,7 @@ in the generated pages are guaranteed to match (verified at build time, 38/38 te
 | `/ontology/{voc}/{key}` | `302` → `/ontology/{voc}#{key}` | `{voc}/ontology.ttl` (etc.) |
 | anything else | **real 404** | **real 404** |
 
-`{voc}` ∈ `discipline`, `content-type`, `access-condition`, `license`, `project-type`,
+`{voc}` ∈ `discipline`, `content-type`, `condition-of-access`, `license`, `project-type`,
 `ddc` — a closed list that changes only when a vocabulary is created.
 
 Worked examples:
@@ -53,10 +53,10 @@ vocabulary. The two are different IRIs on purpose.
 ```nginx
 location = /ontology/triple { # negotiate: html → triple/index.html, rdf → triple/ontology.*
 }
-location ~ ^/ontology/(discipline|content-type|access-condition|license|project-type|ddc)$ {
+location ~ ^/ontology/(discipline|content-type|condition-of-access|license|project-type|ddc)$ {
     # negotiate: html → $1/index.html, rdf → $1/ontology.*
 }
-location ~ ^/ontology/(discipline|content-type|access-condition|license|project-type|ddc)/(.+)$ {
+location ~ ^/ontology/(discipline|content-type|condition-of-access|license|project-type|ddc)/(.+)$ {
     # html → 302 /ontology/$1#$2 ; rdf → $1/ontology.*
 }
 location ~ ^/ontology/triple/([^/]+)$ {

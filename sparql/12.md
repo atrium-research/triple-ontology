@@ -247,7 +247,7 @@ PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 SELECT ?artifact ?title ?access WHERE {
   ?artifact a triple:SemanticArtefact ;
            schema:headline ?title ;
-           triple:hasAccessCondition ?acc .
+           triple:hasConditionOfAccess ?acc .
   ?acc rdfs:label ?access .
 }
 ```

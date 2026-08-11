@@ -17,7 +17,7 @@ This controlled vocabulary serves as a standardized set of terms for each entity
 
 1. **License Vocabulary**: This refers to the legal permissions and restrictions associated with a document. A license dictates how the document can be used, shared, modified, and distributed. For instance, some documents might be under open licenses (like CC-BY-4.0) allowing free use and distribution, while others could have more restrictive licenses that limit their use to certain conditions or require payment or attribution.
 
-2. **Access Conditions Vocabulary**: These are the terms that govern how and by whom a document can be accessed. Access conditions might include restrictions based on user credentials, subscription status, geographical location, or other criteria. For example, some documents might be "Open Access", while others could be "Restricted Access" available only to certain academic institutions or paid subscribers.
+2. **Condition of Access Vocabulary**: These are the terms that govern how and by whom a document can be accessed. Access conditions might include restrictions based on user credentials, subscription status, geographical location, or other criteria. For example, some documents might be "Open Access", while others could be "Restricted Access" available only to certain academic institutions or paid subscribers.
 
 3. **Content Type Vocabulary**: This refers to the category or format of the document. It includes distinctions such as Article, Dataset, Book, Conference Proceeding, Thesis, Report, etc. Each type of content has its own structure, purpose, and audience. For instance, a research article might present new findings in a specific field, whereas a dataset provides raw data for analysis.
 
@@ -32,11 +32,11 @@ For defining the common base structure of each controlled vocabulary, the follow
 Each controlled vocabulary lives in its own module under `vocabularies/serializations/ttl/`, with a `.metadata.ttl` sidecar, and is compiled into a stand-alone ontology by `scripts/build.py`:
 
 - **Content Type**: `<https://gotriple.eu/ontology/content-type/>`
-- **Access Condition**: `<https://gotriple.eu/ontology/access-condition/>`
+- **Condition of Access**: `<https://gotriple.eu/ontology/condition-of-access/>`
 - **License**: `<https://gotriple.eu/ontology/license/>`
 - **Discipline**: `<https://gotriple.eu/ontology/discipline/>`
 
-The model does not `owl:imports` them: what the iteration TBOX declares is the class each vocabulary's concepts instantiate (`triple:ContentType`, `triple:AccessCondition`, `triple:License`, `triple:Discipline`, all subclasses of `skos:Concept`), so a document can be linked to a concept without dragging a whole vocabulary into every graph.
+The model does not `owl:imports` them: what the iteration TBOX declares is the class each vocabulary's concepts instantiate (`triple:ContentType`, `triple:ConditionOfAccess`, `triple:License`, `triple:Discipline`, all subclasses of `skos:Concept`), so a document can be linked to a concept without dragging a whole vocabulary into every graph.
 
 #### SKOS Structure
 
@@ -55,7 +55,7 @@ Every term in the vocabulary has the following capabilities:
 #### Properties Connecting Documents to Vocabularies
     
 - **`triple:hasLicense`**: Links a document to a license term (instance of `triple:License`) from the License Vocabulary. Subproperty of `dcterms:license`.
-- **`triple:hasAccessCondition`**: Links a document to an access condition term (instance of `triple:AccessCondition`) from the Access Conditions Vocabulary. Subproperty of `dcterms:accessRights`.
+- **`triple:hasConditionOfAccess`**: Links a document to an access condition term (instance of `triple:ConditionOfAccess`) from the Condition of Access Vocabulary. Subproperty of `dcterms:accessRights`.
 - **`triple:hasContentType`**: Links a document to a content type term (instance of `triple:ContentType`) from the Content Type Vocabulary. Subproperty of `dcterms:type`.
 - **`sioc:topic`**: Links a document to a discipline term (instance of `triple:Discipline`) from the Discipline Vocabulary. Subproperty of `dcterms:subject`.
 
@@ -69,14 +69,14 @@ Every term in the vocabulary has the following capabilities:
 - Class: `triple:License`
 - External match: Close match to `https://www.wikidata.org/entity/Q284742` (Creative Commons license, the family)
 
-## Example 2: Document with Access Conditions
+## Example 2: Document with Condition of Access
 
-`document_2` is a research paper that is freely available. The document is linked via `triple:hasAccessCondition` to the vocabulary concept `acc:acr_open-access` (a `triple:AccessCondition`).
+`document_2` is a research paper that is freely available. The document is linked via `triple:hasConditionOfAccess` to the vocabulary concept `coa:acr_open-access` (a `triple:ConditionOfAccess`).
 
 - Document: `document_2`
-- Property: `triple:hasAccessCondition`
-- Access term: `acc:acr_open-access`
-- Class: `triple:AccessCondition`
+- Property: `triple:hasConditionOfAccess`
+- Access term: `coa:acr_open-access`
+- Class: `triple:ConditionOfAccess`
 - External match: Close match to COAR's "Open Access" concept
 
 ## Example 3: Document with Type

@@ -24,7 +24,7 @@
 
                 
                 <dt>Revision:</dt>
-                <dd>3.0.0</dd>
+                <dd>3.1.0</dd>
                 
 
                 
@@ -109,11 +109,11 @@
             <h2>2. Classes</h2>
             <ul class="hlist">
                 
-                <li><a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a></li>
-                
                 <li><a href="#oa:Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a></li>
                 
                 <li><a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a></li>
+                
+                <li><a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a></li>
                 
                 <li><a href="#ContentType" title="https://gotriple.eu/ontology/triple/ContentType">Content Type</a></li>
                 
@@ -212,71 +212,6 @@
                 <li><a href="#schema:URL" title="https://schema.org/URL">schema:URL</a></li>
                 
             </ul>
-            
-            <div class="entity" id="AccessCondition">
-                <h3>Access Condition
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/AccessCondition</p>
-                
-                <div class="comment">
-                    <p>The access condition of a resource — how and to whom it is available — drawn from the Access Condition controlled vocabulary and aligned with COAR access rights.</p>
-                </div>
-                
-
-                
-
-                
-
-                
-
-                
-
-                
-                <dl class="description">
-                    
-                    <dt>has super-classes</dt>
-                    <dd>
-                        
-                        <a href="#dcterms:RightsStatement" title="http://purl.org/dc/terms/RightsStatement">dcterms:RightsStatement</a>
-                        <sup class="type-c" title="c">c</sup>
-                        , 
-                        
-                        <a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
-                        <sup class="type-c" title="c">c</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                    <dt>is in range of</dt>
-                    <dd>
-                        
-                        <a href="#hasAccessCondition" title="https://gotriple.eu/ontology/triple/hasAccessCondition">has access condition</a>
-                        <sup class="type-op" title="op">op</sup>
-                        
-                        
-                    </dd>
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
             
             <div class="entity" id="oa:Annotation">
                 <h3>Annotation
@@ -386,7 +321,7 @@
                         <sup class="type-c" title="c">c</sup>
                         , 
                         
-                        <a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a>
+                        <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
                         <sup class="type-c" title="c">c</sup>
                         , 
                         
@@ -412,6 +347,71 @@
                     <dd>
                         
                         <a href="#adms:representationTechnique" title="http://www.w3.org/ns/adms#representationTechnique">adms:representationTechnique</a>
+                        <sup class="type-op" title="op">op</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="ConditionOfAccess">
+                <h3>Condition of Access
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/ConditionOfAccess</p>
+                
+                <div class="comment">
+                    <p>The access condition of a resource — how and to whom it is available — drawn from the Condition of Access controlled vocabulary and aligned with COAR access rights.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#dcterms:RightsStatement" title="http://purl.org/dc/terms/RightsStatement">dcterms:RightsStatement</a>
+                        <sup class="type-c" title="c">c</sup>
+                        , 
+                        
+                        <a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                    <dt>is in range of</dt>
+                    <dd>
+                        
+                        <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a>
                         <sup class="type-op" title="op">op</sup>
                         
                         
@@ -559,174 +559,6 @@
                     <dt>has restrictions</dt>
                     <dd>
                         <ul class="restrictions">
-                            
-                            <li>
-                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalConditionsOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionsOfAccess">original conditions of access</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalType" title="https://gotriple.eu/ontology/triple/originalType">original type</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLanguage" title="https://gotriple.eu/ontology/triple/originalLanguage">original language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
                             
                             <li>
                                 <a href="#schema:spatialCoverage" title="https://schema.org/spatialCoverage">schema:spatialCoverage</a>
@@ -1547,7 +1379,7 @@
                             </li>
                             
                             <li>
-                                <a href="#hasAccessCondition" title="https://gotriple.eu/ontology/triple/hasAccessCondition">has access condition</a>
+                                <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -1561,7 +1393,7 @@
                                 
 
                                 
-                                <a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a>
+                                <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -1624,6 +1456,174 @@
 
                                 
                                 <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
                                 
                                 
                             </li>
@@ -1775,11 +1775,11 @@
                         <ul class="restrictions">
                             
                             <li>
-                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                                <a href="#schema:mentions" title="https://schema.org/mentions">mentions</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
-                                <span class="literal">only</span>
+                                <span class="literal">some</span>
 
                                 
 
@@ -1789,391 +1789,7 @@
                                 
 
                                 
-                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#dcterms:references" title="http://purl.org/dc/terms/references">dcterms:references</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#isDuplicateOf" title="https://gotriple.eu/ontology/triple/isDuplicateOf">is duplicate of</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Document" title="https://gotriple.eu/ontology/triple/Document">Document</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalType" title="https://gotriple.eu/ontology/triple/originalType">original type</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLanguage" title="https://gotriple.eu/ontology/triple/originalLanguage">original language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalConditionsOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionsOfAccess">original conditions of access</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:about" title="https://schema.org/about">schema:about</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#detectedLanguage" title="https://gotriple.eu/ontology/triple/detectedLanguage">detected language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#machineTranslatedLanguage" title="https://gotriple.eu/ontology/triple/machineTranslatedLanguage">machine translated language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#sioc:topic" title="http://rdfs.org/sioc/ns#topic">sioc:topic</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#hasLicense" title="https://gotriple.eu/ontology/triple/hasLicense">has license</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#License" title="https://gotriple.eu/ontology/triple/License">License</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#hasAccessCondition" title="https://gotriple.eu/ontology/triple/hasAccessCondition">has access condition</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#hasContentType" title="https://gotriple.eu/ontology/triple/hasContentType">has content type</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#ContentType" title="https://gotriple.eu/ontology/triple/ContentType">Content Type</a>
+                                <a href="#oa:Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -2693,11 +2309,11 @@
                             </li>
                             
                             <li>
-                                <a href="#schema:mentions" title="https://schema.org/mentions">mentions</a>
+                                <a href="#sioc:topic" title="http://rdfs.org/sioc/ns#topic">sioc:topic</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
-                                <span class="literal">some</span>
+                                <span class="literal">only</span>
 
                                 
 
@@ -2707,7 +2323,391 @@
                                 
 
                                 
-                                <a href="#oa:Annotation" title="http://www.w3.org/ns/oa#Annotation">Annotation</a>
+                                <a href="#Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#hasLicense" title="https://gotriple.eu/ontology/triple/hasLicense">has license</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#License" title="https://gotriple.eu/ontology/triple/License">License</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#hasContentType" title="https://gotriple.eu/ontology/triple/hasContentType">has content type</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#ContentType" title="https://gotriple.eu/ontology/triple/ContentType">Content Type</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#dcterms:references" title="http://purl.org/dc/terms/references">dcterms:references</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#isDuplicateOf" title="https://gotriple.eu/ontology/triple/isDuplicateOf">is duplicate of</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Document" title="https://gotriple.eu/ontology/triple/Document">Document</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:about" title="https://schema.org/about">schema:about</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">Concept</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#detectedLanguage" title="https://gotriple.eu/ontology/triple/detectedLanguage">detected language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#machineTranslatedLanguage" title="https://gotriple.eu/ontology/triple/machineTranslatedLanguage">machine translated language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -2936,198 +2936,6 @@
                     <dt>has restrictions</dt>
                     <dd>
                         <ul class="restrictions">
-                            
-                            <li>
-                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalType" title="https://gotriple.eu/ontology/triple/originalType">original type</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLanguage" title="https://gotriple.eu/ontology/triple/originalLanguage">original language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalConditionsOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionsOfAccess">original conditions of access</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
                             
                             <li>
                                 <a href="#schema:publisher" title="https://schema.org/publisher">schema:publisher</a>
@@ -3588,7 +3396,7 @@
                             </li>
                             
                             <li>
-                                <a href="#hasAccessCondition" title="https://gotriple.eu/ontology/triple/hasAccessCondition">has access condition</a>
+                                <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -3602,7 +3410,7 @@
                                 
 
                                 
-                                <a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a>
+                                <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -3809,6 +3617,198 @@
 
                                 
                                 <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
                                 
                                 
                             </li>
@@ -4761,31 +4761,7 @@
                         <ul class="restrictions">
                             
                             <li>
-                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
+                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -5371,7 +5347,7 @@
                             </li>
                             
                             <li>
-                                <a href="#hasAccessCondition" title="https://gotriple.eu/ontology/triple/hasAccessCondition">has access condition</a>
+                                <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -5385,7 +5361,7 @@
                                 
 
                                 
-                                <a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a>
+                                <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -5501,31 +5477,7 @@
                             </li>
                             
                             <li>
-                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalType" title="https://gotriple.eu/ontology/triple/originalType">original type</a>
+                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
@@ -5549,7 +5501,7 @@
                             </li>
                             
                             <li>
-                                <a href="#originalLanguage" title="https://gotriple.eu/ontology/triple/originalLanguage">original language</a>
+                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
@@ -5621,7 +5573,7 @@
                             </li>
                             
                             <li>
-                                <a href="#originalConditionsOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionsOfAccess">original conditions of access</a>
+                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
@@ -5660,6 +5612,54 @@
 
                                 
                                 <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -6121,7 +6121,7 @@
                 <p><strong>IRI:</strong> http://purl.org/dc/terms/RightsStatement</p>
                 
                 <div class="comment">
-                    <p>A statement about the intellectual property rights held in or over a resource (DCMI Metadata Terms). Superclass of triple:AccessCondition.</p>
+                    <p>A statement about the intellectual property rights held in or over a resource (DCMI Metadata Terms). Superclass of triple:ConditionOfAccess.</p>
                 </div>
                 
 
@@ -6143,7 +6143,7 @@
                     <dt>has sub-classes</dt>
                     <dd>
                         
-                        <a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition">Access Condition</a>
+                        <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
                         <sup class="type-c" title="c">c</sup>
                         
                         
@@ -6412,7 +6412,7 @@
                         <ul class="restrictions">
                             
                             <li>
-                                <a href="#foaf:name" title="http://xmlns.com/foaf/0.1/name">foaf:name</a>
+                                <a href="#schema:name" title="https://schema.org/name">name</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
@@ -6438,7 +6438,7 @@
                             </li>
                             
                             <li>
-                                <a href="#schema:name" title="https://schema.org/name">name</a>
+                                <a href="#foaf:name" title="http://xmlns.com/foaf/0.1/name">foaf:name</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
@@ -6523,7 +6523,7 @@
                         <ul class="restrictions">
                             
                             <li>
-                                <a href="#foaf:name" title="http://xmlns.com/foaf/0.1/name">foaf:name</a>
+                                <a href="#schema:name" title="https://schema.org/name">name</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
@@ -6549,7 +6549,7 @@
                             </li>
                             
                             <li>
-                                <a href="#schema:name" title="https://schema.org/name">name</a>
+                                <a href="#foaf:name" title="http://xmlns.com/foaf/0.1/name">foaf:name</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
@@ -8003,7 +8003,7 @@
                 
                 <li><a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a></li>
                 
-                <li><a href="#hasAccessCondition" title="https://gotriple.eu/ontology/triple/hasAccessCondition">has access condition</a></li>
+                <li><a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a></li>
                 
                 <li><a href="#hasContentType" title="https://gotriple.eu/ontology/triple/hasContentType">has content type</a></li>
                 
@@ -8422,7 +8422,7 @@
     <p><strong>IRI:</strong> http://purl.org/dc/terms/accessRights</p>
     
     <div class="comment">
-        <p>Information about who access the resource or an indication of its security status (DCMI Metadata Terms). Super-property of triple:hasAccessCondition.</p>
+        <p>Information about who access the resource or an indication of its security status (DCMI Metadata Terms). Super-property of triple:hasConditionOfAccess.</p>
     </div>
     
     
@@ -8441,8 +8441,8 @@
         <dt>has sub-properties</dt>
         <dd>
             
-            <a href="#hasAccessCondition" title="https://gotriple.eu/ontology/triple/hasAccessCondition"
-                target="_self">has access condition</a>
+            <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess"
+                target="_self">has condition of access</a>
             <sup class="type-op" title="op">op</sup>
             
             
@@ -8864,8 +8864,8 @@
     
 </div>
             
-            <div class="entity" id="hasAccessCondition">
-    <h3>has access condition
+            <div class="entity" id="hasConditionOfAccess">
+    <h3>has condition of access
         <sup class="type-op" title="op">
             op
         </sup>
@@ -8873,7 +8873,7 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasAccessCondition</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/hasConditionOfAccess</p>
     
     <div class="comment">
         <p>Links a resource to its access condition.</p>
@@ -8909,8 +8909,8 @@
         <dt>has range</dt>
         <dd>
             
-            <a href="#AccessCondition" title="https://gotriple.eu/ontology/triple/AccessCondition"
-                target="_self">Access Condition</a>
+            <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess"
+                target="_self">Condition of Access</a>
             <sup class="type-c" title="c">c</sup>
             
             
@@ -10124,17 +10124,17 @@
                 
                 <li><a href="#openToCollaboration" title="https://gotriple.eu/ontology/triple/openToCollaboration">open to collaboration</a></li>
                 
-                <li><a href="#originalConditionsOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionsOfAccess">original conditions of access</a></li>
+                <li><a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a></li>
+                
+                <li><a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a></li>
                 
                 <li><a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a></li>
                 
-                <li><a href="#originalLanguage" title="https://gotriple.eu/ontology/triple/originalLanguage">original language</a></li>
+                <li><a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a></li>
                 
                 <li><a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a></li>
                 
                 <li><a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a></li>
-                
-                <li><a href="#originalType" title="https://gotriple.eu/ontology/triple/originalType">original type</a></li>
                 
                 <li><a href="#pronouns" title="https://gotriple.eu/ontology/triple/pronouns">pronouns</a></li>
                 
@@ -10319,8 +10319,8 @@
         <dt>has sub-properties</dt>
         <dd>
             
-            <a href="#originalLanguage" title="https://gotriple.eu/ontology/triple/originalLanguage"
-                target="_self">original language</a>
+            <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage"
+                target="_self">original in language</a>
             <sup class="type-dp" title="dp">dp</sup>
             
             
@@ -10367,8 +10367,8 @@
         <dt>has sub-properties</dt>
         <dd>
             
-            <a href="#originalConditionsOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionsOfAccess"
-                target="_self">original conditions of access</a>
+            <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess"
+                target="_self">original condition of access</a>
             <sup class="type-dp" title="dp">dp</sup>
             , 
             
@@ -10468,8 +10468,8 @@
         <dt>has sub-properties</dt>
         <dd>
             
-            <a href="#originalType" title="https://gotriple.eu/ontology/triple/originalType"
-                target="_self">original type</a>
+            <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType"
+                target="_self">original additional type</a>
             <sup class="type-dp" title="dp">dp</sup>
             
             
@@ -10545,7 +10545,7 @@
     <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/detectedLanguage</p>
     
     <div class="comment">
-        <p>The language tag identified by the GoTriple language-detection service for the resource&#39;s text, which may differ from the language declared by the provider (triple:originalLanguage) and from the normalized language (schema:inLanguage).</p>
+        <p>The language tag identified by the GoTriple language-detection service for the resource&#39;s text, which may differ from the language declared by the provider (triple:originalInLanguage) and from the normalized language (schema:inLanguage).</p>
     </div>
     
     
@@ -10866,8 +10866,8 @@
     
 </div>
             
-            <div class="entity" id="originalConditionsOfAccess">
-    <h3>original conditions of access
+            <div class="entity" id="originalAdditionalType">
+    <h3>original additional type
         <sup class="type-dp" title="dp">
             dp
         </sup>
@@ -10875,10 +10875,68 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalConditionsOfAccess</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalAdditionalType</p>
     
     <div class="comment">
-        <p>The access rights statement exactly as received from the source provider (e.g. &#39;info:eu-repo/semantics/openAccess&#39;), before normalization to the Access Condition controlled vocabulary. The normalized value is expressed via triple:hasAccessCondition.</p>
+        <p>The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. &#39;journalArticle&#39;). The normalized value is expressed via triple:hasContentType.</p>
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+    
+    <dl class="description">
+        
+        <dt>has super-properties</dt>
+        <dd>
+            
+            <a href="#dc:type" title="http://purl.org/dc/elements/1.1/type"
+                target="_self">dc:type</a>
+            <sup class="type-dp" title="dp">dp</sup>
+            
+            
+        </dd>
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="http://www.w3.org/2001/XMLSchema#string" title="http://www.w3.org/2001/XMLSchema#string"
+                target="_blank">xsd:string</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
+    
+</div>
+            
+            <div class="entity" id="originalConditionOfAccess">
+    <h3>original condition of access
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalConditionOfAccess</p>
+    
+    <div class="comment">
+        <p>The access rights statement exactly as received from the source provider (e.g. &#39;info:eu-repo/semantics/openAccess&#39;), before normalization to the Condition of Access controlled vocabulary. The normalized value is expressed via triple:hasConditionOfAccess.</p>
     </div>
     
     
@@ -10982,8 +11040,8 @@
     
 </div>
             
-            <div class="entity" id="originalLanguage">
-    <h3>original language
+            <div class="entity" id="originalInLanguage">
+    <h3>original in language
         <sup class="type-dp" title="dp">
             dp
         </sup>
@@ -10991,7 +11049,7 @@
             back to <a href="#toc">ToC</a>
         </span>
     </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalLanguage</p>
+    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalInLanguage</p>
     
     <div class="comment">
         <p>The language value exactly as received from the source provider, before normalization to a schema:Language entity (e.g. &#39;eng&#39;, &#39;English&#39;, &#39;fr-FR&#39;). The normalized value is expressed via schema:inLanguage.</p>
@@ -11129,64 +11187,6 @@
             
             <a href="#dc:source" title="http://purl.org/dc/elements/1.1/source"
                 target="_self">dc:source</a>
-            <sup class="type-dp" title="dp">dp</sup>
-            
-            
-        </dd>
-        
-
-        
-
-        
-
-        
-        <dt>has range</dt>
-        <dd>
-            
-            <a href="http://www.w3.org/2001/XMLSchema#string" title="http://www.w3.org/2001/XMLSchema#string"
-                target="_blank">xsd:string</a>
-            <sup class="type-c" title="c">c</sup>
-            
-            
-        </dd>
-        
-
-        
-    </dl>
-    
-</div>
-            
-            <div class="entity" id="originalType">
-    <h3>original type
-        <sup class="type-dp" title="dp">
-            dp
-        </sup>
-        <span class="backlink">
-            back to <a href="#toc">ToC</a>
-        </span>
-    </h3>
-    <p><strong>IRI:</strong> https://gotriple.eu/ontology/triple/originalType</p>
-    
-    <div class="comment">
-        <p>The resource type exactly as received from the source provider, before normalization to the Content Type controlled vocabulary (e.g. &#39;journalArticle&#39;). The normalized value is expressed via triple:hasContentType.</p>
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-    
-    <dl class="description">
-        
-        <dt>has super-properties</dt>
-        <dd>
-            
-            <a href="#dc:type" title="http://purl.org/dc/elements/1.1/type"
-                target="_self">dc:type</a>
             <sup class="type-dp" title="dp">dp</sup>
             
             

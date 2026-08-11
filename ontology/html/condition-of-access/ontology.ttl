@@ -1,16 +1,31 @@
-# TRIPLE Ontology - AccessCondition Vocabulary
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix vann: <http://purl.org/vocab/vann/> .
+# TRIPLE Ontology - ConditionOfAccess Vocabulary
 # License: CC BY 4.0
 # Website: https://gotriple.eu/ontology/triple
 
-@prefix acc: <https://gotriple.eu/ontology/access-condition/> .
+@prefix coa: <https://gotriple.eu/ontology/condition-of-access/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 
-acc:acr_all-rights-reserved a owl:NamedIndividual,
-        triple:AccessCondition ;
+<https://gotriple.eu/ontology/condition-of-access> a owl:Ontology ;
+    dcterms:title "Condition of Access"@en ;
+    dcterms:description "The Condition of Access vocabulary defines the access rights associated with resources in the TRIPLE platform, such as Open Access, Restricted Access, or Closed Access. It facilitates the filtering and identification of resource availability."@en ;
+    dcterms:abstract "A controlled vocabulary for specifying access conditions, aligned with COAR Access Rights where applicable."@en ;
+    dcterms:creator "Alessandro Bertozzi" ;
+    dcterms:contributor "Luca De Santis", "Silvio Peroni" ;
+    owl:versionInfo "3.1.0" ;
+    vann:preferredNamespacePrefix "coa" ;
+    vann:preferredNamespaceUri "https://gotriple.eu/ontology/condition-of-access/" ;
+    dcterms:created "2021-12-01"^^xsd:date ;
+    dcterms:modified "2026-08-11"^^xsd:date .
+
+
+coa:acr_all-rights-reserved a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "All Rights Reserved"@en,
         "Tous Droits Réservés"@fr,
         "Wszelkie prawa zastrzeżone"@pl,
@@ -23,8 +38,8 @@ acc:acr_all-rights-reserved a owl:NamedIndividual,
         "Wszelkie prawa zastrzeżone"@pl,
         "Todos os Direitos Reservados"@pt .
 
-acc:acr_closed-access a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:acr_closed-access a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "Closed Access"@en,
         "Accès Fermé"@fr,
         "Zamknięty dostęp"@pl,
@@ -38,8 +53,8 @@ acc:acr_closed-access a owl:NamedIndividual,
         "Zamknięty dostęp"@pl,
         "Acesso Fechado"@pt .
 
-acc:acr_embargoed-access a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:acr_embargoed-access a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "Zugang unterliegt Embargo"@de,
         "Embargoed Access"@en,
         "sous embargo"@fr,
@@ -55,8 +70,8 @@ acc:acr_embargoed-access a owl:NamedIndividual,
         "accesso sottoposto a periodo di embargo"@it,
         "acesso embargado"@pt .
 
-acc:acr_free-access a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:acr_free-access a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "Free Access"@en,
         "Accès Libre"@fr,
         "Bezpłatny dostęp"@pl,
@@ -70,8 +85,8 @@ acc:acr_free-access a owl:NamedIndividual,
         "Bezpłatny dostęp"@pl,
         "Acesso Livre"@pt .
 
-acc:acr_metadata-only-access a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:acr_metadata-only-access a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "nur Metadaten"@de,
         "Metadata Only Access"@en,
         "accès aux seules métadonnées"@fr,
@@ -87,8 +102,8 @@ acc:acr_metadata-only-access a owl:NamedIndividual,
         "accesso limitato ai metadati"@it,
         "acesso a metadados"@pt .
 
-acc:acr_open-access a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:acr_open-access a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "offener Zugang"@de,
         "Open Access"@en,
         "Accès Ouvert"@fr,
@@ -106,8 +121,8 @@ acc:acr_open-access a owl:NamedIndividual,
         "Otwarty dostęp"@pl,
         "Acesso Aberto"@pt .
 
-acc:acr_public-domain a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:acr_public-domain a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "Public Domain"@en,
         "Domaine Public"@fr,
         "Domena publiczna"@pl,
@@ -120,8 +135,8 @@ acc:acr_public-domain a owl:NamedIndividual,
         "Domena publiczna"@pl,
         "Domínio Púlico"@pt .
 
-acc:acr_restricted-access-or-use a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:acr_restricted-access-or-use a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "eingeschränkter Zugang"@de,
         "Restricted access or use"@en,
         "Accès ou Utilisation Restreints"@fr,
@@ -139,8 +154,8 @@ acc:acr_restricted-access-or-use a owl:NamedIndividual,
         "Ograniczony dostęp lub użycie"@pl,
         "Acesso ou Uso Restrito"@pt .
 
-acc:other a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:other a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "Other"@en,
         "Autre"@fr,
         "Inne"@pl,
@@ -153,8 +168,8 @@ acc:other a owl:NamedIndividual,
         "Inne"@pl,
         "Outros"@pt .
 
-acc:undefined a owl:NamedIndividual,
-        triple:AccessCondition ;
+coa:undefined a owl:NamedIndividual,
+        triple:ConditionOfAccess ;
     rdfs:label "Undefined"@en,
         "Non Défini"@fr,
         "Nieokreślone"@pl,
@@ -167,8 +182,8 @@ acc:undefined a owl:NamedIndividual,
         "Nieokreślone"@pl,
         "Indefinido"@pt .
 
-triple:AccessCondition a owl:Class ;
-    rdfs:label "Access Condition"@en ;
+triple:ConditionOfAccess a owl:Class ;
+    rdfs:label "Condition of Access"@en ;
     rdfs:subClassOf dcterms:RightsStatement,
         skos:Concept .
 

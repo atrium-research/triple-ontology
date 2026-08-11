@@ -12,11 +12,11 @@ What are all the original (as-received) metadata values of a given document?
 The list of raw provider values (type, language, publication date, license, conditions of access) preserved for the document.
 
 ### Result
-* `originalType` → "journalArticle"
-* `originalLanguage` → "eng"
+* `originalAdditionalType` → "journalArticle"
+* `originalInLanguage` → "eng"
 * `originalDatePublished` → "03/05/2021"
 * `originalLicense` → "CC BY 4.0"
-* `originalConditionsOfAccess` → "info:eu-repo/semantics/openAccess"
+* `originalConditionOfAccess` → "info:eu-repo/semantics/openAccess"
 
 ### Based on
 Example 1
@@ -65,7 +65,7 @@ CQ_17.4
 Which rights-related information (in the Dublin Core sense) was received from the provider for a given document, regardless of whether it is a license or an access condition?
 
 ### Expected Outcome
-All values of properties that refine `dc:rights` (i.e. both `originalLicense` and `originalConditionsOfAccess`), demonstrating the Dublin Core interoperability of the sub-property pattern.
+All values of properties that refine `dc:rights` (i.e. both `originalLicense` and `originalConditionOfAccess`), demonstrating the Dublin Core interoperability of the sub-property pattern.
 
 ### Result
 * `document_it17_1` → "CC BY 4.0"
