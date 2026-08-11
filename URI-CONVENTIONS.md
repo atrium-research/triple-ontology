@@ -28,13 +28,14 @@ path depth keep the two spaces disjoint.
 
 | kind | pattern | examples |
 |---|---|---|
-| class | `UpperCamelCase` | `Document`, `ConditionOfAccess`, `Cluster` |
-| object property | `lowerCamelCase`; `has{Class}` when it bridges to a vocabulary | `hasLicense`, `inCluster`, `aggregator` |
+| class | `UpperCamelCase` | `Document`, `ConditionOfAccess`, `Discipline` |
+| object property | `lowerCamelCase`; `has{Class}` when it bridges to a vocabulary | `hasLicense`, `isDuplicateOf`, `aggregator` |
 | datatype property | `lowerCamelCase` | `originalLicense`, `isDiscarded`, `confidence` |
 | identifier scheme | `snake_case` ending in `_schema` | `internal_id_schema`, `gotriple_id_schema` |
 | vocabulary | `kebab-case`, lowercase, English | `discipline`, `content-type`, `condition-of-access` |
 | concept | **the production key, verbatim** | `musiq`, `typ_article`, `acr_open-access`, `other` |
 | DDC proxy | the DDC notation | `780`, `930.1` |
+| namespace prefix | one-word vocabulary → truncation; multi-word → initials | `disc`, `lic`, `ddc`; `ct`, `pt`, `coa` |
 
 The concept rule is the load-bearing one: a concept's local name is exactly the value
 the GoTriple API emits for it, so mapping a record is namespace + key with no lookup.
