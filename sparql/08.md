@@ -18,7 +18,6 @@ SELECT ?identifier WHERE {
 - `triple:identifier_1`
 - `triple:identifier_24`
 
-
 ## CQ_8.2
 
 Return the identifier scheme used by `identifier_23`.
@@ -34,7 +33,6 @@ SELECT ?scheme WHERE {
 
 **Expected result:**
 - `datacite:issn`
-
 
 ## CQ_8.3
 
@@ -54,7 +52,6 @@ SELECT ?document WHERE {
 **Expected result:**
 - `triple:document_1`
 - `triple:document_45`
-
 
 ## CQ_8.4
 
@@ -77,7 +74,6 @@ SELECT ?scheme WHERE {
 - `triple:original_id_schema`
 - `triple:internal_id_schema`
 
-
 ## CQ_8.5
 
 Return all identifiers of `document_45` along with their schemes.
@@ -99,7 +95,6 @@ SELECT ?identifier ?scheme WHERE {
 - `triple:identifier_23` → `datacite:issn`
 - `triple:identifier_24` → `datacite:doi`
 
-
 ## CQ_8.6
 
 Return the literal value of the DOI identifier for `document_1`.
@@ -119,26 +114,6 @@ SELECT ?value WHERE {
 **Expected result:**
 - "10.1234/example.2024.001"
 
-## CQ_8.13
-
-Return all documents that have a DOI identifier by identifier scheme.
-
-```sparql
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-
-SELECT ?document WHERE {
-  ?document a triple:Document ;
-            datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme datacite:doi .
-}
-```
-
-**Expected result:**
-- `triple:document_1`
-- `triple:document_45`
-
-
 ## CQ_8.7
 
 Return all documents that have an ISBN identifier.
@@ -156,50 +131,6 @@ SELECT ?document WHERE {
 
 **Expected result:**
 - `triple:document_99`
-
-## CQ_8.14
-
-Return all documents that have an ISSN identifier by identifier scheme.
-
-```sparql
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-
-SELECT ?document WHERE {
-  ?document a triple:Document ;
-            datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme datacite:issn .
-}
-```
-
-**Expected result:**
-- `triple:document_45`
-
-## CQ_8.15
-
-Return all identifier values by type by identifier scheme.
-
-```sparql
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-
-SELECT ?scheme ?value WHERE {
-  ?document a triple:Document ;
-            datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme ?scheme ;
-              litre:hasLiteralValue ?value .
-  FILTER (?scheme IN (datacite:doi, datacite:handle, datacite:issn, datacite:isbn))
-}
-```
-
-**Expected result:**
-- `datacite:doi` → "10.1234/example.2024.001"
-- `datacite:doi` → "10.5678/journal.2024.045"
-- `datacite:issn` → "1234-5678"
-- `datacite:handle` → "11234/5678-abcd-efgh"
-- `datacite:isbn` → "978-3-16-148410-0"
-
 
 ## CQ_8.8
 
@@ -220,7 +151,6 @@ SELECT ?identifier ?scheme WHERE {
 - `triple:identifier_pid_78` → `datacite:ark`
 - `triple:identifier_original_78` → `triple:original_id_schema`
 - `triple:identifier_90` → `datacite:handle`
-
 
 ## CQ_8.9
 
@@ -255,3 +185,66 @@ SELECT ?identifier ?scheme ?value WHERE {
 - `triple:identifier_internal_99` → `triple:internal_id_schema` → "TRIPLE_DOC_099"
 - `triple:identifier_pid_99` → `datacite:ark` → "ark:/12345/doc-099"
 - `triple:identifier_original_99` → `triple:original_id_schema` → "persee-099"
+
+## CQ_8.10
+
+Return all documents that have a DOI identifier.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme datacite:doi .
+}
+```
+
+**Expected result:**
+- `triple:document_1`
+- `triple:document_45`
+
+## CQ_8.11
+
+Return all documents that have an ISSN identifier.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+
+SELECT ?document WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme datacite:issn .
+}
+```
+
+**Expected result:**
+- `triple:document_45`
+
+## CQ_8.12
+
+Return all identifier values by type.
+
+```sparql
+PREFIX datacite: <http://purl.org/spar/datacite/>
+PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+
+SELECT ?scheme ?value WHERE {
+  ?document a triple:Document ;
+            datacite:hasIdentifier ?identifier .
+  ?identifier datacite:usesIdentifierScheme ?scheme ;
+              litre:hasLiteralValue ?value .
+  FILTER (?scheme IN (datacite:doi, datacite:handle, datacite:issn, datacite:isbn))
+}
+```
+
+**Expected result:**
+- `datacite:doi` → "10.1234/example.2024.001"
+- `datacite:doi` → "10.5678/journal.2024.045"
+- `datacite:issn` → "1234-5678"
+- `datacite:handle` → "11234/5678-abcd-efgh"
+- `datacite:isbn` → "978-3-16-148410-0"
+

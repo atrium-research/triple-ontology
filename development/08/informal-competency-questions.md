@@ -162,3 +162,84 @@ An identifier with its scheme.
 
 ### Based on
 Example 3
+
+
+## Question 9
+
+### Identifier
+CQ_8.9
+
+### Question
+Return all identifiers with their schemes and literal values.
+
+### Expected Outcome
+Every identifier node of the exemplars, with its scheme and its literal value.
+
+### Result
+* 17 identifier nodes in total, e.g.:
+* `identifier_1` → `datacite:doi` → "10.1234/example.2024.001"
+* `identifier_90` → `datacite:handle` → "11234/5678-abcd-efgh"
+* `identifier_internal_1` → `triple:internal_id_schema` → "TRIPLE_DOC_001"
+
+### Based on
+Examples 1, 2, 3, 4
+
+
+## Question 10
+
+### Identifier
+CQ_8.10
+
+### Question
+Return all documents that have a DOI identifier.
+
+### Expected Outcome
+Every document carrying an identifier whose scheme is `datacite:doi`.
+
+### Result
+* `triple:document_1`
+* `triple:document_45`
+
+### Based on
+Examples 1, 2, 3, 4
+
+
+## Question 11
+
+### Identifier
+CQ_8.11
+
+### Question
+Return all documents that have an ISSN identifier.
+
+### Expected Outcome
+Every document carrying an identifier whose scheme is `datacite:issn`.
+
+### Result
+* `triple:document_45`
+
+### Based on
+Examples 1, 2, 3, 4
+
+
+## Question 12
+
+### Identifier
+CQ_8.12
+
+### Question
+Return all identifier values by type.
+
+### Expected Outcome
+The scheme/value pairs of the standard bibliographic identifiers (DOI, Handle, ISSN, ISBN).
+
+### Result
+* `datacite:doi` → "10.1234/example.2024.001"
+* `datacite:doi` → "10.5678/journal.2024.045"
+* `datacite:issn` → "1234-5678"
+* `datacite:handle` → "11234/5678-abcd-efgh"
+* `datacite:isbn` → "978-3-16-148410-0"
+
+### Based on
+Examples 1, 2, 3, 4
+

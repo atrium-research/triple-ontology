@@ -148,3 +148,25 @@ A list of entities with their respective types.
 
 ### Based on
 Example 2
+
+
+## Question 9
+
+### Identifier
+CQ_9.9
+
+### Question
+Count how many entities each document mentions.
+
+### Expected Outcome
+Each document with the number of entities it mentions, in decreasing order.
+
+### Result
+* `triple:document_89` → 3
+* `triple:document_1` → 2
+* `triple:document_34` → 2
+* `triple:document_67` → 2
+
+### Based on
+Examples 1, 2, 3, 4
+

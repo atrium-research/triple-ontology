@@ -218,6 +218,85 @@ For search term "philosophy":
 Examples 3 and 4
 
 
+## Question 11
+
+### Identifier
+CQ_7.11
+
+### Question
+Which organization is the organizer of a specific project?
+
+### Expected Outcome
+The organizing institution of each project.
+
+### Result
+* `triple:project_1` → "Austrian Centre for Digital Humanities and Cultural Heritage"
+* `triple:project_2` → "University of Bologna - Department of Sociology and Business Law"
+* `triple:project_3` → "University of Vienna - Institute for Cultural Heritage"
+
+### Based on
+Examples 1, 2, 3
+
+
+## Question 12
+
+### Identifier
+CQ_7.12
+
+### Question
+Which concepts of the TRIPLE thesaurus were detected in a project, and to which LCSH heading do they correspond?
+
+### Expected Outcome
+The SSH-LCSH concepts attached to the project via schema:about, each with its LCSH exactMatch.
+
+### Result
+* `triple:project_2` → "Social integration" → `http://id.loc.gov/authorities/subjects/sh85123964`
+
+### Based on
+Example 2
+
+
+## Question 13
+
+### Identifier
+CQ_7.13
+
+### Question
+What is the main web page (URL) associated with the project?
+
+### Expected Outcome
+The project's main page, carried by schema:mainEntityOfPage.
+
+### Result
+* `triple:project_1` → <https://triple.eu/projects/1>
+* `triple:project_2` → <https://miguris.project.it>
+* `triple:project_4` → <https://erc.europa.eu/projects/hellenistic>
+
+### Based on
+Examples 1, 2 and 4
+
+
+## Question 14
+
+### Identifier
+CQ_7.14
+
+### Question
+What is the language of the project content?
+
+### Expected Outcome
+The language code of each project's content.
+
+### Result
+* `triple:project_1` → "en"
+* `triple:project_2` → "it"
+* `triple:project_3` → "en"
+* `triple:project_4` → "en"
+
+### Based on
+Examples 1, 2, 3, 4
+
+
 ## Question 15
 
 ### Identifier

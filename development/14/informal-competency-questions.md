@@ -95,3 +95,24 @@ List of research artifacts that use the standard FRAPO vocabulary for project re
 
 ### Based on
 Examples 1, 2, and 3
+
+
+## Question 6
+
+### Identifier
+CQ_14.6
+
+### Question
+Find all research artifacts (of any type) that were both produced by projects and are referenced by other works.
+
+### Expected Outcome
+The artifacts sitting at the centre of the production-and-citation chain, with the producing project and the referencing work.
+
+### Result
+* `ontology-cultural-heritage` ← produced by `project-cultural-heritage`, referenced by `paper-heritage-analysis`
+* `dataset-migration-interviews` ← produced by `project-migration-studies`, referenced by `analysis-urban-migration`
+* `audio-interview-001` ← produced by `project-migration-studies`, referenced by `analysis-urban-migration`
+
+### Based on
+Examples 1, 2, and 3
+

@@ -45,7 +45,7 @@ Example 1
 Example 2
 Example 3
 
-## Question 4
+## Question 3
 
 ### Identifier
 CQ_1.4
@@ -67,7 +67,7 @@ Example 1
 Example 2
 Example 3
 
-## Question 5
+## Question 4
 
 ### Identifier
 CQ_1.5
@@ -87,7 +87,7 @@ Example 1
 Example 2
 Example 3
 
-## Question 8
+## Question 5
 
 ### Identifier
 CQ_1.8
@@ -104,7 +104,7 @@ The English title of the document.
 ### Based on
 Example 1
 
-## Question 9
+## Question 6
 
 ### Identifier
 CQ_1.9
@@ -122,7 +122,7 @@ A list of titles in all available languages.
 ### Based on
 Example 1
 
-## Question 10
+## Question 7
 
 ### Identifier
 CQ_1.10
@@ -139,7 +139,7 @@ The abstract of the document.
 ### Based on
 Example 3
 
-## Question 11
+## Question 8
 
 ### Identifier
 CQ_1.11
@@ -158,7 +158,7 @@ A list of MIME types associated with documents.
 Example 1
 Example 3
 
-## Question 12
+## Question 9
 
 ### Identifier
 CQ_1.12
@@ -175,7 +175,7 @@ A list of documents with encoding format "application/pdf".
 ### Based on
 Example 1
 
-## Question 13
+## Question 10
 
 ### Identifier
 CQ_1.13
@@ -192,7 +192,7 @@ The landing page URL.
 ### Based on
 Example 1
 
-## Question 14
+## Question 11
 
 ### Identifier
 CQ_1.14
@@ -211,7 +211,84 @@ A list of URL identifiers.
 ### Based on
 Example 1
 
+## Question 12
+
+### Identifier
+CQ_1.15
+
+### Question
+Return the internal ID for `triple:document_1`.
+
+### Expected Outcome
+The value of the identifier whose scheme is `triple:internal_id_schema`.
+
+### Result
+* "TRIPLE_DOC_001"
+
+### Based on
+Example 1
+
+
+## Question 13
+
+### Identifier
+CQ_1.16
+
+### Question
+Return the PID (persistent identifier) for `triple:document_1`.
+
+### Expected Outcome
+The value of the identifier whose scheme is `datacite:ark`.
+
+### Result
+* "ark:/12345/doc-12345-abcd-6789"
+
+### Based on
+Example 1
+
+
+## Question 14
+
+### Identifier
+CQ_1.17
+
+### Question
+Return all platform identifiers (internal, PID, original) for `triple:document_1`.
+
+### Expected Outcome
+The three platform identifiers of the document, each with its scheme and value.
+
+### Result
+* `triple:internal_id_schema` → "TRIPLE_DOC_001"
+* `datacite:ark` → "ark:/12345/doc-12345-abcd-6789"
+* `triple:original_id_schema` → "hal-12345"
+
+### Based on
+Example 1
+
+
 ## Question 15
+
+### Identifier
+CQ_1.18
+
+### Question
+Return all documents that have a specific type of identifier.
+
+### Expected Outcome
+Every document carrying an identifier of the requested scheme (here: the internal one).
+
+### Result
+* `triple:document_1`
+* `triple:document_31`
+* `triple:document_45`
+* `triple:document_journal`
+
+### Based on
+Examples 1, 2, 3
+
+
+## Question 16
 
 ### Identifier
 CQ_1.19
@@ -228,7 +305,7 @@ The source entity (or string).
 ### Based on
 Example 1
 
-## Question 16
+## Question 17
 
 ### Identifier
 CQ_1.20

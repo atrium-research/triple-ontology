@@ -15,6 +15,18 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-11 - Documentation: informal and formal competency questions realigned
+
+**Type**: Documentation
+
+**Iteration**: 01, 04, 05, 07, 08, 09, 13, 14, 15, 16
+
+**Description**:
+The informal and formal competency-question files of ten iterations had drifted apart: queries added over time to the formal files never got their informal counterpart, three refactor-era duplicates survived, one file was out of order, and three fence/heading styles coexisted. The realignment, mechanical but reviewed block by block: **16 informal blocks backfilled** (iterations 01 ×4, 07 ×4, 08 ×4, 09 ×1, 14 ×1, 15 ×2), each with its Result computed by running the formal query against the exemplars, not copied on faith. **Three duplicate sections deleted** in iteration 01 (`CQ_1.15/16/17_NEW`, relics of the identifier refactor whose queries had become identical to their base versions). **Iteration 08 renumbered and sorted**: the out-of-order `8.13–8.15` become `8.10–8.12`, the stale "by identifier scheme" title suffix dropped. **Fences normalized** to ```` ```sparql ```` (01, 04, 05) and **headings normalized** to `## CQ_N.M` + question paragraph (13, 16, question wording taken from the informal files). **One formal query added**: `CQ_13.4` existed only informally — it now asks the Dataset ↔ SSHOC closeMatch. The canonical battery count moves **174 → 172** (three duplicates out, one query in), 0 errors; the strict ```` ```sparql ```` parser is sufficient again. The two empty-by-design questions (`CQ_2.8`, `CQ_7.8`) remain, now as the only known CQ debt.
+
+**Author**: Alessandro Bertozzi
+
+
 ## [3.1.0] - 2026-08-11
 
 ### 2026-08-11 - The original_* family completes its derivation rule

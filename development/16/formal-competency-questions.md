@@ -1,6 +1,8 @@
 # Formal Competency Questions (Iteration 16)
 
-### CQ_16.1: Find the TRIPLE class that closely matches fabio:ScholarlyWork
+## CQ_16.1
+
+Which TRIPLE ontology class corresponds to the SKG-IF concept "Literature" (fabio:ScholarlyWork)?
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -18,7 +20,9 @@ WHERE {
 
 ---
 
-### CQ_16.2: Find the TRIPLE class that closely matches fabio:Dataset
+## CQ_16.2
+
+Which TRIPLE ontology class corresponds to the SKG-IF concept "Research Data" (fabio:Dataset)?
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -35,7 +39,9 @@ WHERE {
 
 ---
 
-### CQ_16.3: Find the FOAF alignment of Profile
+## CQ_16.3
+
+What is the equivalent class for "Agents" in the TRIPLE ontology?
 
 Every Profile denotes an agent, so the alignment is structural (issue #30, option A):
 a subclass axiom, not a SKOS match.
@@ -56,7 +62,9 @@ WHERE {
 
 ---
 
-### CQ_16.4: Check alignment for Project
+## CQ_16.4
+
+Is there a corresponding grant concept for TRIPLE Projects in SKG-IF?
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
@@ -73,7 +81,9 @@ WHERE {
 
 ---
 
-### CQ_16.5: Find matches for fabio:Work
+## CQ_16.5
+
+How are Semantic Artefacts and Media Objects represented in the SKG-IF context?
 
 ```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>

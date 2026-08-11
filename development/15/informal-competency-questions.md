@@ -45,3 +45,45 @@ John Smith URI.
 
 ### Result
 *   `triple:person_1`
+
+
+## Question 4
+
+### Identifier
+CQ_15.4
+
+### Question
+Retrieve all annotations connected to the document via `schema:mentions`.
+
+### Expected Outcome
+Every annotation node attached to the document, with the entity it points at.
+
+### Result
+* `ann_101` → `wd:Q7259` (Ada Lovelace)
+* `ann_102` → `triple:JaneDoe`
+* `ann_103` → `triple:person_1`
+* `ann_104` → `triple:place_rome`
+* `ann_105` → `triple:concept_democracy`
+
+### Based on
+Motive Scenario
+
+
+
+## Question 5
+
+### Identifier
+CQ_15.5
+
+### Question
+Return only Places mentioned.
+
+### Expected Outcome
+The mentioned entities that are typed as places.
+
+### Result
+* `triple:place_rome`
+
+### Based on
+Motive Scenario
+

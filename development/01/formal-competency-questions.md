@@ -4,7 +4,7 @@
 
 Return the language associated with `triple:document_1`.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
@@ -17,7 +17,7 @@ SELECT ?language WHERE {
 
 Return the identifiers associated with `document_1`.
 
-```
+```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
@@ -30,7 +30,7 @@ SELECT ?ids WHERE {
 ## CQ_1.4
 Return all `documents`.
 
-```
+```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
@@ -42,7 +42,7 @@ SELECT ?documents WHERE {
 ## CQ_1.5
 Return all `languages`.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 
@@ -56,7 +56,7 @@ SELECT ?languages WHERE {
 
 Return the title (headline) of `triple:document_1` in English.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
@@ -70,7 +70,7 @@ SELECT ?headline WHERE {
 
 Return all titles (headlines) associated with `triple:document_1`.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
@@ -83,7 +83,7 @@ SELECT ?headline WHERE {
 
 Return the abstract of `triple:document_31`.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
@@ -96,7 +96,7 @@ SELECT ?abstract WHERE {
 
 Return the encoding format of all documents.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -111,7 +111,7 @@ SELECT ?document ?format WHERE {
 
 Return all documents in PDF format.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -126,7 +126,7 @@ SELECT ?document WHERE {
 
 Return the landing page URL of `triple:document_1`.
 
-```
+```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
@@ -142,7 +142,7 @@ SELECT ?url WHERE {
 
 Return all URL-based identifiers (landing page, full text, source) for `triple:document_1`.
 
-```
+```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
@@ -159,23 +159,7 @@ SELECT ?identifier ?scheme ?url WHERE {
 
 Return the internal ID for `triple:document_1`.
 
-```
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
-
-SELECT ?internal_id WHERE {
-  triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme triple:internal_id_schema ;
-              litre:hasLiteralValue ?internal_id .
-}
-```
-
-## CQ_1.15_NEW
-
-Return the internal ID for `triple:document_1` by identifier scheme.
-
-```
+```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
@@ -191,25 +175,9 @@ SELECT ?internal_id WHERE {
 
 Return the PID (persistent identifier) for `triple:document_1`.
 
-```
+```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
-
-SELECT ?pid WHERE {
-  triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme datacite:ark ;
-              litre:hasLiteralValue ?pid .
-}
-```
-
-## CQ_1.16_NEW
-
-Return the PID (persistent identifier) for `triple:document_1` by identifier scheme.
-
-```
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
 
 SELECT ?pid WHERE {
@@ -223,7 +191,7 @@ SELECT ?pid WHERE {
 
 Return all platform identifiers (internal, PID, original) for `triple:document_1`.
 
-```
+```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
@@ -236,28 +204,11 @@ SELECT ?identifier ?scheme ?value WHERE {
 }
 ```
 
-## CQ_1.17_NEW
-
-Return all platform identifiers (internal, PID, original) for `triple:document_1` by identifier scheme.
-
-```
-PREFIX datacite: <http://purl.org/spar/datacite/>
-PREFIX triple: <https://gotriple.eu/ontology/triple/>
-PREFIX litre: <http://www.essepuntato.it/2010/06/literalreification/>
-
-SELECT ?identifier ?type ?value WHERE {
-  triple:document_1 datacite:hasIdentifier ?identifier .
-  ?identifier datacite:usesIdentifierScheme ?type ;
-              litre:hasLiteralValue ?value .
-  FILTER (?type IN (triple:internal_id_schema, datacite:ark, triple:original_id_schema))
-}
-```
-
 ## CQ_1.18
 
 Return all documents that have a specific type of identifier.
 
-```
+```sparql
 PREFIX datacite: <http://purl.org/spar/datacite/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
@@ -273,7 +224,7 @@ SELECT ?document WHERE {
 
 Return the source of `triple:document_1`.
 
-```
+```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
@@ -286,7 +237,7 @@ SELECT ?source WHERE {
 
 Return the publication date and the last modification date of `triple:document_1`.
 
-```
+```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 PREFIX schema: <https://schema.org/>
 

@@ -4,7 +4,7 @@
 
 Return all records of the same scholarly work as `document_7`.
 
-```
+```sparql
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?documents WHERE {
@@ -32,7 +32,7 @@ SELECT ?agent ?discarded WHERE {
 
 Return all keywords from `document_67` and if they are discarded or not.
 
-```
+```sparql
 PREFIX schema: <https://schema.org/>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
