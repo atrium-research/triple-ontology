@@ -5,6 +5,7 @@
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix schema: <https://schema.org/> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 #################################################################
 #    Object Properties
@@ -45,16 +46,38 @@ schema:jobTitle rdf:type owl:DatatypeProperty ;
 #################################################################
 
 ###  https://gotriple.eu/ontology/triple/Document
-triple:Document rdf:type owl:Class .
+triple:Document rdf:type owl:Class ;
+                rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                  owl:onProperty schema:isBasedOn ;
+                                  owl:allValuesFrom schema:CreativeWork
+                                ] ,
+                                [ rdf:type owl:Restriction ;
+                                  owl:onProperty dcterms:references ;
+                                  owl:allValuesFrom schema:CreativeWork
+                                ] .
 
 ###  https://gotriple.eu/ontology/triple/Dataset
 triple:Dataset rdf:type owl:Class .
 
 ###  https://gotriple.eu/ontology/triple/Profile
-triple:Profile rdf:type owl:Class .
+triple:Profile rdf:type owl:Class ;
+               rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                 owl:onProperty schema:jobTitle ;
+                                 owl:allValuesFrom xsd:string
+                               ] .
+
+###  https://gotriple.eu/ontology/triple/SemanticArtefact
+triple:SemanticArtefact rdf:type owl:Class ;
+                        rdfs:subClassOf [ rdf:type owl:Restriction ;
+                                          owl:onProperty schema:isBasedOn ;
+                                          owl:allValuesFrom schema:CreativeWork
+                                        ] .
 
 ###  http://www.w3.org/ns/dcat#Distribution
 dcat:Distribution rdf:type owl:Class .
+
+###  https://schema.org/CreativeWork
+schema:CreativeWork rdf:type owl:Class .
 
 ###  http://purl.org/dc/terms/isReferencedBy (declared: target of owl:inverseOf)
 dcterms:isReferencedBy rdf:type owl:ObjectProperty .
