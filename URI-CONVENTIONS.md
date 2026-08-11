@@ -74,7 +74,14 @@ without touching identifiers.
 - Labels are **borrowed only across `skos:exactMatch`**, never across a close match
   (a close match's label names a different thing).
 - Alignment targets are resolved and checked at review time: no links to redirect
-  stubs, disambiguation or category pages.
+  stubs, disambiguation or category pages — and no `exactMatch` to a target whose
+  definition cannot be verified.
+- **The exactMatches of one term must be mutually compatible**: identity is
+  transitive, so `A exactMatch B` and `A exactMatch C` claims `B ≡ C` — if that
+  is implausible (a Work-level class beside a record-level one), one of them is
+  a close match. Structural reuse is `rdfs:subClassOf`'s job, not `exactMatch`'s:
+  "every X is a Y" is a subclass axiom (`triple:Profile ⊑ foaf:Agent`), not an
+  identity.
 
 ## 5. Documentation addresses
 

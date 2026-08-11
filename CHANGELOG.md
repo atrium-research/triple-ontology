@@ -15,6 +15,22 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-11 - Class alignments: exactMatch only for same-level identity, structure via subClassOf
+
+**Type**: Modification
+
+**Iteration**: 13, 16 (alignment iterations)
+
+**Description**:
+The class-alignment pass extends the rule already applied to the disciplines and to `fabio:ScholarlyWork`: the exactMatches of one term must be mutually compatible, because identity is transitive — `Document ≡ E31_Document` and `Document ≡ SHE8_Publication` together claim that a CIDOC documentation object is a publication. Three layers, three jobs, now stated in `URI-CONVENTIONS.md` §4: `rdfs:subClassOf` for structural reuse (the record/resource conflation every catalogue makes — untouched), `skos:exactMatch` for verified same-level identity, `skos:closeMatch` for retrieval-level kinship, cross-level allowed.
+
+Demoted to `closeMatch`: the three SSHOC targets (`SHE8_Publication`, `SHE1_Dataset`, `SHE3_SSH_Project` — the ontology does not resolve, so the identity cannot be verified, and Publication/Dataset name the works, not the records) and `fabio:Dataset` on `triple:Dataset` (verified on the SPAR file: `fabio:Dataset ⊑ fabio:Work` — Work-level, the same error the `ScholarlyWork` demotion fixed). Kept as `exactMatch`: `Document ≡ crm:E31_Document`, the honest record-level identity. Kept as `closeMatch`, deliberately: `fabio:ScholarlyWork` and the other cross-level kinships — a close match is exactly "interchangeable in some retrieval applications", it is the Document's only bridge to the SPAR family, and the DDC precedent applies: only what is wrong gets removed, what is kin-but-not-identical stays at the right strength.
+
+`triple:Profile skos:exactMatch foaf:Agent` becomes **`rdfs:subClassOf foaf:Agent`** — option A of issue #30, as analysed there: every Profile denotes an agent, not every agent is a Profile; the subclass axiom says the true thing and gives FOAF-aware consumers the inference. This settles issue #30. Competency questions 13.2, 16.2 and 16.3 updated to the new predicates; 173 run with 0 errors.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-11 - Iteration 21: links by role — reuse, references, access URLs, and occupation as a string
 
 **Type**: Addition (with one alignment demotion)
