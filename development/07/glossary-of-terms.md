@@ -36,3 +36,4 @@
 | `datacite:ark` | Identifier scheme of the persistent identifier minted by GoTriple: an ARK. |
 | `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform. |
 | `triple:Discipline` | An academic discipline of the GoTriple SSH classification, subclass of `skos:Concept`. The values of `sioc:topic` come from the Discipline controlled vocabulary. |
+| `schema:FundingScheme` | The funding programme a grant is awarded under (e.g. H2020, FP7, Horizon Europe), pending in Schema.org as a subclass of `schema:Organization`; linked from the grant via `schema:funder`. |

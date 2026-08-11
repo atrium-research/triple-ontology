@@ -61,8 +61,12 @@ triple:organization_3 rdf:type foaf:Organization ;
 
 ###  Grant
 triple:grant_1 rdf:type schema:Grant ;
-               schema:funder triple:organization_2 ;
+               schema:funder triple:organization_2 , triple:funding_scheme_1 ;
                schema:sponsor triple:organization_3 .
+
+###  Funding programme
+triple:funding_scheme_1 rdf:type schema:FundingScheme ;
+                        schema:name "H2020"@en .
 
 ###  Topics and Keywords
 triple:keyword_1 rdf:type schema:DefinedTerm ;

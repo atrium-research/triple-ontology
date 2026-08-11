@@ -149,7 +149,7 @@ schema:Grant rdf:type owl:Class ;
              # Optional funder (0 or more)
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:funder ;
-                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
+                               owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization schema:FundingScheme) ]
                              ] ;
 
              # Optional sponsor (0 or more)
@@ -157,6 +157,13 @@ schema:Grant rdf:type owl:Class ;
                                owl:onProperty schema:sponsor ;
                                owl:allValuesFrom [ owl:unionOf (foaf:Person foaf:Organization) ]
                              ] .
+
+
+###  https://schema.org/FundingScheme
+schema:FundingScheme rdf:type owl:Class ;
+                     rdfs:subClassOf schema:Organization ;
+                     rdfs:label "schema:FundingScheme"@en ;
+                     rdfs:comment "A FundingScheme combines organizational, project and policy aspects of grant-based funding, e.g. Framework Programme 7 or Horizon 2020. In GoTriple it types the funding programme a grant is awarded under - the funding_scheme field of production (H2020, FP7, Horizon Europe) - attached to the Grant via schema:funder, which is admissible because a funding scheme is a kind of schema:Organization. The term is part of pending.schema.org; the subclass axiom restates the one asserted by the source."@en .
 
 
 ###  https://schema.org/Project

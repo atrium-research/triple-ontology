@@ -255,3 +255,22 @@ The project classification from the controlled vocabulary.
 
 ### Based on
 Examples 1 and 2
+
+
+## Question 17
+
+### Identifier
+CQ_7.17
+
+### Question
+Under which funding programme (funding scheme) was a project funded?
+
+### Expected Outcome
+A list of projects with the funding programme their grant was awarded under, when one is recorded.
+
+### Result
+* `triple:project_1` (TRIPLE) → "H2020"
+
+### Based on
+Example 1
+

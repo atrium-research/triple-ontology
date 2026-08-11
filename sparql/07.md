@@ -477,3 +477,28 @@ WHERE {
 - `triple:project_4` → "Conceptions of Justice in Hellenistic Philosophy" → "Funded"
 
 All four projects are financed by a formal funding programme, so they all carry `prtype:funded`; `prtype:network` and `prtype:research`, used until now, are not concepts of the ProjectType vocabulary.
+
+
+## CQ_7.17
+
+Under which funding programme (funding scheme) was a project funded?
+
+```sparql
+PREFIX schema: <https://schema.org/>
+PREFIX triple: <https://gotriple.eu/ontology/triple/>
+
+SELECT ?project ?projectName ?programmeName
+WHERE {
+  ?project a triple:Project ;
+           schema:name ?projectName ;
+           schema:funding ?grant .
+
+  ?grant schema:funder ?programme .
+  ?programme a schema:FundingScheme ;
+             schema:name ?programmeName .
+}
+```
+
+**Expected Results:**
+- `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → "H2020"
+

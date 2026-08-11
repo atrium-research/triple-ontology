@@ -17,6 +17,18 @@ Each entry follows this structure:
 
 ## [3.0.0] - 2026-08-11
 
+### 2026-08-11 - The funding programme joins the Grant: schema:FundingScheme via schema:funder
+
+**Type**: Addition
+
+**Iteration**: 07
+
+**Description**:
+Issue #45 reported that the ADR maps `funding_type` to `schema:fundingScheme` — a property that does not exist in Schema.org. What does exist is the **class** `schema:FundingScheme` (pending.schema.org, subclass of `schema:Organization`, official examples FP7 and Horizon 2020), and the corpus says it is exactly what the data needs: aggregated over all 27,281 projects, `funding_scheme` carries five values with 100% coverage — H2020 (13,935), FP7 (6,775), Horizon Europe (6,569), plus two singletons — programme names matching the class's own examples. FRAPO was examined as the alternative and offers `frapo:FundingProgramme` with no property connecting it to a grant, so no advantage. The decision: the `funding_scheme` value becomes an individual of `schema:FundingScheme` attached to the Grant via `schema:funder`, which is admissible precisely because a funding scheme is a kind of Organization — the subclass axiom is the wiring Schema.org's funding collaboration intended, given that no property references the class. Iteration 07 (the funding home) now declares the term with the pending caveat stated, extends the Grant's funder restriction to admit it alongside `foaf:Person` and `foaf:Organization`, and completes the real TRIPLE exemplar: grant H2020-863420, funder European Commission, sponsor REA, programme H2020. No controlled vocabulary is minted: the values are display names rather than production keys, the set is open by nature (a new framework programme every cycle), and the programme individuals belong to the data layer. New CQ_7.17 answers "under which programme was a project funded"; 174 competency questions run with 0 errors.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-11 - Profile naming goes FOAF: foaf:name for agents, schema:name for things
 
 **Type**: Modification
