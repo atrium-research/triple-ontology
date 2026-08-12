@@ -84,7 +84,13 @@ lookup table. The full naming rules are in [`URI-CONVENTIONS.md`](URI-CONVENTION
 * **`sparql/`** — mirror of each iteration's formal competency questions
 * **`examples/`** — JSON-LD examples of platform data
 * **`diagrams/`** — Graffoo diagrams of the consolidated model (being realigned to 3.x)
-* **`scripts/`** — tooling; see `scripts/README.md`
+* **`ontology/doc/`** — sources of the documentation page: narrative chapters
+  (`sections/*.md`) and per-term Graffoo figures (`figures/`)
+* **`scripts/`** — the entry points you run (merge, build, validate, docs);
+  see `scripts/README.md`
+* **`tools/`** — vendored software driven by the scripts, never invoked
+  directly: `tools/pylode/` renders the documentation pages
+  (deviations from upstream in its `PATCHES.md`)
 
 ## Working locally
 
@@ -104,9 +110,10 @@ cd ..
 python scripts/check_model.py    # model invariants (one home per term, no foreign axioms…)
 python scripts/validate.py       # SHACL validation of exemplars and vocabularies
 python scripts/build.py          # compile the vocabularies into build/
+scripts/build_docs.sh            # regenerate the documentation page (preview in build/docs-preview/)
 ```
 
-At every release the full battery runs: the 174 SPARQL competency questions of the 21 iterations
+At every release the full battery runs: the 172 SPARQL competency questions of the 21 iterations
 against the consolidated model, the SHACL profile, the model invariants, and an isomorphism check
 between the model and every published serialization.
 

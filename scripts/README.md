@@ -1,117 +1,36 @@
-# TRIPLE Ontology Scripts
+# Scripts — the repository's entry points
 
-This directory contains utility scripts for working with the TRIPLE ontology.
+`scripts/` holds the commands you run; `tools/` holds the software they drive.
+The contract between the two: **nothing in `tools/` is invoked directly** — every
+tool is reached through an entry point here, which knows the paths, the
+virtualenv and the arguments. `tools/` can change shape without breaking anyone.
 
 ## Setup
 
-Install required dependencies:
+The virtualenv lives *inside* this directory (project convention):
 
 ```bash
-pip install -r requirements.txt
-```
-
-Or using a virtual environment (recommended):
-
-```bash
+cd scripts
 python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
+source venv/bin/activate   # Windows: venv\Scripts\activate
 pip install -r requirements.txt
 ```
 
-## Scripts
+Activate it before running any script.
 
-### merge_iterations.py
+## Entry points
 
-Merges all TBOX.ttl files from development iterations into a single consolidated ontology file (structure only, no instance data).
+| Command | What it does |
+|---|---|
+| `python merge_iterations.py --output ../ontology/triple.ttl` | Merges every `development/NN/TBOX.ttl` plus `ontology/metadata.ttl` into the consolidated model. **Always pass `--output`**: the bare default writes to the legacy `triple-ontology.ttl` path. |
+| `python build.py` *(from repo root)* | Compiles each controlled vocabulary (`vocabularies/serializations/ttl/*.ttl` + its `.metadata.ttl` sidecar + the shared metadata) into `build/`. |
+| `python scripts/check_model.py` *(from repo root)* | Model invariants: one comment per term and language, every `triple:` term documented, no new global axioms on foreign terms, every referenced term declared. |
+| `python scripts/validate.py` *(from repo root)* | SHACL validation of the exemplar ABOXes, `examples/` and the vocabularies against `shapes/`. |
+| `scripts/build_docs.sh [output-dir]` | Regenerates the model documentation page (SKOS-Reference-style chapters from `ontology/doc/sections/`, figures from `ontology/doc/figures/`) with the vendored pyLODE fork in `tools/pylode/`. No argument = preview in `build/docs-preview/` (git-ignored); `ontology/html/triple` = the official page. |
 
-**Usage:**
+## Tools (in `tools/`)
 
-```bash
-# Default output to ../ontology/triple-ontology.ttl
-python merge_iterations.py
-
-# Custom output path
-python merge_iterations.py --output /path/to/output.ttl
-```
-
-**What it does:**
-
-1. Scans all iteration directories in `development/`
-2. Loads all TBOX.ttl files (ontology structure only)
-3. Merges them into a single RDF graph (removing duplicates automatically)
-4. Adds ontology metadata (version, labels, comments, dates)
-5. Saves the consolidated ontology to `ontology/triple-ontology.ttl`
-6. Prints statistics about the merged ontology
-
-**Output includes:**
-
-- All classes, properties, and restrictions from all iterations
-- Proper namespace bindings
-- Ontology metadata
-- Statistics summary (classes, properties)
-- **No instance data** (ABOX files are excluded)
-
-**Example output:**
-
-```
-=== TRIPLE Ontology Merger ===
-
-Development directory: /path/to/triple-ontology/development
-
-Found: 01/TBOX.ttl
-Found: 02/TBOX.ttl
-Found: 03/TBOX.ttl
-...
-
-Found 11 TTL files
-
-Creating merged graph...
-Loading 01/TBOX.ttl...
-  Added 29 triples from 01/TBOX.ttl
-Loading 02/TBOX.ttl...
-  Added 30 triples from 02/TBOX.ttl
-...
-
-Total triples in merged graph: 350
-
-Adding ontology metadata...
-
-=== Ontology Statistics (TBOX Only) ===
-Classes: 25
-Object Properties: 18
-Data Properties: 5
-Total Triples: 355
-=======================================
-
-Saving merged ontology to: ../ontology/triple-ontology.ttl
-
-✓ Ontology successfully saved to: ../ontology/triple-ontology.ttl
-```
-
-## Directory Structure
-
-```
-triple-ontology/
-├── development/          # Iteration files (source)
-│   ├── 01/
-│   │   ├── TBOX.ttl
-│   │   └── ABOX.ttl
-│   ├── 02/
-│   │   ├── TBOX.ttl
-│   │   └── ABOX.ttl
-│   └── ...
-├── ontology/            # Consolidated ontology (output)
-│   └── triple-ontology.ttl
-└── scripts/             # Utility scripts
-    ├── README.md
-    ├── requirements.txt
-    └── merge_iterations.py
-```
-
-## Notes
-
-- The script automatically handles duplicate triples (RDF semantics)
-- Namespace prefixes are standardized across all iterations
-- The output is valid Turtle format
-- Statistics are logged during execution
-- Error handling for missing or malformed files
+- `tools/pylode/` — the patched pyLODE fork that renders the documentation
+  pages. Vendored 2026-08-12; every deviation from upstream is recorded in
+  `tools/pylode/PATCHES.md`. Runs on this directory's virtualenv, via
+  `build_docs.sh` only.

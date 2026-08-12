@@ -9,7 +9,7 @@ For each gap we list: **SAMOD says** → **TRIPLE does** → **Why**.
 ## 1. RDF serialization
 
 - **SAMOD says:** any syntax (N3, RDF/XML, Turtle, JSON-LD).
-- **TRIPLE does:** Turtle only for TBox, ABox, vocabularies, metadata, patterns. RDF/XML appears only as legacy input to `scripts/convert_vocabularies_to_ttl.py`.
+- **TRIPLE does:** Turtle only for TBox, ABox, vocabularies, metadata, patterns. RDF/XML appeared only as legacy input to a one-shot conversion script, retired once the migration was consumed.
 - **Why:** Turtle is the most readable in diffs and the easiest to hand-edit during Phase-1 iteration.
 
 ## 2. Reasoner

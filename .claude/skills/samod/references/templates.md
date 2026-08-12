@@ -208,13 +208,6 @@ Rules:
 
 Author in yEd with Graffoo stencils. Export PNG at the end.
 
-If you reverse-engineer a diagram from a stable TBox instead:
-
-```bash
-source scripts/venv/bin/activate
-python scripts/ttl_to_graphml_classes.py \
-    --input  development/NN/TBOX.ttl \
-    --output development/NN/modelet.graphml
-```
-
-Then open in yEd, apply layout, export PNG.
+The drawing is human-led. To start from a stable TBox, ask Claude for the facts
+to draw — superclasses, restriction arcs with their targets and cardinalities —
+then lay them out in yEd and export the PNG.
