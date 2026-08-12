@@ -98,7 +98,7 @@ SAMOD is silent on tooling — this repo has already decided. Do *not* re-open t
 | External ontology alignment    | `skos:exactMatch` / `skos:closeMatch` / `rdfs:subClassOf` on TBox classes; link in `Documentation`-phase metadata                                                                         |
 | Merge (Phase 2)                | `scripts/merge_iterations.py` — **warning**: its default output is the legacy `ontology/triple-ontology.ttl`. Always pass `--output ../ontology/triple.ttl` to overwrite the canonical file. |
 | Milestones                     | Git commits at the end of each SAMOD phase (`samod: iter NN phase 1 done` style)                |
-| Documentation output           | One page per artefact under `ontology/html/<name>/`: `triple` (the model) plus the six vocabularies |
+| Documentation output           | One page per artefact under `ontology/html/<name>/`: `triple` (the model) plus the six vocabularies. The model page is chaptered like the SKOS Reference: narrative chapters in `ontology/doc/sections/`, per-term Graffoo figures in `ontology/doc/figures/`, guidance in RDF (`skos:scopeNote`/`skos:example` at the term's home). Full spec: `references/documentation.md`. |
 | Ontology metadata              | The exhaustive block (`dcterms:*`, `vann:*`, `schema:citation`, `owl:versionInfo`, `owl:priorVersion`) documented in `CLAUDE.md` → *Ontology Metadata and Serialization Guidelines* |
 | Identifier value carrier       | **`litre:hasLiteralValue`** (from `http://www.essepuntato.it/2010/06/literalreification/`) — *not* `datacite:hasIdentifierValue`. |
 | Identifier typing              | **No identifier subclasses.** Every identifier is a plain `datacite:Identifier` told apart by its `datacite:usesIdentifierScheme`. Adding a new kind of identifier means adding one scheme individual, declared in the consolidated ontology — never a class. |
@@ -113,7 +113,7 @@ Concrete sequence when the user asks for a new iteration N:
 3. **Write MS first.** `motivating-scenario.md` must contain: Name, General Description, Technical Specification, Examples. Examples must be concrete enough to become ABox instances — abstract "user wants to search" is too vague.
 4. **Write CQs.** Number them `CQ_NN.1`, `CQ_NN.2`… with identifier / question / expected outcome / result / based-on-example. Each CQ must be answerable from the MS examples alone.
 5. **Write GoT.** List only classes / object properties / data properties that will appear in `TBOX.ttl`. External terms use `prefix:LocalName` with a short definition. **Do not** list any named individual that only appears in ABox.
-6. **Design the modelet.** Open `modelet.graphml` in yEd using Graffoo stencils. Keep it ≤ 9 entities. Export PNG to `modelet.png`. If useful, run `scripts/ttl_to_graphml_classes.py` after the TBox stabilizes to sync the diagram.
+6. **Design the modelet.** Open `modelet.graphml` in yEd using Graffoo stencils. Keep it ≤ 9 entities. Export PNG to `modelet.png`. Diagrams are hand-drawn (human-led); Claude can extract the facts to draw — superclasses, restriction arcs, targets, cardinalities — from the TBox on request.
 7. **Author TBox.** Turtle, with the project prefixes. Every class/property needs `rdfs:label` using `prefix:LocalName` for externals and a plain label for `triple:*`. Add `rdfs:comment` in at least English. Align with external ontologies using `skos:exactMatch` / `rdfs:subClassOf`.
 8. **Author ABox.** One instance per MS Example. Use URIs under `https://gotriple.eu/<collection>/<slug>`. Every entity should be typed (`a SomeClass`). Respect the identifier / keyword / language / place patterns — if in doubt, open `patterns/` and follow the relevant `.ttl`.
 9. **Write SPARQL (SQ).** In `formal-competency-questions.md`, one section per CQ with: natural-language restatement, the SPARQL query (with all `PREFIX` declarations), expected result mirroring the ABox.
@@ -193,6 +193,7 @@ Detailed validation commands and a parse-loop for running every iteration's SPAR
 - `references/validation.md` — formal test commands and SPARQL-harvest script.
 - `references/gaps.md` — detailed rationale for each project fill-in of a SAMOD gap.
 - `references/metadata.md` — the ontology metadata block for standalone serializations, and the version-management rules.
+- `references/documentation.md` — the SKOS-Reference-style page: chapter files, the depth rule (prose in chapters, terse entity boxes), figures and generation commands.
 - `CLAUDE.md` in repo root — canonical project conventions.
 - `SAMOD-METHODOLOGY.md` in repo root — project-flavored methodology summary.
 - Peroni, S. (2016). *SAMOD: an agile methodology for the development of ontologies.* https://essepuntato.it/samod/ · DOI `10.6084/m9.figshare.3189769`.
