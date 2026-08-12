@@ -15,6 +15,42 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-12 - Documentation: the model page becomes a chaptered reference, the toolchain moves in-repo
+
+**Type**: Documentation
+
+**Iteration**: none (documentation infrastructure)
+
+**Description**:
+The model page is being reshaped on the SKOS Reference: numbered narrative chapters on top (sources in `ontology/doc/sections/`, first three written — Introduction, The TRIPLE Data Model, Documents), the complete term reference at the bottom, a nested W3C-TR table of contents, and per-term Graffoo figures (`ontology/doc/figures/`, hand-authored). Chapters are an overlay: they never touch IRIs or anchors, every term keeps its single home in the reference sections, and each cited term links back to its chapter. The rendering toolchain — the patched pyLODE fork — is **vendored as `tools/pylode/`** (every deviation from upstream recorded in its `PATCHES.md`) and driven exclusively through the new entry point `scripts/build_docs.sh` (no argument = preview in `build/docs-preview/`; `ontology/html/triple` = promotion, reserved for the release). Two consumed scripts are retired (`convert_vocabularies_to_ttl.py`, one-shot migration; `ttl_to_graphml_classes.py`, superseded by hand-authored diagrams), and every README was audited under one rule: keep it if load-bearing — the two boilerplate READMEs of `examples/` collapse into one, brittle counts live only in the root README. The official page is untouched: promotion happens at the next release, together with the remaining chapters.
+
+**Author**: Alessandro Bertozzi
+
+
+### 2026-08-12 - Addition: guidance annotations on Document — skos:scopeNote and skos:example at the term's home
+
+**Type**: Addition
+
+**Iteration**: 01 (home of triple:Document)
+
+**Description**:
+The entity card of `triple:Document` gains a Usage paragraph (`skos:scopeNote`: the record-of-one-provider semantics, deduplication by link, the Schema.org descriptive core, reified identifiers) and one compact Turtle example (`skos:example`), asserted at the term's home iteration in the OCO style of contextual documentation — they ship with every serialization of the model. The depth rule that governs them is recorded in the samod skill: narrative depth belongs to the chapters, entity cards stay terse, and per-term guidance in RDF is one paragraph and one snippet, never an essay.
+
+**Author**: Alessandro Bertozzi
+
+
+### 2026-08-12 - Decision: versionIRI is semver-shaped, and every release stays resolvable in production
+
+**Type**: Documentation
+
+**Iteration**: none (URI-CONVENTIONS §6, resolution specification)
+
+**Description**:
+The last open point of the URI conventions is decided. `owl:versionIRI` is **semver-shaped** — `https://gotriple.eu/ontology/triple/{X.Y.Z}`, minted at the release chore — the same form the `owl:priorVersion` chain already uses, so the git tag, the CHANGELOG section and the IRI share one identity (OpenCitations uses dates; adopting them would have introduced a second identity to keep mapped). The collision with the flat term space is resolved syntactically: the pattern `^\d+\.\d+\.\d+$` is reserved and evaluated before the term rule — no TRIPLE term begins with a digit, and DDC notations carry at most one dot. In production every release becomes a frozen snapshot directory (verified against `w3id.org/oc/ontology/{date}`, which serves every dated version forever): `/ontology/triple/{X.Y.Z}` answers 200 with that release's page and serializations, unpacked from the GitHub release archive and never redirected to current. The resolution specification (`ontology/html/README.md`) and the release checklist in the samod skill are updated accordingly; the first versionIRI will be minted by the next release.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-11 - Documentation: informal and formal competency questions realigned
 
 **Type**: Documentation

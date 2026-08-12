@@ -81,7 +81,13 @@ End the serialization file with:
 
 ### Version Management
 - Update version numbers consistently across all metadata fields
-- Include `owl:priorVersion` pointing to the previous version
+- **Mint `owl:versionIRI <https://gotriple.eu/ontology/triple/{X.Y.Z}>` at the release
+  chore** (URI-CONVENTIONS §6; the semver pattern is reserved in the term space)
+- Include `owl:priorVersion` pointing to the previous versionIRI
 - Update modification dates when making changes
 - Record every substantive change as a dated entry in `CHANGELOG.md` (format documented at the top of that file: Date, Iteration, Type, Description, Author)
+- At release: regenerate the documentation (`scripts/build_docs.sh ontology/html/triple`),
+  tag, publish the GitHub release — the release archive is what deployment unpacks as
+  the frozen `/ontology/triple/{X.Y.Z}` snapshot (see `ontology/html/README.md`,
+  "Versioned snapshots")
 

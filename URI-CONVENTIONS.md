@@ -96,10 +96,23 @@ the full IRI — checked at regeneration).
 ## 6. Versioning
 
 `owl:versionInfo` (semantic) on the ontology and every vocabulary, single-sourced from
-`ontology/metadata.ttl`; GitHub releases carry the artefacts. `owl:versionIRI` — dated,
-in the OpenCitations style — is planned for the 3.0.0 release chore and not yet minted;
-its pattern must not collide with the flat term space (this rules out bare
-`…/triple/{X.Y.Z}` until the routing reserves a digits-only pattern).
+`ontology/metadata.ttl`; GitHub releases carry the artefacts.
+
+**`owl:versionIRI` is semver-shaped and minted at the release chore**:
+`https://gotriple.eu/ontology/triple/{X.Y.Z}` — the same form the `owl:priorVersion`
+chain already uses, so the tag, the CHANGELOG entry and the IRI share one identity.
+The collision with the flat term space is resolved syntactically: the pattern
+`^\d+\.\d+\.\d+$` is **reserved** and evaluated before the term rule at resolution
+time. No TRIPLE term may begin with a digit (the naming rules of §2 already guarantee
+it), and DDC notations carry at most one dot, so the two-dot pattern is free in every
+namespace. A vocabulary's versionIRI is the last release in which that vocabulary
+changed (per-artifact versioning, decided in 3.1.0).
+
+In production every released version stays resolvable forever, OpenCitations-style
+(verified on `w3id.org/oc/ontology/{date}`): `…/ontology/triple` serves the current
+release; `…/ontology/triple/{X.Y.Z}` serves the archived snapshot of that release —
+`200`, never redirected to current — sourced from the GitHub release archive at
+deployment time. Server rules and evaluation order in `ontology/html/README.md`.
 
 ## 7. URLs
 

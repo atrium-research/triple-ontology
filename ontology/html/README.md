@@ -25,6 +25,7 @@ in the generated pages are guaranteed to match (verified at build time, 38/38 te
 | request | `Accept: text/html` (default) | `text/turtle`, `application/rdf+xml`, `application/ld+json` |
 |---|---|---|
 | `/ontology/triple` | `triple/index.html` | `triple/ontology.{ttl,rdf,jsonld}` |
+| `/ontology/triple/{X.Y.Z}` | the **archived snapshot** of that release (`200`, forever) | its own `ontology.{ttl,rdf,jsonld}` |
 | `/ontology/triple/{Term}` | `302` → `/ontology/triple#{Term}` | `triple/ontology.ttl` (etc.) |
 | `/ontology/{voc}` | `{voc}/index.html` | `{voc}/ontology.ttl` (etc.) |
 | `/ontology/{voc}/{key}` | `302` → `/ontology/{voc}#{key}` | `{voc}/ontology.ttl` (etc.) |
@@ -41,6 +42,7 @@ Worked examples:
 /ontology/discipline/musiq            →  302  /ontology/discipline#musiq
 /ontology/ddc/930.1                   →  302  /ontology/ddc#930.1
 /ontology/license                     →  200  license/index.html
+/ontology/triple/3.1.0                →  200  archived snapshot of release 3.1.0
 /ontology/nonexistent                 →  404
 ```
 
@@ -59,6 +61,10 @@ location ~ ^/ontology/(discipline|content-type|condition-of-access|license|proje
 location ~ ^/ontology/(discipline|content-type|condition-of-access|license|project-type|ddc)/(.+)$ {
     # html → 302 /ontology/$1#$2 ; rdf → $1/ontology.*
 }
+location ~ ^/ontology/triple/(\d+\.\d+\.\d+)(/.*)?$ {
+    # archived release snapshot: serve archive/$1/… with content negotiation, 200 forever.
+    # MUST be evaluated before the term rule below. No TRIPLE term begins with a digit.
+}
 location ~ ^/ontology/triple/([^/]+)$ {
     # html → 302 /ontology/triple#$1 ; rdf → triple/ontology.*
 }
@@ -72,10 +78,21 @@ Two requirements that are easy to miss:
 - The redirects are plain string operations on the request path — the fragment is the
   last path segment, verbatim. Nothing needs to know which terms exist.
 
+## Versioned snapshots
+
+Every published release stays resolvable forever (OpenCitations-style):
+`/ontology/triple/{X.Y.Z}` serves the frozen page and serializations of that release,
+never a redirect to current. At deployment time each release's directory is unpacked
+from the GitHub release archive (`ontology/html/` inside the tag) into the versioned
+path and never touched again. The semver pattern is reserved before the term rule —
+safe because no TRIPLE term begins with a digit, and DDC notations carry at most one
+dot. The same layout applies to the vocabularies; an unchanged vocabulary keeps the
+versionIRI of the last release that changed it.
+
 ## Regenerating
 
 From the repo root, venv active (see `CLAUDE.md`): `scripts/merge_iterations.py
 --output ontology/triple.ttl` (model) and `scripts/build.py` (vocabularies, into
-`build/`), then pyLODE — the customized fork in `~/netseven_work/lode/` (its
-`PATCHES.md` documents the anchor scheme) — and copy `index.html` plus the three
-serializations here. No post-processing: the `%23` anchor-encoding step is retired.
+`build/`), then `scripts/build_docs.sh ontology/html/triple` — the vendored pyLODE
+fork in `tools/pylode/` (its `PATCHES.md` documents the anchor scheme and the chapter
+system). No post-processing: the `%23` anchor-encoding step is retired.
