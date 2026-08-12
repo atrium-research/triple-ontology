@@ -1,0 +1,188 @@
+<div class="entity" id="{{ cls.anchor or cls.uri }}">
+                <h3>{{ cls.label or cls.uri }}
+                    <sup class="type-{{ cls.type_label }}" title="{{ cls.type_label }}">
+                        {{ cls.type_label }}
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> {{ cls.uri }}</p>
+                {% if cls.chapter %}
+                <p class="chapter-ref">Discussed in <a href="#sec-{{ cls.chapter.slug }}">&sect;{{ cls.chapter.n }}. {{ cls.chapter.title }}</a></p>
+                {% endif %}
+                {% if cls.figure %}
+                <div class="figure-box">
+                    <a href="{{ cls.figure }}" target="_blank"><img src="{{ cls.figure }}" alt="Graffoo diagram of {{ cls.label }}" /></a>
+                    <p class="figure-caption">Graffoo model of <strong>{{ cls.label }}</strong></p>
+                </div>
+                {% endif %}
+                {% if cls.comment %}
+                <div class="comment">
+                    <p>{{ cls.comment }}</p>
+                </div>
+                {% endif %}
+
+                {% if cls.other_labels %}
+                <div class="comment">
+                    <p><strong>Alternative Labels:</strong></p>
+                    <ul>
+                        {% for label in cls.other_labels %}
+                        <li>{{ label }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                {% endif %}
+
+                {% if cls.scope_notes %}
+                <div class="usage-box">
+                    <h4>Usage</h4>
+                    {% for note in cls.scope_notes %}
+                    <p>{{ note }}</p>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if cls.examples %}
+                <div class="example-box">
+                    <h4>Example</h4>
+                    {% for example in cls.examples %}
+                    <pre>{{ example }}</pre>
+                    {% endfor %}
+                </div>
+                {% endif %}
+
+                {% if cls.skos_properties %}
+                <div class="skos-box">
+                    <h4>External Alignment</h4>
+                    <dl>
+                        {% for label, value in cls.skos_properties %}
+                        <dt>{{ label }}</dt>
+                        <dd>{{ value }}</dd>
+                        {% endfor %}
+                    </dl>
+                </div>
+                {% endif %}
+
+                {% if cls.super_classes or cls.restrictions or cls.sub_classes or cls.in_domain_of or cls.in_range_of or
+                cls.members or cls.disjoint_with %}
+                <dl class="description">
+                    {% if cls.super_classes %}
+                    <dt>has super-classes</dt>
+                    <dd>
+                        {% for super in cls.super_classes %}
+                        <a href="#{{ super.anchor or super.uri }}" title="{{ super.uri }}">{{ super.label or super.uri }}</a>
+                        <sup class="type-{{ super.type_label }}" title="{{ super.type_label }}">{{ super.type_label
+                            }}</sup>
+                        {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </dd>
+                    {% endif %}
+
+                    {% if cls.restrictions %}
+                    <dt>has restrictions</dt>
+                    <dd>
+                        <ul class="restrictions">
+                            {% for restr in cls.restrictions %}
+                            <li>
+                                <a href="#{{ restr.on_property.anchor or restr.on_property.uri }}" title="{{ restr.on_property.uri }}">{{
+                                    restr.on_property.label or restr.on_property.uri }}</a>
+                                <sup class="type-{{ restr.on_property.type_label }}"
+                                    title="{{ restr.on_property.type_label }}">{{ restr.on_property.type_label }}</sup>
+
+                                <span class="literal">{{ restr.type }}</span>
+
+                                {% if restr.amount %}
+                                <span class="literal">{{ restr.amount }}</span>
+                                {% endif %}
+
+                                {% if restr.literal_value %}
+                                <span class="literal">"{{ restr.literal_value }}"</span>
+                                {% endif %}
+
+                                {% if restr.values %}
+                                {% if restr.values|length > 1 %}
+                                <span class="literal">(</span>
+                                {% endif %}
+
+                                {% for val in restr.values %}
+                                <a href="#{{ val.anchor or val.uri }}" title="{{ val.uri }}">{{ val.label or val.uri }}</a>
+                                <sup class="type-{{ val.type_label }}" title="{{ val.type_label }}">{{ val.type_label
+                                    }}</sup>
+                                {% if not loop.last %}
+                                <span class="literal"> or </span>
+                                {% endif %}
+                                {% endfor %}
+
+                                {% if restr.values|length > 1 %}
+                                <span class="literal">)</span>
+                                {% endif %}
+                                {% endif %}
+                            </li>
+                            {% endfor %}
+                        </ul>
+                    </dd>
+                    {% endif %}
+
+                    {% if cls.sub_classes %}
+                    <dt>has sub-classes</dt>
+                    <dd>
+                        {% for sub in cls.sub_classes %}
+                        <a href="#{{ sub.anchor or sub.uri }}" title="{{ sub.uri }}">{{ sub.label or sub.uri }}</a>
+                        <sup class="type-{{ sub.type_label }}" title="{{ sub.type_label }}">{{ sub.type_label }}</sup>
+                        {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </dd>
+                    {% endif %}
+
+                    {% if cls.in_domain_of %}
+                    <dt>is in domain of</dt>
+                    <dd>
+                        {% for prop in cls.in_domain_of %}
+                        <a href="#{{ prop.anchor or prop.uri }}" title="{{ prop.uri }}">{{ prop.label or prop.uri }}</a>
+                        <sup class="type-{{ prop.type_label }}" title="{{ prop.type_label }}">{{ prop.type_label
+                            }}</sup>
+                        {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </dd>
+                    {% endif %}
+
+                    {% if cls.in_range_of %}
+                    <dt>is in range of</dt>
+                    <dd>
+                        {% for prop in cls.in_range_of %}
+                        <a href="#{{ prop.anchor or prop.uri }}" title="{{ prop.uri }}">{{ prop.label or prop.uri }}</a>
+                        <sup class="type-{{ prop.type_label }}" title="{{ prop.type_label }}">{{ prop.type_label
+                            }}</sup>
+                        {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </dd>
+                    {% endif %}
+
+                    {% if cls.members %}
+                    <dt>has members</dt>
+                    <dd>
+                        {% for member in cls.members %}
+                        <a href="#{{ member.anchor or member.uri }}" title="{{ member.uri }}">{{ member.label or member.uri }}</a>
+                        <sup class="type-{{ member.type_label }}" title="{{ member.type_label }}">{{ member.type_label
+                            }}</sup>
+                        {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </dd>
+                    {% endif %}
+
+                    {% if cls.disjoint_with %}
+                    <dt>is disjoint with</dt>
+                    <dd>
+                        {% for disjoint in cls.disjoint_with %}
+                        <a href="#{{ disjoint.anchor or disjoint.uri }}" title="{{ disjoint.uri }}">{{ disjoint.label or disjoint.uri
+                            }}</a>
+                        <sup class="type-{{ disjoint.type_label }}" title="{{ disjoint.type_label }}">{{
+                            disjoint.type_label }}</sup>
+                        {% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </dd>
+                    {% endif %}
+                </dl>
+                {% endif %}
+            </div>

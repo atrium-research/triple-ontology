@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>{{ metadata.title or "Ontology Documentation" }}</title>
+    <link href="static/owl.css" rel="stylesheet" type="text/css" />
+    <link href="static/yeti.css" rel="stylesheet" type="text/css" />
+    <link href="static/rec.css" rel="stylesheet" type="text/css" />
+    <link href="static/extra.css" rel="stylesheet" type="text/css" />
+    <script src="static/jquery.js"></script>
+    <script src="static/jquery.scrollTo.js"></script>
+    <script src="static/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="head">
+            <h1>{{ metadata.title }}</h1>
+
+            <dl>
+                <dt>This version:</dt>
+                <dd><a href="{{ metadata.uri }}">{{ metadata.uri }}</a></dd>
+
+                {% if metadata.version %}
+                <dt>Revision:</dt>
+                <dd>{{ metadata.version }}</dd>
+                {% endif %}
+
+                {% if metadata.creators %}
+                <dt>Authors:</dt>
+                <dd>
+                    {% for creator in metadata.creators %}
+                    {{ creator }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </dd>
+                {% endif %}
+
+                {% if metadata.contributors %}
+                <dt>Contributors:</dt>
+                <dd>
+                    {% for contributor in metadata.contributors %}
+                    {{ contributor }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </dd>
+                {% endif %}
+
+                {% if metadata.publishers %}
+                <dt>Publisher:</dt>
+                <dd>
+                    {% for publisher in metadata.publishers %}
+                    {{ publisher }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </dd>
+                {% endif %}
+
+                {% if metadata.imports %}
+                <dt>Imported Ontologies:</dt>
+                <dd>
+                    {% for imp in metadata.imports %}
+                    <a href="{{ imp }}">{{ imp }}</a>{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </dd>
+                {% endif %}
+
+                {% if metadata.license %}
+                <dt>License:</dt>
+                <dd><a href="{{ metadata.license }}" target="_blank">{{ metadata.license }}</a></dd>
+                {% endif %}
+
+            </dl>
+
+            <div class="copyright">
+                <span class="markdown">{{ metadata.rights }}</span>
+            </div>
+        </div>
+
+        <hr />
+
+        {% if metadata.abstract %}
+        <h2>Abstract</h2>
+        <div id="abstract">
+            <p>{{ metadata.abstract }}</p>
+        </div>
+        {% endif %}
+
+        {% set ns = namespace(i=sections|length) %}
+        {% if metadata.description and not sections %}{% set ns.i = ns.i + 1 %}{% set i_intro = ns.i %}{% endif %}
+        {% if classes %}{% set ns.i = ns.i + 1 %}{% set i_classes = ns.i %}{% endif %}
+        {% if object_properties %}{% set ns.i = ns.i + 1 %}{% set i_obj_properties = ns.i %}{% endif %}
+        {% if datatype_properties %}{% set ns.i = ns.i + 1 %}{% set i_data_properties = ns.i %}{% endif %}
+        {% if annotation_properties %}{% set ns.i = ns.i + 1 %}{% set i_ann_properties = ns.i %}{% endif %}
+        {% if individuals %}{% set ns.i = ns.i + 1 %}{% set i_individuals = ns.i %}{% endif %}
+        {% set ns.i = ns.i + 1 %}{% set i_namespaces = ns.i %}
+
+        <div id="toc">
+            <h2>Table of Contents</h2>
+            <ul>
+                {% for sec in sections %}
+                <li><a href="#sec-{{ sec.slug }}">{{ loop.index }}. {{ sec.title }}</a>
+                    {% if sec.subs_before or sec.elements or sec.subs_after %}
+                    <ul>
+                        {% for s in sec.subs_before %}
+                        <li><a href="#{{ s.id }}">{{ s.title }}</a></li>
+                        {% endfor %}
+                        {% for s in sec.subs_after %}
+                        <li><a href="#{{ s.id }}">{{ s.title }}</a></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                </li>
+                {% endfor %}
+                {% if metadata.description and not sections %}<li><a href="#introduction">{{ i_intro }}. Introduction</a></li>{% endif %}
+                {% if classes %}<li><a href="#classes">{{ i_classes }}. Classes</a></li>{% endif %}
+                {% if object_properties %}<li><a href="#objectproperties">{{ i_obj_properties }}. Object Properties</a>
+                </li>{% endif %}
+                {% if datatype_properties %}<li><a href="#dataproperties">{{ i_data_properties }}. Datatype
+                        Properties</a></li>{% endif %}
+                {% if annotation_properties %}<li><a href="#annotationproperties">{{ i_ann_properties }}. Annotation
+                        Properties</a></li>{% endif %}
+                {% if individuals %}<li><a href="#namedindividuals">{{ i_individuals }}. Named Individuals</a></li>{%
+                endif %}
+                <li><a href="#namespacedeclarations">{{ i_namespaces }}. Namespaces</a></li>
+            </ul>
+        </div>
+
+
+
+        {% if metadata.description and not sections %}
+        <div id="introduction">
+            <h2>{{ i_intro }}. Introduction</h2>
+            <div class="markdown">{{ metadata.description }}</div>
+        </div>
+        {% endif %}
+
+        <hr />
+
+        {% for sec in sections %}
+        <div id="sec-{{ sec.slug }}" class="narrative-section">
+            <h2>{{ loop.index }}. {{ sec.title }} <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <div class="prose">{{ sec.html | safe }}</div>
+            {% if sec.elements %}
+            <ul class="hlist">
+                {% for el in sec.elements %}
+                <li><a href="#{{ el.anchor or el.uri }}" title="{{ el.uri }}">{{ el.label or el.uri }}</a></li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% if sec.html_after %}
+            <div class="prose">{{ sec.html_after | safe }}</div>
+            {% endif %}
+        </div>
+        <hr />
+        {% endfor %}
+
+        {% if classes %}
+        <div id="classes">
+            <h2>{{ i_classes }}. Classes</h2>
+            <ul class="hlist">
+                {% for cls in classes %}
+                <li><a href="#{{ cls.anchor or cls.uri }}" title="{{ cls.uri }}">{{ cls.label or cls.uri }}</a></li>
+                {% endfor %}
+            </ul>
+            {% for cls in classes %}
+            {% include "class_entity.html" %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if object_properties %}
+        <div id="objectproperties">
+            <h2>{{ i_obj_properties }}. Object Properties</h2>
+            <ul class="hlist">
+                {% for prop in object_properties %}
+                <li><a href="#{{ prop.anchor or prop.uri }}" title="{{ prop.uri }}">{{ prop.label or prop.uri }}</a></li>
+                {% endfor %}
+            </ul>
+            {% for prop in object_properties %}
+            {% include "property_entity.html" %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if datatype_properties %}
+        <div id="dataproperties">
+            <h2>{{ i_data_properties }}. Datatype Properties</h2>
+            <ul class="hlist">
+                {% for prop in datatype_properties %}
+                <li><a href="#{{ prop.anchor or prop.uri }}" title="{{ prop.uri }}">{{ prop.label or prop.uri }}</a></li>
+                {% endfor %}
+            </ul>
+            {% for prop in datatype_properties %}
+            {% include "property_entity.html" %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if annotation_properties %}
+        <div id="annotationproperties">
+            <h2>{{ i_ann_properties }}. Annotation Properties</h2>
+            <ul class="hlist">
+                {% for prop in annotation_properties %}
+                <li><a href="#{{ prop.anchor or prop.uri }}" title="{{ prop.uri }}">{{ prop.label or prop.uri }}</a></li>
+                {% endfor %}
+            </ul>
+            {% for prop in annotation_properties %}
+            {% include "property_entity.html" %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        {% if individuals %}
+        <div id="namedindividuals">
+            <h2>{{ i_individuals }}. Named Individuals</h2>
+            <ul class="hlist">
+                {% for indiv in individuals %}
+                <li><a href="#{{ indiv.anchor or indiv.uri }}" title="{{ indiv.uri }}">{{ indiv.label or indiv.uri }}</a></li>
+                {% endfor %}
+            </ul>
+            {% for prop in individuals %}
+            {% include "property_entity.html" %}
+            {% endfor %}
+        </div>
+        {% endif %}
+
+        <div id="namespacedeclarations">
+            <h2>{{ i_namespaces }}. Namespaces <span class="backlink"> back to <a href="#toc">ToC</a></span></h2>
+            <table class="table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>Prefix</th>
+                        <th>URI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for prefix, uri in namespaces %}
+                    <tr>
+                        <td>{{ prefix }}</td>
+                        <td>{{ uri }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        <p class="endnote">
+            This HTML document was obtained by processing the OWL ontology source code through <a
+                href="http://www.essepuntato.it/lode">LODE</a>, <em>Live OWL Documentation Environment</em>, developed
+            by <a href="http://www.essepuntato.it/">Silvio Peroni</a>.
+        </p>
+    </div>
+</body>
+
+</html>

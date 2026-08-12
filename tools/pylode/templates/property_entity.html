@@ -1,0 +1,168 @@
+<div class="entity" id="{{ prop.anchor or prop.uri }}">
+    <h3>{{ prop.label or prop.uri }}
+        <sup class="type-{{ prop.type_label }}" title="{{ prop.type_label }}">
+            {{ prop.type_label }}
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> {{ prop.uri }}</p>
+                {% if prop.chapter %}
+                <p class="chapter-ref">Discussed in <a href="#sec-{{ prop.chapter.slug }}">&sect;{{ prop.chapter.n }}. {{ prop.chapter.title }}</a></p>
+                {% endif %}
+    {% if prop.figure %}
+                <div class="figure-box">
+                    <a href="{{ prop.figure }}" target="_blank"><img src="{{ prop.figure }}" alt="Graffoo diagram of {{ prop.label }}" /></a>
+                    <p class="figure-caption">Graffoo model of <strong>{{ prop.label }}</strong></p>
+                </div>
+                {% endif %}
+                {% if prop.comment %}
+    <div class="comment">
+        <p>{{ prop.comment }}</p>
+    </div>
+    {% endif %}
+    {% if prop.other_labels %}
+    <div class="comment">
+        <p><strong>Alternative Labels:</strong></p>
+        <ul>
+            {% for label in prop.other_labels %}
+            <li>{{ label }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+    {% if prop.scope_notes %}
+    <div class="usage-box">
+        <h4>Usage</h4>
+        {% for note in prop.scope_notes %}
+        <p>{{ note }}</p>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if prop.examples %}
+    <div class="example-box">
+        <h4>Example</h4>
+        {% for example in prop.examples %}
+        <pre>{{ example }}</pre>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    {% if prop.skos_properties %}
+    <div class="skos-box">
+        <h4>External Alignment</h4>
+        <dl>
+            {% for label, value in prop.skos_properties %}
+            <dt>{{ label }}</dt>
+            <dd>{{ value }}</dd>
+            {% endfor %}
+        </dl>
+    </div>
+    {% endif %}
+
+    {% if prop.types or prop.same_as or prop.assertions %}
+    <dl class="description">
+        {% if prop.types %}
+        <dt>belongs to</dt>
+        {% for type in prop.types %}
+        <dd>
+            <a href="{{ type.url }}" title="{{ type.uri }}"
+                target="{{ '_blank' if not type.url.startswith('#') else '_self' }}">{{ type.label or type.uri }}</a>
+            <sup class="type-{{ type.type_label }}" title="{{ type.type_label }}">{{ type.type_label }}</sup>
+        </dd>
+        {% endfor %}
+        {% endif %}
+
+        {% if prop.same_as %}
+        <dt>is same as</dt>
+        <dd>
+            {% for sa in prop.same_as %}
+            <a href="{{ sa }}" target="_blank">{{ sa }}</a>{% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </dd>
+        {% endif %}
+
+        {% if prop.assertions %}
+        <dt>has assertions</dt>
+        {% for prop_label, prop_uri, val_label, val_uri in prop.assertions %}
+        <dd>
+            <a href="{{ prop_uri }}" target="{{ '_blank' if not prop_uri.startswith('#') else '_self' }}">{{ prop_label
+                }}</a>
+            {% if val_uri %}
+            <a href="{{ val_uri }}" target="{{ '_blank' if not val_uri.startswith('#') else '_self' }}">{{ val_label
+                }}</a>
+            {% else %}
+            <span class="literal">"{{ val_label }}"</span>
+            {% endif %}
+        </dd>
+        {% endfor %}
+        {% endif %}
+    </dl>
+    {% endif %}
+    {% if prop.super_properties or prop.sub_properties or prop.domains or prop.ranges or prop.inverse %}
+    <dl class="description">
+        {% if prop.super_properties %}
+        <dt>has super-properties</dt>
+        <dd>
+            {% for super in prop.super_properties %}
+            <a href="{{ super.url }}" title="{{ super.uri }}"
+                target="{{ '_blank' if not super.url.startswith('#') else '_self' }}">{{ super.label or super.uri }}</a>
+            <sup class="type-{{ super.type_label }}" title="{{ super.type_label }}">{{ super.type_label }}</sup>
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </dd>
+        {% endif %}
+
+        {% if prop.sub_properties %}
+        <dt>has sub-properties</dt>
+        <dd>
+            {% for sub in prop.sub_properties %}
+            <a href="{{ sub.url }}" title="{{ sub.uri }}"
+                target="{{ '_blank' if not sub.url.startswith('#') else '_self' }}">{{ sub.label or sub.uri }}</a>
+            <sup class="type-{{ sub.type_label }}" title="{{ sub.type_label }}">{{ sub.type_label }}</sup>
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </dd>
+        {% endif %}
+
+        {% if prop.domains %}
+        <dt>has domain</dt>
+        <dd>
+            {% for domain in prop.domains %}
+            <a href="{{ domain.url }}" title="{{ domain.uri }}"
+                target="{{ '_blank' if not domain.url.startswith('#') else '_self' }}">{{ domain.label or domain.uri
+                }}</a>
+            <sup class="type-{{ domain.type_label }}" title="{{ domain.type_label }}">{{ domain.type_label }}</sup>
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </dd>
+        {% endif %}
+
+        {% if prop.ranges %}
+        <dt>has range</dt>
+        <dd>
+            {% for range in prop.ranges %}
+            <a href="{{ range.url }}" title="{{ range.uri }}"
+                target="{{ '_blank' if not range.url.startswith('#') else '_self' }}">{{ range.label or range.uri }}</a>
+            <sup class="type-{{ range.type_label }}" title="{{ range.type_label }}">{{ range.type_label }}</sup>
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </dd>
+        {% endif %}
+
+        {% if prop.inverse %}
+        <dt>has inverse</dt>
+        <dd>
+            {% for inv in prop.inverse %}
+            <a href="{{ inv.url }}" title="{{ inv.uri }}"
+                target="{{ '_blank' if not inv.url.startswith('#') else '_self' }}">{{ inv.label or inv.uri }}</a>
+            <sup class="type-{{ inv.type_label }}" title="{{ inv.type_label }}">{{ inv.type_label }}</sup>
+            {% if not loop.last %}, {% endif %}
+            {% endfor %}
+        </dd>
+        {% endif %}
+    </dl>
+    {% endif %}
+</div>
