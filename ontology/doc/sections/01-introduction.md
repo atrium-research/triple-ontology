@@ -41,17 +41,21 @@ vocabularies**, published side by side under the same root:
 Concept IRIs inside the vocabularies use the **production key verbatim**
 (`disc:musiq`, `ct:typ_article`, `coa:acr_open-access`): the local name of a
 concept is exactly the value the GoTriple API emits for it, so mapping a record
-to the graph is namespace + key, with no lookup table. The full minting rules are
-in `URI-CONVENTIONS.md` in the ontology repository.
+to the graph is namespace + key, with no lookup table. The full minting rules are in
+[`URI-CONVENTIONS.md`](https://github.com/atrium-research/triple-ontology/blob/main/URI-CONVENTIONS.md)
+in the ontology repository.
 
 ### 1.3. Methodology
 
 The model is developed with [SAMOD](https://essepuntato.it/samod/) (Simplified
 Agile Methodology for Ontology Development): every piece was introduced by an
 iteration with a motivating scenario, competency questions and a tested exemplar
-dataset. The iterations — twenty-one at the time of writing — are the reasoned
-record of the model: each design decision can be traced to the scenario that
-motivated it and to the queries that verify it.
+dataset. The iterations — twenty-one at the time of writing, one directory each
+under
+[`development/`](https://github.com/atrium-research/triple-ontology/tree/main/development)
+in the ontology repository — are the reasoned record of the model: each design
+decision can be traced to the scenario that motivated it and to the queries that
+verify it.
 
 ### 1.4. How to Read This Document
 
@@ -84,6 +88,7 @@ from the SAMOD iterations, not production records.
 The OWL axioms in this document state what the terms *mean*; they are
 deliberately light on cardinality. What a conformant GoTriple record **must**
 carry is expressed separately, as [SHACL](https://www.w3.org/TR/shacl/) shapes
-(`shapes/` in the repository): integrity conditions cited in the chapters below
-refer to those shapes. This split keeps the open-world semantics of the ontology
+([`shapes/`](https://github.com/atrium-research/triple-ontology/tree/main/shapes)
+in the repository): integrity conditions cited in the chapters below refer to
+those shapes. This split keeps the open-world semantics of the ontology
 clean while giving the platform a closed-world validation profile.
