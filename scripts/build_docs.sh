@@ -32,4 +32,8 @@ for src in "$REPO"/build/*.ttl; do
   PYTHONPATH="$REPO/tools" "$PY" -m pylode.cli "$src" -o "$OUT/$dir/index.html"
 done
 
+# 4. The landing index served at /ontology — one card per artefact,
+#    built from the same inputs as the pages.
+"$PY" "$REPO/scripts/build_index.py" -o "$OUT/index.html"
+
 echo "Pagine generate in: $OUT"

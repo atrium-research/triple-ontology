@@ -292,9 +292,11 @@ def main():
     
     # 0. Create/Clean Build Dir
     if os.path.exists(BUILD_DIR):
-        # Clean existing files
+        # Clean existing files; subdirectories (e.g. docs-preview/) are other
+        # builds' output, not ours to delete
         for f in glob.glob(os.path.join(BUILD_DIR, "*")):
-            os.remove(f)
+            if os.path.isfile(f):
+                os.remove(f)
         print(f"🧹 Cleaned build directory: {BUILD_DIR}")
     else:
         os.makedirs(BUILD_DIR)

@@ -15,6 +15,18 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-24 - Documentation: the landing index of /ontology becomes a generated card page
+
+**Type**: Documentation
+
+**Iteration**: none (documentation infrastructure)
+
+**Description**:
+`https://gotriple.eu/ontology` — today the frontend's soft-404 — gains a real landing page: one card per artefact (the model plus the six vocabularies), each with title, description, version, term counts, and direct links to the documentation and the three serializations. The page is **generated, never hand-edited**: `scripts/build_index.py` (driven by `build_docs.sh` as its final step) reads every figure on it from `ontology/triple.ttl` and the compiled vocabularies in `build/`, so it cannot drift from the artefacts it advertises. The resolution spec (`ontology/html/README.md`) grows two rules: `/ontology` serves the landing page (always HTML — there is no single graph at the root), and deployed files (`ontology.ttl`, static assets, figures) are served verbatim *before* the term-redirect rules — necessary because the landing cards link the serialization files directly. Incidental fix: `build.py`'s cleanup no longer tries to `os.remove` subdirectories of `build/` (it crashed on `docs-preview/`).
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-24 - Documentation: one build for all seven pages
 
 **Type**: Documentation
