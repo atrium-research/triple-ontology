@@ -26,7 +26,7 @@ Activate it before running any script.
 | `python build.py` *(from repo root)* | Compiles each controlled vocabulary (`vocabularies/serializations/ttl/*.ttl` + its `.metadata.ttl` sidecar + the shared metadata) into `build/`. |
 | `python scripts/check_model.py` *(from repo root)* | Model invariants: one comment per term and language, every `triple:` term documented, no new global axioms on foreign terms, every referenced term declared. |
 | `python scripts/validate.py` *(from repo root)* | SHACL validation of the exemplar ABOXes, `examples/` and the vocabularies against `shapes/`. |
-| `scripts/build_docs.sh [output-dir]` | Regenerates the model documentation page (SKOS-Reference-style chapters from `ontology/doc/sections/`, figures from `ontology/doc/figures/`) with the vendored pyLODE fork in `tools/pylode/`. No argument = preview in `build/docs-preview/` (git-ignored); `ontology/html/triple` = the official page. |
+| `scripts/build_docs.sh [output-base]` | Regenerates **all seven documentation pages** — the model (SKOS-Reference-style chapters from `ontology/doc/sections/`, figures from `ontology/doc/figures/`) plus the six vocabularies — with the vendored pyLODE fork in `tools/pylode/`. Recompiles the vocabularies (`build.py`) first; every page ships with its `static/` and `.ttl`/`.rdf`/`.jsonld` serializations. No argument = preview in `build/docs-preview/` (git-ignored); `ontology/html` = the official pages. |
 
 ## Tools (in `tools/`)
 

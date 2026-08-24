@@ -92,7 +92,11 @@ versionIRI of the last release that changed it.
 ## Regenerating
 
 From the repo root, venv active (see `CLAUDE.md`): `scripts/merge_iterations.py
---output ontology/triple.ttl` (model) and `scripts/build.py` (vocabularies, into
-`build/`), then `scripts/build_docs.sh ontology/html/triple` — the vendored pyLODE
-fork in `tools/pylode/` (its `PATCHES.md` documents the anchor scheme and the chapter
-system). No post-processing: the `%23` anchor-encoding step is retired.
+--output ontology/triple.ttl` (model), then `scripts/build_docs.sh ontology/html` —
+one command regenerates all seven pages (the model plus the six vocabularies, each
+with its `index.html`, `static/` and `.ttl`/`.rdf`/`.jsonld` serializations),
+recompiling the vocabularies via `scripts/build.py` first so no page is rendered
+from stale input. Renderer: the vendored pyLODE fork in `tools/pylode/` (its
+`PATCHES.md` documents the anchor scheme and the chapter system). No
+post-processing: the `%23` anchor-encoding step is retired. Without an argument
+the same build lands in `build/docs-preview/` for inspection.

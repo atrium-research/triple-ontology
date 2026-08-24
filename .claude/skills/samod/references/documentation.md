@@ -10,15 +10,15 @@ narrative chapters on top, the complete term reference at the bottom.
 |---|---|
 | Narrative chapters | `ontology/doc/sections/NN-slug.md` (order = filename number) |
 | Per-term Graffoo diagrams | `ontology/doc/figures/{anchor}.svg` (or `.png`; `:` in the anchor becomes `-`) — hand-authored in yEd (Graffoo palette), human-led |
-| Build wrapper | `scripts/build_docs.sh [output-dir]` — no argument = preview; `ontology/html/triple` = official page |
+| Build wrapper | `scripts/build_docs.sh [output-base]` — builds ALL seven pages (model + six vocabularies, serializations included; recompiles the vocabularies first). No argument = preview; `ontology/html` = official pages |
 
 The generator is the **vendored pyLODE fork** in `tools/pylode/` (see
 `tools/pylode/PATCHES.md` for every deviation from upstream); it runs on the
 `scripts/` virtualenv:
 
 ```bash
-scripts/build_docs.sh                       # anteprima in build/docs-preview/ (git-ignored)
-scripts/build_docs.sh ontology/html/triple  # promozione alla pagina ufficiale
+scripts/build_docs.sh                 # anteprima in build/docs-preview/{triple,discipline,...} (git-ignored)
+scripts/build_docs.sh ontology/html   # promozione alle pagine ufficiali (modello + 6 vocabolari)
 ```
 
 ## Chapter file format

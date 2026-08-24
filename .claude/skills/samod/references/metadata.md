@@ -86,7 +86,8 @@ End the serialization file with:
 - Include `owl:priorVersion` pointing to the previous versionIRI
 - Update modification dates when making changes
 - Record every substantive change as a dated entry in `CHANGELOG.md` (format documented at the top of that file: Date, Iteration, Type, Description, Author)
-- At release: regenerate the documentation (`scripts/build_docs.sh ontology/html/triple`),
+- At release: regenerate the documentation (`scripts/build_docs.sh ontology/html` —
+  all seven pages: model + six vocabularies, serializations included),
   tag, publish the GitHub release — the release archive is what deployment unpacks as
   the frozen `/ontology/triple/{X.Y.Z}` snapshot (see `ontology/html/README.md`,
   "Versioned snapshots")

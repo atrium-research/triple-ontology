@@ -15,6 +15,18 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-24 - Documentation: one build for all seven pages
+
+**Type**: Documentation
+
+**Iteration**: none (documentation infrastructure)
+
+**Description**:
+`scripts/build_docs.sh` now regenerates the **whole published surface** in one command: the model page plus the six vocabulary pages (Discipline, ContentType, ConditionOfAccess, License, ProjectType, DDC), each with its `index.html`, `static/` assets and `.ttl`/`.rdf`/`.jsonld` serializations — all emitted by the vendored pyLODE fork. The script recompiles the vocabularies (`build.py`) before rendering, so no page can be built from stale input. The argument is now the output *base*: no argument = preview in `build/docs-preview/{triple,discipline,…}`; `ontology/html` = promotion of all seven pages at the release. Verification against the published pages: `condition-of-access` is byte-identical modulo whitespace; the other five differ only in the version stamp (they had been left at 3.0.0 — exactly the drift a unified build removes) and `ddc` additionally loses an empty mis-numbered "Classes" section (empty standard sections are now skipped).
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-12 - Documentation: the model page becomes a chaptered reference, the toolchain moves in-repo
 
 **Type**: Documentation

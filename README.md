@@ -110,7 +110,7 @@ cd ..
 python scripts/check_model.py    # model invariants (one home per term, no foreign axioms…)
 python scripts/validate.py       # SHACL validation of exemplars and vocabularies
 python scripts/build.py          # compile the vocabularies into build/
-scripts/build_docs.sh            # regenerate the documentation page (preview in build/docs-preview/)
+scripts/build_docs.sh            # regenerate all documentation pages, model + vocabularies (preview in build/docs-preview/)
 ```
 
 At every release the full battery runs: the 172 SPARQL competency questions of the 21 iterations
