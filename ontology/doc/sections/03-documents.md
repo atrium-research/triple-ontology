@@ -30,7 +30,50 @@ keywords (`schema:keywords`, typed `schema:DefinedTerm` because the producer's
 tags carry no URI) belong to the descriptive core. Classification against the
 controlled vocabularies is the subject of §8.
 
-### 3.2. The Life of a Record
+### 3.2. Record, not Manifestation
+
+In FRBR terms a GoTriple document is *not* a manifestation — and not an
+expression or a work either. FRBR distinguishes the *work* (the intellectual
+creation: "the article" as an idea), its *expressions* (each realization of it:
+the preprint, the accepted manuscript, the version of record, a translation),
+the *manifestations* that embody an expression (the publisher's typeset PDF,
+the HTML rendering, the repository copy of the accepted manuscript), and the
+*items* — single exemplars, meaningful for physical carriers and degenerate for
+digital ones.
+
+An aggregated record sits on no fixed rung of that ladder, because every
+provider describes at its own granularity. A repository deposit bundles
+expression-level facts (which version was deposited) with manifestation-level
+ones (the file and its format); a journal record describes the version of
+record — an expression — yet identifies it with manifestation-cut identifiers
+(an ISBN names one embodiment; a DOI is usually minted per version of record,
+sometimes per format); a bibliographic source may describe at work level with
+no file in sight. Even a single field changes level from record to record:
+`schema:datePublished` is a manifestation fact in the publisher's record and an
+expression fact on a preprint server.
+
+The model therefore refuses the choice: `triple:Document` models the *record*
+the provider actually shipped, and commits to no FRBR level. The refusal is
+visible in the alignments (§13). The one `skos:exactMatch` is
+`crm:E31_Document` — CIDOC's document *about* something, which is precisely
+what a metadata record is. FaBiO, which is FRBR-based, is aligned only with
+`skos:closeMatch` (`fabio:ScholarlyWork`): an exact alignment would inherit
+FaBiO's Work-level placement and assert exactly the distinction the harvested
+data cannot support.
+
+The consequence surfaces in deduplication (§11): `triple:isDuplicateOf` states
+that two records describe the same resource *for discovery*, not that they are
+FRBR-identical. Linked records may straddle rungs — the preprint deposit and
+the version of record are different expressions, the publisher's page and the
+repository copy of the same version different manifestations — and the platform
+links them all the same, because a user asking for "the paper" wants one
+answer. Nothing is merged away in the process: each record keeps its
+identifiers (§5) and its original values (§9), which is where the
+level-bearing evidence (version statements, formats, ISBNs) survives for any
+consumer who does want to reconstruct a Work–Expression–Manifestation stack on
+top of the graph.
+
+### 3.3. The Life of a Record
 
 A document reaches the graph through a pipeline, and the model keeps every stage
 visible rather than overwriting it:
@@ -52,7 +95,7 @@ visible rather than overwriting it:
    `triple:isDuplicateOf` (§11). The records stay distinct: deduplication is a
    statement, not a merge.
 
-### 3.3. Titles, Abstracts and Languages
+### 3.4. Titles, Abstracts and Languages
 
 `schema:headline` and `schema:abstract` are language-tagged literals, and a
 document may carry one per language: the original title next to its
@@ -64,16 +107,18 @@ them per field. The language of the *content* is stated with `schema:inLanguage`
 what the provider originally declared survives in `triple:originalInLanguage`
 (§9).
 
-### 3.4. Vocabulary
+### 3.5. Vocabulary
 
 The terms of this chapter, in reading order — each links to its full definition
 in the reference sections at the bottom of this document:
 
 <!-- definitions -->
 
-### 3.5. Integrity Conditions
+### 3.6. Integrity Conditions
 
-Stated as SHACL in `shapes/entity.shapes.ttl`; the salient ones:
+Stated as SHACL in
+[`shapes/entity.shapes.ttl`](https://github.com/atrium-research/triple-ontology/blob/main/shapes/entity.shapes.ttl);
+the salient ones:
 
 1. Every document carries the two platform identifiers — internal id and ARK —
    and any number of external ones (§5).
@@ -83,7 +128,7 @@ Stated as SHACL in `shapes/entity.shapes.ttl`; the salient ones:
 3. Titles and abstracts are language-tagged literals; the same document may
    carry one per language (machine translations are flagged, see §10).
 
-### 3.6. Example
+### 3.7. Example
 
 The TRIPLE record of a HAL article, descriptive core only:
 
@@ -99,13 +144,7 @@ The TRIPLE record of a HAL article, descriptive core only:
     schema:keywords [ a schema:DefinedTerm ; schema:name "aesthetics"@en ] .
 ```
 
-### 3.7. Notes
-
-**Record, not manifestation.** In FRBR terms a GoTriple document is *not* a
-manifestation: providers describe at mixed granularities, and the platform does
-not attempt to stack them into a Work–Expression–Manifestation hierarchy. The
-only identity the model commits to is `crm:E31_Document` (§13) — a document
-*about* something, which is exactly what a metadata record is.
+### 3.8. Notes
 
 **Why headline and not name.** Schema.org offers both; the model reserves
 `schema:name` for things (projects, places, defined terms) and uses

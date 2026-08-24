@@ -37,11 +37,16 @@ facts to draw).
 Add to the front-matter and to the Vocabulary section, with one short paragraph
 each in the existing subsections:
 
-- **§3.2 The Life of a Record**: `schema:dateCreated`, `schema:dateModified`
+- **"The Life of a Record"**: `schema:dateCreated`, `schema:dateModified`
   (record timestamps, alongside creativeWorkStatus/comment).
-- **§3.3 Titles, Abstracts and Languages**: `schema:inLanguage`, `schema:Language`
+- **"Titles, Abstracts and Languages"**: `schema:inLanguage`, `schema:Language`
   (the prose already discusses them — the terms were simply not claimed).
-- **§3.1/3.2**: `schema:creator` (super-property of schema:author; hierarchy glue).
+- **Preamble / "The Life of a Record"**: `schema:creator` (super-property of
+  schema:author; hierarchy glue).
+
+*(Done 2026-08-24: the manifestation-vs-expression discussion was promoted from
+the Notes to its own subsection §3.2 "Record, not Manifestation" — an integral
+aspect of the entity, not a side note; the following subsections renumbered.)*
 - **New subsection "Coverage"** (before the Vocabulary section; renumber what
   follows): `schema:spatialCoverage` + `schema:Place`,
   `schema:temporalCoverage` — what the content is *about* in space and time.
