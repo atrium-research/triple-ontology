@@ -15,6 +15,18 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-24 - Documentation: authoring outline for chapters 4–13; figures move into the chapters; trailing-slash resolution fix
+
+**Type**: Documentation
+
+**Iteration**: none (documentation infrastructure)
+
+**Description**:
+`ontology/doc/OUTLINE.md` (new, working document) plans the ten remaining chapters of the model page: every one of the 170 terms of the 3.1.0 model is assigned to exactly one chapter (count-checked), each chapter gets its narrative subsections with the points they touch, and chapter 3 is marked for a small extension (14→22 terms: languages, record timestamps, schema:creator, and the coverage properties — coverage is document-level description, not dataset-specific). Decision on diagrams: **Graffoo figures live in the chapters**, embedded in the prose where the pattern is narrated (`![…](figures/slug.svg)`) — a diagram is a constellation of terms, not one term, so the entity card is the wrong home; the per-term card mechanism stays dormant. Ten figures are planned (model-overview, document-core, specialized-documents, dataset-distribution, identifier-pattern, profile, funding-chain, classification-two-level, original-values, annotation-pattern, deduplication-link), hand-drawn in yEd. Supporting CSS in the vendored fork (`.narrative-section .prose img`, logged in its PATCHES.md). While verifying that relative `static/`/`figures/` paths resolve, a real gap surfaced in the resolution spec: pages served at the slashless artefact root would load their assets one level too high — the spec now 301-redirects every artefact root to its trailing-slash form for HTML (RDF clients keep the direct 200, no extra hop), and the term redirects target the slashed page.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-24 - Documentation: the landing index of /ontology becomes a generated card page
 
 **Type**: Documentation

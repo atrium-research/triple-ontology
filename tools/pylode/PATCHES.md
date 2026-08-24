@@ -161,3 +161,12 @@ citati da almeno un capitolo) come metrica informativa, senza filtrare nulla.
   ogni termine citato da un capitolo mostra "Discussed in §N. Title" sotto l'IRI, così
   la scheda di riferimento rimanda alla narrativa. Figure per termine via `--figures DIR`
   (`{ancora}.png`, ":" → "-"), rese contenute (960×615) e cliccabili per la vista piena.
+
+## 2026-08-24 — Figure nei capitoli
+
+Decisione: i diagrammi Graffoo vivono nella prosa dei capitoli (un diagramma è quasi
+sempre una costellazione di termini, non un termine solo), embedded con la sintassi
+markdown standard `![caption](figures/slug.svg)` — nessuna modifica di codice, solo
+`static/extra.css`: `.narrative-section .prose img` con la stessa resa del figure-box
+delle schede (centrata, max 960×615, bordo). Il meccanismo per-termine `--figures`
+resta disponibile ma dormiente.
