@@ -209,11 +209,20 @@ litre:hasLiteralValue rdf:type owl:DatatypeProperty ;
 
 ###  https://gotriple.eu/ontology/triple/Dataset
 triple:Dataset rdf:type owl:Class ;
-               rdfs:label "Dataset (Triple)"@en,
+               rdfs:label "Dataset"@en,
                           "Base de Dados"@pt,
                           "Zbiór Danych"@pl,
                           "Jeu de Données"@fr ;
                rdfs:comment "A dataset in the GoTriple platform, representing research data with specific metadata including spatial coverage, temporal coverage, and distribution information. It is a subclass of dcat:Dataset. Original provider values are preserved before normalization."@en ;
+               skos:scopeNote "A Dataset is research data as a resource with an identity of its own; the document descriptive core reaches it through the current subclassing. What is specific to data lives here: the DCAT distribution pattern (dcat:distribution to a dcat:Distribution carrying dcat:accessURL and dcat:downloadURL), size, encoding formats and version, and the extent of what the data covers in space (schema:spatialCoverage, dcat:bbox) and time (schema:temporalCoverage)."@en ;
+               skos:example """<https://w3id.org/gto/dataset/example> a triple:Dataset ;
+    schema:headline \"Survey on digital reading practices\"@en ;
+    dcat:distribution [ a dcat:Distribution ;
+        dcat:accessURL <https://data.example.org/survey2020> ;
+        dcat:downloadURL <https://data.example.org/survey2020.csv> ;
+        schema:encodingFormat \"text/csv\" ] ;
+    schema:temporalCoverage \"2019/2020\" ;
+    schema:spatialCoverage [ a schema:Place ; schema:name \"France\" ] ."""@en ;
                rdfs:subClassOf dcat:Dataset ;
                # Which identifiers a Dataset must carry is expressed in
                # shapes/entity.shapes.ttl, not as OWL axioms here.

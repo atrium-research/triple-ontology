@@ -173,11 +173,17 @@ schema:MediaObject rdf:type owl:Class ;
 
 ###  https://gotriple.eu/ontology/triple/MediaObject
 triple:MediaObject rdf:type owl:Class ;
-                   rdfs:label "Media Object (Triple)"@en,
+                   rdfs:label "Media Object"@en,
                               "Multimédia"@pt,
                               "Multimedia"@pl,
                               "Multimédia"@fr ;
                    rdfs:comment "A multimedia object in the GoTriple platform, representing various types of media files (audio, video, images) associated with scholarly works. Original provider values are preserved before normalization."@en ;
+                   skos:scopeNote "A MediaObject is an audio, video or image resource with an identity of its own; the document descriptive core reaches it through the current subclassing. Its medium is what distinguishes it: the encoding (schema:encodingFormat), the size, and - for time-based media - the duration (schema:duration, ISO 8601)."@en ;
+                   skos:example """<https://w3id.org/gto/mediaobject/example> a triple:MediaObject ;
+    schema:headline \"Interview with the author\"@en ;
+    schema:encodingFormat \"audio/mpeg\" ;
+    schema:duration \"PT42M\" ;
+    schema:datePublished \"2021-05-10\"^^xsd:date ."""@en ;
                    rdfs:subClassOf schema:MediaObject ,
                                    [ rdf:type owl:Restriction ;
                                      owl:onProperty schema:spatialCoverage ;

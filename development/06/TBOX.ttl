@@ -7,6 +7,7 @@
 @prefix schema: <https://schema.org/> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix litre: <http://www.essepuntato.it/2010/06/literalreification/> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 
 #################################################################
 #    Object Properties
@@ -80,7 +81,7 @@ foaf:Document rdf:type owl:Class ;
 
 ###  https://gotriple.eu/ontology/triple/Document
 triple:Document rdf:type owl:Class ;
-                rdfs:label "Document (Triple)"@en ;
+                rdfs:label "Document"@en ;
                 rdfs:comment "A document in the GoTriple platform, representing scholarly publications, research datasets, and other SSH research artifacts. It is a subclass of both schema:CreativeWork and foaf:Document. Beyond the internal id, the GoTriple PID and the identifier from the source system, a document optionally carries a DOI, a Handle, an ISSN or an ISBN, and its landing page, full text and source URLs, each distinguished by its identifier scheme."@en ;
                 rdfs:subClassOf schema:CreativeWork ,
                                 foaf:Document .
@@ -141,6 +142,12 @@ triple:Profile rdf:type owl:Class ;
                           "Profil"@pl,
                           "Profil"@fr ;
                rdfs:comment "A profile representing either a person or an organization in the GoTriple system. Can be associated or not associated with a user account."@en ;
+               skos:scopeNote "A Profile is the platform's representation of an agent - a person or an organization - whether harvested as an author from document metadata or born as a registered GoTriple user; triple:registeredUser tells the two populations apart. Every profile carries exactly one foaf:name and at most one platform account (foaf:OnlineAccount); registered users may add a self-description, a picture, contacts and personal pages, and declare expertise and interests (schema:knowsAbout, schema:knowsLanguage, foaf:topic_interest)."@en ;
+               skos:example """<https://w3id.org/gto/profile/example> a triple:Profile , foaf:Person ;
+    foaf:name \"Marie Dupont\" ;
+    triple:registeredUser true ;
+    schema:knowsAbout <http://semantics.gr/authorities/SSH-LCSH/example-concept> ;
+    foaf:account [ a foaf:OnlineAccount ] ."""@en ;
                # Exactly one internal id. Iteration 19 adds the GoTriple PID and the
                # optional person PIDs (ORCID, IdRef, ISNI, GoTriple id).
                rdfs:subClassOf

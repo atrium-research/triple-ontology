@@ -168,11 +168,19 @@ schema:FundingScheme rdf:type owl:Class ;
 
 ###  https://schema.org/Project
 triple:Project rdf:type owl:Class ;
-               rdfs:label "Project (Triple)"@en,
+               rdfs:label "Project"@en,
                           "Projeto"@pt,
                           "Projekt"@pl,
                           "Projet"@fr ;
                rdfs:comment "A research project in the Social Sciences and Humanities domain integrated into the GoTriple platform. It is a subclass of schema:Project."@en ;
+               skos:scopeNote "A Project is a research undertaking as a first-class resource of the platform, not a document: it has a name and a lifecycle (schema:startDate, schema:endDate), organizing and sponsoring bodies, and a project type from the controlled vocabulary. Its funding is a chain: schema:funding points to a schema:Grant whose schema:funder is the funding scheme - a schema:FundingScheme individual carried with its display name, deliberately outside any controlled vocabulary. Documents link to the projects they result from with frapo:isOutputOf."@en ;
+               skos:example """<https://w3id.org/gto/project/example> a triple:Project ;
+    schema:name \"TRIPLE\"@en ;
+    schema:startDate \"2019-10-01\"^^xsd:date ;
+    schema:endDate \"2023-03-31\"^^xsd:date ;
+    triple:hasProjectType <https://gotriple.eu/ontology/project-type/funded> ;
+    schema:funding [ a schema:Grant ;
+        schema:funder [ a schema:FundingScheme ; schema:name \"H2020\" ] ] ."""@en ;
                rdfs:subClassOf schema:Project ;
 
 

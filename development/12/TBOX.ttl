@@ -193,6 +193,11 @@ triple:SemanticArtefact rdf:type owl:Class ;
                                   "Artefakt Semantyczny"@pl,
                                   "Artefact Sémantique"@fr ;
                        rdfs:comment "A semantic artefact in the context of GoTriple platform, representing formal knowledge representations such as ontologies, controlled vocabularies, and other semantic resources used in SSH research. Original provider values are preserved before normalization."@en ;
+                       skos:scopeNote "A SemanticArtefact is a formal knowledge representation - an ontology, a controlled vocabulary, a terminology, a model - described as a resource with an identity of its own (from MOD, mod:SemanticArtefact); the document descriptive core reaches it through the current subclassing. adms:representationTechnique states how the artefact is expressed (OWL, SKOS, ...), schema:version which release the record describes."@en ;
+                       skos:example """<https://w3id.org/gto/semanticartefact/example> a triple:SemanticArtefact ;
+    schema:headline \"Backbone Thesaurus\"@en ;
+    adms:representationTechnique \"SKOS\" ;
+    schema:version \"1.2\" ."""@en ;
                        rdfs:subClassOf mod:SemanticArtefact ,
                                       [ rdf:type owl:Restriction ;
                                         owl:onProperty schema:headline ;

@@ -20,60 +20,49 @@ skos:prefLabel rdf:type owl:AnnotationProperty .
 #################################################################
 
 ###  http://www.w3.org/ns/oa#hasBody
-oa:hasBody rdf:type owl:ObjectProperty ;
-           rdfs:label "hasBody"@en .
+oa:hasBody rdf:type owl:ObjectProperty .
 
 ###  http://www.w3.org/ns/oa#hasTarget
-oa:hasTarget rdf:type owl:ObjectProperty ;
-             rdfs:label "hasTarget"@en .
+oa:hasTarget rdf:type owl:ObjectProperty .
 
 ###  http://www.w3.org/ns/oa#motivatedBy
-oa:motivatedBy rdf:type owl:ObjectProperty ;
-               rdfs:label "motivatedBy"@en .
+oa:motivatedBy rdf:type owl:ObjectProperty .
 
 ###  https://schema.org/mentions
-schema:mentions rdf:type owl:ObjectProperty ;
-                rdfs:label "mentions"@en .
+schema:mentions rdf:type owl:ObjectProperty .
 
 #################################################################
 #    Data properties
 #################################################################
 
 ###  https://schema.org/name
-schema:name rdf:type owl:DatatypeProperty ;
-            rdfs:label "name"@en .
+schema:name rdf:type owl:DatatypeProperty .
 
 #################################################################
 #    Classes
 #################################################################
 
 ###  http://www.w3.org/ns/oa#Annotation
-oa:Annotation rdf:type owl:Class ;
-              rdfs:label "Annotation"@en .
+oa:Annotation rdf:type owl:Class .
 
 ###  http://www.w3.org/ns/oa#Motivation
-oa:Motivation rdf:type owl:Class ;
-              rdfs:label "Motivation"@en .
+oa:Motivation rdf:type owl:Class .
 
 ###  https://schema.org/Person
-schema:Person rdf:type owl:Class ;
-              rdfs:label "Person"@en .
+schema:Person rdf:type owl:Class .
 
 ###  http://www.w3.org/2004/02/skos/core#Concept
-skos:Concept rdf:type owl:Class ;
-             rdfs:label "Concept"@en .
+skos:Concept rdf:type owl:Class .
 
 ###  https://gotriple.eu/ontology/triple/Document
 triple:Document rdf:type owl:Class ;
                 rdfs:subClassOf [ rdf:type owl:Restriction ;
                                   owl:onProperty schema:mentions ;
                                   owl:someValuesFrom oa:Annotation
-                                ] ;
-                rdfs:label "Document"@en .
+                                ] .
 
 ###  https://schema.org/Place
-schema:Place rdf:type owl:Class ;
-             rdfs:label "Place"@en .
+schema:Place rdf:type owl:Class .
 
 #################################################################
 #    Individuals
@@ -82,4 +71,4 @@ schema:Place rdf:type owl:Class ;
 ###  http://www.w3.org/ns/oa#identifying
 oa:identifying rdf:type owl:NamedIndividual ,
                         oa:Motivation ;
-               rdfs:label "identifying"@en .
+               rdfs:label "oa:identifying"@en .
