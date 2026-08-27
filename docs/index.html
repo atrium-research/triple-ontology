@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TRIPLE Ontology</title>
+<!-- Same stylesheets as the documentation pages, in the same order (the landing
+     has its own static/ beside it): the page belongs to the same family. These
+     relative links require the trailing-slash URL /ontology/ (see docs/README.md,
+     resolution rules); every other link on the page is absolute on the canonical
+     domain. -->
+<link href="static/owl.css" rel="stylesheet" type="text/css" />
+<link href="static/yeti.css" rel="stylesheet" type="text/css" />
+<link href="static/rec.css" rel="stylesheet" type="text/css" />
+<link href="static/extra.css" rel="stylesheet" type="text/css" />
+<style>
+  /* Landing-only layout; every color is a documentation-page ingredient
+     (navy borders like .entity, #F4FFFF like .hlist, headings from rec.css). */
+  .subtitle { margin-top: 0; }
+  .intro { max-width: 60em; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+           gap: 16px; margin-top: 1.5em; }
+  .card { display: flex; flex-direction: column; border: 1px solid navy;
+           background: #fff; padding: 14px 18px 16px; }
+  .card.model { grid-column: 1 / -1; }
+  .card-head { display: flex; justify-content: space-between; margin: 0; }
+  .kind { font-size: .72em; letter-spacing: .08em; text-transform: uppercase;
+           color: #777; }
+  .version { font-size: .78em; color: #777; }
+  .card h2 { font-size: 1.3em; margin: .1em 0 .4em; padding-bottom: .25em;
+              border-bottom: 1px solid navy; }
+  .iri { font-family: monospace, monospace; font-size: .85em; color: #666;
+          word-break: break-all; margin: 0 0 .6em; }
+  .desc { margin: 0 0 .9em; flex: 1; }
+  .stats { margin: 0 0 .9em; }
+  .chip { display: inline-block; border: 1px solid navy; background: #F4FFFF;
+           border-radius: 10px; padding: 0 .6em; font-size: .78em;
+           margin: 0 .35em .35em 0; }
+  .links { margin: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .links .btn { border: 1px solid navy; border-radius: 3px; padding: 2px 10px;
+                 font-size: .85em; background: #F4FFFF; }
+  .links .btn:hover { background: #fff; }
+  .links .btn-doc { background: navy; color: #fff; }
+  .links .btn-doc:hover { background: #005A9C; color: #fff; }
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>The TRIPLE Ontology</h1>
+  <p class="subtitle">Version 3.1.0 &middot; the data model of the
+     <a href="https://www.gotriple.eu/">GoTriple</a> discovery platform</p>
+  <p class="intro">The TRIPLE Ontology defines a comprehensive model for representing Social Sciences and Humanities (SSH) resources in the GoTriple discovery platform.
+     The model and its six controlled vocabularies are published here as separate
+     artefacts: each resolves at its IRI with content negotiation &mdash; HTML
+     documentation for browsers, Turtle / RDF-XML / JSON-LD for semantic clients.
+     Development happens on
+     <a href="https://github.com/atrium-research/triple-ontology">GitHub</a>,
+     where every release is archived.</p>
+  <div class="grid">
+    <div class="card model">
+      <p class="card-head"><span class="kind">Model</span><span class="version">v3.1.0</span></p>
+      <h2><a href="https://gotriple.eu/ontology/triple">TRIPLE Ontology</a></h2>
+      <p class="iri">https://gotriple.eu/ontology/triple/</p>
+      <p class="desc">The TRIPLE Ontology defines a comprehensive model for representing Social Sciences and Humanities (SSH) resources in the GoTriple discovery platform.</p>
+      <p class="stats"><span class="chip">11 classes</span><span class="chip">19 properties</span><span class="chip">7 identifier schemes</span></p>
+      <p class="links"><a class="btn btn-doc" href="https://gotriple.eu/ontology/triple">Documentation</a><a
+         class="btn" href="https://gotriple.eu/ontology/triple/ontology.ttl">Turtle</a><a
+         class="btn" href="https://gotriple.eu/ontology/triple/ontology.rdf">RDF/XML</a><a
+         class="btn" href="https://gotriple.eu/ontology/triple/ontology.jsonld">JSON-LD</a></p>
+    </div>
+    <div class="card">
+      <p class="card-head"><span class="kind">Controlled vocabulary</span><span class="version">v3.1.0</span></p>
+      <h2><a href="https://gotriple.eu/ontology/discipline">Discipline</a></h2>
+      <p class="iri">https://gotriple.eu/ontology/discipline/</p>
+      <p class="desc">A controlled vocabulary of academic disciplines, supporting multilingual discovery of resources.</p>
+      <p class="stats"><span class="chip">27 concepts</span></p>
+      <p class="links"><a class="btn btn-doc" href="https://gotriple.eu/ontology/discipline">Documentation</a><a
+         class="btn" href="https://gotriple.eu/ontology/discipline/ontology.ttl">Turtle</a><a
+         class="btn" href="https://gotriple.eu/ontology/discipline/ontology.rdf">RDF/XML</a><a
+         class="btn" href="https://gotriple.eu/ontology/discipline/ontology.jsonld">JSON-LD</a></p>
+    </div>
+    <div class="card">
+      <p class="card-head"><span class="kind">Controlled vocabulary</span><span class="version">v3.1.0</span></p>
+      <h2><a href="https://gotriple.eu/ontology/content-type">Content Type</a></h2>
+      <p class="iri">https://gotriple.eu/ontology/content-type/</p>
+      <p class="desc">A hierarchical controlled vocabulary for classifying the nature and genre of scholarly resources.</p>
+      <p class="stats"><span class="chip">23 concepts</span></p>
+      <p class="links"><a class="btn btn-doc" href="https://gotriple.eu/ontology/content-type">Documentation</a><a
+         class="btn" href="https://gotriple.eu/ontology/content-type/ontology.ttl">Turtle</a><a
+         class="btn" href="https://gotriple.eu/ontology/content-type/ontology.rdf">RDF/XML</a><a
+         class="btn" href="https://gotriple.eu/ontology/content-type/ontology.jsonld">JSON-LD</a></p>
+    </div>
+    <div class="card">
+      <p class="card-head"><span class="kind">Controlled vocabulary</span><span class="version">v3.1.0</span></p>
+      <h2><a href="https://gotriple.eu/ontology/condition-of-access">Condition of Access</a></h2>
+      <p class="iri">https://gotriple.eu/ontology/condition-of-access/</p>
+      <p class="desc">A controlled vocabulary for specifying access conditions, aligned with COAR Access Rights where applicable.</p>
+      <p class="stats"><span class="chip">10 concepts</span></p>
+      <p class="links"><a class="btn btn-doc" href="https://gotriple.eu/ontology/condition-of-access">Documentation</a><a
+         class="btn" href="https://gotriple.eu/ontology/condition-of-access/ontology.ttl">Turtle</a><a
+         class="btn" href="https://gotriple.eu/ontology/condition-of-access/ontology.rdf">RDF/XML</a><a
+         class="btn" href="https://gotriple.eu/ontology/condition-of-access/ontology.jsonld">JSON-LD</a></p>
+    </div>
+    <div class="card">
+      <p class="card-head"><span class="kind">Controlled vocabulary</span><span class="version">v3.1.0</span></p>
+      <h2><a href="https://gotriple.eu/ontology/license">License</a></h2>
+      <p class="iri">https://gotriple.eu/ontology/license/</p>
+      <p class="desc">A controlled vocabulary for rights and licenses concepts.</p>
+      <p class="stats"><span class="chip">13 concepts</span></p>
+      <p class="links"><a class="btn btn-doc" href="https://gotriple.eu/ontology/license">Documentation</a><a
+         class="btn" href="https://gotriple.eu/ontology/license/ontology.ttl">Turtle</a><a
+         class="btn" href="https://gotriple.eu/ontology/license/ontology.rdf">RDF/XML</a><a
+         class="btn" href="https://gotriple.eu/ontology/license/ontology.jsonld">JSON-LD</a></p>
+    </div>
+    <div class="card">
+      <p class="card-head"><span class="kind">Controlled vocabulary</span><span class="version">v3.1.0</span></p>
+      <h2><a href="https://gotriple.eu/ontology/project-type">Project Type</a></h2>
+      <p class="iri">https://gotriple.eu/ontology/project-type/</p>
+      <p class="desc">A controlled vocabulary for classifying research projects.</p>
+      <p class="stats"><span class="chip">7 concepts</span></p>
+      <p class="links"><a class="btn btn-doc" href="https://gotriple.eu/ontology/project-type">Documentation</a><a
+         class="btn" href="https://gotriple.eu/ontology/project-type/ontology.ttl">Turtle</a><a
+         class="btn" href="https://gotriple.eu/ontology/project-type/ontology.rdf">RDF/XML</a><a
+         class="btn" href="https://gotriple.eu/ontology/project-type/ontology.jsonld">JSON-LD</a></p>
+    </div>
+    <div class="card">
+      <p class="card-head"><span class="kind">Controlled vocabulary</span><span class="version">v3.1.0</span></p>
+      <h2><a href="https://gotriple.eu/ontology/ddc">Dewey Decimal Classification proxies</a></h2>
+      <p class="iri">https://gotriple.eu/ontology/ddc/</p>
+      <p class="desc">Proxy concepts for the DDC classes referenced by the Discipline vocabulary.</p>
+      <p class="stats"><span class="chip">53 concepts</span></p>
+      <p class="links"><a class="btn btn-doc" href="https://gotriple.eu/ontology/ddc">Documentation</a><a
+         class="btn" href="https://gotriple.eu/ontology/ddc/ontology.ttl">Turtle</a><a
+         class="btn" href="https://gotriple.eu/ontology/ddc/ontology.rdf">RDF/XML</a><a
+         class="btn" href="https://gotriple.eu/ontology/ddc/ontology.jsonld">JSON-LD</a></p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
