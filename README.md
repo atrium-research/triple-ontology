@@ -35,7 +35,7 @@ lookup table. The full naming rules are in [`URI-CONVENTIONS.md`](URI-CONVENTION
 
 > **Deployment note.** `https://www.gotriple.eu/ontology/triple` currently serves release 2.1.0.
 > Until the 3.x pages are deployed, consult the documentation inside this repository
-> (`ontology/html/`), which is regenerated and verified at every release.
+> (`docs/`), which is regenerated and verified at every release.
 
 ## How to read this repository
 
@@ -43,10 +43,11 @@ lookup table. The full naming rules are in [`URI-CONVENTIONS.md`](URI-CONVENTION
 
 1. The [latest release](https://github.com/atrium-research/triple-ontology/releases/latest) —
    its notes summarise the state: breaking changes, new modeling, verification results.
-2. `ontology/html/triple/index.html` — the model's documentation page, with every class and
-   property anchored. One sibling page per vocabulary (`ontology/html/<vocabulary>/`). Open them
-   locally from a clone or from the release archive.
-3. `ontology/triple.ttl` — the consolidated model (structure only, no instance data), and
+2. `docs/triple/index.html` — the model's documentation page, with every class and
+   property anchored. One sibling page per vocabulary (`docs/<vocabulary>/`), and the
+   landing index at `docs/index.html`. Open them locally from a clone or from the
+   release archive.
+3. `docs/triple/triple.ttl` — the consolidated model (structure only, no instance data), and
    `vocabularies/serializations/ttl/` — the vocabulary sources.
 
 **To understand why it is the way it is:**
@@ -70,12 +71,15 @@ lookup table. The full naming rules are in [`URI-CONVENTIONS.md`](URI-CONVENTION
   * `formal-competency-questions.md` — the requirements as SPARQL queries
   * `TBOX.ttl` / `ABOX.ttl` — the model and its exemplar data
   * `modelet.graphml` / `modelet.png` — Graffoo diagram (yEd)
-* **`ontology/`** — the consolidated artefacts
-  * `triple.ttl` — the canonical consolidated model, merged from all iterations
-  * `metadata.ttl` — single source of the shared ontology metadata (version, dates)
-  * `html/` — the documentation pages (model + one per vocabulary) with their `.ttl`/`.rdf`/`.jsonld`
-    serializations; `html/README.md` is the **resolution specification** (redirect rules,
-    content negotiation, 404 policy) for deployment
+* **`docs/`** — the published surface, deployed as-is under `gotriple.eu/ontology/`:
+  the landing `index.html` (one card per artefact) plus one directory per artefact
+  (`triple/` + the six vocabularies), each with its documentation page, `static/`
+  and `.ttl`/`.rdf`/`.jsonld` serializations; `docs/README.md` is the
+  **resolution specification** (redirect rules, content negotiation, 404 policy)
+  * `docs/triple/` also holds the model **sources**: `triple.ttl` (the canonical
+    consolidated model, merged from all iterations), `metadata.ttl` (single
+    source of the shared ontology metadata) and `doc/` (the narrative chapters
+    and figures of the model page)
 * **`vocabularies/serializations/ttl/`** — the six controlled vocabularies, each with a
   `.metadata.ttl` sidecar; compiled into `build/` by `scripts/build.py`
 * **`shapes/`** — SHACL shapes (identifiers, URLs, deduplication, per-entity profiles)
@@ -84,8 +88,6 @@ lookup table. The full naming rules are in [`URI-CONVENTIONS.md`](URI-CONVENTION
 * **`sparql/`** — mirror of each iteration's formal competency questions
 * **`examples/`** — JSON-LD examples of platform data
 * **`diagrams/`** — Graffoo diagrams of the consolidated model (being realigned to 3.x)
-* **`ontology/doc/`** — sources of the documentation page: narrative chapters
-  (`sections/*.md`) and per-term Graffoo figures (`figures/`)
 * **`scripts/`** — the entry points you run (merge, build, validate, docs);
   see `scripts/README.md`
 * **`tools/`** — vendored software driven by the scripts, never invoked
@@ -101,9 +103,8 @@ cd scripts
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
-# regenerate the consolidated model (the --output flag is required:
-# the default path is a legacy file name)
-python merge_iterations.py --output ../ontology/triple.ttl
+# regenerate the consolidated model (default output: ../docs/triple/triple.ttl)
+python merge_iterations.py
 
 # checks, from the repository root
 cd ..
@@ -119,6 +120,6 @@ between the model and every published serialization.
 
 ## Versioning
 
-Semantic versioning, single-sourced from `ontology/metadata.ttl` (`owl:versionInfo`); GitHub
+Semantic versioning, single-sourced from `docs/triple/metadata.ttl` (`owl:versionInfo`); GitHub
 releases carry the artefacts and the release notes. Breaking changes are recorded in the
 CHANGELOG with their rationale.

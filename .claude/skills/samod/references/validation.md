@@ -136,7 +136,7 @@ After `merge_iterations.py`:
 python - <<'PY'
 from rdflib import Graph, OWL, RDF
 g = Graph()
-g.parse("ontology/triple.ttl", format="turtle")
+g.parse("docs/triple/triple.ttl", format="turtle")
 classes = set(g.subjects(RDF.type, OWL.Class))
 op = set(g.subjects(RDF.type, OWL.ObjectProperty))
 dp = set(g.subjects(RDF.type, OWL.DatatypeProperty))

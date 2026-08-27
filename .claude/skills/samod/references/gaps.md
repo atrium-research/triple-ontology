@@ -58,7 +58,7 @@ For each gap we list: **SAMOD says** → **TRIPLE does** → **Why**.
 
 - **SAMOD says:** merge modelet with current model; collapse semantically-identical entities.
 - **TRIPLE does:** `scripts/merge_iterations.py` walks every `development/NN/TBOX.ttl`, merges into one graph, adds ontology metadata, writes Turtle. Collapse is handled by shared entity IRIs — if two iterations reuse the same IRI, they merge automatically. Collapse by *renaming* is a manual pre-step before running the script.
-- **Why:** merging is deterministic and reproducible. The script default writes to `ontology/triple-ontology.ttl` for legacy reasons; always pass `--output ../ontology/triple.ttl` to overwrite the canonical file.
+- **Why:** merging is deterministic and reproducible. The script's default output is the canonical `docs/triple/triple.ttl`.
 
 ## 10. Identifier modeling
 
@@ -79,7 +79,7 @@ For each gap we list: **SAMOD says** → **TRIPLE does** → **Why**.
 ## 12. Documentation output
 
 - **SAMOD says:** any tool (examples: LODE).
-- **TRIPLE does:** one HTML page per artefact under `ontology/html/<name>/` — the consolidated model plus one per vocabulary.
+- **TRIPLE does:** the published surface is `docs/`: the landing index plus one page per artefact — the consolidated model (`docs/triple/`) and one per vocabulary.
 - **Why:** publishing the ontology on https://gotriple.eu/ontology/triple requires static HTML; generating per-module pages avoids one huge monolithic document.
 
 ## 13. Ontology-level metadata
@@ -108,4 +108,4 @@ These are explicit "not decided" points where a future iteration has freedom:
 
 - Dependency management for imported ontologies — currently we *reference* external ontologies (Schema.org, FOAF, Dublin Core, DataCite, COAR, CIDOC CRM…) but do not `owl:imports` them.
 - Governance for retiring old iterations — all iterations are kept forever as part of BoT.
-- Automated HTML generation tool (LODE vs pyLODE vs WIDOCO) — the HTML in `ontology/html/` is present but the generator is not wired into the skill.
+- Automated HTML generation tool — decided: the vendored pyLODE fork in `tools/pylode/`, driven by `scripts/build_docs.sh`, renders everything in `docs/`.

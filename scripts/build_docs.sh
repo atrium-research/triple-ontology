@@ -6,8 +6,8 @@
 # Uses the scripts/ virtualenv.
 #
 # Usage:
-#   scripts/build_docs.sh                 # preview in build/docs-preview/{triple,discipline,...}
-#   scripts/build_docs.sh ontology/html   # promote to the official pages
+#   scripts/build_docs.sh          # preview in build/docs-preview/{triple,discipline,...}
+#   scripts/build_docs.sh docs     # promote to the official pages
 set -euo pipefail
 REPO="$(cd "$(dirname "$0")/.." && pwd)"
 OUT="${1:-$REPO/build/docs-preview}"
@@ -19,9 +19,9 @@ PY="$REPO/scripts/venv/bin/python"
 (cd "$REPO" && "$PY" scripts/build.py)
 
 # 2. The model page: narrative chapters + per-term figures.
-PYTHONPATH="$REPO/tools" "$PY" -m pylode.cli "$REPO/ontology/triple.ttl" \
-  --sections "$REPO/ontology/doc/sections" \
-  --figures  "$REPO/ontology/doc/figures" \
+PYTHONPATH="$REPO/tools" "$PY" -m pylode.cli "$REPO/docs/triple/triple.ttl" \
+  --sections "$REPO/docs/triple/doc/sections" \
+  --figures  "$REPO/docs/triple/doc/figures" \
   -o "$OUT/triple/index.html"
 
 # 3. One page per compiled vocabulary; CamelCase file name -> kebab-case

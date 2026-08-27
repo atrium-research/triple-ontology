@@ -1,6 +1,6 @@
 ---
 name: samod
-description: Use this skill when working on TRIPLE ontology SAMOD iterations — creating or extending a `development/NN/` iteration, authoring its 7 artifacts (motivating scenario, ICQ, glossary, TBOX, ABOX, FCQ, modelet diagram), merging a modelet into the consolidated `ontology/triple.ttl`, running the three SAMOD tests (model / data / query), or refactoring with the project's conventions (`prefix:LocalName` labels, SKOS controlled-vocabulary pattern, external alignments). Trigger on phrases like "new iteration", "SAMOD", "add a modelet", "refactor the TBOX", "run CQs", "merge iterations". The skill grounds the canonical Peroni 2016 methodology in the concrete tooling choices this repo has standardized (Turtle, Graffoo/yEd, `merge_iterations.py`, glossary-TBox-only rule).
+description: Use this skill when working on TRIPLE ontology SAMOD iterations — creating or extending a `development/NN/` iteration, authoring its 7 artifacts (motivating scenario, ICQ, glossary, TBOX, ABOX, FCQ, modelet diagram), merging a modelet into the consolidated `docs/triple/triple.ttl`, running the three SAMOD tests (model / data / query), or refactoring with the project's conventions (`prefix:LocalName` labels, SKOS controlled-vocabulary pattern, external alignments). Trigger on phrases like "new iteration", "SAMOD", "add a modelet", "refactor the TBOX", "run CQs", "merge iterations". The skill grounds the canonical Peroni 2016 methodology in the concrete tooling choices this repo has standardized (Turtle, Graffoo/yEd, `merge_iterations.py`, glossary-TBox-only rule).
 ---
 
 # SAMOD — ontology development workflow for TRIPLE
@@ -28,7 +28,7 @@ SAMOD (Peroni, 2016) is the iterative methodology used to build the TRIPLE ontol
 | Modelet  | The stand-alone model for iteration N (diagram + TBox)                    | `development/NN/modelet.graphml` / `.png`        |
 | Test Case T_n | 6-tuple (MS, CQ, GoT, TBox, ABox, SQ) for iteration N                | the whole `development/NN/` directory            |
 | BoT      | Bag of Test Cases — all T_1 … T_n                                         | `development/` (the set of iteration dirs)       |
-| Current Model | TBox released at end of iteration N-1                                | `ontology/triple.ttl` (+ `ontology/html/*`)      |
+| Current Model | TBox released at end of iteration N-1                                | `docs/triple/triple.ttl` (+ `docs/*`)            |
 
 ### The three phases (applied *per iteration*)
 
@@ -96,9 +96,9 @@ SAMOD is silent on tooling — this repo has already decided. Do *not* re-open t
 | Glossary scope                 | **TBox names only.** Never list ABox exemplars in `glossary-of-terms.md`.                       |
 | Controlled vocabularies        | SKOS pattern: `triple:vocabulary_name` ConceptScheme + `triple:prefix_concept-name` Concepts with `skos:exactMatch`/`closeMatch` to external KOS. Sources live in `vocabularies/serializations/ttl/*.ttl` with `.metadata.ttl` sidecars; compiled outputs land in `build/` via `scripts/build.py`. |
 | External ontology alignment    | `skos:exactMatch` / `skos:closeMatch` / `rdfs:subClassOf` on TBox classes; link in `Documentation`-phase metadata                                                                         |
-| Merge (Phase 2)                | `scripts/merge_iterations.py` — **warning**: its default output is the legacy `ontology/triple-ontology.ttl`. Always pass `--output ../ontology/triple.ttl` to overwrite the canonical file. |
+| Merge (Phase 2)                | `scripts/merge_iterations.py` — the default output is the canonical `docs/triple/triple.ttl`. |
 | Milestones                     | Git commits at the end of each SAMOD phase (`samod: iter NN phase 1 done` style)                |
-| Documentation output           | One page per artefact under `ontology/html/<name>/`: `triple` (the model) plus the six vocabularies. The model page is chaptered like the SKOS Reference: narrative chapters in `ontology/doc/sections/`, per-term Graffoo figures in `ontology/doc/figures/`, guidance in RDF (`skos:scopeNote`/`skos:example` at the term's home). Full spec: `references/documentation.md`. |
+| Documentation output           | The published surface is `docs/`: the landing index plus one page per artefact (`triple/` and the six vocabularies). The model page is chaptered like the SKOS Reference: narrative chapters in `docs/triple/doc/sections/`, Graffoo figures in `docs/triple/doc/figures/` (embedded in the chapters), guidance in RDF (`skos:scopeNote`/`skos:example` at the term's home). Full spec: `references/documentation.md`. |
 | Ontology metadata              | The exhaustive block (`dcterms:*`, `vann:*`, `schema:citation`, `owl:versionInfo`, `owl:priorVersion`) documented in `CLAUDE.md` → *Ontology Metadata and Serialization Guidelines* |
 | Identifier value carrier       | **`litre:hasLiteralValue`** (from `http://www.essepuntato.it/2010/06/literalreification/`) — *not* `datacite:hasIdentifierValue`. |
 | Identifier typing              | **No identifier subclasses.** Every identifier is a plain `datacite:Identifier` told apart by its `datacite:usesIdentifierScheme`. Adding a new kind of identifier means adding one scheme individual, declared in the consolidated ontology — never a class. |
@@ -124,15 +124,15 @@ Concrete sequence when the user asks for a new iteration N:
 
 Goal: integrate modelet_N into the current consolidated model and keep the whole BoT passing.
 
-1. Inspect `ontology/triple.ttl` for entities that semantically overlap with modelet_N. Typical overlaps: identifier patterns, agents, concepts, dates — resolve to the existing name.
+1. Inspect `docs/triple/triple.ttl` for entities that semantically overlap with modelet_N. Typical overlaps: identifier patterns, agents, concepts, dates — resolve to the existing name.
 2. **Rename in iteration N** if collapsing is needed. Update `TBOX.ttl`, `ABOX.ttl`, the SPARQL, the GoT and the diagram.
 3. Run merge:
    ```bash
    source scripts/venv/bin/activate
    cd scripts
-   python merge_iterations.py --output ../ontology/triple.ttl
+   python merge_iterations.py
    ```
-   The default path is legacy (`triple-ontology.ttl`) — always pass `--output` explicitly.
+   The default output is the canonical `docs/triple/triple.ttl`.
 4. Re-run **formal** tests (model / data / query) on every T_i in `development/`. If any T_i fails because entity names changed, refactor that T_i's ABox / SPARQL to the new names (Phase 2 *allows* changing older test cases; Phase 1 does not).
 5. Regenerate the per-module serializations and check the invariants:
    ```bash
@@ -150,7 +150,7 @@ Apply these checks across the whole BoT:
 - Every TBox class/property carries `rdfs:label` (`prefix:LocalName` for externals) and `rdfs:comment` in English.
 - External alignments present via `skos:exactMatch` / `closeMatch` / `rdfs:subClassOf` / `owl:equivalentClass` where appropriate (do *not* assert equivalence lightly — use exactMatch for SKOS concepts, equivalentClass only when semantics truly coincide).
 - Controlled-vocabulary individuals follow the SKOS pattern (ConceptScheme + Concepts, `skos:inScheme`, external match).
-- Ontology-level metadata block in `ontology/triple.ttl` updated: `owl:versionInfo`, `owl:versionIRI`, `owl:priorVersion`, `dcterms:modified`, `schema:version`, `schema:citation`. See `CLAUDE.md` for the full property list.
+- Ontology-level metadata block in `docs/triple/triple.ttl` updated: `owl:versionInfo`, `owl:versionIRI`, `owl:priorVersion`, `dcterms:modified`, `schema:version`, `schema:citation`. See `CLAUDE.md` for the full property list.
 - `CHANGELOG.md` updated with the new iteration's additions / breaking changes.
 - Re-run **all** tests (formal + rhetorical) on all T_i.
 - Commit: `samod(NN): phase 3 — refactor and align`.
@@ -180,7 +180,6 @@ Detailed validation commands and a parse-loop for running every iteration's SPAR
 ## 7. Pitfalls seen in this repo
 
 - **Glossary leak.** Do not put ABox individuals in `glossary-of-terms.md`. Only TBox names.
-- **Wrong merge target.** `merge_iterations.py` with no arguments writes to `triple-ontology.ttl`, *not* the canonical `triple.ttl`. Always pass `--output`.
 - **`schema:` version confusion.** The current ontology declares `@prefix schema: <https://schema.org/>` (HTTPS). Match that exactly when writing ABox.
 - **Stringy fillers for typed properties.** `schema:publisher`, `schema:provider`, `schema:spatialCoverage`, `schema:inLanguage`, `schema:keywords` all have *class* ranges (`foaf:Person`/`Organization`, `schema:Place`, `schema:Language`, `schema:DefinedTerm`). Never use a literal where an instance is required.
 - **Identifier modeling.** Never mint an identifier subclass: `triple:ID`, `triple:PID`, `triple:OriginalIdentifier`, `triple:DOI` and the others were retired in 3.0.0. Write `[ a datacite:Identifier ; datacite:usesIdentifierScheme <scheme> ; litre:hasLiteralValue "…" ]`, always asserting the scheme. The value carrier is `litre:hasLiteralValue` from `http://www.essepuntato.it/2010/06/literalreification/` — `datacite:hasIdentifierValue` does not exist in the DataCite ontology.

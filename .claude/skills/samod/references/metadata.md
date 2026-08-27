@@ -5,7 +5,7 @@ Reference for the `samod` skill: the full metadata block a standalone serializat
 
 When creating or updating the final ontology serialization, include comprehensive metadata to ensure proper documentation and discoverability.
 
-**Source of truth**: shared ontology metadata lives in `ontology/metadata.ttl` (currently `owl:versionInfo "2.2.0"`), consumed by `scripts/build.py` when compiling vocabularies **and** by `scripts/merge_iterations.py` when writing the consolidated `ontology/triple.ttl`. Update version/dates there first; the template below shows the full metadata shape for standalone serializations.
+**Source of truth**: shared ontology metadata lives in `docs/triple/metadata.ttl`, consumed by `scripts/build.py` when compiling vocabularies **and** by `scripts/merge_iterations.py` when writing the consolidated `docs/triple/triple.ttl`. Update version/dates there first; the template below shows the full metadata shape for standalone serializations.
 
 ### Required Header Comment
 Add a header comment at the top of the serialization file with:
@@ -86,9 +86,9 @@ End the serialization file with:
 - Include `owl:priorVersion` pointing to the previous versionIRI
 - Update modification dates when making changes
 - Record every substantive change as a dated entry in `CHANGELOG.md` (format documented at the top of that file: Date, Iteration, Type, Description, Author)
-- At release: regenerate the documentation (`scripts/build_docs.sh ontology/html` —
+- At release: regenerate the documentation (`scripts/build_docs.sh docs` —
   all seven pages: model + six vocabularies, serializations included),
   tag, publish the GitHub release — the release archive is what deployment unpacks as
-  the frozen `/ontology/triple/{X.Y.Z}` snapshot (see `ontology/html/README.md`,
+  the frozen `/ontology/triple/{X.Y.Z}` snapshot (see `docs/README.md`,
   "Versioned snapshots")
 

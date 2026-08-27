@@ -3,7 +3,7 @@
 Normative rules for minting and maintaining IRIs. Established at 3.0.0 (2026-08-10);
 every rule below is enforced either by a script (named where it applies) or by review.
 Resolution — what the server does with these IRIs — is specified in
-`ontology/html/README.md`; this file is about *naming*.
+`docs/README.md`; this file is about *naming*.
 
 ## 1. Namespaces
 
@@ -96,7 +96,7 @@ the full IRI — checked at regeneration).
 ## 6. Versioning
 
 `owl:versionInfo` (semantic) on the ontology and every vocabulary, single-sourced from
-`ontology/metadata.ttl`; GitHub releases carry the artefacts.
+`docs/triple/metadata.ttl`; GitHub releases carry the artefacts.
 
 **`owl:versionIRI` is semver-shaped and minted at the release chore**:
 `https://gotriple.eu/ontology/triple/{X.Y.Z}` — the same form the `owl:priorVersion`
@@ -112,7 +112,7 @@ In production every released version stays resolvable forever, OpenCitations-sty
 (verified on `w3id.org/oc/ontology/{date}`): `…/ontology/triple` serves the current
 release; `…/ontology/triple/{X.Y.Z}` serves the archived snapshot of that release —
 `200`, never redirected to current — sourced from the GitHub release archive at
-deployment time. Server rules and evaluation order in `ontology/html/README.md`.
+deployment time. Server rules and evaluation order in `docs/README.md`.
 
 ## 7. URLs
 

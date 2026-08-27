@@ -15,6 +15,18 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-24 - Refactoring: the repository surface becomes docs/ — ontology/ retired, merge default fixed
+
+**Type**: Refactoring
+
+**Iteration**: none (repository layout)
+
+**Description**:
+The `ontology/` directory is retired in favour of **`docs/`**, laid out per module: at the root the landing `index.html` and the resolution spec (`docs/README.md`), then one directory per artefact — `triple/` plus the six vocabularies — each carrying its published page, `static/` and serializations. `docs/triple/` additionally holds the **model sources beside their published forms**: `triple.ttl` (canonical consolidated model), `metadata.ttl` (single source of shared metadata), `doc/` (chapters, figures, OUTLINE) and the legacy `triple.graphml`. Vocabulary sources stay in `vocabularies/`. Everything that referenced the old paths was updated in the same change: the five scripts (`merge_iterations.py`, `build.py`, `build_docs.sh`, `build_index.py`, `check_model.py`, `validate.py`), the root README, the resolution spec, `URI-CONVENTIONS.md`, `sparql/README.md`, the samod skill and `CLAUDE.md`. A long-standing wart goes with it: **`merge_iterations.py`'s default output is now the canonical `docs/triple/triple.ttl`** — the legacy `triple-ontology.ttl` default and the mandatory `--output` ritual are gone. Verified end-to-end on the new layout: merge, model invariants, SHACL validation (all conform), full docs build (13 chapters, 170/170, landing index).
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-24 - Refactoring: multilingual labels become language-tagged chips; duplicate-label debt paid at the sources
 
 **Type**: Refactoring

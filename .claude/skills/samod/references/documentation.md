@@ -1,16 +1,16 @@
 # Documentation style — the SKOS-Reference-shaped model page
 
 Established 2026-08-12 while prototyping the 3.x documentation. The model page
-(`ontology/html/triple/`) is organized like the W3C SKOS Reference: numbered
+(`docs/triple/`) is organized like the W3C SKOS Reference: numbered
 narrative chapters on top, the complete term reference at the bottom.
 
 ## Source layout (in this repository)
 
 | What | Where |
 |---|---|
-| Narrative chapters | `ontology/doc/sections/NN-slug.md` (order = filename number) |
-| Graffoo diagrams | `ontology/doc/figures/{slug}.svg` — hand-authored in yEd (Graffoo palette), human-led. **Figures live in the chapters**, embedded in the prose where the pattern is narrated (`![caption](figures/slug.svg)`, italic caption line below): a diagram is a constellation of terms, not one term. Descriptive kebab slugs (`identifier-pattern`, `funding-chain`), planned per chapter in `ontology/doc/OUTLINE.md`. The per-term card mechanism (`{anchor}.svg`, `:` → `-`) stays available but dormant |
-| Build wrapper | `scripts/build_docs.sh [output-base]` — builds ALL seven pages (model + six vocabularies, serializations included; recompiles the vocabularies first) plus the landing card index at the root (`scripts/build_index.py`). No argument = preview; `ontology/html` = official pages |
+| Narrative chapters | `docs/triple/doc/sections/NN-slug.md` (order = filename number) |
+| Graffoo diagrams | `docs/triple/doc/figures/{slug}.svg` — hand-authored in yEd (Graffoo palette), human-led. **Figures live in the chapters**, embedded in the prose where the pattern is narrated (`![caption](figures/slug.svg)`, italic caption line below): a diagram is a constellation of terms, not one term. Descriptive kebab slugs (`identifier-pattern`, `funding-chain`), planned per chapter in `docs/triple/doc/OUTLINE.md`. The per-term card mechanism (`{anchor}.svg`, `:` → `-`) stays available but dormant |
+| Build wrapper | `scripts/build_docs.sh [output-base]` — builds ALL seven pages (model + six vocabularies, serializations included; recompiles the vocabularies first) plus the landing card index at the root (`scripts/build_index.py`). No argument = preview; `docs` = official pages |
 
 The generator is the **vendored pyLODE fork** in `tools/pylode/` (see
 `tools/pylode/PATCHES.md` for every deviation from upstream); it runs on the
@@ -18,7 +18,7 @@ The generator is the **vendored pyLODE fork** in `tools/pylode/` (see
 
 ```bash
 scripts/build_docs.sh                 # anteprima in build/docs-preview/{triple,discipline,...} (git-ignored)
-scripts/build_docs.sh ontology/html   # promozione alle pagine ufficiali (modello + 6 vocabolari)
+scripts/build_docs.sh docs            # promozione alle pagine ufficiali (modello + 6 vocabolari)
 ```
 
 ## Chapter file format
@@ -69,7 +69,7 @@ prose…
 
 Diagrams are **hand-authored** in yEd with the Graffoo palette (like the
 iteration modelets, issue #34) and exported to
-`ontology/doc/figures/{anchor}.svg` — the page embeds them automatically in the
+`docs/triple/doc/figures/{anchor}.svg` — the page embeds them automatically in the
 term's entity box (contained size, click for full view). Claude can draft the
 neighbourhood facts of a class (superclasses, restriction arcs, targets,
 cardinalities) from the model as input for the drawing; the drawing itself is

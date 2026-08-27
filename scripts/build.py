@@ -9,7 +9,7 @@ from rdflib import Graph, Namespace, URIRef, Literal, RDF, RDFS, OWL
 # Constants
 VOCAB_DIR = "vocabularies/serializations/ttl"
 BUILD_DIR = "build"
-METADATA_FILE = "ontology/metadata.ttl"
+METADATA_FILE = "docs/triple/metadata.ttl"
 BASE_URI = "https://gotriple.eu/ontology/triple"
 
 # Namespaces

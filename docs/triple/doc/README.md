@@ -7,7 +7,8 @@ with the vendored pyLODE fork (`tools/pylode/`).
   file has a `title:`/`terms:` front-matter; `terms` lists the page anchors the
   chapter discusses. The `<!-- definitions -->` marker positions the chapter's
   Vocabulary link-list.
-- `figures/{anchor}.svg` — per-term Graffoo diagrams, hand-authored in yEd;
-  the page embeds them automatically in the term's entity box.
+- `figures/{slug}.svg` — Graffoo diagrams, hand-authored in yEd; embedded in
+  the chapter prose (`![caption](figures/slug.svg)`) where each pattern is
+  narrated. Planned slots: `OUTLINE.md`.
 
 Authoring rules: `.claude/skills/samod/references/documentation.md`.

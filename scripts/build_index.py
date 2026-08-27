@@ -3,7 +3,7 @@
 published artefact (the consolidated model plus the six controlled vocabularies).
 
 Everything on the page (titles, descriptions, versions, term counts) is read from
-the same inputs the documentation pages are rendered from — ontology/triple.ttl
+the same inputs the documentation pages are rendered from — docs/triple/triple.ttl
 and the compiled vocabularies in build/ — so the index can never go stale.
 
 Driven by scripts/build_docs.sh (after build.py has refreshed build/); can also
@@ -27,7 +27,7 @@ VANN = Namespace("http://purl.org/vocab/vann/")
 # only the stylesheets stay relative, so the preview renders offline too.
 BASE = "https://gotriple.eu/ontology/"
 
-MODEL_TTL = os.path.join(REPO, "ontology", "triple.ttl")
+MODEL_TTL = os.path.join(REPO, "docs", "triple", "triple.ttl")
 BUILD_DIR = os.path.join(REPO, "build")
 
 # Display order of the vocabulary cards (compiled file base names).
@@ -124,7 +124,7 @@ PAGE = """<!DOCTYPE html>
 <title>TRIPLE Ontology</title>
 <!-- Same stylesheets as the documentation pages, in the same order: the landing
      page belongs to the same family. These relative links require the
-     trailing-slash URL /ontology/ (see ontology/html/README.md, resolution
+     trailing-slash URL /ontology/ (see docs/README.md, resolution
      rules); every other link on the page is absolute on the canonical domain. -->
 <link href="triple/static/owl.css" rel="stylesheet" type="text/css" />
 <link href="triple/static/yeti.css" rel="stylesheet" type="text/css" />
