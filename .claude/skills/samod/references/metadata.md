@@ -5,7 +5,7 @@ Reference for the `samod` skill: the full metadata block a standalone serializat
 
 When creating or updating the final ontology serialization, include comprehensive metadata to ensure proper documentation and discoverability.
 
-**Source of truth**: shared ontology metadata lives in `docs/triple/metadata.ttl`, consumed by `scripts/build.py` when compiling vocabularies **and** by `scripts/merge_iterations.py` when writing the consolidated `docs/triple/triple.ttl`. Update version/dates there first; the template below shows the full metadata shape for standalone serializations.
+**Source of truth**: shared ontology metadata lives in `ontology/metadata.ttl`, consumed by `scripts/build.py` when compiling vocabularies **and** by `scripts/merge_iterations.py` when writing the consolidated `ontology/triple.ttl`. Update version/dates there first; the template below shows the full metadata shape for standalone serializations.
 
 ### Required Header Comment
 Add a header comment at the top of the serialization file with:

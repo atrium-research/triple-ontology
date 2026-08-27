@@ -115,7 +115,7 @@ CHECKS = (
 
 def main() -> int:
     root = Path(__file__).resolve().parent.parent
-    path = Path(sys.argv[1]) if len(sys.argv) > 1 else root / "docs" / "triple" / "triple.ttl"
+    path = Path(sys.argv[1]) if len(sys.argv) > 1 else root / "ontology" / "triple.ttl"
     if not path.exists():
         print(f"file non trovato: {path}")
         return 1

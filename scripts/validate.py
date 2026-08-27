@@ -25,7 +25,7 @@ def shapes_graph() -> Graph:
 def ontology_graph() -> Graph:
     """The TBox is needed as ont_graph so sh:class can see the type hierarchy."""
     g = Graph()
-    g.parse(ROOT / "docs" / "triple" / "triple.ttl", format="turtle")
+    g.parse(ROOT / "ontology" / "triple.ttl", format="turtle")
     return g
 
 

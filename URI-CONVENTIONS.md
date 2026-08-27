@@ -96,7 +96,7 @@ the full IRI — checked at regeneration).
 ## 6. Versioning
 
 `owl:versionInfo` (semantic) on the ontology and every vocabulary, single-sourced from
-`docs/triple/metadata.ttl`; GitHub releases carry the artefacts.
+`ontology/metadata.ttl`; GitHub releases carry the artefacts.
 
 **`owl:versionIRI` is semver-shaped and minted at the release chore**:
 `https://gotriple.eu/ontology/triple/{X.Y.Z}` — the same form the `owl:priorVersion`

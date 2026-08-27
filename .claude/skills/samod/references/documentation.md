@@ -8,8 +8,8 @@ narrative chapters on top, the complete term reference at the bottom.
 
 | What | Where |
 |---|---|
-| Narrative chapters | `docs/triple/doc/sections/NN-slug.md` (order = filename number) |
-| Graffoo diagrams | `docs/triple/doc/figures/{slug}.svg` — hand-authored in yEd (Graffoo palette), human-led. **Figures live in the chapters**, embedded in the prose where the pattern is narrated (`![caption](figures/slug.svg)`, italic caption line below): a diagram is a constellation of terms, not one term. Descriptive kebab slugs (`identifier-pattern`, `funding-chain`), planned per chapter in `docs/triple/doc/OUTLINE.md`. The per-term card mechanism (`{anchor}.svg`, `:` → `-`) stays available but dormant |
+| Narrative chapters | `ontology/doc/sections/NN-slug.md` (order = filename number) |
+| Graffoo diagrams | `ontology/doc/figures/{slug}.svg` — hand-authored in yEd (Graffoo palette), human-led. **Figures live in the chapters**, embedded in the prose where the pattern is narrated (`![caption](figures/slug.svg)`, italic caption line below): a diagram is a constellation of terms, not one term. Descriptive kebab slugs (`identifier-pattern`, `funding-chain`), planned per chapter in `ontology/doc/OUTLINE.md`. The per-term card mechanism (`{anchor}.svg`, `:` → `-`) stays available but dormant |
 | Build wrapper | `scripts/build_docs.sh [output-base]` — builds ALL seven pages (model + six vocabularies, serializations included; recompiles the vocabularies first) plus the landing card index at the root (`scripts/build_index.py`). No argument = preview; `docs` = official pages |
 
 The generator is the **vendored pyLODE fork** in `tools/pylode/` (see
@@ -69,7 +69,7 @@ prose…
 
 Diagrams are **hand-authored** in yEd with the Graffoo palette (like the
 iteration modelets, issue #34) and exported to
-`docs/triple/doc/figures/{anchor}.svg` — the page embeds them automatically in the
+`ontology/doc/figures/{anchor}.svg` — the page embeds them automatically in the
 term's entity box (contained size, click for full view). Claude can draft the
 neighbourhood facts of a class (superclasses, restriction arcs, targets,
 cardinalities) from the model as input for the drawing; the drawing itself is

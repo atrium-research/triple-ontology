@@ -58,7 +58,7 @@ For each gap we list: **SAMOD says** → **TRIPLE does** → **Why**.
 
 - **SAMOD says:** merge modelet with current model; collapse semantically-identical entities.
 - **TRIPLE does:** `scripts/merge_iterations.py` walks every `development/NN/TBOX.ttl`, merges into one graph, adds ontology metadata, writes Turtle. Collapse is handled by shared entity IRIs — if two iterations reuse the same IRI, they merge automatically. Collapse by *renaming* is a manual pre-step before running the script.
-- **Why:** merging is deterministic and reproducible. The script's default output is the canonical `docs/triple/triple.ttl`.
+- **Why:** merging is deterministic and reproducible. The script's default output is the canonical `ontology/triple.ttl`.
 
 ## 10. Identifier modeling
 

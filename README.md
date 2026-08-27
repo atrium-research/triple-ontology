@@ -47,7 +47,7 @@ lookup table. The full naming rules are in [`URI-CONVENTIONS.md`](URI-CONVENTION
    property anchored. One sibling page per vocabulary (`docs/<vocabulary>/`), and the
    landing index at `docs/index.html`. Open them locally from a clone or from the
    release archive.
-3. `docs/triple/triple.ttl` — the consolidated model (structure only, no instance data), and
+3. `ontology/triple.ttl` — the consolidated model (structure only, no instance data), and
    `vocabularies/serializations/ttl/` — the vocabulary sources.
 
 **To understand why it is the way it is:**
@@ -71,15 +71,16 @@ lookup table. The full naming rules are in [`URI-CONVENTIONS.md`](URI-CONVENTION
   * `formal-competency-questions.md` — the requirements as SPARQL queries
   * `TBOX.ttl` / `ABOX.ttl` — the model and its exemplar data
   * `modelet.graphml` / `modelet.png` — Graffoo diagram (yEd)
-* **`docs/`** — the published surface, deployed as-is under `gotriple.eu/ontology/`:
-  the landing `index.html` (one card per artefact) plus one directory per artefact
-  (`triple/` + the six vocabularies), each with its documentation page, `static/`
-  and `.ttl`/`.rdf`/`.jsonld` serializations; `docs/README.md` is the
-  **resolution specification** (redirect rules, content negotiation, 404 policy)
-  * `docs/triple/` also holds the model **sources**: `triple.ttl` (the canonical
-    consolidated model, merged from all iterations), `metadata.ttl` (single
-    source of the shared ontology metadata) and `doc/` (the narrative chapters
-    and figures of the model page)
+* **`ontology/`** — the model sources: `triple.ttl` (the canonical consolidated
+  model, merged from all iterations), `metadata.ttl` (single source of the shared
+  ontology metadata) and `doc/` (the narrative chapters and figures of the model
+  page)
+* **`docs/`** — the published surface only, deployed as-is under
+  `gotriple.eu/ontology/`: the landing `index.html` with its `static/`, plus one
+  directory per artefact (`triple/` + the six vocabularies), each with its
+  documentation page, `static/` and `.ttl`/`.rdf`/`.jsonld` serializations;
+  `docs/README.md` is the **resolution specification** (redirect rules, content
+  negotiation, 404 policy)
 * **`vocabularies/serializations/ttl/`** — the six controlled vocabularies, each with a
   `.metadata.ttl` sidecar; compiled into `build/` by `scripts/build.py`
 * **`shapes/`** — SHACL shapes (identifiers, URLs, deduplication, per-entity profiles)
@@ -103,7 +104,7 @@ cd scripts
 python -m venv venv && source venv/bin/activate
 pip install -r requirements.txt
 
-# regenerate the consolidated model (default output: ../docs/triple/triple.ttl)
+# regenerate the consolidated model (default output: ../ontology/triple.ttl)
 python merge_iterations.py
 
 # checks, from the repository root
@@ -120,6 +121,6 @@ between the model and every published serialization.
 
 ## Versioning
 
-Semantic versioning, single-sourced from `docs/triple/metadata.ttl` (`owl:versionInfo`); GitHub
+Semantic versioning, single-sourced from `ontology/metadata.ttl` (`owl:versionInfo`); GitHub
 releases carry the artefacts and the release notes. Breaking changes are recorded in the
 CHANGELOG with their rationale.

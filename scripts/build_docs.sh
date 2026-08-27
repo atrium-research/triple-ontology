@@ -19,9 +19,9 @@ PY="$REPO/scripts/venv/bin/python"
 (cd "$REPO" && "$PY" scripts/build.py)
 
 # 2. The model page: narrative chapters + per-term figures.
-PYTHONPATH="$REPO/tools" "$PY" -m pylode.cli "$REPO/docs/triple/triple.ttl" \
-  --sections "$REPO/docs/triple/doc/sections" \
-  --figures  "$REPO/docs/triple/doc/figures" \
+PYTHONPATH="$REPO/tools" "$PY" -m pylode.cli "$REPO/ontology/triple.ttl" \
+  --sections "$REPO/ontology/doc/sections" \
+  --figures  "$REPO/ontology/doc/figures" \
   -o "$OUT/triple/index.html"
 
 # 3. One page per compiled vocabulary; CamelCase file name -> kebab-case
@@ -32,8 +32,10 @@ for src in "$REPO"/build/*.ttl; do
   PYTHONPATH="$REPO/tools" "$PY" -m pylode.cli "$src" -o "$OUT/$dir/index.html"
 done
 
-# 4. The landing index served at /ontology — one card per artefact,
-#    built from the same inputs as the pages.
+# 4. The landing index served at /ontology — one card per artefact, built from
+#    the same inputs as the pages — with its own static/ beside it.
 "$PY" "$REPO/scripts/build_index.py" -o "$OUT/index.html"
+mkdir -p "$OUT/static"
+cp -r "$REPO/tools/pylode/templates/static/." "$OUT/static/"
 
 echo "Pagine generate in: $OUT"

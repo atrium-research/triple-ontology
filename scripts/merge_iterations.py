@@ -9,7 +9,7 @@ Usage:
     python merge_iterations.py [--output OUTPUT_FILE]
 
 Arguments:
-    --output    Output file path (default: ../docs/triple/triple.ttl, the canonical consolidated model)
+    --output    Output file path (default: ../ontology/triple.ttl, the canonical consolidated model)
 """
 
 import argparse
@@ -227,14 +227,14 @@ def add_metadata(graph):
     """Add ontology metadata to the merged graph.
 
     The shared metadata (title, version, dates, authors, VANN) is read from
-    docs/triple/metadata.ttl — the single source of truth also consumed by
+    ontology/metadata.ttl — the single source of truth also consumed by
     build.py — and copied onto the ontology node. The owl:versionIRI is
     derived from owl:versionInfo.
     """
-    logger.info("Adding ontology metadata from docs/triple/metadata.ttl...")
+    logger.info("Adding ontology metadata from ontology/metadata.ttl...")
 
     ontology_iri = URIRef("https://gotriple.eu/ontology/triple")
-    metadata_path = Path(__file__).parent.parent / 'docs' / 'triple' / 'metadata.ttl'
+    metadata_path = Path(__file__).parent.parent / 'ontology' / 'metadata.ttl'
 
     metadata_graph = Graph()
     metadata_graph.parse(metadata_path, format='turtle')
@@ -311,8 +311,8 @@ def main():
     parser.add_argument(
         '--output',
         type=Path,
-        default=Path(__file__).parent.parent / 'docs' / 'triple' / 'triple.ttl',
-        help='Output file path (default: ../docs/triple/triple.ttl)'
+        default=Path(__file__).parent.parent / 'ontology' / 'triple.ttl',
+        help='Output file path (default: ../ontology/triple.ttl)'
     )
 
     args = parser.parse_args()
