@@ -248,6 +248,30 @@ h2 {
 .figure-box img { max-width: min(100%, 960px); max-height: 615px; width: auto; height: auto; border: 1px solid #ddd; background: #fff; padding: 6px; }
 .figure-box .figure-caption { font-size: 10pt; color: #555; margin-top: 0.4em; }
 
+/* External Alignment box: the value is a clickable dereferenceable link
+   (opens in a new tab). */
+.skos-box dd { word-break: break-all; }
+.skos-box dd a { text-decoration: underline; }
+
+/* Guidance boxes (External Alignment, Usage, Example): keep the content away
+   from the box walls. */
+.skos-box, .usage-box, .example-box { padding: 18px 28px; }
+
+/* Multilingual labels: one compact line of language-tagged chips under the IRI. */
+p.labels { margin: 0.2em 0 0.6em; }
+.label-item { white-space: nowrap; }
+.lang-tag {
+    display: inline-block;
+    border: 1px solid navy;
+    background: #F4FFFF;
+    border-radius: 3px;
+    padding: 0 0.35em;
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    vertical-align: 0.08em;
+}
+
 /* Chapter figures: Graffoo diagrams embedded in the narrative prose via
    standard markdown images. Same sizing as the entity-card figure box. */
 .narrative-section .prose img {

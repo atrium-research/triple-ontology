@@ -100,15 +100,12 @@ class OntologyParser:
             preferred = candidates[0]
             others_literals = candidates[1:]
 
-        formatted_others = []
-        for l in others_literals:
-            val = str(l)
-            lang = getattr(l, 'language', '')
-            if lang:
-                formatted_others.append(f"{val} @{lang}")
-            else:
-                formatted_others.append(val)
-        
+        # (lang, value) pairs, in stable alphabetical order of language code,
+        # so every entity shows its languages in the same sequence.
+        others_literals.sort(key=lambda l: (getattr(l, 'language', '') or '', str(l)))
+        formatted_others = [(getattr(l, 'language', '') or '', str(l))
+                            for l in others_literals]
+
         return str(preferred), formatted_others
 
     def _get_literal(self, subject, predicates):
@@ -118,7 +115,8 @@ class OntologyParser:
     def _get_comment_with_translations(self, node):
         best, others = self._extract_preferred_and_others(node, RDFS.comment)
         if best and others:
-            return best + "\n\n" + "\n".join(others)
+            return best + "\n\n" + "\n".join(
+                f"{val} @{lang}" if lang else val for lang, val in others)
         return best
 
     def _get_label_or_qname(self, subject):

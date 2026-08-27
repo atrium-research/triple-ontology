@@ -162,6 +162,32 @@ citati da almeno un capitolo) come metrica informativa, senza filtrare nulla.
   la scheda di riferimento rimanda alla narrativa. Figure per termine via `--figures DIR`
   (`{ancora}.png`, ":" → "-"), rese contenute (960×615) e cliccabili per la vista piena.
 
+## 2026-08-24 — External Alignment: link dereferenziabili e spaziatura
+
+Il box "External Alignment" rendeva il valore (`skos:exactMatch`/`closeMatch`)
+come testo puro. Nei due template entità il valore che inizia per `http` diventa
+`<a href target="_blank" rel="noopener">` — il riferimento esterno si apre in
+un'altra tab per essere analizzato. In `static/extra.css`: `word-break` per gli
+IRI lunghi, e i tre box guida (`.skos-box`, `.usage-box`, `.example-box`)
+passano da `padding: 15px` a `18px 28px` — il contenuto si scosta dalle pareti
+del box (correzione su feedback: il punto era la distanza dai bordi, non lo
+spacing tra le coppie dt/dd).
+
+## 2026-08-24 — Label multilingue come chip
+
+Le label non-inglesi erano una lista puntata "Alternative Labels:" con la lingua
+appesa al testo (`Projet @fr`) — cinque righe per tre parole, moltiplicate sui
+concetti dei vocabolari (sei lingue ciascuno). Ora: una sola riga sotto l'IRI,
+badge col codice lingua (`.lang-tag`, chip bordato navy su #F4FFFF) + label,
+separatore `·`, lingue in ordine alfabetico stabile.
+
+- `parser.py` `_extract_preferred_and_others`: le "altre" label diventano coppie
+  `(lang, value)` ordinate per codice lingua; `_get_comment_with_translations`
+  (stesso helper) riformatta i commenti tradotti come prima.
+- `class_entity.html` + `property_entity.html`: blocco "Alternative Labels"
+  sostituito dalla riga `p.labels` subito sotto l'IRI.
+- `static/extra.css`: `.lang-tag`, `.label-item` (nowrap), `p.labels`.
+
 ## 2026-08-24 — Figure nei capitoli
 
 Decisione: i diagrammi Graffoo vivono nella prosa dei capitoli (un diagramma è quasi

@@ -8,6 +8,9 @@
                     </span>
                 </h3>
                 <p><strong>IRI:</strong> {{ cls.uri }}</p>
+                {% if cls.other_labels %}
+                <p class="labels">{% for lang, label in cls.other_labels %}<span class="label-item">{% if lang %}<span class="lang-tag">{{ lang }}</span> {% endif %}{{ label }}</span>{% if not loop.last %} &middot; {% endif %}{% endfor %}</p>
+                {% endif %}
                 {% if cls.chapter %}
                 <p class="chapter-ref">Discussed in <a href="#sec-{{ cls.chapter.slug }}">&sect;{{ cls.chapter.n }}. {{ cls.chapter.title }}</a></p>
                 {% endif %}
@@ -20,17 +23,6 @@
                 {% if cls.comment %}
                 <div class="comment">
                     <p>{{ cls.comment }}</p>
-                </div>
-                {% endif %}
-
-                {% if cls.other_labels %}
-                <div class="comment">
-                    <p><strong>Alternative Labels:</strong></p>
-                    <ul>
-                        {% for label in cls.other_labels %}
-                        <li>{{ label }}</li>
-                        {% endfor %}
-                    </ul>
                 </div>
                 {% endif %}
 
@@ -58,7 +50,7 @@
                     <dl>
                         {% for label, value in cls.skos_properties %}
                         <dt>{{ label }}</dt>
-                        <dd>{{ value }}</dd>
+                        <dd>{% if value.startswith('http') %}<a href="{{ value }}" target="_blank" rel="noopener">{{ value }}</a>{% else %}{{ value }}{% endif %}</dd>
                         {% endfor %}
                     </dl>
                 </div>
