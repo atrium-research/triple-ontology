@@ -10,8 +10,12 @@ Preamble → narrative subsections → Vocabulary → Integrity Conditions → E
 Notes (Integrity Conditions from `shapes/`, the Example from the home iteration's
 ABox).
 
-Status: chapters 1–3 written. Chapter 3 needs a small term-list **extension** (see
-below). Term counts per chapter add up to 170.
+Status: **ALL THIRTEEN CHAPTERS WRITTEN** (2026-08-24) — coverage 170/170, zero
+build warnings. This outline is now the record of the plan the chapters
+implement; the figure slots below remain the to-do list for the hand-drawn
+diagrams (each chapter carries an HTML comment marking where its figure embeds).
+One deviation from the plan: chapter 4's examples draw on iterations 10/11/12
+(the home iterations of the three entities), not 14/15/17 as guessed below.
 
 **Figures.** Graffoo diagrams live **in the chapters**, embedded in the prose where
 the pattern is narrated (`![caption](figures/slug.svg)`, italic caption line below

@@ -15,6 +15,30 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-08-24 - Refactoring: multilingual labels become language-tagged chips; duplicate-label debt paid at the sources
+
+**Type**: Refactoring
+
+**Iteration**: 01–11, 15, 17–19 (label cleanup) + documentation infrastructure
+
+**Description**:
+The entity pages render multilingual labels as one compact line of language-tagged chips under the IRI (badge with the language code + label, stable alphabetical order), replacing the "Alternative Labels" bulleted list — the biggest win is on the vocabulary pages, where every concept carries up to six languages. The new rendering surfaced real label debt, fixed at the sources: (1) fourteen TBOXes carried legacy `"… (Triple)"@en` labels beside the plain ones (Document, Dataset, Media Object, Project) — normalized to the plain form; (2) iteration 15 re-annotated ten external terms with bare humanized labels ("Annotation", "Concept", "name") against both the `prefix:LocalName` convention and the one-home rule — the re-annotations are removed (their homes already carry the correct labels), and `oa:identifying`, whose home iteration 15 is, takes its prefixed form; (3) one untagged `"schema:name"` label in iteration 04 gains its `@en`. The consolidated model now has **zero duplicate labels per term and language** (previously the preferred-label choice between two `@en` values was order-dependent). Invariants pass; no competency question or glossary referenced the removed strings.
+
+**Author**: Alessandro Bertozzi
+
+
+### 2026-08-24 - Documentation: all thirteen chapters written — coverage 170/170; guidance annotations on the five remaining entity classes; External Alignment links dereferenceable
+
+**Type**: Documentation
+
+**Iteration**: 06, 07, 10, 11, 12 (guidance annotations at each class's home) + documentation infrastructure
+
+**Description**:
+The model page is complete: chapters 4–13 written per the outline (Datasets/Media/Semantic Artefacts, Identifiers, Agents & Profiles, Projects & Funding, Classification & Vocabularies, Original Values, Annotations & Enrichment, Deduplication, Links & URLs, External Alignments), chapter 3 extended (14→22 terms: languages, record timestamps, schema:creator, and a new §3.5 Coverage — document-level, per the design note). **Every one of the 170 terms is claimed by exactly one chapter (170/170, zero build warnings)**; each entity card links back to its chapter. Grounding checks made while writing: the has*/original* property hierarchies (dcterms:/dc: super-properties), isDuplicateOf ⊑ prov:alternateOf, the real vocabulary keys in the examples (pt:funded, lic_creative-commons, typ_book), the SHACL shapes behind every Integrity Conditions section. The five remaining entity classes — Dataset (it. 10), MediaObject (11), SemanticArtefact (12), Project (07), Profile (06) — gain skos:scopeNote + skos:example at their home iterations, in the pattern set on Document, with the entity-identity-first framing; model re-merged, invariants pass. In the vendored fork: the External Alignment box gains breathing room and its values become clickable links opening in a new tab (the external reference resolves at its authority); figure slots are marked in each chapter as comments awaiting the hand-drawn Graffoo SVGs.
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-08-24 - Documentation: authoring outline for chapters 4–13; figures move into the chapters; trailing-slash resolution fix
 
 **Type**: Documentation

@@ -1,6 +1,6 @@
 ---
 title: Documents
-terms: Document schema:CreativeWork schema:headline schema:abstract schema:datePublished schema:author schema:contributor schema:publisher schema:provider aggregator schema:keywords schema:DefinedTerm schema:creativeWorkStatus schema:comment
+terms: Document schema:CreativeWork schema:headline schema:abstract schema:datePublished schema:author schema:creator schema:contributor schema:publisher schema:provider aggregator schema:keywords schema:DefinedTerm schema:creativeWorkStatus schema:comment schema:dateCreated schema:dateModified schema:inLanguage schema:Language schema:spatialCoverage schema:temporalCoverage schema:Place
 ---
 
 ### 3.1. Preamble
@@ -13,8 +13,9 @@ relationship is stated explicitly by the deduplication link (§11), never by
 merging the records.
 
 The descriptive core is pure Schema.org: title (`schema:headline`), abstract,
-publication date, authors, publisher. Three agent roles that are easily
-conflated are kept apart:
+publication date, authors (`schema:author`, whose super-property
+`schema:creator` keeps generic CreativeWork queries working), publisher. Three
+agent roles that are easily conflated are kept apart:
 
 - `schema:publisher` — who published the *resource* (the journal, the press);
 - `schema:provider` — the source system GoTriple harvested the record from
@@ -95,6 +96,11 @@ visible rather than overwriting it:
    `triple:isDuplicateOf` (§11). The records stay distinct: deduplication is a
    statement, not a merge.
 
+Two timestamps frame the record itself, as opposed to the resource it
+describes: `schema:dateCreated` is when the record entered the platform,
+`schema:dateModified` its last update. `schema:datePublished` belongs to the
+resource — the publication date the provider declared.
+
 ### 3.4. Titles, Abstracts and Languages
 
 `schema:headline` and `schema:abstract` are language-tagged literals, and a
@@ -103,18 +109,27 @@ translations. Two document-level flags qualify them: `triple:detectedLanguage`
 records that the language was inferred rather than declared, and
 `triple:machineTranslatedLanguage` that a translation was produced by machine
 (§10) — both are deliberately document-level, since the platform does not track
-them per field. The language of the *content* is stated with `schema:inLanguage`;
-what the provider originally declared survives in `triple:originalInLanguage`
-(§9).
+them per field. The language of the *content* is stated with `schema:inLanguage`, whose value
+is a `schema:Language` instance — never a bare string; what the provider
+originally declared survives in `triple:originalInLanguage` (§9).
 
-### 3.5. Vocabulary
+### 3.5. Coverage
+
+What the content is *about* in space and time is stated with two CreativeWork
+properties: `schema:spatialCoverage`, whose value is a `schema:Place` (an
+instance, possibly just named), and `schema:temporalCoverage`, a literal
+following the Schema.org conventions (a year, an ISO 8601 interval such as
+`"2019/2020"`). Coverage is a document-level facility — any record may carry
+it; datasets add the DCAT-specific bounding box on top of it (§4).
+
+### 3.6. Vocabulary
 
 The terms of this chapter, in reading order — each links to its full definition
 in the reference sections at the bottom of this document:
 
 <!-- definitions -->
 
-### 3.6. Integrity Conditions
+### 3.7. Integrity Conditions
 
 Stated as SHACL in
 [`shapes/entity.shapes.ttl`](https://github.com/atrium-research/triple-ontology/blob/main/shapes/entity.shapes.ttl);
@@ -128,7 +143,7 @@ the salient ones:
 3. Titles and abstracts are language-tagged literals; the same document may
    carry one per language (machine translations are flagged, see §10).
 
-### 3.7. Example
+### 3.8. Example
 
 The TRIPLE record of a HAL article, descriptive core only:
 
@@ -144,7 +159,7 @@ The TRIPLE record of a HAL article, descriptive core only:
     schema:keywords [ a schema:DefinedTerm ; schema:name "aesthetics"@en ] .
 ```
 
-### 3.8. Notes
+### 3.9. Notes
 
 **Why headline and not name.** Schema.org offers both; the model reserves
 `schema:name` for things (projects, places, defined terms) and uses
