@@ -1,1590 +1,1820 @@
-{
-  "@context": {
-    "brick": "https://brickschema.org/schema/Brick#",
-    "csvw": "http://www.w3.org/ns/csvw#",
-    "ct": "https://gotriple.eu/ontology/content-type/",
-    "dc": "http://purl.org/dc/elements/1.1/",
-    "dcam": "http://purl.org/dc/dcam/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "dcmitype": "http://purl.org/dc/dcmitype/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "doap": "http://usefulinc.com/ns/doap#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "geo": "http://www.opengis.net/ont/geosparql#",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "org": "http://www.w3.org/ns/org#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "prof": "http://www.w3.org/ns/dx/prof/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "qb": "http://purl.org/linked-data/cube#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "schema": "https://schema.org/",
-    "sh": "http://www.w3.org/ns/shacl#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "sosa": "http://www.w3.org/ns/sosa/",
-    "ssn": "http://www.w3.org/ns/ssn/",
-    "time": "http://www.w3.org/2006/time#",
-    "triple": "https://gotriple.eu/ontology/triple/",
-    "vann": "http://purl.org/vocab/vann/",
-    "void": "http://rdfs.org/ns/void#",
-    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
-  },
-  "@graph": [
-    {
-      "@id": "ct:typ_review",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+[
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_dataset",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
-        "@value": "A critical evaluation of a book, article, or other work."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Rezension"
-        },
-        {
-          "@language": "en",
-          "@value": "Review"
-        },
-        {
-          "@language": "fr",
-          "@value": "Revue"
-        },
-        {
-          "@language": "it",
-          "@value": "recensione"
-        },
-        {
-          "@language": "pl",
-          "@value": "Recenzia"
-        },
-        {
-          "@language": "pt",
-          "@value": "Revisão"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A critical evaluation of a book, article, or other work."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_efa0"
-      },
-      "skos:notation": "typ_review",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Rezension"
-        },
-        {
-          "@language": "en",
-          "@value": "Review"
-        },
-        {
-          "@language": "fr",
-          "@value": "Revue"
-        },
-        {
-          "@language": "it",
-          "@value": "recensione"
-        },
-        {
-          "@language": "pl",
-          "@value": "Recenzia"
-        },
-        {
-          "@language": "pt",
-          "@value": "Revisão"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_article",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A scholarly work that describes research results, published in a journal or other publication series."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Wissenschaftlicher Artikel"
-        },
-        {
-          "@language": "en",
-          "@value": "Article"
-        },
-        {
-          "@language": "fr",
-          "@value": "Article"
-        },
-        {
-          "@language": "it",
-          "@value": "articolo in rivista"
-        },
-        {
-          "@language": "pl",
-          "@value": "Artykuł"
-        },
-        {
-          "@language": "pt",
-          "@value": "Artigo"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A scholarly work that describes research results, published in a journal or other publication series."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_6501"
-      },
-      "skos:notation": "typ_article",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Wissenschaftlicher Artikel"
-        },
-        {
-          "@language": "en",
-          "@value": "Article"
-        },
-        {
-          "@language": "fr",
-          "@value": "Article"
-        },
-        {
-          "@language": "it",
-          "@value": "articolo in rivista"
-        },
-        {
-          "@language": "pl",
-          "@value": "Artykuł"
-        },
-        {
-          "@language": "pt",
-          "@value": "Artigo"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_semantic-artefact",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Semantic artefact"
-      },
-      "skos:closeMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/GSZA-Y7V7"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema."
-      },
-      "skos:notation": "typ_semantic-artefact",
-      "skos:prefLabel": {
-        "@language": "en",
-        "@value": "Semantic artefact"
+        "@value": "A collection of data, published or curated for a single agent or community."
       }
-    },
-    {
-      "@id": "ct:typ_audio",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Datensatz"
+      },
+      {
         "@language": "en",
-        "@value": "An audio recording."
+        "@value": "Dataset"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Ton"
-        },
-        {
-          "@language": "en",
-          "@value": "Sound"
-        },
-        {
-          "@language": "fr",
-          "@value": "son"
-        },
-        {
-          "@language": "it",
-          "@value": "suono"
-        },
-        {
-          "@language": "pt",
-          "@value": "som"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "fr",
+        "@value": "Jeu de données"
+      },
+      {
+        "@language": "it",
+        "@value": "dataset"
+      },
+      {
+        "@language": "pl",
+        "@value": "Zbiór danych"
+      },
+      {
+        "@language": "pt",
+        "@value": "Conjunto de Dados"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
         "@language": "en",
-        "@value": "An audio recording."
+        "@value": "A collection of data, published or curated for a single agent or community."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_ddb1"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_dataset"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Datensatz"
       },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_18cc"
-      },
-      "skos:notation": "typ_audio",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Ton"
-        },
-        {
-          "@language": "en",
-          "@value": "Sound"
-        },
-        {
-          "@language": "fr",
-          "@value": "son"
-        },
-        {
-          "@language": "it",
-          "@value": "suono"
-        },
-        {
-          "@language": "pt",
-          "@value": "som"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_conference",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+      {
         "@language": "en",
-        "@value": "Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters)."
+        "@value": "Dataset"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Konferenzveröffentlichung"
-        },
-        {
-          "@language": "en",
-          "@value": "Conference"
-        },
-        {
-          "@language": "fr",
-          "@value": "Conférence"
-        },
-        {
-          "@language": "it",
-          "@value": "contributo a congresso"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał konferencyjny"
-        },
-        {
-          "@language": "pt",
-          "@value": "Conferência"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "fr",
+        "@value": "Jeu de données"
+      },
+      {
+        "@language": "it",
+        "@value": "dataset"
+      },
+      {
+        "@language": "pl",
+        "@value": "Zbiór danych"
+      },
+      {
+        "@language": "pt",
+        "@value": "Conjunto de Dados"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_report",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
-        "@value": "Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters)."
+        "@value": "A document that presents information in an organized format for a specific audience and purpose."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Bericht"
       },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_c94f"
+      {
+        "@language": "en",
+        "@value": "Report"
       },
-      "skos:notation": "typ_conference",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Konferenzveröffentlichung"
-        },
-        {
-          "@language": "en",
-          "@value": "Conference"
-        },
-        {
-          "@language": "fr",
-          "@value": "Conférence"
-        },
-        {
-          "@language": "it",
-          "@value": "contributo a congresso"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał konferencyjny"
-        },
-        {
-          "@language": "pt",
-          "@value": "Conferência"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_map",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+      {
+        "@language": "fr",
+        "@value": "Rapport"
+      },
+      {
+        "@language": "it",
+        "@value": "rapporto"
+      },
+      {
+        "@language": "pl",
+        "@value": "Raport"
+      },
+      {
+        "@language": "pt",
+        "@value": "Relatório"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A document that presents information in an organized format for a specific audience and purpose."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_93fc"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_report"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bericht"
+      },
+      {
+        "@language": "en",
+        "@value": "Report"
+      },
+      {
+        "@language": "fr",
+        "@value": "Rapport"
+      },
+      {
+        "@language": "it",
+        "@value": "rapporto"
+      },
+      {
+        "@language": "pl",
+        "@value": "Raport"
+      },
+      {
+        "@language": "pt",
+        "@value": "Relatório"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/undefined",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Undefined"
+      },
+      {
+        "@language": "fr",
+        "@value": "Non défini"
+      },
+      {
+        "@language": "pl",
+        "@value": "Nieokreślone"
+      },
+      {
+        "@language": "pt",
+        "@value": "Indefinido"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "undefined"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Undefined"
+      },
+      {
+        "@language": "fr",
+        "@value": "Non défini"
+      },
+      {
+        "@language": "pl",
+        "@value": "Nieokreślone"
+      },
+      {
+        "@language": "pt",
+        "@value": "Indefinido"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_learning-object",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A resource designed to be used for learning or teaching."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Lernobjekt"
+      },
+      {
+        "@language": "en",
+        "@value": "Learning object"
+      },
+      {
+        "@language": "fr",
+        "@value": "Objet d'apprentissage"
+      },
+      {
+        "@language": "it",
+        "@value": "oggetto didattico"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał dydaktyczny"
+      },
+      {
+        "@language": "pt",
+        "@value": "Objeto de Aprendizagem"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A resource designed to be used for learning or teaching."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_e059"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_learning-object"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Lernobjekt"
+      },
+      {
+        "@language": "en",
+        "@value": "Learning object"
+      },
+      {
+        "@language": "fr",
+        "@value": "Objet d'apprentissage"
+      },
+      {
+        "@language": "it",
+        "@value": "oggetto didattico"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał dydaktyczny"
+      },
+      {
+        "@language": "pt",
+        "@value": "Objeto de Aprendizagem"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_article",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A scholarly work that describes research results, published in a journal or other publication series."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Wissenschaftlicher Artikel"
+      },
+      {
+        "@language": "en",
+        "@value": "Article"
+      },
+      {
+        "@language": "fr",
+        "@value": "Article"
+      },
+      {
+        "@language": "it",
+        "@value": "articolo in rivista"
+      },
+      {
+        "@language": "pl",
+        "@value": "Artykuł"
+      },
+      {
+        "@language": "pt",
+        "@value": "Artigo"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A scholarly work that describes research results, published in a journal or other publication series."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_6501"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_article"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Wissenschaftlicher Artikel"
+      },
+      {
+        "@language": "en",
+        "@value": "Article"
+      },
+      {
+        "@language": "fr",
+        "@value": "Article"
+      },
+      {
+        "@language": "it",
+        "@value": "articolo in rivista"
+      },
+      {
+        "@language": "pl",
+        "@value": "Artykuł"
+      },
+      {
+        "@language": "pt",
+        "@value": "Artigo"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_map",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
         "@value": "A visual representation of an area."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Karte"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Karte"
-        },
-        {
-          "@language": "en",
-          "@value": "Map"
-        },
-        {
-          "@language": "fr",
-          "@value": "Carte"
-        },
-        {
-          "@language": "it",
-          "@value": "mappa"
-        },
-        {
-          "@language": "pl",
-          "@value": "Mapa"
-        },
-        {
-          "@language": "pt",
-          "@value": "Mapa"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "en",
+        "@value": "Map"
+      },
+      {
+        "@language": "fr",
+        "@value": "Carte"
+      },
+      {
+        "@language": "it",
+        "@value": "mappa"
+      },
+      {
+        "@language": "pl",
+        "@value": "Mapa"
+      },
+      {
+        "@language": "pt",
+        "@value": "Mapa"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
         "@language": "en",
         "@value": "A visual representation of an area."
-      },
-      "skos:exactMatch": {
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
         "@id": "https://vocabularies.coar-repositories.org/resource_types/c_12cd"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_map"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Karte"
       },
-      "skos:notation": "typ_map",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Karte"
-        },
-        {
-          "@language": "en",
-          "@value": "Map"
-        },
-        {
-          "@language": "fr",
-          "@value": "Carte"
-        },
-        {
-          "@language": "it",
-          "@value": "mappa"
-        },
-        {
-          "@language": "pl",
-          "@value": "Mapa"
-        },
-        {
-          "@language": "pt",
-          "@value": "Mapa"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_blog-post",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+      {
         "@language": "en",
-        "@value": "A discrete entry or post in a blog."
+        "@value": "Map"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Blogbeitrag"
-        },
-        {
-          "@language": "en",
-          "@value": "Blog post"
-        },
-        {
-          "@language": "fr",
-          "@value": "Article de blog"
-        },
-        {
-          "@language": "it",
-          "@value": "articolo di blog"
-        },
-        {
-          "@language": "pl",
-          "@value": "Artykuł na blogu"
-        },
-        {
-          "@language": "pt",
-          "@value": "Post de Blogue"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "fr",
+        "@value": "Carte"
+      },
+      {
+        "@language": "it",
+        "@value": "mappa"
+      },
+      {
+        "@language": "pl",
+        "@value": "Mapa"
+      },
+      {
+        "@language": "pt",
+        "@value": "Mapa"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_periodical",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
-        "@value": "A discrete entry or post in a blog."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_6947"
-      },
-      "skos:notation": "typ_blog-post",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Blogbeitrag"
-        },
-        {
-          "@language": "en",
-          "@value": "Blog post"
-        },
-        {
-          "@language": "fr",
-          "@value": "Article de blog"
-        },
-        {
-          "@language": "it",
-          "@value": "articolo di blog"
-        },
-        {
-          "@language": "pl",
-          "@value": "Artykuł na blogu"
-        },
-        {
-          "@language": "pt",
-          "@value": "Post de Blogue"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_manuscript",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+        "@value": "A publication that appears at regular intervals, such as a journal, magazine, or newspaper."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
         "@language": "en",
-        "@value": "A document written by hand or typewritten, as opposed to printed."
+        "@value": "Periodical"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Manuskript"
-        },
-        {
-          "@language": "en",
-          "@value": "Manuscript"
-        },
-        {
-          "@language": "fr",
-          "@value": "Manuscrit"
-        },
-        {
-          "@language": "it",
-          "@value": "manoscritto"
-        },
-        {
-          "@language": "pl",
-          "@value": "Rękopis"
-        },
-        {
-          "@language": "pt",
-          "@value": "Manuscrito"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "fr",
+        "@value": "Périodique"
+      },
+      {
+        "@language": "pl",
+        "@value": "Czasopismo"
+      },
+      {
+        "@language": "pt",
+        "@value": "Periódico"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
         "@language": "en",
-        "@value": "A document written by hand or typewritten, as opposed to printed."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_0040"
-      },
-      "skos:notation": "typ_manuscript",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Manuskript"
-        },
-        {
-          "@language": "en",
-          "@value": "Manuscript"
-        },
-        {
-          "@language": "fr",
-          "@value": "Manuscrit"
-        },
-        {
-          "@language": "it",
-          "@value": "manoscritto"
-        },
-        {
-          "@language": "pl",
-          "@value": "Rękopis"
-        },
-        {
-          "@language": "pt",
-          "@value": "Manuscrito"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_bibliography",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+        "@value": "A publication that appears at regular intervals, such as a journal, magazine, or newspaper."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_periodical"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
         "@language": "en",
-        "@value": "A systematic list of resources (books, articles, etc.) sharing specific characteristics."
+        "@value": "Periodical"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Bibliografie"
-        },
-        {
-          "@language": "en",
-          "@value": "Bibliography"
-        },
-        {
-          "@language": "fr",
-          "@value": "Bibliographie"
-        },
-        {
-          "@language": "it",
-          "@value": "bibliografia"
-        },
-        {
-          "@language": "pl",
-          "@value": "Bibliografia"
-        },
-        {
-          "@language": "pt",
-          "@value": "Bibliografia"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "fr",
+        "@value": "Périodique"
+      },
+      {
+        "@language": "pl",
+        "@value": "Czasopismo"
+      },
+      {
+        "@language": "pt",
+        "@value": "Periódico"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_image",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
-        "@value": "A systematic list of resources (books, articles, etc.) sharing specific characteristics."
+        "@value": "A visual representation other than text, such as a photograph or diagram."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Bild"
       },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_86bc"
+      {
+        "@language": "en",
+        "@value": "Image"
       },
-      "skos:notation": "typ_bibliography",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Bibliografie"
-        },
-        {
-          "@language": "en",
-          "@value": "Bibliography"
-        },
-        {
-          "@language": "fr",
-          "@value": "Bibliographie"
-        },
-        {
-          "@language": "it",
-          "@value": "bibliografia"
-        },
-        {
-          "@language": "pl",
-          "@value": "Bibliografia"
-        },
-        {
-          "@language": "pt",
-          "@value": "Bibliografia"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_thesis",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+      {
+        "@language": "fr",
+        "@value": "Image"
+      },
+      {
+        "@language": "it",
+        "@value": "immagine"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał wizualny"
+      },
+      {
+        "@language": "pt",
+        "@value": "Imagem"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A visual representation other than text, such as a photograph or diagram."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_c513"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_image"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bild"
+      },
+      {
+        "@language": "en",
+        "@value": "Image"
+      },
+      {
+        "@language": "fr",
+        "@value": "Image"
+      },
+      {
+        "@language": "it",
+        "@value": "immagine"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał wizualny"
+      },
+      {
+        "@language": "pt",
+        "@value": "Imagem"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_thesis",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
         "@value": "A document submitted in support of candidature for an academic degree or professional qualification."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "schriftliche Abschlussarbeit"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "schriftliche Abschlussarbeit"
-        },
-        {
-          "@language": "en",
-          "@value": "Thesis"
-        },
-        {
-          "@language": "fr",
-          "@value": "Mémoire ou thèse"
-        },
-        {
-          "@language": "it",
-          "@value": "tesi"
-        },
-        {
-          "@language": "pl",
-          "@value": "Praca dyplomowa"
-        },
-        {
-          "@language": "pt",
-          "@value": "Tese"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "en",
+        "@value": "Thesis"
+      },
+      {
+        "@language": "fr",
+        "@value": "Mémoire ou thèse"
+      },
+      {
+        "@language": "it",
+        "@value": "tesi"
+      },
+      {
+        "@language": "pl",
+        "@value": "Praca dyplomowa"
+      },
+      {
+        "@language": "pt",
+        "@value": "Tese"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
         "@language": "en",
         "@value": "A document submitted in support of candidature for an academic degree or professional qualification."
-      },
-      "skos:exactMatch": {
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
         "@id": "https://vocabularies.coar-repositories.org/resource_types/c_46ec"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_thesis"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "schriftliche Abschlussarbeit"
       },
-      "skos:notation": "typ_thesis",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "schriftliche Abschlussarbeit"
-        },
-        {
-          "@language": "en",
-          "@value": "Thesis"
-        },
-        {
-          "@language": "fr",
-          "@value": "Mémoire ou thèse"
-        },
-        {
-          "@language": "it",
-          "@value": "tesi"
-        },
-        {
-          "@language": "pl",
-          "@value": "Praca dyplomowa"
-        },
-        {
-          "@language": "pt",
-          "@value": "Tese"
-        }
-      ]
-    },
-    {
-      "@id": "ct:undefined",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:label": [
-        {
-          "@language": "en",
-          "@value": "Undefined"
-        },
-        {
-          "@language": "fr",
-          "@value": "Non défini"
-        },
-        {
-          "@language": "pl",
-          "@value": "Nieokreślone"
-        },
-        {
-          "@language": "pt",
-          "@value": "Indefinido"
-        }
-      ],
-      "skos:notation": "undefined",
-      "skos:prefLabel": [
-        {
-          "@language": "en",
-          "@value": "Undefined"
-        },
-        {
-          "@language": "fr",
-          "@value": "Non défini"
-        },
-        {
-          "@language": "pl",
-          "@value": "Nieokreślone"
-        },
-        {
-          "@language": "pt",
-          "@value": "Indefinido"
-        }
-      ]
-    },
-    {
-      "@id": "ct:other",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+      {
         "@language": "en",
-        "@value": "A content type that does not fit into other defined categories."
+        "@value": "Thesis"
       },
-      "rdfs:label": [
-        {
-          "@language": "en",
-          "@value": "Other"
-        },
-        {
-          "@language": "fr",
-          "@value": "Autre"
-        },
-        {
-          "@language": "pl",
-          "@value": "Inne"
-        },
-        {
-          "@language": "pt",
-          "@value": "Outros"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "fr",
+        "@value": "Mémoire ou thèse"
+      },
+      {
+        "@language": "it",
+        "@value": "tesi"
+      },
+      {
+        "@language": "pl",
+        "@value": "Praca dyplomowa"
+      },
+      {
+        "@language": "pt",
+        "@value": "Tese"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_text",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
-        "@value": "A content type that does not fit into other defined categories."
+        "@value": "A written work or content consisting primarily of text."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Text"
       },
-      "skos:notation": "other",
-      "skos:prefLabel": [
-        {
-          "@language": "en",
-          "@value": "Other"
-        },
-        {
-          "@language": "fr",
-          "@value": "Autre"
-        },
-        {
-          "@language": "pl",
-          "@value": "Inne"
-        },
-        {
-          "@language": "pt",
-          "@value": "Outros"
-        }
-      ]
-    },
-    {
-      "@id": "https://gotriple.eu/ontology/content-type",
-      "@type": "owl:Ontology",
-      "dcterms:abstract": {
+      {
+        "@language": "en",
+        "@value": "Text"
+      },
+      {
+        "@language": "fr",
+        "@value": "Texte"
+      },
+      {
+        "@language": "it",
+        "@value": "testo"
+      },
+      {
+        "@language": "pl",
+        "@value": "Tekst"
+      },
+      {
+        "@language": "pt",
+        "@value": "Texto"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A written work or content consisting primarily of text."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_18cf"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_text"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Text"
+      },
+      {
+        "@language": "en",
+        "@value": "Text"
+      },
+      {
+        "@language": "fr",
+        "@value": "Texte"
+      },
+      {
+        "@language": "it",
+        "@value": "testo"
+      },
+      {
+        "@language": "pl",
+        "@value": "Tekst"
+      },
+      {
+        "@language": "pt",
+        "@value": "Texto"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_book-part",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A defined chapter or section of a book, usually with a separate title or number."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Teil oder Kapitel eines Buches"
+      },
+      {
+        "@language": "en",
+        "@value": "Book Part"
+      },
+      {
+        "@language": "fr",
+        "@value": "Extrait de livre"
+      },
+      {
+        "@language": "it",
+        "@value": "capitolo di libro"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał w książce"
+      },
+      {
+        "@language": "pt",
+        "@value": "Parte de Livro"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A defined chapter or section of a book, usually with a separate title or number."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_3248"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_book-part"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Teil oder Kapitel eines Buches"
+      },
+      {
+        "@language": "en",
+        "@value": "Book Part"
+      },
+      {
+        "@language": "fr",
+        "@value": "Extrait de livre"
+      },
+      {
+        "@language": "it",
+        "@value": "capitolo di libro"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał w książce"
+      },
+      {
+        "@language": "pt",
+        "@value": "Parte de Livro"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/abstract": [
+      {
         "@language": "en",
         "@value": "A hierarchical controlled vocabulary for classifying the nature and genre of scholarly resources."
+      }
+    ],
+    "http://purl.org/dc/terms/contributor": [
+      {
+        "@value": "Luca De Santis"
       },
-      "dcterms:contributor": [
-        "Luca De Santis",
-        "Silvio Peroni"
-      ],
-      "dcterms:created": {
-        "@type": "xsd:date",
+      {
+        "@value": "Silvio Peroni"
+      }
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
         "@value": "2021-12-01"
-      },
-      "dcterms:creator": "Alessandro Bertozzi",
-      "dcterms:description": {
+      }
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@value": "Alessandro Bertozzi"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
         "@language": "en",
         "@value": "The Content Type vocabulary categorizes the different types of resources available in the TRIPLE platform, such as journal articles, datasets, images, and video. It includes mappings to the COAR Resource Type Vocabulary to ensure interoperability."
-      },
-      "dcterms:modified": {
-        "@type": "xsd:date",
-        "@value": "2026-08-11"
-      },
-      "dcterms:title": {
-        "@language": "en",
-        "@value": "Content Type"
-      },
-      "owl:versionInfo": "3.0.0",
-      "vann:preferredNamespacePrefix": "ct",
-      "vann:preferredNamespaceUri": "https://gotriple.eu/ontology/content-type/"
-    },
-    {
-      "@id": "ct:typ_book-part",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A defined chapter or section of a book, usually with a separate title or number."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Teil oder Kapitel eines Buches"
-        },
-        {
-          "@language": "en",
-          "@value": "Book Part"
-        },
-        {
-          "@language": "fr",
-          "@value": "Extrait de livre"
-        },
-        {
-          "@language": "it",
-          "@value": "capitolo di libro"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał w książce"
-        },
-        {
-          "@language": "pt",
-          "@value": "Parte de Livro"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A defined chapter or section of a book, usually with a separate title or number."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_3248"
-      },
-      "skos:notation": "typ_book-part",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Teil oder Kapitel eines Buches"
-        },
-        {
-          "@language": "en",
-          "@value": "Book Part"
-        },
-        {
-          "@language": "fr",
-          "@value": "Extrait de livre"
-        },
-        {
-          "@language": "it",
-          "@value": "capitolo di libro"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał w książce"
-        },
-        {
-          "@language": "pt",
-          "@value": "Parte de Livro"
-        }
-      ]
-    },
-    {
-      "@id": "triple:ContentType",
-      "@type": "owl:Class",
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Content Type"
-      },
-      "rdfs:subClassOf": {
-        "@id": "skos:Concept"
       }
-    },
-    {
-      "@id": "ct:typ_text",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2026-08-27"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
         "@language": "en",
-        "@value": "A written work or content consisting primarily of text."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Text"
-        },
-        {
-          "@language": "en",
-          "@value": "Text"
-        },
-        {
-          "@language": "fr",
-          "@value": "Texte"
-        },
-        {
-          "@language": "it",
-          "@value": "testo"
-        },
-        {
-          "@language": "pl",
-          "@value": "Tekst"
-        },
-        {
-          "@language": "pt",
-          "@value": "Texto"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A written work or content consisting primarily of text."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_18cf"
-      },
-      "skos:notation": "typ_text",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Text"
-        },
-        {
-          "@language": "en",
-          "@value": "Text"
-        },
-        {
-          "@language": "fr",
-          "@value": "Texte"
-        },
-        {
-          "@language": "it",
-          "@value": "testo"
-        },
-        {
-          "@language": "pl",
-          "@value": "Tekst"
-        },
-        {
-          "@language": "pt",
-          "@value": "Texto"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_periodical",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A publication that appears at regular intervals, such as a journal, magazine, or newspaper."
-      },
-      "rdfs:label": [
-        {
-          "@language": "en",
-          "@value": "Periodical"
-        },
-        {
-          "@language": "fr",
-          "@value": "Périodique"
-        },
-        {
-          "@language": "pl",
-          "@value": "Czasopismo"
-        },
-        {
-          "@language": "pt",
-          "@value": "Periódico"
-        }
-      ],
-      "skos:closeMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/QX5C-AR31"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A publication that appears at regular intervals, such as a journal, magazine, or newspaper."
-      },
-      "skos:notation": "typ_periodical",
-      "skos:prefLabel": [
-        {
-          "@language": "en",
-          "@value": "Periodical"
-        },
-        {
-          "@language": "fr",
-          "@value": "Périodique"
-        },
-        {
-          "@language": "pl",
-          "@value": "Czasopismo"
-        },
-        {
-          "@language": "pt",
-          "@value": "Periódico"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_learning-object",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A resource designed to be used for learning or teaching."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Lernobjekt"
-        },
-        {
-          "@language": "en",
-          "@value": "Learning object"
-        },
-        {
-          "@language": "fr",
-          "@value": "Objet d'apprentissage"
-        },
-        {
-          "@language": "it",
-          "@value": "oggetto didattico"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał dydaktyczny"
-        },
-        {
-          "@language": "pt",
-          "@value": "Objeto de Aprendizagem"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A resource designed to be used for learning or teaching."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_e059"
-      },
-      "skos:notation": "typ_learning-object",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Lernobjekt"
-        },
-        {
-          "@language": "en",
-          "@value": "Learning object"
-        },
-        {
-          "@language": "fr",
-          "@value": "Objet d'apprentissage"
-        },
-        {
-          "@language": "it",
-          "@value": "oggetto didattico"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał dydaktyczny"
-        },
-        {
-          "@language": "pt",
-          "@value": "Objeto de Aprendizagem"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_report",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A document that presents information in an organized format for a specific audience and purpose."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Bericht"
-        },
-        {
-          "@language": "en",
-          "@value": "Report"
-        },
-        {
-          "@language": "fr",
-          "@value": "Rapport"
-        },
-        {
-          "@language": "it",
-          "@value": "rapporto"
-        },
-        {
-          "@language": "pl",
-          "@value": "Raport"
-        },
-        {
-          "@language": "pt",
-          "@value": "Relatório"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A document that presents information in an organized format for a specific audience and purpose."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_93fc"
-      },
-      "skos:notation": "typ_report",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Bericht"
-        },
-        {
-          "@language": "en",
-          "@value": "Report"
-        },
-        {
-          "@language": "fr",
-          "@value": "Rapport"
-        },
-        {
-          "@language": "it",
-          "@value": "rapporto"
-        },
-        {
-          "@language": "pl",
-          "@value": "Raport"
-        },
-        {
-          "@language": "pt",
-          "@value": "Relatório"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_video",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A recording of moving visual images."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Video"
-        },
-        {
-          "@language": "en",
-          "@value": "Video"
-        },
-        {
-          "@language": "fr",
-          "@value": "vidéo"
-        },
-        {
-          "@language": "it",
-          "@value": "video"
-        },
-        {
-          "@language": "pt",
-          "@value": "vídeo"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A recording of moving visual images."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_12ce"
-      },
-      "skos:notation": "typ_video",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Video"
-        },
-        {
-          "@language": "en",
-          "@value": "Video"
-        },
-        {
-          "@language": "fr",
-          "@value": "vidéo"
-        },
-        {
-          "@language": "it",
-          "@value": "video"
-        },
-        {
-          "@language": "pt",
-          "@value": "vídeo"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_image",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A visual representation other than text, such as a photograph or diagram."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Bild"
-        },
-        {
-          "@language": "en",
-          "@value": "Image"
-        },
-        {
-          "@language": "fr",
-          "@value": "Image"
-        },
-        {
-          "@language": "it",
-          "@value": "immagine"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał wizualny"
-        },
-        {
-          "@language": "pt",
-          "@value": "Imagem"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A visual representation other than text, such as a photograph or diagram."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_c513"
-      },
-      "skos:notation": "typ_image",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Bild"
-        },
-        {
-          "@language": "en",
-          "@value": "Image"
-        },
-        {
-          "@language": "fr",
-          "@value": "Image"
-        },
-        {
-          "@language": "it",
-          "@value": "immagine"
-        },
-        {
-          "@language": "pl",
-          "@value": "Materiał wizualny"
-        },
-        {
-          "@language": "pt",
-          "@value": "Imagem"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_preprint",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A version of a scholarly paper that precedes formal peer review and publication."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Preprint"
-        },
-        {
-          "@language": "en",
-          "@value": "Preprint"
-        },
-        {
-          "@language": "fr",
-          "@value": "Prépublication"
-        },
-        {
-          "@language": "it",
-          "@value": "articolo preliminare"
-        },
-        {
-          "@language": "pl",
-          "@value": "Preprint"
-        },
-        {
-          "@language": "pt",
-          "@value": "Preprint"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A version of a scholarly paper that precedes formal peer review and publication."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_816b"
-      },
-      "skos:notation": "typ_preprint",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Preprint"
-        },
-        {
-          "@language": "en",
-          "@value": "Preprint"
-        },
-        {
-          "@language": "fr",
-          "@value": "Prépublication"
-        },
-        {
-          "@language": "it",
-          "@value": "articolo preliminare"
-        },
-        {
-          "@language": "pl",
-          "@value": "Preprint"
-        },
-        {
-          "@language": "pt",
-          "@value": "Preprint"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_dataset",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A collection of data, published or curated for a single agent or community."
-      },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Datensatz"
-        },
-        {
-          "@language": "en",
-          "@value": "Dataset"
-        },
-        {
-          "@language": "fr",
-          "@value": "Jeu de données"
-        },
-        {
-          "@language": "it",
-          "@value": "dataset"
-        },
-        {
-          "@language": "pl",
-          "@value": "Zbiór danych"
-        },
-        {
-          "@language": "pt",
-          "@value": "Conjunto de Dados"
-        }
-      ],
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A collection of data, published or curated for a single agent or community."
-      },
-      "skos:exactMatch": {
-        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_ddb1"
-      },
-      "skos:notation": "typ_dataset",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Datensatz"
-        },
-        {
-          "@language": "en",
-          "@value": "Dataset"
-        },
-        {
-          "@language": "fr",
-          "@value": "Jeu de données"
-        },
-        {
-          "@language": "it",
-          "@value": "dataset"
-        },
-        {
-          "@language": "pl",
-          "@value": "Zbiór danych"
-        },
-        {
-          "@language": "pt",
-          "@value": "Conjunto de Dados"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_book",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+        "@value": "Content Type"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespacePrefix": [
+      {
+        "@value": "ct"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespaceUri": [
+      {
+        "@value": "https://gotriple.eu/ontology/content-type/"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "3.2.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_book",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
         "@value": "A non-serial publication that is complete in one volume or a finite number of volumes."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Buch"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Buch"
-        },
-        {
-          "@language": "en",
-          "@value": "Book"
-        },
-        {
-          "@language": "fr",
-          "@value": "Livre"
-        },
-        {
-          "@language": "it",
-          "@value": "libro"
-        },
-        {
-          "@language": "pl",
-          "@value": "Książka"
-        },
-        {
-          "@language": "pt",
-          "@value": "Livro"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "en",
+        "@value": "Book"
+      },
+      {
+        "@language": "fr",
+        "@value": "Livre"
+      },
+      {
+        "@language": "it",
+        "@value": "libro"
+      },
+      {
+        "@language": "pl",
+        "@value": "Książka"
+      },
+      {
+        "@language": "pt",
+        "@value": "Livro"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
         "@language": "en",
         "@value": "A non-serial publication that is complete in one volume or a finite number of volumes."
-      },
-      "skos:exactMatch": {
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
         "@id": "https://vocabularies.coar-repositories.org/resource_types/c_2f33"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_book"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Buch"
       },
-      "skos:notation": "typ_book",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Buch"
-        },
-        {
-          "@language": "en",
-          "@value": "Book"
-        },
-        {
-          "@language": "fr",
-          "@value": "Livre"
-        },
-        {
-          "@language": "it",
-          "@value": "libro"
-        },
-        {
-          "@language": "pl",
-          "@value": "Książka"
-        },
-        {
-          "@language": "pt",
-          "@value": "Livro"
-        }
-      ]
-    },
-    {
-      "@id": "ct:typ_software",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ContentType"
-      ],
-      "rdfs:comment": {
+      {
+        "@language": "en",
+        "@value": "Book"
+      },
+      {
+        "@language": "fr",
+        "@value": "Livre"
+      },
+      {
+        "@language": "it",
+        "@value": "libro"
+      },
+      {
+        "@language": "pl",
+        "@value": "Książka"
+      },
+      {
+        "@language": "pt",
+        "@value": "Livro"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/other",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A content type that does not fit into other defined categories."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Other"
+      },
+      {
+        "@language": "fr",
+        "@value": "Autre"
+      },
+      {
+        "@language": "pl",
+        "@value": "Inne"
+      },
+      {
+        "@language": "pt",
+        "@value": "Outros"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A content type that does not fit into other defined categories."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "other"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Other"
+      },
+      {
+        "@language": "fr",
+        "@value": "Autre"
+      },
+      {
+        "@language": "pl",
+        "@value": "Inne"
+      },
+      {
+        "@language": "pt",
+        "@value": "Outros"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_review",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A critical evaluation of a book, article, or other work."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Rezension"
+      },
+      {
+        "@language": "en",
+        "@value": "Review"
+      },
+      {
+        "@language": "fr",
+        "@value": "Revue"
+      },
+      {
+        "@language": "it",
+        "@value": "recensione"
+      },
+      {
+        "@language": "pl",
+        "@value": "Recenzia"
+      },
+      {
+        "@language": "pt",
+        "@value": "Revisão"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A critical evaluation of a book, article, or other work."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_efa0"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_review"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Rezension"
+      },
+      {
+        "@language": "en",
+        "@value": "Review"
+      },
+      {
+        "@language": "fr",
+        "@value": "Revue"
+      },
+      {
+        "@language": "it",
+        "@value": "recensione"
+      },
+      {
+        "@language": "pl",
+        "@value": "Recenzia"
+      },
+      {
+        "@language": "pt",
+        "@value": "Revisão"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_software",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
         "@value": "A set of instructions/programs used to operate computers and execute specific tasks."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Software"
       },
-      "rdfs:label": [
-        {
-          "@language": "de",
-          "@value": "Software"
-        },
-        {
-          "@language": "en",
-          "@value": "Software"
-        },
-        {
-          "@language": "fr",
-          "@value": "Logiciel"
-        },
-        {
-          "@language": "it",
-          "@value": "software"
-        },
-        {
-          "@language": "pl",
-          "@value": "Oprogramowanie"
-        },
-        {
-          "@language": "pt",
-          "@value": "Software"
-        }
-      ],
-      "skos:definition": {
+      {
+        "@language": "en",
+        "@value": "Software"
+      },
+      {
+        "@language": "fr",
+        "@value": "Logiciel"
+      },
+      {
+        "@language": "it",
+        "@value": "software"
+      },
+      {
+        "@language": "pl",
+        "@value": "Oprogramowanie"
+      },
+      {
+        "@language": "pt",
+        "@value": "Software"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
         "@language": "en",
         "@value": "A set of instructions/programs used to operate computers and execute specific tasks."
-      },
-      "skos:exactMatch": {
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
         "@id": "https://vocabularies.coar-repositories.org/resource_types/c_5ce6"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_software"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Software"
       },
-      "skos:notation": "typ_software",
-      "skos:prefLabel": [
-        {
-          "@language": "de",
-          "@value": "Software"
-        },
-        {
-          "@language": "en",
-          "@value": "Software"
-        },
-        {
-          "@language": "fr",
-          "@value": "Logiciel"
-        },
-        {
-          "@language": "it",
-          "@value": "software"
-        },
-        {
-          "@language": "pl",
-          "@value": "Oprogramowanie"
-        },
-        {
-          "@language": "pt",
-          "@value": "Software"
-        }
-      ]
-    }
-  ]
-}
+      {
+        "@language": "en",
+        "@value": "Software"
+      },
+      {
+        "@language": "fr",
+        "@value": "Logiciel"
+      },
+      {
+        "@language": "it",
+        "@value": "software"
+      },
+      {
+        "@language": "pl",
+        "@value": "Oprogramowanie"
+      },
+      {
+        "@language": "pt",
+        "@value": "Software"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_semantic-artefact",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Semantic artefact"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#closeMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/GSZA-Y7V7"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A machine-actionable and machine-interpretable formalisation of a conceptualisation, such as an ontology, controlled vocabulary, thesaurus, or schema."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_semantic-artefact"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Semantic artefact"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_manuscript",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A document written by hand or typewritten, as opposed to printed."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Manuskript"
+      },
+      {
+        "@language": "en",
+        "@value": "Manuscript"
+      },
+      {
+        "@language": "fr",
+        "@value": "Manuscrit"
+      },
+      {
+        "@language": "it",
+        "@value": "manoscritto"
+      },
+      {
+        "@language": "pl",
+        "@value": "Rękopis"
+      },
+      {
+        "@language": "pt",
+        "@value": "Manuscrito"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A document written by hand or typewritten, as opposed to printed."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_0040"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_manuscript"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Manuskript"
+      },
+      {
+        "@language": "en",
+        "@value": "Manuscript"
+      },
+      {
+        "@language": "fr",
+        "@value": "Manuscrit"
+      },
+      {
+        "@language": "it",
+        "@value": "manoscritto"
+      },
+      {
+        "@language": "pl",
+        "@value": "Rękopis"
+      },
+      {
+        "@language": "pt",
+        "@value": "Manuscrito"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_conference",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters)."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Konferenzveröffentlichung"
+      },
+      {
+        "@language": "en",
+        "@value": "Conference"
+      },
+      {
+        "@language": "fr",
+        "@value": "Conférence"
+      },
+      {
+        "@language": "it",
+        "@value": "contributo a congresso"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał konferencyjny"
+      },
+      {
+        "@language": "pt",
+        "@value": "Conferência"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "Materials related to a conference, workshop, or similar event (e.g., proceedings, papers, posters)."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_c94f"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_conference"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Konferenzveröffentlichung"
+      },
+      {
+        "@language": "en",
+        "@value": "Conference"
+      },
+      {
+        "@language": "fr",
+        "@value": "Conférence"
+      },
+      {
+        "@language": "it",
+        "@value": "contributo a congresso"
+      },
+      {
+        "@language": "pl",
+        "@value": "Materiał konferencyjny"
+      },
+      {
+        "@language": "pt",
+        "@value": "Conferência"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_audio",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "An audio recording."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Ton"
+      },
+      {
+        "@language": "en",
+        "@value": "Sound"
+      },
+      {
+        "@language": "fr",
+        "@value": "son"
+      },
+      {
+        "@language": "it",
+        "@value": "suono"
+      },
+      {
+        "@language": "pt",
+        "@value": "som"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "An audio recording."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_18cc"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_audio"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Ton"
+      },
+      {
+        "@language": "en",
+        "@value": "Sound"
+      },
+      {
+        "@language": "fr",
+        "@value": "son"
+      },
+      {
+        "@language": "it",
+        "@value": "suono"
+      },
+      {
+        "@language": "pt",
+        "@value": "som"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_bibliography",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A systematic list of resources (books, articles, etc.) sharing specific characteristics."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Bibliografie"
+      },
+      {
+        "@language": "en",
+        "@value": "Bibliography"
+      },
+      {
+        "@language": "fr",
+        "@value": "Bibliographie"
+      },
+      {
+        "@language": "it",
+        "@value": "bibliografia"
+      },
+      {
+        "@language": "pl",
+        "@value": "Bibliografia"
+      },
+      {
+        "@language": "pt",
+        "@value": "Bibliografia"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A systematic list of resources (books, articles, etc.) sharing specific characteristics."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_86bc"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_bibliography"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Bibliografie"
+      },
+      {
+        "@language": "en",
+        "@value": "Bibliography"
+      },
+      {
+        "@language": "fr",
+        "@value": "Bibliographie"
+      },
+      {
+        "@language": "it",
+        "@value": "bibliografia"
+      },
+      {
+        "@language": "pl",
+        "@value": "Bibliografia"
+      },
+      {
+        "@language": "pt",
+        "@value": "Bibliografia"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/ContentType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Content Type"
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_preprint",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A version of a scholarly paper that precedes formal peer review and publication."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Preprint"
+      },
+      {
+        "@language": "en",
+        "@value": "Preprint"
+      },
+      {
+        "@language": "fr",
+        "@value": "Prépublication"
+      },
+      {
+        "@language": "it",
+        "@value": "articolo preliminare"
+      },
+      {
+        "@language": "pl",
+        "@value": "Preprint"
+      },
+      {
+        "@language": "pt",
+        "@value": "Preprint"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A version of a scholarly paper that precedes formal peer review and publication."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_816b"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_preprint"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Preprint"
+      },
+      {
+        "@language": "en",
+        "@value": "Preprint"
+      },
+      {
+        "@language": "fr",
+        "@value": "Prépublication"
+      },
+      {
+        "@language": "it",
+        "@value": "articolo preliminare"
+      },
+      {
+        "@language": "pl",
+        "@value": "Preprint"
+      },
+      {
+        "@language": "pt",
+        "@value": "Preprint"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_blog-post",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A discrete entry or post in a blog."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Blogbeitrag"
+      },
+      {
+        "@language": "en",
+        "@value": "Blog post"
+      },
+      {
+        "@language": "fr",
+        "@value": "Article de blog"
+      },
+      {
+        "@language": "it",
+        "@value": "articolo di blog"
+      },
+      {
+        "@language": "pl",
+        "@value": "Artykuł na blogu"
+      },
+      {
+        "@language": "pt",
+        "@value": "Post de Blogue"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A discrete entry or post in a blog."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_6947"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_blog-post"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Blogbeitrag"
+      },
+      {
+        "@language": "en",
+        "@value": "Blog post"
+      },
+      {
+        "@language": "fr",
+        "@value": "Article de blog"
+      },
+      {
+        "@language": "it",
+        "@value": "articolo di blog"
+      },
+      {
+        "@language": "pl",
+        "@value": "Artykuł na blogu"
+      },
+      {
+        "@language": "pt",
+        "@value": "Post de Blogue"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/content-type/typ_video",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ContentType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A recording of moving visual images."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "de",
+        "@value": "Video"
+      },
+      {
+        "@language": "en",
+        "@value": "Video"
+      },
+      {
+        "@language": "fr",
+        "@value": "vidéo"
+      },
+      {
+        "@language": "it",
+        "@value": "video"
+      },
+      {
+        "@language": "pt",
+        "@value": "vídeo"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A recording of moving visual images."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#exactMatch": [
+      {
+        "@id": "https://vocabularies.coar-repositories.org/resource_types/c_12ce"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#notation": [
+      {
+        "@value": "typ_video"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "de",
+        "@value": "Video"
+      },
+      {
+        "@language": "en",
+        "@value": "Video"
+      },
+      {
+        "@language": "fr",
+        "@value": "vidéo"
+      },
+      {
+        "@language": "it",
+        "@value": "video"
+      },
+      {
+        "@language": "pt",
+        "@value": "vídeo"
+      }
+    ]
+  }
+]

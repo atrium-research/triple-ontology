@@ -13,7 +13,7 @@ Each entry follows this structure:
 
 ---
 
-## [Unreleased]
+## [3.2.0] - 2026-08-27
 
 ### 2026-08-24 - Refactoring: the repository surface becomes docs/ — ontology/ retired, merge default fixed
 

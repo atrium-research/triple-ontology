@@ -15,7 +15,7 @@ dataset.
 
 ## Current state
 
-The current release is **[3.1.0](https://github.com/atrium-research/triple-ontology/releases/latest)**.
+The current release is **[3.2.0](https://github.com/atrium-research/triple-ontology/releases/latest)**.
 The ontology ships as **one consolidated model plus six controlled vocabularies**, siblings under
 the same root:
 

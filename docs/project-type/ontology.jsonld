@@ -1,240 +1,300 @@
-{
-  "@context": {
-    "brick": "https://brickschema.org/schema/Brick#",
-    "csvw": "http://www.w3.org/ns/csvw#",
-    "dc": "http://purl.org/dc/elements/1.1/",
-    "dcam": "http://purl.org/dc/dcam/",
-    "dcat": "http://www.w3.org/ns/dcat#",
-    "dcmitype": "http://purl.org/dc/dcmitype/",
-    "dcterms": "http://purl.org/dc/terms/",
-    "doap": "http://usefulinc.com/ns/doap#",
-    "foaf": "http://xmlns.com/foaf/0.1/",
-    "geo": "http://www.opengis.net/ont/geosparql#",
-    "odrl": "http://www.w3.org/ns/odrl/2/",
-    "org": "http://www.w3.org/ns/org#",
-    "owl": "http://www.w3.org/2002/07/owl#",
-    "prof": "http://www.w3.org/ns/dx/prof/",
-    "prov": "http://www.w3.org/ns/prov#",
-    "pt": "https://gotriple.eu/ontology/project-type/",
-    "qb": "http://purl.org/linked-data/cube#",
-    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
-    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
-    "schema": "https://schema.org/",
-    "sh": "http://www.w3.org/ns/shacl#",
-    "skos": "http://www.w3.org/2004/02/skos/core#",
-    "sosa": "http://www.w3.org/ns/sosa/",
-    "ssn": "http://www.w3.org/ns/ssn/",
-    "time": "http://www.w3.org/2006/time#",
-    "triple": "https://gotriple.eu/ontology/triple/",
-    "vann": "http://purl.org/vocab/vann/",
-    "void": "http://rdfs.org/ns/void#",
-    "wgs": "https://www.w3.org/2003/01/geo/wgs84_pos#",
-    "xsd": "http://www.w3.org/2001/XMLSchema#"
+[
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/citizen_science",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A research project conducted with the active participation of the general public."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Citizen Science"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A research project conducted with the active participation of the general public."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Citizen Science"
+      }
+    ]
   },
-  "@graph": [
-    {
-      "@id": "pt:crowdfunded",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ProjectType"
-      ],
-      "rdfs:comment": {
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/legacy",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
-        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Crowdfunded"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
-      },
-      "skos:prefLabel": {
-        "@language": "en",
-        "@value": "Crowdfunded"
+        "@value": "A completed or historical research project included for archival and reference purposes."
       }
-    },
-    {
-      "@id": "pt:community_based",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ProjectType"
-      ],
-      "rdfs:comment": {
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Legacy"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A completed or historical research project included for archival and reference purposes."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Legacy"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/community_based",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
         "@value": "A research project initiated and driven by a community, typically outside formal institutional structures."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Community-based"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A research project initiated and driven by a community, typically outside formal institutional structures."
-      },
-      "skos:prefLabel": {
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
         "@language": "en",
         "@value": "Community-based"
       }
-    },
-    {
-      "@id": "https://gotriple.eu/ontology/project-type",
-      "@type": "owl:Ontology",
-      "dcterms:abstract": {
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A research project initiated and driven by a community, typically outside formal institutional structures."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Community-based"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Ontology"
+    ],
+    "http://purl.org/dc/terms/abstract": [
+      {
         "@language": "en",
         "@value": "A controlled vocabulary for classifying research projects."
+      }
+    ],
+    "http://purl.org/dc/terms/contributor": [
+      {
+        "@value": "Luca De Santis"
       },
-      "dcterms:contributor": [
-        "Luca De Santis",
-        "Silvio Peroni"
-      ],
-      "dcterms:created": {
-        "@type": "xsd:date",
+      {
+        "@value": "Silvio Peroni"
+      }
+    ],
+    "http://purl.org/dc/terms/created": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
         "@value": "2021-12-01"
-      },
-      "dcterms:creator": "Alessandro Bertozzi",
-      "dcterms:description": {
+      }
+    ],
+    "http://purl.org/dc/terms/creator": [
+      {
+        "@value": "Alessandro Bertozzi"
+      }
+    ],
+    "http://purl.org/dc/terms/description": [
+      {
         "@language": "en",
         "@value": "The Project Type vocabulary defines the various categories of research projects included in the TRIPLE platform, distinguishing between different funding schemes and project structures."
-      },
-      "dcterms:modified": {
-        "@type": "xsd:date",
-        "@value": "2026-08-11"
-      },
-      "dcterms:title": {
+      }
+    ],
+    "http://purl.org/dc/terms/modified": [
+      {
+        "@type": "http://www.w3.org/2001/XMLSchema#date",
+        "@value": "2026-08-27"
+      }
+    ],
+    "http://purl.org/dc/terms/title": [
+      {
         "@language": "en",
         "@value": "Project Type"
-      },
-      "owl:versionInfo": "3.0.0",
-      "vann:preferredNamespacePrefix": "pt",
-      "vann:preferredNamespaceUri": "https://gotriple.eu/ontology/project-type/"
-    },
-    {
-      "@id": "pt:citizen_science",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ProjectType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A research project conducted with the active participation of the general public."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Citizen Science"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A research project conducted with the active participation of the general public."
-      },
-      "skos:prefLabel": {
-        "@language": "en",
-        "@value": "Citizen Science"
       }
-    },
-    {
-      "@id": "pt:institutional",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ProjectType"
-      ],
-      "rdfs:comment": {
+    ],
+    "http://purl.org/vocab/vann/preferredNamespacePrefix": [
+      {
+        "@value": "pt"
+      }
+    ],
+    "http://purl.org/vocab/vann/preferredNamespaceUri": [
+      {
+        "@value": "https://gotriple.eu/ontology/project-type/"
+      }
+    ],
+    "http://www.w3.org/2002/07/owl#versionInfo": [
+      {
+        "@value": "3.2.0"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/crowdfunded",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Crowdfunded"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Crowdfunded"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/institutional",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
         "@value": "A research project funded or run internally by an institution, such as a university or research centre."
-      },
-      "rdfs:label": {
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
         "@language": "en",
         "@value": "Institutional"
-      },
-      "skos:definition": {
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
         "@language": "en",
         "@value": "A research project funded or run internally by an institution, such as a university or research centre."
-      },
-      "skos:prefLabel": {
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
         "@language": "en",
         "@value": "Institutional"
       }
-    },
-    {
-      "@id": "pt:funded",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ProjectType"
-      ],
-      "rdfs:comment": {
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/non_funded",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
         "@language": "en",
-        "@value": "A research project financed by a formal funding programme, such as a European or national grant."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Funded"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A research project financed by a formal funding programme, such as a European or national grant."
-      },
-      "skos:prefLabel": {
-        "@language": "en",
-        "@value": "Funded"
+        "@value": "A research project carried out without dedicated external funding."
       }
-    },
-    {
-      "@id": "pt:non_funded",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ProjectType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A research project carried out without dedicated external funding."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Non-funded"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A research project carried out without dedicated external funding."
-      },
-      "skos:prefLabel": {
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
         "@language": "en",
         "@value": "Non-funded"
       }
-    },
-    {
-      "@id": "triple:ProjectType",
-      "@type": "owl:Class",
-      "rdfs:label": {
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A research project carried out without dedicated external funding."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Non-funded"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/funded",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A research project financed by a formal funding programme, such as a European or national grant."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Funded"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A research project financed by a formal funding programme, such as a European or national grant."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Funded"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/triple/ProjectType",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#Class"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
         "@language": "en",
         "@value": "Project Type"
-      },
-      "rdfs:subClassOf": {
-        "@id": "skos:Concept"
       }
-    },
-    {
-      "@id": "pt:legacy",
-      "@type": [
-        "owl:NamedIndividual",
-        "triple:ProjectType"
-      ],
-      "rdfs:comment": {
-        "@language": "en",
-        "@value": "A completed or historical research project included for archival and reference purposes."
-      },
-      "rdfs:label": {
-        "@language": "en",
-        "@value": "Legacy"
-      },
-      "skos:definition": {
-        "@language": "en",
-        "@value": "A completed or historical research project included for archival and reference purposes."
-      },
-      "skos:prefLabel": {
-        "@language": "en",
-        "@value": "Legacy"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+      {
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
-    }
-  ]
-}
+    ]
+  }
+]
