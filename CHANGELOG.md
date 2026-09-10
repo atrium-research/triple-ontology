@@ -13,6 +13,39 @@ Each entry follows this structure:
 
 ---
 
+## [Unreleased]
+
+### 2026-09-10 - Decision: the `gto` prefix on w3id, resources resolve to their ARK
+
+**Type**: Documentation (decision record — the registration is a pull request to `perma-id/w3id.org`, prepared and not yet submitted)
+
+**Iteration**: 11, 12 (exemplar IRIs); `URI-CONVENTIONS.md` §1-2
+
+**Description**:
+The oldest item of the 2026-08-10 backlog is done: `ids/gto/` is written in the fork of `perma-id/w3id.org`, with an `.htaccess` and the `README.md` their policy asks for. The space holds **one rule**:
+
+    https://w3id.org/gto/{type}/{reference}
+      302 -> https://kg.gotriple.eu/ark:64989/{reference}
+
+NAAN **64989** is the real one; `12345` survives now only in the exemplar ABOXes. The target is the knowledge graph, not the platform, and the resolution policy — content negotiation, a real 404 — lives there, not at w3id.
+
+**The `{type}` is dropped in the target**, because ARK names are unique inside the NAAN regardless of type (confirmed with who mints them). The consequence is worth stating plainly: the type identifies nothing. It is a human-readable hint, so a resource re-typed later — a `media-object` reclassified `dataset`, which is not a school case now that the specialised entities are becoming autonomous — **keeps the IRI it was minted with**, and `rdf:type` is what says what it is. The alternative, a type-prefixed target, would have asserted that the ARK does not identify its resource on its own, which is exactly what an ARK is for.
+
+Nothing about the entity types is encoded in the `.htaccess`, so adding one never needs another pull request against `perma-id`. Two things do live there and will change: the host and the NAAN. Both are deployment facts, not naming decisions, and updating them is routine — while the `w3id.org/gto/…` IRIs never move. That asymmetry is the whole reason the indirection exists.
+
+**Type spelling: `kebab-case` of the entity class.** So `media-object` and `semantic-artefact`, not the concatenations that iterations 11 and 12 had minted in their `skos:example` blocks (`gto/mediaobject/…`, `gto/semanticartefact/…`); both are corrected, and the merged model changes by exactly two triples (verified with `graph_diff` on the isomorphic graphs — the rest of the diff is blank-node reordering). `URI-CONVENTIONS.md` gains the two missing rows, `resource type` and `resource reference`, plus the paragraph recording why the resource space is deliberately not on `gotriple.eu`: w3id is an indirection the project owns forever and a deployment does not.
+
+**One finding from testing the rules on Apache 2.4** (their checklist asks for it; `ids/` mounted as the docroot with `AllowOverride All`): `Header set Access-Control-Allow-Origin` — which is what `ids/oc` uses — emits nothing here, because it only fires on 2xx and every response in this space is a redirect. It has to be `Header always set`: a CORS check applies to each hop of a redirect chain, so a browser-based RDF client needs the header on the 302 itself.
+
+**Two things verified in passing, both about deployments**:
+- `gotriple.eu/ontology/` **is live and does what `docs/README.md` specifies**: `Accept: text/turtle` on `/ontology/triple` returns `200 text/turtle`, `/ontology/triple/Document` returns `302` to `…/triple#Document`, and an unknown name under `/ontology/` returns a **real 404**. Two deviations: `/ontology/` redirects to `/ontology` (the spec prescribes the opposite, because the landing's assets are relative), and the landing sits behind the Anubis bot challenge, which answers `200` with a challenge page to any non-browser client. The same filter answers `502` — not `403` — to a plain `curl` on `www.` and `api.gotriple.eu`, which is worth knowing before diagnosing an outage that is not there.
+- `kg.gotriple.eu` has **no ARK route yet** (it is in development): the SPA catch-all answers `200 text/html` to every path and ignores `Accept`. The two requirements for it are the ones the ontology's own resolution spec already states: an unknown ARK must be a **real 404**, never the frontend's page with status 200, and `Accept` must select RDF for machine clients.
+
+**Still open**: the 46 `"ark:/12345/…"` literals in the ABOXes, which need both the real NAAN and a decision on the form (the current ARK specification writes `ark:64989/name`, without the slash after `ark:`); and who maintains the w3id entry over the decades it is meant to last — today it is registered to a personal GitHub account, while the identifier belongs to the platform.
+
+**Author**: Alessandro Bertozzi
+
+
 ## [3.2.0] - 2026-08-27
 
 ### 2026-08-24 - Refactoring: the repository surface becomes docs/ — ontology/ retired, merge default fixed

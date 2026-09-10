@@ -20,6 +20,14 @@ IRIs (the ontology, a vocabulary) carry **no trailing slash**; the namespace the
 is the same IRI plus `/`. Nothing else lives at the top of `…/ontology/` — a new name
 there means a new vocabulary, which is a reviewed, deliberate act.
 
+Resources are the one space that is deliberately **not** on `gotriple.eu`:
+`w3id.org/gto/` is an indirection the project owns forever while a deployment does
+not. That space holds a single rule — every resource forwards with a `302` to its
+complete ARK, `https://kg.gotriple.eu/ark:64989/{reference}`, with `{type}` dropped,
+because ARK names are unique inside the NAAN. The type therefore identifies nothing:
+it is a human-readable hint, so a resource re-typed later **keeps the IRI it was
+minted with**, and `rdf:type` is what says what it is.
+
 The model and the vocabularies are **siblings, not nested**: `…/ontology/triple/License`
 is the bridge class (a model term), `…/ontology/license` is the vocabulary. Case and
 path depth keep the two spaces disjoint.
@@ -35,6 +43,8 @@ path depth keep the two spaces disjoint.
 | vocabulary | `kebab-case`, lowercase, English | `discipline`, `content-type`, `condition-of-access` |
 | concept | **the production key, verbatim** | `musiq`, `typ_article`, `acr_open-access`, `other` |
 | DDC proxy | the DDC notation | `780`, `930.1` |
+| resource type | `kebab-case` of the entity class | `document`, `dataset`, `media-object`, `semantic-artefact`, `project`, `profile` |
+| resource reference | the ARK name, without its NAAN | `x54g7`, `doc-esthetique-1998` |
 | namespace prefix | one-word vocabulary → truncation; multi-word → initials | `disc`, `lic`, `ddc`; `ct`, `pt`, `coa` |
 
 The concept rule is the load-bearing one: a concept's local name is exactly the value
