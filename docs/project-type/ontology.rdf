@@ -7,44 +7,6 @@
    xmlns:skos="http://www.w3.org/2004/02/skos/core#"
    xmlns:vann="http://purl.org/vocab/vann/"
 >
-  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/citizen_science">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Citizen Science</rdfs:label>
-    <rdfs:comment xml:lang="en">A research project conducted with the active participation of the general public.</rdfs:comment>
-    <skos:definition xml:lang="en">A research project conducted with the active participation of the general public.</skos:definition>
-    <skos:prefLabel xml:lang="en">Citizen Science</skos:prefLabel>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/institutional">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Institutional</rdfs:label>
-    <rdfs:comment xml:lang="en">A research project funded or run internally by an institution, such as a university or research centre.</rdfs:comment>
-    <skos:definition xml:lang="en">A research project funded or run internally by an institution, such as a university or research centre.</skos:definition>
-    <skos:prefLabel xml:lang="en">Institutional</skos:prefLabel>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/legacy">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
-    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Legacy</rdfs:label>
-    <rdfs:comment xml:lang="en">A completed or historical research project included for archival and reference purposes.</rdfs:comment>
-    <skos:definition xml:lang="en">A completed or historical research project included for archival and reference purposes.</skos:definition>
-    <skos:prefLabel xml:lang="en">Legacy</skos:prefLabel>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
-    <dcterms:title xml:lang="en">Project Type</dcterms:title>
-    <dcterms:description xml:lang="en">The Project Type vocabulary defines the various categories of research projects included in the TRIPLE platform, distinguishing between different funding schemes and project structures.</dcterms:description>
-    <dcterms:abstract xml:lang="en">A controlled vocabulary for classifying research projects.</dcterms:abstract>
-    <dcterms:creator>Alessandro Bertozzi</dcterms:creator>
-    <dcterms:contributor>Luca De Santis</dcterms:contributor>
-    <dcterms:contributor>Silvio Peroni</dcterms:contributor>
-    <owl:versionInfo>3.2.0</owl:versionInfo>
-    <vann:preferredNamespacePrefix>pt</vann:preferredNamespacePrefix>
-    <vann:preferredNamespaceUri>https://gotriple.eu/ontology/project-type/</vann:preferredNamespaceUri>
-    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-12-01</dcterms:created>
-    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-08-27</dcterms:modified>
-  </rdf:Description>
   <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/non_funded">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
@@ -53,13 +15,29 @@
     <skos:definition xml:lang="en">A research project carried out without dedicated external funding.</skos:definition>
     <skos:prefLabel xml:lang="en">Non-funded</skos:prefLabel>
   </rdf:Description>
-  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/community_based">
+  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Ontology"/>
+    <dcterms:title xml:lang="en">Project Type</dcterms:title>
+    <dcterms:description xml:lang="en">The Project Type vocabulary defines the various categories of research projects included in the TRIPLE platform, distinguishing between different funding schemes and project structures.</dcterms:description>
+    <dcterms:abstract xml:lang="en">A controlled vocabulary for classifying research projects.</dcterms:abstract>
+    <dcterms:publisher rdf:resource="https://www.gotriple.eu"/>
+    <dcterms:license rdf:resource="https://creativecommons.org/licenses/by/4.0/"/>
+    <dcterms:creator>Alessandro Bertozzi</dcterms:creator>
+    <dcterms:contributor>Luca De Santis</dcterms:contributor>
+    <dcterms:contributor>Silvio Peroni</dcterms:contributor>
+    <owl:versionInfo>3.2.0</owl:versionInfo>
+    <vann:preferredNamespacePrefix>pt</vann:preferredNamespacePrefix>
+    <vann:preferredNamespaceUri>https://gotriple.eu/ontology/project-type/</vann:preferredNamespaceUri>
+    <dcterms:created rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2021-12-01</dcterms:created>
+    <dcterms:modified rdf:datatype="http://www.w3.org/2001/XMLSchema#date">2026-09-30</dcterms:modified>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/citizen_science">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
-    <rdfs:label xml:lang="en">Community-based</rdfs:label>
-    <rdfs:comment xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</rdfs:comment>
-    <skos:definition xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</skos:definition>
-    <skos:prefLabel xml:lang="en">Community-based</skos:prefLabel>
+    <rdfs:label xml:lang="en">Citizen Science</rdfs:label>
+    <rdfs:comment xml:lang="en">A research project conducted with the active participation of the general public.</rdfs:comment>
+    <skos:definition xml:lang="en">A research project conducted with the active participation of the general public.</skos:definition>
+    <skos:prefLabel xml:lang="en">Citizen Science</skos:prefLabel>
   </rdf:Description>
   <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/funded">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
@@ -69,6 +47,35 @@
     <skos:definition xml:lang="en">A research project financed by a formal funding programme, such as a European or national grant.</skos:definition>
     <skos:prefLabel xml:lang="en">Funded</skos:prefLabel>
   </rdf:Description>
+  <rdf:Description rdf:about="https://gotriple.eu/ontology/triple/ProjectType">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
+    <rdfs:label xml:lang="en">Project Type</rdfs:label>
+    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/legacy">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Legacy</rdfs:label>
+    <rdfs:comment xml:lang="en">A completed or historical research project included for archival and reference purposes.</rdfs:comment>
+    <skos:definition xml:lang="en">A completed or historical research project included for archival and reference purposes.</skos:definition>
+    <skos:prefLabel xml:lang="en">Legacy</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/community_based">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Community-based</rdfs:label>
+    <rdfs:comment xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</rdfs:comment>
+    <skos:definition xml:lang="en">A research project initiated and driven by a community, typically outside formal institutional structures.</skos:definition>
+    <skos:prefLabel xml:lang="en">Community-based</skos:prefLabel>
+  </rdf:Description>
+  <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/institutional">
+    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
+    <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
+    <rdfs:label xml:lang="en">Institutional</rdfs:label>
+    <rdfs:comment xml:lang="en">A research project funded or run internally by an institution, such as a university or research centre.</rdfs:comment>
+    <skos:definition xml:lang="en">A research project funded or run internally by an institution, such as a university or research centre.</skos:definition>
+    <skos:prefLabel xml:lang="en">Institutional</skos:prefLabel>
+  </rdf:Description>
   <rdf:Description rdf:about="https://gotriple.eu/ontology/project-type/crowdfunded">
     <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#NamedIndividual"/>
     <rdf:type rdf:resource="https://gotriple.eu/ontology/triple/ProjectType"/>
@@ -76,10 +83,5 @@
     <rdfs:comment xml:lang="en">A research project financed through collective contributions, typically via a crowdfunding platform.</rdfs:comment>
     <skos:definition xml:lang="en">A research project financed through collective contributions, typically via a crowdfunding platform.</skos:definition>
     <skos:prefLabel xml:lang="en">Crowdfunded</skos:prefLabel>
-  </rdf:Description>
-  <rdf:Description rdf:about="https://gotriple.eu/ontology/triple/ProjectType">
-    <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#Class"/>
-    <rdfs:label xml:lang="en">Project Type</rdfs:label>
-    <rdfs:subClassOf rdf:resource="http://www.w3.org/2004/02/skos/core#Concept"/>
   </rdf:Description>
 </rdf:RDF>

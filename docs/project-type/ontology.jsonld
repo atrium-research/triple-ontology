@@ -62,7 +62,7 @@
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/project-type/community_based",
+    "@id": "https://gotriple.eu/ontology/project-type/institutional",
     "@type": [
       "http://www.w3.org/2002/07/owl#NamedIndividual",
       "https://gotriple.eu/ontology/triple/ProjectType"
@@ -70,25 +70,87 @@
     "http://www.w3.org/2000/01/rdf-schema#comment": [
       {
         "@language": "en",
-        "@value": "A research project initiated and driven by a community, typically outside formal institutional structures."
+        "@value": "A research project funded or run internally by an institution, such as a university or research centre."
       }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Community-based"
+        "@value": "Institutional"
       }
     ],
     "http://www.w3.org/2004/02/skos/core#definition": [
       {
         "@language": "en",
-        "@value": "A research project initiated and driven by a community, typically outside formal institutional structures."
+        "@value": "A research project funded or run internally by an institution, such as a university or research centre."
       }
     ],
     "http://www.w3.org/2004/02/skos/core#prefLabel": [
       {
         "@language": "en",
-        "@value": "Community-based"
+        "@value": "Institutional"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/crowdfunded",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Crowdfunded"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Crowdfunded"
+      }
+    ]
+  },
+  {
+    "@id": "https://gotriple.eu/ontology/project-type/non_funded",
+    "@type": [
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A research project carried out without dedicated external funding."
+      }
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#label": [
+      {
+        "@language": "en",
+        "@value": "Non-funded"
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#definition": [
+      {
+        "@language": "en",
+        "@value": "A research project carried out without dedicated external funding."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Non-funded"
       }
     ]
   },
@@ -128,10 +190,20 @@
         "@value": "The Project Type vocabulary defines the various categories of research projects included in the TRIPLE platform, distinguishing between different funding schemes and project structures."
       }
     ],
+    "http://purl.org/dc/terms/license": [
+      {
+        "@id": "https://creativecommons.org/licenses/by/4.0/"
+      }
+    ],
     "http://purl.org/dc/terms/modified": [
       {
         "@type": "http://www.w3.org/2001/XMLSchema#date",
-        "@value": "2026-08-27"
+        "@value": "2026-09-30"
+      }
+    ],
+    "http://purl.org/dc/terms/publisher": [
+      {
+        "@id": "https://www.gotriple.eu"
       }
     ],
     "http://purl.org/dc/terms/title": [
@@ -157,95 +229,19 @@
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/project-type/crowdfunded",
+    "@id": "https://gotriple.eu/ontology/triple/ProjectType",
     "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/ProjectType"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
-      }
+      "http://www.w3.org/2002/07/owl#Class"
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Crowdfunded"
+        "@value": "Project Type"
       }
     ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
+    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
       {
-        "@language": "en",
-        "@value": "A research project financed through collective contributions, typically via a crowdfunding platform."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Crowdfunded"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/project-type/institutional",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/ProjectType"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A research project funded or run internally by an institution, such as a university or research centre."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Institutional"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A research project funded or run internally by an institution, such as a university or research centre."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Institutional"
-      }
-    ]
-  },
-  {
-    "@id": "https://gotriple.eu/ontology/project-type/non_funded",
-    "@type": [
-      "http://www.w3.org/2002/07/owl#NamedIndividual",
-      "https://gotriple.eu/ontology/triple/ProjectType"
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#comment": [
-      {
-        "@language": "en",
-        "@value": "A research project carried out without dedicated external funding."
-      }
-    ],
-    "http://www.w3.org/2000/01/rdf-schema#label": [
-      {
-        "@language": "en",
-        "@value": "Non-funded"
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#definition": [
-      {
-        "@language": "en",
-        "@value": "A research project carried out without dedicated external funding."
-      }
-    ],
-    "http://www.w3.org/2004/02/skos/core#prefLabel": [
-      {
-        "@language": "en",
-        "@value": "Non-funded"
+        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
       }
     ]
   },
@@ -281,19 +277,33 @@
     ]
   },
   {
-    "@id": "https://gotriple.eu/ontology/triple/ProjectType",
+    "@id": "https://gotriple.eu/ontology/project-type/community_based",
     "@type": [
-      "http://www.w3.org/2002/07/owl#Class"
+      "http://www.w3.org/2002/07/owl#NamedIndividual",
+      "https://gotriple.eu/ontology/triple/ProjectType"
+    ],
+    "http://www.w3.org/2000/01/rdf-schema#comment": [
+      {
+        "@language": "en",
+        "@value": "A research project initiated and driven by a community, typically outside formal institutional structures."
+      }
     ],
     "http://www.w3.org/2000/01/rdf-schema#label": [
       {
         "@language": "en",
-        "@value": "Project Type"
+        "@value": "Community-based"
       }
     ],
-    "http://www.w3.org/2000/01/rdf-schema#subClassOf": [
+    "http://www.w3.org/2004/02/skos/core#definition": [
       {
-        "@id": "http://www.w3.org/2004/02/skos/core#Concept"
+        "@language": "en",
+        "@value": "A research project initiated and driven by a community, typically outside formal institutional structures."
+      }
+    ],
+    "http://www.w3.org/2004/02/skos/core#prefLabel": [
+      {
+        "@language": "en",
+        "@value": "Community-based"
       }
     ]
   }

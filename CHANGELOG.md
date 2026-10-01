@@ -15,6 +15,22 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-09-30 - Fix: the ontology header declares its license, publisher and provenance — FAIR score measured
+
+**Type**: Documentation (metadata)
+
+**Iteration**: none (`ontology/metadata.ttl`; propagates to the model and, through `build.py`, to the six vocabularies)
+
+**Description**:
+Running FOOPS! on the published ontology returned 4%, which turned out to be two problems, only one of them ours. The first is the edge: `gotriple.eu` accepts **TLS 1.3 only** — TLS 1.2 is refused with `alert protocol version` — so the public FOOPS! instance, whose JVM does not negotiate 1.3, sees every URL on the host as unresolvable and the 23 dependent tests fail in cascade. The same FOOPS! release (v0.4.0) run locally on JDK 21 scores the canonical IRI at 64.9%. That is an interoperability problem for any older client, not only for validators, and it is fixed in nginx (`ssl_protocols TLSv1.2 TLSv1.3;`), not here.
+
+The second is ours: the ontology header declared **no license** — `CC BY 4.0` existed only as a hand-written comment at the top of each vocabulary source — and no publisher, issuance date, source or citation. Five triples in `ontology/metadata.ttl` fix it: `dcterms:license <https://creativecommons.org/licenses/by/4.0/>` (the check also requires it to resolve: it does), `dcterms:publisher <https://www.gotriple.eu>`, `dcterms:issued "2025-10-22"` (release 1.0.0), `dcterms:source` (the repository) and `dcterms:bibliographicCitation` — the predicate FOOPS! actually reads, since it ignores `schema:citation` on purpose as "citing another work". Measured on the same file under the same conditions: **60.8% → 77.1%**; projected onto the canonical IRI, where the resolution tests already pass, **81.2%** (OpenCitations OCO: 72.9%). The merged model changes by exactly those five triples (verified with `graph_diff`), invariants green. The vocabularies inherit license and publisher through `build.py`'s shared-metadata list.
+
+Still red, by kind: `PURL1` by design (the ontology lives on gotriple.eu, not on a PID register — the 3.0.0 decision); `FIND2`/`FIND3` need registrations (prefix.cc, LOV — the latter now possible, since it requires a license); `OM3` wants a DOI, a logo and a status, none of which exist yet (a Zenodo DOI per release would settle the first).
+
+**Author**: Alessandro Bertozzi
+
+
 ### 2026-09-10 - Decision: the `gto` prefix on w3id, resources resolve to their ARK
 
 **Type**: Documentation (decision record — the registration is a pull request to `perma-id/w3id.org`, prepared and not yet submitted)
