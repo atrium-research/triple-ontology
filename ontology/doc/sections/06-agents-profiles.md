@@ -1,6 +1,6 @@
 ---
 title: Agents and Profiles
-terms: Profile foaf:Agent foaf:Person foaf:Organization schema:Person schema:Organization foaf:name foaf:givenName foaf:familyName schema:name schema:alternateName schema:jobTitle pronouns schema:affiliation registeredUser openToCollaboration schema:description schema:image schema:email schema:contactPoint schema:ContactPoint schema:url foaf:account foaf:OnlineAccount schema:knowsAbout schema:knowsLanguage foaf:topic_interest
+terms: Profile foaf:Agent foaf:Person foaf:Organization schema:Person schema:Organization foaf:name foaf:givenName foaf:familyName schema:name schema:alternateName schema:jobTitle pronouns schema:affiliation registeredUser openToCollaboration schema:description schema:image schema:url foaf:account foaf:OnlineAccount schema:knowsAbout schema:knowsLanguage foaf:topic_interest
 ---
 
 ### 6.1. Preamble
@@ -22,7 +22,7 @@ both). Naming follows FOAF: every profile carries exactly one `foaf:name`, and
 people may add `foaf:givenName` and `foaf:familyName`; `schema:alternateName`
 records aliases and name variants. `schema:name` is the generic Schema.org
 naming property, reserved in this model for *things* — projects, places,
-defined terms — while agents are named with `foaf:name` (§3.9).
+defined terms — while agents are named with `foaf:name` (§3.10).
 
 A person's professional context is `schema:jobTitle` and
 `schema:affiliation` (the organization they belong to);
@@ -37,8 +37,7 @@ What a registered user curates, an extracted author simply does not have:
 
 - **Self-description** — `schema:description` (the free-text bio) and
   `schema:image` (the personal picture chosen by the user).
-- **Contacts** — `schema:email`, `schema:contactPoint` (a
-  `schema:ContactPoint` node), and `schema:url` for personal web pages.
+- **Personal pages** — `schema:url`, the user's own web pages.
 - **The platform account** — `foaf:account` points to at most one
   `foaf:OnlineAccount`, the GoTriple account itself; a profile without one is
   an extracted author.

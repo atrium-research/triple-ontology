@@ -105,15 +105,16 @@ SELECT ?document WHERE {
 Who is the contact point for a specific document?
 
 ```sparql
-PREFIX schema: <https://schema.org/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
-SELECT ?contactPoint ?email
+SELECT ?email
 WHERE {
-  triple:document_1 schema:contactPoint ?contactPoint .
-  ?contactPoint schema:email ?email .
+  triple:document_1 dcat:contactPoint ?contactPoint .
+  ?contactPoint vcard:hasEmail ?email .
 }
 ```
 
 **Expected Result:**
-- `triple:contact_point_1` → "contact@example.org"
+- `<mailto:contact@example.org>`

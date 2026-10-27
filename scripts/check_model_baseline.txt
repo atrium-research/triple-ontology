@@ -1,6 +1,7 @@
 # The eleven axioms below are asserted on terms outside the triple: namespace, and
 # each one restates what the source vocabulary itself declares — verified on
-# 2026-08-10 against datacite, litre, oa, dcat, adms, sioc, dcterms and schema.org.
+# 2026-08-10 against datacite, litre, oa, dcat, adms, sioc, dcterms and schema.org
+# (dcat:contactPoint, which replaced schema:contactPoint, on 2026-10-27 against dcat.ttl).
 # Repeating them keeps each iteration readable and testable on its own.
 #
 # Anything else fails scripts/check_model.py: a range or a domain that NARROWS a
@@ -12,7 +13,7 @@ http://purl.org/spar/datacite/usesIdentifierScheme rdfs:range http://purl.org/sp
 http://rdfs.org/sioc/ns#topic rdfs:subPropertyOf http://purl.org/dc/terms/subject
 http://www.w3.org/ns/adms#representationTechnique rdfs:range http://www.w3.org/2004/02/skos/core#Concept
 http://www.w3.org/ns/dcat#bbox rdfs:range http://www.w3.org/2000/01/rdf-schema#Literal
+http://www.w3.org/ns/dcat#contactPoint rdfs:range http://www.w3.org/2006/vcard/ns#Kind
 http://www.w3.org/ns/dcat#theme rdfs:subPropertyOf http://purl.org/dc/terms/subject
 http://www.w3.org/ns/oa#motivatedBy rdfs:range http://www.w3.org/ns/oa#Motivation
-https://schema.org/contactPoint rdfs:range https://schema.org/ContactPoint
 https://schema.org/spatialCoverage rdfs:range https://schema.org/Place

@@ -5,6 +5,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 #################################################################
 #    Object Properties
 #################################################################
@@ -58,14 +60,6 @@ foaf:Person rdf:type owl:Class .
 schema:CreativeWork rdf:type owl:Class .
 
 
-###  https://schema.org/ContactPoint
-schema:ContactPoint rdf:type owl:Class .
-
-
-###  https://schema.org/email
-schema:email rdf:type owl:DatatypeProperty .
-
-
 #################################################################
 #    Individuals
 #################################################################
@@ -83,7 +77,8 @@ triple:document_1 rdf:type owl:NamedIndividual ,
             schema:author triple:author_34 ;
             schema:provider triple:provider_9 ,
                            triple:provider_45 ;
-            schema:contactPoint triple:contact_point_1 ;
+            dcat:contactPoint [ rdf:type vcard:Organization ;
+                                vcard:hasEmail <mailto:contact@example.org> ] ;
             rdfs:comment "Example document with author and multiple providers. Provider_9 in 2012, provider_45 in 2022."@en .
 
 
@@ -100,10 +95,3 @@ triple:provider_9 rdf:type owl:NamedIndividual ,
             foaf:name "name_3" ;
             rdfs:comment "Provider of document_1 in 2012"@en .
 
-
-
-###  https://gotriple.eu/ontology/triple/contact_point_1
-triple:contact_point_1 rdf:type owl:NamedIndividual ,
-                          schema:ContactPoint ;
-                 schema:email "contact@example.org" ;
-                 rdfs:comment "Contact point for document_1"@en .

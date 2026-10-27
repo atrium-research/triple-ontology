@@ -236,19 +236,22 @@ Return all datasets with their contact points.
 
 ```sparql
 PREFIX schema: <https://schema.org/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
-SELECT ?dataset ?title ?contact ?email WHERE {
+SELECT ?dataset ?title ?contactName ?email WHERE {
   ?dataset a triple:Dataset ;
            schema:headline ?title ;
-           schema:contactPoint ?contact .
-  ?contact schema:email ?email .
+           dcat:contactPoint ?contact .
+  ?contact vcard:fn ?contactName ;
+           vcard:hasEmail ?email .
 }
 ```
 
 **Expected result:**
-- `triple:dataset-001` → "European Archaeological Sites Database" → `triple:contact-heritage-institute` → "data@heritage.eu"
-- `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:contact-social-observatory` → "support@social-eu.org"
+- `triple:dataset-001` → "European Archaeological Sites Database" → "European Heritage Institute Data Team" → `<mailto:data@heritage.eu>`
+- `triple:dataset-002` → "European Social Attitudes Survey 2023" → "EU Social Observatory Research Support" → `<mailto:support@social-eu.org>`
 
 
 ## CQ_10.12

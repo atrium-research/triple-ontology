@@ -107,7 +107,7 @@ Who is the contact point for a specific document?
 The contact point of the document, with its e-mail address.
 
 ### Result
-* `triple:contact_point_1` → "contact@example.org"
+* `<mailto:contact@example.org>`
 
 ### Based on
 Example 1

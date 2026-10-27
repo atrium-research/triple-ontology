@@ -6,6 +6,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
@@ -289,8 +291,8 @@ triple:Project rdf:type owl:Class ;
                                  owl:allValuesFrom xsd:date
                                ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                                 owl:onProperty schema:contactPoint ;
-                                 owl:allValuesFrom schema:ContactPoint
+                                 owl:onProperty dcat:contactPoint ;
+                                 owl:allValuesFrom vcard:Kind
                                ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                  owl:onProperty triple:hasProjectType ;

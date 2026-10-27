@@ -42,6 +42,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
@@ -63,7 +65,8 @@ triple:multimedia-001 a triple:MediaObject ;
         <http://semantics.gr/authorities/SSH-LCSH/sh85085001> ;
     schema:abstract "Conférence magistrale sur la Renaissance carolingienne présentée dans le cadre du séminaire d'histoire médiévale de l'Université de Paris."@fr ;
     schema:author "Prof. Marie Dubois" ;
-    schema:contactPoint triple:contact-canal-u ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:hasEmail <mailto:contact@canal-u.fr> ] ;
     schema:contributor "Dr. Jean Martin",
         "Université de Paris" ;
     schema:dateCreated "2023-10-15"^^xsd:date ;
@@ -203,9 +206,6 @@ triple:multimedia-003 a triple:MediaObject ;
     skos:exactMatch <http://id.loc.gov/authorities/subjects/sh85112806> ;
     skos:prefLabel "Renaissance"@en,
         "Rinascimento"@it .
-
-triple:contact-canal-u a schema:ContactPoint ;
-    schema:email "contact@canal-u.fr" .
 
 triple:document-botticelli-analysis-2023 a schema:CreativeWork ;
     schema:datePublished "2023-10-15"^^xsd:date ;

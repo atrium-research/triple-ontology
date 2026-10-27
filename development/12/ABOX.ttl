@@ -43,6 +43,8 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
@@ -61,7 +63,9 @@ triple:ontology-medieval a triple:SemanticArtefact ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85085001> ;
     schema:abstract "Formal ontology for medieval studies research domain. Provides semantic modeling of medieval historical periods, events, places, and scholarly concepts."@en ;
-    schema:contactPoint triple:contact-unibo-medieval ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:fn "Medieval Studies Research Group" ;
+            vcard:hasEmail <mailto:medieval@unibo.it> ] ;
     schema:contributor triple:person-giovanni-bianchi,
         triple:person-pierre-martin ;
     schema:creativeWorkStatus triple:status-draft ;
@@ -103,7 +107,9 @@ triple:thesaurus-ssh a triple:SemanticArtefact ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85066150> ;
     schema:abstract "Controlled vocabulary for Social Sciences and Humanities research classification used in the GoTriple discovery platform. Provides standardized terminology for SSH domains."@en ;
-    schema:contactPoint triple:contact-gotriple ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:fn "GoTriple Support Team" ;
+            vcard:hasEmail <mailto:contact@gotriple.eu> ] ;
     schema:contributor triple:organization-gotriple ;
     schema:creativeWorkStatus triple:status-published ;
     schema:dateModified "2023-10-20"^^xsd:date ;
@@ -132,7 +138,9 @@ triple:vocab-arthistory a triple:SemanticArtefact ;
     triple:hasLicense lic:lic_creative-commons ;
     schema:about <http://semantics.gr/authorities/SSH-LCSH/sh85007960> ;
     schema:abstract "Comprehensive vocabulary for art historical concepts and terminology. Covers periods, movements, techniques, and cultural contexts in art history research."@en ;
-    schema:contactPoint triple:contact-dhi ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:fn "DHI Vocabulary Team" ;
+            vcard:hasEmail <mailto:vocab@arthistory.eu> ] ;
     schema:contributor triple:organization-dhi,
         triple:person-maria-rossi ;
     schema:creativeWorkStatus triple:status-published ;
@@ -170,18 +178,6 @@ triple:vocab-arthistory a triple:SemanticArtefact ;
     skos:prefLabel "Middle Ages"@en,
         "Moyen-âge"@fr,
         "Medioevo"@it .
-
-triple:contact-dhi a schema:ContactPoint ;
-    schema:email "vocab@arthistory.eu" ;
-    schema:name "DHI Vocabulary Team" .
-
-triple:contact-gotriple a schema:ContactPoint ;
-    schema:email "contact@gotriple.eu" ;
-    schema:name "GoTriple Support Team" .
-
-triple:contact-unibo-medieval a schema:ContactPoint ;
-    schema:email "medieval@unibo.it" ;
-    schema:name "Medieval Studies Research Group" .
 
 triple:document-carolingian a triple:Document ;
     datacite:hasIdentifier triple:id_document-carolingian,

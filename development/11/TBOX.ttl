@@ -6,6 +6,8 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
+@prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix datacite: <http://purl.org/spar/datacite/> .
@@ -267,8 +269,8 @@ triple:MediaObject rdf:type owl:Class ;
                                      owl:onProperty dcterms:isReferencedBy ;
                                      owl:allValuesFrom triple:Document ] ,
                                    [ rdf:type owl:Restriction ;
-                                     owl:onProperty schema:contactPoint ;
-                                     owl:allValuesFrom schema:ContactPoint ] .
+                                     owl:onProperty dcat:contactPoint ;
+                                     owl:allValuesFrom vcard:Kind ] .
 
 ###  https://schema.org/DefinedTerm
 schema:DefinedTerm rdf:type owl:Class ;

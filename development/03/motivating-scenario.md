@@ -46,4 +46,4 @@ Two consequences follow, and they are deliberate:
 
 - **Author**: `author_34`, a `foaf:Person` named "name_45"
 - **Providers**: `provider_9`, a `foaf:Organization` named "name_3", and `provider_45`, a `foaf:Organization` named "name_1"
-- **Contact point**: `contact_point_1`, with e-mail `contact@example.org`
+- **Contact point**: an organization reachable at `contact@example.org`, given as a `vcard:Organization` with `vcard:hasEmail <mailto:contact@example.org>`

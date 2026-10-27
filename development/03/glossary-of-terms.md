@@ -8,10 +8,13 @@
 | `schema:contributor`    | A secondary contributor to the document, from Schema.org: someone who took part without being its primary author.                                                     |
 | `schema:publisher`      | The agent responsible for publishing and disseminating the document, from Schema.org.                                                                                  |
 | `schema:provider`       | The agent that makes the document available to GoTriple, from Schema.org. It may differ from the publisher when the document is harvested from a third-party repository. |
-| `schema:contactPoint`   | Links the document to the contact point designated for it, from Schema.org.                                                                                            |
-| `schema:ContactPoint`   | A contact point for a person or an organization, from Schema.org.                                                                                                      |
+| `dcat:contactPoint`     | Links the document to the contact point designated for it, from DCAT. The value is a `vcard:Kind`.                                                                      |
+| `vcard:Kind`            | A contact point, from vCard: the parent class of every vCard object, constrained to carry its name as `xsd:string`.                                                     |
+| `vcard:Organization`    | The vCard subclass for a contact point that is a team, a help desk or an institution.                                                                                   |
 | `schema:name`           | The name of an agent, from Schema.org.                                                                                                                                 |
-| `schema:email`          | The e-mail address of a contact point, from Schema.org.                                                                                                                |
+| `vcard:fn`              | The display name of a contact point, from vCard.                                                                                                                        |
+| `vcard:hasEmail`        | The e-mail address of a contact point, from vCard, given as a `mailto:` IRI.                                                                                            |
+| `vcard:hasURL`          | The web page or form through which a contact point can be reached, from vCard.                                                                                          |
 | `schema:datePublished`  | The date of first publication of the document, from Schema.org.                                                                                                        |
 | `schema:CreativeWork`   | A creative work, from Schema.org. Superclass of `triple:Document`.                                                                                                     |
 | `foaf:Document`         | A document, from FOAF. Superclass of `triple:Document`.                                                                                                                |

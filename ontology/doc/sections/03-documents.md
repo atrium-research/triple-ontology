@@ -1,6 +1,6 @@
 ---
 title: Documents
-terms: Document schema:CreativeWork schema:headline schema:abstract schema:datePublished schema:author schema:creator schema:contributor schema:publisher schema:provider aggregator schema:keywords schema:DefinedTerm schema:creativeWorkStatus schema:comment schema:dateCreated schema:dateModified schema:inLanguage schema:Language schema:spatialCoverage schema:temporalCoverage schema:Place
+terms: Document schema:CreativeWork schema:headline schema:abstract schema:datePublished schema:author schema:creator schema:contributor schema:publisher schema:provider aggregator schema:keywords schema:DefinedTerm schema:creativeWorkStatus schema:comment schema:dateCreated schema:dateModified schema:inLanguage schema:Language schema:spatialCoverage schema:temporalCoverage schema:Place dcat:contactPoint vcard:Kind vcard:Organization vcard:fn vcard:hasEmail vcard:hasURL
 ---
 
 ### 3.1. Preamble
@@ -122,14 +122,34 @@ following the Schema.org conventions (a year, an ISO 8601 interval such as
 `"2019/2020"`). Coverage is a document-level facility — any record may carry
 it; datasets add the DCAT-specific bounding box on top of it (§4).
 
-### 3.6. Vocabulary
+### 3.6. Contact Point
+
+A record may name whom to contact about the resource — the repository's help
+desk, the team that curates a dataset. The model follows DCAT:
+`dcat:contactPoint` links the resource to a `vcard:Kind` node, typed with the
+vCard subclass that fits (`vcard:Organization` for a team, a help desk or an
+institution), which carries a display name (`vcard:fn`), an e-mail address
+(`vcard:hasEmail`) and a contact page (`vcard:hasURL`). The e-mail is a
+`mailto:` IRI, not a string, as DCAT-AP requires. The contact is a blank node
+of the record that names it: it is not a resource of the platform and gets no
+IRI of its own. The property is available on all five content classes —
+documents, datasets, media objects, semantic artefacts and projects.
+
+```turtle
+<https://w3id.org/gto/dataset/example> dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn "European Heritage Institute Data Team" ;
+    vcard:hasEmail <mailto:data@heritage.eu> ] .
+```
+
+### 3.7. Vocabulary
 
 The terms of this chapter, in reading order — each links to its full definition
 in the reference sections at the bottom of this document:
 
 <!-- definitions -->
 
-### 3.7. Integrity Conditions
+### 3.8. Integrity Conditions
 
 Stated as SHACL in
 [`shapes/entity.shapes.ttl`](https://github.com/atrium-research/triple-ontology/blob/main/shapes/entity.shapes.ttl);
@@ -142,8 +162,11 @@ the salient ones:
    outside it is legal but usually signals a mapping error.
 3. Titles and abstracts are language-tagged literals; the same document may
    carry one per language (machine translations are flagged, see §10).
+4. A contact point is a `vcard:Kind` node, never a literal; its e-mail is a
+   `mailto:` IRI, and it should offer at least one way to reach it — e-mail or
+   contact page.
 
-### 3.8. Example
+### 3.9. Example
 
 The TRIPLE record of a HAL article, descriptive core only:
 
@@ -159,9 +182,16 @@ The TRIPLE record of a HAL article, descriptive core only:
     schema:keywords [ a schema:DefinedTerm ; schema:name "aesthetics"@en ] .
 ```
 
-### 3.9. Notes
+### 3.10. Notes
 
 **Why headline and not name.** Schema.org offers both; the model reserves
 `schema:name` for things (projects, places, defined terms) and uses
 `schema:headline` for the title of creative works, mirroring the platform's own
 `headline` field. Agents are named with `foaf:name` (§6).
+
+**Why DCAT rather than Schema.org for contacts.** Schema.org's
+`schema:ContactPoint` carries the same information; DCAT's is the one that
+DCAT-AP catalogues expect, and the Dataset is already a `dcat:Dataset`. A
+Schema.org view, should one be needed, is a mechanical mapping at export:
+`vcard:fn` → `schema:name`, `vcard:hasEmail` → `schema:email` (without the
+`mailto:`).

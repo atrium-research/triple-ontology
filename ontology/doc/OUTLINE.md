@@ -58,6 +58,10 @@ aspect of the entity, not a side note; the following subsections renumbered.)*
 - **Figure** `figures/document-core.svg` (in §3.1, after the preamble) — Document
   with its descriptive core: headline/abstract, dates, the agent properties, the
   aggregator.
+- *(Done 2026-10-27: new subsection §3.6 "Contact Point" — `dcat:contactPoint`,
+  `vcard:Kind`, `vcard:Organization`, `vcard:fn`, `vcard:hasEmail`,
+  `vcard:hasURL`; the contact moved from Schema.org to DCAT. It left Ch. 6,
+  where it had been attributed to the Profile, which never carried it.)*
 
 ## Ch. 4 — Datasets, Media Objects and Semantic Artefacts *(19 terms)*
 
@@ -136,8 +140,7 @@ triple:source_url_schema
   `schema:jobTitle`, `triple:pronouns`; `schema:affiliation`.
 - **6.3 The profile** — `triple:Profile` and the registered/harvested divide
   (`triple:registeredUser`); self-description (`schema:description`,
-  `schema:image`); contact (`schema:email`, `schema:contactPoint`,
-  `schema:ContactPoint`, `schema:url` for personal pages); external accounts
+  `schema:image`); personal pages (`schema:url`); external accounts
   (`foaf:account`, `foaf:OnlineAccount`); `triple:openToCollaboration`.
 - **6.4 Expertise and interests** — `schema:knowsAbout` (and why its value is
   constrained per class, not globally), `schema:knowsLanguage`,
@@ -145,13 +148,13 @@ triple:source_url_schema
 - **6.5 Vocabulary · 6.6 Integrity Conditions** (profile identifier requirements;
   ORCID/IdRef) **· 6.7 Example**.
 - **Figure** `figures/profile.svg` (in §6.3) — Profile between its two natures
-  (Person/Organization), with contact, accounts, and the expertise properties.
+  (Person/Organization), with personal pages, accounts, and the expertise properties.
 
 Terms: foaf:Agent foaf:Person foaf:Organization schema:Person schema:Organization
-schema:ContactPoint foaf:OnlineAccount triple:Profile foaf:name foaf:givenName
+foaf:OnlineAccount triple:Profile foaf:name foaf:givenName
 foaf:familyName schema:name schema:alternateName schema:jobTitle triple:pronouns
 triple:registeredUser triple:openToCollaboration schema:description schema:image
-schema:email schema:contactPoint schema:url foaf:account schema:knowsAbout
+schema:url foaf:account schema:knowsAbout
 schema:knowsLanguage foaf:topic_interest schema:affiliation
 
 ## Ch. 7 — Projects and Funding *(12 terms)*

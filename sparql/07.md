@@ -435,19 +435,22 @@ What is the contact point email for a specific project?
 
 ```sparql
 PREFIX schema: <https://schema.org/>
+PREFIX dcat: <http://www.w3.org/ns/dcat#>
+PREFIX vcard: <http://www.w3.org/2006/vcard/ns#>
 PREFIX triple: <https://gotriple.eu/ontology/triple/>
 
 SELECT ?project ?projectName ?email
 WHERE {
   ?project a triple:Project ;
            schema:name ?projectName ;
-           schema:contactPoint ?contact .
+           dcat:contactPoint ?contact .
 
-  ?contact schema:email ?email .
+  ?contact vcard:hasEmail ?email .
 }
 ```
 
 **Expected Results:**
+- `triple:project_1` → "Transforming Research through Innovative Practices for Linked Interdisciplinary Exploration" → `<mailto:project-team@triple.eu>`
 
 ## CQ_7.16
 

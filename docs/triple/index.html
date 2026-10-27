@@ -139,14 +139,16 @@
                         
                         <li><a href="#sec-documents-coverage">3.5. Coverage</a></li>
                         
-                        <li><a href="#sec-documents-vocabulary">3.6. Vocabulary</a></li>
+                        <li><a href="#sec-documents-contact-point">3.6. Contact Point</a></li>
+                        
+                        <li><a href="#sec-documents-vocabulary">3.7. Vocabulary</a></li>
                         
                         
-                        <li><a href="#sec-documents-integrity-conditions">3.7. Integrity Conditions</a></li>
+                        <li><a href="#sec-documents-integrity-conditions">3.8. Integrity Conditions</a></li>
                         
-                        <li><a href="#sec-documents-example">3.8. Example</a></li>
+                        <li><a href="#sec-documents-example">3.9. Example</a></li>
                         
-                        <li><a href="#sec-documents-notes">3.9. Notes</a></li>
+                        <li><a href="#sec-documents-notes">3.10. Notes</a></li>
                         
                     </ul>
                     
@@ -720,7 +722,23 @@ instance, possibly just named), and <code>schema:temporalCoverage</code>, a lite
 following the Schema.org conventions (a year, an ISO 8601 interval such as
 <code>"2019/2020"</code>). Coverage is a document-level facility — any record may carry
 it; datasets add the DCAT-specific bounding box on top of it (§4).</p>
-<h3 id="sec-documents-vocabulary">3.6. Vocabulary</h3>
+<h3 id="sec-documents-contact-point">3.6. Contact Point</h3>
+<p>A record may name whom to contact about the resource — the repository's help
+desk, the team that curates a dataset. The model follows DCAT:
+<code>dcat:contactPoint</code> links the resource to a <code>vcard:Kind</code> node, typed with the
+vCard subclass that fits (<code>vcard:Organization</code> for a team, a help desk or an
+institution), which carries a display name (<code>vcard:fn</code>), an e-mail address
+(<code>vcard:hasEmail</code>) and a contact page (<code>vcard:hasURL</code>). The e-mail is a
+<code>mailto:</code> IRI, not a string, as DCAT-AP requires. The contact is a blank node
+of the record that names it: it is not a resource of the platform and gets no
+IRI of its own. The property is available on all five content classes —
+documents, datasets, media objects, semantic artefacts and projects.</p>
+<pre><code class="language-turtle">&lt;https://w3id.org/gto/dataset/example&gt; dcat:contactPoint [
+    a vcard:Organization ;
+    vcard:fn &quot;European Heritage Institute Data Team&quot; ;
+    vcard:hasEmail &lt;mailto:data@heritage.eu&gt; ] .
+</code></pre>
+<h3 id="sec-documents-vocabulary">3.7. Vocabulary</h3>
 <p>The terms of this chapter, in reading order — each links to its full definition
 in the reference sections at the bottom of this document:</p></div>
             
@@ -770,10 +788,22 @@ in the reference sections at the bottom of this document:</p></div>
                 
                 <li><a href="#schema:Place" title="https://schema.org/Place">schema:Place</a></li>
                 
+                <li><a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a></li>
+                
+                <li><a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a></li>
+                
+                <li><a href="#vcard:Organization" title="http://www.w3.org/2006/vcard/ns#Organization">vcard:Organization</a></li>
+                
+                <li><a href="#vcard:fn" title="http://www.w3.org/2006/vcard/ns#fn">vcard:fn</a></li>
+                
+                <li><a href="#vcard:hasEmail" title="http://www.w3.org/2006/vcard/ns#hasEmail">vcard:hasEmail</a></li>
+                
+                <li><a href="#vcard:hasURL" title="http://www.w3.org/2006/vcard/ns#hasURL">vcard:hasURL</a></li>
+                
             </ul>
             
             
-            <div class="prose"><h3 id="sec-documents-integrity-conditions">3.7. Integrity Conditions</h3>
+            <div class="prose"><h3 id="sec-documents-integrity-conditions">3.8. Integrity Conditions</h3>
 <p>Stated as SHACL in
 <a href="https://github.com/atrium-research/triple-ontology/blob/main/shapes/entity.shapes.ttl"><code>shapes/entity.shapes.ttl</code></a>;
 the salient ones:</p>
@@ -785,8 +815,11 @@ the salient ones:</p>
    outside it is legal but usually signals a mapping error.</li>
 <li>Titles and abstracts are language-tagged literals; the same document may
    carry one per language (machine translations are flagged, see §10).</li>
+<li>A contact point is a <code>vcard:Kind</code> node, never a literal; its e-mail is a
+   <code>mailto:</code> IRI, and it should offer at least one way to reach it — e-mail or
+   contact page.</li>
 </ol>
-<h3 id="sec-documents-example">3.8. Example</h3>
+<h3 id="sec-documents-example">3.9. Example</h3>
 <p>The TRIPLE record of a HAL article, descriptive core only:</p>
 <pre><code class="language-turtle">&lt;https://w3id.org/gto/document/example&gt; a triple:Document ;
     schema:headline &quot;De l'esthétique au présent&quot;@fr ;
@@ -798,11 +831,17 @@ the salient ones:</p>
     triple:aggregator [ a foaf:Organization ; foaf:name &quot;Isidore&quot;@en ] ;
     schema:keywords [ a schema:DefinedTerm ; schema:name &quot;aesthetics&quot;@en ] .
 </code></pre>
-<h3 id="sec-documents-notes">3.9. Notes</h3>
+<h3 id="sec-documents-notes">3.10. Notes</h3>
 <p><strong>Why headline and not name.</strong> Schema.org offers both; the model reserves
 <code>schema:name</code> for things (projects, places, defined terms) and uses
 <code>schema:headline</code> for the title of creative works, mirroring the platform's own
-<code>headline</code> field. Agents are named with <code>foaf:name</code> (§6).</p></div>
+<code>headline</code> field. Agents are named with <code>foaf:name</code> (§6).</p>
+<p><strong>Why DCAT rather than Schema.org for contacts.</strong> Schema.org's
+<code>schema:ContactPoint</code> carries the same information; DCAT's is the one that
+DCAT-AP catalogues expect, and the Dataset is already a <code>dcat:Dataset</code>. A
+Schema.org view, should one be needed, is a mechanical mapping at export:
+<code>vcard:fn</code> → <code>schema:name</code>, <code>vcard:hasEmail</code> → <code>schema:email</code> (without the
+<code>mailto:</code>).</p></div>
             
         </div>
         <hr />
@@ -1089,7 +1128,7 @@ both). Naming follows FOAF: every profile carries exactly one <code>foaf:name</c
 people may add <code>foaf:givenName</code> and <code>foaf:familyName</code>; <code>schema:alternateName</code>
 records aliases and name variants. <code>schema:name</code> is the generic Schema.org
 naming property, reserved in this model for <em>things</em> — projects, places,
-defined terms — while agents are named with <code>foaf:name</code> (§3.9).</p>
+defined terms — while agents are named with <code>foaf:name</code> (§3.10).</p>
 <p>A person's professional context is <code>schema:jobTitle</code> and
 <code>schema:affiliation</code> (the organization they belong to);
 <code>triple:pronouns</code> carries the personal pronouns the user chose for their
@@ -1101,8 +1140,7 @@ profile (e.g. <code>"she/her"</code>).</p>
 <ul>
 <li><strong>Self-description</strong> — <code>schema:description</code> (the free-text bio) and
   <code>schema:image</code> (the personal picture chosen by the user).</li>
-<li><strong>Contacts</strong> — <code>schema:email</code>, <code>schema:contactPoint</code> (a
-  <code>schema:ContactPoint</code> node), and <code>schema:url</code> for personal web pages.</li>
+<li><strong>Personal pages</strong> — <code>schema:url</code>, the user's own web pages.</li>
 <li><strong>The platform account</strong> — <code>foaf:account</code> points to at most one
   <code>foaf:OnlineAccount</code>, the GoTriple account itself; a profile without one is
   an extracted author.</li>
@@ -1159,12 +1197,6 @@ in the reference sections at the bottom of this document:</p></div>
                 <li><a href="#schema:description" title="https://schema.org/description">schema:description</a></li>
                 
                 <li><a href="#schema:image" title="https://schema.org/image">schema:image</a></li>
-                
-                <li><a href="#schema:email" title="https://schema.org/email">schema:email</a></li>
-                
-                <li><a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a></li>
-                
-                <li><a href="#schema:ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a></li>
                 
                 <li><a href="#schema:url" title="https://schema.org/url">schema:url</a></li>
                 
@@ -2023,8 +2055,6 @@ out to the authority that defines it.</p></div>
                 
                 <li><a href="#Profile" title="https://gotriple.eu/ontology/triple/Profile">profile</a></li>
                 
-                <li><a href="#schema:ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a></li>
-                
                 <li><a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a></li>
                 
                 <li><a href="#schema:Dataset" title="https://schema.org/Dataset">schema:Dataset</a></li>
@@ -2052,6 +2082,10 @@ out to the authority that defines it.</p></div>
                 <li><a href="#schema:URL" title="https://schema.org/URL">schema:URL</a></li>
                 
                 <li><a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a></li>
+                
+                <li><a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a></li>
+                
+                <li><a href="#vcard:Organization" title="http://www.w3.org/2006/vcard/ns#Organization">vcard:Organization</a></li>
                 
             </ul>
             
@@ -2389,7 +2423,7 @@ out to the authority that defines it.</p></div>
                             </li>
                             
                             <li>
-                                <a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a>
+                                <a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -2403,7 +2437,7 @@ out to the authority that defines it.</p></div>
                                 
 
                                 
-                                <a href="#schema:ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a>
+                                <a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -3503,6 +3537,390 @@ out to the authority that defines it.</p></div>
                         <ul class="restrictions">
                             
                             <li>
+                                <a href="#schema:about" title="https://schema.org/about">schema:about</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#detectedLanguage" title="https://gotriple.eu/ontology/triple/detectedLanguage">detected language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#machineTranslatedLanguage" title="https://gotriple.eu/ontology/triple/machineTranslatedLanguage">machine translated language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#sioc:topic" title="http://rdfs.org/sioc/ns#topic">sioc:topic</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#hasLicense" title="https://gotriple.eu/ontology/triple/hasLicense">has license</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#License" title="https://gotriple.eu/ontology/triple/License">License</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#hasContentType" title="https://gotriple.eu/ontology/triple/hasContentType">has content type</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#ContentType" title="https://gotriple.eu/ontology/triple/ContentType">Content Type</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#dcterms:references" title="http://purl.org/dc/terms/references">dcterms:references</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
                                 <a href="#isDuplicateOf" title="https://gotriple.eu/ontology/triple/isDuplicateOf">is duplicate of</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
@@ -3518,6 +3936,296 @@ out to the authority that defines it.</p></div>
 
                                 
                                 <a href="#Document" title="https://gotriple.eu/ontology/triple/Document">Document</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:publisher" title="https://schema.org/publisher">schema:publisher</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:provider" title="https://schema.org/provider">schema:provider</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#aggregator" title="https://gotriple.eu/ontology/triple/aggregator">aggregator</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:author" title="https://schema.org/author">schema:author</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:contributor" title="https://schema.org/contributor">schema:contributor</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+                                <span class="literal">(</span>
+                                
+
+                                
+                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                <span class="literal"> or </span>
+                                
+                                
+                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:mentions" title="https://schema.org/mentions">schema:mentions</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">some</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#oa:Annotation" title="http://www.w3.org/ns/oa#Annotation">oa:Annotation</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:keywords" title="https://schema.org/keywords">schema:keywords</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">some</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:DefinedTerm" title="https://schema.org/DefinedTerm">schema:DefinedTerm</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:spatialCoverage" title="https://schema.org/spatialCoverage">schema:spatialCoverage</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">some</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:Place" title="https://schema.org/Place">schema:Place</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:temporalCoverage" title="https://schema.org/temporalCoverage">schema:temporalCoverage</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">some</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -3766,680 +4474,6 @@ out to the authority that defines it.</p></div>
 
                                 
                                 <span class="literal">)</span>
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:publisher" title="https://schema.org/publisher">schema:publisher</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-                                <span class="literal">(</span>
-                                
-
-                                
-                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                <span class="literal"> or </span>
-                                
-                                
-                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                <span class="literal">)</span>
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:provider" title="https://schema.org/provider">schema:provider</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-                                <span class="literal">(</span>
-                                
-
-                                
-                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                <span class="literal"> or </span>
-                                
-                                
-                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                <span class="literal">)</span>
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#aggregator" title="https://gotriple.eu/ontology/triple/aggregator">aggregator</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-                                <span class="literal">(</span>
-                                
-
-                                
-                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                <span class="literal"> or </span>
-                                
-                                
-                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                <span class="literal">)</span>
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:author" title="https://schema.org/author">schema:author</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-                                <span class="literal">(</span>
-                                
-
-                                
-                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                <span class="literal"> or </span>
-                                
-                                
-                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                <span class="literal">)</span>
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:contributor" title="https://schema.org/contributor">schema:contributor</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-                                <span class="literal">(</span>
-                                
-
-                                
-                                <a href="#foaf:Person" title="http://xmlns.com/foaf/0.1/Person">foaf:Person</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                <span class="literal"> or </span>
-                                
-                                
-                                <a href="#foaf:Organization" title="http://xmlns.com/foaf/0.1/Organization">foaf:Organization</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                <span class="literal">)</span>
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#sioc:topic" title="http://rdfs.org/sioc/ns#topic">sioc:topic</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Discipline" title="https://gotriple.eu/ontology/triple/Discipline">Discipline</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#hasLicense" title="https://gotriple.eu/ontology/triple/hasLicense">has license</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#License" title="https://gotriple.eu/ontology/triple/License">License</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#hasConditionOfAccess" title="https://gotriple.eu/ontology/triple/hasConditionOfAccess">has condition of access</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#ConditionOfAccess" title="https://gotriple.eu/ontology/triple/ConditionOfAccess">Condition of Access</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#hasContentType" title="https://gotriple.eu/ontology/triple/hasContentType">has content type</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#ContentType" title="https://gotriple.eu/ontology/triple/ContentType">Content Type</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:about" title="https://schema.org/about">schema:about</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#skos:Concept" title="http://www.w3.org/2004/02/skos/core#Concept">skos:Concept</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#detectedLanguage" title="https://gotriple.eu/ontology/triple/detectedLanguage">detected language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#machineTranslatedLanguage" title="https://gotriple.eu/ontology/triple/machineTranslatedLanguage">machine translated language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#dcterms:references" title="http://purl.org/dc/terms/references">dcterms:references</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:mentions" title="https://schema.org/mentions">schema:mentions</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">some</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#oa:Annotation" title="http://www.w3.org/ns/oa#Annotation">oa:Annotation</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:keywords" title="https://schema.org/keywords">schema:keywords</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">some</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:DefinedTerm" title="https://schema.org/DefinedTerm">schema:DefinedTerm</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:spatialCoverage" title="https://schema.org/spatialCoverage">schema:spatialCoverage</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">some</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:Place" title="https://schema.org/Place">schema:Place</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:temporalCoverage" title="https://schema.org/temporalCoverage">schema:temporalCoverage</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">some</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
                                 
                                 
                             </li>
@@ -4725,150 +4759,6 @@ out to the authority that defines it.</p></div>
 
                                 
                                 <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -5504,7 +5394,7 @@ out to the authority that defines it.</p></div>
                             </li>
                             
                             <li>
-                                <a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a>
+                                <a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -5518,7 +5408,7 @@ out to the authority that defines it.</p></div>
                                 
 
                                 
-                                <a href="#schema:ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a>
+                                <a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -5557,6 +5447,150 @@ out to the authority that defines it.</p></div>
 
                                 
                                 <span class="literal">)</span>
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
                                 
                                 
                             </li>
@@ -6054,7 +6088,7 @@ out to the authority that defines it.</p></div>
                             </li>
                             
                             <li>
-                                <a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a>
+                                <a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -6068,7 +6102,7 @@ out to the authority that defines it.</p></div>
                                 
 
                                 
-                                <a href="#schema:ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a>
+                                <a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -6340,6 +6374,222 @@ out to the authority that defines it.</p></div>
                     <dt>has restrictions</dt>
                     <dd>
                         <ul class="restrictions">
+                            
+                            <li>
+                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                            <li>
+                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
                             
                             <li>
                                 <a href="#schema:contributor" title="https://schema.org/contributor">schema:contributor</a>
@@ -6686,7 +6936,7 @@ out to the authority that defines it.</p></div>
                             </li>
                             
                             <li>
-                                <a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a>
+                                <a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a>
                                 <sup class="type-op"
                                     title="op">op</sup>
 
@@ -6700,7 +6950,7 @@ out to the authority that defines it.</p></div>
                                 
 
                                 
-                                <a href="#schema:ContactPoint" title="https://schema.org/ContactPoint">schema:ContactPoint</a>
+                                <a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a>
                                 <sup class="type-c" title="c">c</sup>
                                 
                                 
@@ -7029,222 +7279,6 @@ out to the authority that defines it.</p></div>
 
                                 
                                 <span class="literal">)</span>
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#frapo:isOutputOf" title="http://purl.org/cerif/frapo/isOutputOf">frapo:isOutputOf</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#Project" title="https://gotriple.eu/ontology/triple/Project">Project</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#dcterms:isReferencedBy" title="http://purl.org/dc/terms/isReferencedBy">dcterms:isReferencedBy</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalAdditionalType" title="https://gotriple.eu/ontology/triple/originalAdditionalType">original additional type</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalInLanguage" title="https://gotriple.eu/ontology/triple/originalInLanguage">original in language</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalDatePublished" title="https://gotriple.eu/ontology/triple/originalDatePublished">original date published</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalLicense" title="https://gotriple.eu/ontology/triple/originalLicense">original license</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalConditionOfAccess" title="https://gotriple.eu/ontology/triple/originalConditionOfAccess">original condition of access</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#originalSource" title="https://gotriple.eu/ontology/triple/originalSource">original source</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#schema:isBasedOn" title="https://schema.org/isBasedOn">schema:isBasedOn</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">only</span>
-
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#schema:CreativeWork" title="https://schema.org/CreativeWork">schema:CreativeWork</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
                                 
                                 
                             </li>
@@ -8515,58 +8549,6 @@ out to the authority that defines it.</p></div>
                             </li>
                             
                             <li>
-                                <a href="#foaf:name" title="http://xmlns.com/foaf/0.1/name">foaf:name</a>
-                                <sup class="type-dp"
-                                    title="dp">dp</sup>
-
-                                <span class="literal">exactly</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
-                                <a href="#foaf:account" title="http://xmlns.com/foaf/0.1/account">foaf:account</a>
-                                <sup class="type-op"
-                                    title="op">op</sup>
-
-                                <span class="literal">max</span>
-
-                                
-                                <span class="literal">1</span>
-                                
-
-                                
-
-                                
-                                
-
-                                
-                                <a href="#foaf:OnlineAccount" title="http://xmlns.com/foaf/0.1/OnlineAccount">foaf:OnlineAccount</a>
-                                <sup class="type-c" title="c">c</sup>
-                                
-                                
-
-                                
-                                
-                            </li>
-                            
-                            <li>
                                 <a href="#foaf:givenName" title="http://xmlns.com/foaf/0.1/givenName">foaf:givenName</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
@@ -9000,68 +8982,15 @@ out to the authority that defines it.</p></div>
                                 
                             </li>
                             
-                        </ul>
-                    </dd>
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-
-                    
-                </dl>
-                
-            </div>
-            
-            <div class="entity" id="schema:ContactPoint">
-                <h3>schema:ContactPoint
-                    <sup class="type-c" title="c">
-                        c
-                    </sup>
-                    <span class="backlink">
-                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
-                    </span>
-                </h3>
-                <p><strong>IRI:</strong> https://schema.org/ContactPoint</p>
-                
-                <p class="labels"><span class="label-item">schema:ContactPoint</span></p>
-                
-                
-                <p class="chapter-ref">Discussed in <a href="#sec-agents-profiles">&sect;6. Agents and Profiles</a></p>
-                
-                
-                
-                <div class="comment">
-                    <p>A contact point for a person or organization.</p>
-                </div>
-                
-
-                
-
-                
-
-                
-
-                
-                <dl class="description">
-                    
-
-                    
-                    <dt>has restrictions</dt>
-                    <dd>
-                        <ul class="restrictions">
-                            
                             <li>
-                                <a href="#schema:email" title="https://schema.org/email">schema:email</a>
+                                <a href="#foaf:name" title="http://xmlns.com/foaf/0.1/name">foaf:name</a>
                                 <sup class="type-dp"
                                     title="dp">dp</sup>
 
-                                <span class="literal">only</span>
+                                <span class="literal">exactly</span>
 
+                                
+                                <span class="literal">1</span>
                                 
 
                                 
@@ -9079,6 +9008,32 @@ out to the authority that defines it.</p></div>
                                 
                             </li>
                             
+                            <li>
+                                <a href="#foaf:account" title="http://xmlns.com/foaf/0.1/account">foaf:account</a>
+                                <sup class="type-op"
+                                    title="op">op</sup>
+
+                                <span class="literal">max</span>
+
+                                
+                                <span class="literal">1</span>
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#foaf:OnlineAccount" title="http://xmlns.com/foaf/0.1/OnlineAccount">foaf:OnlineAccount</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
                         </ul>
                     </dd>
                     
@@ -9087,15 +9042,6 @@ out to the authority that defines it.</p></div>
 
                     
 
-                    
-                    <dt>is in range of</dt>
-                    <dd>
-                        
-                        <a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a>
-                        <sup class="type-op" title="op">op</sup>
-                        
-                        
-                    </dd>
                     
 
                     
@@ -9942,6 +9888,156 @@ out to the authority that defines it.</p></div>
                 
             </div>
             
+            <div class="entity" id="vcard:Kind">
+                <h3>vcard:Kind
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://www.w3.org/2006/vcard/ns#Kind</p>
+                
+                
+                <p class="chapter-ref">Discussed in <a href="#sec-documents">&sect;3. Documents</a></p>
+                
+                
+                
+                <div class="comment">
+                    <p>The parent class of all vCard objects (vCard). In TRIPLE it is the contact point of a resource or a project, reached through dcat:contactPoint, and is typed with the vCard subclass that fits: vcard:Organization for a team, a help desk or an institution.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+
+                    
+                    <dt>has restrictions</dt>
+                    <dd>
+                        <ul class="restrictions">
+                            
+                            <li>
+                                <a href="#vcard:fn" title="http://www.w3.org/2006/vcard/ns#fn">vcard:fn</a>
+                                <sup class="type-dp"
+                                    title="dp">dp</sup>
+
+                                <span class="literal">only</span>
+
+                                
+
+                                
+
+                                
+                                
+
+                                
+                                <a href="#xsd:string" title="http://www.w3.org/2001/XMLSchema#string">xsd:string</a>
+                                <sup class="type-c" title="c">c</sup>
+                                
+                                
+
+                                
+                                
+                            </li>
+                            
+                        </ul>
+                    </dd>
+                    
+
+                    
+                    <dt>has sub-classes</dt>
+                    <dd>
+                        
+                        <a href="#vcard:Organization" title="http://www.w3.org/2006/vcard/ns#Organization">vcard:Organization</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+                    <dt>is in range of</dt>
+                    <dd>
+                        
+                        <a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a>
+                        <sup class="type-op" title="op">op</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
+            <div class="entity" id="vcard:Organization">
+                <h3>vcard:Organization
+                    <sup class="type-c" title="c">
+                        c
+                    </sup>
+                    <span class="backlink">
+                        back to <a href="#toc">ToC</a> or <a href="#classes">Class ToC</a>
+                    </span>
+                </h3>
+                <p><strong>IRI:</strong> http://www.w3.org/2006/vcard/ns#Organization</p>
+                
+                
+                <p class="chapter-ref">Discussed in <a href="#sec-documents">&sect;3. Documents</a></p>
+                
+                
+                
+                <div class="comment">
+                    <p>An object representing an organization: a business or government body, a department or division within one, a club, an association (vCard). The type of a contact point that is a team, a help desk or an institution.</p>
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+                <dl class="description">
+                    
+                    <dt>has super-classes</dt>
+                    <dd>
+                        
+                        <a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind">vcard:Kind</a>
+                        <sup class="type-c" title="c">c</sup>
+                        
+                        
+                    </dd>
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+
+                    
+                </dl>
+                
+            </div>
+            
         </div>
         
 
@@ -9959,6 +10055,8 @@ out to the authority that defines it.</p></div>
                 <li><a href="#datacite:usesIdentifierScheme" title="http://purl.org/spar/datacite/usesIdentifierScheme">datacite:usesIdentifierScheme</a></li>
                 
                 <li><a href="#dcat:accessURL" title="http://www.w3.org/ns/dcat#accessURL">dcat:accessURL</a></li>
+                
+                <li><a href="#dcat:contactPoint" title="http://www.w3.org/ns/dcat#contactPoint">dcat:contactPoint</a></li>
                 
                 <li><a href="#dcat:distribution" title="http://www.w3.org/ns/dcat#distribution">dcat:distribution</a></li>
                 
@@ -10014,8 +10112,6 @@ out to the authority that defines it.</p></div>
                 
                 <li><a href="#schema:author" title="https://schema.org/author">schema:author</a></li>
                 
-                <li><a href="#schema:contactPoint" title="https://schema.org/contactPoint">schema:contactPoint</a></li>
-                
                 <li><a href="#schema:contributor" title="https://schema.org/contributor">schema:contributor</a></li>
                 
                 <li><a href="#schema:creator" title="https://schema.org/creator">schema:creator</a></li>
@@ -10057,6 +10153,10 @@ out to the authority that defines it.</p></div>
                 <li><a href="#skos:closeMatch" title="http://www.w3.org/2004/02/skos/core#closeMatch">skos:closeMatch</a></li>
                 
                 <li><a href="#skos:exactMatch" title="http://www.w3.org/2004/02/skos/core#exactMatch">skos:exactMatch</a></li>
+                
+                <li><a href="#vcard:hasEmail" title="http://www.w3.org/2006/vcard/ns#hasEmail">vcard:hasEmail</a></li>
+                
+                <li><a href="#vcard:hasURL" title="http://www.w3.org/2006/vcard/ns#hasURL">vcard:hasURL</a></li>
                 
             </ul>
             
@@ -10307,6 +10407,58 @@ out to the authority that defines it.</p></div>
     
 
     
+    
+</div>
+            
+            <div class="entity" id="dcat:contactPoint">
+    <h3>dcat:contactPoint
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://www.w3.org/ns/dcat#contactPoint</p>
+    
+                
+                <p class="chapter-ref">Discussed in <a href="#sec-documents">&sect;3. Documents</a></p>
+                
+    
+                
+    <div class="comment">
+        <p>Relevant contact information for the resource (DCAT). The value is a vcard:Kind node carrying a display name (vcard:fn), an e-mail address (vcard:hasEmail) and a contact page (vcard:hasURL), as DCAT-AP prescribes.</p>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    
+    <dl class="description">
+        
+
+        
+
+        
+
+        
+        <dt>has range</dt>
+        <dd>
+            
+            <a href="#vcard:Kind" title="http://www.w3.org/2006/vcard/ns#Kind"
+                target="_self">vcard:Kind</a>
+            <sup class="type-c" title="c">c</sup>
+            
+            
+        </dd>
+        
+
+        
+    </dl>
     
 </div>
             
@@ -11478,58 +11630,6 @@ out to the authority that defines it.</p></div>
     
 </div>
             
-            <div class="entity" id="schema:contactPoint">
-    <h3>schema:contactPoint
-        <sup class="type-op" title="op">
-            op
-        </sup>
-        <span class="backlink">
-            back to <a href="#toc">ToC</a>
-        </span>
-    </h3>
-    <p><strong>IRI:</strong> https://schema.org/contactPoint</p>
-    
-                
-                <p class="chapter-ref">Discussed in <a href="#sec-agents-profiles">&sect;6. Agents and Profiles</a></p>
-                
-    
-                
-    <div class="comment">
-        <p>A contact point for a person or organization.</p>
-    </div>
-    
-    
-
-    
-
-    
-
-    
-    
-    <dl class="description">
-        
-
-        
-
-        
-
-        
-        <dt>has range</dt>
-        <dd>
-            
-            <a href="#schema:ContactPoint" title="https://schema.org/ContactPoint"
-                target="_self">schema:ContactPoint</a>
-            <sup class="type-c" title="c">c</sup>
-            
-            
-        </dd>
-        
-
-        
-    </dl>
-    
-</div>
-            
             <div class="entity" id="schema:contributor">
     <h3>schema:contributor
         <sup class="type-op" title="op">
@@ -12230,6 +12330,66 @@ out to the authority that defines it.</p></div>
     
 </div>
             
+            <div class="entity" id="vcard:hasEmail">
+    <h3>vcard:hasEmail
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://www.w3.org/2006/vcard/ns#hasEmail</p>
+    
+                
+                <p class="chapter-ref">Discussed in <a href="#sec-documents">&sect;3. Documents</a></p>
+                
+    
+                
+    <div class="comment">
+        <p>The electronic mail address for communication with the object (vCard). The value is a mailto: IRI, not a string literal, as in DCAT-AP.</p>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    
+</div>
+            
+            <div class="entity" id="vcard:hasURL">
+    <h3>vcard:hasURL
+        <sup class="type-op" title="op">
+            op
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://www.w3.org/2006/vcard/ns#hasURL</p>
+    
+                
+                <p class="chapter-ref">Discussed in <a href="#sec-documents">&sect;3. Documents</a></p>
+                
+    
+                
+    <div class="comment">
+        <p>A uniform resource locator associated with the object (vCard): on a contact point, the web page or form through which the contact can be reached.</p>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    
+</div>
+            
         </div>
         
 
@@ -12302,8 +12462,6 @@ out to the authority that defines it.</p></div>
                 
                 <li><a href="#schema:duration" title="https://schema.org/duration">schema:duration</a></li>
                 
-                <li><a href="#schema:email" title="https://schema.org/email">schema:email</a></li>
-                
                 <li><a href="#schema:encodingFormat" title="https://schema.org/encodingFormat">schema:encodingFormat</a></li>
                 
                 <li><a href="#schema:endDate" title="https://schema.org/endDate">schema:endDate</a></li>
@@ -12325,6 +12483,8 @@ out to the authority that defines it.</p></div>
                 <li><a href="#schema:temporalCoverage" title="https://schema.org/temporalCoverage">schema:temporalCoverage</a></li>
                 
                 <li><a href="#schema:version" title="https://schema.org/version">schema:version</a></li>
+                
+                <li><a href="#vcard:fn" title="http://www.w3.org/2006/vcard/ns#fn">vcard:fn</a></li>
                 
             </ul>
             
@@ -13791,32 +13951,6 @@ out to the authority that defines it.</p></div>
     
 </div>
             
-            <div class="entity" id="schema:email">
-    <h3>schema:email
-        <sup class="type-dp" title="dp">
-            dp
-        </sup>
-        <span class="backlink">
-            back to <a href="#toc">ToC</a>
-        </span>
-    </h3>
-    <p><strong>IRI:</strong> https://schema.org/email</p>
-    
-                
-                <p class="chapter-ref">Discussed in <a href="#sec-agents-profiles">&sect;6. Agents and Profiles</a></p>
-                
-    
-                
-    
-
-    
-
-    
-
-    
-    
-</div>
-            
             <div class="entity" id="schema:encodingFormat">
     <h3>schema:encodingFormat
         <sup class="type-dp" title="dp">
@@ -14141,6 +14275,36 @@ out to the authority that defines it.</p></div>
                 
     <div class="comment">
         <p>The version of the CreativeWork</p>
+    </div>
+    
+    
+
+    
+
+    
+
+    
+    
+</div>
+            
+            <div class="entity" id="vcard:fn">
+    <h3>vcard:fn
+        <sup class="type-dp" title="dp">
+            dp
+        </sup>
+        <span class="backlink">
+            back to <a href="#toc">ToC</a>
+        </span>
+    </h3>
+    <p><strong>IRI:</strong> http://www.w3.org/2006/vcard/ns#fn</p>
+    
+                
+                <p class="chapter-ref">Discussed in <a href="#sec-documents">&sect;3. Documents</a></p>
+                
+    
+                
+    <div class="comment">
+        <p>The formatted text corresponding to the name of the object (vCard): the display name of a contact point.</p>
     </div>
     
     
@@ -15357,6 +15521,11 @@ out to the authority that defines it.</p></div>
                     <tr>
                         <td>vann</td>
                         <td>http://purl.org/vocab/vann/</td>
+                    </tr>
+                    
+                    <tr>
+                        <td>vcard</td>
+                        <td>http://www.w3.org/2006/vcard/ns#</td>
                     </tr>
                     
                     <tr>

@@ -15,6 +15,21 @@ Each entry follows this structure:
 
 ## [Unreleased]
 
+### 2026-10-27 - Refactoring (breaking): contact points as DCAT — `dcat:contactPoint` to a `vcard:Kind`
+
+**Type**: Refactoring
+
+**Iteration**: 03 (home of the declarations), 07, 10, 11, 12; `shapes/`, documentation Ch. 3 and Ch. 6
+
+**Description**:
+The contact point is now modelled as DCAT does it. `schema:contactPoint only schema:ContactPoint` becomes `dcat:contactPoint only vcard:Kind` on the five classes that carried it — Document (03), Project (07), Dataset (10), MediaObject (11), SemanticArtefact (12) — and the contact node is a vCard: display name `vcard:fn`, e-mail `vcard:hasEmail` as a `mailto:` IRI (not a string, as in DCAT-AP), contact page `vcard:hasURL`. `vcard:Organization ⊑ vcard:Kind` is declared because every exemplar contact is a team or a help desk; `vcard:Individual` is not, since no case uses it yet. `schema:contactPoint`, `schema:ContactPoint` and `schema:email` (used only by the contact) leave the model — **breaking** for anyone reading the old terms, although no production record carries a contact point. The declarations live once, in iteration 03; 10 and 12 lose their duplicate ones.
+
+The eight exemplar contacts, previously minted in the `triple:` namespace (`triple:contact-dhi`, …), are now blank nodes: a contact is not a resource of the platform. CQ_3.6, CQ_7.15 (which had no expected result) and CQ_10.9 are rewritten on the new path and return the same rows as before; the `sparql/` mirrors are re-copied. `dcat:contactPoint rdfs:range vcard:Kind` restates DCAT (verified against `dcat.ttl`) and replaces the Schema.org line in `check_model_baseline.txt`; `merge_iterations.py` binds the `vcard:` prefix. New shapes in `entity.shapes.ttl`: the value of `dcat:contactPoint` is a `vcard:Kind` node (Violation), its e-mail is a `mailto:` IRI and its URL an IRI (Violation), and it should offer at least one of the two (Warning) — checked against a negative test. Documentation: new §3.6 "Contact Point" (following subsections renumbered); Ch. 6 no longer attributes `schema:email`/`schema:contactPoint` to the Profile, which never carried them.
+
+The merged model changes only in the contact terms (`graph_diff`: −34 +44 triples); invariants and SHACL are green, and the CQs of the five iterations return the same row counts as before.
+
+**Author**: Alessandro Bertozzi
+
 ### 2026-09-30 - Fix: the ontology header declares its license, publisher and provenance — FAIR score measured
 
 **Type**: Documentation (metadata)

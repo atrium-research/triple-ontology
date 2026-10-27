@@ -40,6 +40,7 @@
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix sioc: <http://rdfs.org/sioc/ns#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix triple: <https://gotriple.eu/ontology/triple/> .
@@ -66,7 +67,9 @@ triple:dataset-002 a triple:Dataset ;
     schema:abstract "Annual survey data on social attitudes, political opinions, and demographic information from EU member states."@en ;
     schema:author "Social Research Institute" ;
     schema:comment "Longitudinal survey methodology following EU standards for social research data collection and processing."@en ;
-    schema:contactPoint triple:contact-social-observatory ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:fn "EU Social Observatory Research Support" ;
+            vcard:hasEmail <mailto:support@social-eu.org> ] ;
     schema:contributor "Dr. Klaus Mueller",
         "Prof. Elena Rodriguez" ;
     schema:creativeWorkStatus "Published" ;
@@ -113,14 +116,6 @@ triple:dataset-002 a triple:Dataset ;
     skos:prefLabel "Sociology"@en,
         "Sociologia"@it .
 
-triple:contact-heritage-institute a schema:ContactPoint ;
-    schema:email "data@heritage.eu" ;
-    schema:name "European Heritage Institute Data Team" .
-
-triple:contact-social-observatory a schema:ContactPoint ;
-    schema:email "support@social-eu.org" ;
-    schema:name "EU Social Observatory Research Support" .
-
 triple:dataset-001 a triple:Dataset ;
     dcterms:provenance triple:provenance-heritage-001 ;
     datacite:hasIdentifier triple:identifier-dataset-001,
@@ -141,7 +136,9 @@ triple:dataset-001 a triple:Dataset ;
     schema:author "Jane Smith",
         "Mario Rossi" ;
     schema:comment "Dataset created through systematic archaeological surveys across 15 European countries with standardized recording protocols."@en ;
-    schema:contactPoint triple:contact-heritage-institute ;
+    dcat:contactPoint [ a vcard:Organization ;
+            vcard:fn "European Heritage Institute Data Team" ;
+            vcard:hasEmail <mailto:data@heritage.eu> ] ;
     schema:contributor "Dr. Anna Fischer" ;
     schema:creativeWorkStatus "Published" ;
     schema:dateCreated "2023-01-15"^^xsd:date ;

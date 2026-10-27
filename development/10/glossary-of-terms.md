@@ -10,7 +10,7 @@
 | `schema:size`                  | Schema.org property indicating the size of the dataset (e.g., file size in MB).                                                                    |
 | `schema:creativeWorkStatus`    | Schema.org property describing the status of the dataset in terms of its stage in a lifecycle.                                                     |
 
-| `schema:contactPoint`          | Schema.org property providing contact information for the dataset.                                                                                  |
+| `dcat:contactPoint`            | DCAT property providing contact information for the dataset, as a `vcard:Kind`. |
 | `triple:internal_id_schema` | Identifier scheme of the internal identifier assigned by the GoTriple platform. |
 | `datacite:ark` | Identifier scheme of the persistent identifier minted by GoTriple: an ARK. |
 | `triple:original_id_schema` | Generic identifier scheme for the identifier a resource carried in the system it was harvested from. |

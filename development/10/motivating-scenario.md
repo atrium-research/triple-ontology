@@ -15,7 +15,7 @@ The GoTriple platform needs to index and represent research datasets from variou
 - Include comprehensive metadata for discovery, access, and reuse
 - Maintain compatibility with existing Document and Project models
 - Support distribution and access information for data files (`dcat:distribution`, `dcat:Distribution`)
-- Support contact point information for administrative queries (schema:ContactPoint)
+- Support contact point information for administrative queries (`dcat:contactPoint`, `vcard:Kind`)
 - Support license and access conditions using Bridge Classes (`triple:License`, `triple:ConditionOfAccess`)
 
 ## Examples

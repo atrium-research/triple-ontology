@@ -57,7 +57,7 @@ Projects in GoTriple are modeled as instances of `triple:Project` (subclass of s
 - `schema:inLanguage`: Language of the project content (`schema:Language`)
 - `schema:dateCreated`: Creation date of the record (`xsd:date`)
 - `schema:dateModified`: Last modification date of the record (`xsd:date`)
-- `schema:contactPoint`: Contact point for the project (`schema:ContactPoint`)
+- `dcat:contactPoint`: Contact point for the project (`vcard:Kind`)
 
 ## Example 1
 

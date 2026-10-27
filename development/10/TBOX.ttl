@@ -6,6 +6,7 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
 @prefix schema: <https://schema.org/> .
+@prefix vcard: <http://www.w3.org/2006/vcard/ns#> .
 @prefix dcat: <http://www.w3.org/ns/dcat#> .
 @prefix dc: <http://purl.org/dc/elements/1.1/> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
@@ -28,11 +29,6 @@ schema:spatialCoverage rdf:type owl:ObjectProperty ;
                        rdfs:comment "The spatialCoverage of a CreativeWork indicates the place(s) which are the focus of the content."@en ;
                        rdfs:range schema:Place .
 
-
-###  https://schema.org/contactPoint
-schema:contactPoint rdf:type owl:ObjectProperty ;
-                    rdfs:label "schema:contactPoint"@en ;
-                    rdfs:comment "A contact point for a person or organization."@en .
 
 ###  https://schema.org/author
 schema:author rdf:type owl:ObjectProperty ;
@@ -230,8 +226,8 @@ triple:Dataset rdf:type owl:Class ;
                                owl:onProperty schema:spatialCoverage ;
                                owl:allValuesFrom schema:Place ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
-                               owl:onProperty schema:contactPoint ;
-                               owl:allValuesFrom schema:ContactPoint ] ;
+                               owl:onProperty dcat:contactPoint ;
+                               owl:allValuesFrom vcard:Kind ] ;
                rdfs:subClassOf [ rdf:type owl:Restriction ;
                                owl:onProperty schema:author ;
                                owl:allValuesFrom [ owl:unionOf ( foaf:Person foaf:Organization ) ] ] ;

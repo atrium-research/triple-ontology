@@ -309,7 +309,7 @@ What is the contact point email for a specific project?
 The email address associated with the project's contact point.
 
 ### Result
-For `project_1`: "project-team@triple.eu"
+For `project_1`: `<mailto:project-team@triple.eu>`
 
 ### Based on
 Example 1

@@ -6,6 +6,9 @@
 @prefix schema:      <https://schema.org/> .
 @prefix skos:      <http://www.w3.org/2004/02/skos/core#> .
 @prefix sioc:      <http://rdfs.org/sioc/ns#> .
+@prefix dcat:      <http://www.w3.org/ns/dcat#> .
+@prefix vcard:     <http://www.w3.org/2006/vcard/ns#> .
+@prefix xsd:       <http://www.w3.org/2001/XMLSchema#> .
 @prefix tsh:      <https://gotriple.eu/ontology/triple/shapes/> .
 
 # ---------------------------------------------------------------------------
@@ -143,3 +146,47 @@ tsh:DisciplineShape a sh:NodeShape ;
         sh:class triple:Discipline ;
         sh:severity sh:Warning ;
         sh:message "The value of sioc:topic should be a triple:Discipline of the GoTriple classification."@en ] .
+
+# ---------------------------------------------------------------------------
+# Contact points: DCAT, with the contact as a vCard
+# ---------------------------------------------------------------------------
+# The value of dcat:contactPoint is a vcard:Kind node, as in DCAT-AP: a display
+# name, an e-mail address given as a mailto: IRI, and a contact page.
+
+tsh:ContactPointShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetClass triple:Document , triple:Dataset , triple:MediaObject ,
+                   triple:SemanticArtefact , triple:Project ;
+    sh:name "contact point"@en ;
+    sh:property [
+        sh:path dcat:contactPoint ;
+        sh:name "contact point"@en ;
+        sh:description "Relevant contact information for the resource, as a vCard."@en ;
+        sh:class vcard:Kind ;
+        sh:nodeKind sh:BlankNodeOrIRI ;
+        sh:severity sh:Violation ;
+        sh:message "The value of dcat:contactPoint must be a vcard:Kind node, not a literal."@en ] .
+
+tsh:VCardContactShape a sh:NodeShape ;
+    rdfs:isDefinedBy <https://gotriple.eu/ontology/triple/shapes> ;
+    sh:targetObjectsOf dcat:contactPoint ;
+    sh:name "vCard contact"@en ;
+    sh:property [
+        sh:path vcard:fn ;
+        sh:datatype xsd:string ;
+        sh:message "vcard:fn carries the display name as a plain string."@en ] ;
+    sh:property [
+        sh:path vcard:hasEmail ;
+        sh:nodeKind sh:IRI ;
+        sh:pattern "^mailto:" ;
+        sh:message "vcard:hasEmail carries a mailto: IRI, not a string literal."@en ] ;
+    sh:property [
+        sh:path vcard:hasURL ;
+        sh:nodeKind sh:IRI ;
+        sh:message "vcard:hasURL carries an IRI, not a literal."@en ] ;
+    sh:or (
+        [ sh:path vcard:hasEmail ; sh:minCount 1 ]
+        [ sh:path vcard:hasURL ; sh:minCount 1 ]
+    ) ;
+    sh:severity sh:Warning ;
+    sh:message "A contact point should give at least one way to reach it: vcard:hasEmail or vcard:hasURL."@en .

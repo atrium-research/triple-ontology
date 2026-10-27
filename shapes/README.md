@@ -16,7 +16,8 @@ instead of flagging an error. Mandatoriness therefore lives here, where it is ch
 - `identifier.shapes.ttl` — the identifier node: exactly one scheme, exactly one value,
   plus value patterns per scheme (ARK, DOI) that OWL cannot express at all.
 - `entity.shapes.ttl` — which identifiers each entity must carry, the expected scheme
-  lists, and the vocabulary-link profiles.
+  lists, the vocabulary-link profiles, and the contact point (`dcat:contactPoint` to a
+  `vcard:Kind` with a `mailto:` e-mail).
 - `dedup.shapes.ttl` — the deduplication link: shape of `triple:isDuplicateOf`
   (iteration 20).
 - `url.shapes.ttl` — URLs by role: `sh:nodeKind sh:IRI` wherever a URL is an object,

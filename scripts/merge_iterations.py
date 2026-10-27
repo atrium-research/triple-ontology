@@ -187,6 +187,7 @@ def merge_graphs(ttl_files):
     merged_graph.bind("crm", Namespace("http://www.cidoc-crm.org/cidoc-crm/"))
     merged_graph.bind("sshoc", Namespace("https://sshoc.eu/ontology/"))
     merged_graph.bind("adms", Namespace("http://www.w3.org/ns/adms#"))
+    merged_graph.bind("vcard", Namespace("http://www.w3.org/2006/vcard/ns#"))
     merged_graph.bind("litre", LITRE)
     merged_graph.bind("sioc", SIOC)
     merged_graph.bind("mod", MOD)

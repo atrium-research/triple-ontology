@@ -174,8 +174,8 @@ Return all datasets with their contact points.
 A list of datasets with contact information for data access.
 
 ### Result
-* `triple:dataset-001` → "European Archaeological Sites Database" → `triple:contact-heritage-institute` → "data@heritage.eu"
-* `triple:dataset-002` → "European Social Attitudes Survey 2023" → `triple:contact-social-observatory` → "support@social-eu.org"
+* `triple:dataset-001` → "European Archaeological Sites Database" → "European Heritage Institute Data Team" → `<mailto:data@heritage.eu>`
+* `triple:dataset-002` → "European Social Attitudes Survey 2023" → "EU Social Observatory Research Support" → `<mailto:support@social-eu.org>`
 
 ### Based on
 Example 1 and Example 2
